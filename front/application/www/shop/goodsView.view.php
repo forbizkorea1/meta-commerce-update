@@ -149,14 +149,16 @@ if ($id != '') {
 
         //sns 메타태그 데이터 assign
         $view->setLayoutAssign('isSnsShare', 'Y');
+
         $view->setLayoutAssign('snsShareImage', get_product_images_src($datas['id'], $isUserAdult, 'm', $datas['is_adult']));
         $view->setLayoutAssign('snsShareTitle', $datas['pname']);
         $view->setLayoutAssign('snsShareUrl', HTTP_PROTOCOL.FORBIZ_HOST.'/shop/goodsView/'.$id);
-        $view->setLayoutAssign('snsShareDescription', $datas['shotinfo']);
+
 
         // content output
         echo $view->loadLayout();
     }
+
 } else {
     show_error('등록되지 않은 상품입니다.');
 }

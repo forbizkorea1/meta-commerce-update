@@ -337,7 +337,7 @@
     <input type="hidden" id="devVersion" name="version" value="{version}"/>
 </div>
 <!--{'<script>'}-->
-var dailySales = {=json_encode(dailySales, JSON_NUMERIC_CHECK)};
+var dailySales = {=json_encode(dailySales, c.JSON_NUMERIC_CHECK)};
 var demoUse = '{c.DEMO_USE}';
 window.openChangeService = function() {
     {changeService}

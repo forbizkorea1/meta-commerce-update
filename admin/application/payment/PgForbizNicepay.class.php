@@ -35,9 +35,6 @@ class PgForbizNicepay extends PgForbiz
             $this->serviceKey = ForbizConfig::getPaymentConfig('service_key', 'nicepay');
             $this->cancelPassword = ForbizConfig::getPaymentConfig('cancel_pwd', 'nicepay');
         } else {
-//            $this->mid = 'nicepay00m';
-//            $this->serviceKey = 'EYzu8jGGMfqaDEp76gSckuvnaHHu+bC4opsSN6lHv3b2lurNYkVXrZ7Z1AoqQnXI3eLuaUFyoRNC6FkrzVjceg==';
-//            $this->cancelPassword = "123456";
             $this->mid = ForbizConfig::getPaymentConfig('test_mid', 'nicepay');
             $this->serviceKey = ForbizConfig::getPaymentConfig('test_service_key', 'nicepay');
             $this->cancelPassword = ForbizConfig::getPaymentConfig('test_cancel_pwd', 'nicepay');
@@ -49,30 +46,6 @@ class PgForbizNicepay extends PgForbiz
         require_once APPLICATION_ROOT . '/payment/nicepay/lib/nicepay/web/NicePayWEB.php';
         require_once APPLICATION_ROOT . '/payment/nicepay/lib/nicepay/core/Constants.php';
         require_once APPLICATION_ROOT . '/payment/nicepay/lib/nicepay/web/NicePayHttpServletRequestWrapper.php';
-
-        if (ForbizConfig::getPaymentConfig('service_type', 'nicepay') != 'service') {
-            if ($cancelData->method == ORDER_METHOD_INAPP_PAYCO) {
-                $this->mid = 'paycot001m';
-                $this->cancelPassword = '123456';
-                $this->serviceKey = 't+j9YrQLJMeMAWgVv94VVJi/8t9Z8vzncUbPyINZ/aKg+hCAjj/nhBK2S2VuPet4pOzsfLaa7Nx35HpnjDqlDA==';
-            } elseif($cancelData->method == ORDER_METHOD_INAPP_KAKAOPAY) {
-                $this->mid = 'nickakao1m';
-                $this->cancelPassword = '123456';
-                $this->serviceKey = 'A2SY4ztPs6LPymgFl/5bbsLuINyvgKq5eOdDSHb31gdO4dfGr3O6hBxvRp9oXdat45VninNUySc7E/5UT01vKw==';
-            } else if ($cancelData->method == ORDER_METHOD_INAPP_SSPAY) {
-                $this->mid = 'nicessp01m';
-                $this->cancelPassword = '123456';
-                $this->serviceKey = 'tzTm144xeKLJzDtYUefi5Z1xMRCby31z3VZj4mmSnNLkGhk6UXTcHxiOoO3056/OPCe0R4b8suqzMQYhi/4K+w==';
-            } else if ($cancelData->method == ORDER_METHOD_INAPP_SKPAY) {
-                $this->mid = 'nictest00m';
-                $this->cancelPassword = '123456';
-                $this->serviceKey = '33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==';
-            } else if ($cancelData->method == ORDER_METHOD_INAPP_NAVERPAY) {
-                $this->mid = 'nicnaver0m';
-                $this->cancelPassword = '123456';
-                $this->serviceKey = 'kNuUIpYvHPGcTTlmRsFddsqp6P9JoTcEcoRB1pindAwCZ0oySNuCQX5Zv483XTU5UuRiy/VYZ9BXw1BRvEUYMg==';
-            }
-        }
 
         $requestData = [
             'MID' => $this->mid

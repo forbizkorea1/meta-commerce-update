@@ -257,9 +257,11 @@
             </div>
         </section>
         <br/><br/>
+        {? button}
         <div class="fb__btn-wrap">
             <a id="devApplySso" class="btn-submit">신청하기</a>
         </div>
+        {/}
         <br/>
 
         <h5 class="fb__section-title">서비스 신청내역</h5>
@@ -268,9 +270,8 @@
                 <table class="fb-filter__table">
                     <colgroup>
                         <col width="5%"/>
-                        <col width="20%"/>
-                        <col width="20%"/>
-                        <col width="20%"/>
+                        <col width="30%"/>
+                        <col width="30%"/>
                         <col width="*"/>
                     </colgroup>
                     <tr>
@@ -290,7 +291,7 @@
                     <!--{/}-->
                     {:}
                     <tr>
-                        <td colspan="5">서비스 신청내역이 없습니다.</td>
+                        <td colspan="4">서비스 신청내역이 없습니다.</td>
                     </tr>
                     {/}
                 </table>

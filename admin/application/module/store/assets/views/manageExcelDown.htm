@@ -1,0 +1,91 @@
+<section class="fb__menusubmit">
+    <section class="fb-filter">
+        <form method="post" id="devExcelDownGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum" />
+            <input type="hidden" name="max"  value="50"/>
+            <fieldset>
+                <table>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                조건검색
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="">
+                                <select class="fb-filter__select" name="searchType">
+                                    <option value="mem_name">이름</option>
+                                    <option value="mem_id">아이디</option>
+                                </select>
+                                <input type="text" class="fb-filter__text fb-filter__text--50" name="searchText">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- 파기여부 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                파기여부
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="dstr_status" value="" checked>
+                                    <span>전체</span>
+                                </label>
+                                {@ dstr_status}
+                                <label>
+                                    <input type="radio" name="dstr_status" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                날짜
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="">
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="dateStart" value="" readonly>
+                                <span class="fb-filter__day__line">~</span>
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="dateEnd" value="" readonly>
+                                <span id="devQuickBetweenDate"></span>
+                            </div>
+                        </td>
+                    </tr>                   
+                </table>
+
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__save devSubmit" value="검색" />
+                    <input type="button" class="fb-filter__reset devReset" value="초기화" />
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">이력목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span></h3>
+        <div class="fb-maincontent-fliter">
+            <select class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devExcelDownGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>

@@ -42,17 +42,74 @@ return (function () {
     //프론트 라이센스 처리
     $companyModel->getMallLicense();
 
-    $talktalk_use_type = \ForbizConfig::getMallConfig('talktalk_use_type');
-    $talktalk_script = \ForbizConfig::getMallConfig('talktalk_script');
-    $talktalk_mobile_script = \ForbizConfig::getMallConfig('talktalk_mobile_script');
 
-    $happyTalk_use_type = \ForbizConfig::getMallConfig('happyTalk_use_type');
-    $happyTalk_script = \ForbizConfig::getMallConfig('happyTalk_script');
-    $happyTalk_mobile_script = \ForbizConfig::getMallConfig('happyTalk_mobile_script');
 
-    $friendTalk_use_type = \ForbizConfig::getMallConfig('friendTalk_use_type');
-    $friendTalk_script = \ForbizConfig::getMallConfig('friendTalk_script');
-    $friendTalk_mobile_script = \ForbizConfig::getMallConfig('friendTalk_mobile_script');
+    $talk = [
+        'talktalk_use_type' => \ForbizConfig::getMallConfig('talktalk_use_type'),
+        'talktalk_script' => \ForbizConfig::getMallConfig('talktalk_script'),
+        'talktalk_mobile_script' => \ForbizConfig::getMallConfig('talktalk_mobile_script'),
+        'happyTalk_use_type' => \ForbizConfig::getMallConfig('happyTalk_use_type'),
+        'happyTalk_script' => \ForbizConfig::getMallConfig('happyTalk_script'),
+        'happyTalk_mobile_script' => \ForbizConfig::getMallConfig('happyTalk_mobile_script'),
+        'friendTalk_use_type' => \ForbizConfig::getMallConfig('friendTalk_use_type'),
+        'friendTalk_script' => \ForbizConfig::getMallConfig('friendTalk_script'),
+        'friendTalk_mobile_script' => \ForbizConfig::getMallConfig('friendTalk_mobile_script')
+    ];
+
+    // SEO 태그
+    $tag = [
+        'use_seo_yn' => \ForbizConfig::getMallConfig('use_seo_yn'),
+        'common_title' => \ForbizConfig::getMallConfig('common_title'),
+        'common_author' => \ForbizConfig::getMallConfig('common_author'),
+        'common_description' => \ForbizConfig::getMallConfig('common_description'),
+        'common_keyword' => \ForbizConfig::getMallConfig('common_keyword')
+    ];
+
+    // SEO 고급 설정
+    $og_tag = [
+        'use_og_yn' => \ForbizConfig::getMallConfig('use_og_yn'),
+        'og_site_name' => \ForbizConfig::getMallConfig('og_site_name'),
+        'og_title' => \ForbizConfig::getMallConfig('og_title'),
+        'og_description' => \ForbizConfig::getMallConfig('og_description'),
+        'og_url' => \ForbizConfig::getMallConfig('og_url'),
+        'og_img' => (\ForbizConfig::getMallConfig('og_img') ? HTTP_PROTOCOL . FORBIZ_BASEURL . '/'.\ForbizConfig::getMallConfig('og_img') : '')
+    ];
+
+
+    $google = [
+        'use_ga_yn' => \ForbizConfig::getMallConfig('use_ga_yn'),
+        'ga_id' => \ForbizConfig::getMallConfig('ga_id'),
+        'ga_cont_search_yn' => \ForbizConfig::getMallConfig('ga_cont_search_yn'),
+        'ga_promotion_search_yn' => \ForbizConfig::getMallConfig('ga_promotion_search_yn'),
+        'ga_goods_search_yn' => \ForbizConfig::getMallConfig('ga_goods_search_yn'),
+        'ga_goods_search_result_yn' => \ForbizConfig::getMallConfig('ga_goods_search_result_yn'),
+        'ga_goods_share_yn' => \ForbizConfig::getMallConfig('ga_goods_share_yn'),
+        'ga_wish_yn' => \ForbizConfig::getMallConfig('ga_wish_yn'),
+        'ga_cart_yn' => \ForbizConfig::getMallConfig('ga_cart_yn'),
+        'ga_pay_start_yn' => \ForbizConfig::getMallConfig('ga_pay_start_yn'),
+        'ga_pay_end_yn' => \ForbizConfig::getMallConfig('ga_pay_end_yn'),
+        'ga_login_yn' => \ForbizConfig::getMallConfig('ga_login_yn'),
+        'ga_join_end_yn' => \ForbizConfig::getMallConfig('ga_join_end_yn')
+    ];
+
+    // 픽셀 사용 설정
+    $facebook = [
+        'use_pixel_yn' => \ForbizConfig::getMallConfig('use_pixel_yn'),
+        'pixel_id' => \ForbizConfig::getMallConfig('pixel_id'),
+        'pixel_cont_search_yn' => \ForbizConfig::getMallConfig('pixel_cont_search_yn'),
+        'pixel_cart_yn' => \ForbizConfig::getMallConfig('pixel_cart_yn'),
+        'pixel_pay_start_yn' => \ForbizConfig::getMallConfig('pixel_pay_start_yn'),
+        'pixel_pay_end_yn' => \ForbizConfig::getMallConfig('pixel_pay_end_yn'),
+        'pixel_goods_search_yn' => \ForbizConfig::getMallConfig('pixel_goods_search_yn'),
+        'pixel_join_end_yn' => \ForbizConfig::getMallConfig('pixel_join_end_yn')
+    ];
+
+    // 빅인사이트 스크립트 사용 설정
+    $biginsight = [
+        'use_biginsight_yn' => \ForbizConfig::getMallConfig('use_biginsight_yn'),
+        'biginsight_id' => \ForbizConfig::getMallConfig('biginsight_id')
+    ];
+
 
     //카테고리 캐시 적용
     if (defined('CACHE_SETTING') && CACHE_SETTING === false) {
@@ -160,14 +217,13 @@ return (function () {
         , 'footerMenu' => []
         , 'footerDesc' => []
         , 'useFat' => defined('USE_FAT') && USE_FAT === true && sess_val('user', 'mem_type') === 'A' && !empty(sess_val('allowFatUser'))
-        , 'talktalk_use_type' => $talktalk_use_type
-        , 'talktalk_script' => $talktalk_script
-        , 'talktalk_mobile_script' => $talktalk_mobile_script
-        , 'happyTalk_use_type' => $happyTalk_use_type
-        , 'happyTalk_script' => $happyTalk_script
-        , 'happyTalk_mobile_script' => $happyTalk_mobile_script
-        , 'friendTalk_use_type' => $friendTalk_use_type
-        , 'friendTalk_script' => $friendTalk_script
-        , 'friendTalk_mobile_script' => $friendTalk_mobile_script
+        , 'talk' => $talk
+        , 'tag' => $tag
+        , 'og_tag' => $og_tag
+        , 'google' => $google
+        , 'facebook' => $facebook
+        , 'biginsight' => $biginsight
     ];
+
 })();
+

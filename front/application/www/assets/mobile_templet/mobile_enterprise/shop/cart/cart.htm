@@ -266,3 +266,14 @@
         {/}
     </div>
 </section>
+
+
+<!--{"<script>"}-->
+{? biginsight.use_biginsight_yn == 'Y'}
+var use_biginsight_yn = true;
+(function() {bigin.event('cart');})();
+{:}
+var use_biginsight_yn = false;
+{/}
+<!--{"</script>"}-->
+

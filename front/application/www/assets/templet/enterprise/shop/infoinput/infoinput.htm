@@ -322,3 +322,15 @@
         {* pg 결제 영역 *}
     </div>
 </section>
+
+<!--{"<script>"}-->
+{? facebook.use_pixel_yn == 'Y'}
+    {? facebook.pixel_pay_start_yn == 'Y'}var fbq_pay_start_yn = true;{:}var fbq_pay_start_yn = false;{/}
+{/}
+
+{? biginsight.use_biginsight_yn == 'Y'}
+var use_biginsight_yn = true;
+{:}
+var use_biginsight_yn = false;
+{/}
+<!--{"</script>"}-->

@@ -3,6 +3,45 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, viewport-fit=cover, user-scalable=no">
+        <!-- 몰 관련 태그 -->
+        {? tag.use_seo_yn == 'N'}
+            <title>{layoutCommon.title}</title>
+        {:}
+            <title>{tag.common_title}</title>
+            <meta name="author" content="{tag.common_author}">
+            <meta name="keywords" content="{tag.common_keyword}">
+            <meta name="description" content="{tag.common_description}">
+        {/}
+        {? layout.isSnsShare}
+            <!--SNS 공유-->
+            {? layout.snsShareImage}<link rel="image_src" href="{layout.snsShareImage}" />{/}
+            <meta property="og:site_name" content="{? og_tag.og_site_name}{og_tag.og_site_name}{:}{layoutCommon.title}{/}" />
+            <meta property="og:title" content="{layout.snsShareTitle}" />
+            <meta property="og:url" content="{layout.snsShareUrl}" />
+            {? layout.snsShareImage}<meta property="og:image" content="{layout.snsShareImage}" />{/}
+            <meta name="twitter:title" content="{layout.snsShareTitle}" />
+            {? layout.snsShareImage}<meta name="twitter:image" content="{layout.snsShareImage}" />{/}
+            <meta name="twitter:url" content="{layout.snsShareUrl}" />
+            {? layout.snsShareImage}<meta itemprop="image" content="{layout.snsShareImage}">{/}
+            <meta itemprop="name" content="{? og_tag.og_site_name}{og_tag.og_site_name}{:}{layoutCommon.title}{/}">
+            {? og_tag.og_description}<meta itemprop="description" content="{og_tag.og_description}">{/}
+            <meta property="og:type" content="website" />
+            <!--SNS 공유 스크립트 : 공통-->
+            <script src="{layoutCommon.templetSrc}/js/common/snsShare.js?version={c.CLIENT_VERSION}"></script>
+            <!--SNS 공유 스크립트 : kakao-->
+            <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+            <!--/-->
+        {:}
+            <!--오픈 그래프 태그 공통정보 설정-->
+            <meta property="og:title" content="{? og_tag.og_title}{og_tag.og_title}{:}{layoutCommon.title}{/}" />
+            <meta property="og:site_name" content="{? og_tag.og_site_name}{og_tag.og_site_name}{:}{layoutCommon.title}{/}" />
+            {? og_tag.og_description}<meta property="og:description" content="{og_tag.og_description}" />{/}
+            {? og_tag.og_img}<meta property="og:image" content="{og_tag.og_img}" />{/}
+            {? og_tag.og_url}<meta property="og:url" content="{og_tag.og_url}" />{/}
+            <meta property="og:type" content="website" />
+        {/}
+
+
         <!--[S] FAVICON-->
         <link rel="shortcut icon" href="/data/{c.MALL_ID}_data/images/favicon.ico">
         <link rel="icon" type="image/png" sizes="16x16" href="/data/{c.MALL_ID}_data/images/favicon_16.png">
@@ -29,7 +68,7 @@
         <script src="{layoutCommon.templetSrc}/js/common/wish.js?version={c.CLIENT_VERSION}"></script><!-- 관심상품 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.2.0/decimal.min.js"></script><!--decimal 이후 라이브러리로 통합 필요!-->
         <!--구글 script-->
-        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script>
             //set environment
             common.templetSrc = '{layoutCommon.templetSrc}';
@@ -38,10 +77,6 @@
             common.bcscale = {? defined('BCSCALE')}{c.BCSCALE}{:}0{/};
             dev_ext.npay.useNpay = '{c.NPAY_USE}';
         </script>
-
-        <!-- 몰 관련 태그 -->
-        <title>{layoutCommon.title}</title>
-        <meta name="keywords" content="{layoutCommon.keyword}">
 
         <!--구글 로그인-->
         <meta name="google-signin-client_id" content="{c.GOOGLE_CLIENT_ID}">
@@ -114,36 +149,98 @@
             }
         </script>
 
-        {? layout.isSnsShare}
-        <!--SNS 공유-->
-        <link rel="image_src" href="{layout.snsShareImage}" />
-
-        <meta property="og:image" content="{layout.snsShareImage}" />
-        <meta property="og:title" content="{layout.snsShareTitle}" />
-        <meta property="og:url" content="{layout.snsShareUrl}" />
-        <meta property="og:description" content="{layout.snsShareDescription}" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="{title_desc}" />
-
-        <meta name="twitter:image" content="{layout.snsShareImage}" />
-        <meta name="twitter:title" content="{layout.snsShareTitle}" />
-        <meta name="twitter:url" content="{layout.snsShareUrl}" />
-        <meta name="twitter:description" content="{layout.snsShareDescription}" />
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta itemprop="image" content="{layout.snsShareImage}">
-        <meta itemprop="name" content="{layout.snsShareTitle}">
-        <meta itemprop="description" content="{layout.snsShareDescription}">
-        <!--SNS 공유 스크립트 : 공통-->
-        <script src="{layoutCommon.templetSrc}/js/common/snsShare.js?version={c.CLIENT_VERSION}"></script>
-        <!--SNS 공유 스크립트 : kakao-->
-        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-        <!--/-->
-        {:}
-        <meta name="description" content="{title_desc}">
-        {/}
         <!-- 다음주소 -->
         <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+
+        {? facebook.use_pixel_yn == 'Y'}
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {
+                if(f.fbq)return;
+                n=f.fbq=function()
+                {
+                    n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)
+                };
+
+                if(!f._fbq)f._fbq=n;n.push=n;
+                n.loaded=!0;
+                n.version='2.0';
+                n.queue=[];
+                t=b.createElement(e);
+                t.async=!0;
+                t.src=v;
+                s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)
+            }(window,document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '{facebook.pixel_id}');
+            fbq('track', 'PageView');
+        </script>
+        {/}
+        {? google.use_ga_yn == 'Y'}
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '{google.ga_id}');
+        </script>
+        {/}
+        {? biginsight.use_biginsight_yn == 'Y'}
+        <!-- bigin common code start -->
+        <script>
+            (function (w, d, s, l, i, c) {
+                w["_b_g_e_b_f"] = w["_b_g_e_b_f"] ? w["_b_g_e_b_f"] : [];
+                w[l] = w[l] ? w[l] : {};
+                w[l].user = function (c, d) {
+                    w["_b_g_e_b_f"].push({t: "user",a1: c,a2: d});
+                }
+                w[l].event = function (c, d, t) {
+                    w["_b_g_e_b_f"].push({t: "event",a1: c,a2: d,a3: t ? t : new Date().getTime()});
+                }
+                w[l].track = function (c, d) {
+                    w["_b_g_e_b_f"].push({t: "track",a1: c,a2: d});
+                }
+                function fEv() {
+                    if (w["_b_g_e_b_f"] && w["_b_g_e_b_f"].length > 0) {
+                        for (var i = 0; i < w["_b_g_e_b_f"].length; i++) {
+                            var ev = w["_b_g_e_b_f"][i]
+                            w[l][ev["t"]](ev["a1"], ev["a2"], ev["a3"])
+                        }
+                    }
+                }
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+                j.async = true;
+                j.src = 'https://sdk.bigin.io/v1/bigin.sdk.js';
+                var u = navigator.userAgent.toLowerCase(), h = {
+                    projectID: i,
+                    currencyCode: c
+                };
+                if ((u.indexOf('msie') !== -1) && parseInt(u.split('msie')[1]) < 9) {
+                    var r = setInterval(function () {
+                        if (w[l] !== undefined) {
+                            clearInterval(r);
+                            w[l].config(h);
+                            fEv();
+                        }
+                    }, 50);
+                } else {
+                    j.onload = function () {
+                        w[l].config(h)
+                        fEv();
+                    };
+                }
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'bigin', '{biginsight.biginsight_id}', "KRW");
+
+            (function() {bigin.track('view');})();
+
+        </script>
+        <!-- bigin common code end -->
+
+        {/}
     </head>
     <body id="{layoutCommon.bodyId}" class="fb">
         <div id="document" class="idx-type">

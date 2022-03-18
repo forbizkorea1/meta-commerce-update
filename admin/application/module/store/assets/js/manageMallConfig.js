@@ -92,8 +92,6 @@ var devStoreManageMallConfigObj = {
         common.lang.load('common.fail.alert', '저장에 실패하였습니다.');
     },
     initForm: function () {
-        common.validation.set($('[name=mall_name]'), {'required': true});
-        common.validation.set($('[name=mall_title]'), {'required': true});
         common.validation.set($('[name=mall_dc_interval]'), {'required': true});
         common.validation.set($('[name=mall_cc_interval]'), {'required': true});
         common.validation.set($('[name=cart_delete_day]'), {'required': true});

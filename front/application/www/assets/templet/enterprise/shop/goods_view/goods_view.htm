@@ -1023,3 +1023,18 @@
         </div>
     </section>
 </section>
+
+<!--{"<script>"}-->
+{? facebook.use_pixel_yn == 'Y'}
+    {? facebook.pixel_cont_search_yn == 'Y'}fbq('track', 'ViewContent');{/}
+    {? facebook.pixel_cart_yn == 'Y'}var fbq_cart_yn = true;{:}var fbq_cart_yn = false;{/}
+{/}
+
+
+{? biginsight.use_biginsight_yn == 'Y'}
+    var use_biginsight_yn = true;
+    (function() {bigin.event('viewProduct');})();
+{:}
+    var use_biginsight_yn = false;
+{/}
+<!--{"</script>"}-->

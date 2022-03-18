@@ -148,11 +148,28 @@
                                     통신판매업 번호
                                 </span>
                             </th>
-                            <td colspan="3" class="fb-filter__day-wrap">
+                            <td class="fb-filter__day-wrap">
                                 <div class="fb-filter__title-contents">
                                     <input type="text" class="fb-filter__text" name="online_business_number"  value="{config.online_business_number}">
                                 </div>
-                            </td>                       
+                            </td>
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    발신번호
+                                </span>
+                            </th>
+                            <td class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <select class="fb-filter__select" name="com_caller_id">
+                                        {? !empty(callerIdList) }
+                                            <option value="" {? config.com_caller_id == null} selected {/}>발신번호 선택</option>
+                                            {@ callerIdList}
+                                                <option value="{.value_}" {? config.com_caller_id == .value_} selected  {/}>{.value_}</option>
+                                            {/}
+                                        {/}
+                                    </select>
+                                </div>
+                            </td>
                         </tr>
                         <tr> <!-- 텍스트 타입 -->
                             <th class="fb-filter__title">

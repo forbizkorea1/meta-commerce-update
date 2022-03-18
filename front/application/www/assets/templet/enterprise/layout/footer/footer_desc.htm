@@ -59,3 +59,9 @@
 {? friendTalk_use_type == 'Y'}
 	{friendTalk_script}
 {/}
+
+<!--{"<script>"}-->
+{? facebook.use_pixel_yn == 'Y'}
+	{? facebook.pixel_cart_yn == 'Y'}var fbq_search_yn = true;{:}var fbq_search_yn = false;{/}
+{/}
+<!--{"</script>"}-->

@@ -9,7 +9,8 @@ if (isset($_SERVER["SERVER_PORT"]) && $_SERVER["SERVER_PORT"] == "443") {
 // 설정별 도메인정보
 if (strstr(FORBIZ_BASEURL, '.devs')) {
     define('DB_CONNECTION_DIV', 'development');
-    define('PORTAL_API_URL', 'http://portal.devs');
+//    define('PORTAL_API_URL', 'http://portal.devs');
+    define('PORTAL_API_URL', 'https://qa.meta-commerce.co.kr');
     define("FRONT_URL", str_replace('admin.', '', FORBIZ_BASEURL));
 } else if(strstr(FORBIZ_BASEURL, 'admin-metacommerce')) {
     define('DB_CONNECTION_DIV', 'production');

@@ -1,0 +1,70 @@
+<div class="meta">
+    <form id="devGaSettingForm" method="post">
+        {? type == 'ga'}
+        <fieldset>
+            <legend>
+                Google Analytics 설정
+            </legend>
+            <section class="fb__menusubmit ">
+                <header class="fb__menusubmit-header">
+                    <h3 class="fb__menusubmit-title">GA 사용 설정</h3>
+                    <a href="#" class="fb__menusubmit-btn">
+                        <span>닫기</span>
+                        <span>열기</span>
+                    </a>
+                </header>
+                <section class="fb-filter">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="*">
+                        </colgroup>
+
+                        <tr>
+                            <th class="fb-filter__title">
+                                <span>
+                                    페이지뷰 및 공통 GA 사용여부
+                                </span>
+                            </th>
+                            <td>
+                                <div class="fb-filter__radio devSelectUse">
+                                    <label>
+                                        <input type="radio" name="use_ga_yn" value="Y" {? config.use_ga_yn =='Y'}checked{/} />
+                                        <span>사용함</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="use_ga_yn" value="N" {? config.use_ga_yn =='N' || config.use_ga_yn ==''}checked{/} />
+                                        <span>사용안함</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="use_ga_yn" {? config.use_ga_yn !='Y'}style="display: none;"{/}>
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    Google Analytics 추적 ID
+                                </span>
+                            </th>
+                            <td colspan="2">
+                                UA - <input type="text" class="fb-filter__text" name="ga_id" value="{config.ga_id}" title="Google Analytics 추적 ID" style="width: 200px;">
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+        </fieldset>
+        {/}
+    </form>
+
+    <section class="fb__menusubmit">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">※ 유의사항</h3>
+        </header>
+        <section class="fb__infobox">
+            <p class="fb__info-line">구글 비즈니스 관리자에서 추적 ID를 생성하여 사용 해주세요.</p>
+            <p class="fb__info-line">기존에 GA 코드를 설치 한 경우 해당 GA 코드를 제거 한 후 진행 해주세요.</p>
+        </section>
+    </section>
+</div>

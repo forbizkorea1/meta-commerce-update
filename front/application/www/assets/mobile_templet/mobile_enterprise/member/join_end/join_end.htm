@@ -35,3 +35,10 @@
 		</div>
 	</div>
 </section>
+
+
+<!--{"<script>"}-->
+{? facebook.use_pixel_yn == 'Y'}
+	{? facebook.pixel_cont_search_yn == 'Y'}fbq('track', 'CompleteRegistration');{/}
+{/}
+<!--{"</script>"}-->

@@ -3796,6 +3796,74 @@ var common = {
                 return false;
             }
         }
+    },
+    license : {
+        modalTpl : false,
+        apply : {
+            modal: function () {
+                var self = common.license;
+                var modalTitle = '임시 라이선스 신청';
+
+                if (self.modalTpl === false) {
+                    self.modalTpl = common.util.getHtml('#devLicenseApplyModalTpl');
+                }
+
+                // 모달 설정
+                common.util.modal.open(
+                    'html',
+                    modalTitle,
+                    self.modalTpl,
+                    '',
+                    function () {
+
+                        common.license.apply.initForm();
+
+                        common.inputFormat.set($('[name="phone_number"]'), {'maxLength': 13});
+                        // 벨리데이션 체크 설정
+                        common.validation.set($('[name="user_name"]'), {'required': true});
+                        common.validation.set($('[name="email"]'), {
+                            'required': true,
+                            'dataFormat': 'email',
+                        });
+                        common.validation.set($('[name="phone_number"]'), {
+                            'required': true,
+                            'dataFormat': 'mobile',
+                        });
+                        common.validation.set($('[name="comment"]'), {'required': true});
+
+                        $('#devLicenseApplySubmit').on('click', function () {
+                            $('#devLicenseApplyForm').submit();
+                        });
+
+                    },
+                    {width: '650px', height: '624px'}
+                );
+
+                return false;
+
+            },
+            initForm: function () {
+                common.form.init(
+                    $('#devLicenseApplyForm'),
+                    common.util.getControllerUrl('putLicense', 'serviceRequest', 'thirdParty'),
+                    function (formData) {
+                        if (common.validation.check($('#devLicenseApplyForm'), 'alert', false)) {
+                            return formData;
+                        } else {
+                            return false;
+                        }
+                    },
+                    function (response) {
+                        if (response.result == 'success') {
+                            common.noti.alert(common.lang.get('msg.license.apply.complete'));
+                            location.reload();
+                        } else {
+                            common.noti.alert("system error");
+                        }
+                    }
+                );
+            }
+        }
     }
 };
 
@@ -3824,6 +3892,9 @@ $(function () {
     common.lang.load('msg.pay.agree', '메타페이 이용약관의 동의가 필요합니다.');
     common.lang.load('msg.pay.complete', '결제 완료 되었습니다.');
     common.lang.load('msg.pay.lost', '분실된 카드입니다.');
+
+    //임시 라이선스 신청
+    common.lang.load('msg.license.apply.complete', "임시 라이선스 신청이 완료되었습니다.");
 
     // input event bind
     common.inputFormat.eventBind();

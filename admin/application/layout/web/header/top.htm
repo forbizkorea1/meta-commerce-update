@@ -1,0 +1,160 @@
+<!--{? sess_val('meta-license') == 'U'}-->
+<style>
+    .fb__header {top: -158px;}
+    .fb__wrap {top: 158px;}
+</style>
+<div class="fb__header-noti">
+    <p>
+        <span><strong>META COMMERCE 공식 라이선스</strong>를 사용해 주세요.</span>
+        <em>* 비공식 라이선스를 사용할 경우 예고 없이 서비스 이용이 제한될 수 있습니다.</em>
+    </p>
+    {? layoutCommon.mem_div !== 'S'}
+    <a href="javascript:void(0);" onclick="common.license.apply.modal();">임시 라이선스 신청하기</a>
+    {/}
+</div>
+<script>
+    window.onload= function () {
+        if (localStorage.getItem('alert') !== 'alerted') {
+            alert('META COMMERCE 공식 라이선스를 사용해 주세요.\n비공식 라이선스를 사용할 경우 예고 없이 서비스 이용이 제한될 수 있습니다.\n');
+            localStorage.setItem('alert', 'alerted');
+        }
+    }
+
+    function removeAlert() {
+        localStorage.setItem('alert', 'empty');
+    }
+</script>
+<!--{/}-->
+<div class="fb__header-info">
+    <h1 class="fb__header-title">
+        {? layoutCommon.mem_div == 'S'}
+        <a href="/seller/main"><span class="fb__header-logo">META-COMMERCE</span></a>
+        {:}
+        <a href="/store/main"><span class="fb__header-logo">META-COMMERCE</span></a>
+        {/}
+    </h1>
+    <section class="fb__header__my-relation relation">
+        <span class="relation__name">{adminInfo.charger}&nbsp;님</span>
+        <div class="relation__btn">
+            <a href="/system/logout" class="relation__btn--log" {? sess_val('meta-license') == 'U'}onclick="removeAlert()"{/}>
+                로그아웃
+            </a>
+            <a href="https://meta-commerce.co.kr/menual/menual.php" class="relation__btn--log adm-manual" id="adm-manual" target="_blank">
+<!--                <img src="{=layout_url('assets/img/icon/menual.svg')}" alt="" height="30" valign="middle" style="margin-top: -2px;" />-->
+                관리자 메뉴얼
+            </a>
+            <a href="https://auth.ncloud.com/login" target="_blank" class="relation__btn--log" style="margin-left: 10px;">
+                <img src="{=layout_url('assets/img/icon_console.png')}" alt="" height="15" valign="middle">
+                콘솔 바로가기
+            </a>
+
+            <a href="">&nbsp;&nbsp;&nbsp;</a>
+            <div class="relation__favorites">
+                <a href="/myPage/serviceUseStatus" class="relation__mypage-btn">
+                    <span class="relation__mypage-icon">MY</span>
+                </a>
+            </div>
+            <div class="relation__favorites">
+                <a href="#" class="relation__favorites-btn">
+                    <span class="relation__favorites-icon">즐겨찾기 메뉴</span>
+                    <span class="relation__close-icon">닫기</span>
+                </a>
+                <div class="favorites-box">
+                    <h2 class="favorites-box__title">즐겨찾기</h2>
+                    <ul id="devFavDropDownMenu"></ul>
+                </div>
+            </div>
+            <div class="relation__search">
+                <a href="#" class="relation__search-btn ">
+                    <span class="relation__search-icon">검색</span>
+                    <span class="relation__close-icon">닫기</span>
+                </a>
+                <div class="search-box menu-search">
+                    <fieldset>
+                        <legend>메뉴 검색 폼</legend>
+                        <div class="menu-search__form">
+                            <input type="text" name="menu" class="menu-search__text" placeholder="검색할 메뉴명을 입력해 주세요"
+                                   id="devMenuSearchText">
+                            <button class="menu-search__btn" type="button" id="devMenuSearchBtn">검색</button>
+                        </div>
+                    </fieldset>
+                    <ul class="menu-search__box" id="devMenuSearchResult">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!--{'<script id="devLicenseApplyModalTpl" type="text/x-handlebars-template">'}-->
+<section class="fb__menusubmit ">
+    <section class="fb-filter">
+        <form id="devLicenseApplyForm">
+            <fieldset>
+                <legend></legend>
+                <table>
+                    <colgroup>
+                        <col width="150"/>
+                        <col width="*"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                신청자 명
+                            </span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text"  class="fb-filter__text" name="user_name" title="신청자 명">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                이메일
+                            </span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text"  class="fb-filter__text" name="email" title="이메일">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                휴대폰 번호
+                            </span>
+                        </th>
+                        <td  class="fb-filter__title-contents">
+                            <input type="text"  class="fb-filter__text" name="phone_number" placeholder="Ex. 010-0000-0000" title="휴대폰 번호">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                신청 사유
+                            </span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="comment" maxlength="1000" placeholder="" title="신청 사유" style="width: 360px; height: 100px; resize: none;"></textarea><br />
+                            <span class="counter">(0 / 최대 1000자)</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+</section>
+<div class="fb__infobox" style="margin: 15px 15px 0;">
+    <h3>META COMMERCE 라이선스 안내</h3><br/>
+    <p class="fb__info-line"> 공식 라이선스는 PORTAL을 통해서 정식으로 서비스에 가입한 패키지에만 적용됩니다.</p>
+    <p class="fb__info-line"> Naver Cloud Service를 이용하지 않는 경우, 공식 라이선스 적용이 안됩니다.</p>
+    <p class="fb__info-line"> 개발 환경 등에서 한시적으로 패키지 설치가 필요한 경우 임시 신청을 해 주시고 고객센터로 문의해 주세요.</p>
+    <p class="fb__info-line"> 임시 라이선스를 신청하시면 별도의 승인 없이 공식 라이선스와 동일한 서비스를 이용하실 수 있습니다.</p>
+    <p class="fb__info-line"> 신청 후 30일이 지나면  임시 라이선스는 만료됩니다. 라이선스 관련 문의는 고객센터를 이용해 주세요.</p>
+</div>
+<div class="fb-filter__btn">
+    <button class="fb-filter__save" type="button" id="devLicenseApplySubmit" style="width: auto;">임시 라이선스 신청</button>
+</div>
+<!--{'</script>'}-->

@@ -348,12 +348,23 @@
 
             <div class="empty__button fb__button">
                 {? layoutCommon.isLogin}
-                <a href="/" class="border--ccc size--03" id="devHomeButton">{=trans('쇼핑 계속하기')}</button>
+                <a href="/" class="border--ccc size--03" id="devHomeButton">{=trans('쇼핑 계속하기')}</a>
                 {:}
-                <a href="/member/login" class="border--ccc size--03">{=trans('로그인 하기')}</button>
+                <a href="/member/login" class="border--ccc size--03">{=trans('로그인 하기')}</a>
                 {/}
             </div>
         </div>
         {/}
     </div>
 </section>
+
+
+<!--{"<script>"}-->
+{? biginsight.use_biginsight_yn == 'Y'}
+var use_biginsight_yn = true;
+(function() {bigin.event('cart');})();
+{:}
+var use_biginsight_yn = false;
+{/}
+<!--{"</script>"}-->
+

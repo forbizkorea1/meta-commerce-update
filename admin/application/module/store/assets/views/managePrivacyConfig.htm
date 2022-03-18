@@ -24,19 +24,19 @@
                             </span>
                         </th>
                         <td colspan="3" >
-                            <div class="fb-filter__radio">
+                            <div class="fb-filter__radio devSelectUse">
                                 <label for="sleep_user_yn_y">
-                                    <input type="radio" name="sleep_user_yn" id="sleep_user_yn_y" value="Y" {? config.sleep_user_yn == 'Y' || config.sleep_user_yn == '' } checked {/} >
+                                    <input type="radio" name="sleep_user_yn" id="sleep_user_yn_y" value="Y" {? config.sleep_user_yn =='Y' || config.sleep_user_yn =='' } checked {/} >
                                            <span>사용함</span>
                                 </label>
                                 <label for="sleep_user_yn_n">
-                                    <input type="radio" name="sleep_user_yn" id="sleep_user_yn_n" value="N" {? config.sleep_user_yn == 'N'} checked {/} >
+                                    <input type="radio" name="sleep_user_yn" id="sleep_user_yn_n" value="N" {? config.sleep_user_yn =='N'} checked {/} >
                                            <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr> <!-- 텍스트 타입 -->
+                    <tr id="sleep_user_yn" {? config.sleep_user_yn !='Y'}style="display: none;"{/}> <!-- 텍스트 타입 -->
                         <th class="fb-filter__title">
                             <span>
                                 휴면상태 적용 날짜
@@ -55,19 +55,19 @@
                             </span>
                         </th>
                         <td colspan="3" >
-                            <div class="fb-filter__radio">
+                            <div class="fb-filter__radio devSelectUse">
                                 <label for="sleep_user_mailing_y">
-                                    <input type="radio" name="sleep_user_mailing" id="sleep_user_mailing_y" value="Y" {? config.sleep_user_mailing == 'Y' || !config.sleep_user_mailing } checked {/} >
+                                    <input type="radio" name="sleep_user_mailing" id="sleep_user_mailing_y" value="Y" {? config.sleep_user_mailing =='Y' || !config.sleep_user_mailing } checked {/} >
                                            <span>사용함</span>
                                 </label>
                                 <label for="sleep_user_mailing_n">
-                                    <input type="radio" name="sleep_user_mailing" id="sleep_user_mailing_n" value="N" {? config.sleep_user_mailing == 'N' } checked {/} >
+                                    <input type="radio" name="sleep_user_mailing" id="sleep_user_mailing_n" value="N" {? config.sleep_user_mailing =='N' } checked {/} >
                                            <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr> <!-- 텍스트 타입 -->
+                    <tr id="sleep_user_mailing" {? config.sleep_user_mailing !='Y'}style="display: none;"{/}> <!-- 텍스트 타입 -->
                         <th class="fb-filter__title">
                             <span>
                                 휴면전환 안내메일 발송일 지정
@@ -109,54 +109,56 @@
                             </span>
                         </th>
                         <td colspan="3" >
-                            <div class="fb-filter__radio">
+                            <div class="fb-filter__radio devSelectUse">
                                 <label for="change_pw_info_y">
-                                    <input type="radio" name="change_pw_info" id="change_pw_info_y" value="Y" {? config.change_pw_info == 'Y' || !config.change_pw_info } checked {/}  >
+                                    <input type="radio" name="change_pw_info" id="change_pw_info_y" value="Y" {? config.change_pw_info =='Y' || !config.change_pw_info } checked {/}  >
                                            <span>사용함</span>
                                 </label>
                                 <label for="change_pw_info_n">
-                                    <input type="radio" name="change_pw_info" id="change_pw_info_n" value="N" {? config.change_pw_info == 'N' } checked {/} >
+                                    <input type="radio" name="change_pw_info" id="change_pw_info_n" value="N" {? config.change_pw_info =='N' } checked {/} >
                                            <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr> <!-- 텍스트 타입 -->
-                        <th class="fb-filter__title">
-                            <span>
-                                비밀번호 변경기간	
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__day-wrap">
-                            <div class="fb-filter__checkbox">
-                                <input type="text" class="fb-filter__text floatNo" name="change_pw_day" devnumber="true" value="{config.change_pw_day}" /> 일 이상 접속기록이 지난 회원에 대한 설정
-                            </div>
-                        </td>
-                    </tr>
-                    <tr> <!-- 텍스트 타입 -->
-                        <th class="fb-filter__title">
-                            <span>
-                                비밀번호 변경(연장)기간	
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__day-wrap">
-                            <div class="fb-filter__checkbox">
-                                <input type="text" class="fb-filter__text floatNo" name="change_pw_continue_day" devnumber="true" value="{config.change_pw_continue_day}" /> 일 이상  비밀번호를 변경하지 않고 연장 시 허용
-                            </div>
-                        </td>
-                    </tr>
-                    <tr> <!-- 텍스트 타입 -->
-                        <th class="fb-filter__title">
-                            <span>
-                                비밀번호 변경기간 [관리자]	
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__day-wrap">
-                            <div class="fb-filter__checkbox">
-                                <input type="text" class="fb-filter__text floatNo" name="change_admin_pw_day" devnumber="true" value="{config.change_admin_pw_day}"> 일 이상 접속기록이 지난 셀러 및 관리자에 대한 설정
-                            </div>
-                        </td>
-                    </tr>
+                    <tbody id="change_pw_info" {? config.change_pw_info !='Y'}style="display: none;"{/}>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span>
+                                    비밀번호 변경기간
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__checkbox">
+                                    <input type="text" class="fb-filter__text floatNo" name="change_pw_day" devnumber="true" value="{config.change_pw_day}" /> 일 이상 접속기록이 지난 회원에 대한 설정
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span>
+                                    비밀번호 변경(연장)기간
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__checkbox">
+                                    <input type="text" class="fb-filter__text floatNo" name="change_pw_continue_day" devnumber="true" value="{config.change_pw_continue_day}" /> 일 이상  비밀번호를 변경하지 않고 연장 시 허용
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span>
+                                    비밀번호 변경기간 [관리자]
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__checkbox">
+                                    <input type="text" class="fb-filter__text floatNo" name="change_admin_pw_day" devnumber="true" value="{config.change_admin_pw_day}"> 일 이상 접속기록이 지난 셀러 및 관리자에 대한 설정
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </section>
         </section>
@@ -205,19 +207,19 @@
                             </span>
                         </th>
                         <td colspan="3" >
-                            <div class="fb-filter__radio">
+                            <div class="fb-filter__radio devSelectUse">
                                 <label for="login_history_destruction_y">
-                                    <input type="radio" name="login_history_destruction_yn" id="login_history_destruction_y" value="Y" {? config.login_history_destruction_yn == 'Y' || !config.login_history_destruction_yn } checked {/}  >
+                                    <input type="radio" name="login_history_destruction_yn" id="login_history_destruction_y" value="Y" {? config.login_history_destruction_yn =='Y' || !config.login_history_destruction_yn } checked {/}  >
                                     <span>사용함</span>
                                 </label>
                                 <label for="login_history_destruction_n">
-                                    <input type="radio" name="login_history_destruction_yn" id="login_history_destruction_n" value="N" {? config.login_history_destruction_yn == 'N' } checked {/} >
+                                    <input type="radio" name="login_history_destruction_yn" id="login_history_destruction_n" value="N" {? config.login_history_destruction_yn =='N' } checked {/} >
                                     <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr id="login_history_destruction_yn" {? config.login_history_destruction_yn !='Y'}style="display: none;"{/}>
                         <th class="fb-filter__title">
                             <span>
                                 로그인 내역 파기 기간
@@ -236,19 +238,19 @@
                             </span>
                         </th>
                         <td colspan="3" >
-                            <div class="fb-filter__radio">
+                            <div class="fb-filter__radio devSelectUse">
                                 <label for="achievement_purpose_destruction_order_memo_y">
-                                    <input type="radio" name="achievement_purpose_destruction_order_memo_yn" id="achievement_purpose_destruction_order_memo_y" value="Y" {? config.achievement_purpose_destruction_order_memo_yn == 'Y' || !config.achievement_purpose_destruction_order_memo_yn } checked {/} >
+                                    <input type="radio" name="achievement_purpose_destruction_order_memo_yn" id="achievement_purpose_destruction_order_memo_y" value="Y" {? config.achievement_purpose_destruction_order_memo_yn =='Y' || !config.achievement_purpose_destruction_order_memo_yn } checked {/} >
                                            <span>사용함</span>
                                 </label>
                                 <label for="achievement_purpose_destruction_order_memo_n">
-                                    <input type="radio" name="achievement_purpose_destruction_order_memo_yn" id="achievement_purpose_destruction_order_memo_n" value="N" {? config.achievement_purpose_destruction_order_memo_yn == 'N' } checked {/} >
+                                    <input type="radio" name="achievement_purpose_destruction_order_memo_yn" id="achievement_purpose_destruction_order_memo_n" value="N" {? config.achievement_purpose_destruction_order_memo_yn =='N' } checked {/} >
                                            <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr> <!-- 텍스트 타입 -->
+                    <tr id="achievement_purpose_destruction_order_memo_yn" {? config.achievement_purpose_destruction_order_memo_yn !='Y'}style="display: none;"{/}> <!-- 텍스트 타입 -->
                         <th class="fb-filter__title">
                             <span>
                                 1:1문의 및 상품문의 개인정보 유지기간
@@ -267,19 +269,19 @@
                             </span>
                         </th>
                         <td colspan="3" >
-                            <div class="fb-filter__radio">
+                            <div class="fb-filter__radio devSelectUse">
                                 <label for="achievement_purpose_destruction_order_y">
-                                    <input type="radio" name="achievement_purpose_destruction_order_yn" id="achievement_purpose_destruction_order_y" value="Y" {? config.achievement_purpose_destruction_order_yn == 'Y' || !config.achievement_purpose_destruction_order_yn } checked {/} >
+                                    <input type="radio" name="achievement_purpose_destruction_order_yn" id="achievement_purpose_destruction_order_y" value="Y" {? config.achievement_purpose_destruction_order_yn =='Y' || !config.achievement_purpose_destruction_order_yn } checked {/} >
                                            <span>사용함</span>
                                 </label>
                                 <label for="achievement_purpose_destruction_order_n">
-                                    <input type="radio" name="achievement_purpose_destruction_order_yn" id="achievement_purpose_destruction_order_n" value="N" {? config.achievement_purpose_destruction_order_yn == 'N' } checked {/} >
+                                    <input type="radio" name="achievement_purpose_destruction_order_yn" id="achievement_purpose_destruction_order_n" value="N" {? config.achievement_purpose_destruction_order_yn =='N' } checked {/} >
                                            <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr> <!-- 텍스트 타입 -->
+                    <tr id="achievement_purpose_destruction_order_yn" {? config.achievement_purpose_destruction_order_yn !='Y'}style="display: none;"{/}> <!-- 텍스트 타입 -->
                         <th class="fb-filter__title">
                             <span>
                                 주문정보 내 개인정보 유지기간

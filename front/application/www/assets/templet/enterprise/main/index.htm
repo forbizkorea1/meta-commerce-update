@@ -422,3 +422,9 @@
     </section>
     {/}
 </section>
+
+{? biginsight.use_biginsight_yn == 'Y'}
+<script>
+    (function() {bigin.event('impression');})();
+</script>
+{/}

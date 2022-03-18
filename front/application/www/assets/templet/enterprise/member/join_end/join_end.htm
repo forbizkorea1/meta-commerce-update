@@ -1,0 +1,36 @@
+<section class="fb__join-member">
+    <!--일반-->
+    <div class="title-area">
+        <h2 class="fb__join-member__title">{=trans('회원가입')}</h2>
+
+        <span class="breadcrumb">
+            <span class="breadcrumb__num">3<em class="breadcrumb__all">/3</em></span> {=trans('가입완료')}
+        </span>
+    </div>
+
+    <div class="wrap-joininput-layout join-end">
+        <p class="join-end__tit">{=trans('회원가입이 정상적으로 <span class="fb__point-color">완료</span> 되었습니다.')}</p>
+
+        <p class="join-end__desc">
+            {=trans('{name}님, 가입해주셔서 감사합니다. ')}<br>
+            <!--{? authorized != 'Y' && memberType == 'C'}-->
+            {=trans('기업회원은 <span class="fb__point-color">회원가입 승인이 완료된 후 로그인이 가능</span>하며,<br> 승인완료 된 경우 회원가입 시 입력한 담당자 이메일로 메일이 전송됩니다. ')}<br><br>
+            <!--{:}-->
+            {=trans('지금부터 {mallName}의 다양한 컨텐츠 및 혜택을 누려보세요! ')}<br>
+            <!--{/}-->
+            {=trans('가입 시 입력하신 회원정보는 <span class="fb__point-color">마이페이지에서 확인/수정</span>하실 수 있습니다. ')}
+        </p>
+    </div>
+
+    <div class="wrap-btn-area fb__join-member__btn-area join-end__btn">
+        <a href="/" class="btn-point btn-lg">{=trans('쇼핑 시작하기')}</a>
+    </div>
+</section>
+
+
+
+<!--{"<script>"}-->
+{? facebook.use_pixel_yn == 'Y'}
+    {? facebook.pixel_cont_search_yn == 'Y'}fbq('track', 'CompleteRegistration');{/}
+{/}
+<!--{"</script>"}-->

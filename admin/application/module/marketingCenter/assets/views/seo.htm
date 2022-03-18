@@ -1,0 +1,376 @@
+<div class="meta">
+    <form id="devSeoSettingForm" method="post">
+        {? type == 'tagConfig'}
+        <fieldset>
+            <legend>
+                태그 설정
+            </legend>
+            <section class="fb__menusubmit ">
+                <header class="fb__menusubmit-header">
+                    <h3 class="fb__menusubmit-title">SEO 태그 기본 설정</h3>
+                    <a href="#" class="fb__menusubmit-btn">
+                        <span>닫기</span>
+                        <span>열기</span>
+                    </a>
+                </header>
+                <section class="fb-filter">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="*">
+                        </colgroup>
+
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                SEO 태그 사용 설정여부
+                            </span>
+                            </th>
+                            <td>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="use_seo_yn" value="Y" {?
+                                               config.use_seo_yn=='Y'}checked{/}/>
+                                        <span>사용함</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="use_seo_yn" value="N" {? config.use_seo_yn=='N' ||
+                                               config.use_seo_yn==''}checked{/}/>
+                                        <span>사용안함</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+
+            <section class="fb__menusubmit">
+                <header class="fb__menusubmit-header">
+                    <h3 class="fb__menusubmit-title">공통정보 설정</h3>
+                    <a href="#" class="fb__menusubmit-btn">
+                        <span>닫기</span>
+                        <span>열기</span>
+                    </a>
+                </header>
+                <section class="fb-filter">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="*">
+                        </colgroup>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                Meta 정보 (title)
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="common_title"
+                                      maxlength="500"
+                                      placeholder="" title="Meta 정보 (title)">{config.common_title}</textarea>
+                                <span class="counter">(0 / 최대 500자)</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                Meta 정보 (Author)
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="common_author"
+                                      maxlength="500"
+                                      placeholder="" title="Meta 정보 (Author)">{config.common_author}</textarea>
+                                <span class="counter">(0 / 최대 500자)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                Meta 정보 (Description)
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="common_description"
+                                      maxlength="500"
+                                      placeholder=""
+                                      title="Meta 정보 (Description)">{config.common_description}</textarea>
+                                <span class="counter">(0 / 최대 500자)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                Meta 정보 (Keyword)
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="common_keyword"
+                                      maxlength="500"
+                                      placeholder="" title="Meta 정보 (Keyword)">{config.common_keyword}</textarea>
+                                <span class="counter">(0 / 최대 500자)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+        </fieldset>
+        {: type == 'advanced'}
+        <fieldset>
+            <legend>
+                고급 설정
+            </legend>
+            <section class="fb__menusubmit">
+                <header class="fb__menusubmit-header">
+                    <h3 class="fb__menusubmit-title">오픈 그래프 태그 공통정보 설정</h3>
+                    <a href="#" class="fb__menusubmit-btn">
+                        <span>닫기</span>
+                        <span>열기</span>
+                    </a>
+                </header>
+                <section class="fb-filter">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="*">
+                        </colgroup>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                og:site_name
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="og_site_name"
+                                      maxlength="200"
+                                      placeholder="" title="og:site_name">{config.og_site_name}</textarea>
+                                <span class="counter">(0 / 최대 200자)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                og:title
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="og_title"
+                                      maxlength="200"
+                                      placeholder="" title="og:title">{config.og_title}</textarea>
+                                <span class="counter">(0 / 최대 200자)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                og:description
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                            <textarea type="text" class="fb-filter__textarea countTextarea" name="og_description"
+                                      maxlength="200"
+                                      placeholder="" title="og:description">{config.og_description}</textarea>
+                                <span class="counter">(0 / 최대 200자)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                og:url
+                            </span>
+                            </th>
+                            <td colspan="2">
+                                <input type="text" class="fb-filter__text" name="og_url" value="{config.og_url}"
+                                       style="width: 300px;">
+                                &nbsp;*http//, https:// 를 포함한 쇼핑몰 도메인을 입력해주세요.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="fb-filter__title">
+                            <span>
+                                og:image
+                            </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+                                <div id="devOgTagImg" class="fb-filter__size--55"
+                                     data-img-src="{config.og_img.url}?{config.og_img.system_upload_file_id}"
+                                     style="margin-left: -5px;"></div>
+                                <p>*권장 이미지 사이즈 : 1200*630</p>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+        </fieldset>
+        {: type == 'robot'}
+        <fieldset>
+            <legend>
+                검색로봇설정
+            </legend>
+            <section class="fb__menusubmit ">
+                <header class="fb__menusubmit-header">
+                    <h3 class="fb__menusubmit-title">검색로봇 설정</h3>
+                    <a href="#" class="fb__menusubmit-btn">
+                        <span>닫기</span>
+                        <span>열기</span>
+                    </a>
+                </header>
+                <section class="fb-filter">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="*">
+                        </colgroup>
+
+                        <tr>
+                            <th class="fb-filter__title">
+                        <span>
+                            검색로봇 접근제어 사용 설정여부
+                        </span>
+                            </th>
+                            <td>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="use_robot_yn" value="Y" {?
+                                               config.use_robot_yn=='Y'}checked{/}/>
+                                        <span>사용함</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="use_robot_yn" value="N" {? config.use_robot_yn=='N' ||
+                                               config.use_robot_yn==''}checked{/}/>
+                                        <span>사용안함</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+
+            <section class="fb__menusubmit">
+                <header class="fb__menusubmit-header">
+                    <h3 class="fb__menusubmit-title">검색로봇 접근제어 설정</h3>
+                    <a href="#" class="fb__menusubmit-btn">
+                        <span>닫기</span>
+                        <span>열기</span>
+                    </a>
+                </header>
+                <section class="fb-filter">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="*">
+                        </colgroup>
+                        <tr>
+                            <th class="fb-filter__title">
+                        <span>
+                            robot.txt 내용
+                        </span>
+                            </th>
+                            <td class="fb-filter__title-contents">
+
+                        <textarea type="text" class="fb-filter__textarea countTextarea" name="robot_txt"
+                                  maxlength="500"
+                                  placeholder="" title="robot.txt 내용">{config.robot_txt}</textarea>
+                                <span class="counter">(0 / 최대 500자)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+
+        </fieldset>
+
+        {: type == 'sitemap'}
+        <fieldset>
+            <legend>
+                사이트맵 설정
+            </legend>
+            <section class="fb__menusubmit ">
+                <header class="fb__menusubmit-header">
+                    <h3 class="fb__menusubmit-title">사이트맵 설정</h3>
+                    <a href="#" class="fb__menusubmit-btn">
+                        <span>닫기</span>
+                        <span>열기</span>
+                    </a>
+                </header>
+                <section class="fb-filter">
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="*">
+                        </colgroup>
+
+                        <tr>
+                            <th class="fb-filter__title">
+                        <span>
+                            사이트맵 사용여부
+                        </span>
+                            </th>
+                            <td>
+                                <div class="fb-filter__radio {? config.use_sitemap_yn =='N'}devUseN{/} devSelectUse">
+                                    <label>
+                                        <input type="radio" name="use_sitemap_yn" class="sitemap_use" value="Y" {?
+                                               config.use_sitemap_yn=='Y'}checked{/}/>
+                                        <span>사용함</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="use_sitemap_yn" class="sitemap_use" value="N" {?
+                                               config.use_sitemap_yn=='N' ||
+                                               config.use_sitemap_yn==''}checked{/}/>
+                                        <span>사용안함</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="use_sitemap_yn" {? config.use_sitemap_yn !='Y'}style="display: none;"{/}>
+                            <th class="fb-filter__title" height="52">
+                                <span>
+                                    사이트맵 경로
+                                </span>
+                            </th>
+                            <td colspan="2">
+                                {? config.use_sitemap_yn =='Y' && !empty(config.sitemap_route)}
+                                    <div class="devSitemapInput">
+                                        {config.sitemap_route}/sitemap.xml
+                                    </div>
+                                {:}
+                                    <div class="devSitemapInput">
+                                        <input type="text" class="fb-filter__text devCopyValue" name="sitemap_route"
+                                               value="{config.sitemap_route}" placeholder="Ex. http://, https//" style="width: 200px;">
+                                        <span class="devCopyLast">/sitemap.xml</span>&nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn-white devBtnCopy">복사</button>
+                                    </div>
+                                    <p class="devSitemapText" style="display: none;">사이트맵 생성중입니다. (완료 예정 : {tomorow})</p>
+                                {/}
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+
+        </fieldset>
+        {/}
+    </form>
+</div>

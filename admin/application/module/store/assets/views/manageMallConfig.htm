@@ -1,5 +1,6 @@
 <!-- ManageMallConfig Content -->
 <form id="devManagerConfigForm" method="POST">
+    <input type="hidden" name="zipcode_type" value="D" />
     <fieldset>
         <section class="fb__menusubmit">
             <header class="fb__menusubmit-header">
@@ -289,7 +290,7 @@
                     <tr> <!-- 라디오 타입 -->
                         <th class="fb-filter__title">
                             <span>
-                                톡톡 서비스 사용
+                                네이버 톡톡
                             </span>
                         </th>
                         <td colspan="3">
@@ -323,21 +324,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr> <!-- 라디오 타입 -->
-                        <th class="fb-filter__title">
-                            <span>
-                                도로명주소 DB TYPE 설정
-                            </span>
-                        </th>
-                        <td colspan="3" >
-                            <div class="fb-filter__radio">
-                                <label for="zipcode_type_D">
-                                    <input type="radio" name="zipcode_type" id="zipcode_type_D" value="D" {? config.zipcode_type == 'D' || config.zipcode_type == ''  } checked {/}  >
-                                           <span>DAUM DB사용</span>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
+
                     <tr>
                         <th class="fb-filter__title">
                             <span>
@@ -640,51 +627,6 @@
                     </tr>
 
                 </table>
-            </section>
-        </section>
-
-        <section class="fb__menusubmit">
-            <header class="fb__menusubmit-header">
-                <h3 class="fb__menusubmit-title">타이틀 및 검색엔진 키워드</h3>
-                <a href="#" class="fb__menusubmit-btn">
-                    <span>닫기</span>
-                    <span>열기</span>
-                </a>
-            </header>
-            <section class="fb-filter">
-                <table>
-                    <caption>타이틀 및 검색엔진 키워드</caption>
-                    <colgroup>
-                        <col width="14%">
-                        <col width="35%">
-                        <col width="14%">
-                        <col width="*">
-                    </colgroup>
-                    <tr> <!-- 텍스트 타입 -->
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                타이틀
-                            </span>                            
-                        </th>
-                        <td colspan="3" class="fb-filter__day-wrap">
-                            <div class="fb-filter__checkbox">
-                                <input type="text" class="fb-filter__text" name="mall_title" title="타이틀" value='{config.mall_title}' >                                
-                            </div>
-                        </td>
-                    </tr>
-                    <tr> <!-- 텍스트 타입 -->
-                        <th class="fb-filter__title">
-                            <span>
-                                검색엔진키워드
-                            </span>                            
-                        </th>
-                        <td colspan="3" class="fb-filter__day-wrap">
-                            <div class="fb-filter__checkbox">
-                                <input type="text" class="fb-filter__text" name="mall_keyword" value='{config.mall_keyword}' >
-                            </div>
-                        </td>
-                    </tr>                    
-                </table>                
             </section>
         </section>
 

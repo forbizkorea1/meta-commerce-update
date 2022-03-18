@@ -1,0 +1,273 @@
+<section class="fb__menusubmit mypage-cont">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">
+            서비스 이용현황
+        </h3>
+    </header>
+    <div class="fb__cont-wrapper" style="padding-right: 28px;">
+        <div class="service-status">
+            <div class="service-status__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_pg.png')}" alt="" ></figure>
+                    <span>전자 결제(PG)</span>
+                </div>
+                <div class="desc">
+                    {? pg[0] < 1 } {* 신청전 *}
+                    국내 통합결제(PG)사인 KSNET, KG이니시스,<br />
+                    NICEPAY, KCP 중 선택 할 수 있습니다.
+                    {:} {* 신청 후 *}
+                    이용 PG사 : { pg[1] }
+                    {/}
+                </div>
+                {? pg[0] < 1 } {* 신청전 *}
+                <a href="/thirdParty/payment" class="btn fb-filter__org">서비스 신청</a>
+                {:} {* 신청 후 *}
+                <a href="/store/managePaymentGateway/basic" class="btn fb-filter__org">모듈 설정</a>
+                {/}
+            </div>
+            <div class="service-status__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_npay.png')}" alt="" ></figure>
+                    <span>네이버 간편결제</span>
+                </div>
+                <div class="desc">
+                    네이버ID로<br />
+                    간편하게 구매 할 수 있는 서비스 입니다.
+                </div>
+                <a href="/thirdParty/easyPayment/naver" class="btn fb-filter__org">서비스 신청</a>
+            </div>
+            <div class="service-status__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_payco.png')}" alt="" ></figure>
+                    <span>페이코 간편결제</span>
+                </div>
+                <div class="desc">
+                    페이코ID로<br />
+                    간편하게 구매 할 수 있는 서비스 입니다.
+                </div>
+                <a href="/thirdParty/easyPayment" class="btn fb-filter__org">서비스 신청</a>
+            </div>
+            <div class="service-status__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_vitapay.png')}" alt="" ></figure>
+                    <span>선정산 서비스</span>
+                </div>
+                <div class="desc">
+                    안전하고 바른 비타페이 서비스로<br />
+                    바로 정산 받으세요.
+                </div>
+                <a href="/thirdParty/settle" class="btn fb-filter__org">서비스 신청</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="fb__menusubmit mypage-cont">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">
+            부가 서비스
+        </h3>
+    </header>
+    <div class="fb__cont-wrapper" style="padding-right: 28px;">
+        <div class="service-list">
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_shipping.png')}" alt="" ></figure>
+                    <span>배송추적</span>
+                </div>
+                <div class="desc">
+                    관리자 및 쇼핑몰 내에 배송 정보를 실시간으로<br />
+                    조회해서 확인 할 수 있습니다.
+                </div>
+                {? lookup[1] == true}
+                <div class="sub-desc">
+                    잔여 포인트 : <span class="main-color">{lookup[0]}</span>건
+                </div>
+                <a href="/thirdParty/delivery/lookup" class="btn">충전</a>
+                {:}
+                <a href="/thirdParty/payment" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_delivery.png')}" alt="" ></figure>
+                    <span>자동배송완료</span>
+                </div>
+                <div class="desc">
+                    정확하고 간편한 배송상태 반영으로<br />
+                    CS 문의 절감 효과와 업무 효율성을 높일 수 있습니다.
+                </div>
+                {? autoComplete[1] == true}
+                <div class="sub-desc">
+                    잔여 포인트 : <span class="main-color">{autoComplete[0]}</span>건
+                </div>
+                <a href="/thirdParty/delivery/autoComplete" class="btn">충전</a>
+                {:}
+                <a href="/thirdParty/delivery/autoComplete" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_ssl.png')}" alt="" ></figure>
+                    <span>SSL 인증서</span>
+                </div>
+                <div class="desc">
+                    개인정보를 암호화하여 데이터를 안전하게 보호하며,<br />
+                    해킹을 당하더라도 고객 정보 유출을 막아줍니다.
+                </div>
+                {? ssl[1] == true}
+                <div class="sub-desc">
+                    신청일자 : <span class="main-color">{ssl[0]}</span>
+                </div>
+                <a href="/thirdParty/security/ssl" class="btn">연장</a>
+                {:}
+                <a href="/thirdParty/security/ssl" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_kg.png')}" alt="" ></figure>
+                    <span>KG이니시스 통합인증</span>
+                </div>
+                <div class="desc">
+                    민간인증서를 기반으로<br />
+                    간편인증과 전자서명을 통합으로 제공합니다.
+                </div>
+                {? serviceSso[1] == true}
+                <div class="sub-desc">
+                    신청일자 : <span class="main-color">{serviceSso[0]}</span>
+                </div>
+                <a href="/thirdParty/security/sso" class="btn">연장</a>
+                {:}
+                <a href="/thirdParty/security/sso" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_message.png')}" alt="" ></figure>
+                    <span>문자 메시지</span>
+                </div>
+                <div class="desc">
+                    쇼핑몰에서 발생한 주문, 배송 정보 및 광고성 DM을<br />
+                    문자메시지로 발송 할 수 있도록 제공 하는 서비스 입니다.
+                </div>
+                {? sms[1] == true}
+                <div class="sub-desc">
+                    잔여 포인트 : <span class="main-color">{sms[0]}</span>건
+                </div>
+                <a href="/thirdParty/notice/sms" class="btn">충전</a>
+                {:}
+                <a href="/thirdParty/notice/sms" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_talk.png')}" alt="" ></figure>
+                    <span>알림톡</span>
+                </div>
+                <div class="desc">
+                    쇼핑몰에서 발생한 주문, 배송 정보 및 광고성 DM을<br />
+                    카카오 알림톡으로 발송 할 수 있도록 제공 하는 서비스 입니다.
+                </div>
+                {? alimtalk[1] == true}
+                <div class="sub-desc">
+                    잔여 포인트 : <span class="main-color">{alimtalk[0]}</span>건
+                </div>
+                <a href="/thirdParty/notice/alrimTalk" class="btn">충전</a>
+                {:}
+                <a href="/thirdParty/notice/alrimTalk" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_mail.png')}" alt="" ></figure>
+                    <span>대량메일</span>
+                </div>
+                <div class="desc">
+                    쇼핑몰 프로모션에 적합한 회원을 대상으로<br />
+                    대량 이메일을 발송 할 수 있는 서비스 입니다.
+                </div>
+                {? bulkMail[1] == true}
+                <div class="sub-desc">
+                    잔여 포인트 : <span class="main-color">{bulkMail[0]}</span>건
+                </div>
+                <a href="/thirdParty/notice/bulkMail" class="btn">충전</a>
+                {:}
+                <a href="/thirdParty/notice/bulkMail" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_fat.png')}" alt="" ></figure>
+                    <span>FAT</span>
+                </div>
+                <div class="desc">
+                    쇼핑몰의 실시간 주문 현황 데이터를 확인하고<br />
+                    다양한 구매 패턴 분석을 제공 하는 서비스 입니다.
+                </div>
+                {? fat[1] == true}
+                <div class="sub-desc">
+                    잔여 일 : <span class="main-color">{fat[0]}</span>일
+                </div>
+                <a href="/thirdParty/marketing/fat" class="btn">연장</a>
+                {:}
+                <a href="/thirdParty/marketing/fat" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_seller.png')}" alt="" ></figure>
+                    <span>셀러관리</span>
+                </div>
+                <div class="desc">
+                    쇼핑몰내의 셀러를 입점시켜<br />
+                    쇼핑몰을 운영 할 수 있는 서비스 입니다.
+                </div>
+                {? serviceSeller[1] == true}
+                <div class="sub-desc">
+                    잔여 일 : <span class="main-color">0</span>일
+                </div>
+                <a href="/thirdParty/plugin/seller" class="btn">연장</a>
+                {:}
+                <a href="/thirdParty/plugin/seller" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_market.png')}" alt="" ></figure>
+                    <span>마켓통합관리</span>
+                </div>
+                <div class="desc">
+                    국내몰 및 해외몰까지 약 30개 가량의 오픈마켓을<br />
+                    하나의 관리자로 통합 운영 할 수 있는 서비스 입니다.
+                </div>
+                {? serviceMarket[1] == true}
+                <div class="sub-desc">
+                    잔여 일 : <span class="main-color">{serviceMarket[0]}</span>일
+                </div>
+                <a href="/thirdParty/plugin/market" class="btn">연장</a>
+                {:}
+                <a href="/thirdParty/plugin/market" class="btn">서비스 신청</a>
+                {/}
+            </div>
+            <div class="service-list__item">
+                <div class="icon-tit">
+                    <figure><img src="{=layout_url('assets/img/mypage/ic_bigin.png')}" alt="" ></figure>
+                    <span>빅인사이트 스크립트</span>
+                </div>
+                <div class="desc">
+                    고객들의 데이터를 분석하는<br />
+                    CRM 마케팅 자동화 솔루션 서비스 입니다.
+                </div>
+                {? serviceBigin[1] == true}
+                <div class="sub-desc">
+                    잔여 일 : <span class="main-color">{serviceBigin[0]}</span>일
+                </div>
+                <a href="/thirdParty/marketing/biginsight" class="btn">연장</a>
+                {:}
+                <a href="/thirdParty/marketing/biginsight" class="btn">서비스 신청</a>
+                {/}
+            </div>
+        </div>
+    </div>
+</section>
