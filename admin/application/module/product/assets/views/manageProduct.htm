@@ -659,6 +659,44 @@
                     </tr>
                     <tr>
                         <th class="fb-filter__title">
+                            <span>
+                                네이버 쇼핑 EP 연동 사용 여부 설정
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp_naver" class="devNaverEpUseType" value="1" {? product.disp_naver == '1' || product.disp_naver == ''}checked{/}/>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp_naver" class="devNaverEpUseType" value="0" {? product.disp_naver == '0'}checked{/} />
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                다음 쇼핑하우 연동 사용 여부 설정
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp_daum" class="devDaumHowUseType" value="1" {? product.disp_daum == '1' || product.disp_daum == ''}checked{/}/>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp_daum" class="devDaumHowUseType" value="0" {? product.disp_daum == '0'}checked{/} />
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
                             <span>뱃지 노출</span>
                         </th>
                         <td colspan="3">

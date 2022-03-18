@@ -14,6 +14,10 @@ var devLoginObj = {
             self.loginForm.submit();
         });
 
+        $('#devSecondLoginSubmit').on('click', function () {
+            $('#devCertifyFrm').submit();
+        });
+
         $("#devUserId, #devUserPassword").focus(function () {
             $(this).css("border-color", "#5d5d5d");
         });
@@ -34,6 +38,18 @@ var devLoginObj = {
         $('#devSearchIdPw').on('click', self.findInfoModal);
 
         $(document).on('click','#devSearchIdPwModal', self.findIdPwModal);
+
+        $('#devSecondLogin').one('focusin', function(){
+            var waitTime = 2 * 60 * 1000;
+            var secondLoginTime = setTimeout(function (){
+               common.noti.alert(common.lang.get("secondLogin.timeOut"));
+               clearTimeout(secondLoginTime);
+                history.back();
+           }, waitTime)
+
+        });
+
+
     },
     findInfoModalTpl: false,
     findInfoModal: function() {
@@ -190,6 +206,12 @@ var devLoginObj = {
 
         common.lang.load('searchIdPw.fail', "일치하는 정보가 없습니다.");
 
+        common.lang.load('secondLogin.fail', "2차 인증 코드가 잘못 되었습니다.");
+        common.lang.load('secondLogin.timeOut', "인증코드 유효 시간이 만료되었습니다. 다시 로그인 해주세요.");
+
+        common.lang.load('secondLogin.sendSms', "{devChargerId}에 등록된 휴대폰으로 SMS를 발송했습니다.\n인증코드를 정확히 입력해 주세요.");
+
+
         // 폼 검증
         common.validation.set($('#devUserId'), {'required': true});
         common.validation.set($('#devUserPassword'), {'required': true});
@@ -227,6 +249,31 @@ var devLoginObj = {
                         common.noti.alert(common.lang.get("login.fail"));
                     }
                 });
+
+        // 2차인증 검증
+        common.validation.set($('#devSecondLogin'), {'required': true});
+
+        common.form.init(
+            $('#devCertifyFrm'),
+            common.util.getControllerUrl('getVerifyAuth', 'login', 'system'),
+            function (formData, $form) {
+                return common.validation.check($form, 'alert', false);
+            },
+            function (response) {
+                if (response.result == 'success') {
+                    location.replace(response.data.url);
+                } else if (response.result == 'fail') {
+                    common.noti.alert(response.data.msg);
+                } else if (response.result == 'certifyExpire') {
+                    common.noti.alert(response.data.msg);
+                    location.replace('/system/login');
+                }
+            });
+
+        if (typeof devChargerId !== 'undefined' && devChargerId != '') {
+            common.noti.alert(common.lang.get('secondLogin.sendSms', {devChargerId : devChargerId}));
+            $('#devSecondLogin').focus();
+        }
     },
     run: function () {
         this.init();

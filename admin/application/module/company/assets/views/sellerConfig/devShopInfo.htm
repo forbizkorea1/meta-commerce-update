@@ -23,7 +23,45 @@
                             <input type="text" class="fb-filter__text" name="shop_name"  value="{config.shop_name}">
                         </div>
                     </td>
-                </tr>               
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>
+                            네이버 쇼핑 EP 연동 사용 여부 설정
+                        </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="disp_naver" class="devDispNaverType" value="1" {? config.disp_naver == '1' || config.disp_naver == ''}checked{/}/>
+                                <span>사용</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="disp_naver" class="devDispNaverType" value="0" {? config.disp_naver == '0'}checked{/} />
+                                <span>사용안함</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>
+                            다음 쇼핑하우 연동 사용 여부 설정
+                        </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="disp_daum" class="devDispDaumType" value="1" {? config.disp_daum == '1' || config.disp_daum == ''}checked{/}/>
+                                <span>사용</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="disp_daum" class="devDispDaumType" value="0" {? config.disp_daum == '0'}checked{/} />
+                                <span>사용안함</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
                 <tr style="display: none">
                     <th class="fb-filter__title">
                         <span class="fb-filter__title--ne">

@@ -1,0 +1,27 @@
+<section class="fb__login">
+    <div class="fb__login-inner">
+        <header class="fb__login-header">
+            <h1 class="fb__login-logo">FORBIZ</h1>
+        </header>
+        <div class="fb__login-contents">
+            <form id="devCertifyFrm" method="post">
+                <input type="hidden" name="{ForbizCsrf.name}" value="{ForbizCsrf.hash}" />
+                <fieldset>
+                    <legend>
+                        관리자 2차 인증 폼
+                    </legend>
+                    <input type="text" name="second_login" id="devSecondLogin" value="" title="2차 인증코드" placeholder="2차 인증 코드 입력" style="margin-bottom: 0;">
+                    <button type="button" id="devSecondLoginSubmit">확인</button>
+                </fieldset>
+            </form>
+        </div>
+        <footer class="fb__login-footer">
+            <p>
+                Copyright ⓒ FORBIZKOREA x NAVER Cloud All Rights Reserved.
+            </p>
+        </footer>
+    </div>
+</section>
+<script>
+    var devChargerId = '{charger_id}';
+</script>

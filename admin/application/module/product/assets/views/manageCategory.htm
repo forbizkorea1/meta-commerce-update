@@ -1,0 +1,130 @@
+<div class="fb-menudevice">
+    <section class="fb-menudevice-wrap">
+        <h3 class="fb-menudevice-title">메뉴 리스트</h3>
+        <div class="fb-menudevice__btn menudevice__btn">
+            <button class="menudevice__btn__parent" id="devAddRoot">
+                대분류 추가
+            </button>
+            <button class="menudevice__btn__childer" id="devAddChilder">
+                하위분류 추가
+            </button>
+        </div>
+        <div class="fb-menudevice__wrap">
+            <div class="fb-menudevice__inner" id="devTree">
+
+            </div>
+        </div>
+        <a href="#" class="fb-menudevice__btn fb-menudevice__more">
+            <span class="fb-menudevice__hidden">더보기</span>
+        </a>
+    </section>
+
+    <section class="fb-filter">
+        <form id="devPutForm">
+            <fieldset>
+                <legend>메뉴추가폼</legend>
+                <input type="hidden" name="cid" value="" devReset/>
+                <table>
+                    <colgroup>
+                        <col width="280">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    분류명
+                                </span>
+                        </th>
+                        <td>
+                            <input type="text" name="cname" class="fb-filter__text" title="분류명">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    카테고리 아이디
+                                </span>
+                        </th>
+                        <td>
+                            <input type="text" id="devReadCid" name="read_cid" class="fb-filter__text" disabled>
+                            * 읽기 전용
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    관리 코드
+                                </span>
+                        </th>
+                        <td>
+                            <input type="text" name="category_code" class="fb-filter__text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    분류 사용
+                                </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ category_use_radio}
+                                <label>
+                                    <input type="radio" name="category_use" value="{.key_}" checked>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                                * 미사용시 활성화가 되지않아 프론트에 노출되지 않음
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                네이버 쇼핑 EP 연동 사용 여부 설정
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp_naver" class="devNaverEpUseType" value="1" {? config.disp_naver == '1' || config.disp_naver == ''}checked{/}/>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp_naver" class="devNaverEpUseType" value="0" {? config.disp_naver == '0'}checked{/} />
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                다음 쇼핑하우 연동 사용 여부 설정
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp_daum" class="devDaumHowUseType" value="1" {? config.disp_daum == '1' || config.disp_daum == ''}checked{/}/>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp_daum" class="devDaumHowUseType" value="0" {? config.disp_daum == '0'}checked{/} />
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn fb__goodssearch__btn">
+                    <input type="button" class="fb-filter__save" value="저장" id="devPutButton"/>
+                    <input type="button" class="fb-filter__delete" value="삭제" id="devDelButton"/>
+                </div>
+            </fieldset>
+        </form>
+        <form id="devDelForm"></form>
+    </section>
+</div>

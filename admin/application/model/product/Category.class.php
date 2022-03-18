@@ -114,4 +114,61 @@ class Category extends \CustomScm\Model\Category
                 ->getResultArray();
         }
     }
+
+    public function getEpCategoryInfo($cid = '', $ep)
+    {
+        $this->qb->select('IF(c.depth = 0, 0,
+                                    IFNULL('.$this->qb
+                ->startSubQuery()
+                ->select('cid')
+                ->from($this->categoryTbl.' AS sub')
+                ->where('sub.depth', 'IF(c.depth < 2, 0,(c.depth-1))', false)
+                ->where('sub.cid LIKE CONCAT(SUBSTR(c.cid, 1, 3 * (c.depth)),"%")')
+                ->where('sub.is_delete', 0)
+                ->limit(1)
+                ->endSubQuery()
+            .', 0)
+                                ) AS parent')
+            ->select('IFNULL('.$this->qb
+                    ->startSubQuery()
+                    ->select('cid')
+                    ->from($this->categoryTbl.' AS sub')
+                    ->where('sub.depth', '(c.depth+1)', false)
+                    ->where('sub.cid LIKE CONCAT(SUBSTR(c.cid, 1, 3 * (c.depth+ 1)),"%")')
+                    ->where('sub.is_delete', 0)
+                    ->limit(1)
+                    ->endSubQuery()
+                .', 0) AS children')
+            ->select('cid')
+            ->select('cname')
+            ->select('category_code')
+            ->select('category_use')
+            ->select('depth')
+            ->select($ep)
+            ->from($this->categoryTbl.' AS c');
+
+
+            $list = $this->qb->where('c.is_delete', 0)
+                ->where('c.category_use', 1)
+                ->where($ep, 1)
+                ->orderBy('depth', 'asc')
+                ->exec()
+                ->getResultArray();
+
+            $epCategoryList = [];
+            if (count($list) > 0)
+            {
+                foreach($list as $val)
+                {
+                    if($val['parent'] == 0) {
+                        $epCategoryList[] = $val['cid'];
+                    } else {
+                        if (in_array($val['parent'], $epCategoryList)) {
+                            $epCategoryList[] = $val['cid'];
+                        }
+                    }
+                }
+            }
+            return $epCategoryList;
+    }
 }

@@ -1,0 +1,361 @@
+<form id="devForm" method="POST">
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">휴면회원 관리</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>휴면회원 관리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                휴면계정 사용여부 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="sleep_user_yn_y">
+                                    <input type="radio" name="sleep_user_yn" id="sleep_user_yn_y" value="Y" {? config.sleep_user_yn == 'Y' || config.sleep_user_yn == '' } checked {/} >
+                                           <span>사용함</span>
+                                </label>
+                                <label for="sleep_user_yn_n">
+                                    <input type="radio" name="sleep_user_yn" id="sleep_user_yn_n" value="N" {? config.sleep_user_yn == 'N'} checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                휴면상태 적용 날짜
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="sleep_date"  devnumber="true" value="{config.sleep_date}"> 년
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                휴면 알림 메일 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="sleep_user_mailing_y">
+                                    <input type="radio" name="sleep_user_mailing" id="sleep_user_mailing_y" value="Y" {? config.sleep_user_mailing == 'Y' || !config.sleep_user_mailing } checked {/} >
+                                           <span>사용함</span>
+                                </label>
+                                <label for="sleep_user_mailing_n">
+                                    <input type="radio" name="sleep_user_mailing" id="sleep_user_mailing_n" value="N" {? config.sleep_user_mailing == 'N' } checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                휴면전환 안내메일 발송일 지정
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <select class="fb-filter__select" name="sleep_user_mailing_day" item='{config.sleep_user_mailing_day}'>
+                                    <option value="0" selected=""></option><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="60">60</option>
+                                </select> 일
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">관리자접근허용설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>관리자접근허용설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                비밀번호 변경안내 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="change_pw_info_y">
+                                    <input type="radio" name="change_pw_info" id="change_pw_info_y" value="Y" {? config.change_pw_info == 'Y' || !config.change_pw_info } checked {/}  >
+                                           <span>사용함</span>
+                                </label>
+                                <label for="change_pw_info_n">
+                                    <input type="radio" name="change_pw_info" id="change_pw_info_n" value="N" {? config.change_pw_info == 'N' } checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                비밀번호 변경기간	
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="change_pw_day" devnumber="true" value="{config.change_pw_day}" /> 일 이상 접속기록이 지난 회원에 대한 설정
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                비밀번호 변경(연장)기간	
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="change_pw_continue_day" devnumber="true" value="{config.change_pw_continue_day}" /> 일 이상  비밀번호를 변경하지 않고 연장 시 허용
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                비밀번호 변경기간 [관리자]	
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="change_admin_pw_day" devnumber="true" value="{config.change_admin_pw_day}"> 일 이상 접속기록이 지난 셀러 및 관리자에 대한 설정
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">개인 정보 파기 설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>개인 정보 파기 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                회원 탈퇴시 주문 및 문의 개인정보 즉시파기 여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="secede_member_order_destruction_y">
+                                    <input type="radio" name="secede_member_order_destruction_yn" id="secede_member_order_destruction_y" value="Y" {? config.secede_member_order_destruction_yn == 'Y' || !config.secede_member_order_destruction_yn } checked {/}  >
+                                           <span>사용함</span>
+                                </label>
+                                <label for="secede_member_order_destruction_n">
+                                    <input type="radio" name="secede_member_order_destruction_yn" id="secede_member_order_destruction_n" value="N" {? config.secede_member_order_destruction_yn == 'N' } checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                회원 일정기간 지난 로그인 기록 삭제
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="login_history_destruction_y">
+                                    <input type="radio" name="login_history_destruction_yn" id="login_history_destruction_y" value="Y" {? config.login_history_destruction_yn == 'Y' || !config.login_history_destruction_yn } checked {/}  >
+                                    <span>사용함</span>
+                                </label>
+                                <label for="login_history_destruction_n">
+                                    <input type="radio" name="login_history_destruction_yn" id="login_history_destruction_n" value="N" {? config.login_history_destruction_yn == 'N' } checked {/} >
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                로그인 내역 파기 기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="login_history_destruction_year" devnumber="true" value="{config.login_history_destruction_year}">년 이상 지난 경우 파기
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                1:1문의 및 상품문의 개인정보 파기
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="achievement_purpose_destruction_order_memo_y">
+                                    <input type="radio" name="achievement_purpose_destruction_order_memo_yn" id="achievement_purpose_destruction_order_memo_y" value="Y" {? config.achievement_purpose_destruction_order_memo_yn == 'Y' || !config.achievement_purpose_destruction_order_memo_yn } checked {/} >
+                                           <span>사용함</span>
+                                </label>
+                                <label for="achievement_purpose_destruction_order_memo_n">
+                                    <input type="radio" name="achievement_purpose_destruction_order_memo_yn" id="achievement_purpose_destruction_order_memo_n" value="N" {? config.achievement_purpose_destruction_order_memo_yn == 'N' } checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                1:1문의 및 상품문의 개인정보 유지기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="achievement_purpose_destruction_order_memo_year" devnumber="true" value="{config.achievement_purpose_destruction_order_memo_year}"> 년 이상 지난 경우 파기
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                주문정보 내 개인정보 파기
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="achievement_purpose_destruction_order_y">
+                                    <input type="radio" name="achievement_purpose_destruction_order_yn" id="achievement_purpose_destruction_order_y" value="Y" {? config.achievement_purpose_destruction_order_yn == 'Y' || !config.achievement_purpose_destruction_order_yn } checked {/} >
+                                           <span>사용함</span>
+                                </label>
+                                <label for="achievement_purpose_destruction_order_n">
+                                    <input type="radio" name="achievement_purpose_destruction_order_yn" id="achievement_purpose_destruction_order_n" value="N" {? config.achievement_purpose_destruction_order_yn == 'N' } checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                주문정보 내 개인정보 유지기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="achievement_purpose_destruction_order_year" devnumber="true" value="{config.achievement_purpose_destruction_order_year}">년 이상 지난 경우 파기
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">관리자 2차 인증 설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>관리자 2차 인증 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                2차 인증 사용여부 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="secondary_authentication_use" value="Y" {? config.secondary_authentication_use == 'Y' || !config.secondary_authentication_use } checked {/}  >
+                                    <span>사용함</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="secondary_authentication_use" value="N" {? config.secondary_authentication_use == 'N' } checked {/} >
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                2차 인증 수단 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label>
+                                    {? config.secondary_authentication_use == 'N' }
+                                    <input type="radio" name="secondary_authentication_method" value="SMS" disabled />
+
+                                    {:}
+                                    <input type="radio" name="secondary_authentication_method" value="SMS" {? config.secondary_authentication_method == 'SMS' || !config.secondary_authentication_method } checked {/}  >
+                                    {/}
+                                    <span>SMS</span>
+                                </label>
+                            </div>
+                            <br />
+                            <p>* SMS 발송 가능한 건 수가 없는 경우 2차 인증 SMS가 발송 되지 않으니 유의해주세요.</p>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+    </fieldset>
+</form>

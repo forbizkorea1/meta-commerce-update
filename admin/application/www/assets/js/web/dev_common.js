@@ -3006,7 +3006,7 @@ var common = {
                 reset: function () {
                     this.filSeq = 1;
                     this.target.find('.fb__file .fb__file__box .fb__file__list').remove();
-                    this.addFileBox(this.colName);
+                    //this.addFileBox(this.colName);
                     return this;
                 }
 
@@ -3406,6 +3406,7 @@ var common = {
             modalType : 'n',
             pass : '',
             num : [1,2,3,4,5,6,7,8,9,0,-1,-1],
+            mode : '',
             card : false,
             setBillInfo : function(data) {
                 this.pass = '';
@@ -3414,13 +3415,17 @@ var common = {
 
                 $('.metapay-new').show();
                 $('.metapay-confirm').hide();
-
                 if(data.sgIx){
                     this.sgIx = data['sgIx'];
                     $("#devStep02").hide();
                     $("#devStep01").show();
                 }
                 $('.metapay-confirm').hide();
+
+                if (common.payment.meta.mode == 'add') {
+                    $("#devStep02").hide();
+                    $("#devStep05").show();
+                }
             },
             initCardList: function() {
                 var self = this;
@@ -3440,8 +3445,11 @@ var common = {
                         $('#devCardList > *').remove();
 
                         if(cardList.length > 0) {
-                            $('#devStep01').show();
-                            $('#devStep02').hide();
+                            if (common.payment.meta.mode != 'add') {
+                                $('#devStep01').show();
+                                $('#devStep02').hide();
+                            }
+
                             for(var i =0; i < cardList.length; i++){
                                 var card = cardList[i];
                                 var tpl = self.cardTpl;
@@ -3507,7 +3515,7 @@ var common = {
                 });
             },
             sendCardNum: false,
-            modal: function (html, mode, data, redirect = '') {
+            modal: function (html, mode, data, redirect = '', completeFunction) {
                 var modalTitle = '메타페이 결제 ';
                 var self = this;
                 // 모달 설정
@@ -3521,6 +3529,10 @@ var common = {
                         self.setBillInfo(data);
                         self.initCardList();
                         self.initNumPad();
+                        if (typeof completeFunction === "function") {
+                            completeFunction();
+                        }
+
 
                         $('#devSpName').text(data['sp_name']);
                         if(data['offer'] > 0) {
@@ -3747,24 +3759,28 @@ var common = {
                                     if (response.result == 'success') {
 
                                         common.noti.alert(common.lang.get('msg.bill.complete'));
-                                        if(response.data.msg == 'Exist'){
-                                            $('#devStep01').show();
-                                            $('#devStep05').hide();
-                                            self.pass = '';
-                                            self.initCardList();
+                                        if (common.payment.meta.mode == 'add') {
+                                            common.util.modal.close();
+                                            devThirdPartyManageMetapayObj.grid.reload();
+                                        } else {
+                                            if (response.data.msg == 'Exist') {
+                                                $('#devStep01').show();
+                                                $('#devStep05').hide();
+                                                self.pass = '';
+                                                self.initCardList();
 
-                                        }else {
-                                            $('.fb-modal__bg').click();
-                                            self.payStatus = true;
-                                            if($('#devMetaPay').length > 0) {
-                                                $('#devMetaPay').attr('disabled', 'disabled');
-                                                $('#devMetaText').text('등록완료');
+                                            } else {
+                                                $('.fb-modal__bg').click();
+                                                self.payStatus = true;
+                                                if ($('#devMetaPay').length > 0) {
+                                                    $('#devMetaPay').attr('disabled', 'disabled');
+                                                    $('#devMetaText').text('등록완료');
+                                                }
                                             }
+                                            setTimeout(function () {
+                                                $(".fb__metapay__reg .slide").removeClass('destroy');
+                                            }, 600);
                                         }
-                                        setTimeout(function () {
-                                            $(".fb__metapay__reg .slide").removeClass('destroy');
-                                        },600);
-
                                     } else {
                                         common.noti.alert(response.data.msg);
                                     }
@@ -3802,8 +3818,8 @@ $(function () {
     common.lang.load('common.delete.file.fail', '파일삭제가 실패되었습니다.');
 
     //meta pay
-    common.lang.load('msg.bill.complete', '메타 페이 카드 등록이 완료 되었습니다.');
-    common.lang.load('msg.pay.agree', '메타 페이 이용약관의 동의가 필요합니다.');
+    common.lang.load('msg.bill.complete', '메타페이 카드 등록이 완료 되었습니다.');
+    common.lang.load('msg.pay.agree', '메타페이 이용약관의 동의가 필요합니다.');
     common.lang.load('msg.pay.complete', '결제 완료 되었습니다.');
     common.lang.load('msg.pay.lost', '분실된 카드입니다.');
 

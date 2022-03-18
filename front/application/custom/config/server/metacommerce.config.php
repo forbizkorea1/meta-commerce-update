@@ -42,6 +42,7 @@ define("DB_FAT", 'mall_db');
 define("DB_PRODUCT", 'mall_db');
 
 ////////////////////// 간편로그인 설정 ///////////////////////////
+defined('FORBIZ_HOST') OR define('FORBIZ_HOST', $_SERVER['HTTP_HOST']);
 // 네이버 간편로그인 설정
 define('NAVER_CLIENT_ID', '');
 define('NAVER_CLIENT_SECRET', '');
