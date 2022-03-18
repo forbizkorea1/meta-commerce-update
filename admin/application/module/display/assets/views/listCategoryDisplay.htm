@@ -1,0 +1,285 @@
+<section class="fb__menusubmit">
+    <fieldset class="fb-filter">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#devList" class="fb__tap__menu--active">
+                        리스트
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devGoodsCategory">
+                        분류관리
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devGoodsCategoryPosition">
+                        위치관리
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devList">
+        <form id="devListForm">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <fieldset>
+                <legend>
+                    메인전시
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>분류 메인 전시 분류</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="div_ix" class="fb-filter__select">
+                                <option value="" selected>카테고리메인 분류</option>
+                                {@ divList}
+                                <option value="{divList.div_ix}">{divList.div_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>분류 전시 위치</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="cmp_ix" class="fb-filter__select">
+                                <option value="" selected>전시위치</option>
+                                {@ positionList}
+                                <option value="{positionList.cmp_ix}">{positionList.cmp_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>카테고리</span>
+                        </th>
+                        <td colspan="3">
+                            <div id="devSelectCategory"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>전시명</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="filterText">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>전시여부</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp" value="" checked>
+                                    <span>전체</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp" value="1">
+                                    <span>노출함</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp" value="0">
+                                    <span>노출안함</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>
+                                진행상태
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="status" value="" checked>
+                                    <span>전체</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="status" value="1">
+                                    <span>진행예약</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="status" value="2">
+                                    <span>진행중</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="status" value="3">
+                                    <span>진행완료</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devFormSubmit" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="fb-filter fb__tapcontent__inner" id="devGoodsCategory">
+        <form id="devGoodsCategoryForm">
+            <input type="hidden" name="div_ix" value="" devReset/>
+            <fieldset>
+                <legend>
+                    메인전시 분류관리
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">분류명</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="div_name" title="분류명">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">사용유무</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp" value="1" checked>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp" value="0">
+                                    <span>사용하지않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__save" id="devGoodsCategoryFormSave" value="저장"/>
+                    <input type="button" class="fb-filter__reset" id="devGoodsCategoryFormReset" value="초기화" style="display:none;">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="fb-filter fb__tapcontent__inner" id="devGoodsCategoryPosition">
+        <form id="devGoodsCategoryPositionForm">
+            <input type="hidden" name="cmp_ix" value="" devReset/>
+            <fieldset>
+                <legend>
+                    메인전시 그룹 위치관리
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>전시그룹</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="div_ix" class="fb-filter__select" title="전시그룹">
+                                <option value="">카테고리메인 분류</option>
+                                {@ divList}
+                                <option value="{divList.div_ix}">{divList.div_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">전시위치</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="cmp_name" title="전시위치">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>노출순서</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="vieworder" title="노출순서" devnumber="true">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>사용유무</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp" value="1" checked>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp" value="0">
+                                    <span>사용하지않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__save" id="devGoodsCategoryPositionFormSave" value="저장"/>
+                    <input type="button" class="fb-filter__reset" id="devGoodsCategoryPositionFormReset" value="초기화" style="display:none;">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devListGridSection">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devGoodsCategoryGridSection">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devGoodsCategoryTotal">0</em>개)</span>
+        </h3>
+    </header>
+    <div id="devGoodsCategoryGrid"></div>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devGoodsCategoryPositionGridSection">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devGoodsCategoryPositionTotal">0</em>개)</span>
+        </h3>
+    </header>
+    <div id="devGoodsCategoryPositionGrid"></div>
+</section>

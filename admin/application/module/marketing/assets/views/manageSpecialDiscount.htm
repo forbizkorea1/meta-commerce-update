@@ -146,7 +146,7 @@
                             <span class="fb-filter__title--ne">수수료</span>
                         </th>
                         <td colspan="3" class="fb-filter__title-contents">
-                            <input type="text" name="commission" class="fb-filter__text fb-filter__text--20" value="{productGroupList.commission}" title="수수료"><br>%
+                            <input type="text" name="commission" class="fb-filter__text fb-filter__text--20" value="{productGroupList.commission}" devnumber="true" title="수수료"><br>%
                         </td>
                     </tr>
                     <tr>
@@ -173,14 +173,14 @@
                             </span>
                         </th>
                         <td colspan="3">
-                            <input type="text" class="fb-filter__text fb-filter__number" style="width:10%" name="headoffice_rate" value="{productGroupList.headoffice_rate}" title="할인설정 본사">
+                            <input type="text" class="fb-filter__text fb-filter__number floatNo" style="width:10%" name="headoffice_rate" devnumber="true" value="{productGroupList.headoffice_rate}" title="할인설정 본사">
                             <span id="devSellerSaleContents">
-                                <span class="fb-filter__day__line">+</span>
-                                <input type="text" class="fb-filter__text fb-filter__number" style="width:10%" name="seller_rate" value="{productGroupList.seller_rate}" title="할인설정 셀러">
-                                <span class="fb-filter__day__line">=</span>
-                                <input type="text" class="fb-filter__text fb-filter__number" style="width:10%" name="sale_rate" value="{productGroupList.sale_rate}" readonly>
+                                <span class="fb-filter__day__line floatNo">+</span>
+                                <input type="text" class="fb-filter__text fb-filter__number floatNo" style="width:10%" name="seller_rate" devnumber="true" value="{productGroupList.seller_rate}" title="할인설정 셀러">
+                                <span class="fb-filter__day__line floatNo">=</span>
+                                <input type="text" class="fb-filter__text fb-filter__number floatNo" style="width:10%" name="sale_rate" devnumber="true" value="{productGroupList.sale_rate}" readonly>
                             </span>
-                            <br> 본사 + 셀러 = 전체합계
+                            본사 + 셀러 = 전체합계
                         </td>
                     </tr>
                     <tr>

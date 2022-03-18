@@ -10,6 +10,8 @@ var devThirdPartyDeliveryObj = {
     initLang: function () {
         common.lang.load('msg.select.package', '충전 패키지를 선택하여 주십시오.');
         common.lang.load('msg.refund.confirm', '신청하신 서비스를 취소 하시겠습니까?');
+
+        common.lang.load('msg.modify.alert', '수정 되었습니다.');
     },
     initMetaPayModal: function () {
         var self = devThirdPartyDeliveryObj;
@@ -58,6 +60,65 @@ var devThirdPartyDeliveryObj = {
                     }
                 );
             }
+        });
+
+        $('.devDeliveryServiceUse').on('click', function (e){
+            e.preventDefault();
+            self.deliveryServiceUseModal();
+        });
+
+    },
+    deliveryServiceUseModalTpl : false,
+    deliveryServiceUseModal: function () {
+        var self = devThirdPartyDeliveryObj;
+        if(self.deliveryServiceUseModalTpl === false) {
+            self.deliveryServiceUseModalTpl = common.util.getHtml('#devDeliveryServiceUseModalTpl');
+        }
+        common.util.modal.open('html',
+            '서비스 사용 설정',
+            self.deliveryServiceUseModalTpl,
+            '',
+            function(){
+            $('.devServiceUse[value="'+devDeliveryService+'"]').prop('checked', true);
+
+            $('.devServiceUseInfo').hide();
+            $('#devServiceUse'+ devDeliveryService).show();
+
+            $('.devServiceUse').on('click', function (){
+               var $val = $(this).attr('value');
+               $('.devServiceUseInfo').hide();
+               $('#devServiceUse'+ $val).show();
+            });
+            $('#devDeliveryServiceUseSubmit').on('click', function(){
+                common.ajax(
+                    common.util.getControllerUrl('putDeliveryServiceUse', 'delivery', 'thirdParty'),
+                    {
+                        serviceUse: $('.devServiceUse:checked').val(),
+                    },
+                    function (formData) {
+
+                        return true;
+                    },
+                    function (response) {
+
+                        if (response.result == 'success') {
+                            devDeliveryService = response.data.useYn;
+                            common.noti.alert(common.lang.get('msg.modify.alert'));
+                            common.util.modal.close();
+                            console.log(devDeliveryService);
+                            if (devDeliveryService == 'Y'){
+                                $('#devDeliveryServiceStatus').text('사용중');
+                            } else {
+                                $('#devDeliveryServiceStatus').text('사용중지');
+                            }
+                            
+                        }
+                    }
+                );
+            });
+        }, {
+            width: '600px',
+            height: '400px'
         });
     },
     run: function() {

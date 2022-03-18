@@ -1,0 +1,141 @@
+<section class="fb__menusubmit fb-filter">
+    <form method="post" id="devCronJobListGridForm">
+        <input type="hidden" name="page" value="1" id="devPageNum" />
+        <input type="hidden" name="max"  value="50"/>
+    </form>
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">배치작업 목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span></h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devCronJobListGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<!--{* 등록/수정 모달 *}-->
+<div style="display:none;" id="devCronJobFormDiv">
+    <section class="fb__menusubmit ">
+        <section class="fb-filter">
+            <form id="devCronJobForm">
+                <input type="hidden" name="system_cron_id" />
+                <input type="hidden" name="task_type" value="module"/>
+                <fieldset>
+                    <legend></legend>
+                    <table>
+                        <colgroup>
+                            <col width="150"/>
+                            <col width="*"/>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">
+                                        작업
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text fb-filter__text--50" name="task"
+                                           title="작업">
+                                    <select class="fb-filter__select" id="devCronModule" title="작업">
+                                        <option value=''>간편선택</option>
+                                        <!--{@ modules}-->
+                                        <option value='{.value_}'>{.value_}</option>
+                                        <!--{/}-->
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">
+                                        작업설명
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text" name="desc" title="작업설명">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">
+                                        사용여부
+                                    </span>
+                                </th>
+                                <td>
+                                    <select name="use" class="fb-filter__select" id="devCronUse" title="사용여부">
+                                        <option value='N'>미사용</option>
+                                        <option value='Y'>사용</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="">
+                                        월
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text fb-filter__text--40" devnumber="true" name="mon" title="월">
+                                    (1 ~ 12) 월
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="">
+                                        일
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text fb-filter__text--40" devnumber="true" name="day" title="일">
+                                    (1 ~ 31) 일
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="">
+                                        시
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text fb-filter__text--40" devnumber="true" name="hour" title="시">
+                                    (0 ~ 23) 시
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="">
+                                        분
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text fb-filter__text--40" devnumber="true" name="min" title="분">
+                                    (0 ~ 59) 분
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="">
+                                        요일
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text fb-filter__text--40" name="week" title="요일">
+                                    (0:일, 1:월, 2:화, 3:수, 4:목, 5:금, 6:토)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <div  class="fb-modal__bottom">
+                    <div class="fb-filter__btn">
+                        <button type="submit" class="fb-filter__search">저장</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </section>
+</div>

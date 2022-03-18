@@ -1,0 +1,75 @@
+
+<article class="fb__modal__layer" style="display: block;">
+    <header class="popup-title fb__modal__header">
+        <h3 id="devModalTitle" class="fb__modal__title">주문번호 조회</h3>
+    </header>
+    <main class="fb__modal__content">
+        <section class="fb__delivery-tracking" style="width: 800px;">
+            <h2 class="fb__title--hidden">{=trans('배송조회 팝업')}</h2>
+
+            <h3 class="fb__mypage__title">{=trans('배송정보')}</h3>
+            <table class="table-default left">
+                <colgroup>
+                    <col style="width: 20%;">
+                    <col />
+                </colgroup>
+                <tr>
+                    <th>{=trans('송장번호')}</th>
+                    <td  style="border-top: 1px solid #ddd;">{invoice_no}</td>
+                </tr>
+                <tr>
+                    <th>{=trans('배송상태')}</th>
+                    <td>{deliveryInfo.data.state.text}</td>
+                </tr>
+                <tr>
+                    <th>{=trans('배송상태 일시')}</th>
+                    <td>{deliveryInfo.data.latestDate}</td>
+                </tr>
+            </table>
+
+            <h3 class="fb__mypage__title">배송추적</h3>
+            <table class="table-default">
+                <colgroup>
+                    <col style="width: 15%;">
+                    <col style="width: 15%;">
+                    <col style="width: 20%;">
+                    <col />
+                </colgroup>
+
+                <thead>
+                <tr>
+                    <th>{=trans('배송상태')}</th>
+                    <th>{=trans('위치')}</th>
+                    <th>{=trans('일시')}</th>
+                    <th>{=trans('배송정보')}</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {@ deliveryInfo.data.progresses}
+                <tr>
+                    <td>
+                        {.status.text}
+                    </td>
+
+                    <td class="order-goods">
+                        {.location.name}
+                    </td>
+
+                    <td>
+                        {.time}
+                    </td>
+
+                    <td style="word-break: keep-all;">
+                        {.description}
+                    </td>
+                </tr>
+                {/}
+                </tbody>
+            </table>
+            <div style="text-align: center; padding: 30px 0 0;">
+                <button type="button" class="btn-lg btn-dark-line" onclick="window.close();">{=trans('닫기')}</button>
+            </div>
+        </section>
+    </main>
+</article>

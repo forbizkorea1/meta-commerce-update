@@ -1,0 +1,189 @@
+<section class="fb__join-member">
+    <!-- 타이틀 / step -->
+    <div class="title-area">
+        <h2 class="fb__join-member__title">{=trans('회원가입')}</h2>
+
+        <span class="breadcrumb">
+            <span class="breadcrumb__num">1<em class="breadcrumb__all">/3</em></span> {=trans('본인인증 및 약관동의')}
+        </span>
+    </div>
+
+    <!-- 본인인증 -->
+    <section class="sect">
+        <!--{? useCertify == 'Y'}-->
+        <h3 class="sect__title">{=trans('본인 인증')}</h3>
+        <!--{/}-->
+        <div class="sect__cont">
+            <!--{? useCertify == 'Y'}-->
+            <div class="certify-box">
+
+                <!-- 인증완료되면 클래스 추가 : success -->
+                <a href="#" class="certify-box__btn" id="devCertifyButton">
+                    <span class="certify-box__title" id="devCertifyButtonTxt">{=trans('휴대폰 인증')}</span>
+                </a>
+                <p class="certify-box__desc">· {=trans('회원님의 개인정보 보호를 위해 본인확인이 필요합니다.')}</p>
+            </div>
+            <!--{:}-->
+            <section class="fb__join-input__form">
+                <section class="input-form">
+                    <form id="devUserDataFrm">
+                    <ul class="input-form__content-box" style="padding: 30px 0;">
+                        <!-- 이름 -->
+                        <li class="inputs">
+                            <span class="inputs__title">{=trans('이름')}</span>
+                            <div class="inputs__content">
+                                <input type="text" name="user_name" id="devUserName" title="{=trans('이름')}"/>
+                            </div>
+                        </li>
+                        <!-- 휴대폰 인증 -->
+                        <li class="inputs phone-area">
+                            <span class="inputs__title">{=trans('휴대폰 번호')}</span>
+                            <div class="inputs__content">
+                                <div class="selectWrap">
+
+                                    <select name="pcs1"  id="devPcs1">
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="019">019</option>
+                                    </select>
+
+                                    <div class="wrap-input">
+                                        <span class="hyphen">-</span>
+                                        <input type="number" name="pcs2" id="devPcs2" value="" title="{=trans('휴대폰번호')}" class="input2">
+                                        <span class="hyphen">-</span>
+                                        <input type="number"  name="pcs3" id="devPcs3" value="" title="{=trans('휴대폰번호')}" class="input3">
+                                    </div>
+                                    <button type="button" class="btn-default btn-dark btn-email-check" id="devPcsChkBtn" style="margin-left: 10px;padding: 0 10px;">{=trans('휴대폰 번호 중복 확인')}</button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 생년월일 -->
+                        <li class="inputs">
+                            <span class="inputs__title">{=trans('생년월일')}</span>
+                            <div class="inputs__content">
+                                <input type="text" name="birthday" id="devBirthDay" title="{=trans('생년월일')}" placeholder="{=trans('생년월일을 입력해주세요. ex) 1986-10-15')}">
+                            </div>
+                        </li>
+
+                        <!-- 성별 -->
+                        <li class="inputs">
+                            <span class="inputs__title">{=trans('성별')}</span>
+                            <div class="inputs__content">
+                                <div class="fb__comm__radio__wrap">
+                                    <label class="fb__comm__radio">
+                                        <input type="radio" name="sex_div" value="M" class="devSexDivCls" title="{=trans('성별')}" checked>
+                                        <span>{=trans('남자')}</span>
+                                    </label>
+                                    <label class="fb__comm__radio" style="margin-left: 30px;">
+                                        <input type="radio" name="sex_div" value="W" class="devSexDivCls" title="{=trans('성별')}">
+                                        <span>{=trans('여자')}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    </form>
+                </section>
+            </section>
+            <!--{/}-->
+        </div>
+    </section>
+
+    <!-- 약관동의 -->
+    <section class="sect">
+        <h3 class="sect__title">{=trans('약관 동의')}</h3>
+
+        <form id="devForm" class="agree-area js__details__accordian js__check__wrapper">
+            <input type="hidden" name="devCerti" id="devCerti" value="">
+
+            <div class="wrap-chk-all">
+                <label for="agree-all" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-all" class="js__check__all">
+                    <span>{=trans('약관 전체 동의')}</span>
+                </label>
+            </div>
+
+            <details class="wrap-terms accordion">
+                <summary class="wrap-terms-check wrap-terms__title">
+                    <label for="agree-term1" class="fb__comm__checkbox">
+						<input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="js__check__each devRequired">
+						<span>[{=trans('필수')}] {=trans('구매 이용 약관')}</span>
+                    </label>
+                </summary>
+                <div class="wrap-terms__cont">{policyData['use']['contents']}</div>
+            </details>
+
+            <details class="wrap-terms accordion">
+                <summary class="wrap-terms-check wrap-terms__title">
+					<label for="agree-term2" class="fb__comm__checkbox">
+						<input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" value="Y" class="js__check__each devRequired">
+						<span>[{=trans('필수')}] {=trans('개인정보 수집 및 이용에 대한 안내')}</span>
+					</label>
+                </summary>
+                <div class="wrap-terms__cont">{policyData['collection']['contents']}</div>
+            </details>
+
+            <details class="wrap-terms accordion">
+                <summary class="wrap-terms-check wrap-terms__title">
+					<label for="agree-term3" class="fb__comm__checkbox">
+						<input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" value="Y" class="js__check__each devRequired">
+						<span>[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</span>
+					</label>
+                    <span class="view-more"></span>
+                </summary>
+                <div class="wrap-terms__cont">{policyData['consign']['contents']}</div>
+            </details>
+
+            <details class="wrap-terms accordion">
+                <summary class="wrap-terms-check wrap-terms__title">
+					<label for="agree-term4" class="fb__comm__checkbox">
+						<input type="checkbox" id="agree-term4" name="policyIx[{policyData['third']['ix']}]" value="Y" class="js__check__each">
+						<span>[{=trans('선택')}] {=trans('제 3자 정보 제공 동의')}</span>
+					</label>
+                    <span class="view-more"></span>
+                </summary>
+                <div class="wrap-terms__cont">{policyData['third']['contents']}</div>
+            </details>
+
+            <details class="wrap-terms accordion marketing js__another__wrapper">
+                <summary class="wrap-terms-check wrap-terms__title">
+					<label for="agree-term5" class="fb__comm__checkbox">
+						<input type="checkbox" id="agree-term5" name="policyIx[{policyData['marketing']['ix']}]" value="Y" class="js__check__each js__another__all">
+						<span>[{=trans('선택')}] {=trans('마케팅 활용 동의')}</span>
+					</label>
+                    (&nbsp;
+                    <label for="agree-term6" class="fb__comm__checkbox">
+						<input type="checkbox" id="agree-term6" name="sms" value="1" class="js__check__each" data-another-target="true">
+						<span>{=trans('SMS 수신')}</span>
+					</label>
+
+					<label for="agree-term7" class="fb__comm__checkbox mal10">
+						<input type="checkbox" id="agree-term7" name="email" value="1" class="js__check__each" data-another-target="true">
+						<span>{=trans('이메일 수신')}</span>
+					</label>
+                    &nbsp;)
+                    <span class="view-more"></span>
+                </summary>
+
+                <div class="wrap-terms__cont">{policyData['marketing']['contents']}</div>
+            </details>
+        </form>
+
+        <p class="agree-desc">
+            · {=trans('쇼핑몰에서 제공되는 다양한 정보를 받아보실 수 있습니다.')}<br>
+            · {=trans('결제/교환/환불 등의 주문거래 관련 정보는 수신동의 여부와 상관 없이 발송됩니다.')}
+        </p>
+    </section>
+
+    <div class="fb__join-agreement__submit">
+        <button type="button" class="btn-lg fb__btn-point" id="devSubmitButton">{=trans('다음')}</button>
+    </div>
+
+    <input type="hidden" id="devMallName" value="{mallName}"/>
+</section>
+<script>
+    var devUseCertify = '{useCertify}';
+</script>

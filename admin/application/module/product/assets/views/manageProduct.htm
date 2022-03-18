@@ -327,7 +327,7 @@
                         </th>
                         <td colspan="3">
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="coprice" value="{? product.coprice}{product.coprice}{:}0{/}" title="구매단가(원가)">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="coprice" devnumber="true" value="{? product.coprice}{product.coprice}{:}0{/}" title="구매단가(원가)">
                             </label>
                         </td>
                     </tr>
@@ -337,7 +337,7 @@
                         </th>
                         <td>
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="wholesale_price" value="{? product.wholesale_price}{product.wholesale_price}{:}0{/}" title="도매판매가">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="wholesale_price" devnumber="true" value="{? product.wholesale_price}{product.wholesale_price}{:}0{/}" title="도매판매가">
                             </label>
                         </td>
                         <th class="fb-filter__title">
@@ -345,7 +345,7 @@
                         </th>
                         <td>
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="wholesale_sellprice" value="{? product.wholesale_sellprice}{product.wholesale_sellprice}{:}0{/}" title="도매할인가">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="wholesale_sellprice" devnumber="true" value="{? product.wholesale_sellprice}{product.wholesale_sellprice}{:}0{/}" title="도매할인가">
                             </label>
                         </td>
                     </tr>
@@ -355,7 +355,7 @@
                         </th>
                         <td>
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="listprice" value="{? product.listprice}{product.listprice}{:}0{/}" title="판매가">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="listprice" devnumber="true" value="{? product.listprice}{product.listprice}{:}0{/}" title="판매가">
                             </label>
                         </td>
                         <th class="fb-filter__title">
@@ -363,7 +363,7 @@
                         </th>
                         <td>
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="sellprice" value="{? product.sellprice}{product.sellprice}{:}0{/}" title="실판매가(할인가)">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="sellprice" devnumber="true" value="{? product.sellprice}{product.sellprice}{:}0{/}" title="실판매가(할인가)">
                             </label>
                         </td>
                     </tr>
@@ -373,7 +373,7 @@
                         </th>
                         <td>
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="allow_basic_cnt" value="{? product.allow_basic_cnt}{product.allow_basic_cnt}{:}0{/}">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="allow_basic_cnt" devnumber="true" value="{? product.allow_basic_cnt}{product.allow_basic_cnt}{:}0{/}">
                             </label>
                             <p class="fb__menusubmit-text">
                                 - 0 일경우 최소 판매수량 상관없음
@@ -384,7 +384,7 @@
                         </th>
                         <td>
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="allow_byoneperson_cnt" value="{? product.allow_byoneperson_cnt}{product.allow_byoneperson_cnt}{:}0{/}">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="allow_byoneperson_cnt" devnumber="true" value="{? product.allow_byoneperson_cnt}{product.allow_byoneperson_cnt}{:}0{/}">
                             </label>
                             <p class="fb__menusubmit-text">
                                 - 0 일경우 최소 판매수량 상관없음
@@ -434,7 +434,7 @@
                                 <div class="menusubmit-btn">
                                     <nav class="menusubmit-btn__nav">
                                         <span class="fb-filter__btn">
-                                            <input type="submit" class="fb-filter__search" value="추가" id="devOptionGridAdd"/>
+                                            <input type="button" class="fb-filter__search" value="추가" id="devOptionGridAdd"/>
                                             <input type="button" class="fb-filter__search" id="devOptionInventoryGoodsPopup" value="품목 불러오기" {? product.stock_use_yn!='Y' }style="display:none" {/}>
                                         </span>
                                     </nav>
@@ -649,7 +649,7 @@
                                 </label>
                                 {/}
                                 <label>
-                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="reserve_rate" value="{product.reserve_rate}"><br>%
+                                    <input type="text" class="fb-filter__text fb-filter__text--30 floatNo" name="reserve_rate" devnumber="true" value="{product.reserve_rate}">%
                                     <input type="hidden" name="rate_type" value="1">
                                 </label>
                             </div>

@@ -6,6 +6,91 @@
     </header>
     <section class="fb__cont-wrapper">
         <figure class="main-banner"><img src="{=layout_url('assets/img/banner/mainBanner_lookup.png')}" alt="" width="100%"></figure>
+        <h5 class="fb__section-title">서비스 특징</h5>
+        <section class="fb__thumb-item">
+            <div class="fb__thumb-item__list">
+                <div class="fb__thumb-item__thumb">
+                    <figure><img src="{=layout_url('assets/img/func_img15.png')}" alt=""></figure>
+                </div>
+                <div class="fb__thumb-item__info">
+                    <dl class="fb__thumb-item__service-list">
+                        <dt>
+                            합리적인 비용으로 배송시스템 구축
+                        </dt>
+                        <dd>
+                            빠르고 쉽게 배송정보 시스템을 구축할 수 있습니다.
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="fb__thumb-item__list">
+                <div class="fb__thumb-item__thumb">
+                    <figure><img src="{=layout_url('assets/img/func_img32.png')}" alt=""></figure>
+                </div>
+                <div class="fb__thumb-item__info">
+                    <dl class="fb__thumb-item__service-list">
+                        <dt>
+                            실시간 배송정보 반영
+                        </dt>
+                        <dd>
+                            배송정보가 실시간으로 반영되어 정확한 배송 상태를 확인할 수 있습니다.
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="fb__thumb-item__list">
+                <div class="fb__thumb-item__thumb">
+                    <figure><img src="{=layout_url('assets/img/func_img18.png')}" alt=""></figure>
+                </div>
+                <div class="fb__thumb-item__info">
+                    <dl class="fb__thumb-item__service-list">
+                        <dt>
+                            C/S 감소에 따른 효율적인 고객센터 운영
+                        </dt>
+                        <dd>
+                            배송문의를 줄이고 고객센터를 효율적으로 운영할 수 있습니다
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+        <h5 class="fb__section-title">서비스 기능</h5>
+        <div class="fb__sub__cont__wrap">
+            <div class="addService-detail__guide">
+                <ul class="fb__visual__box">
+                    <li class="addService-detail__guide__text">
+                        <em>01</em>
+                        <span>
+                                    <strong>간단한 사용</strong>
+                                </span>
+                        <i>
+                            서비스 신청 클릭 한번으로<br />
+                            별도 계약/서류 없이 <strong>즉시 사용</strong> 가능합니다.
+                        </i>
+                    </li>
+                    <li class="addService-detail__guide__img fb__visual">
+                        <figure><img src="{=layout_url('assets/img/lookup/lookup01.jpg')}"></figure>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="addService-detail__guide__img fb__visual">
+                        <figure><img src="{=layout_url('assets/img/lookup/lookup02.jpg')}"></figure>
+                    </li>
+                    <li class="addService-detail__guide__text">
+                        <em>02</em>
+                        <span>
+                                    <strong>실시간 배송정보 반영</strong>
+                                </span>
+                        <i>
+                            관리자 및 쇼핑몰 내에 <strong>배송 정보를 실시간</strong>으로<br />
+                            조회해서 확인할 수 있습니다.
+                        </i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
         <br />
         <section class="fb__menusubmit">
             <section class="fb-filter">
@@ -13,7 +98,7 @@
                     <tr>
                         <th>상품명</th>
                         <th>결제금액</th>
-                        <th>단가</th>
+                        <th>제공포인트</th>
                         <th>결제선택</th>
                     </tr>
                     {? !empty(goodsData)}
@@ -26,7 +111,7 @@
                         <input type="hidden" name="product[{.sg_ix}][sp_price]" value="{.sp_price}"/>
                         <td>{.sp_name}</td>
                         <td>{=number_format(.sp_price)} 원</td>
-                        <td>{=number_format(.sp_price)} 원</td>
+                        <td>{=number_format(.offer + .add_offer)}</td>
                         <td><input type="radio" name="sg_ix[]" value="{.sg_ix}" {? .index_ == 0}checked{/}></td>
                     </tr>
                     {/}
@@ -39,6 +124,30 @@
             <a id="devMetaPay" class="btn-submit">서비스 신청</a>
         </div>
         
+        <h5 class="fb__section-title">서비스 사용 설정</h5>
+        <section class="fb__menusubmit">
+            <section class="fb-filter">
+                <table class="fb-filter__table">
+                    <colgroup>
+                        <col width="20%" />
+                        <col />
+                    </colgroup>
+                    <tr>
+                        <th><span class="main-color">*</span> 서비스 사용 설정</th>
+                        <td class="left">
+                            {? empty(historyList)}
+                            <input type="button" value="서비스 설정" class="fb__button fb-filter__org" disabled style="cursor: auto;"/>
+                            서비스 신청 이후 사용여부를 설정 할 수 있습니다.
+                            {:}
+                            <span id="devDeliveryServiceStatus">{? deliveryServiceUse == 'Y'}사용중{:}사용중지{/}</span>
+                            <input type="button" value="수정" class="fb__button fb-filter__org devDeliveryServiceUse" />
+                            {/}
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
         <h5 class="fb__section-title">서비스 신청내역</h5>
         <span>잔여건수 : <b>{remainCnt}</b> 건</span>
         <section class="fb__menusubmit">
@@ -64,21 +173,21 @@
                         <td>{.ptprice}</td>
                         <td>
                             {? .index_ == 0}
-                                {? .status == 'CC'}
-                                    신청취소<br/>
-                                    {.cancel_date}
-                                {: .cancelYn}
-                                    <button id="devRefundBtn" type="button" data-oid="{.oid}" data-od_ix="{.od_ix}">취소/환불</button>
-                                {:}
-                                    -
-                                {/}
+                            {? .status == 'CC'}
+                            신청취소<br/>
+                            {.cancel_date}
+                            {: .cancelYn}
+                            <button id="devRefundBtn" type="button" data-oid="{.oid}" data-od_ix="{.od_ix}">취소/환불</button>
                             {:}
-                                {? .status == 'CC'}
-                                    신청취소<br/>
-                                    {.cancel_date}
-                                {:}
-                                    -
-                                {/}
+                            -
+                            {/}
+                            {:}
+                            {? .status == 'CC'}
+                            신청취소<br/>
+                            {.cancel_date}
+                            {:}
+                            -
+                            {/}
                             {/}
                         </td>
                     </tr>
@@ -89,10 +198,13 @@
                     </tr>
                     {/}
                 </table>
-
             </section>
         </section>
-        
-        
     </section>
 </section>
+
+
+{# deliveryServiceUseModal}
+<script>
+    var devDeliveryService = '{deliveryServiceUse}';
+</script>

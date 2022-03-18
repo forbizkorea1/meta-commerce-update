@@ -1,0 +1,86 @@
+<section class="fb__menusubmit ">
+    <section class="fb-filter">
+        <form id="devKsnetForm">
+        <div class="fb__popup__pay-wrap">
+            <h5 class="fb__section-title">제공 결제수단</h5>
+            <div class="fb__table-row">
+                <table class="fixed center">
+                    <colgroup>
+                        <col width="20%"/>
+                        <col width="40%"/>
+                        <col/>
+                    </colgroup>
+                    <tr>
+                        <th>PG 사</th>
+                        <th>주 결제수단</th>
+                        <th>간편결제</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            KSNET
+                        </td>
+                        <td>
+                            신용카드, 가상계좌, 실시간계좌이체, 휴대폰 결제
+                        </td>
+                        <td>
+                            카카오PAY, 네이버PAY, PAYCO
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h5 class="fb__section-title">결제수단 및 결제 서비스</h5>
+            <div class="fb__table-row">
+                <table class="fixed left">
+                    <colgroup>
+                        <col width="15%"/>
+                        <col width="35%"/>
+                        <col width="15%"/>
+                        <col width="35%"/>
+                    </colgroup>
+                    <tr>
+                        <th>회사(상호명)</th>
+                        <td>
+                            {config.com_name}
+                            <input type="hidden" class="fb-filter__text fb-filter__text--20" name="shop_name" value="{config.com_name}">
+                        </td>
+                        <th>사업자 번호</th>
+                        <td>
+                            {config.com_number_1}-{config.com_number_2}-{config.com_number_3}
+                            <input type="hidden" class="fb-filter__text fb-filter__text--20" name="biz_no1" value="{config.com_number_1}">
+                            <input type="hidden" class="fb-filter__text fb-filter__text--20" name="biz_no2" value="{config.com_number_2}">
+                            <input type="hidden" class="fb-filter__text fb-filter__text--20" name="biz_no3" value="{config.com_number_3}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>대표자명</th>
+                        <td>{config.com_ceo}</td>
+                        <th>몰아이디</th>
+                        <td>
+                            {config.mall_id}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>상점담당자명</th>
+                        <td>{config.name}</td>
+                        <th>상점담당자 전화번호</th>
+                        <td>
+                            {config.pcs_1}-{config.pcs_2}-{config.pcs_3}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>상점담당자 휴대번호</th>
+                        <td>{config.pcs_1}-{config.pcs_2}-{config.pcs_3}</td>
+                        <th>상점담당자 이메일</th>
+                        <td>
+                            {config.mail}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="fb-filter__btn">
+                <button type="submit" class="fb-filter__save">{? resultSattleData == false} 신청하기 {:} 재신청하기{/}</button>
+            </div>
+        </div>
+        </form>
+    </section>
+</section>

@@ -1,0 +1,67 @@
+<div class="fb__popup-layout full-layer" style="display: block;">
+    <div class="popup-layout js__modal__layer">
+        <p class="popup-title">
+            <span id="devModalTitle">주문번호 조회</span>
+        </p>
+        <div id="devModalContent" class="popup-content">
+            <section class="fb__delivery-tracking">
+                <h2 class="fb__title--hidden">{=trans('배송조회 팝업')}</h2>
+                <div class="popup-cont">
+                    <h3 class="tit">{=trans('배송정보')}</h3>
+                    <div class="flex-table">
+                        <dl>
+                            <dt>{=trans('송장번호')}</dt>
+                            <dd>
+                                {invoice_no}
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>{=trans('배송상태')}</dt>
+                            <dd>
+                                {deliveryInfo.data.state.text}
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>{=trans('배송상태 일시')}</dt>
+                            <dd>
+                                {deliveryInfo.data.latestDate}
+                            </dd>
+                        </dl>
+                    </div>
+                    <h3 class="tit borderNo">{=trans('배송추적')}</h3>
+                    <div class="fb__table">
+                        <table>
+                            <colgroup>
+                                <col width="20%" />
+                                <col width="20%" />
+                                <col width="20%" />
+                                <col />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>{=trans('배송상태')}</th>
+                                    <th>{=trans('위치')}</th>
+                                    <th>{=trans('일시')}</th>
+                                    <th>{=trans('배송정보')}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {@ deliveryInfo.data.progresses}
+                                <tr>
+                                    <td>{.status.text}</td>
+                                    <td>{.location.name}</td>
+                                    <td>{.time}</td>
+                                    <td>{.description}</td>
+                                </tr>
+                            {/}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="fb__button type--full">
+                        <a href="javascript:void(0);" onclick="window.close();" class="border--ccc">{=trans('닫기')}</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

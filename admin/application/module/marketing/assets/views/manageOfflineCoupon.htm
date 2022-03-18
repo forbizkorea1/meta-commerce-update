@@ -80,7 +80,7 @@
                             <span class="fb-filter__title--ne">생성 개수</span>
                         </th>
                         <td colspan="3">
-                            <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--5" style="width:5%" name="create_cnt" value="{create_cnt}" maxlength="5" {? mode=="put"} disabled {/}>
+                            <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--5" style="width:5%" name="create_cnt" devnumber="true" value="{create_cnt}" maxlength="5" {? mode=="put"} disabled {/}>
                             <br/>
                             장 생성 (1회 최대 10,000장 생성 가능) * 10,000장 이상 생성이 필요한 경우, 여러 번 나누어서 생성해주세요
                         </td>
@@ -90,7 +90,7 @@
                             <span class="fb-filter__title--ne">마일리지 지급 금액</span>
                         </th>
                         <td colspan="3">
-                            <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--5" name="gift_amount" value="{gift_amount}" maxlength="5" {? mode=="put"}disabled{/}/>
+                            <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--5" name="gift_amount" devnumber="true" value="{gift_amount}" maxlength="5" {? mode=="put"}disabled{/}/>
                             <br/>
                             마일리지
                         </td>

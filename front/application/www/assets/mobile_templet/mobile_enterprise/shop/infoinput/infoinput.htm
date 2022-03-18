@@ -1,5 +1,5 @@
 <script>
-    window.onpageshow = function(event) {
+    window.onpageshow = function (event) {
         if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
             window.location.reload();
         }
@@ -11,7 +11,7 @@
 
     <div class="wrap-infoinput" id="devPaymentContents">
         <!-- 회원 / 비회원 구분 템플릿 -->
-        {* 회원 infoinput_member.htm, 비회원 infoinput_non_member.htm *} 
+        {* 회원 infoinput_member.htm, 비회원 infoinput_non_member.htm *}
         {#userTemplate}
 
         <!-- 결제금액 -->
@@ -36,28 +36,28 @@
                 </dl>
 
                 {@ cartSummary.productDiscountList}
-                    <dl class="discount-price">
-                        <dt>{.title}</dt>
-                        <dd>
-                            <em>{=g_price(.discount_amount)}</em>{=trans('원')}
-                        </dd>
-                    </dl>
+                <dl class="discount-price">
+                    <dt>{.title}</dt>
+                    <dd>
+                        <em>{=g_price(.discount_amount)}</em>{=trans('원')}
+                    </dd>
+                </dl>
                 {/}
 
                 {? layoutCommon.isLogin}
-                    <dl class="discount-price">
-                        <dt>{=trans('쿠폰할인')}</dt>
-                        <dd>
-                            <em devPrice="use_cupon">0</em>{=trans('원')}
-                        </dd>
-                    </dl>
+                <dl class="discount-price">
+                    <dt>{=trans('쿠폰할인')}</dt>
+                    <dd>
+                        <em devPrice="use_cupon">0</em>{=trans('원')}
+                    </dd>
+                </dl>
 
-                    <dl class="shipping-total">
-                        <dt>{=trans('{mileageName} 사용')}</dt>
-                        <dd>
-                            -<em devPrice="use_mileage">0</em>{mileageUnit}
-                        </dd>
-                    </dl>
+                <dl class="shipping-total">
+                    <dt>{=trans('{mileageName} 사용')}</dt>
+                    <dd>
+                        -<em devPrice="use_mileage">0</em>{mileageUnit}
+                    </dd>
+                </dl>
                 {/}
 
                 <dl class="shipping-total">
@@ -74,7 +74,9 @@
                     </dd>
                 </dl>
                 {? layoutCommon.isLogin}
-                <div class="mileage-save">{mileageName} <em devPrice="mileage">{=g_number_format(cartSummary.mileage)}</em> {=trans('적립 예정')}</div>
+                <div class="mileage-save">{mileageName} <em
+                        devPrice="mileage">{=g_number_format(cartSummary.mileage)}</em> {=trans('적립 예정')}
+                </div>
                 {/}
             </div>
         </details>
@@ -87,22 +89,20 @@
 
             <div class="payment-mehtod">
                 <ul class="payment-mehtod__box js__paymentTab">
-                    <li class="payment-mehtod__list on" devPaymentMethod="{c.ORDER_METHOD_CARD}">
-                        <a href="#">{=trans('신용카드 결제')}</a>
+                    {? !empty(mainPayMethodArray)}
+                    {@ mainPayMethodArray}
+                    <li class="payment-mehtod__list" devPaymentMethod="{.value_}">
+                        <a href="#">{mainPayMethod[.value_]}</a>
                     </li>
+                    {/}
+                    {/}
 
-                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_ICHE}">
-                        <a href="#">{=trans('실시간 계좌이체')}</a>
+                    {? !empty(simplePayMethodArray)}
+                    {@ simplePayMethodArray}
+                    <li class="payment-mehtod__list" devPaymentMethod="{.value_}">
+                        <a href="#" {? isset(simpleClassArray[.value_])} class="{simpleClassArray[.value_]}" {/}>{simplePayMethod[.value_]}</a>
                     </li>
-
-                    {? sattle_module !== "ksnet"}
-                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_VBANK}">
-                        <a href="#">{=trans('가상계좌 결제')}</a>
-                    </li>
-                    {:}
-                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_PHONE}">
-                        <a href="#">{=trans('휴대폰 결제')}</a>
-                    </li>
+                    {/}
                     {/}
 
                     {? false}
@@ -124,11 +124,13 @@
                     </li>
                     {/}
 
+                    <!--{ {* KSNET에서 토스 업데이트 중 12월 완료 예정 *}
                     {? add_sattle_module_toss == 'Y'}
                     <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_TOSS}">
                         <a href="#">{=trans('토스')}</a>
                     </li>
                     {/}
+                    -->
 
                     {? add_sattle_module_ssg == 'Y'}
                     <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_SSG}">
@@ -181,7 +183,7 @@
                     <p>{=trans('EXIMBAY 안내문구')}</p>
                 </div>
             </div>
-        </details>            
+        </details>
 
         <!-- 이용약관동의 -->
         <details class="fb__shopCommon__section wrap-terms js__check__wrapper" open>
@@ -201,10 +203,13 @@
                     {? !layoutCommon.isLogin}
                     <li class="terms__list">
                         <label for="area-terms-nomember" class="fb__comm__checkbox">
-                            <input type="checkbox" id="area-terms-nomember" class="devTerms js__check__each" name="terms-nomember">
+                            <input type="checkbox" id="area-terms-nomember" class="devTerms js__check__each"
+                                   name="terms-nomember">
                             <span>{=trans('비회원 이용약관 동의')}({=trans('필수')})</span>
                         </label>
-                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-nomember" data-title="{=trans('비회원 이용약관 동의')}">{=trans('내용보기')}</button>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-nomember"
+                                data-title="{=trans('비회원 이용약관 동의')}">{=trans('내용보기')}
+                        </button>
                     </li>
                     {/}
 
@@ -223,7 +228,9 @@
                             <input type="checkbox" id="area-terms-4" class="devTerms js__check__each" name="terms-4">
                             <span>{=trans('개인정보 제 3자 정보 제공 동의')}({=trans('필수')})</span>
                         </label>
-                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-4" data-title="{=trans('개인정보 제 3자 정보 제공 동의')}">{=trans('내용보기')}</button>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-4"
+                                data-title="{=trans('개인정보 제 3자 정보 제공 동의')}">{=trans('내용보기')}
+                        </button>
                     </li>
 
                     <li class="terms__list">
@@ -231,7 +238,9 @@
                             <input type="checkbox" id="area-terms-3" class="devTerms js__check__each" name="terms-3">
                             <span>{=trans('개인정보 취급 위탁 동의')}</span>
                         </label>
-                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-3" data-title="{=trans('개인정보 취급 위탁 동의')}">{=trans('내용보기')}</button>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-3"
+                                data-title="{=trans('개인정보 취급 위탁 동의')}">{=trans('내용보기')}
+                        </button>
                     </li>
 
                     <li class="terms__list">
@@ -239,7 +248,9 @@
                             <input type="checkbox" id="area-terms-2" class="devTerms js__check__each" name="terms-2">
                             <span>{=trans('개인정보 수집 및 이용 동의')}</span>
                         </label>
-                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-2" data-title="{=trans('개인정보 수집 및 이용 동의')}">{=trans('내용보기')}</button>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-2"
+                                data-title="{=trans('개인정보 수집 및 이용 동의')}">{=trans('내용보기')}
+                        </button>
                     </li>
                 </Ul>
             </div>
@@ -253,7 +264,7 @@
             {=trans('<em devPrice="payment_price">{=g_price(cartSummary.payment_price)}</em>원 결제하기')}
         </button>
     </div>
-    
+
     {paymentIncludeJavaScript}
     <div id="devPaymentGatewayContents">{* pg 결제 영역 *}</div>
 </section>

@@ -1,0 +1,160 @@
+<fieldset>
+    <form id="devBbsConfigForm">
+        <input type="hidden" name="bm_ix" value="{bm_ix}" id="devBmix" />
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">게시판 정보</h3>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">게시판 그룹</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ boardGroupInfo}
+                                <label>
+                                    <input type="radio" name="board_group" value="{.div_ix}" {? board_group == .div_ix}checked{/} title="게시판 그룹">
+                                           <span>{.div_name}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">게시판 타이틀</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="board_name" value="{board_name}" title="게시판 타이틀">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">게시판 영문 이름</span>
+                        </th>
+                        <td>
+                            {? bm_ix}
+                            {board_ename}
+                            {:}
+                            <input type="text" class="fb-filter__text" name="board_ename" value="{board_ename}"  title="게시판 영문 이름">
+                            <p>반드시 영문으로 입력해주세요! 테이블 생성시 사용됩니다.</p>
+                            {/}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">템플릿</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="bbs_templet_dir" value="{bbs_templet_dir}" title="템플릿">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">게시판 스타일</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ boardSytleInfo}
+                                <label>
+                                    <input type="radio" name="board_style" value="{.bs_ix}" {? board_style == .bs_ix}checked{/} title="게시판 스타일">
+                                           <span>{.bs_name}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">게시판 기능 설정</h3>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="26%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">게시물 목록수</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text floatNo" style="width:40px;" name="board_max_cnt" devnumber="true" value="{board_max_cnt}" title="게시물 목록수">
+                            한페이지에 보여지는 게시물 목록 갯수
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">게시판 분류 사용여부</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="board_category_use_yn" value="Y" {? board_category_use_yn == 'Y'}checked{/} title="게시판 분류 사용여부">
+                                           <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="board_category_use_yn" value="N" {? board_category_use_yn == 'N'}checked{/}  title="게시판 분류 사용여부">
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">문의 게시판 사용여부</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="board_qna_yn" value="Y" {? board_qna_yn == 'Y'}checked{/} title="문의 게시판 사용여부">
+                                           <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="board_qna_yn" value="N" {? board_qna_yn == 'N'}checked{/} title="문의 게시판 사용여부">
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">댓글 사용여부</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="board_comment_yn" value="Y" {? board_comment_yn == 'Y'}checked{/} title="댓글 사용여부">
+                                           <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="board_comment_yn" value="N" {? board_comment_yn == 'N'}checked{/} title="댓글 사용여부">
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>기본 답변처리자</span>
+                        </th>
+                        <td>
+                            <span><input type="text" class="fb-filter__text floatNo" style="width:100px;" name="basic_comment_name" value="{basic_comment_name}"></span>
+                            기본 답변처리자 미입력시 로그인한 관리자 이름이 노출이됩니다.
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </form>
+</fieldset>

@@ -103,12 +103,70 @@ $view->assign('cancelAutoDay', $cancelAutoDay);
 
 // 결제수단 종류 확인
 $view->assign('sattle_module', ForbizConfig::getMallConfig('sattle_module'));
+$sattle_module = ForbizConfig::getMallConfig('sattle_module');
+
+if (!empty(ForbizConfig::getPaymentConfig('mainPayMethod', $sattle_module))) {
+    $mainPayMethodArray = explode('|', ForbizConfig::getPaymentConfig('mainPayMethod', $sattle_module) ?? "");
+
+    $view->assign('mainPayMethodArray', $mainPayMethodArray);
+
+    $mainPayMethod = [
+        ORDER_METHOD_CARD => '신용카드 결제',
+        ORDER_METHOD_VBANK => '가상계좌 결제',
+        ORDER_METHOD_ICHE => '실시간 계좌이체',
+        ORDER_METHOD_PHONE => '휴대폰 결제'
+    ];
+
+    $view->assign('mainPayMethod', $mainPayMethod);
+}
+if (!empty(ForbizConfig::getPaymentConfig('simplePayMethod', $sattle_module))) {
+    $simplePayMethodArray = explode('|', ForbizConfig::getPaymentConfig('simplePayMethod', $sattle_module) ?? "");
+
+    $view->assign('simplePayMethodArray', $simplePayMethodArray);
+
+    $simplePayMethod = [
+        ORDER_METHOD_INAPP_PAYCO => '페이코',
+        ORDER_METHOD_INAPP_NAVERPAY => '네이버페이',
+        ORDER_METHOD_INAPP_KAKAOPAY => '카카오페이',
+        ORDER_METHOD_INAPP_SSGPAY => '쓱페이',
+        ORDER_METHOD_INAPP_SSPAY => '삼성페이',
+        ORDER_METHOD_INAPP_SKPAY => 'SK페이',
+        ORDER_METHOD_INAPP_LPAY => '엘페이',
+        ORDER_METHOD_INAPP_TOSS => 'TOSS', 
+        ORDER_METHOD_INAPP_KPAY => '케이페이',
+        ORDER_METHOD_INAPP_KBANKPAY => '케이뱅크페이'
+    ];
+
+    $view->assign('simplePayMethod', $simplePayMethod);
+
+    if (is_mobile()) {
+        $simpleClassArray = [
+            ORDER_METHOD_INAPP_PAYCO => 'payco',
+            ORDER_METHOD_INAPP_KAKAOPAY => 'kakaoPay',
+            ORDER_METHOD_INAPP_NAVERPAY => 'nPay',
+            ORDER_METHOD_INAPP_SSGPAY => 'ssg',
+            ORDER_METHOD_INAPP_SKPAY => 'sk',
+            ORDER_METHOD_INAPP_TOSS => 'toss'
+        ];
+    } else {
+        $simpleClassArray = [
+            ORDER_METHOD_INAPP_PAYCO => 'payco',
+            ORDER_METHOD_INAPP_KAKAOPAY => 'kakao',
+            ORDER_METHOD_INAPP_NAVERPAY => 'npay',
+            ORDER_METHOD_INAPP_SSGPAY => 'ssg',
+            ORDER_METHOD_INAPP_SKPAY => 'sk',
+            ORDER_METHOD_INAPP_TOSS => 'toss'
+        ];
+    }
+
+    $view->assign('simpleClassArray', $simpleClassArray);
+}
 
 //추가 결제 수단
-$view->assign('add_sattle_module_naverpay_pg', ForbizConfig::getMallConfig('add_sattle_module_naverpay_pg'));
-$view->assign('add_sattle_module_kakaopay', ForbizConfig::getMallConfig('add_sattle_module_kakaopay'));
-$view->assign('add_sattle_module_payco', ForbizConfig::getMallConfig('add_sattle_module_payco'));
-$view->assign('add_sattle_module_toss', ForbizConfig::getMallConfig('add_sattle_module_toss'));
+//$view->assign('add_sattle_module_naverpay_pg', ForbizConfig::getMallConfig('add_sattle_module_naverpay_pg'));
+//$view->assign('add_sattle_module_kakaopay', ForbizConfig::getMallConfig('add_sattle_module_kakaopay'));
+//$view->assign('add_sattle_module_payco', ForbizConfig::getMallConfig('add_sattle_module_payco'));
+//$view->assign('add_sattle_module_toss', ForbizConfig::getMallConfig('add_sattle_module_toss'));
 
 //결제 스크립트
 /* @var $paymentGatewayModel CustomMallPaymentGatewayModel */
@@ -136,7 +194,7 @@ if ($isLogin) {
 
     $mileageRateRound = 0;
     $unitPosition = 1;
-    switch ($mileageModel->getConfig('use_unit')){
+    switch ($mileageModel->getConfig('use_unit')) {
         case '1':
             $mileageRateRound = 0;
             $unitPosition = 1;
@@ -158,16 +216,16 @@ if ($isLogin) {
         case '1';
             $mileageConditionUseLimitType = "price";
             $mileageConditionUseLimitValue = $mileageModel->getConfig('use_mileage_max');
-            if($mileageConditionUseLimitValue < $maxUseMileage){
+            if ($mileageConditionUseLimitValue < $maxUseMileage) {
                 $maxUseMileage = $mileageConditionUseLimitValue;
             }
             break;
         case '2';
             $mileageConditionUseLimitType = "rate";
             $mileageConditionUseLimitValue = $mileageModel->getConfig('max_goods_sum_rate');
-            if($mileageConditionUseLimitValue > 0){
-                $mileageRatePrice = calNumberCutting(($mileageTargetPrice * $mileageConditionUseLimitValue)/100, $unitPosition, 1);
-                if($mileageRatePrice < $maxUseMileage){
+            if ($mileageConditionUseLimitValue > 0) {
+                $mileageRatePrice = calNumberCutting(($mileageTargetPrice * $mileageConditionUseLimitValue) / 100, $unitPosition, 1);
+                if ($mileageRatePrice < $maxUseMileage) {
                     $maxUseMileage = $mileageRatePrice;
                 }
             }
@@ -188,7 +246,7 @@ if ($isLogin) {
         , 'maxUseMileage' => $maxUseMileage
         , 'mileageTargetPrice' => $mileageTargetPrice
         , 'mileageConditionUseDeliverypriceYn' => $mileageConditionUseDeliverypriceYn
-        , 'useMileageBool' => ($mileage_use_yn == 'Y' &&  $mileageTargetPrice >= $mileageConditionMinBuyAmt)
+        , 'useMileageBool' => ($mileage_use_yn == 'Y' && $mileageTargetPrice >= $mileageConditionMinBuyAmt)
     ]);
 
     //쿠폰 정보

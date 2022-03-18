@@ -138,17 +138,17 @@ var devMobileSendPushMemberObj = {
             $('#devModifyForm').submit();
             //}
         });
-
-        //이미지
-        common.ui.upload('.devPushFileupload')
-            .init()
-            .putFileBox('pushImage', $('#devForm').find('.devPushFileupload').data('imgSrc'));
     },
+    pushFileLoader : common.ui.upload('.devPushFileupload')
+        .init()
+        .putFileBox('pushImage', $('#devForm').find('.devPushFileupload').data('imgSrc'))
+    ,
     run: function () {
         this.initLang();
         this.initForm();
         this.initGrid();
-        this.initEvent()
+        this.initEvent();
+        this.pushFileLoader;
     }
 }
 

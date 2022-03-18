@@ -81,7 +81,6 @@ start_master_db();
 ////////////////////////////
 
 $oid = $view->input->post('sndOrdernumber');
-$use_pay_method = $view->input->post('sndPaymethod');
 $sndEmail = $view->input->post('sndEmail');
 $sndMobile = $view->input->post('sndMobile');
 $vbankExpDate = $view->input->post('sndVirExpDt');
@@ -90,6 +89,8 @@ $vbankExpDate = $view->input->post('sndVirExpDt');
 $paymentGatewayModel = $view->import('model.mall.payment.gateway');
 $paymentGatewayModel->init($pgName);
 $response = $view->input->post();
+$use_pay_method = $view->input->post('sndMetaPaymethod');
+//$use_pay_method = $paymentGatewayModel->evalModuleMethod('getInAppPayMethod', $view->input->post('sndPaymethod'));
 
 /* @var $orderModel CustomMallOrderModel */
 $orderModel = $view->import('model.mall.order');
@@ -129,20 +130,47 @@ if ($resultcd == "0000") {
         , 'resultcd' => $resultcd
     ];
 
-    // 신용카드
-    if ($use_pay_method == "1000000000") {
+    if ($use_pay_method == ORDER_METHOD_CARD) { // 신용카드, 카카오페이 - 신용이랑 같으면 sndStoreCeoName, sndStorePhoneNo, sndStoreAddresscnrk 추가 작업
         $payment['authno'] = $authno; // 승인번호 : 결제 성공시에만 보임
         $payment['isscd'] = $isscd; // 발급사코드
         $payment['aqucd'] = $aqucd; // 매입사코드
 
         $method = ORDER_METHOD_CARD;
         $status = ORDER_STATUS_INCOM_COMPLETE;
-        $memo = $paymentGatewayModel->evalModuleMethod('getCardName', $aqucd);
+        $memo = $paymentGatewayModel->evalModuleMethod('getCardName', rtrim($aqucd));
         $payment['authcode'] = $authno;
-    }
+        
+    } else if ($use_pay_method == ORDER_METHOD_INAPP_PAYCO
+        || $use_pay_method == ORDER_METHOD_INAPP_KAKAOPAY
+        || $use_pay_method == ORDER_METHOD_INAPP_NAVERPAY
+        || $use_pay_method == ORDER_METHOD_INAPP_SSGPAY) { // 인앱 결제
 
-    //가상계좌(에스크로) sndEscrow ="1"
-    if ($use_pay_method == "0100000000") {
+        $payment['authno'] = $authno; // 승인번호 : 결제 성공시에만 보임
+        $payment['isscd'] = $isscd; // 발급사코드
+        $payment['aqucd'] = $aqucd; // 매입사코드
+
+        switch($use_pay_method){
+            case ORDER_METHOD_INAPP_PAYCO:
+                $method = ORDER_METHOD_INAPP_PAYCO;
+                break;
+            case ORDER_METHOD_INAPP_KAKAOPAY:
+                $method = ORDER_METHOD_INAPP_KAKAOPAY;
+                break;
+            case ORDER_METHOD_INAPP_NAVERPAY:
+                $method = ORDER_METHOD_INAPP_NAVERPAY;
+                break;
+            case ORDER_METHOD_INAPP_SSGPAY:
+                $method = ORDER_METHOD_INAPP_SSGPAY;
+                break;
+            default:
+                break;
+        }
+
+        $status = ORDER_STATUS_INCOM_COMPLETE;
+        $memo = $paymentGatewayModel->evalModuleMethod('getCardName', rtrim($aqucd));
+        $payment['authcode'] = $authno;
+
+    } else if ($use_pay_method == ORDER_METHOD_VBANK) { //가상계좌(에스크로) sndEscrow ="1"
         $payment['authno'] = $authno; // 은행코드
         $payment['isscd'] = $isscd; // 계좌번호
 
@@ -155,19 +183,20 @@ if ($resultcd == "0000") {
         $memo = $paymentGatewayModel->evalModuleMethod('getBankName', $authno);
         $payment['bank_input_date'] = $vbankExpDate;
 
-    }
-
-    //계좌이체 sndEscrow ="0"
-    if ($use_pay_method == "0010000000") {
+    } else if ($use_pay_method == ORDER_METHOD_ICHE) { //계좌이체 sndEscrow ="0"
         $payment['authno'] = $authno; // 은행코드
 
         $method = ORDER_METHOD_ICHE;
         $status = ORDER_STATUS_INCOM_COMPLETE;
-        $memo = $paymentGatewayModel->evalModuleMethod('getBankName', $authno);
-    }
 
-    //휴대폰결제
-    if ($use_pay_method == "0000010000") {
+        if (strlen($authno < 3)) {
+            $memo = $paymentGatewayModel->evalModuleMethod('getBankName', $authno);
+        } else {
+            $memo = $paymentGatewayModel->evalModuleMethod('getBrokerageName', $authno);
+        }
+
+
+    } else if ($use_pay_method == ORDER_METHOD_PHONE) { //휴대폰결제
         $payment['aqucd'] = $aqucd; // 실물구분 : 1 - 실물 / 2 - 디지털
 
         $method = ORDER_METHOD_PHONE;

@@ -318,7 +318,7 @@
                         {? expectedRefund.returnBankBool}
                             {? expectedRefund.paymentInfo[0].method == 4 || expectedRefund.paymentInfo[0].method == 9}
                                 <dl class="refund__means">
-                                    <dt>{=trans('')}환불수단</dt>
+                                    <dt>{=trans('환불수단')}</dt>
                                     <dd>{expectedRefund.refundBankName}{expectedRefund.refundBankNumber} / {expectedRefund.refundBankOwner}</dd>
                                 </dl>
                             {/}

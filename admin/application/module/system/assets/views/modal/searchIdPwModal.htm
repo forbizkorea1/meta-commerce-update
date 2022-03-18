@@ -1,0 +1,130 @@
+<!--{'<script id="devIdPwInfoModalTpl" type="text/x-handlebars-template">'}-->
+<section class="fb__popup-wrap">
+    <section class="fb-filter">
+        <div class="fb__infobox">
+            <p class="fb__info-line">중요 안내</p><br />
+
+            위저드시 입력한 ID/PW 는 최초 관리자에 로그인할 수 있는 정보입니다.<br />
+            제공 드리는 방법으로 확인되지 않을 경우 패키지를 재설치 하셔야 합니다.<br /><br />
+
+            최초 로그인 이전에 ID/PW 분실로 인하여 로그인이 불가할 경우만 제공하는 기능으로<br />
+            로그인 성공 이후에는 해당 기능이 제공되지 않습니다.<br /><br />
+
+            <span class="main-color">*</span> 참고 : 관리자 ID/PW 찾기는 별도 제공
+        </div>
+        <div class="fb-filter__btn">
+            <button id="devSearchIdPwModal" class="fb-filter__org" type="button">확인</button>
+        </div>
+    </section>
+</section>
+<!--{'</script>'}-->
+
+
+<!--{'<script id="devIdPwModalTpl" type="text/x-handlebars-template">'}-->
+<section class="fb__popup-wrap">
+    <section class="fb-filter">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner">
+                <li class="fb__tap__menu">
+                    <a href="javascript:void(0);" id="devTabSearchId" class="fb__tap__menu--active">
+                        ID 찾기
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="javascript:void(0);" id="devTabSearchPw" class="">
+                        PW 찾기
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <section class="fb-filter">
+            <form id="devFindIdPwForm">
+                <input type="hidden" name="findType" id="devFindType" value="id"/>
+                <table style="border: 1px solid #ddd;">
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr class="search-id">    <!--id 찾기-->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    상호명
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" id="devComName" name="com_name" title="사업자명 (상호명)"  value="" placeholder="상호명을 입력해주세요.">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="search-pw" style="display: none;">    <!--pw 찾기-->
+                            <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                아이디
+                            </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="id" id="devMasterId" title="아이디"  value="" devmaxlength="20" placeholder="아이디를 입력해주세요.">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    휴대폰 번호
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 devPcsCls" id="devPcs1" name="pcs_1" devnumber="true" title="휴대폰" value="">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 devPcsCls" id="devPcs2" name="pcs_2" devnumber="true" title="휴대폰" value="">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 devPcsCls" id="devPcs3" name="pcs_3" devnumber="true" title="휴대폰" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    사업자 번호
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 devComNumCls" name="com_number_1" devnumber="true" title="사업자번호" id="devComNum1" value="">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 devComNumCls" name="com_number_2" devnumber="true" title="사업자번호" id="devComNum2"  value="">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 devComNumCls" name="com_number_3" devnumber="true" title="사업자번호" id="devComNum3"  value="">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <button type="button" class="fb-filter__org devSubmit" id="devFindIdPwBtn">확인</button>
+                </div>
+            </form>
+        </section>
+    </section>
+</section>
+<!--{'</script>'}-->
+
+
+
+
+<!--{'<script id="devIdPwSuccessModalTpl" type="text/x-handlebars-template">'}-->
+<section class="fb__popup-wrap">
+    <section class="fb-filter">
+        <div class="fb__infobox" style="padding: 50px 0;text-align: center; font-size: 18px;">
+            <span id="devSearchType">ID</span>는 <span class="main-color" id="devSearchValue">ktw9</span> 입니다.<br /><br />
+
+            가입일 : <span id="devJoinDate">2021-01-02 12:12:12</span>
+
+        </div>
+        <div class="fb-filter__btn">
+            <button type="button" class="fb-filter__org" id="devSuccessIdPw">확인</button>
+        </div>
+    </section>
+</section>
+<!--{'</script>'}-->
+

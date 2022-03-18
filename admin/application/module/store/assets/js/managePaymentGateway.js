@@ -32,12 +32,29 @@ var devStoreManagePaymentGatewayObj = {
         );
 
         $("#devTopMenuSaveBtn").on('click', function () {
+            var mainPayMethodArray = new Array();
+            $('input[name="mainPayMethod[]"]:checked').each(function (i, o) {
+                mainPayMethodArray.push($(this).val());
+            });
+            $('#devMainPayMethodTxt').val(mainPayMethodArray.join('|'));
+            $('.devMainPayMethod').detach();
+
             var simplePayMethodArray = new Array();
             $('input[name="simplePayMethod[]"]:checked').each(function (i, o) {
                 simplePayMethodArray.push($(this).val());
             });
             $('#devSimplePayMethodTxt').val(simplePayMethodArray.join('|'));
             $('.devSimplePayMethod').detach();
+
+            $('.devAddPaymentModule, .devAddSattleModule').each(function(){
+                if(!$(this).is(':checked')) {
+                    $(this).val('N');
+                    $(this).prop('checked', true);
+                }else {
+                    $(this).val('Y');
+                }
+            });
+
             $("#devForm").submit();
         });
 
@@ -52,13 +69,37 @@ var devStoreManagePaymentGatewayObj = {
             }
         });
 
+        //재신청 팝업
+        $('#devKsnetPutRegister').click(function () {
+            common.util.modal.open('ajax', 'PG 신청내역', '/pub/pgApplyPop', '',
+                '',{width: '900px', height: '540px'});
+        });
 
+        //갱신하기
+        $('#devKsnetGetId').click(function () {
+            common.ajax(common.util.getControllerUrl('getKsnetId', 'payment', 'thirdParty'),
+                {
 
+                },
+                function () {
+                    // 전송전 데이타 검증
+                    return true;
+                },
+                function (response) {
+                    if (response.result == 'success') {
+                        common.util.modal.close();
+                        location.reload();
+                    }
+                }
+            );
+        });
     },
     run: function () {
         var self = this;
-        this.initLang();
-        this.initEvent();
+        self.initLang();
+        self.initEvent();
+
+
     }
 }
 

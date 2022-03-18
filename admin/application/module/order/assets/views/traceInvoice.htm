@@ -1,0 +1,86 @@
+{? deliveryInfo}
+    {? deliveryInfo['result'] == 'success'}
+        <h3 style="font-size: 15px;padding: 15px 0 0 17px;">배송정보</h3>
+        <section class="fb__menusubmit ">
+            <section class="fb-filter">
+                <form id="devTraceInvoiceGridForm">
+                    <input type="hidden" name="oid" value=""/>
+                    <fieldset>
+                        <legend>
+                            주문변경내역
+                        </legend>
+                        <table>
+                            <caption></caption>
+                            <colgroup>
+                                <col width="155">
+                                <col width="*">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span>
+                                        송장번호(예약번호)
+                                    </span>
+                                </th>
+                                <td class="fb-filter__seller" height="30">
+                                    {invoice_no}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span>
+                                        배송상태
+                                    </span>
+                                </th>
+                                <td class="fb-filter__seller" height="30">
+                                    {deliveryInfo.data.state.text}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span>
+                                        배송상태 일시
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__seller" height="30">
+                                    {deliveryInfo.data.latestDate}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </form>
+            </section>
+        </section>
+        <h3 style="font-size: 15px;padding: 15px 0 0 17px;">배송추적</h3>
+        <section class="fb__menusubmit fb-filter">
+
+            <div id="devTraceInvoiceGrid"></div>
+        </section>
+        <script>
+            var devTraceData = {? deliveryInfo['data']['progresses']}{=json_encode(deliveryInfo['data']['progresses'])}{:}false{/};
+        </script>
+    {:}
+        <script>
+            alert("{deliveryInfo['data']['msg']}");
+            common.util.modal.close();
+            setTimeout(function(){
+                document.getElementById('layout').classList.remove('fb-modal');
+            },1);
+        </script>
+    {/}
+{:}
+<script>
+    common.util.modal.close();
+    {? deliveryServiceUse == 'Y'}
+        alert('포인트가 모두 소진되었습니다.');
+    {:}
+        alert('배송추적 서비스가 사용중지 상태입니다.\n' +
+            '부가서비스 > 물류/배송 > 배송추적에서 사용중으로 변경해주세요.');
+    {/}
+
+    setTimeout(function(){
+        document.getElementById('layout').classList.remove('fb-modal');
+    },1);
+</script>
+{/}

@@ -38,17 +38,9 @@ $ret = "false";
 
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $data = urldecode($_POST["data"]);
-    $raw = $_POST["data"];
-    $data = iconv('euc-kr', 'utf-8',  $data);
-    $sample_raw = iconv('euc-kr', 'utf-8',  $raw);
 } else {
     $data = urldecode($_GET["data"]);
-    $raw = $_GET["data"];
-    $data = iconv('euc-kr', 'utf-8', $data);
-    $sample_raw = iconv('euc-kr', 'utf-8',  $raw);
 }
-
-//$data = iconv('euc-kr', 'utf-8//IGNORE', $data);
 
 //KSNET에서 전송한 경우가 아니면 처리하지 않는다.
 if ($_SERVER["REMOTE_ADDR"] != "210.181.28.114" && $_SERVER["REMOTE_ADDR"] != "210.181.29.130")
@@ -70,8 +62,6 @@ if (strlen($data) < 300)
 }
 
 write_log("data=[" . $data          . "]");
-write_log("raw=[" . $raw          . "]");
-write_log("sample_raw=[" . $sample_raw          . "]");
 
 if (substr($data,$ipos,2) == "VR")                                   // 에코전문
 {
@@ -158,12 +148,11 @@ if (substr($data,$ipos,2) == "VR")                                   // 에코�
     $payment = [
         'tid' => $rVTransactionNo // 거래번호
     ];
-    fb_sys_log('ksnet_noti_first', ['req' => "deal_sele", 'rep' =>  $deal_sele]);
+
     if ($deal_sele = "20") {
 
         $order =  $orderModel->getOrderDetailByTid($rVTransactionNo);
         $oid = $order->oid;
-        fb_sys_log('ksnet_noti', ['req' => $oid, 'rep' =>  $order]);
         $depositResult = $orderModel->deposit($oid, ORDER_METHOD_VBANK, $total_amt, $payment);
 
         if ($depositResult['result']) {
@@ -299,7 +288,6 @@ if (substr($data,$ipos,2) == "VR")                                   // 에코�
 
             $order =  $orderModel->getOrderDetailByTid($rVTransactionNo);
             $oid = $order->oid;
-            fb_sys_log('ksnet_noti_second', ['req' => $oid, 'rep' =>  $order]);
             $depositResult = $orderModel->deposit($oid, ORDER_METHOD_VBANK, $total_amt, $payment);
 
             if ($depositResult['result']) {

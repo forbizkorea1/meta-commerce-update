@@ -36,6 +36,20 @@ class PgForbizKsnet extends PgForbiz
 
     public function doCancel(PgForbizCancelData $cancelData, PgForbizResponseData $responseData): PgForbizResponseData
     {
+        if ($cancelData->isPartial) { // 부분취소일경우 (신용카드, 실시간 계좌이체)
+            $canc_type = '3';
+            $canc_amt = $cancelData->amt;
+            $canc_seq = $cancelData->claimGroup; // 거래번호, 취소금액, 일련번호 다 같으면 취소거절됩니다. (1~99)
+            
+        } else if ($cancelData->isPartial && $cancelData->method == ORDER_METHOD_PHONE) { // 휴대폰은 전체취소만 있습니다
+            $responseData->result = false;
+            $responseData->message = "휴대폰 부분취소는 자동 환불처리가 안됩니다.";
+            return $responseData;
+
+        } else {
+            $canc_type = '1'; // 전체취소
+        }
+
         include __DIR__ . '/ksnet/libs/KSPayApprovalCancel.php';
 
         // storeid 상점아이디
@@ -49,7 +63,12 @@ class PgForbizKsnet extends PgForbiz
 
         // authty 결제수단
         $authty = "";
-        if ($cancelData->method == ORDER_METHOD_CARD){
+        if ($cancelData->method == ORDER_METHOD_CARD
+            || $cancelData->method == ORDER_METHOD_INAPP_PAYCO
+            || $cancelData->method == ORDER_METHOD_INAPP_KAKAOPAY
+            || $cancelData->method == ORDER_METHOD_INAPP_NAVERPAY
+            || $cancelData->method == ORDER_METHOD_INAPP_SSGPAY) {
+
             // 신용카드
             $authty = "1010";
             $Version = "0210";  // 전문버전
@@ -111,7 +130,12 @@ class PgForbizKsnet extends PgForbiz
         $TransactionNo = $trno;        // 거래번호
         // Data Default end -------------------------------------------------------------
 
-        if ($cancelData->method == ORDER_METHOD_CARD) {
+        if ($cancelData->method == ORDER_METHOD_CARD
+            || $cancelData->method == ORDER_METHOD_INAPP_PAYCO
+            || $cancelData->method == ORDER_METHOD_INAPP_KAKAOPAY
+            || $cancelData->method == ORDER_METHOD_INAPP_NAVERPAY
+            || $cancelData->method == ORDER_METHOD_INAPP_SSGPAY) {
+
             // Server로 부터 응답이 없을시 자체응답
             $rApprovalType = "1011";
             $rTransactionNo = "";              // 거래번호
@@ -157,6 +181,7 @@ class PgForbizKsnet extends PgForbiz
         } else if ($cancelData->method == ORDER_METHOD_ICHE) {
             $rApprovalType    		= "2011";							// 승인구분
             $rACTransactionNo    	= $TransactionNo;					// 거래번호
+            $rStatus           	    = "X";								// 오류구분 :승인 X:거절
             $rStatus           	    = "X";								// 오류구분 :승인 X:거절
             $rACTradeDate        	= "";								// 거래 개시 일자(YYYYMMDD)
             $rACTradeTime        	= "";								// 거래 개시 시간(HHMMSS)
@@ -209,9 +234,21 @@ class PgForbizKsnet extends PgForbiz
         );
 
         // ------------------------------------------------------------------------------
-        CancelDataMessage($ApprovalType, "0", $TransactionNo, "", "", "", "", "");
+        if ($canc_type == '3') {
+            if ($cancelData->method == ORDER_METHOD_ICHE) {
+                $ApprovalType = "2030";
+            }
+            CancelDataMessage($ApprovalType, $canc_type, $TransactionNo,"",	"", SetZero($canc_amt,9).SetZero($canc_seq,2),	"", "");
+        } else {
+            CancelDataMessage($ApprovalType, "0", $TransactionNo, "", "", "", "", "");
+        }
 
-        if ($cancelData->method == ORDER_METHOD_CARD){
+        if ($cancelData->method == ORDER_METHOD_CARD
+            || $cancelData->method == ORDER_METHOD_INAPP_PAYCO
+            || $cancelData->method == ORDER_METHOD_INAPP_KAKAOPAY
+            || $cancelData->method == ORDER_METHOD_INAPP_NAVERPAY
+            || $cancelData->method == ORDER_METHOD_INAPP_SSGPAY){
+
             if (SendSocket("1")) {
                 $rApprovalType = $GLOBALS["ApprovalType"];
                 $rTransactionNo = $GLOBALS["TransactionNo"];    // 거래번호

@@ -11,13 +11,75 @@
 
     <div class="layout-padding contents">
         <div class="cont">
+            <!--{? useCertify == 'Y'}-->
             <h2 class="cont__title">{=trans('본인인증')}</h2>
-            <!--{? useCertify}-->
             <div class="wrap-box auth-phone">
                 <button type="button" class="box" id="devCertifyButton">
                     <p class="box__text" id="devCertifyButtonTxt">{=trans('휴대폰 인증')}</p>
                 </button>
                 <p class="sub-txt">{=trans('본인인증 후 회원가입을 진행해 주시기 바랍니다.')}</p>
+            </div>
+            <!--{:}-->
+            <div class="fb__join-input">
+                <form id="devUserDataFrm" class="wrap-input-form join-input__comm">
+                    <div>
+
+                        <!-- 이름 -->
+                        <dl>
+                            <dt>{=trans('이름')}</dt>
+                            <dd>
+                                <input type="text" name="user_name" id="devUserName" title="{=trans('이름')}"/>
+                            </dd>
+                        </dl>
+
+
+                        <!-- 휴대폰 번호 -->
+                        <dl class="phone-area">
+                            <dt>{=trans('휴대폰번호')}</dt>
+                            <dd>
+                                <div class="fb__input__phone">
+                                    <select class="fb__input__phone--01" name="pcs1" id="devPcs1">
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="019">019</option>
+                                    </select>
+
+                                    <div class="fb__input__phone--box">
+                                        <input type="number" name="pcs2" id="devPcs2" value="" title="{=trans('휴대폰번호')}" class="fb__input__phone--02 js__input--onlyNumber" >
+                                        <span class="dash"></span>
+                                        <input type="number" name="pcs3" id="devPcs3" value="" title="{=trans('휴대폰번호')}" class="fb__input__phone--03 js__input--onlyNumber" >
+                                    </div>
+                                </div>
+                                <br />
+                                <button type="button" class="btn-default btn-full btn-dark" id="devPcsChkBtn">{=trans('휴대폰 번호 중복확인')}</button>
+                            </dd>
+                        </dl>
+
+                        <!-- 생년월일 -->
+                        <dl class="birth-area">
+                            <dt>{=trans('생년월일')}</dt>
+                            <dd>
+                                <input type="text" class="birth-input" name="birthday" id="devBirthDay" title="{=trans('생년월일')}" placeholder="ex) 1986-10-15" >
+
+                                <div class="sex">
+                                    <label class="sex__box">
+                                        <input type="radio" id="male" class="devSexDivCls" name="sex_div" value="M" title="{=trans('성별')}" checked>
+                                        <span>{=trans('남성')}</span>
+                                    </label>
+
+                                    <label class="sex__box">
+                                        <input type="radio" id="female" class="devSexDivCls" name="sex_div" title="{=trans('성별')}" value="W" >
+                                        <span>{=trans('여성')}</span>
+                                    </label>
+                                </div>
+                            </dd>
+                        </dl>
+
+                    </div>
+                </form>
             </div>
             <!--{/}-->
         </div>
@@ -116,3 +178,6 @@
         </div> -->
     </div>
 </section>
+<script>
+    var devUseCertify = '{useCertify}';
+</script>

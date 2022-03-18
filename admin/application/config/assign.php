@@ -16,6 +16,14 @@ return (function() {
     $talktalk_script = \ForbizConfig::getMallConfig('talktalk_script');
     $talktalk_mobile_script = \ForbizConfig::getMallConfig('talktalk_mobile_script');
 
+    $happyTalk_use_type = \ForbizConfig::getMallConfig('happyTalk_use_type');
+    $happyTalk_script = \ForbizConfig::getMallConfig('happyTalk_script');
+    $happyTalk_mobile_script = \ForbizConfig::getMallConfig('happyTalk_mobile_script');
+
+    $friendTalk_use_type = \ForbizConfig::getMallConfig('friendTalk_use_type');
+    $friendTalk_script = \ForbizConfig::getMallConfig('friendTalk_script');
+    $friendTalk_mobile_script = \ForbizConfig::getMallConfig('friendTalk_mobile_script');
+
 
     return [
         'layoutCommon' => [
@@ -50,5 +58,11 @@ return (function() {
         , 'talktalk_use_type' => $talktalk_use_type
         , 'talktalk_script' => $talktalk_script
         , 'talktalk_mobile_script' => $talktalk_mobile_script
+        , 'happyTalk_use_type' => $happyTalk_use_type
+        , 'happyTalk_script' => $happyTalk_script
+        , 'happyTalk_mobile_script' => $happyTalk_mobile_script
+        , 'friendTalk_use_type' => $friendTalk_use_type
+        , 'friendTalk_script' => $friendTalk_script
+        , 'friendTalk_mobile_script' => $friendTalk_mobile_script
     ];
 })();

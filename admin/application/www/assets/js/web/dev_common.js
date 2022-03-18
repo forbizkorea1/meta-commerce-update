@@ -3103,7 +3103,7 @@ var common = {
                         '	<button type="button" class="devDown">▼</button>',
                         '	선택한 상품의 진열순서를 변경하세요.',
                         '	<div class="fb__goodssearch__info__input">',
-                        '		선택한 상품을 <input type="text" class="fb-filter__text devMoveRank"> 위치로',
+                        '		선택한 상품을 <input type="text" devnumber="true" class="fb-filter__text devMoveRank"> 위치로',
                         '		<button type="button" class="devMove">이동</button>',
                         '	</div>',
                         '</div>'
@@ -3506,6 +3506,7 @@ var common = {
                     }
                 });
             },
+            sendCardNum: false,
             modal: function (html, mode, data, redirect = '') {
                 var modalTitle = '메타페이 결제 ';
                 var self = this;
@@ -3570,65 +3571,70 @@ var common = {
 
                             self.targetNum++;
                             self.pass += $(this).data('value');
-
-                            if (self.targetNum > 6) {
-                                if (self.modalType == 'n') {
-                                    common.ajax(common.util.getControllerUrl('putBillPass', 'managePayment', 'store'),
-                                        {
-                                            'pass': self.pass
-                                        },
-                                        function () {
-                                            // 전송전 데이타 검증
-                                            return true;
-                                        },
-                                        function (response) {
-                                            // 전송후 결과 확인
-                                            if (response.result == 'success') {
-                                                $('#devStep03').hide();
-                                                $('#devStep04').show();
-                                            } else {
-                                                common.noti.alert(response.data.msg);
-                                                $('.devAllClear').click();
-                                            }
-                                        }
-                                    );
-
-                                } else if (self.modalType == 'p') {
-                                    //결제요청
-                                    common.ajax(common.util.getControllerUrl('putBillPayment', 'managePayment', 'store'),
-                                        {
-                                            'pass': self.pass,
-                                            'sgIx': self.sgIx,
-                                            'card': self.card
-                                        },
-                                        function () {
-                                            // 전송전 데이타 검증
-                                            return true;
-                                        },
-                                        function (response) {
-                                            // 전송후 결과 확인
-                                            if (response.result == 'success') {
-                                                common.noti.alert(common.lang.get('msg.pay.complete'));
-                                                $('.fb-modal__wrap').remove();
-                                                $('body').removeClass("fb-modal");
-                                                if(redirect != '') {
-                                                    location.href = redirect;
-                                                }else {
-                                                    location.reload();
+                            if (self.targetNum > 6 && self.sendCardNum === false) {
+                                    self.sendCardNum = true;
+                                    if (self.modalType == 'n') {
+                                        common.ajax(common.util.getControllerUrl('putBillPass', 'managePayment', 'store'),
+                                            {
+                                                'pass': self.pass
+                                            },
+                                            function () {
+                                                // 전송전 데이타 검증
+                                                return true;
+                                            },
+                                            function (response) {
+                                                // 전송후 결과 확인
+                                                if (response.result == 'success') {
+                                                    $('#devStep03').hide();
+                                                    $('#devStep04').show();
+                                                } else {
+                                                    common.noti.alert(response.data.msg);
+                                                    $('.devAllClear').click();
                                                 }
-                                            } else if(response.result == 'lost') {
-                                                common.noti.alert(common.lang.get('msg.pay.lost'));
-                                                $('.fb-modal__wrap').remove();
-                                                $('body').removeClass("fb-modal");
-                                            } else {
-                                                common.noti.alert(response.data.msg);
-                                                $('.devAllClear').click();
-                                            }
-                                        }
-                                    );
-                                }
 
-                            }
+                                                self.sendCardNum = false;
+                                            }
+                                        );
+
+                                    } else if (self.modalType == 'p') {
+                                        //결제요청
+                                        common.ajax(common.util.getControllerUrl('putBillPayment', 'managePayment', 'store'),
+                                            {
+                                                'pass': self.pass,
+                                                'sgIx': self.sgIx,
+                                                'card': self.card
+                                            },
+                                            function () {
+                                                // 전송전 데이타 검증
+                                                return true;
+                                            },
+                                            function (response) {
+                                                // 전송후 결과 확인
+                                                if (response.result == 'success') {
+                                                    common.noti.alert(common.lang.get('msg.pay.complete'));
+                                                    $('.fb-modal__wrap').remove();
+                                                    $('body').removeClass("fb-modal");
+                                                    if (redirect != '') {
+                                                        location.href = redirect;
+                                                    } else {
+                                                        location.reload();
+                                                    }
+                                                } else if (response.result == 'lost') {
+                                                    common.noti.alert(common.lang.get('msg.pay.lost'));
+
+                                                    $('.fb-modal__wrap').remove();
+                                                    $('body').removeClass("fb-modal");
+                                                } else {
+                                                    common.noti.alert(response.data.msg);
+                                                    $('.devAllClear').click();
+                                                }
+
+                                                self.sendCardNum = false;
+                                            }
+                                        );
+                                    }
+
+                                }
                         });
 
                         $('.devAllClear').on('click', function () {

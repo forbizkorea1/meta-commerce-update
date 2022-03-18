@@ -1,0 +1,25 @@
+<!-- 
+<nav class="menu-footer">
+	{? layoutCommon.isLogin}
+	<a href="/member/logout">{=trans('로그아웃')}</a>
+	{:}
+	<a href="/member/login">{=trans('로그인')}</a>
+	{/}
+	<a href="alert('준비중 입니다.')">{=trans('회사소개')}</a>
+	<a href="/customer/notice#page1&bType=notice&isAjaxList=Y">{=trans('공지사항')}</a>
+	<a href="/customer/">{=trans('고객센터')}</a>
+</nav> -->
+{? talktalk_use_type == 'Y'}
+<div class="pub-talktalk">
+    <button type="button" class="pub-talktalk__btn btn-talktalk">{=trans('네이버톡톡')}</button>
+    <div class="pub-talktalk__wrap">
+        {talktalk_mobile_script}
+    </div>
+</div>
+{/}
+{? happyTalk_use_type == 'Y'}
+    {happyTalk_mobile_script}
+{/}
+{? friendTalk_use_type == 'Y'}
+    {friendTalk_mobile_script}
+{/}

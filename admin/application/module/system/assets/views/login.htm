@@ -29,6 +29,11 @@
                     </table>
                 </fieldset>
             </form>
+            {? existsAdminInfo}
+            <div class="">
+                <button type="button" id="devSearchIdPw" class="bg-white" style="margin-top: 0;">위저드 가입 ID/PW 찾기</button>
+            </div>
+            {/}
         </div>
         <footer class="fb__login-footer">
             <p>
@@ -37,3 +42,5 @@
         </footer>
     </div>
 </section>
+
+{# searchIdPwModal}
