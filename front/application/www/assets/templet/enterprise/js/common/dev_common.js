@@ -619,6 +619,55 @@ var common = {
             }
         }
     },
+    ajaxManager: {
+        activeStatus: true,
+        deActive: function(){
+            var self = common.ajaxManager;
+            self.activeStatus = false;
+            return common;
+        },
+        active: function(){
+            var self = common.ajaxManager;
+            self.activeStatus = true;
+            return common;
+        },
+        eventCalback: {
+            allFinish: false
+        },
+        reqCnt: 0,
+        on: function (eventType, func) {
+            var self = common.ajaxManager;
+
+            if ($.isFunction(func)) {
+                self.eventCalback[eventType] = func;
+            }
+
+            return self;
+        },
+        inc: function () {
+            var self = common.ajaxManager;
+
+            if (self.activeStatus === true && self.reqCnt == 0 && $.isFunction(self.eventCalback.allFinish) === false && typeof window.dev_fat !== 'undefined') {
+                self.on('allFinish', window.dev_fat.initStat);
+            }
+
+            self.reqCnt++;
+
+            return self;
+        },
+        dec: function () {
+            var self = common.ajaxManager;
+            self.reqCnt--;
+
+            if (self.reqCnt == 0 && $.isFunction(self.eventCalback.allFinish)) {
+                self.eventCalback.allFinish();
+                self.eventCalback.allFinish = false;
+                self.activeStatus = true;
+            }
+
+            return self;
+        }
+    },
     /**
      * @constructor
      * @desc 데이터 입력 포멧 제어
@@ -695,55 +744,6 @@ var common = {
                     }
                 }
             }, 'input[devFileSize]');
-        }
-    },
-    ajaxManager: {
-        activeStatus: true,
-        deActive: function(){
-            var self = common.ajaxManager;
-            self.activeStatus = false;
-            return common;
-        },
-        active: function(){
-            var self = common.ajaxManager;
-            self.activeStatus = true;
-            return common;
-        },
-        eventCalback: {
-            allFinish: false
-        },
-        reqCnt: 0,
-        on: function (eventType, func) {
-            var self = common.ajaxManager;
-
-            if ($.isFunction(func)) {
-                self.eventCalback[eventType] = func;
-            }
-
-            return self;
-        },
-        inc: function () {
-            var self = common.ajaxManager;
-
-            if (self.activeStatus === true && self.reqCnt == 0 && $.isFunction(self.eventCalback.allFinish) === false && typeof window.dev_fat !== 'undefined') {
-                self.on('allFinish', window.dev_fat.initStat);
-            }
-
-            self.reqCnt++;
-
-            return self;
-        },
-        dec: function () {
-            var self = common.ajaxManager;
-            self.reqCnt--;
-
-            if (self.reqCnt == 0 && $.isFunction(self.eventCalback.allFinish)) {
-                self.eventCalback.allFinish();
-                self.eventCalback.allFinish = false;
-                self.activeStatus = true;
-            }
-
-            return self;
         }
     },
     /**

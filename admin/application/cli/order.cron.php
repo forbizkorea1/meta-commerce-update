@@ -25,6 +25,7 @@ require_once(__DIR__ . '/../../core/framework/ForbizScmCli.php');
         echo "-------사용법-------\n";
         echo "autoCancel: 입금예정 -> 입금전취소\n";
         echo "deliveryComplete: 배송중 -> 배송완료\n";
+        echo "autoDeliveryComplete: 배송중 -> 배송완료 (부가서비스)\n";
         echo "buyFinalized: 배송완료 -> 구매확정\n";
     }
 
@@ -46,6 +47,16 @@ require_once(__DIR__ . '/../../core/framework/ForbizScmCli.php');
         /* @var $orderModel \CustomScm\Model\Order */
         $orderModel = $this->import('model.scm.order');
         $orderModel->cronDeliveryComplete();
+    }
+
+    /**
+     * 자동 배송완료 (릴라켓 배송조회 후, 배송완료 상태 주문만 배송완료로 변경)
+     */
+    public function autoDeliveryComplete()
+    {
+        /* @var $orderModel \CustomScm\Model\Order */
+        $orderModel = $this->import('model.scm.order');
+        $orderModel->cronAutoDeliveryComplete();
     }
 
 

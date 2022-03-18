@@ -347,17 +347,17 @@
                         <td colspan="3">
                             <div class="fb-filter__radio">
                                 <label>
-                                    <input type="radio" name="happyTalk_use_type" class="devHappyTalkUseType" value="Y" {? config.happyTalk_use_type == 'Y'}checked{/} />
+                                    <input type="radio" name="happyTalk_use_type" class="devHappyTalkUseType" value="Y" {? config.happyTalk_use_type =='Y'}checked{/} />
                                     <span>사용</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="happyTalk_use_type" class="devHappyTalkUseType" value="N" {? config.happyTalk_use_type == 'N' || config.happyTalk_use_type == ''}checked{/}  />
+                                    <input type="radio" name="happyTalk_use_type" class="devHappyTalkUseType" value="N" {? config.happyTalk_use_type =='N' || config.happyTalk_use_type ==''}checked{/}  />
                                     <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr class="happyTalkUseConfig" style="display: none;"> <!-- 텍스트 타입 -->
+                    <tr class="happyTalkUseConfig" {? config.happyTalk_use_type !='Y'}style="display: none;"{/}> <!-- 텍스트 타입 -->
                         <th class="fb-filter__title">
                             <span>
                                 해피톡 - JavaScript
@@ -384,17 +384,17 @@
                         <td colspan="3">
                             <div class="fb-filter__radio">
                                 <label>
-                                    <input type="radio" name="friendTalk_use_type" class="devFriendTalkUseType" value="Y" {? config.friendTalk_use_type == 'Y'}checked{/}/>
+                                    <input type="radio" name="friendTalk_use_type" class="devFriendTalkUseType" value="Y" {? config.friendTalk_use_type =='Y'}checked{/}/>
                                     <span>사용</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="friendTalk_use_type" class="devFriendTalkUseType" value="N" {? config.friendTalk_use_type == 'N' || config.friendTalk_use_type == ''}checked{/} />
+                                    <input type="radio" name="friendTalk_use_type" class="devFriendTalkUseType" value="N" {? config.friendTalk_use_type =='N' || config.friendTalk_use_type ==''}checked{/} />
                                     <span>사용안함</span>
                                 </label>
                             </div>
                         </td>
                     </tr>
-                    <tr class="friendTalkUseConfig" style="display: none;"> <!-- 텍스트 타입 -->
+                    <tr class="friendTalkUseConfig" {? config.friendTalk_use_type !='Y'}style="display: none;"{/}> <!-- 텍스트 타입 -->
                         <th class="fb-filter__title">
                             <span>
                                 채널톡 - JavaScript

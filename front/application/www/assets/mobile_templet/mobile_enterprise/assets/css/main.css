@@ -18300,6 +18300,49 @@ details[open] summary + * {
   color: #999;
 }
 
+.fb__infoinput .wrap-discount-area .discount-box__input .mileage-input {
+  display: inline-block;
+  width: 100%;
+  height: 12vw;
+  padding: 0 4vw;
+  border: 0.26667vw solid #ddd;
+}
+
+.fb__infoinput .wrap-discount-area .discount-box__input .mileage-input:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.fb__infoinput .wrap-discount-area .discount-box__input .mileage-input input[type="text"] {
+  border: 0 none;
+  padding: 0;
+  margin-right: 3px;
+  width: 50%;
+  background: none;
+}
+
+.fb__infoinput .wrap-discount-area .discount-box__input .mileage-input input[type="text"]:-moz-read-only, .fb__infoinput .wrap-discount-area .discount-box__input .mileage-input input[type="text"]:disabled {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.fb__infoinput .wrap-discount-area .discount-box__input .mileage-input input[type="text"]:read-only, .fb__infoinput .wrap-discount-area .discount-box__input .mileage-input input[type="text"]:disabled {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.fb__infoinput .wrap-discount-area .discount-box__input .mileage-input .discount-box__input__unit {
+  position: static;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  line-height: 12.4vw;
+}
+
+.fb__infoinput .wrap-discount-area .discount-box__input .mileage-input > * {
+  float: right;
+}
+
 .fb__infoinput .wrap-discount-area .discount-box .btn__discount {
   display: block;
   width: 26.66667vw;

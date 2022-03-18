@@ -1,0 +1,100 @@
+<section class="fb__menusubmit">
+    <section class="fb-filter" id="devTemplateManagement">
+        <form id="devTemplateForm">
+            <input type="hidden" name="page" value="1" id="devTemplatePageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <fieldset>
+                <legend>
+                    템플릿관리
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="searchChannel" class="fb-filter__select">
+                                <option value="">선택해주세요</option>
+                                <option value="template_name">템플릿명</option>
+                                <option value="template_code">템플릿 코드</option>
+                            </select>
+                            <input name="searchTemplate" type="text" class="fb-filter__text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                검수상태
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="template_inspection_status" value="" checked>
+                                    <span>전체</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="template_inspection_status" value="ACCEPT">
+                                    <span>검수요청</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="template_inspection_status" value="INSPECT">
+                                    <span>검수중</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="template_inspection_status" value="COMPLETE">
+                                    <span>검수완료</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="template_inspection_status" value="REJECT">
+                                    <span>검수반려</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devTemplateFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+        <section class="fb__menusubmit fb-filter">
+            <header class="fb-maincontent-header">
+                <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTemplateTotal">0</em>개)</span>
+                </h3>
+                <div class="fb-maincontent-fliter">
+                    <select name="" class="fb-filter__select" id="devTemplateMax">
+                        <option value="100">100</option>
+                        <option value="50" selected>50</option>
+                        <option value="25">25</option>
+                    </select>
+                </div>
+            </header>
+            <div id="devTemplatePagingGrid"></div>
+            <div id="devTemplatePageWrap" class="fb__bbs__page"></div>
+        </section>
+    </section>
+</section>
+
+
+<section class="fb__menusubmit">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">유의사항</h3>
+    </header>
+    <section class="fb__infobox">
+        <p class="fb__info-line">삭제 시 알림톡 템플릿은 즉시 삭제되어 삭제 요청을 철회할 수 없습니다.</p>
+        <p class="fb__info-line">삭제된 템플릿은 복원할 수 없습니다.</p>
+    </section>
+</section>

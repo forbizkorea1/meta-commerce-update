@@ -171,4 +171,33 @@ class Category extends \CustomScm\Model\Category
             }
             return $epCategoryList;
     }
+
+    /**
+     * 카테고리 수정
+     * @param $data
+     * @return array
+     * @throws \Exception
+     */
+    public function put($cid, $data)
+    {
+        $this->qb
+            ->set('cname', $data['cname'])
+            ->set('category_code', $data['category_code'])
+            ->set('category_use', $data['category_use'])
+            ->set('disp_naver', $data['disp_naver'])
+            ->set('disp_daum', $data['disp_daum'])
+            ->set('regdate', date('Y-m-d H:i:s'))
+            ->where('cid', $cid)
+            ->update($this->categoryTbl)
+            ->exec();
+
+        return [
+            'cid' => $data['cid']
+            , 'cname' => $data['cname']
+            , 'category_code' => $data['category_code'] ?? ''
+            , 'category_use' => $data['category_use'] ?? ''
+            , 'disp_naver' => $data['disp_naver'] ?? ''
+            , 'disp_daum' => $data['disp_daum'] ?? ''
+        ];
+    }
 }

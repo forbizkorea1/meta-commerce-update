@@ -18410,12 +18410,63 @@ input[type="file"].file-upload {
   width: 150px;
 }
 
+.fb__infoinput__benefit .benefit__amount.mileage {
+  height: 40px;
+  vertical-align: middle;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage + label {
+  vertical-align: middle;
+}
+
 .fb__infoinput__benefit .benefit__amount.mileage input {
+  width: 50%;
+  margin-right: 2px;
+  padding: 0;
+  border: 0 none;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage .mileage-input {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage .mileage-input:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage .mileage-input input {
+  background: none;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage .mileage-input input:-moz-read-only, .fb__infoinput__benefit .benefit__amount.mileage .mileage-input input:disabled {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage .mileage-input input:read-only, .fb__infoinput__benefit .benefit__amount.mileage .mileage-input input:disabled {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage .mileage-input > * {
+  float: right;
+}
+
+.fb__infoinput__benefit .benefit__amount.mileage .mileage-input .benefit__amount__unit {
+  font-size: 14px;
+  line-height: 41px;
   color: #111;
 }
 
 .fb__infoinput__benefit .benefit__amount.mileage .benefit__amount__unit {
-  color: #111;
+  position: static;
 }
 
 .fb__infoinput__benefit .benefit__amount input {
@@ -18424,6 +18475,10 @@ input[type="file"].file-upload {
   font-size: 15px;
   padding-right: 23px;
   text-align: right;
+}
+
+.fb__infoinput__benefit .benefit__amount input:focus {
+  outline: none;
 }
 
 .fb__infoinput__benefit .benefit__amount input:-moz-read-only {

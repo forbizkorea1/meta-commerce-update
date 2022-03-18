@@ -127,7 +127,6 @@ var devThirdPartyDeliveryObj = {
         self.initEvent();
         self.initLang();
         self.initMetaPayModal();
-        
     }
 }
 

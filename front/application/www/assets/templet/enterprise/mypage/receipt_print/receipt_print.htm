@@ -10,18 +10,6 @@
         <div class="wrap-order-num">
             <div class="top-area">
                 <span class=" float-l"><em class="fb__point-color">{order.oid}</em></span>
-
-                {@ paymentInfo.payment}
-                    {? (.method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE || .method == c.ORDER_METHOD_ASCROW) && .receipt_yn == 'Y'}
-                        {? .tid}
-                        <button class="btn-s btn-dark-line float-r devCachInfo" data-settle_module="{.settle_module}" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('현금영수증 조회')}</button>
-                        {/}
-                    {: .method == c.ORDER_METHOD_CARD }
-                        {? .tid}
-                        <button class="btn-s btn-dark-line float-r devCardInfo" data-settle_module="{.settle_module}" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('신용카드 전표')}</button>
-                        {/}
-                    {/}
-                {/}
             </div>
             <dl>
                 <dt>{=trans('주문일시')}</dt>
@@ -125,7 +113,7 @@
         <ul class="wrap-receipt-bottom">
             <li class="logo-area">
                 <div class="logo">
-                    <img src="{layoutCommon.templetSrc}/images/common/shop_logo.gif" alt="">
+                    <img src="/data/mall_data/images/shop_logo.png" alt="">
                 </div>
             </li>
 

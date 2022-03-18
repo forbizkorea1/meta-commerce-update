@@ -143,8 +143,8 @@ return (function () {
         , 'headerTop' => [
             'popularKeyword' => $productModel->getPopularKeyword()
             , 'recentKeyword' => $productModel->getRecentKeyword()
-            , 'logo' => ($logo['url'] ?? '/data/mall_data/images/shop_logo.gif')
-            , 'mobileLogo' => ($mobileLogo['url'] ?? '/data/mall_data/images/mobile_logo.gif')
+            , 'logo' => '/data/mall_data/images/shop_logo.png'
+            , 'mobileLogo' => '/data/mall_data/images/mobile_logo.png'
         ]
         , 'headerMenu' => [
             'categoryList' => $largeCateData,

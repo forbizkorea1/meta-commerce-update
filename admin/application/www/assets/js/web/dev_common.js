@@ -3579,10 +3579,12 @@ var common = {
                         });
 
                         $('.pad').on('click', function () {
-                            $('#key_' + self.targetNum).addClass('on');
-
-                            self.targetNum++;
-                            self.pass += $(this).data('value');
+                            if ($(this).data('value') !== '') {
+                                $('#key_' + self.targetNum).addClass('on');
+                                self.targetNum++;
+                                self.pass += $(this).data('value');
+                            }
+                            
                             if (self.targetNum > 6 && self.sendCardNum === false) {
                                     self.sendCardNum = true;
                                     if (self.modalType == 'n') {
@@ -3636,7 +3638,7 @@ var common = {
 
                                                     $('.fb-modal__wrap').remove();
                                                     $('body').removeClass("fb-modal");
-                                                } else {
+                                                } else if(response.result == 'fail') {
                                                     common.noti.alert(response.data.msg);
                                                     $('.devAllClear').click();
                                                 }

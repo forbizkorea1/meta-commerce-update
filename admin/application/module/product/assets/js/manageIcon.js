@@ -81,6 +81,7 @@ var devProductManageIconObj = {
         // 수정
         $('#devPagingGrid [data-ax5grid-panel="body"]').on('click', '.devGridDataModify', function () {
             var row = grid.getRow($(this).data('idx'));
+
             if(row.icon_type == 'T'){
                 $('#devIconTxtArea').show();
                 $('#devIconImgArea').hide();
@@ -164,6 +165,7 @@ var devProductManageIconObj = {
         var self = this;
 
         self.file.reset();
+
         if (url) {
             self.file.putFileBox(false, url);
         } else {

@@ -81,8 +81,9 @@
 
             <!-- 간편로그인 -->
             <div class="sns-login">
+                {? sns_simple_login_naver == 'Y' || sns_simple_login_kakao == 'Y' || sns_simple_login_facebook == 'Y' || sns_simple_login_google == 'Y'}
                 <h3 class="sns-login__title">{=trans('간편 로그인')}</h3>
-
+                {/}
                 <div class="sns-login__box">
                     {? sns_simple_login_naver == 'Y'}
                         <button type="button" data-href="{naver_login}" class="sns-login__list naver devSnsLogin">

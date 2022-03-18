@@ -281,8 +281,10 @@
 
             <div class="discount-box__cont">
                 <div class="discount-box__input">
-                    <input type="text" id="devUseMileage" value="0" {? !useMileageBool}readonly disabled{/}>
-                    <span class="discount-box__input__unit">{mileageUnit}</span>
+                    <span class="mileage-input">
+                        <span class="discount-box__input__unit">{mileageUnit}</span>
+                        <input type="text" id="devUseMileage" value="0" {? !useMileageBool}readonly disabled{/}>
+                    </span>
                 </div>
 
                 <label class="btn__discount" for="devAllUseMileageCheckBox">

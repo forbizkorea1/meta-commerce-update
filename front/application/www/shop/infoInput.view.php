@@ -163,10 +163,9 @@ if (!empty(ForbizConfig::getPaymentConfig('simplePayMethod', $sattle_module))) {
 }
 
 //추가 결제 수단
-//$view->assign('add_sattle_module_naverpay_pg', ForbizConfig::getMallConfig('add_sattle_module_naverpay_pg'));
-//$view->assign('add_sattle_module_kakaopay', ForbizConfig::getMallConfig('add_sattle_module_kakaopay'));
-//$view->assign('add_sattle_module_payco', ForbizConfig::getMallConfig('add_sattle_module_payco'));
-//$view->assign('add_sattle_module_toss', ForbizConfig::getMallConfig('add_sattle_module_toss'));
+$view->assign('naverpay_pg_service_use', ForbizConfig::getMallConfig('naverpay_pg_service_use'));
+$view->assign('payco_service_use', ForbizConfig::getMallConfig('payco_service_use'));
+$view->assign('toss_service_use', ForbizConfig::getMallConfig('toss_service_use'));
 
 //결제 스크립트
 /* @var $paymentGatewayModel CustomMallPaymentGatewayModel */

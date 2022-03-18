@@ -51,21 +51,8 @@
                         </li>
                         {/}
                         {/}
-                        <!-- 토스 -->
-                        <!--{/// KSNET에서 토스 업데이트 중 12월 완료 예정
-                        {? add_payment_sattle_module_toss == 'Y'}
-                        <li class="payment__method__list">
-                            <label for="pay-method-{c.ORDER_METHOD_INAPP_TOSS}" class="fb__comm__radio">
-                                <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_INAPP_TOSS}" id="pay-method-{c.ORDER_METHOD_INAPP_TOSS}">
-                                <span>{=trans('토스')}</span>
-                            </label>
-                        </li>
-                        {/}
-                        -->
-
-                        {? false}
-                        <!-- 네이버 페이 -->
-                        {? add_sattle_module_naverpay_pg == 'Y'}
+                        <!-- 네이버 페이 직연동-->
+                        {? naverpay_pg_service_use == 'Y'}
                         <li class="payment__method__list npay">
                             <label for="pay-method-{c.ORDER_METHOD_NPAY}" class="fb__comm__radio">
                                 <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_NPAY}"
@@ -75,19 +62,8 @@
                         </li>
                         {/}
 
-                        <!-- 카카오페인 -->
-                        {? add_sattle_module_kakaopay == 'Y'}
-                        <li class="payment__method__list kakao">
-                            <label for="pay-method-{c.ORDER_METHOD_KAKAOPAY}" class="fb__comm__radio">
-                                <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_KAKAOPAY}"
-                                       id="pay-method-{c.ORDER_METHOD_KAKAOPAY}">
-                                <span>{=trans('kakaoPay')}</span>
-                            </label>
-                        </li>
-                        {/}
-
-                        <!-- 페이코 -->
-                        {? add_sattle_module_payco == 'Y'}
+                        <!-- 페이코 직연동-->
+                        {? payco_service_use == 'Y'}
                         <li class="payment__method__list payco">
                             <label for="pay-method-{c.ORDER_METHOD_PAYCO}" class="fb__comm__radio">
                                 <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_PAYCO}"
@@ -97,35 +73,13 @@
                         </li>
                         {/}
 
-                        <!-- 토스 -->
-                        {? add_sattle_module_toss == 'Y'}
+                        <!-- 토스 직연동-->
+                        {? toss_service_use == 'Y'}
                         <li class="payment__method__list">
                             <label for="pay-method-{c.ORDER_METHOD_TOSS}" class="fb__comm__radio">
                                 <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_TOSS}"
                                        id="pay-method-{c.ORDER_METHOD_TOSS}">
-                                <span>{=trans('토스')}</span>
-                            </label>
-                        </li>
-                        {/}
-
-                        <!-- SSG PAY -->
-                        {? add_sattle_module_ssg == 'Y'}
-                        <li class="payment__method__list ssg">
-                            <label for="pay-method-{c.ORDER_METHOD_SSG}" class="fb__comm__radio">
-                                <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_SSG}"
-                                       id="pay-method-{c.ORDER_METHOD_SSG}">
-                                <span>{=trans('SSG')}</span>
-                            </label>
-                        </li>
-                        {/}
-                        {/}
-                        {? false} {* 추후 사용 예정 *}
-                        <!-- EXIMBAY -->
-                        <li class="payment__method__list">
-                            <label for="pay-method-{c.ORDER_METHOD_EXIMBAY}" class="fb__comm__radio">
-                                <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_EXIMBAY}"
-                                       id="pay-method-{c.ORDER_METHOD_EXIMBAY}">
-                                <span>EXIMBAY</span>
+                                <span>{=trans('TOSS')}</span>
                             </label>
                         </li>
                         {/}

@@ -149,7 +149,7 @@
         </section>
 
         <h5 class="fb__section-title">서비스 신청내역</h5>
-        <span>잔여건수 : <b>{remainCnt}</b> 건</span>
+        <span>잔여건수 : <b>{=number_format(remainCnt)}</b> 건</span>
         <section class="fb__menusubmit">
             <section class="fb-filter">
                 <table class="fb-filter__table">
@@ -177,7 +177,11 @@
                             신청취소<br/>
                             {.cancel_date}
                             {: .cancelYn}
+                            {? .ptprice > 0}
                             <button id="devRefundBtn" type="button" data-oid="{.oid}" data-od_ix="{.od_ix}">취소/환불</button>
+                            {:}
+                            -
+                            {/}
                             {:}
                             -
                             {/}

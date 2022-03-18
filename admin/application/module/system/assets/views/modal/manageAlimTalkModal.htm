@@ -1,7 +1,7 @@
-<!--{'<script id="devRegModalTpl" type="text/x-handlebars-template">'}-->
+<!--{'<script id="channelModalTpl" type="text/x-handlebars-template">'}-->
 <section class="fb__menusubmit">
     <section class="fb-filter">
-        <form name="regForm" id="devRegForm" method="post" style="margin: 0;">
+        <form name="regForm" id="devRegForm" style="margin: 0;">
             <fieldset>
                 <table>
                     <colgroup>
@@ -34,47 +34,62 @@
                     <tr>
                         <th class="fb-filter__title">
                             <span class="fb-filter__title--ne">
-                                관리자 연락처
+                                사업자 카테고리
                             </span>
                         </th>
-                        <td colspan="3" class="fb-filter__title-contents">
-                            <input type="text" class="fb-filter__text" name="admin_number" id="devAdminNumber" placeholder="“-”를 제외한 휴대폰 번호" title="관리자 연락처" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <td colspan="3" class="fb-filter__title-contents fb__file__input" id="devCategorys" style="text-align: left;">
+                            <div class="devEditHidden">
+                                <select name="category1" id="devCategory1" class="fb-filter__select devCategory" title="대분류">
+                                    <option value="">대분류</option>
+                                    {? !empty(category1)}
+                                    {@ category1}
+                                        <option value="{.kcc_ix}">{.category_name}</option>
+                                    {/}
+                                    {/}
+                                </select>
+                                <select name="category2" id="devCategory2" class="fb-filter__select devCategory" title="중분류">
+                                    <option value="">중분류</option>
+                                </select>
+                                <select name="category3" id="devCategory3" class="fb-filter__select" title="소분류">
+                                    <option value="">소분류</option>
+                                </select>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <th class="fb-filter__title">
                             <span class="fb-filter__title--ne">
-                                사업자 카테고리
+                                관리자 연락처
                             </span>
                         </th>
-                        <td colspan="3" class="fb-filter__title-contents fb__file__input" >
-                            <select name="category1" id="devCategory1" class="fb-filter__select devCategory">
-                                <option value="">대분류</option>
-                                {? !empty(category1)}
-                                {@ category1}
-                                    <option value="{.kcc_ix}">{.category_name}</option>
-                                {/}
-                                {/}
-                            </select>
-                            <select name="category2" id="devCategory2" class="fb-filter__select devCategory">
-                                <option value="">중분류</option>
-                            </select>
-                            <select name="category3" id="devCategory3" class="fb-filter__select">
-                                <option value="">소분류</option>
-                            </select>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--40" name="admin_number" id="devAdminNumber" placeholder="“-”를 제외한 휴대폰 번호" title="관리자 연락처" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                            <button type="button" id="devSendCertifyNumber" class="fb-filter__gary devEditHidden" style="height: 30px;">인증번호 발송</button>
+                            <p style="height: 5px;"></p>
+                            <div id="devCertifyNumberWrap" style="display: none;">
+                                <input type="text" class="fb-filter__text fb-filter__text--30 devEditHidden" name="certify_number" id="devCertifyNumber" title="인증번호" />
+                                <button type="button" id="devConfirmCertifyNumber" class="fb-filter__gary devEditHidden" style="height: 30px;">&nbsp;확인&nbsp;</button>
+                                <p class="main-color devEditHidden" style="margin-top: 5px;" id="devConfirmCertifyNumberHidden">인증번호를 입력해주세요.</p>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <th class="fb-filter__title">
-                            <span>
-                                Failover 사용여부
+                            <span class="fb-filter__title--ne">
+                                 Failover 사용여부
                             </span>
                         </th>
                         <td colspan="3" class="fb-filter__title-contents fb__file__input">
-                            <select name="failover_use_yn" id="devFailOverYN" class="fb-filter__select">
-                                <option value="N">미사용</option>
-                                <option value="Y">사용</option>
-                            </select>
+                            <div class="fb-filter__radio" style="text-align: left;">
+                                <label>
+                                    <input type="radio" name="failover_use_yn" value="Y" id="devFailOverUseY" checked>
+                                    <span>사용함</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="failover_use_yn" value="N" id="devFailOverUseN">
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
                             <select name="failover_number" id="devFailoverNumber" class="fb-filter__select">
                                 <option value="">선택해주세요</option>
                                 {? !empty(callerInfo)}
@@ -85,13 +100,32 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                             <span class="fb-filter__title--ne">
+                                채널 사용여부
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents fb__file__input">
+                            <div class="fb-filter__radio" style="float: left;">
+                                <label>
+                                    <input type="radio" name="channel_use_yn" value="Y" id="devChannelUseYnY" checked>
+                                    <span>활성</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="channel_use_yn" value="N" id="devChannelUseYnN">
+                                    <span>비활성</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </fieldset>
             <div class="fb-modal__bottom" style="text-align: center;">
                 <div class="fb-filter__btn">
                     <button type="button" class="fb-filter__cancle" id="devRegCancleBtn">취소</button>
-                    <button type="button" class="fb-filter__save" id="devRegSubmitBtn">등록</button>
+                    <button type="button" class="fb-filter__save" id="devRegSubmitBtn">저장</button>
                 </div>
             </div>
         </form>
@@ -147,224 +181,73 @@
 <!--{'</script>'}-->
 
 
-<!--{'<script id="devTplRegModalTpl" type="text/x-handlebars-template">'}-->
-<section class="fb__menusubmit">
-    <section class="fb-filter">
-        <form name="" id="devTplEditForm" method="post" style="margin: 0;">
-            <fieldset>
-                <table>
-                    <colgroup>
-                        <col width="15%">
-                        <col width="35%">
-                        <col width="15%">
-                        <col width="*">
-                    </colgroup>
-                    <tbody>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                카카오톡 채널
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__title-contents">
-                            <select name="channel_id" id="devChannelId" class="fb-filter__select">
-                                <option value="">선택해주세요</option>
-                                {? !empty(channelList)}
-                                {@ channelList}
-                                    {? .channel_status == 'ACTIVE'}
-                                    <option value="{.kc_ix}">{.channel_name}</option>
-                                    {/}
-                                {/}
-                                {/}
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                템플릿코드
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__title-contents">
-                            <input type="text" class="fb-filter__text" name="template_code" id="devTplCode" title="템플릿 코드" placeholder="20자 이내의 영문이나 숫자(한글금지)" maxlength='20'>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                템플릿명
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__title-contents fb__file__input" >
-                            <input type="text" class="fb-filter__text" name="template_name" id="devTplName" title="템플릿명">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                템플릿내용
-                            </span>
-                        </th>
-                        <td colspan="2" class="fb-filter__title-contents fb__file__input">
-                            <textarea type="text" class="fb-filter__textarea countTextarea" name="template_content" id="devTplCont" maxlength="1000"
-                                      placeholder="한/영 구분 없이 변수 및 URL 포함 1,000자
-변수는 #&#123;치환자&#125; 형태로 띄어쓰기 없이 입력
+<!--{'<script id="devHistoryModalTpl" type="text/x-handlebars-template">'}-->
 
-예) #&#123;name&#125;님의 택배가 금일 #&#123;time&#125;에 배달 예정입니다." title="템플릿내용" style="float: left; width: 360px; height: 100px;"></textarea>
-                            <br />
-                            <span style="color:#aaa;" class="counter">(0 / 최대 1000자)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                메시지 유형
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__title-contents fb__file__input">
-                            <select name="template_msg_type" class="fb-filter__select selectType" id="devMsgType" style="width: 360px;">
-                                <option value="">기본형</option>
-                                <option value="1">부가 정보형</option>
-                                <option value="2">광고 추가형</option>
-                                <option value="3">복합형</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr class="select-1" id="devAddInfoBox" style="display: none;">
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                부가 정보
-                            </span>
-                        </th>
-                        <td class="fb-filter__title-contents fb__file__input">
-                            <textarea type="text" id="devAddInfo" class="fb-filter__textarea countTextarea" name="template_add_info" maxlength="500" placeholder="이용안내 등 보조적인 정보메시지 안내
-- 글자수 500자 이내
-- 변수 불가" title="부가 정보" style="float: left; width: 360px; height: 60px;"></textarea>
-                            <br />
-                            <span style="color:#aaa;" class="counter">(0 / 최대 500자)</span>
-                        </td>
-                    </tr>
-                    <tr class="select-2" id="devAdvInfoBox" style="display: none;">
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                광고성 메시지
-                            </span>
-                        </th>
-                        <td class="fb-filter__title-contents fb__file__input">
-                            <textarea type="text" id="devAdvInfo" class="fb-filter__textarea countTextarea" name="template_adv_info" maxlength="80" placeholder="템플릿 내 수신 동의 요청 또는 간단 광고 문구
-- 글자수 80자 이내
-- URL, 변수 불가" title="광고성 메시지" style="float: left; width: 360px; height: 60px;"></textarea>
-                            <br />
-                            <span style="color:#aaa;" class="counter">(0 / 최대 80자)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                강조 유형
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__title-contents fb__file__input">
-                            <select name="template_emphasis_type" class="fb-filter__select" id="devEmphasisType" style="width: 360px;">
-                                <option value="1">기본형</option>
-                                <option value="2">강조표기형</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr class="select-1" id="accentType01" style="display: none;">
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                Title
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__title-contents fb__file__input" >
-                            <input type="text" id="devEmphasisTitle" class="fb-filter__text" name="template_emphasis_title" placeholder="본문 내용 중 고객에게 강조할 내용" title="Title">
-                        </td>
-                    </tr>
-                    <tr class="select-2" id="accentType02" style="display: none;">
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                Additional Title
-                            </span>
-                        </th>
-                        <td colspan="3" class="fb-filter__title-contents fb__file__input" >
-                            <input type="text" id="devAddEmphasisTitle" class="fb-filter__text" name="template_emphasis_add_title" placeholder="Title에 어떤 내용이 들어가는지에 대한 설명(변수 불가)" title="Additional Title">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">
-                                보안 설정 여부
-                            </span>
-                        </th>
-                        <td colspan="3">
-                            <div class="fb-filter__radio">
-                                <label>
-                                    <input type="radio" name="template_security_yn" value="Y">
-                                    <span>사용</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="template_security_yn" value="N" checked>
-                                    <span>사용안함</span>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </fieldset>
-        </form>
-    </section>
-</section>
-<section class="fb__menusubmit fb-filter alimtalkTpl">
-    <div class="fb__table-row" style="padding: 0;">
-        <div class="alimtalkTpl__header">&nbsp;&nbsp;버튼 (최대 5개)</div>
-        <table>
+<section class="fb__menusubmit-table">
+    <div class="fb__table-col paddingNone">
+        <table class="border grid">
             <colgroup>
-                <col width="20%">
-                <col width="20%">
-                <col>
-                <col width="140">
+                <col />
+                <col width="30%" />
+                <col width="30%" />
+
             </colgroup>
-            <tbody id="devBtnSetting">
-            <tr>
-                <th>버튼 타입</th>
-                <th>버튼명</th>
-                <th>버튼링크</th>
-                <th></th>
-            </tr>
-            <tr id="btn-setting-org">
-                <td class="fb-filter__title-contents fb__file__input">
-                    <select name="btnType" class="fb-filter__select select-btnType" id="devBtnType">
-                        <option value="">타입선택</option>
-                        <option value="DS">배송 조회</option>
-                        <option value="WL">웹 링크</option>
-                        <option value="AL">앱 링크</option>
-                        <option value="BK">봇 키워드</option>
-                        <option value="MD">메시지 전달</option>
-                    </select>
-                </td>
-                <td>
-                    <input type="text" class="fb-filter__text select-btnName" id="devBtnName" name="btnName" placeholder="" title="버튼명" style="display: none;">
-                </td>
-                <td>
-                    <input type="text" class="fb-filter__text select-btnLink" id="devBtnLink01" name="btnLink01" placeholder="" title="버튼링크" style="display: none;">
-                    <input type="text" class="fb-filter__text select-btnLink" id="devBtnLink02" name="btnLink02" placeholder="" title="버튼링크" style="display: none;">
-                    <p class="btnLink-guide" style="display: none;">http://, https://으로 시작해야 합니다.</p>
-                </td>
-                <td class="fb-filter__btn">
-                    <button type="button" class="fb-filter__org" id="devBtnAdd">+ 추가</button>
-                </td>
-            </tr>
+            <tbody id="devHistoryTable">
+                <tr>
+                    <th>등록일자</th>
+                    <th>검수상태</th>
+                    <th>템플릿상태</th>
+                </tr>
+                {[#if history]}
+                    {[#each history]}
+                    <tr>
+                        <td>{[regdate]}</td>
+                        <td>{[template_inspection_status_text]}</td>
+                        <td>{[template_status_text]}</td>
+                    </tr>
+                    {[/each]}
+                {[else]}
+                    <tr>
+                        <td colspan="3" height="100" style="text-align: center;">등록 내역이 없습니다.</td>
+                    </tr>
+                {[/if]}
             </tbody>
         </table>
     </div>
 </section>
-<div class="fb-modal__bottom" style="text-align: center;">
-    <div class="fb-filter__btn">
-        <button type="button" class="fb-filter__cancle" id="devCancelBtn">취소</button>
-        <button type="button" class="fb-filter__save" id="devSubmitBtn">등록</button>
+
+<section class="fb__menusubmit-table">
+    <div class="fb__table-row paddingNone">
+        <header class="fb-maincontent-header" style="border-top: 1px solid #dcdcdc; border-bottom: 0 none;">
+            <h3 class="fb-maincontent-title">
+                검수 답변
+            </h3>
+        </header>
+        <table class="border grid">
+            <colgroup>
+                <col />
+                <col width="30%" />
+            </colgroup>
+            <tbody id="devInquiryHistoryTable">
+            {[#if comments]}
+                {[#each comments]}
+                <tr>
+                    <td>{[{\contentHtml}]}</td>
+                    <td>{[createTime]}</td>
+                </tr>
+                {[/each]}
+            {[else]}
+                <tr>
+                    <td colspan="2" height="100" style="text-align: center;">답변 내역이 없습니다.</td>
+                </tr>
+            {[/if]}
+            </tbody>
+        </table>
     </div>
+</section>
+
+<div class="fb-filter__btn">
+    <button class="fb-filter__org" id="devModalclose" type="button">닫기</button>
 </div>
 <!--{'</script>'}-->
 

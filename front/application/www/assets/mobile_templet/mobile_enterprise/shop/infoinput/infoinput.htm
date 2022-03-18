@@ -104,43 +104,22 @@
                     </li>
                     {/}
                     {/}
-
-                    {? false}
-                    {? add_sattle_module_naverpay_pg == 'Y'}
+                    <!-- 네이버 페이 직연동-->
+                    {? naverpay_pg_service_use == 'Y'}
                     <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_NPAY}">
                         <a href="#" class="nPay">NPAY</a>
                     </li>
                     {/}
-
-                    {? add_sattle_module_kakaopay == 'Y'}
-                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_KAKAOPAY}">
-                        <a href="#" class="kakaoPay">{=trans('카카오페이')}</a>
-                    </li>
-                    {/}
-
-                    {? add_sattle_module_payco == 'Y'}
+                    <!-- 페이코 직연동-->
+                    {? payco_service_use == 'Y'}
                     <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_PAYCO}">
                         <a href="#" class="payco">PAYCO</a>
                     </li>
                     {/}
-
-                    <!--{ {* KSNET에서 토스 업데이트 중 12월 완료 예정 *}
-                    {? add_sattle_module_toss == 'Y'}
+                    <!-- 토스 직연동-->
+                    {? toss_service_use == 'Y'}
                     <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_TOSS}">
                         <a href="#">{=trans('토스')}</a>
-                    </li>
-                    {/}
-                    -->
-
-                    {? add_sattle_module_ssg == 'Y'}
-                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_SSG}">
-                        <a href="#" class="ssg">SSG</a>
-                    </li>
-                    {/}
-                    {/}
-                    {? false} {* 추후 사용 예정 *}
-                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_EXIMBAY}">
-                        <a href="#">EXIMBAY</a>
                     </li>
                     {/}
                 </ul>

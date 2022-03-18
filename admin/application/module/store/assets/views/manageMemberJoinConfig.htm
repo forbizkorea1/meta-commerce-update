@@ -27,11 +27,11 @@
                         <td colspan="3" >
                             <div class="fb-filter__radio">
                                 <label for="mall_open_y">
-                                    <input type="radio" name="mall_open_yn" id="mall_open_y" value="N" {? config.mall_open_yn == 'N' || !config.mall_open_yn } checked {/} >
+                                    <input type="radio" name="mall_open_yn" id="mall_open_y" value="N" {? config.mall_open_yn =='N' || !config.mall_open_yn } checked {/} >
                                            <span>일반승인</span>
                                 </label>
                                 <label for="mall_open_n">
-                                    <input type="radio" name="mall_open_yn" id="mall_open_n" value="Y" {? config.mall_open_yn == 'Y' } checked {/} >
+                                    <input type="radio" name="mall_open_yn" id="mall_open_n" value="Y" {? config.mall_open_yn =='Y' } checked {/} >
                                            <span>관리자승인</span>
                                 </label>
                             </div>
@@ -46,11 +46,11 @@
                         <td colspan="3" >
                             <div class="fb-filter__radio">
                                 <label for="auth_type_a">
-                                    <input type="radio" name="auth_type" id="auth_type_a" value="A" {? config.auth_type == 'A' || !config.auth_type } checked {/} >
+                                    <input type="radio" name="auth_type" id="auth_type_a" value="A" {? config.auth_type =='A' || !config.auth_type } checked {/} >
                                            <span>자동승인</span>
                                 </label>
                                 <label for="auth_type_m">
-                                    <input type="radio" name="auth_type" id="auth_type_m" value="M" {? config.auth_type == 'M' } checked {/} >
+                                    <input type="radio" name="auth_type" id="auth_type_m" value="M" {? config.auth_type =='M' } checked {/} >
                                            <span>관리자승인</span>
                                 </label>
                             </div>
@@ -65,14 +65,14 @@
                         <td>
                             <div class="fb-filter__checkbox">
                                 <label>
-                                    <input type="radio" name="mall_use_certify" value="Y" {? config.mall_use_certify == 'Y' || !config.mall_use_certify} checked {/} >
+                                    <input type="radio" name="mall_use_certify" value="Y" {? config.mall_use_certify =='Y' || !config.mall_use_certify} checked {/} >
                                     <span>인증</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="mall_use_certify" value="N" {? config.mall_use_certify == 'N'} checked {/} >
+                                    <input type="radio" name="mall_use_certify" value="N" {? config.mall_use_certify =='N'} checked {/} >
                                     <span>비인증</span>
                                 </label>
-                                <label id="mall_certify_input" {? config.mall_use_certify == 'N'} style="display: none {/}">
+                                <label id="mall_certify_input" {? config.mall_use_certify =='N'} style="display: none {/}">
                                     사이트 코드
                                     <input type="text" name="mall_certify_code" value="{config.mall_certify_code}">
                                     사이트 비밀번호
@@ -81,7 +81,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr style="display: none;"> <!-- 라디오 타입 -->
+                    <tr> <!-- 라디오 타입 -->
                         <th class="fb-filter__title">
                         <span>
                             이니시스 통합인증
@@ -90,18 +90,18 @@
                         <td>
                             <div class="fb-filter__checkbox">
                                 <label>
-                                    <input type="radio" name="mall_use_sso" value="Y" {? config.mall_use_sso == 'Y'} checked {/} >
+                                    <input type="radio" name="mall_use_sso" value="Y" {? config.mall_use_sso =='Y'} checked {/} >
                                     <span>인증</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="mall_use_sso" value="N" {? config.mall_use_sso == 'N' || !config.mall_use_sso} checked {/} >
+                                    <input type="radio" name="mall_use_sso" value="N" {? config.mall_use_sso =='N' || !config.mall_use_sso} checked {/} >
                                     <span>비인증</span>
                                 </label>
-                                <label id="mall_sso_input" {? config.mall_use_sso == 'N'} style="display: none {/}">
-                                MID
-                                <input type="text" name="mall_sso_mid" value="{config.mall_sso_mid}">
-                                API KEY
-                                <input type="text" name="mall_sso_apikey" value="{config.mall_sso_apikey}">
+                                <label id="mall_sso_input" {? config.mall_use_sso !='Y'} style="display: none;"{/}>
+                                    MID
+                                    <input type="text" name="mall_sso_mid" value="{config.mall_sso_mid}">
+                                    API KEY
+                                    <input type="text" name="mall_sso_apikey" value="{config.mall_sso_apikey}">
                                 </label>
                             </div>
                         </td>
@@ -115,14 +115,14 @@
                         <td>
                             <div class="fb-filter__checkbox">
                                 <label>
-                                    <input type="radio" name="mall_use_ipin" value="Y" {? config.mall_use_ipin == 'Y' || !config.mall_use_ipin} checked {/} >
+                                    <input type="radio" name="mall_use_ipin" value="Y" {? config.mall_use_ipin =='Y' || !config.mall_use_ipin} checked {/} >
                                     <span>인증</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="mall_use_ipin" value="N" {? config.mall_use_ipin == 'N'} checked {/} >
+                                    <input type="radio" name="mall_use_ipin" value="N" {? config.mall_use_ipin =='N'} checked {/} >
                                     <span>비인증</span>
                                 </label>
-                                <label id="mall_ipin_input" {? config.mall_use_ipin == 'N'} style="display: none {/}">
+                                <label id="mall_ipin_input" {? config.mall_use_ipin =='N'} style="display: none {/}">
                                     회원사 아이디
                                     <input type="text" name="mall_ipin_code" value="{config.mall_ipin_code}">
                                     사이트 비밀번호
@@ -140,11 +140,11 @@
                         <td colspan="3" >
                             <div class="fb-filter__radio">
                                 <label for="b2b_auth_type_a">
-                                    <input type="radio" name="b2b_auth_type" id="b2b_auth_type_a" value="A" {? config.b2b_auth_type == 'A' || !config.b2b_auth_type } checked {/} >
+                                    <input type="radio" name="b2b_auth_type" id="b2b_auth_type_a" value="A" {? config.b2b_auth_type =='A' || !config.b2b_auth_type } checked {/} >
                                            <span>일반회원</span>
                                 </label>
                                 <label for="b2b_auth_type_m">
-                                    <input type="radio" name="b2b_auth_type" id="b2b_auth_type_m" value="M" {? config.b2b_auth_type == 'M' } checked {/} >
+                                    <input type="radio" name="b2b_auth_type" id="b2b_auth_type_m" value="M" {? config.b2b_auth_type =='M' } checked {/} >
                                            <span>사업자회원</span>
                                 </label>
                             </div>
@@ -159,7 +159,7 @@
                         <td>
                             <div class="fb-filter__checkbox">                    
                                 <label>
-                                    <input type="checkbox" name="join_type_b" value="B" {? config.join_type == 'B' || config.join_type == 'BC' || !config.join_type } checked {/} >
+                                    <input type="checkbox" name="join_type_b" value="B" {? config.join_type =='B' || config.join_type =='BC' || !config.join_type } checked {/} >
                                            <span>일반회원</span>
                                 </label>
                                 <label style="display:none;">

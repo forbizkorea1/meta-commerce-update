@@ -46,7 +46,9 @@
             </div>
 
             <div class="fb__login__sns">
+                {? sns_simple_login_naver == 'Y' || sns_simple_login_kakao == 'Y' || sns_simple_login_facebook == 'Y' || sns_simple_login_google == 'Y'}
                 <p class="sns__title">{=trans('간편 로그인')}</p>
+                {/}
                 <div class="sns__inner">
                     {? sns_simple_login_naver == 'Y'}
                         <a href="{naver_login}" class="sns__button naver">{=trans('네이버 로그인')}</a>

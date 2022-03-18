@@ -13,18 +13,6 @@
                         </p>
                         <p class="odeach__top__oderer">{=trans('주문자')} <span>{order.bname}</span></p>
                     </div>
-
-                    {@paymentInfo.payment}
-                        {? (.method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE || .method == c.ORDER_METHOD_ASCROW) && .receipt_yn == 'Y'}
-                            {? .tid}
-                            <button type="button" class="btn-dark-line receipt-print__title__btn devCachInfo" data-settle_module="{.settle_module}" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('현금영수증 조회')}</button>
-                            {/}
-                        {: .method == c.ORDER_METHOD_CARD }
-                            {? .tid}
-                            <button type="button" class="btn-dark-line receipt-print__title__btn devCardInfo" data-settle_module="{.settle_module}" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('신용카드 전표')}</button>
-                            {/}
-                        {/}
-                    {/}
                 </header>
 
                 <div class="wrap-sect"></div>

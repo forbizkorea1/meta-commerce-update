@@ -112,6 +112,7 @@ var devStoreManageMallConfigObj = {
                 function (response) {
                     if (response.result == 'success') {
                         common.noti.alert(common.lang.get('common.put.success.alert'));
+                        window.location.reload();
                     } else {
                         common.noti.alert(common.lang.get('common.fail.alert'));
                     }
@@ -156,7 +157,7 @@ var devStoreManageMallConfigObj = {
             //submit 후 원상태로 처리함. reload할 경우 간헐적으로 alert 뜨지않고 저장 안 되는 상황 발생.
             $('.devAddSnsSimpleLogin, .devAddSattleModule').each(function(){
                 if($(this).val() == 'N') {
-                    $(this).prop('checked', false).removeAttr('checked');;
+                    $(this).prop('checked', false).removeAttr('checked');
                     $(this).val('Y');
                 }
             });

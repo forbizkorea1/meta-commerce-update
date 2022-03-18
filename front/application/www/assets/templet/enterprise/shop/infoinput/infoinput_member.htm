@@ -239,8 +239,10 @@
             <div class="benefit__cont">
                 <div class="benefit__inner">
                     <label class="benefit__amount mileage">
-                        <input type="text" id="devUseMileage" value="0" {? !useMileageBool}readonly{/}>
-                        <span class="benefit__amount__unit">{mileageUnit}</span>
+                        <span class="mileage-input">
+                            <span class="benefit__amount__unit">{mileageUnit}</span>
+                            <input type="text" id="devUseMileage" value="0" {? !useMileageBool}readonly{/}>
+                        </span>
                     </label>
 
                     <label for="devAllUseMileageCheckBox" class="benefit__btn">

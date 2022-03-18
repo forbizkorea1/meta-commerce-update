@@ -80,8 +80,8 @@
                             </span>
                         </th>
                         <td colspan="3" >
-                            <select name="tekbae_ix" class="fb-filter__select" title="택배업체">
-                                <option value="">택배업체</option>
+                            <select name="tekbae_ix" class="fb-filter__select" title="배송 방법" style="min-width: 150px;">
+                                <option value="">선택</option>
                                 {? !empty(deliveryCompany)}
                                 {@ deliveryCompany}
                                 <option value="{.ix}" {? config.tekbae_ix == .ix}selected{/}>{.name}</option>
