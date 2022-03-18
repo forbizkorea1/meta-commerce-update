@@ -1,0 +1,316 @@
+.fb {
+	&__search {
+		&__wrapper {
+			width: vw(690px);
+			margin: vw(120px auto 0);
+		}
+
+		&__memberType {
+			display: flex;
+			align-items: center;
+			font-size: 0;
+
+			.memberType {
+				&__title {
+					display: inline-block;
+					position: relative;
+					padding-right: vw(15px);
+					color: #111;
+					font: {
+						size: vw(26px);
+						weight: 600;
+					};
+					vertical-align: middle;
+
+					&.required {
+						&:after {
+							content: "";
+							position: absolute;
+							top: 0;
+							right: 0;
+							display: block;
+							width: vw(8px);
+							height: vw(8px);
+							background: $pcolor;
+							border-radius: 50%;
+						}
+					}
+				}
+
+				&__select {
+					display: inline-block;	
+					padding-left: vw(60px);
+                    vertical-align: middle;
+					
+                    label {
+                        margin-left: vw(60px);
+
+						&:first-child {
+							margin-left: 0;
+						}
+                    }
+
+                    span {
+                        color: #666;
+                    }
+				}
+			}
+		}
+
+		&__auth {
+			.auth {
+				&__phone {
+					width: 100%;
+					height: vw(160px);
+					margin-top: vw(50px);
+					border: vw(2px) solid #CCC;
+					font-size: vw(26px);
+					color: $textGrey;
+					text-align: center;
+
+					&:before {
+						content: '';
+						display: inline-block;
+						width: vw(42px);
+						height: vw(72px);
+						margin-right: vw(20px);
+						background: url(../images/icon/m_sprite_icon.png) no-repeat vw(-270px -693px);
+						background-size: vw(1000px);
+						vertical-align: middle;
+					}
+					&.integrated {
+						&:before {
+							width: vw(59px);
+							height: vw(59px);
+							background: url('../images/icon/ico_integrated.png') no-repeat 0 0 / contain;
+						}
+					}
+					&.mtx {
+						margin-top: 0;
+					}
+
+					&__desc {
+						margin-top: vw(30px);
+					}
+	
+					&__list {
+						position: relative;
+						margin-top: vw(6px);	
+						padding-left: vw(12px);					
+						color: #999;
+						font-size: vw(24px);
+						line-height: vw(36px);
+						letter-spacing: vw(-1.2px);
+
+						&:first-child {
+							margin-top: 0;						
+						}
+
+						strong {
+							color: #111;
+							font-weight: 400;
+						}
+
+						&:before {
+							content: "";
+							position: absolute;
+							top: vw(15px);
+							left: 0;
+							width: vw(4px);
+							height: vw(4px);
+							background: #666;
+							border-radius: 50%;
+						}
+					}
+				}
+
+				&__inputBox {
+					margin-top: vw(50px);
+					padding-top: 0;
+				}
+			}
+		}
+	}
+
+	// 기업회원
+	.auth-num {
+		&__area {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			border: vw(2px) solid #DDD;
+		}
+
+		&__input {
+			border: 0;
+			text-align: center;
+		}
+	}
+
+	.wrap-btn-area {
+		margin-top: vw(60px);
+	}
+
+	.btn-confirm {
+		margin-top: vw(50px);
+	}
+
+	.no-result {
+		text-align: center;
+		color: $textBlack;
+
+		&__title {
+			font-size: vw(38px);
+			font-weight: 600;
+			text-align: center;
+
+			&:before {
+				content: '';
+				display: block;
+				width: vw(100px);
+				height: vw(100px);
+				margin: 0 auto vw(40px);
+				background: url(../images/icon/m_sprite_icon.png) no-repeat vw(-122px -816px);
+				background-size: vw(1000px);
+			}
+		}
+
+		&__desc {
+			color: #111;
+			margin-top: vw(30px);
+			font-size: vw(26px);
+			line-height: vw(40px);
+		}
+	}
+
+	.search-tab {
+		width: 100%;
+		height: vw(86px);
+		overflow: hidden;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		a {
+			display: inline-block;
+			width: 50%;
+			height: 100%;
+			float: left;
+			border: vw(2px) solid #DDD;
+			color: $textGrey2;
+			font-size: vw(26px);
+			text-align: center;
+			line-height: vw(86px);
+		}
+
+		a.active {
+			border-color: $textGrey;
+			background: $textGrey;
+			color: #fff;
+			font-weight: 600;
+		}
+
+		&.type2 {
+			a {
+				border: {
+					top: none;
+					left: none;
+					right: none;
+				}
+			}
+		}
+	}
+
+	.wrap-join-auth-basic {
+		padding-bottom: vw(60px);
+	}
+
+	.join-title-desc {
+		font-size: vw(28px);
+		text-align: center;
+		color: #111;
+		line-height: vw(36px);
+
+		&.f30 {
+			font-size: vw(30px);
+		}
+	}
+
+	.join-desc {
+		margin: vw(20px) 0 vw(50px);
+		line-height: vw(28px);
+		text-align: center;
+	}
+
+	.sub-desc {
+		font-size: vw(24px);
+		color: $textGrey2;
+		strong {
+			color: $textBlack;
+		}
+	}
+	
+	.wrap-box {
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.inner-box {
+			width: calc((100% - #{vw(20px)}) / 2 );
+			border: 1px solid $white5;
+			float: left;
+			padding: vw(60px) 0;
+			text-align: center;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			&:only-child {
+				float: none;
+				margin: 0 auto;
+			}
+			+ {
+				.inner-box {
+					margin-left: vw(20px);
+				}
+			}
+			
+			p {
+				font-size: vw(28px);
+				font-weight: 600;
+				color: #111;
+				margin-bottom: vw(20px);
+				&:before {
+					content: '';
+					display: block;
+					background: url("../images/icon/m_sprite_icon.png") no-repeat;
+					background-size: vw(1000px);
+					width: vw(92px);
+					height: vw(88px);
+					margin: 0 auto;
+					margin-bottom: vw(30px);
+				}
+			}
+
+			p.auth01 {
+				&:before {
+					background-position: vw(-300px) 0;
+				}
+			}
+
+			p.auth02 {
+				&:before {
+					background-position: vw(-400px) 0;
+				}
+			}
+
+			span {
+				font-size: vw(20px);
+				color: $textGrey;
+			}
+		}
+	}
+}

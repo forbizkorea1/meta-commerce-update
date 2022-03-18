@@ -3,7 +3,7 @@
     <header class="popup-title fb__modal__header">
         <h3 id="devModalTitle" class="fb__modal__title">주문번호 조회</h3>
     </header>
-    <main class="fb__modal__content">
+    <main class="fb__modal__content" style="overflow-y: inherit;">
         <section class="fb__delivery-tracking" style="width: 800px;">
             <h2 class="fb__title--hidden">{=trans('배송조회 팝업')}</h2>
 
@@ -67,7 +67,7 @@
                 {/}
                 </tbody>
             </table>
-            <div style="text-align: center; padding: 30px 0 0;">
+            <div style="text-align: center; padding: 30px 0;">
                 <button type="button" class="btn-lg btn-dark-line" onclick="window.close();">{=trans('닫기')}</button>
             </div>
         </section>

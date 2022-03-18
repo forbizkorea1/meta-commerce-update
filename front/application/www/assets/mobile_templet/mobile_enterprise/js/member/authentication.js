@@ -52,6 +52,7 @@ var authenticationObj = {
         return document.location.href = '/';
     },
     certify: 'basic',
+    useCertify: $('#devUseCertify').val(),
     comform: $('#devCompanyForm'),
     form: $('#devForm'),
     getCompanyNumber: function () {
@@ -79,6 +80,7 @@ var authenticationObj = {
         common.inputFormat.set($('#devBirthDay'), {'number': true, 'maxLength': 8});
     },
     initValidation: function () {
+        var self  = authenticationObj;
         common.validation.set($('#devComName'), {'required': true});
         common.validation.set($('#devName'), {'required': true});
         common.validation.set($('#devComNumber1,#devComNumber2,#devComNumber3'), {
@@ -86,10 +88,12 @@ var authenticationObj = {
             'dataFormat': 'companyNumber',
             'getValueFunction': 'authenticationObj.getCompanyNumber'
         });
-        common.validation.set($('#devCerti'), {
-            'required': true,
-            'requiredMessageTag': "authentication.certi.alert"
-        });
+        if(self.useCertify == 'Y'){
+            common.validation.set($('#devCerti'), {
+                'required': true,
+                'requiredMessageTag': "authentication.certi.alert"
+            });
+        }
     },
     beforeCallback: function ($form) {
         // return common.validation.check($form);
@@ -148,10 +152,14 @@ var authenticationObj = {
             function (response) {
                 var self = authenticationObj;
                 if (response.result == "success") {
-                    common.noti.alert(common.lang.get('authentication.company.success'),
-                        function () {
-                            document.location.href = location.href = '/member/joinInput';
-                        });
+                    if(self.useCertify == 'Y') {
+                        common.noti.alert(common.lang.get('authentication.company.success'),
+                            function () {
+                                document.location.href = '/member/joinInput';
+                            });
+                    }else{
+                        document.location.href = '/member/joinInput';
+                    }
                 } else if (response.result == "doubleCompanyNumber") {
                     common.noti.alert(common.lang.get('authentication.company.doubleCompanyNumber'));
                 } else {
@@ -180,11 +188,18 @@ var authenticationObj = {
     initEvent: function () {
         var self = authenticationObj;
 
-        //-----본인 인증
+        //-----휴대폰 인증
         $('#devCertifyButton').click(function (e) {
             e.preventDefault();
             self.certify = 'basic';
             common.certify.request('certify');
+        });
+
+        //-----통합 인증
+        $('#devCertifyButton2').click(function (e) {
+            e.preventDefault();
+            self.certify = 'basic';
+            common.certify.request('sso');
         });
 
         //-----아이핀 인증
@@ -198,14 +213,14 @@ var authenticationObj = {
             if (self.certify === 'basic') {
                 common.ajax(common.util.getControllerUrl('searchUserByCertify', 'member'), '', "", function(response){
                     if (response.result == "success") {
-                        $('#devCertifyButtonTxt').text('이미 가입된 회원입니다');
+                        $('.devCertifyButtonTxt').text('이미 가입된 회원입니다');
                         if (common.noti.confirm('이미 가입된 회원입니다\n로그인페이지로 이동하시겠습니까?')) {
                             location.href='/member/login';
                         }
                     } else {
                         $('#devCerti').val('1');
-                        $('#devCertifyButton').attr('disabled',true).addClass('success');
-                        $('#devCertifyButtonTxt').text('휴대폰 인증 완료');
+                        $('.devCertifyButton').attr('disabled',true).addClass('success');
+                        $('.devCertifyButtonTxt').text('인증 완료');
                     }
                 });
             }

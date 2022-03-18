@@ -210,60 +210,57 @@ var devCscenterListUseAfterObj = {
         var self = this;
         // 그리드 객체 생성
         self.grid = common.ui.grid();
-        // 그리드 설정
+        // 그리드 컬럼 설정
+        var gridColumn = [
+            {key: "bbs_div", label: common.lang.get('grid.label.bbs_div'), width: 100, align: "center", formatter: function () {
+                    return (this.value == 2 ? '일반후기' : '프리미엄후기');
+                }
+            },
+            {key: "pimg", label: common.lang.get('grid.label.pimg'), width: 80, align: "center", formatter: function () {
+                    return '<div class="fb-piz"><img class="fb-piz__img" src="' + this.value + '" data-src="' + this.item.pimg + '" height="30" /></div>';
+                }
+            },
 
-        var gridConfig = {
-            showLineNumber: true,
-            showRowSelector: false,
-            frozenColumnIndex: false, //열고정
-            multiLine: true,
-            columns: [
+            {key: "pname", label: common.lang.get('grid.label.pname'), width: 250, height: 20, align: "left", formatter: function () {
+                    if (this.item.option_name) {
+                        return '<div style="line-height: 25px;">' + this.value + '<br>' + this.item.option_name + '</div>';
+                    } else {
+                        return  '<div style="line-height: 25px;">' + this.value + '</div>';
+                    }
 
-                {key: "bbs_div", label: common.lang.get('grid.label.bbs_div'), width: 100, align: "center", formatter: function () {
-                        return (this.value == 2 ? '일반후기' : '프리미엄후기');
+                }
+            },
+            {key: "avg_fav", label: common.lang.get('grid.label.avg_fav'), width: 80, align: "center"},
+            {
+                key: "bbs_contents",
+                label: common.lang.get('grid.label.bbs_contents'),
+                width: 330,
+                align: "left",
+                styleClass: 'fb__grid__edit--active'
+            },
+            {
+                key: "after_img_1",
+                label: common.lang.get('grid.label.after_img'),
+                width: 80,
+                align: "center",
+                formatter: function () {
+                    if (this.value) {
+                        return '<div class="fb-piz">' +
+                            '<img class="fb-piz__img" src="' + this.item.bbs_file_1 + '" data-src="' + this.item.bbs_file_1 + '" height="30" />' +
+                            '</div>';
                     }
-                },
-                {key: "pimg", label: common.lang.get('grid.label.pimg'), width: 80, align: "center", formatter: function () {
-                        return '<div class="fb-piz"><img class="fb-piz__img" src="' + this.value + '" data-src="' + this.item.pimg + '" height="30" /></div>';
-                    }
-                },
-
-                {key: "pname", label: common.lang.get('grid.label.pname'), width: 250, height: 20, align: "left", formatter: function () {
-                        if (this.item.option_name) {
-                            return '<div style="line-height: 25px;">' + this.value + '<br>' + this.item.option_name + '</div>';
-                        } else {
-                            return  '<div style="line-height: 25px;">' + this.value + '</div>';
-                        }
-
-                    }
-                },
-                {key: "avg_fav", label: common.lang.get('grid.label.avg_fav'), width: 80, align: "center"},
-                {
-                    key: "bbs_contents",
-                    label: common.lang.get('grid.label.bbs_contents'),
-                    width: 330,
-                    align: "left",
-                    styleClass: 'fb__grid__edit--active'
-                },
-                {
-                    key: "after_img_1",
-                    label: common.lang.get('grid.label.after_img'),
-                    width: 80,
-                    align: "center",
-                    formatter: function () {
-                        if (this.value) {
-                            return '<div class="fb-piz">' +
-                                '<img class="fb-piz__img" src="' + this.item.bbs_file_1 + '" data-src="' + this.item.bbs_file_1 + '" height="30" />' +
-                                '</div>';
-                        }
-                    }
-                },                
-                {key: "bbs_re_cnt", label: common.lang.get('grid.label.bbs_re_cnt'), width: 100, align: "center", formatter: function () {
-                        return     (this.value >= 1 ? '답변완료' : '답변대기');
-                    }
-                },
-                {key: "name", label: common.lang.get('grid.label.name'), width: 100, align: "center"},
-                {key: "regdate", label: common.lang.get('grid.label.regdate'), width: 150, align: "center"},
+                }
+            },                
+            {key: "bbs_re_cnt", label: common.lang.get('grid.label.bbs_re_cnt'), width: 100, align: "center", formatter: function () {
+                    return     (this.value >= 1 ? '답변완료' : '답변대기');
+                }
+            },
+            {key: "name", label: common.lang.get('grid.label.name'), width: 100, align: "center"},
+            {key: "regdate", label: common.lang.get('grid.label.regdate'), width: 150, align: "center"}
+        ];
+        
+        if (devMemType == 'A') {
+            gridColumn.push(
                 {key: "act", label: common.lang.get('grid.label.act'), align: "center", width: 180, formatter: function () {
                         return [
                             '<input type="button" class="fb-filter__edit devGridDataModify" data-idx="' + this.item.__index + '" value="수정" />',
@@ -272,8 +269,15 @@ var devCscenterListUseAfterObj = {
                         ].join('');
                     }
                 }
-
-            ],
+            );
+        }
+        // 그리드 설정
+        var gridConfig = {
+            showLineNumber: true,
+            showRowSelector: false,
+            frozenColumnIndex: false, //열고정
+            multiLine: true,
+            columns: gridColumn,
             body: {
                 columnHeight: 60
             }

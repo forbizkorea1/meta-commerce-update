@@ -91,7 +91,7 @@
                 <ul class="goodsbox__tab__box" id="stickytab">
                     {@ eventGroupGoodsData}
                     <li class="goodsbox__tab__list {?.index_ == 0}on{/}">
-                        <a href="#{.epg_ix}" listName="{.epg_ix}">{? kind == 'E'}{.event_name}{:}{.group_name}{/}</a>
+                        <a href="#{.epg_ix}" listName="{.epg_ix}">{.group_name}</a>
                     </li>
                     {/}
                     {? remainCnt > 0}

@@ -14,80 +14,22 @@
         <h3 class="sect__title">{=trans('본인 인증')}</h3>
         <!--{/}-->
         <div class="sect__cont">
-            <!--{? useCertify == 'Y'}-->
+            <!--{? useCertify == 'Y' || useSso == 'Y'}-->
             <div class="certify-box">
-
                 <!-- 인증완료되면 클래스 추가 : success -->
-                <a href="#" class="certify-box__btn" id="devCertifyButton">
-                    <span class="certify-box__title" id="devCertifyButtonTxt">{=trans('휴대폰 인증')}</span>
+                <!--{? useCertify == 'Y'}-->
+                <a href="#" class="certify-box__btn devCertifyButton" id="devCertifyButton">
+                    <span class="certify-box__title devCertifyButtonTxt">{=trans('휴대폰 인증')}</span>
                 </a>
-                <p class="certify-box__desc">· {=trans('회원님의 개인정보 보호를 위해 본인확인이 필요합니다.')}</p>
+                <!--{/}-->
+
+                <!--{? useSso == 'Y'}-->
+                <a href="#" class="certify-box__btn integrated devCertifyButton" id="devCertifyButton2">
+                    <span class="certify-box__title devCertifyButtonTxt">{=trans('통합 인증')}</span>
+                </a>
+                <!--{/}-->
             </div>
-            <!--{:}-->
-            <section class="fb__join-input__form">
-                <section class="input-form">
-                    <form id="devUserDataFrm">
-                    <ul class="input-form__content-box" style="padding: 30px 0;">
-                        <!-- 이름 -->
-                        <li class="inputs">
-                            <span class="inputs__title">{=trans('이름')}</span>
-                            <div class="inputs__content">
-                                <input type="text" name="user_name" id="devUserName" title="{=trans('이름')}"/>
-                            </div>
-                        </li>
-                        <!-- 휴대폰 인증 -->
-                        <li class="inputs phone-area">
-                            <span class="inputs__title">{=trans('휴대폰 번호')}</span>
-                            <div class="inputs__content">
-                                <div class="selectWrap">
 
-                                    <select name="pcs1"  id="devPcs1">
-                                        <option value="010">010</option>
-                                        <option value="011">011</option>
-                                        <option value="016">016</option>
-                                        <option value="017">017</option>
-                                        <option value="018">018</option>
-                                        <option value="019">019</option>
-                                    </select>
-
-                                    <div class="wrap-input">
-                                        <span class="hyphen">-</span>
-                                        <input type="number" name="pcs2" id="devPcs2" value="" title="{=trans('휴대폰번호')}" class="input2">
-                                        <span class="hyphen">-</span>
-                                        <input type="number"  name="pcs3" id="devPcs3" value="" title="{=trans('휴대폰번호')}" class="input3">
-                                    </div>
-                                    <button type="button" class="btn-default btn-dark btn-email-check" id="devPcsChkBtn" style="margin-left: 10px;padding: 0 10px;">{=trans('휴대폰 번호 중복 확인')}</button>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- 생년월일 -->
-                        <li class="inputs">
-                            <span class="inputs__title">{=trans('생년월일')}</span>
-                            <div class="inputs__content">
-                                <input type="text" name="birthday" id="devBirthDay" title="{=trans('생년월일')}" placeholder="{=trans('생년월일을 입력해주세요. ex) 1986-10-15')}">
-                            </div>
-                        </li>
-
-                        <!-- 성별 -->
-                        <li class="inputs">
-                            <span class="inputs__title">{=trans('성별')}</span>
-                            <div class="inputs__content">
-                                <div class="fb__comm__radio__wrap">
-                                    <label class="fb__comm__radio">
-                                        <input type="radio" name="sex_div" value="M" class="devSexDivCls" title="{=trans('성별')}" checked>
-                                        <span>{=trans('남자')}</span>
-                                    </label>
-                                    <label class="fb__comm__radio" style="margin-left: 30px;">
-                                        <input type="radio" name="sex_div" value="W" class="devSexDivCls" title="{=trans('성별')}">
-                                        <span>{=trans('여자')}</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    </form>
-                </section>
-            </section>
             <!--{/}-->
         </div>
     </section>
@@ -98,6 +40,7 @@
 
         <form id="devForm" class="agree-area js__details__accordian js__check__wrapper">
             <input type="hidden" name="devCerti" id="devCerti" value="">
+            <input type="hidden" name="devUseCertify" id="devUseCertify" value="{useCertify}">
 
             <div class="wrap-chk-all">
                 <label for="agree-all" class="fb__comm__checkbox">
@@ -184,6 +127,3 @@
 
     <input type="hidden" id="devMallName" value="{mallName}"/>
 </section>
-<script>
-    var devUseCertify = '{useCertify}';
-</script>

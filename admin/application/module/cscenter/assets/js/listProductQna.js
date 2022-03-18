@@ -269,7 +269,7 @@ var devCscenterListProductQnaObj = {
                 {key: "bbs_name", label: common.lang.get('grid.label.bbs_name'), width: 100, align: "center"},
                 {key: "regdate", label: common.lang.get('grid.label.regdate'), width: 150, align: "center"},
 
-                {key: "com_name", label: common.lang.get('grid.label.com_name'), width: 100, align: "left"},
+                {key: "com_name", label: common.lang.get('grid.label.com_name'), width: 100, align: "center"},
                 {key: "bbs_re_cnt", label: common.lang.get('grid.label.bbs_re_cnt'), width: 120, align: "center", formatter: function () {
                         return (this.value >= 1 ? '답변완료' : '답변대기');
                     }

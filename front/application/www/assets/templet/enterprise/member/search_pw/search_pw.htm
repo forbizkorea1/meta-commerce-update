@@ -29,18 +29,41 @@
                                 <p class="txt-error" devTailMsg="devUserName"></p>
                             </div>
                         </li>
+
+                        {? !useCertify}
+                        <li class="input-area__list">
+                            <span class="input-area__title">{=trans('이메일')}</span>
+                            <div class="input-area__cont">
+                                <input type="text" id="devUserMail" name="mail" title="{=trans('이메일')}">
+                                <p class="txt-error" devTailMsg="devUserMail"></p>
+                            </div>
+                        </li>
+                        <li class="input-area__list">
+                            <div class="input-area__cont">
+                                <button type="submit" class="fb__login__button" style="width: 120%;" id="devSearchPwButton">{=trans('비밀번호 찾기')}</button>
+                            </div>
+                        </li>
+                        {/}
                     </ul>
                 </form>
 
+                {? useCertify}
                 <div class="search__inner">
-                    <!--{? useCertify}-->
+                    <!--{? useCertify == 'Y' || useSso == 'Y'}-->
                     <section class="search__way search__way--photo">
+                        <!--{? useCertify == 'Y'}-->
                         <a href="#" id="devCertifyButton" class="certify-box__btn">{=trans('휴대폰 인증')}</a>
+                        <!--{/}-->
+
+                        <!--{? useSso == 'Y'}-->
+                        <a href="#" id="devCertifyButton2" class="certify-box__btn integrated">{=trans('통합 인증')}</a>
+                        <!--{/}-->
                     </section>
-                    <!--{/}-->
+					<!--{/}-->
                 </div>
+                {/}
                 <p class="search__way-customer">
-                    {=trans('본인 명의의 휴대폰 인증을 통해 아이디를 찾을 수 있습니다.')}<br/>
+                    {? useCertify} {=trans('본인 명의의 휴대폰 인증을 통해 아이디를 찾을 수 있습니다.')}<br/> {/}
                     {=trans('상기 방법으로 찾기 못하는 경우 <span>고객센터 <em>{csPhone}</em></span>로 문의해주세요.')}
                 </p>
             </div>
@@ -62,7 +85,7 @@
                                     <input type="text" id="devComName" name="comName" title="{=trans('상호명')}">
                                     <p class="txt-error" devTailMsg="devComName"></p>
                                 </li>
-                                
+
                                 <li class="search__company__inner auth-num">
                                     <span class="search__company__label">{=trans('사업자등록번호')}</span>
                                     <div class="wrap-input">
@@ -75,7 +98,7 @@
                                     <p class="txt-error" devTailMsg="devComNumber1 devComNumber2 devComNumber3"></p>
                                 </li>
                             </ul>
-        
+
                             <div class="search__inner mat30">
                                 <!--{? useCertify}-->
                                 <section class="search__way search__way--photo">
@@ -99,7 +122,7 @@
 
         <p class="search__other-link">
             <a href="/member/searchId">{=trans('아이디 찾기')}</a>
-            <a href="/member/joinSelect">{=trans('회원가입')}</a>
+            <a href="/member/authentication">{=trans('회원가입')}</a>
         </p>
     </div>
 </div>

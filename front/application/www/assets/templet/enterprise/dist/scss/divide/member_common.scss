@@ -1,0 +1,437 @@
+.fb {
+    &__join-member {
+        margin-top: 90px;
+
+        .title-area {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #111;
+            @extend %clear;
+
+            .breadcrumb {
+                position: absolute;
+                right: 0;
+                bottom: 30px;
+                font-size: 16px;
+                font-weight:600;
+                color: #111;
+
+                &__num {
+                    display: inline-block;
+                    margin-right: 8px;
+                    font-family: "Roboto", sans-serif;
+                }
+
+                &__all {
+                    color: $gray;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .sect {
+            width: 680px;
+            margin: 40px auto 50px;
+
+            &__title {
+                margin-bottom: 20px;
+                font: {
+                    size: 20px;
+                };
+                color: #111;
+            }
+
+            .certify-box {
+                width: 100%;
+                padding: 35px 0;
+                background: #F7F7F7;
+                font-size: 0;
+                text-align: center;
+                &__btn {
+                    display: inline-block;
+                    width: 300px;
+                    height: 110px;
+                    margin: 0 10px;
+                    padding-top: 33px;
+                    background: #fff;
+                    border: 1px solid #DDD;
+                    font-size: 0;
+                    color: #111;
+                    text-align: center;
+                    vertical-align: top;
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        width: 26px;
+                        height: 43px;
+                        margin-right: 10px;
+                        background: url('../images/member/sprite_member.png') no-repeat 0 -296px;
+                        vertical-align: middle;
+                    }
+                    &.integrated {
+                        &:before {
+                            width: 39px;
+                            height: 39px;
+                            background: url('../images/member/ico_integrated.png') no-repeat 0 0;
+                            background-position: 0 0 !important;
+                        }
+                        &.success:before {
+                            opacity: 0.5;
+                        }
+                    }
+
+
+                    &.success {
+                        color: $gray;
+                        
+                        &:before {
+                            background-position: -104px -296px;
+                        } 
+                    }
+                }
+                &__title {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 18px;
+                }
+                &__desc {
+                    width: 340px;
+                    margin: 10px auto 0;
+                    font-size: 13px;
+                    color: #666;
+                    line-height: 20px;
+                }
+            }
+        }
+
+        &__title {
+            font-size: 40px;
+            color: #111;
+            text-align: center;
+        }
+
+        .top-area {
+            width: 1000px;
+            margin: 25px auto 40px;
+            text-align: center;
+            @extend %clear;
+
+            &__step {
+                position: relative;
+                float: left;
+                width: calc(100% / 4);
+                color: #666;
+                text-align: center;
+
+                &__inner {
+                    display: inline-block;
+                    margin-left: 15px;
+                    text-align: left;
+                }
+
+                &__tit {
+                    font-size: 20px;
+                }
+
+                &__subtit {
+                    font-size: 14px;
+                    font-family: Rb;
+                    display: inline-block;
+                    margin-bottom: 3px;
+                }
+
+                &--active {
+                    color: $pcolor !important;
+                    font-weight: 600;
+
+                    &:before {
+                        background-position-y: -197px !important;
+                    }
+                }
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    width: 40px;
+                    height: 45px;
+                    background: url(../images/member/sprite_member.png) no-repeat 0 -97px;
+                    vertical-align: top;
+                    background-position-x: 0px;
+                }
+                
+                &:not(:last-child):after {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 20px;
+                    height: 30px;
+                    background: url(../images/member/sprite_member.png) no-repeat -400px -100px;
+                    float: right;
+                    margin-top: 7px;
+                    margin-right: -10px;
+                }
+            }
+
+            &__step02 {
+                &:before {
+                    background-position-x: -100px;
+                }
+            }
+
+            &__step03 {
+                &:before {
+                    background-position-x: -200px;
+                }
+            }
+
+            &__step04 {
+                &:before {
+                    background-position-x: -300px;
+                }
+            }
+
+            &--sleep {
+                &__step03 {
+                    &:before {
+                        background-position-x: -500px;
+                    }
+                }
+            }
+        }
+
+        &__btn-area {
+            min-width: 200px;
+            margin-top: 60px;
+            text-align: center;
+
+            button {
+                width: 200px;
+                padding: 0;
+
+                & + button {
+                    margin-left: 10px;
+                }
+            }
+
+            a {
+                width: 200px;
+                padding: 0;
+
+                & + a {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .wrap-joininput-layout {
+            width: 1140px;
+            margin: 0 auto;
+
+            &__title {
+                width: 680px;
+                margin: 0 auto 15px;
+                color : #111;
+                font : {
+                    size : 20px;
+                    weight : bold;
+                };
+            }
+
+            .wrap-line-box {
+                text-align: center;
+            }
+        }
+
+        .input-tit-area {
+            overflow: hidden;
+            line-height: 22px;
+            margin-bottom: 15px;
+
+            p {
+                float: left;
+                font: {
+                    size: 22px;
+                    weight: 600;
+                };
+                color: #111;
+            }
+
+            span {
+                float: right;
+                font-size: 14px;
+                color: #666;
+
+                em {
+                    display: inline-block;
+                    margin-right: 5px;
+                    padding-top: 4px;
+                    font-size: 15px;
+                    line-height: 18px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        input[type="radio"].pub-radio-type1,
+        input[type="radio"].pub-radio-type2 {
+            display: none;
+        }
+
+        input[type="radio"].pub-radio-type1 + label {
+            font: {
+                size: 14px;
+                weight: 500;
+            };
+            color: #111;
+            letter-spacing: -2px;
+
+            span {
+                display: inline-block;
+                width: 23px;
+                height: 23px;
+                background: url(../images/btns/chk-rd-bg11.png) -77px -1px no-repeat;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
+
+        input[type="radio"].pub-radio-type1:checked + label {
+            span {
+                background: url(../images/btns/chk-rd-bg11.png) -101px -1px no-repeat;
+            }
+        }
+
+        .join-table {
+            th {
+                em {
+                    color: $pcolor;
+                }
+            }
+        }
+
+        .agree-area {
+            margin-bottom: 20px;
+            border: {
+                top: 2px solid #111;
+                bottom: 1px solid #e8e8e8;
+            };
+
+            .wrap-chk-all {
+                padding: 25px 20px;
+                border-bottom: 1px solid #111;
+                font-size: 18px;
+                color: #111;
+
+                .fb__comm__checkbox span {
+                    font: {
+                        size: 18px;
+                        weight: 600;
+                    };
+                    color: #111;
+                }
+            }
+    
+            .wrap-terms {
+                &[open] {
+                    .wrap-terms__title {
+                        &:after {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                & + .wrap-terms {
+                    border-top: 1px solid #e8e8e8;
+                }
+    
+                &__title {
+                    position: relative;
+                    margin-top: 0;
+                    padding: 25px 20px;
+                    color: #111;
+                    font-size: 15px;
+                    cursor: pointer;
+
+                    .fb__comm__checkbox span {
+                        font: {
+                            size: 15px;
+                        };
+                        color: #111;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        top: 30px;
+                        right: 20px;
+                        width: 15px;
+                        height: 8px;
+                        background: url('../images/common/sprite_common.png') no-repeat -108px -402px;
+                        content: "";
+
+                        &.on {
+                            background-position: 0 -402px;
+                        }
+                    }
+                }
+
+                &__cont {
+                    overflow-y: auto;
+                    width: 100%;
+                    max-height: 160px;
+                    padding: 20px;
+                    background: #f8f8f8;
+                    border-top: 1px solid #e8e8e8;
+                    color: #666;
+                    font-size:14px;
+                    line-height: 20px;
+                    word-break: break-all;
+                }
+
+                &.marketing {
+                    .fb__checkbox {
+                        &:last-of-type {
+                            margin-left: 25px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .agree-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 20px;
+        }
+
+        .join-end {
+            width: 100%;
+            padding: 50px 0 70px;
+            border-bottom: 1px solid #e8e8e8;
+            //background: url(../images/member/ico_member_success-check.png) no-repeat 50% 30px;
+            text-align: center;
+
+            &__tit {
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto 30px;
+                    background: url(../images/member/sprite_member.png) no-repeat -600px 0;
+                }
+            }
+        }
+
+        // 기업회원
+        .company-join {
+            .input-form__content-box {
+                margin: 0;
+                padding: 30px 0;
+                border-bottom: 1px solid #E8E8E8;
+            }
+        }
+    }
+}

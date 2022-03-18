@@ -53,7 +53,7 @@ var devCompanyManageSellerObj = {
         $('#devMdInfo').hide();             //상점기본정보
         $('#devShopInfo').hide();           //담당자 정보
         $('#devSumPriceInfo').hide();       //정산관리
-
+        $('#devShipPlaceInfo').hide();      //출고지 관리
         $('#devDeliveryList').hide();       //배송 택배정책
         $('#devDeliveryGroup').hide();      //묶음배송 그룹 정책
         $('#devExchangeInfo').hide();       //교환/반품지 관리
@@ -126,6 +126,7 @@ var devCompanyManageSellerObj = {
         // 에러메시지
         common.lang.load('existsCodeName.alert', '등록된 업체입니다.');
         common.lang.load('deleteCompany.confirm', '택배업체({code_name})를 삭제 하시겠습니까?');
+        common.lang.load('common.del.fail.alert', '해당 배송정책이 설정된 상품이 있어 삭제할 수 없습니다.');
 
 
         //배송정책 템플릿 리스트

@@ -1,0 +1,304 @@
+<form id="devForm" method="POST">
+    <input type="hidden" name="dt_ix" value="{config.dt_ix}" />
+    <input type="hidden" name="company_id" value="{company_id}" />
+    <input type="hidden" name="factory_info_addr_ix" value="{factory_info_addr_ix}" />
+    <input type="hidden" name="exchange_info_addr_ix" value="{exchange_info_addr_ix}" />
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">배송 정책</h3>
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>배송 정책</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                배송정책 명
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text" name="template_name" title="배송정책 명"  value="{config.template_name}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                기본 배송정책 지정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="is_basic_template_1">
+                                    <input type="radio" name="is_basic_template" id="is_basic_template_1" title="기본 배송정책 지정" value="1" {? config.is_basic_template == '1' || !config.is_basic_template } checked {/} >
+                                    <span>사용</span>
+                                </label>
+                                <label for="is_basic_template_0">
+                                    <input type="radio" name="is_basic_template" id="is_basic_template_0" title="기본 배송정책 지정" value="0" {? config.is_basic_template == '0' } checked {/} >
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                소매/도매 선택
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="product_sell_type_R">
+                                    <input type="radio" name="product_sell_type" id="product_sell_type_R" title="소매/도매 선택" value="R" {? config.product_sell_type == 'R' || !config.product_sell_type } checked {/} >
+                                    <span>소매</span>
+                                </label>
+                                <label for="product_sell_type_W">
+                                    <input type="radio" name="product_sell_type" id="product_sell_type_W" title="소매/도매 선택" value="W" {? config.product_sell_type == 'W' } checked {/} >
+                                    <span>도매</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                배송 방법 선택
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <select name="tekbae_ix" class="fb-filter__select" title="택배업체">
+                                <option value="">택배업체</option>
+                                {? !empty(deliveryCompany)}
+                                {@ deliveryCompany}
+                                <option value="{.ix}" {? config.tekbae_ix == .ix}selected{/}>{.name}</option>
+                                {/}
+                                {/}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                배송비 결제 수단
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="delivery_basic_policy">
+                                    <input type="radio" name="delivery_basic_policy" title="배송비 결제 수단" id="delivery_basic_policy" value="1" checked >
+                                    <span>선불</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                조건 배송비 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <ul>
+                                    <li class="inline-li-block clear-both">
+                                        <label for="delivery_policy_1" class="float-left">
+                                            <input type="radio" name="delivery_policy" id="delivery_policy_1" title="조건 배송비 설정" value="1" {? config.delivery_policy == '1' || !config.delivery_policy } checked {/} >
+                                            <span>무료배송</span>
+                                        </label>
+                                    </li>
+                                    <li class="inline-li-block clear-both">
+                                        <label for="delivery_policy_2" class="float-left" style="    margin-top: 7px;">
+                                            <input type="radio" name="delivery_policy" id="delivery_policy_2" title="조건 배송비 설정" value="2" {? config.delivery_policy == '2' } checked {/} >
+                                            <span>고정배송비</span>
+                                        </label>
+                                        <input type="text" class="fb-filter__text fb-filter__text--40" name="delivery_price" title="고정배송비"  value="{config.delivery_price}">원
+                                    </li>
+                                    <li class="inline-li-block clear-both">
+                                        <label for="delivery_policy_3" class="float-left" style="    margin-top: 7px;">
+                                            <input type="radio" name="delivery_policy" id="delivery_policy_3" title="조건 배송비 설정" value="3" {? config.delivery_policy == '3' } checked {/} >
+                                            <span>결제금액당 배송비</span>
+                                        </label>
+                                        <input type="text" class="fb-filter__text fb-filter__text--20" name="delivery_price3"  value="{config.delveryTerms3.delivery_price}" title="결제금액당 배송비">
+                                        <input type="text" class="fb-filter__text fb-filter__text--30" name="delivery_basic_terms3"  value="{config.delveryTerms3.delivery_basic_terms}" title="결제금액당 배송비">원 미만일 경우
+                                    </li>
+                                    {? false}
+                                    <li class="inline-li-block clear-both">
+                                        <label for="delivery_policy_4" class="float-left">
+                                            <input type="radio" name="delivery_policy" id="delivery_policy_4" title="조건 배송비 설정" value="4" {? config.delivery_policy == '4' } checked {/} >
+                                            <span>수량별 할인/할증적용(상품단위)</span>
+                                        </label>
+                                        <dl class="inline-dl-block clear-both">
+                                            <dt class="inline-li-block" style="    padding-top: 4px;">기본 배송비</dt>
+                                            <dd class="inline-li-block" style="margin-left: 10px"><input type="text" class="fb-filter__text fb-filter__text--40" name="delivery_cnt_price" title="기본 배송비" value="{config.delivery_cnt_price}"></dd>
+                                            <dd class="inline-li-block" >
+                                                <table>
+                                                    <tbody class="devPutTerms">
+                                                    {@ config.delveryTerms4}
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" class="fb-filter__text fb-filter__text--40 delivery-terms" name="delivery_cnt_terms[]" title="수량별 할인/할증적용" value="{.delivery_basic_terms}">개 이상,
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="fb-filter__text fb-filter__text--40 delivery-terms" name="delivery_price_terms[]" title="수량별 할인/할증적용" value="{.delivery_price}">원 배송비 적용
+                                                        </td>
+                                                        <td>
+                                                            <input type="button" class="fb-filter__edit devBtnAdd"  value="추가"><input type="button" class="fb-filter__delete--gray devBtnDel"  value="삭제">
+                                                        </td>
+                                                    </tr>
+                                                    {:}
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" class="fb-filter__text fb-filter__text--40 delivery-terms" name="delivery_cnt_terms[]" title="수량별 할인/할증적용" value="" >개 이상,
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="fb-filter__text fb-filter__text--40 delivery-terms" name="delivery_cnt_terms[]" title="수량별 할인/할증적용"value="">원 배송비 적용
+                                                        </td>
+                                                        <td>
+                                                            <input type="button" class="fb-filter__edit devBtnAdd"  value="추가">
+                                                            <input type="button" class="fb-filter__delete--gray devBtnDel"  value="삭제">
+                                                        </td>
+                                                    </tr>
+                                                    {/}
+                                                    </tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                    {/}
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                반품/교환 배송비
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__title-contents">
+                                <label class="float-left" style="margin: 8px 9px 0 0;">반품 배송비: 편도</label>
+                                <div style="padding-bottom:10px"><input type="text" class="fb-filter__text" name="return_shipping_price"  value="{config.return_shipping_price}" title="반품 배송비"></div>
+                            </div>
+                            <div class="fb-filter__radio">
+                                <label for="devReturnCntRT">
+                                    <input type="radio" name="return_shipping_cnt" id="devReturnCntRT" value="2" {? config.return_shipping_cnt == '2' || !config.return_shipping_cnt } checked {/} >
+                                    <span>왕복 (편도 *2)</span>
+                                </label>
+                                {? false}
+                                <!-- 왕복을 고정으로 사용하기로함. 커스텀영역 -->
+                                <label for="devReturnCntOW">
+                                    <input type="radio" name="return_shipping_cnt" id="devReturnCntOW" value="1" {? config.return_shipping_cnt == '1' } checked {/} >
+                                    <span>편도</span>
+                                </label>
+                                {/}
+                            </div>
+                            <div class="fb-filter__title-contents clear-both" style="padding-top: 13px;">
+                                <label class="float-left" style="margin: 8px 7px 0 0;">교환 배송비 : 편도</label><input type="text" class="fb-filter__text" name="exchange_shipping_price"  value="{config.exchange_shipping_price}" title="교환 배송비">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                추가지역 배송비 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="delivery_region_use_1">
+                                    <input type="radio" name="delivery_region_use" id="delivery_region_use_1" value="1" {? config.delivery_region_use == '1' || !config.delivery_region_use } checked {/} >
+                                    <span>사용</span>
+                                </label>
+                                <label for="delivery_region_use_0">
+                                    <input type="radio" name="delivery_region_use" id="delivery_region_use_0" value="0" {? config.delivery_region_use == '0' } checked {/} >
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                            <dl class="inline-dl-block clear-both delivery_region">
+                                <li class="inline-li-block">배송권역 선택</li>
+                                <li class="inline-li-block">
+                                    <div class="fb-filter__radio" style="    margin-left: 20px;">
+                                        <label for="delivery_region_area_2">
+                                            <input type="radio" name="delivery_region_area" id="delivery_region_area_2" value="2" {? config.delivery_region_area == '2' || !config.delivery_region_area } checked {/} >
+                                            <span>2권역</span>
+                                        </label>
+                                        <label for="delivery_region_area_3">
+                                            <input type="radio" name="delivery_region_area" id="delivery_region_area_3" value="3" {? config.delivery_region_area == '3' } checked {/} >
+                                            <span>3권역</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="inline-li-block clear-both" style="    height: 33px;    padding-top: 10px; "><span class="jeju2">제주 및 도서산간</span><span class="jeju3">제주 지역</span></li>
+                                <li style="    height: 33px;    padding-top: 37px; padding-left:98px">
+                                    <input type="text" class="fb-filter__text" name="delivery_jeju_price"  value="{config.delivery_jeju_price}">
+                                </li>
+                                <li class="inline-li-block clear-both jeju3" style="    height: 33px;    padding-top: 7px;">제주 외 도서산간</li>
+                                <li class="jeju3" style="    height: 33px;    padding-top: 18px; padding-left:100px">
+                                    <input type="text" class="fb-filter__text" name="delivery_except_price"  value="{config.delivery_except_price}" title="제주 외 도서산간">
+                                </li>
+                            </dl>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트에리아 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title">
+                                PC 배송정책
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <textarea class="fb-filter__textarea" name="delivery_policy_text" id="devEditor">{config.delivery_policy_text}</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트에리아 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title">
+                                모바일 배송정책
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <textarea class="fb-filter__textarea" name="delivery_policy_text_m" id="devEditor2">{config.delivery_policy_text_m}</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>
+
+<style>
+    label.float-left {
+        float:left;
+        display: block;
+    }
+    .clear-both{
+        clear: both;
+    }
+
+    .inline-dl-block {
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+
+    .inline-li-block {
+        margin: 10px 0 0 0;
+        padding: 0 0 0 0;
+        border : 0;
+        float: left;
+    }
+</style>

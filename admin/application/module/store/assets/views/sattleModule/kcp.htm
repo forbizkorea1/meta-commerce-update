@@ -12,28 +12,8 @@
                 <col width="14%">
                 <col width="*">
             </colgroup>
-            <tr> <!-- 라디오 타입 -->
-                <th class="fb-filter__title">
-                    <span class="fb-filter__title--ne">
-                        서비스타입
-                    </span>
-                </th>
-                <td colspan="3">
-                    <div class="fb-filter__radio">
-                        <label>
-                            <input type="radio" name="service_type" value="test" {?
-                                   config.service_type== 'test' || !config.service_type } checked {/} >
-                            <span>TEST</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="service_type" value="service" {?
-                                   config.service_type== 'service' } checked {/} >
-                            <span>SERVICE</span>
-                        </label>
-                    </div>
-                </td>
-            </tr>
 
+            <input type="hidden" name="service_type" value="service" />
             <tr> <!-- 채크박스 타입 -->
                 <th class="fb-filter__title">
                     <span class="fb-filter__title--ne">
@@ -48,6 +28,27 @@
                             <input type="checkbox" class="devMainPayMethod" name="mainPayMethod[]"
                                    id="mainPayMethod_{.key_}" value="{.key_}"
                                    {? in_array(.key_ , mainPayMethodArray)}checked{/}
+                            >
+                            <span>{.value_}</span>
+                        </label>
+                        {/}
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <th class="fb-filter__title">
+                    <span>
+                        추가결제모듈
+                    </span>
+                </th>
+                <td colspan="3" >
+                    <div class="fb-filter__radio">
+                        <input type="hidden" name="simplePayMethod" id="devSimplePayMethodTxt" value="">
+                        {@ simplePayMethod}
+                        <label for="simplePayMethod_{.key_}">
+                            <input type="checkbox" class="devSimplePayMethod" name="simplePayMethod[]" id="simplePayMethod_{.key_}" value="{.key_}"
+                                   {? in_array(.key_ , simplePayMethodArray)}checked{/}
                             >
                             <span>{.value_}</span>
                         </label>
@@ -79,7 +80,7 @@
             </tr>
             <tr> <!-- 텍스트 타입 -->
                 <th class="fb-filter__title">
-                    <span class="">
+                    <span class="fb-filter__title--ne">
                         사이트코드
                     </span>
                 </th>
@@ -91,7 +92,7 @@
             </tr>
             <tr> <!-- 텍스트 타입 -->
                 <th class="fb-filter__title">
-                    <span class="">
+                    <span class="fb-filter__title--ne">
                         사이트키
                     </span>
                 </th>
@@ -104,7 +105,7 @@
             </tr>
             <tr> <!-- 텍스트 타입 -->
                 <th class="fb-filter__title">
-                    <span class="">
+                    <span class="fb-filter__title--ne">
                         사이트명
                     </span>
                 </th>

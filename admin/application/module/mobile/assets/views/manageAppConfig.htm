@@ -1,0 +1,120 @@
+<form id="devForm">
+    <input type="hidden" name="page_type" value="mobile_config"/>
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">버전설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>버전 관리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>안드로이드 APP 버전</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number" name="android_app_version" value="{config.android_app_version}"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>안드로이드 APP 필수 업데이트 여부</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="android_app_version_necessary_update" value="N" {? config.android_app_version_necessary_update=='N'}checked{/}>
+                                    <span>미적용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="android_app_version_necessary_update" value="Y" {? config.android_app_version_necessary_update=='Y'}checked{/}>
+                                    <span>적용</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>IOS APP 버전</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number" name="ios_app_version" value="{config.ios_app_version}"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>IOS Store ID</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number" name="ios_store_id" value="{config.ios_store_id}"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>IOS APP 필수 업데이트 여부</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="ios_app_version_necessary_update" value="N" {? config.ios_app_version_necessary_update=='N'}checked{/}>
+                                    <span>미적용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="ios_app_version_necessary_update" value="Y" {? config.ios_app_version_necessary_update=='Y'}checked{/}>
+                                    <span>적용</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">푸시설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>푸시 관리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>푸시 키</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number" name="app_push_key" value="{config.app_push_key}"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>
+

@@ -1,0 +1,332 @@
+<section class="fb__menusubmit">
+    <fieldset class="fb__menusubmit--line">
+        <legend></legend>
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#devDeliveryList" class="fb__tap__menu--active">
+                        배송 택배정책
+                    </a>
+                </li>
+                <li class="fb__tap__menu" style="display:none">
+                    <a href="#devDeliveryGroup">
+                        묶음배송 그룹 정책
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devShipPlaceInfo">
+                        출고지 관리
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devExchangeInfo">
+                        교환/반품지 관리
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="fb__tapcontent">
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devDeliveryList">
+                <form id="devForm" method="POST">
+                    <input type="hidden" name="tabType" value="">
+                </form>
+                <section class="fb__menusubmit">
+                    <form method="post" id="devGridForm">
+                        <input type="hidden" name="page" value="1" id="devPage"/>
+                        <input type="hidden" name="max" value="50"/>
+                        <input type="hidden" name="company_id" value="{company_id}" id="devCompanyId"/>
+                    </form>
+                    <header class="fb-maincontent-header">
+                        <h3 class="fb-maincontent-title">배송정책 템플릿 리스트 <span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotalTemplate">0</em>개)</span></h3>
+                    </header>
+                    <div id="devPagingGrid"></div>
+                    <div id="devPageWrapTamplate" class="fb__bbs__page"></div>
+                </section>
+                <div class="fb-filter__btn">
+                    <a href="/company/manageDeliveryTemplate" class="fb-filter__save">추가</a>
+                </div>
+            </section>
+        </div>
+
+        <div class="fb__tapcontent">
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devDeliveryGroup">
+                <form id="devDeliveryGroupForm" method="POST">
+                    <input type="hidden" name="tabType" value="">
+                    <input type="hidden" name="g_ix" value="">
+                    <input type="hidden" name="company_id" value="{company_id}" id="devCompanyId"/>
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="14%">
+                            <col width="35%">
+                            <col width="14%">
+                            <col width="*">
+                        </colgroup>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    묶음배송 그룹명
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="group_name" value="" title="묶음배송 그룹명">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> <!-- 텍스트에리아 타입 -->
+                            <th class="fb-filter__title" rowspan="2">
+                                <span class="fb-filter__title--ne">
+                                    배송정책 템플릿 선택<br>(2개 이상)
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">                                
+                                <div class="fb-filter__title-contents">
+                                    <select id="devSelectTemplate" class="fb-filter__select" name="selectTemplate" style="width:250px" item="" multiple>
+                                        <!--{@ selectGroupData}--> 
+                                        <option value="{ selectGroupData.dt_ix}" name="{ selectGroupData.template_name}">{ selectGroupData.template_name}</option>                                        
+                                        <!--{/}-->
+                                    </select>
+                                </div>
+                            <td>             
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="fb__table fb__menusubmit-divide">
+                                <div >                        
+                                    <table class="addTemplateDiv">
+                                        <caption>분류 추가 테이블</caption>
+                                        <colgroup>
+                                            <col width="75">
+                                            <col width="*">
+                                            <col width="175">
+                                        </colgroup>
+                                        <thader>
+                                            <tr>
+                                                <th>
+                                                    대표
+                                                </th>
+                                                <th>
+                                                    선택한 상품분류 목록
+                                                </th>
+                                                <th>
+                                                    삭제
+                                                </th>
+                                            </tr>
+                                        </thader>
+                                        
+                                    </table>
+                                </div>
+                            </td>                    
+                        </tr>
+                        <tr> <!-- 라디오 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="">
+                                    사용여부
+                                </span>
+                            </th>
+                            <td colspan="3" >
+                                <div class="fb-filter__radio">
+                                    <label for="state_1">
+                                        <input type="radio" name="state" id="state_1" value="1" {? config == '1' || !config.state } checked {/} >
+                                               <span>사용</span>
+                                    </label>
+                                    <label for="state_0">
+                                        <input type="radio" name="state" id="state_0" value="0" {? config == '0' } checked {/} >
+                                               <span>미사용</span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <div class="fb-filter__btn">
+                    <input type="button" class="fb-filter__save devSave" value="저장" />
+                </div>
+
+                <section class="fb__menusubmit">
+                    <form method="post" id="devGridGroupForm">
+                        <input type="hidden" name="page" value="1" id="devGroupPage"/>
+                        <input type="hidden" name="max" value="50" id="devGroupMax"/>
+                        <input type="hidden" name="company_id" value="{company_id}" id="devCompanyId"/>
+                    </form>
+                    <div id="devPagingGorupGrid"></div>
+                    <div id="devPageWrapTamplateGroup" class="fb__bbs__page"></div>
+                </section>
+            </section>
+        </div>
+
+        <div class="fb__tapcontent">
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devShipPlaceInfo">
+                <form id="devShipPlaceInfoForm" method="POST">
+                    <input type="hidden" name="tabType" value="">
+                    <input type="hidden" name="placeType" value="F">
+                    <input type="hidden" name="company_id" value="{company_id}" id="devCompanyId"/>
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="14%">
+                            <col width="35%">
+                            <col width="14%">
+                            <col width="*">
+                        </colgroup>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    출고지명
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="addr_name" title="출고지명" value="{shi.addr_name}">
+                                </div>
+                            </td>
+                            <th class="fb-filter__title">
+                                <span class="">
+                                    담당자명
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="person_name"  value="{shi.person_name}">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    일반전화번호
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text fb-filter__text--20" name="addr_phone_1" title="일반전화번호" value="{shi.addr_phone_1}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_phone_2" title="일반전화번호" value="{shi.addr_phone_2}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_phone_3" title="일반전화번호" value="{shi.addr_phone_3}">
+                                </div>
+                            </td>
+                            <th class="fb-filter__title">
+                                <span class="">
+                                    핸드폰번호
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text fb-filter__text--20" name="addr_mobile_1"  value="{shi.addr_mobile_1}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_mobile_2"  value="{shi.addr_mobile_2}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_mobile_3"  value="{shi.addr_mobile_3}">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    출고지 주소
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="com_zip" title="교환/반품 주소" id="devShiAddress1" value="{shi.zip_code}"> <input type="button" class="fb-filter__search-icon devSearchAddressPopup1" value="검색"> <br><br>
+                                    <input type="text" class="fb-filter__text" name="com_addr1" title="교환/반품 주소" id="devShiAddress2" value="{shi.address_1}"><br><br><br>
+                                    <input type="text" class="fb-filter__text floatNo" name="com_addr2" title="교환/반품 주소"  value="{shi.address_2}">(상세주소)
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="fb-filter__btn">
+                        <input type="button" class="fb-filter__save devSave" value="저장" />
+                    </div>
+                </form>
+
+            </section>
+
+        </div>
+
+        <div class="fb__tapcontent">
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devExchangeInfo">
+                <form id="devExchangeInfoForm" method="POST">
+                    <input type="hidden" name="tabType" value="">
+                    <input type="hidden" name="placeType" value="E">
+                    <input type="hidden" name="company_id" value="{company_id}" id="devCompanyId"/>
+                    <table>
+                        <caption></caption>
+                        <colgroup>
+                            <col width="14%">
+                            <col width="35%">
+                            <col width="14%">
+                            <col width="*">
+                        </colgroup>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    교환/반품지명
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="addr_name" title="교환/반품지명" value="{exi.addr_name}">
+                                </div>
+                            </td>
+                            <th class="fb-filter__title">
+                                <span class="">
+                                    담당자명
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="person_name"  value="{exi.person_name}">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    일반전화번호
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text fb-filter__text--20" name="addr_phone_1" title="일반전화번호" value="{exi.addr_phone_1}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_phone_2" title="일반전화번호" value="{exi.addr_phone_2}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_phone_3" title="일반전화번호" value="{exi.addr_phone_3}">
+                                </div>
+                            </td>
+                            <th class="fb-filter__title">
+                                <span class="">
+                                    핸드폰번호
+                                </span>
+                            </th>
+                            <td colspan="" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text fb-filter__text--20" name="addr_mobile_1"  value="{exi.addr_mobile_1}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_mobile_2"  value="{exi.addr_mobile_2}">
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_mobile_3"  value="{exi.addr_mobile_3}">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    교환/반품 주소
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__title-contents">
+                                    <input type="text" class="fb-filter__text" name="com_zip" title="교환/반품 주소" id="devExiAddress1" value="{exi.zip_code}"> <input type="button" class="fb-filter__search-icon devSearchAddressPopup2" value="검색"> <br><br>
+                                    <input type="text" class="fb-filter__text" name="com_addr1" title="교환/반품 주소" id="devExiAddress2" value="{exi.address_1}"><br><br><br>
+                                    <input type="text" class="fb-filter__text" name="com_addr2" title="교환/반품 주소" value="{exi.address_2}">(상세주소)
+                                </div>
+                            </td>
+                        </tr>                        
+                    </table>
+                    <div class="fb-filter__btn">
+                        <input type="button" class="fb-filter__save devSave" value="저장" />
+                    </div>
+                </form>
+
+            </section>
+
+        </div>
+    </fieldset>
+</section>

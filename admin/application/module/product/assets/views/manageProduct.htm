@@ -188,7 +188,7 @@
                             <span class="fb-filter__title--ne">판매상태</span>
                         </th>
                         <td colspan="3">
-                            <div class="fb-filter__radio">
+                            <div class="fb-filter__radio" id="devSalesStatus">
                                 {@ state}
                                 <label>
                                     <input type="radio" name="state" value="{.key_}" title="판매상태" {? product.state== .key_}checked{/}>
@@ -323,11 +323,11 @@
                     </colgroup>
                     <tr>
                         <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">구매단가(원가)</span>
+                            <span class="fb-filter__title--ne">공급가</span>
                         </th>
                         <td colspan="3">
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="coprice" devnumber="true" value="{? product.coprice}{product.coprice}{:}0{/}" title="구매단가(원가)">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="coprice" devnumber="true" value="{? product.coprice}{product.coprice}{:}0{/}" title="공급가">
                             </label>
                         </td>
                     </tr>
@@ -351,19 +351,19 @@
                     </tr>
                     <tr>
                         <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">정가</span>
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="listprice" devnumber="true" value="{? product.listprice}{product.listprice}{:}0{/}" title="정가">
+                            </label>
+                        </td>
+                        <th class="fb-filter__title">
                             <span class="fb-filter__title--ne">판매가</span>
                         </th>
                         <td>
                             <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="listprice" devnumber="true" value="{? product.listprice}{product.listprice}{:}0{/}" title="판매가">
-                            </label>
-                        </td>
-                        <th class="fb-filter__title">
-                            <span class="fb-filter__title--ne">실판매가(할인가)</span>
-                        </th>
-                        <td>
-                            <label>
-                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="sellprice" devnumber="true" value="{? product.sellprice}{product.sellprice}{:}0{/}" title="실판매가(할인가)">
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="sellprice" devnumber="true" value="{? product.sellprice}{product.sellprice}{:}0{/}" title="판매가">
                             </label>
                         </td>
                     </tr>
@@ -583,6 +583,7 @@
                         <col width="14%">
                         <col width="*">
                     </colgroup>
+                    <!--{? is_seller_plugin()}-->
                     <tr {? manageLevel !=9}style="display:none"{/}>
                         <th class="fb-filter__title">
                             <span>개별수수료 사용</span>
@@ -598,6 +599,7 @@
                             </div>
                         </td>
                     </tr>
+                    <!--{/}-->
                     <tr id="accountTypeTr" {? product.one_commission=='N' || product.one_commission=='' || manageLevel !=9}style="display:none"{/}>
                         <th class="fb-filter__title">
                             <span>정산방식</span>
@@ -794,3 +796,4 @@ var addOptionDataList = { = json_encode(addOptionData)};
 var constant_productGiftType = '{productGiftType}';
 var productType = '{product.product_type}';
 <!--{'</script>'}-->
+

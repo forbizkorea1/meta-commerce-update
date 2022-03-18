@@ -12,18 +12,38 @@
 
         <section class="search__wrap">
             <div id="search__normal" class="search__content search__content--show">
+                {? useCertify}
                 <div class="search__inner">
-                    <!--{? useCertify}-->
+                    <!--{? useCertify == 'Y' || useSso == 'Y'}-->
                     <section class="search__way search__way--photo">
+                        <!--{? useCertify == 'Y'}-->
                         <a href="#" id="devCertifyButton" class="certify-box__btn">{=trans('휴대폰 인증')}</a>
+                        <!--{/}-->
+
+                        <!--{? useSso == 'Y'}-->
+                        <a href="#" id="devCertifyButton2" class="certify-box__btn integrated">{=trans('통합 인증')}</a>
+                        <!--{/}-->
                     </section>
-                    <!--{/}-->
+					<!--{/}-->
                 </div>
 
                 <p class="search__way-customer">
                     {=trans('본인 명의의 휴대폰 인증을 통해 아이디를 찾을 수 있습니다.')}<br/>
                     {=trans('상기 방법으로 찾기 못하는 경우 <span>고객센터 <em>{csPhone}</em></span>로 문의해주세요.')}
                 </p>
+                {:}
+                <section class="fb__login">
+                    <div id="js__tab__member" class="fb__login__member show">
+                        <form id="devUserForm">
+                            <input type="text" placeholder="{=trans('이름')}" title="{=trans('이름')}" name="name" id="devUserName">
+                            <p class="txt-error" devTailMsg="devUserName"></p>
+                            <input type="text" placeholder="{=trans('이메일')}" title="{=trans('이메일')}" class="mat10" name="mail" id="devUserMail">
+                            <p class="txt-error" devTailMsg="devUserMail"></p>
+                            <button type="submit" class="fb__login__button" id="devUserSubmitButton">{=trans('아이디 찾기')}</button>
+                        </form>
+                    </div>
+                </section>
+                {/}
             </div>
 
             <div id="search__company" class="search__content">

@@ -1,0 +1,345 @@
+<div class="fb__store-main">
+    <div class="fb__devide fb__devide--5 fb__store-main-info">
+        <div class="main-info">
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-info__order">
+                        <h2>
+                            주문관리
+                        </h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="/order/listOrderIncomComplete">
+                                    <h3>
+                                        입금확인
+                                    </h3>
+                                    <span>{orderState[0]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/order/listOrderDeliveryReady">
+                                    <h3>
+                                        배송준비중
+                                    </h3>
+                                    <span>{orderState[1]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/order/listOrderDeliveryComplete">
+                                    <h3>
+                                        배송완료
+                                    </h3>
+                                    <span>{orderState[2]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-info__chack">
+                        <h2>클레임 관리</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="/order/listOrderCancel">
+                                    <h3>
+                                        취소요청
+                                    </h3>
+                                    <span>{claimState[0]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/order/listOrderReturn">
+                                    <h3>
+                                        반품요청
+                                    </h3>
+                                    <span>{claimState[1]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/order/listOrderExchange">
+                                    <h3>
+                                        교환요청
+                                    </h3>
+                                    <span>{claimState[2]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner fb__devide__inner-site">
+                    <header class="fb__devide__header main-info__site">
+                        <h2>문의 현황</h2>
+                    </header>
+                    <div class="fb__devide__content fb__store-main-info ">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="/cscenter/listProductQna">
+                                    <h3>
+                                        상품문의
+                                    </h3>
+                                    <span>{qnaState[0]}</span> 명
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/bbs/board/qna">
+                                    <h3>
+                                        1:1문의
+                                    </h3>
+                                    <span>{qnaState[1]}</span> 건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/cscenter/listUseAfter">
+                                    <h3>
+                                        상품리뷰
+                                    </h3>
+                                    <span>{qnaState[2]}</span> 건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-info__goods">
+                        <h2>상품현황</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="/product/listProduct#page1&state[]=1">
+                                    <h3>
+                                        판매중
+                                    </h3>
+                                    <span>{productState[0]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/product/listProduct#page1&state[]=0">
+                                    <h3>
+                                        일시품절
+                                    </h3>
+                                    <span>{productState[1]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/product/listProduct#page1&state[]=8">
+                                    <h3>
+                                        판매종료
+                                    </h3>
+                                    <span>{productState[2]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner fb__devide__inner-site">
+                    <header class="fb__devide__header main-info__site">
+                        <h2>사이트 현황</h2>
+                    </header>
+                    <div class="fb__devide__content fb__store-main-info ">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="/member/listMember">
+                                    <h3>
+                                        전일 회원가입
+                                    </h3>
+                                    <span>{siteState[0]}</span> 명
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/member/listDropMember">
+                                    <h3>
+                                        전일 회원탈퇴
+                                    </h3>
+                                    <span>{siteState[1]}</span> 명
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        일 주문건수 (P/M)
+                                    </h3>
+                                    <span>{siteState[2]} / {siteState[3]}</span> 건
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div class="fb__devide fb__devide--5-1 fb__store-main-state">
+        <div class="main-state">
+            <section class="fb__devide__box ">
+                <div class="fb__devide__inner" style="height: 445px;">
+                    <header class="fb__devide__header main-state__graph">
+                        <h2>매출 그래프</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <canvas id="devChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </section>
+            <!--{? sellerPlugin}-->
+            <section class="fb__devide__box fb__devide">
+                <div class="fb__devide__inner fb__devide__inner-site">
+                    <header class="fb__devide__header main-state__agree">
+                        <h2>셀러 관리</h2>
+                    </header>
+                    <div class="fb__devide__content fb__store-main-info clearfix">
+                        <ul class="main-info__bbs left">
+                            <li class="main-info__list">
+                                <a href="/accounts/listAccountPlan">
+                                    <h3>
+                                        정산예정
+                                    </h3>
+                                    <span id="devAccountReady">0</span>원
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/accounts/listRemittanceReady">
+                                    <h3>
+                                        송금대기
+                                    </h3>
+                                    <span id="devRemittanceReady">0</span>원
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="main-info__bbs right">
+                            <li class="main-info__list">
+                                <a href="/product/listProductApproval">
+                                    <h3>
+                                        상품 승인대기/거부
+                                    </h3>
+                                    <span>{sellerState[1]}</span> / <span>{sellerState[2]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/product/listProductWaiting">
+                                    <h3>
+                                        상품 수정대기/거부
+                                    </h3>
+                                    <span>{sellerState[3]}</span> / <span>{sellerState[4]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--{/}-->
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-state__thirdParty">
+                        <h2>부가 서비스</h2>
+                    </header>
+                    <div class="fb__devide__content fb__store-main-info clearfix scroll">
+                        <table id="devAddServiceTable" class="icon-list">
+                            <tbody>
+                            <tr>
+                                <td>부가 서비스가 존재하지 않습니다.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div class="fb__devide fb__devide--5-1 fb__store-main-state">
+        <div class="main-state">
+            <section class="fb__devide__box" style="padding: 0;">
+                <section class="fb__devide__box">
+                    <div class="fb__devide__inner fb__devide">
+                        <header class="fb__devide__header main-state__alim">
+                            <h2>메타커머스 알림</h2>
+                        </header>
+                        <div class="fb__devide__content meta-notice">
+                            <a href="https://meta-commerce.co.kr/customer/notice#page1&bType=notice&isAjaxList=Y" target="_blank" class="noice-more-btn tab-menu__cont noti" style="display: block;">더보기</a>
+
+                            <a href="https://meta-commerce.co.kr/customer/updateNotice" target="_blank" class="noice-more-btn tab-menu__cont update" >더보기</a>
+                            <div class="tab-menu" id="devNoticeTab">
+                                <a href="javascript:void(0);" btn="noti" class="tab-menu__tab tab-menu--active">
+                                    공지사항
+                                </a>
+                                <a href="javascript:void(0);" btn="update" class="tab-menu__tab">
+                                    업데이트
+                                </a>
+                            </div>
+                            <ul id="noti" class="notice-list tab-menu__cont" style="display: block;">
+                            </ul>
+                            <ul id="update" class="notice-list tab-menu__cont">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="banner devAdvertising" id="devAdvertising1"></div>
+                </section>
+                <section class="fb__devide__box">
+                    <div class="fb__devide__inner fb__devide">
+                        <header class="fb__devide__header main-state__cs">
+                            <h2>메타커머스 고객센터</h2>
+                        </header>
+                        <div class="fb__devide__content cs-center">
+                            <div>
+                                <strong>
+                                    metasales@meta-commerce.co.kr
+                                </strong>
+                                <span>
+                                    운영시간 : 평일 10:00 ~ 17:00 (점심 12:30 ~ 13:30)
+                                </span>
+                                <a href="https://meta-commerce.co.kr/customer/qna" target="_blank">1:1 문의 바로가기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner devAdvertising" id="devAdvertising2"></div>
+                </section>
+            </section>
+
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner fb__devide">
+                    <header class="fb__devide__header main-state__plugin">
+                        <h2>플러그인</h2>
+                    </header>
+                    <div class="fb__devide__content fb__store-main-info clearfix">
+                        <table id="devPluginTable" class="icon-list">
+                            <tbody>
+                            <tr>
+                                <td>플러그인이 존재하지 않습니다.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <ul class="banner-list">
+                    <li class="devAdvertising" id="devAdvertising3"></li>
+                    <li class="devAdvertising" id="devAdvertising4"></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <input type="hidden" id="devVersion" name="version" value="{version}"/>
+</div>
+<!--{'<script>'}-->
+var dailySales = {=json_encode(dailySales, JSON_NUMERIC_CHECK)};
+var demoUse = '{c.DEMO_USE}';
+window.openChangeService = function() {
+    {changeService}
+}
+<!--{'</script>'}-->

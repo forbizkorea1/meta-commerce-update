@@ -26,17 +26,16 @@ if (strstr(FORBIZ_BASEURL, '.devs')) {
 } else {
     define('DB_CONNECTION_DIV', 'production');
     define('PORTAL_API_URL', HTTP_PROTOCOL . 'meta-commerce.co.kr');
-    define("FRONT_URL", str_replace('admin.', '', FORBIZ_BASEURL));
 }
 
-define("MALL_DOMAIN", HTTP_PROTOCOL . FRONT_URL);
 define('MALL_TEMPLATE', 'enterprise');
 define('MALL_MOBILE_TEMPLATE', 'mobile_enterprise');
 // 기본 언어팩
 define('BASIC_LANGUAGE', 'korean');
 
 //프론트 도메인
-defined("FRONT_URL") OR define("FRONT_URL", "");
+//ncloud.meta-commerce.co.kr은 샘플 도메인이므로 사용중인 쇼핑몰 도메인은로 변경해 주세요.
+defined("FRONT_URL") OR define("FRONT_URL", "ncloud.meta-commerce.co.kr");
 defined("MALL_DOMAIN") OR define("MALL_DOMAIN", HTTP_PROTOCOL . FRONT_URL);
 
 //이미지 서버 도메인

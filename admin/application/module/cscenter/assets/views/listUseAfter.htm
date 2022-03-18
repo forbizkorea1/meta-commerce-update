@@ -1,0 +1,143 @@
+<form id="devGridForm" method="POST">
+    <input type="hidden" name="page" value="1" id="devPageNum"/>
+    <input type="hidden" name="max" value="50"/>
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">상품 후기 검색하기</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>상품 후기 검색하기</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                후기분류
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <select class="fb-filter__select" name="bbs_div" item=''>
+                                    <option value="">전체</option>
+                                    <option value="1">프리미엄</option>
+                                    <option value="2">일반</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                관리자 댓글 여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="re_bool_a">
+                                    <input type="radio" name="re_bool" id="re_bool_a" value="A" {? config.re_bool == 'A' || !config.re_bool } checked {/} >
+                                           <span>전체</span>
+                                </label>
+                                <label for="re_bool_y">
+                                    <input type="radio" name="re_bool" id="re_bool_y" value="Y" {? config.re_bool == 'Y' } checked {/} >
+                                           <span>답변완료</span>
+                                </label>
+                                <label for="re_bool_n">
+                                    <input type="radio" name="re_bool" id="re_bool_n" value="N" {? config.re_bool == 'N' } checked {/} >
+                                           <span>답변대기</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                작성일자
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">                               
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="betweenDatePickerStart" value="" readonly>
+                            <span class="fb-filter__day__line">~</span>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="betweenDatePickerEnd" value="" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                평균평점
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select selectValuation" name="valuation_s" item=''>
+                                    <option value="0" selected="">0 이상</option>
+                                    <option value="1">1.0 이상</option>
+                                    <option value="2">2.0 이상</option>
+                                    <option value="3">3.0 이상</option>
+                                    <option value="4">4.0 이상</option>
+                                    <option value="5">5.0 이상</option>
+                                </select>
+                                <span class="fb-filter__day__line">~</span>
+                                <select class="fb-filter__select selectValuation" name="valuation_e" item=''>
+                                    <option value="0">0 이하</option>
+                                    <option value="1">1.0 이하</option>
+                                    <option value="2">2.0 이하</option>
+                                    <option value="3">3.0 이하</option>
+                                    <option value="4">4.0 이하</option>
+                                    <option value="5" selected="">5.0 이하</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                조건검색
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select" name="search_type" item="{config.search_type}">
+                                    <option value="pname">상품명</option>                                    
+                                    <option value="bbs_name">작성자</option>
+                                    <option value="bbs_contents">내용</option>
+                                </select>
+                                <input type="text" class="fb-filter__text fb-filter__text--30" name="search_text"  value="{config.search_text}">
+                            </div>
+                        </td>                       
+                    </tr>                    
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devFormSubmit" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </section>
+        </section>
+    </fieldset>
+</form>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span></h3>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<script>var devMemType = '{memType}';</script>
+<!--{#afterEdit}-->
+<!--{#afterComent}-->

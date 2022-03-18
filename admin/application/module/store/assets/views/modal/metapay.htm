@@ -1,0 +1,323 @@
+<!--{'<script id="devMetaPayModalTpl" type="text/x-handlebars-template">'}-->
+<link rel="stylesheet" type="text/css" href="{=layout_url('css/metapay.css')}">
+<section id="devModalBox">
+<section id="devStep02" class="fb__menusubmit">
+    <section class="fb-filter fb__metapay">
+        <div class="fb__metapay-wrap">
+            <div class="fb__metapay-title">
+                <h1>메타 페이 시작하기</h1>
+            </div>
+            <div class="fb__metapay-cont">
+                <div class="fb__metapay-desc">
+                    메타 페이를 처음 이용하시나요?<br>
+                    메타 페이 이용 전에<br>
+                    아래 내용을 <b class="main-color">꼭!</b> 확인해 주세요.
+                </div>
+                <div class="fb__metapay-terms">
+                    <strong class="main-color">하나,</strong>
+                    <p>메타 페이는 한국 내 카드사의 신용카드 및 체크카드만 지원합니다. 해외 사용자분들은 조금만 기다려주세요! </p>
+                    <br>
+                    <strong class="main-color">둘,</strong>
+                    <p>메타 페이의 원활한 이용을 위해서는 인증이 필요합니다. 또한 본인 명의의 신용(체크)카드가 있어야 합니다.</p>
+                </div>
+                <h3 class="fb__metapay-subtitle">이용 약관</h3>
+                <div class="fb__metapay-terms">
+                    <p>
+                        메타페이는 인증 후 Bill Key를 발급받고, 추후 해당 고객에 대한 과금 시 별도의 카드정보 없이 암호화된 Bill Key를 이용하여 결제하는 서비스로 메타페이는 카드정보를 보관하지 않습니다.
+
+                        <br><br>
+                        메타페이는 나이스페이먼츠 주식회사에서 제공하는 서비스로, 신용카드 결제내역에는 이용가맹점이 나이스페이먼츠 주식회사로 표기됩니다.
+
+                        <br><br>
+                        메타페이로 결제를 할 때는 6자리의 결제비밀번호 인증 절차를 통해 전자상거래를 완료합니다.
+
+                        <br><br>
+                        결제비밀번호에 대해 회원은 관리책임이 있으며, 이를 제3자에게 제공, 누설하거나 이와 유사한 행위를 하여서는 안됩니다.
+
+                        <br><br>
+                        회원은 결제비밀번호 등의 누설 등 사고 발생시에는 즉시 결제비밀번호를 변경하여야 합니다.
+
+                    </p>
+                    <br><br>
+                    <strong class="main-color">&lt;부칙&gt;</strong>
+                    <p>
+                        본약관은 2020년 12월 01일부터 적용됩니다.
+                    </p>
+                </div>
+                <div class="fb-filter__radio fb__metapay__terms-check">
+                    <label>
+                        <input type="checkbox" id="devMetaPayAgree" name="metaPayAgree" value="1">
+                        <span>
+                            메타 페이 이용에 대한 주의사항 및 이용 약관을 모두
+                        확인하였으며 이에 동의합니다.
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="fb-modal__bottom">
+                <div class="fb-filter__btn">
+                    <button id="devStep02Save" class="fb-filter__save" type="button">저장</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<section id="devStep03" class="fb__menusubmit" style="display:none;">
+    <section class="fb-filter fb__metapay">
+        <div class="fb__metapay-wrap">
+            <div class="fb__metapay-title ">
+                <h1 class="metapay-new">메타 페이 시작하기</h1>
+                <h1 class="metapay-confirm">메타 페이 결제</h1>
+            </div>
+            <div class="fb__metapay-cont">
+                <div class="fb__metapay-desc metapay-new">
+                    <strong>
+                        메타 페이에서 이용할<br>
+                        결제 비밀번호를 등록해 주세요.
+                    </strong>
+                    <span>
+                        메타 페이에서 결제를 요청하거나<br>
+                        주요 설정을 변경할때 사용됩니다.
+                    </span>
+                </div>
+                <div class="fb__metapay-desc metapay-confirm">
+                    <strong>
+                        메타 페이 비밀번호를 입력해 주세요.<br>
+                    </strong>
+                </div>
+                <div class="fb__metapay-password password">
+                    <span id="key_1" class="character"></span>
+                    <span id="key_2" class="character"></span>
+                    <span id="key_3" class="character"></span>
+                    <span id="key_4" class="character"></span>
+                    <span id="key_5" class="character"></span>
+                    <span id="key_6" class="character"></span>
+                </div>
+                <div class="fb__metapay-password-msg">
+                    <span id="dev_passerrormsg2" class="msg" style="display:none;">비밀번호가 일치하지 않습니다.<br>다시 확인해 주세요.</span>
+
+                    <a class="re-btn devAllClear">비밀번호 다시 입력하기</a>
+                </div>
+                <div class="fb__metapay-keyboard">
+                    <table id="devNumPad" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                            <td>
+                                <a class="key pad"><span class="number key1_1"> </span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <a href="javascript:;" class="key btn_del sr_only devAllClear">전체삭제</a>
+                            </td>
+                            <td colspan="2">
+                                <a href="javascript:;" id="devCancel" class="key btn_backspace sr_only">←</a>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<section id="devStep04" class="fb__menusubmit" style="display:none;">
+    <section class="fb-filter fb__metapay">
+        <div class="fb__metapay-wrap">
+            <div class="fb__metapay-title">
+                <h1>신용/체크카드 등록</h1>
+            </div>
+            <div class="fb__metapay-cont">
+                <div class="fb__metapay-desc">
+                    <strong>
+                        본인 명의의 신용카드/체크카드를<br>
+                        메타페이 간편 결제수단으로 등록합니다.
+                    </strong>
+                </div>
+                <div class="fb__metapay-card">
+                    <div class="icon"></div>
+                    <p>신용카드/체크카드</p>
+                </div>
+            </div>
+            <div class="fb-modal__bottom">
+                <div class="fb-filter__btn">
+                    <button class="fb-filter__save" id="devStep04Next" type="button">다음</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<section id="devStep05" class="fb__menusubmit" style="display:none;">
+    <section class="fb-filter fb__metapay">
+        <div class="fb__metapay-wrap">
+            <div class="fb__metapay-title">
+                <h1>신용/체크카드 등록</h1>
+            </div>
+            <form id="relaket_pay_billing_form" method="post" action="relaket_pay_billing_result.php" autocomplete="off">
+
+                <input type="hidden" name="pw_chk_key" value="sz8pqZ3vrFXIAheYCDJ4">
+                <input type="hidden" name="IDNo" placeholder="생년월일(YYMMDD)" maxlength="6" value="850211">
+                <div class="fb__metapay-cont">
+                    <div class="fb__metapay-desc">
+                        <strong>
+                            본인 명의의 신용카드/체크카드를<br>
+                            메타페이 간편 결제수단으로 등록합니다.
+                        </strong>
+                    </div>
+
+
+                    <div class="fb__metapay-card">
+                        <div class="fb-filter__radio cardAdd">
+                            <label>
+                                <input type="radio" name="CardType" value="1" checked>
+                                <span>개인</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="CardType" value="2">
+                                <span>사업자</span>
+                            </label>
+                        </div>
+                        <div class="fb__metapay-card__input">
+
+                            <dl class="input-sec">
+                                <dt>카드번호<i class="main-color">*</i></dt>
+                                <dd><input type="text" id="devCardNo" name="CardNo" class="numeric" title="카드번호" placeholder="숫자만 입력해 주세요."></dd>
+                            </dl>
+                            <dl class="input-sec">
+                                <dt>유효기간<i class="main-color">*</i></dt>
+                                <dd>
+                                    <input type="text" id="devExpMonth" name="ExpMonth" class="month numeric" placeholder="MM" maxlength="2" title="유효기간"><span>/</span>
+                                    <input type="text" id="devExpYear" name="ExpYear" class="year numeric" placeholder="YY" maxlength="2" autocomplete="false" title="유효기간">
+                                </dd>
+                            </dl>
+                            <dl class="input-sec">
+                                <dt>카드 비밀번호<i class="main-color">*</i></dt>
+                                <dd><input type="password" id="devCardPw" name="CardPw" class="numeric" maxlength="2" placeholder="앞 2자리" autocomplete="new-password" title="카드 비밀번호"></dd>
+                            </dl>
+                            <dl class="input-sec cardIdNo">
+                                <dt><span>생년월일</span><i class="main-color">*</i></dt>
+                                <dd><input type="text" id="devIDNo" name="IDNo" class="numeric" placeholder="예) 961010" title="생년월일"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="fb-modal__bottom">
+                    <div class="fb-filter__btn">
+                        <button class="fb-filter__save" id="devComplete" type="button">다음</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>
+<section id="devStep01" class="fb__menusubmit fb__metapay" style="display:none;">
+    <section class="fb-filter fb__metapay-wrap">
+        <table>
+            <colgroup>
+                <col width="100">
+                <col width="*">
+            </colgroup>
+            <tbody>
+            <tr>
+                <th class="fb-filter__title">
+                    <span>주문자</span>
+                </th>
+                <td class="fb-filter__seller fb-filter__title-contents">
+                    {_SESSION['admininfo']['charger']}
+                </td>
+            </tr>
+            <tr>
+                <th class="fb-filter__title">
+                    <span>몰아이디</span>
+                </th>
+                <td class="fb-filter__title-contents">
+                    {_SESSION['admininfo']['mall_id']}
+                </td>
+            </tr>
+            <tr>
+                <th class="fb-filter__title">
+                    <span>상품</span>
+                </th>
+                <td class="fb-filter__title-contents">
+                    <span id="devSpName"></span>
+                </td>
+            </tr>
+            <tr>
+                <th class="fb-filter__title">
+                    <span>정보</span>
+                </th>
+                <td class="fb-filter__title-contents">
+                    <span id="devOffer">0</span>
+                </td>
+            </tr>
+<!--            <tr>-->
+<!--                <th class="fb-filter__title">-->
+<!--                    <span>결제주기</span>-->
+<!--                </th>-->
+<!--                <td id="devType" class="fb-filter__title-contents">-->
+<!--                    정기결제-->
+<!--                </td>-->
+<!--            </tr>-->
+            <tr>
+                <th class="fb-filter__title">
+                    <span>금액</span>
+                </th>
+                <td class="fb-filter__title-contents">
+                    <span id="devPrice">1,000,000</span>원
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="fb__metapay__reg">
+            <ul id="devCardList" class="slide">
+
+            </ul>
+            <p>선택한 카드로 결제됩니다.</p>
+        </div>
+        <div class="fb-filter__btn">
+            <button class="fb-filter__save" id="devPayment" type="button">결제하기</button>
+            <button class="fb-filter__save" id="devPaymentHide" type="button">삭제하기</button>
+        </div>
+    </section>
+</section>
+</section>
+<!--{'</script>'}-->

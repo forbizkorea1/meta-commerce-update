@@ -176,7 +176,7 @@ var devProductBatchChangeCategoryObj = {
 
         $('.devAddSearchProductCategoryButton').on('click', function (e) {
             if ($('input[name=basicTypeBatch]:checked').val() == 1) {
-                if ($('.devAddSearchProductCategoryRow').length > 1) {
+                if ($('#devSelectCategoryBottom .devAddSearchProductCategoryRow').length > 1) {
                     e.preventDefault();
                     $('.devAddSearchProductCategoryRow:last').remove();
                     common.noti.alert(common.lang.get('category.add.not.alert'));

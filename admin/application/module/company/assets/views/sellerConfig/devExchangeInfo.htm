@@ -1,0 +1,85 @@
+<div class="fb__tapcontent">
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devExchangeInfo">
+        <form id="devExchangeInfoForm" method="POST">
+            <input type="hidden" name="tabType" value="">
+            <input type="hidden" name="placeType" value="E">
+            <input type="hidden" name="company_id" value="{company_id}">
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            교환/반품지명
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="addr_name" title="교환반품지명"  value="{exi.addr_name}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            담당자명
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="person_name" title="담당자명"  value="{exi.person_name}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            일반전화번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="addr_phone_1" title="일반전화번호"  value="{exi.addr_phone_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_phone_2" title="일반전화번호"  value="{exi.addr_phone_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_phone_3" title="일반전화번호"  value="{exi.addr_phone_3}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            핸드폰번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="addr_mobile_1" title="핸드폰번호" value="{exi.addr_mobile_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_mobile_2" title="핸드폰번호"  value="{exi.addr_mobile_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="addr_mobile_3" title="핸드폰번호"  value="{exi.addr_mobile_3}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            교환/반품 주소
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="com_zip" title="우편번호" id="devExiZipCode" value="{exi.zip_code}"> <input type="button" class="fb-filter__search-icon" id="devSearchAddressPopup2" value="검색"> <br><br>
+                            <input type="text" class="fb-filter__text" name="com_addr1" title="상세주소1" id="devExiAddress" value="{exi.address_1}"><br><br><br>
+                            <input type="text" class="fb-filter__text" name="com_addr2"  value="{exi.address_2}">(상세주소)
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="fb-filter__btn">
+                <input type="button" class="fb-filter__save devSave" value="저장" />
+            </div>
+        </form>
+
+    </section>
+
+</div>

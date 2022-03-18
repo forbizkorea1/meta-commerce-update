@@ -1,0 +1,248 @@
+<section class="fb__menusubmit">
+    <section class="fb-filter">
+        <form id="devGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <fieldset>
+                <legend>
+                    주문 리스트
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    판매처 선택
+                                </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderFromList}
+                                <label>
+                                    <input type="checkbox" name="order_from[]" value="{.site_code}">
+                                    <span>{.site_name}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title" rowspan="5">
+                                <span>
+                                    처리상태
+                                </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderStatusList}
+                                <label>
+                                    <input type="checkbox" name="status[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderCancelStatusList}
+                                <label>
+                                    <input type="checkbox" name="status[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderReturnStatusList}
+                                <label>
+                                    <input type="checkbox" name="status[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderExchangeStatusList}
+                                <label>
+                                    <input type="checkbox" name="status[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderRefundStatusList}
+                                <label>
+                                    <input type="checkbox" name="refund_status[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    결제방법
+                                </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderPaymentMethodList}
+                                <label>
+                                    <input type="checkbox" name="payment_method[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    결제형태
+                                </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderPaymentAgentTypeList}
+                                <label>
+                                    <input type="checkbox" name="payment_agent_type[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="searchType" class="fb-filter__select">
+                                <option value="combi_name">주문자&수취인-명</option>
+                                <option value="combi_mobile">주문자&수취인-핸드폰번호</option>
+                                <option value="oid">주문번호</option>
+                                <option value="buserid">주문자ID</option>
+                                <option value="invoice_no">송장번호</option>
+                                <option value="pname">상품명</option>
+                                <option value="option_text">옵션명</option>
+                                <option value="gid">품목코드</option>
+                                <option value="co_oid">제휴사주문번호</option>
+                            </select>
+                            <input name="searchText" type="text" class="fb-filter__text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    기간
+                                </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <select name="searchDateType" class="fb-filter__select">
+                                <option value="order_date">주문일자</option>
+                                <option value="ic_date">입금일자</option>
+                                <option value="dr_date">배송준비중일자</option>
+                                <option value="di_date">배송중일자</option>
+                                <option value="dc_date">배송완료일자</option>
+                                <option value="bf_date">구매확정일자</option>
+                            </select>
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day"
+                                       id="devBetweenDatePickerStart" name="startDate" value="{basicStartDate}"
+                                       readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day"
+                                   id="devBetweenDatePickerEnd" name="endDate" value="{basicEndDate}" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        {? sess_val('admininfo','mem_div') == 'D'}
+                        <th class="fb-filter__title">
+                            <span>판매자</span>
+                        </th>
+                        <td class="fb-filter__seller">
+                            <input type="hidden" name="company_id" id="devCompanyId" devReset>
+                            <input type="text" class="fb-filter__text" id="devCompanyText" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchCompanyPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchCompanyReset"/>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>브랜드</span>
+                        </th>
+                        <td class="fb-filter__seller">
+                            <input type="hidden" name="b_ix" id="devBrandIx" devReset>
+                            <input type="text" class="fb-filter__text" id="devBrandText" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchBrandPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchBrandReset"/>
+                        </td>
+                        {:}
+                        <th class="fb-filter__title">
+                            <span>브랜드</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__seller">
+                            <input type="hidden" name="b_ix" id="devBrandIx" devReset>
+                            <input type="text" class="fb-filter__text" id="devBrandText" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchBrandPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchBrandReset"/>
+                        </td>
+                        {/}
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">주문목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count"
+                                                                                       id="devTotal">0</em>개)</span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+            <select class="fb-filter__select" id="devExcelTmpIx">
+                <option value="">엑셀양식선택</option>
+                {@ orderExcelTemplateList}
+                <option value="{.excel_tmp_ix}">{.excel_name}</option>
+                {/}
+            </select>
+            <button class="fb-filter__btn-excel" id="devExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>

@@ -44,16 +44,40 @@
 
             <!-- 이름 -->
             <dl>
-                <dt>{=trans('이름')}</dt>
+                <dt>{=trans('이름')} {? useCertify == 'N'}<em>*</em>{/}</dt>
                 <dd>
+                    {? useCertify == 'N'}
+                    <input type="text" id="devUserName" name="name" title="{=trans('이름')}">
+                    {:}
                     <input type="text" value="{userName}" disabled>
+                    {/}
                 </dd>
             </dl>
 
             <!-- 생년월일 -->
             <dl class="birth-area">
-                <dt>{=trans('생년월일')}</dt>
+                <dt>{=trans('생년월일')} {? useCertify == 'N'}<em>*</em>{/}</dt>
                 <dd>
+                    {? useCertify == 'N'}
+                    <div class="sex">
+                        <label class="sex__box">
+                            <input type="radio" name="birthdayDiv" value="1" checked>
+                            <span>{=trans('양력')}</span>
+                        </label>
+
+                        <label class="sex__box">
+                            <input type="radio" name="birthdayDiv" value="0">
+                            <span>{=trans('음력')}</span>
+                        </label>
+                    </div>
+                    <div class="fb__input__phone--box ">
+                        <input class="fb__input__phone--02 js__input--onlyNumber" type="number" name="birthday1" id="devUserBirthday1" title="{=trans('생년월일')}" devmaxlength="4">
+                        <span class="dash"></span>
+                        <input class="fb__input__phone--03 js__input--onlyNumber" type="number" name="birthday2" id="devUserBirthday2" title="{=trans('생년월일')}" devmaxlength="2">
+                        <span class="dash"></span>
+                        <input class="fb__input__phone--03 js__input--onlyNumber" type="number" name="birthday3" id="devUserBirthday3" title="{=trans('생년월일')}" devmaxlength="2">
+                    </div>
+                    {:}
                     <input type="text" class="birth-input" value="{changeFormatBirthday}" disabled>
 
                     <div class="sex">
@@ -67,8 +91,28 @@
                             <span>{=trans('여성')}</span>
                         </label>
                     </div>
+                    {/}
                 </dd>
             </dl>
+
+            {? useCertify == 'N'}
+            <dl class="birth-area">
+                <dt>{=trans('성별')} <em>*</em></dt>
+                <dd>
+                    <div class="sex">
+                        <label class="sex__box">
+                            <input type="radio" id="male" name="sexDiv" value="M" checked>
+                            <span>{=trans('남성')}</span>
+                        </label>
+
+                        <label class="sex__box">
+                            <input type="radio" id="female" name="sexDiv" value="W">
+                            <span>{=trans('여성')}</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+            {/}
 
             <!-- 이메일 -->
             <dl class="email-area">

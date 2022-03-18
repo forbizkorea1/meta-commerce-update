@@ -1,0 +1,184 @@
+<section class="fb__menusubmit">
+
+    {? hiddenStatus == 'batchStatus'}
+    <fieldset class="fb-filter">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#devSale" class="fb__tap__menu--active">
+                        판매중
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devSoldOut">
+                        일시품절
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+    {/}
+
+    <section class="fb-filter">
+        <form id="devGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <fieldset>
+                <legend>
+                    상품 리스트
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    {? manageLevel == 9}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>셀러업체</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="hidden" name="admin" id="devCompanyId" value="" title="셀러업체" devReset>
+                            <input type="text" class="fb-filter__text" id="devCompanyText" value="" readonly devReset>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchCompanyPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchCompanyReset"/>
+                        </td>
+                    </tr>
+                    {/}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>상품검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="filterType" class="fb-filter__select">
+                                <option value="pname" selected>상품명</option>
+                                <option value="id">상품코드</option>
+                                <option value="pcode">관리코드</option>
+                            </select>
+                            <textarea name="filterText" class="fb-filter__text fb-filter__text--70" id="devSearchProductFilterText"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <select name="dateType" class="fb-filter__select">
+                                <option value="">선택해주세요</option>
+                                <option value="regdate">상품등록일</option>
+                                <option value="editdate">상품수정일</option>
+                                {? baseName == 'batchChangeStatus'}
+                                <option value="sellDate">판매기간</option>
+                                {/}
+                            </select>
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day" id="devBetweenDatePickerStart" name="startDate" value="" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day" id="devBetweenDatePickerEnd" name="endDate" value="" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>카테고리</span>
+                        </th>
+                        <td colspan="3">
+                            <div id="devSelectCategory"></div>
+                        </td>
+                    </tr>
+                    {? hiddenStatus}
+                    {? hiddenStatus == 'batchStatus'}
+                    <input type="hidden" name="state[]" value="1"/>
+                    {:}
+                    <input type="hidden" name="state[]" value="{hiddenStatus}"/>
+                    {/}
+                    {:}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>판매상태</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__checkbox">
+                                {@ stateList}
+                                <label><input type="checkbox" name="state[]" value="{.key_}">
+                                    <span>{.value_}</span></label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    {/}
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    노출여부
+                                </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__checkbox">
+                                {@ dispList}
+                                <label><input type="checkbox" name="disp[]" value="{.key_}">
+                                    <span>{.value_}</span></label>
+                                {/}
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    전시타입
+                                </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ ismobileUseList}
+                                <label>
+                                    <input type="radio" name="is_mobile_use" value="{.key_}" {? .key_=='A'}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                                <span>
+                                    브랜드
+                                </span>
+                        </th>
+                        <td class="fb-filter__seller">
+                            <input type="hidden" name="brand_ix" id="devBrandIx" devReset>
+                            <input type="text" class="fb-filter__text" id="devBrandText" readonly devReset>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchBrandPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchBrandReset"/>
+                        </td>
+                    </tr>
+                    {? manageLevel == 9}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                담당MD
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__seller">
+                            <input type="hidden" name="md_id" id="devMdIx" devReset>
+                            <input type="text" class="fb-filter__text" id="devMdText" readonly devReset>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchMdPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchMdReset"/>
+                        </td>
+                    </tr>
+                    {/}
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="button" class="fb-filter__search" id="devFormSubmit" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>

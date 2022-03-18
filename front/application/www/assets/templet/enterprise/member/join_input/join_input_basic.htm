@@ -11,6 +11,7 @@
     <section class="fb__join-input__form">
         <form id="devBasicForm">
             <input type="hidden" name="memType" id="devMemType" value="{joinType}">
+            <input type="hidden" name="devUseCertify" id="devUseCertify" value="{useCertify}">
 
             <section class="input-form">
                 <ul class="input-form__content-box">
@@ -51,26 +52,60 @@
 
                     <!-- 이름 -->
                     <li class="inputs">
-                        <span class="inputs__title">{=trans('이름')}</span>
+                        <span class="inputs__title">
+                            <label {? useCertify == 'N'}for="devUserName" class="required"{/}>{=trans('이름')}</label>
+                        </span>
                         <div class="inputs__content">
+                            {? useCertify == 'N'}
+                            <input type="text" id="devUserName" name="name" title="{=trans('이름')}" class="pub-input-text">
+                            {:}
                             <input type="text" placeholder="{userName}" readonly disabled>
+                            {/}
                         </div>
                     </li>
 
                     <!-- 생년월일 -->
                     <li class="inputs">
-                        <span class="inputs__title">{=trans('생년월일')}</span>
+                        <span class="inputs__title">
+                            <label {? useCertify == 'N'}for="devUserBirthday" class="required"{/}>{=trans('생년월일')}</label>
+                        </span>
                         <div class="inputs__content">
+                            {? useCertify == 'N'}
+                            <span class="radio-area">
+                                <input type="radio" name="birthdayDiv" value="1" checked>
+                                <label>양력</label>
+                            </span>
+                            <span class="radio-area">
+                                <input type="radio" name="birthdayDiv" value="0">
+                                <label>음력</label>
+                            </span>
+
+                            <input type="text" id="devUserBirthday" name="birthday" class="search__date-input date-pick " title="{=trans('생년월일')}">
+                            {:}
                             <input type="text" placeholder="{changeFormatBirthday}" readonly disabled>
+                            {/}
                         </div>
                     </li>
 
                     <!-- 성별 -->
                     <li class="inputs">
-                        <span class="inputs__title">{=trans('성별')}</span>
+                        <span class="inputs__title">
+                            <label {? useCertify == 'N'}for="devUserSexDiv" class="required"{/}>{=trans('성별')}</label>
+                        </span>
                         <div class="inputs__content">
+                            {? useCertify == 'N'}
+                            <span class="radio-area">
+                                <input type="radio" name="sexDiv" value="M" checked>
+                                <label>남성</label>
+                            </span>
+                            <span class="radio-area">
+                                <input type="radio" name="sexDiv" value="W">
+                                <label>여성</label>
+                            </span>
+                            {:}
                             <input type="hidden" name="sex" id="devSexDiv">
                             <input type="text" placeholder="{changeFormatSexDiv}" readonly disabled>
+                            {/}
                         </div>
                     </li>
 

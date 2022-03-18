@@ -63,6 +63,17 @@ var devStoreManageMallConfigObj = {
                 $target.hide();
             }
         });
+
+        // 크리마 서비스 사용
+        $('input[name=crema_use_type]').click(function () {
+            var $this = $(this);
+            var $target = $('.cremaUseConfig');
+            if ($this.val() == 'Y') {
+                $target.show();
+            } else {
+                $target.hide();
+            }
+        });
         
         // 간편 로그인 모듈 선택
         $('.devAddSnsSimpleLogin').click(function () {

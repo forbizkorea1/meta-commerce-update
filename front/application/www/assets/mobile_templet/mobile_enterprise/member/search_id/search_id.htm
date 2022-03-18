@@ -30,13 +30,25 @@
         <div class="wrap-tab-cont fb__search__auth">
             <!--일반회원-->
             <div id="tab01" class="active auth__member">
-                {? useCertify}
+                <!--{? useCertify == 'Y'}-->
                 <button type="button" class="auth__phone mtx" id="devCertifyButton">{=trans('휴대폰 인증')}</button>
+                {:}
+                <section class="fb__login">
+                    <form id="devUserForm">
+                        <input type="text" placeholder="{=trans('이름')}" title="{=trans('이름')}" name="name" id="devUserName">
+                        <p class="txt-error" devTailMsg="devUserName" ></p>
+                        <input type="text" placeholder="{=trans('이메일')}" title="{=trans('이메일')}" class="mat20" name="mail" id="devUserMail">
+                        <p class="txt-error" devTailMsg="devUserMail" ></p>
+                        <button type="submit" class="fb__login__button" id="devUserSubmitButton">{=trans('아이디 찾기')}</button>
+                    </form>
+                </section>
                 {/}
 
+                <!--{? useSso == 'Y'}-->
+                <button type="button" class="auth__phone mtx integrated" id="devCertifyButton2" style="margin-top: 10px;">{=trans('통합 인증')}</button>
+                <!--{/}-->
                 <!-- 인증 안내 -->
                 <ul class="auth__phone__desc">
-                    <li class="auth__phone__list">{=trans('본인 명의의 휴대폰 인증을 통해 아이디를 찾을 수 있습니다.')}</li>
                     <li class="auth__phone__list">{=trans('상기 방법으로 찾기 못하는 경우 <strong>고객센터 <em class="font-rb">{csPhone}</em></strong>로 문의해주세요.')}</li>
                 </ul>
             </div>

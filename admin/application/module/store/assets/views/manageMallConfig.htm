@@ -118,10 +118,10 @@
                                     <input type="radio" name="sattle_module" value="inicis" {? config.sattle_module== 'inicis' } checked {/} />
                                     <span>이니시스</span>
                                 </label>
-                                <label>
+                                <!--<label>
                                     <input type="radio" name="sattle_module" value="" {? config.sattle_module== '' } checked {/} >
                                     <span>사용안함</span>
-                                </label>
+                                </label>-->
                             </div>
                         </td>
                     </tr>
@@ -341,25 +341,6 @@
                     <tr>
                         <th class="fb-filter__title">
                             <span>
-                                굿스플로 사용
-                            </span>
-                        </th>
-                        <td colspan="3">
-                            <div class="fb-filter__radio">
-                                <label>
-                                    <input type="radio" name="goodsflow_use_type" class="devGoodsFlowUseType" value="Y" {? config.goodsflow_use_type == 'Y'}checked{/}  />
-                                    <span>사용</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="goodsflow_use_type" class="devGoodsFlowUseType" value="N" {? config.goodsflow_use_type == 'N' || config.talktalk_use_type == ''}checked{/} />
-                                    <span>사용안함</span>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span>
                                 해피톡
                             </span>
                         </th>
@@ -422,37 +403,14 @@
                         <td colspan="3" class="fb-filter__day-wrap">
                             <h4>PC</h4><br>
                             <div class="fb-filter__checkbox">
-                                <textarea type="text" class="fb-filter__textarea" name="friendTalk_script" placeholder="PC" title="친구톡 script" style="height: 100px;">{config.friendTalk_script}</textarea>
+                                <textarea type="text" class="fb-filter__textarea" name="friendTalk_script" placeholder="PC" title="채널톡 script" style="height: 100px;">{config.friendTalk_script}</textarea>
                             </div>
                             <br />
                             <h4>MOBILE</h4><br>
                             <div>
-                                <textarea type="text" class="fb-filter__textarea" name="friendTalk_mobile_script" placeholder="MOBILE" title="친구톡 모바일 script" style="height: 100px;">{config.friendTalk_mobile_script}</textarea>
+                                <textarea type="text" class="fb-filter__textarea" name="friendTalk_mobile_script" placeholder="MOBILE" title="채널톡 모바일 script" style="height: 100px;">{config.friendTalk_mobile_script}</textarea>
                             </div>
                         </td>
-                    </tr>
-                    <tr class="devGoodsflowConfig" {?config.goodsflow_use_type !='Y'}style="display:none" {/}>
-                    <th class="fb-filter__title">
-                            <span>
-                                굿스플로 Config
-                            </span>
-                    </th>
-                    <td colspan="3">
-                        <p><span style="display:inline-block; width: 100px">App Key :</span>
-                            <input type="text"
-                                   class="fb-filter__text floatNo"
-                                   name="goodsflow_app_key"
-                                   title="굿스플로 App Key"
-                                   value="{config.goodsflow_app_key}">
-                        </p>
-                        <p style="margin: 5px 0;"><span style="display:inline-block; width: 100px">Company Key :</span>
-                            <input type="text"
-                                   class="fb-filter__text floatNo"
-                                   name="goodsflow_company_key"
-                                   title="굿스플로 Company Key"
-                                   value="{config.goodsflow_company_key}">
-                        </p>
-                    </td>
                     </tr>
                 </table>
             </section>
@@ -535,11 +493,11 @@
                             </span>
                         </th>
                         <td colspan="3">
-                            <input type="text" class="fb-filter__text" name="kakao_app_key" title="KAKAO APP KEY" placeholder="KAKAO_APP_KEY" value="{config.kakao_app_key}">
+                            <input type="text" class="fb-filter__text" name="kakao_app_key" title="KAKAO REST API KEY" placeholder="KAKAO_REST_API_KEY" value="{config.kakao_app_key}">
                             <input type="text" class="fb-filter__text" name="kakao_script_key" title="KAKAO SCRIPT KEY" placeholder="KAKAO_SCRIPT_KEY" value="{config.kakao_script_key}">
                             <input type="text" class="fb-filter__text" name="kakao_app_secret" title="KAKAO APP SECRET" placeholder="KAKAO_APP_SECRET" value="{config.kakao_app_secret}">
-                            <input type="text" class="fb-filter__text" name="kakao_login_callback_url" title="KAKAO LOGIN CALLBACK URL" placeholder="KAKAO_LOGIN_CALLBACK_URL" value="{config.kakao_login_callback_url}">
-                            <input type="text" class="fb-filter__text" name="kakao_join_callback_url" title="KAKAO JOIN CALLBACK URL " placeholder="KAKAO_JOIN_CALLBACK_URL" value="{config.kakao_join_callback_url}">
+                            <input type="text" class="fb-filter__text" name="kakao_join_callback_url" title="KAKAO LOGIN CALLBACK URL " placeholder="KAKAO_LOGIN_CALLBACK_URL" value="{config.kakao_join_callback_url}">
+                            <input type="text" class="fb-filter__text" name="kakao_login_callback_url" title="KAKAO JOIN CALLBACK URL" placeholder="KAKAO_JOIN_CALLBACK_URL" value="{config.kakao_login_callback_url}">
                         </td>
                     </tr>
                     <tr class="devSnsSimpleLoginModuleConfig" data-login="naver" {?config.sns_simple_login_naver != 'Y'}style="display:none"{/}>

@@ -10,6 +10,8 @@ var devStoreManagePaymentGatewayObj = {
         common.lang.load('common.add.success.alert', '저장이 완료되었습니다.');
         common.lang.load('common.put.success.alert', '수정이 완료되었습니다.');
         common.lang.load('common.put.error.alert', '수정 중 에러');
+        common.lang.load('common.put.mid.error.alert', '유효한 key 값이 아닙니다. 키값의 확인이 필요한 경우 메타커머스 고객센터로 문의 부탁드립니다.');
+        common.lang.load('common.put.mainPayMethod.error.alert', '주결제 수단이 최소 1개는 선택되어야합니다.');
 
         common.lang.load('common.del.confirm', '{title} 을/를 삭제하시겠습니까?');
     },
@@ -26,25 +28,32 @@ var devStoreManagePaymentGatewayObj = {
                     common.noti.alert(common.lang.get('common.put.success.alert'));
                     document.location.reload();
                 } else {
-                    common.noti.alert(common.lang.get('common.put.error.alert'));
+                    if (response.data.error == 'mid'){
+                        common.noti.alert(common.lang.get('common.put.mid.error.alert'));
+                    } else {
+                        common.noti.alert(common.lang.get('common.put.error.alert'));
+                    }
                 }
             }
         );
 
         $("#devTopMenuSaveBtn").on('click', function () {
+            if ($('input[name="mainPayMethod[]"]:checked').length == 0) {
+                common.noti.alert(common.lang.get('common.put.mainPayMethod.error.alert'));
+                return false;
+            }
+
             var mainPayMethodArray = new Array();
             $('input[name="mainPayMethod[]"]:checked').each(function (i, o) {
                 mainPayMethodArray.push($(this).val());
             });
             $('#devMainPayMethodTxt').val(mainPayMethodArray.join('|'));
-            $('.devMainPayMethod').detach();
 
             var simplePayMethodArray = new Array();
             $('input[name="simplePayMethod[]"]:checked').each(function (i, o) {
                 simplePayMethodArray.push($(this).val());
             });
             $('#devSimplePayMethodTxt').val(simplePayMethodArray.join('|'));
-            $('.devSimplePayMethod').detach();
 
             $('.devAddPaymentModule, .devAddSattleModule').each(function(){
                 if(!$(this).is(':checked')) {

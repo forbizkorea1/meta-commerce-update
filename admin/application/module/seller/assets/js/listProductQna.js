@@ -10,6 +10,7 @@ var devSellerListProductQnaObj = {
     initLang: function () {
         common.lang.load('grid.label.bbs_div_text', '분류');
         common.lang.load('grid.label.pname', '상품명');
+        common.lang.load('grid.label.bbs_subject', '제목');
         common.lang.load('grid.label.bbs_contents', '내용');
         common.lang.load('grid.label.name', '작성자');
         common.lang.load('grid.label.regdate', '등록일자');
@@ -179,6 +180,12 @@ var devSellerListProductQnaObj = {
 
                 {key: "bbs_div_text", label: common.lang.get('grid.label.bbs_div_text'), width: 100, align: "center"},
                 {key: "pname", label: common.lang.get('grid.label.pname'), width: 250, align: "left"},
+                {
+                    key: "bbs_subject",
+                    label: common.lang.get('grid.label.bbs_subject'),
+                    width: 250,
+                    align: "left"
+                },
                 {key: "bbs_contents", label: common.lang.get('grid.label.bbs_contents'), width: 330, align: "left"},
                 {key: "name", label: common.lang.get('grid.label.name'), width: 150, align: "center"},
                 {key: "regdate", label: common.lang.get('grid.label.regdate'), width: 200, align: "center"},

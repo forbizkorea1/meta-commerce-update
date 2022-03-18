@@ -68,7 +68,9 @@ var devDeliveryListObj = {
                         },
                         function (response) {
                             // 전송후 결과 확인
-                            if (response.result == 'success') {
+                            if (response.data.status == 'existsProduct') {
+                                common.noti.alert(common.lang.get('common.del.fail.alert'));
+                            } else if (response.result == 'success') {
                                 self.grid.reload();
                             } else {
                                 common.noti.alert(response.result);

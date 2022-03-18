@@ -660,6 +660,8 @@ var devOrderManageOrderObj = {
             height: '600px'
         });
     },
+
+
     run: function () {
         this.initLang();
         this.initForm();
