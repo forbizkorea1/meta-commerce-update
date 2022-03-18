@@ -1,0 +1,233 @@
+{? !layoutCommon.isLogin}
+<script>
+    $("#header .page-name").text("{=trans('마이페이지')}");
+</script>
+{/}
+
+<section class="fb__orderCommon">
+    <h2 class="fb__title--hidden">{=trans('모바일 주문조회')}</h2>
+
+    <!-- 비회원 주문조회 -->
+    {? !layoutCommon.isLogin}
+        <nav class="fb__orderCommon__tab">
+            <a href="javascript:void(0);" class="tab__menu active">{=trans('주문조회')}</a>
+            <a href="/mypage/returnHistory" class="tab__menu">{=trans('취소/교환/반품 조회')}</a>
+        </nav>
+    {/}
+    
+    <!-- 상단 Sorting -->
+    <div class="fb__orderCommon__sort {? layoutCommon.isLogin}section__div{/}">
+        <form id="devOrderHistoryForm" class="sort__wrapper">
+            <input type="hidden" name="page" value="1" id="devPage"/>
+            <input type="hidden" name="max" value="10"/>
+            <input type="hidden" name="eDate" value="{today}" id="devEdate"/>
+            <input type="hidden" name="orderStatus" value="{orderStatus}" id="devOrderStatus"/>
+            {? layoutCommon.isLogin}
+            <div class="sort__menu">
+                <select name="status" id="devStatus">
+                    <option value="all" selected>{=trans('주문상태 전체')}</option>
+                    <!--{@ status}<option value="{status.key_}">{status.value_}</option>{/}-->
+                </select>
+            </div>
+    
+            <script>
+                $(function () {
+                    $('#devStatus').val('{orderStatus}');
+                });
+            </script>
+    
+            <div class="sort__menu">
+                <select name="sDate" id="devSdate">
+                    <option value="{today}">{=trans('오늘')}</option>
+                    <option value="{oneWeek}">{=trans('1주일')}</option>
+                    <option value="{oneMonth}" selected>{=trans('1개월')}</option>
+                    <option value="{sixMonth}">{=trans('6개월')}</option>
+                    <option value="{oneYear}">{=trans('1년')}</option>
+                </select>
+            </div>
+            {/}
+        </form>
+    </div>
+    
+    <!-- 주문리스트 -->
+    <div class="wrap-order-list" id="devOrderHistoryContent">
+        {* Order History Loading *}
+        <!--{'<script id="devOrderHistoryLoading" type="text/x-handlebars-template">'}-->
+        <div>
+            <p>Loading...</p>
+        </div>
+        <!--{'</script>'}-->
+    
+        {* Order History Empty *}
+        <!--{'<script id="devOrderHistoryEmpty" type="text/x-handlebars-template">'}-->
+        <div class="empty-content">
+            <p class="empty-content__txt">{=trans('주문한 내역이 없습니다.')}</p>
+        </div>
+        <!--{'</script>'}-->
+    
+        {* Order History List *}
+        <!--{'<script id="devOrderHistoryList" type="text/x-handlebars-template">'}-->
+        <div class="fb__orderCommon__box wrap-recently-order">
+            <header class="fb__orderCommon__header white">
+                <dl class="fb__orderCommon__date">
+                    <dt>{=trans('주문일자')}</dt>
+                    <dd>{[order_date]}</dd>
+                </dl>
+
+                <dl class="fb__orderCommon__oid">
+                    <dt>{=trans('주문번호')}</dt>
+                    <dd><span>{[oid]}</span></dd>
+                </dl>
+                
+                <a class="fb__orderCommon__link" href="/mypage/orderDetail?oid={[oid]}">
+                    <span>{=trans('상세보기')}</span>
+                </a>
+            </header>
+
+            <div class="fb__orderCommon__cont">
+                <ul class="fb__shopCommon__item">
+                    {[{\orderDetail}]}
+                </ul>
+                
+                {[#if isAllCancel]}
+                <div class="fb__orderCommon__cancel fb__button type--full devOrderCancelAllBtn" data-oid="{[oid]}">
+                    <a class="border--ccc">{=trans('전체취소')}</a>
+                </div>
+                {[/if]}
+            </div>
+        </div>
+        <!--{'</script>'}-->
+    
+        {* Order History List Detail *}
+        <!--{'<script id="devOrderDetailProduct" type="text/x-handlebars-template">'}-->
+        <!-- 
+                *조건 참고*
+                {[#if isOther]}
+                    동일상품인경우 (옵션만 다른경우): order-wrap
+                {[else]}
+                    다른상품인경우(이게 일반적) other 
+                {[/if]}
+
+                {[#if isExchange]}
+                    교환인경우: change-product
+                {[/if]}
+
+                {[#if isExchangeDetail]}
+                    교환상품인경우: change-product-detail
+                {[/if]}
+             -->
+        <li class="fb__orderCommon__list item-info {[#if isExchangeToggle]}change-product{[/if]} {[#if isExchangeDetail]}change-product-detail {[#if orderItemId]}{[orderItemId]}{[/if]}{[/if]}">
+            <div class="item-info__wrapper">
+                <!-- 주문 상태 -->
+                <span class="fb__orderCommon__status">{[status_text]}{[#if refund_status_text]} / {[refund_status_text]}{[/if]}</span>
+
+                <!-- 상품사진 -->
+                <figure class="item-info__thumb">
+                    <a class="item-info__link" href="/shop/goodsView/{[pid]}">
+                        <img data-src="{[pimg]}">
+                        
+                        {[#if isExchangeToggle]}
+                        <span class="item-info__badge--exchange">{=trans('교환상품')}</span>
+                        {[/if]}
+                    </a>
+                </figure>
+
+                <!-- 상품정보 -->
+                <div class="item-info__info">
+                    <a class="item-info__link" href="/shop/goodsView/{[pid]}">
+                        <strong class="item-info__name">
+                            {[#if brand_name]}[{[brand_name]}]{[/if]} {[pname]}
+                        </strong>
+                    </a>
+
+                    <p class="item-info__option">
+                        <span>{[{\option_text}]}</span>
+                        <span class="item-info__count"><em>{[pcnt]}</em>{=trans('개')}</span>
+                    </p>
+
+                    <div class="item-info__price">
+                        <p class="item-info__price--current">
+                            <em>{[listprice]}</em>{=trans('원')}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 교환상품인경우 fold 버튼 -->
+                {[#if isExchangeToggle]}
+                <button class="fb__orderCommon__toggle js__exchange__toggle" data-oitemid="{[orderItemId]}"></button>
+                {[/if]}
+
+                <!-- 더보기 버튼 -->
+                {[#if isMore]}
+                <button class="more-link-btn devMoreLinkBtn" data-brand_name="{[brand_name]}" data-pid="{[pid]}"
+                        data-pname="{[pname]}" data-option_text="{[option_text]}" data-option_id="{[option_id]}"
+                        data-dt={[isDeleveryTrace]} data-ic={[isIncomeComplate]} data-di={[isDeliveryIng]}
+                        data-dc={[isDeliveryComplate]} data-bf={[isByFinalized]} data-pimg={[pimg]}
+                        data-oid={[oid]} data-od_ix={[od_ix]} data-ode_ix={[ode_ix]} data-quick={[quick]}
+                        data-invoice_no={[invoice_no]} data-status="{[status]}" data-exchange="{[isExchangeDetail]}">{=trans('더보기')}
+                </button>
+                {[/if]}
+            </div>
+        </li>
+        <!--{'</script>'}-->
+    </div>
+    
+    <!-- 더보기버튼 -->
+    <div class="wrap-btn-area more" id="devPageWrap"></div>
+    
+    <!-- 주문상태 레이어 -->
+    <!--{'<script id="devMorePopup" type="text/x-handlebars-template">'}-->
+    <div>
+        <div id="layer_status" class="fb__orderCommon__statusLayer">
+            <figure class="img-area">
+                <img src="{[pimg]}">
+            </figure>
+            
+            <div class="content-area">
+                <div class="title-area">
+                    <p class="tit">{[pname]}</p>
+                    <p class="option">{[{\option_text}]}</p>
+                </div>
+                
+                <ul>
+                    {[#if isDeleveryTrace]}
+                        <li onclick="javascript:void(0);" class="devInvoice" data-quick="{[quick]}"
+                            data-invoice_no="{[invoice_no]}">{=trans('배송추적')}
+                        </li>
+                    {[/if]}
+                    
+                    {* 입금확인 *}
+                        {[#if isIncomeComplate]}
+                        <li class="devOrderCancelBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('주문취소')}</li>
+                        {[/if]}
+
+                    {* 배송중 *}
+                        {[#if isDeliveryIng]}
+                        <li class="devOrderComplateBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('배송완료')}</li>
+                        {[/if]}
+
+                    {* 배송완료 *}
+                    {[#if isDeliveryComplate]}
+                        {[#if isExchangeDetail]}
+                        {[else]}
+                            <li class="devOrderExchangeBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('교환신청')}</li>
+                        {[/if]}
+
+                        <li class="devOrderReturnBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('반품신청')}</li>
+                        <li class="devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</li>
+                    {[/if]}
+
+                    {* 구매확정 *}
+                    {? layoutCommon.isLogin}
+                    {[#if isByFinalized]}
+                    <li class="devByFinalized" data-pid="{[pid]}" data-oid="{[oid]}" data-optionid="{[option_id]}" data-odix="{[od_ix]}">{=trans('상품후기 작성')}
+                    </li>
+                    {[/if]}
+                    {/}
+                </ul>
+                <button type="button" class="close" id="devMorePopupCloseBtn">{=trans('닫기')}</button>
+            </div>
+        </div>
+    </div>
+    <!--{'</script>'}-->
+</section>

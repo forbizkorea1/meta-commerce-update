@@ -1,0 +1,19 @@
+<aside class="fb__customer-aside">
+    <h2 class="fb__customer-aside__title">
+        <a href="/customer/" title="{=trans('고객센터')}" >{=trans('고객센터')} </a>
+    </h2>
+
+    <ul class="fb__customer-aside__box">
+        <li class="fb__customer-aside__list">
+            <a href="/customer/faq" title="{=trans('자주 묻는 질문')}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/faq') > 0}on{/}">{=trans('자주 묻는 질문')}</a>
+        </li>
+
+        <li class="fb__customer-aside__list">
+            <a href="/customer/qna" title="{=trans('1:1 문의하기')}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/qna') > 0}on{/}">{=trans('1:1 문의하기')}</a>
+        </li>
+
+        <li class="fb__customer-aside__list">
+            <a href="/customer/notice" title="{=trans('공지사항')}" class="{? substr_count(_SERVER['PHP_SELF'],'/customer/notice') > 0}on{/}">{=trans('공지사항')}</a>
+        </li>
+    </ul>
+</aside>

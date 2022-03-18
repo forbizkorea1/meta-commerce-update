@@ -1,0 +1,80 @@
+<h1 class="wrap-title">
+    {=trans('회원전환')}
+    <button class="back"></button>
+</h1>
+
+<section class="sect step-area">
+    <p class="sect__title">{=trans('셀러회원 전환 가입 절차')}</p>
+    <ul class="step">
+        <li class="step__list input">
+            <span><em class="step__list__num">01</em>{=trans('약관동의 및<br>정보입력')}</span>
+        </li>
+        <li class="step__list apply">
+            <span><em class="step__list__num">02</em>{=trans('전환신청')}</span>
+        </li>
+        <li class="step__list check">
+            <span><em class="step__list__num">03</em>{=trans('전환검토')}</span>
+        </li>
+        <li class="step__list done">
+            <span><em class="step__list__num">04</em>{=trans('셀러회원 전환<br>승인완료')}</span>
+        </li>
+    </ul>
+</section>
+
+<!-- 노출 Case : 승인완료 -->
+<section class="sect success" style="display: none;">
+
+    <h2 class="tit">{=trans('<strong>포비즈코리아</strong>님은 현재 <span class="color-point">셀러회원</span>입니다.')}</h2>
+    <p class="txt">
+        {=trans('셀러회원은 상품을 등록하여 상품 판매활동이 가능합니다.')}<br>
+        {=trans('다양한 상품을 등록하여 판매해 보세요!')}<br><br>
+        {=trans('단, 셀러회원 본인이 등록한 상품은 구매할 수 없습니다.')}
+    </p>
+</section>
+
+<section class="sect state-area">
+    <p class="sect__title">{=trans('전환신청 상태')}</p>
+
+    <div class="state">
+        <dl class="state__row">
+            <dt class="state__title">{=trans('상태')}</dt>
+
+            <!-- 노출 Case : 승인대기 -->
+            <dd class="state__cont">{=trans('승인대기')}({=trans('검토중')})</dd>
+            <!-- 노출 Case : 승인완료 -->
+            <dd class="state__cont">{=trans('승인완료')}</dd>
+            <!-- 노출 Case : 승인거부 -->
+            <dd class="state__cont">{=trans('승인거부')}</dd>
+        </dl>
+        
+        <dl class="state__row">
+            <dt class="state__title">{=trans('전환 신청일시')}</dt>
+            <dd class="state__cont">2020.12.30 14:30:33</dd>
+        </dl>
+
+        <!-- 노출 Case : 승인완료 -->
+        <dl class="state__row">
+            <dt class="state__title">{=trans('전환 승인일시')}</dt>
+            <dd class="state__cont">2020.12.30 14:30:33</dd>
+        </dl>
+
+        <!-- 노출 Case : 승인거부 -->
+        <dl class="state__row">
+            <dt class="state__title">{=trans('전환 거부일시')}</dt>
+            <dd class="state__cont">2020.12.30 14:30:33</dd>
+        </dl>
+        <dl class="state__row">
+            <dt class="state__title">{=trans('거부사유')}</dt>
+            <dd class="state__cont">
+            {=trans('올바르지 않은 서류 첨부로 인해 셀러회<br> 전환 신청이 거부되었습니다.')}
+            </dd>
+        </dl>
+    </div>
+
+    <ul class="state-desc">
+        <li class="state-desc__list">
+            {=trans('셀러회원 전환 승인완료 혹은 승인거부 된 경우 회원가입 시 입력한<br>담당자 이메일로 안내 메일이 전송됩니다.')}
+        </li>
+        <li class="state-desc__list">{=trans('셀러회원 전환 관련 문의는 <em>고객센터 1588-1600</em>로 문의해주세요.')}</li>
+    </ul>
+</section>

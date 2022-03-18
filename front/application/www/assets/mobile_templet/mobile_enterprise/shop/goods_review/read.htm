@@ -1,0 +1,67 @@
+<div class="wrap-window-popup wrap-review-pop">
+    <p class="popup-title">
+        <span>{=trans('상품 후기 내역')}</span>
+        <span class="close" onclick="window.close();"></span>
+    </p>
+
+    <div class="popup-content community-list review">
+        <div class="item">
+            <div class="thumb">
+                <img src="{thumb}">
+            </div>
+            <div class="info">
+                <p class="title">{? brand_name}[{brand_name}] {/}{pname}</p>
+                <p class="option">{option_name}</p>
+                {? buy_date}
+                <p class="date">{=trans('구매일')}:{buy_date}</p>
+                {/}
+            </div>
+        </div>
+        <div class="wrap-valuation">
+            <dl>
+                <dt>{=trans('상품평가')}</dt>
+                <dl>
+                    <img src="/assets/mobile_templet/mobile_enterprise/images/icon/m_star_{valuation_goods}.png">
+                </dl>
+            </dl>
+            <dl>
+                <dt>{=trans('배송평가')}</dt>
+                <dl>
+                    <img src="/assets/mobile_templet/mobile_enterprise/images/icon/m_star_{valuation_delivery}.png">
+                </dl>
+            </dl>
+        </div>
+        <div class="community-list review">
+            <dl class="">
+                <dt class="fb__title--hidden">{=trans('후기')}</dt>
+                <dd>
+                    <p class="tit">{bbs_subject}</p>
+                    <p class="content">{bbs_contents}</p>
+                    <div class="img-area">
+                        {@ anotherImgs}
+                        <img src="{anotherImgs.value_}"><br/>
+                        {/}
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt class="fb__title--hidden">{=trans('댓글')}</dt>
+                <dd class="review-comment-area">
+                    {@ cList }
+                    <section>
+                        <p><em>{=trans('댓글')}</em> {bbs_name} <span>{=trans('등록일')}:{reg_date}</span></p>
+                        <div class="comment-content">
+                            {.cmt_contents}
+                        </div>
+                    </section>
+                    {/}
+                </dd>
+            </dl>
+        </div>
+        
+        <div class="popup-btn-area">
+            <button class="btn-default btn-dark-line" onclick="window.close();">{=trans('닫기')}</button>
+            <!--  <button class="btn-default btn-point">저장</button> -->
+        </div>
+    </div>
+</div>

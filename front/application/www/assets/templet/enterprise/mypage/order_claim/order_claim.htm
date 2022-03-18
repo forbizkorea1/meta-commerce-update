@@ -1,0 +1,56 @@
+<script>
+    var devClaimType = '{claimType}', devClaimStep = '{claimStep}';
+</script>
+
+<section class="fb__order-claim fb__orderCommon wrap-order-claim">
+    <!-- 교환반품신청 상단 -->
+    <header class="fb__order-claim__top">
+
+        <!-- 교환반품신청 STEP -->
+        <nav class="fb__order-claim__step">
+            <span class="step__menu {? claimStep == 'apply'}on{/}">{=trans('{claimTypeName}정보 입력')}</span>
+            <span class="step__menu {? claimStep == 'confirm'}on{/}">{=trans('{claimTypeName}정보 확인')}</span>
+            <span class="step__menu {? claimStep == 'complete'}on{/}">{=trans('{claimTypeName}신청 완료')}</span>
+        </nav>
+
+        <!-- 교환반품신청 TITLE -->
+        <h2 class="fb__mypage__title">{=trans('상품 {claimTypeName}신청')}</h2>
+
+        <!-- 교환반품신청 상단 안내문구 -->
+        {? claimStep != 'complete'}
+        <div class="fb__order-claim__tip">
+            <p>{=trans('{claimTypeName} 신청하기 전 원활한 서비스를 위해 관련 내용을 협의 후 처리해 주셔야 합니다.')}</p>
+            <p>{=trans('구매자 귀책 사유인 경우 추가 배송비가 발생할 수 있으며 판매자 귀책 사유인 경우에는 추가 배송비가 발생하지 않습니다.')}</p>
+            <p>{=trans('판매자와 협의 없이 신청 시에는 {claimTypeName} 처리가 되지 않을 수 있습니다.(상품에 따라 반품/교환 처리가 불가능한 상품이 있습니다.)')}</p>
+        </div>
+        {/}
+    </header>
+
+    <!-- 신청 상세내용 -->
+    <section class="fb__mypage__section">
+        <h3 class="fb__title--hidden">{=trans('신청 상세내용')}</h3>
+
+        <!-- 단계별 콘텐츠 -->
+        <div class="fb__order-claim__cont">
+            {#claimPage}
+        </div>
+    </section>
+
+    {? claimStep != 'complete'}
+        <section class="fb__mypage__section">
+            <div class="wrap-btn-area common-btn">
+                <button class="btn-lg common-btn__left" id="devPrevBtn" data-claim="{claimType}">{? claimStep == "apply"}{=trans('취소')}{:}{=trans('이전')}{/}</button>
+                <button class="btn-lg common-btn__right" id="devNextBtn" data-claim="{claimType}">{? claimStep == 'confirm'}{=trans('{claimTypeName}신청')}{:}{=trans('다음')}{/}</button>
+            </div>
+        </section>
+    {:}
+        <section class="fb__mypage__section">
+            <div class="wrap-btn-area">
+                <button class="btn-lg btn-dark-line" id="devFineshOrderBtn">{=trans('주문조회')}</button>
+                <button class="btn-lg btn-point" id="devFineshBtn">{=trans('취소/교환/반품 조회')}</button>
+                <!-- <button class="btn-lg btn-point" id="devFineshBtn">{=trans('확인')}</button> -->
+            </div>
+        </section>
+    {/}
+
+</section>

@@ -1,0 +1,98 @@
+<section class="fb__menusubmit">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">
+            배송추적
+        </h3>
+    </header>
+    <section class="fb__cont-wrapper">
+        <figure class="main-banner"><img src="{=layout_url('assets/img/banner/mainBanner_lookup.png')}" alt="" width="100%"></figure>
+        <br />
+        <section class="fb__menusubmit">
+            <section class="fb-filter">
+                <table class="fb-filter__table">
+                    <tr>
+                        <th>상품명</th>
+                        <th>결제금액</th>
+                        <th>단가</th>
+                        <th>결제선택</th>
+                    </tr>
+                    {? !empty(goodsData)}
+                    {@ goodsData}
+                    <tr>
+                        <input type="hidden" name="product[{.sg_ix}][sp_name]" value="{.sp_name}"/>
+                        <input type="hidden" name="product[{.sg_ix}][offer]" value="{.offer}"/>
+                        <input type="hidden" name="product[{.sg_ix}][add_offer]" value="{.add_offer}"/>
+                        <input type="hidden" name="product[{.sg_ix}][type_day]" value="{.type_day}"/>
+                        <input type="hidden" name="product[{.sg_ix}][sp_price]" value="{.sp_price}"/>
+                        <td>{.sp_name}</td>
+                        <td>{=number_format(.sp_price)} 원</td>
+                        <td>{=number_format(.sp_price)} 원</td>
+                        <td><input type="radio" name="sg_ix[]" value="{.sg_ix}" {? .index_ == 0}checked{/}></td>
+                    </tr>
+                    {/}
+                    {/}
+                </table>
+
+            </section>
+        </section>
+        <div class="fb__btn-wrap">
+            <a id="devMetaPay" class="btn-submit">서비스 신청</a>
+        </div>
+        
+        <h5 class="fb__section-title">서비스 신청내역</h5>
+        <span>잔여건수 : <b>{remainCnt}</b> 건</span>
+        <section class="fb__menusubmit">
+            <section class="fb-filter">
+                <table class="fb-filter__table">
+                    <tr>
+                        <th>No</th>
+                        <th>신청일</th>
+                        <th>결제일</th>
+                        <th>상품명</th>
+                        <th>제공포인트</th>
+                        <th>결제금액</th>
+                        <th>관리</th>
+                    </tr>
+                    {? !empty(historyList)}
+                    {@ historyList}
+                    <tr>
+                        <td>{.index_ + 1}</td>
+                        <td>{.date}</td>
+                        <td>{.date}</td>
+                        <td>{.sp_name}</td>
+                        <td>{.offer + .add_offer}</td>
+                        <td>{.ptprice}</td>
+                        <td>
+                            {? .index_ == 0}
+                                {? .status == 'CC'}
+                                    신청취소<br/>
+                                    {.cancel_date}
+                                {: .cancelYn}
+                                    <button id="devRefundBtn" type="button" data-oid="{.oid}" data-od_ix="{.od_ix}">취소/환불</button>
+                                {:}
+                                    -
+                                {/}
+                            {:}
+                                {? .status == 'CC'}
+                                    신청취소<br/>
+                                    {.cancel_date}
+                                {:}
+                                    -
+                                {/}
+                            {/}
+                        </td>
+                    </tr>
+                    {/}
+                    {:}
+                    <tr>
+                        <td colspan="7">서비스 신청내역이 없습니다.</td>
+                    </tr>
+                    {/}
+                </table>
+
+            </section>
+        </section>
+        
+        
+    </section>
+</section>

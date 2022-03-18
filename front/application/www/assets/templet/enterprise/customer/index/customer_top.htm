@@ -1,0 +1,22 @@
+<div class="fb__customer__top">
+    
+    <header class="fb__customer__faq-header">
+        <h3 class="fb__customer__title">{=trans('자주 묻는 질문')}</h3>
+        {? layoutCommon.bodyId != "customer_faq"}
+        <a href="/customer/faq" class="fb__customer__faq-more">{=trans('전체보기')}</a>
+        {/}
+    </header>
+
+    <div class="fb__customer__form">
+        <span class="form__title">{=trans('빠른검색')}</span>
+        <form name='searchFaqFrm' class="form__container" method="get" action="/customer/faq" onsubmit='return searchFaq(this)'>
+            <fieldset>
+                <legend>{=trans('검색 폼')}</legend>
+                <input type="text" class="form__container__insert" name="sText" id="devSearchFaqText" value="{=sText}" placeholder="{=trans('궁금하신 내용을 검색해주세요.')}" title="{=trans('검색어')}">
+            </fieldset>
+        </form>
+        <button type="button" class="form__search__btn" value="{=trans('')}" title="{=trans('검색')}" id="devBtnSearchFaq" onclick="searchFaq(this)">{=trans('검색')}</button>
+        
+        <!-- <input type="button" class="form__search__btn" value="{=trans('')}" title="{=trans('검색')}" id="devBtnSearchFaq" onclick="searchFaq(this)"> -->
+    </div>
+</div>

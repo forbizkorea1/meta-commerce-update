@@ -1,0 +1,359 @@
+<!--{* 네이버 페이 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
+<script type="text/javascript" src="//pay.naver.com/customer/js/naverPayButton.js" charset="UTF-8"></script>
+<!--{/}{* 네이버 페이 끝 *}-->
+
+<input type="hidden" id="devShopName" value="{companyInfo.shop_name}">
+
+<section class="wrap-cart fb__shopCommon fb__cart">
+    <!-- 공통 상단 -->
+    <header class="fb__shopCommon__header">
+        <h2 class="fb__shopCommon__title">{=trans('장바구니')}</h2>
+        
+        <ul class="fb__shopCommon__step-area">
+            <li class="fb__shopCommon__step fb__shopCommon__step--on"><em>01</em> {=trans('장바구니')}</li>
+            <li class="fb__shopCommon__step"><em>02</em> {=trans('주문/결제')}</li>
+            <li class="fb__shopCommon__step"><em>03</em> {=trans('주문완료')}</li>
+        </ul>
+    </header>
+
+    <!-- 장바구니 콘텐츠 -->
+    <div class="fb__cart__wrapper">
+        {? cart}
+        <!-- 01 장바구니 상품 있는 case -->
+            <mark class="fb__cart__noti">{=trans('장바구니에 담긴 상품을 {cartDeleteDay}일 동안 보관되며 {cartDeleteDay}일 이후에는 자동 삭제됩니다.')}</mark>
+
+            <div class="fb__shopCommon__layout js__sticky__finish">
+                <!-- 좌측 -->
+                <section class="layout__left js__sticky__start">
+                    <h3 class="fb__title--hidden">{=trans('좌측 정보입력 영역')}</h3>
+
+                    <!-- 전체선택 -->
+                    <header class="fb__cart__top">
+                        <label for="cart_all_check" class="fb__comm__checkbox">
+                            <input type="checkbox" id="cart_all_check" class="devChangePriceEvent" checked>
+                            <span>{=trans('전체선택')}</span>
+                        </label>
+                        
+                        <button class="fb__cart__delete btn-s btn-white" id="devSelectDeleteButton">{=trans('선택삭제')}</button>
+                    </header>
+
+                    <!-- 장바구니 상품 -->
+                    <section class="fb__cart__package section__div">
+                        <h3 class="fb__title--hidden">{=trans('장바구니 상품')}</h3>
+
+                        <div class="package">
+                            {@ cart}
+                            <!-- 셀러별 묶음 -->
+                            <dl class="package__seller js__seller-box">
+
+                                <!-- 셀러별: 01 셀러정보 -->
+                                <dt class="package__seller__info">
+                                    <label for="{cart.company_id}" class="fb__comm__checkbox">
+                                        <input type="checkbox" class="cart_company_check devChangePriceEvent" id="{cart.company_id}" checked/>
+                                        <span class="seller-name">{cart.com_name}</span>
+                                    </label>
+                                </dt>
+
+                                <!-- 셀러별: 02 셀러별 상품 -->
+                                <dd class="package__seller__items">
+                                    {@ deliveryTemplateList}
+                                        <!-- 배송비별 묶음 -->
+                                        <div class="package__shipping">
+
+                                            <!-- 배송비별 : 01 상품 -->
+                                            <div class="package__shipping__items fb__shopCommon__table">
+                                                <table>
+                                                    <caption>{=trans('장바구니 제품 그룹')}</caption>
+                                                    
+                                                    <colgroup>
+                                                        <col width="40px">
+                                                        <col width="*">
+                                                        <col width="100px">
+                                                        <col width="110px">
+                                                    </colgroup>
+    
+                                                    {@ productList}
+                                                        <!-- * 일반상품 조건 참고 (productList.status)  >  soldout 일시품절 / stop  판매중지 -->
+                                                        <tr class="cart-item devProductContents {? productList.status=='soldout'}sold-out{: productList.status=='stop'}sold-stop{/}">
+                                                            <!-- 체크박스 -->
+                                                            <td class="cart-item__checkbox">
+                                                                <label class="fb__checkbox">
+                                                                    <input type="checkbox" class="cart_product_check devChangePriceEvent devCartIx" {? productList.status=='sale' }checked{:}disabled{/} value="{productList.cart_ix}" />
+                                                                    <span></span>
+                                                                </label>
+                                                            </td>
+
+                                                            <!-- 상품 -->
+                                                            <td class="cart-item__item item-info">
+                                                                <!-- 상품사진 -->
+                                                                <figure class="item-info__thumb">
+                                                                    <a class="item-info__link" href="/shop/goodsView/{productList.id}">
+                                                                        
+                                                                        <img data-src="{productList.image_src}"> 
+                                                                        
+                                                                        {? productList.status=='soldout'}
+                                                                        <div class="sold-out-txt">{=trans('일시품절')}</div>
+                                                                        {/}
+                                                                    </a>
+                                                                </figure>
+
+                                                                <!-- 상품정보 -->
+                                                                <div class="item-info__info">
+                                                                    <strong class="item-info__name c-pointer">
+                                                                        <a href="/shop/goodsView/{productList.id}">
+                                                                            {? productList.brand_name}[{productList.brand_name}] {/}{productList.pname}
+                                                                        </a>
+                                                                    </strong>
+
+                                                                    <p class="item-info__option">{productList.options_text}</p>
+
+                                                                    <div class="cart-item__control">
+                                                                        {? productList.status=='sale'}
+                                                                            <ul class="option-up-down">
+                                                                                <li>
+                                                                                    <button class="cart-item__control--minus devCountDownButton"> {=trans('마이너스')} </button>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <input type="text" value="{productList.pcount}" class="devCount cart-item__control--count">
+                                                                                </li>
+                                                                                <li>
+                                                                                    <button class="cart-item__control--plus devCountUpButton"> {=trans('플러스')} </button>
+                                                                                </li>
+                                                                            </ul>
+
+                                                                            <button class="btn-xs btn-white devCountUpdateButton">{=trans('변경')}</button>
+
+                                                                            <p class="txt-error devTailMsg"></p>
+
+                                                                            {? productList.status=='sale' && productList.stock < productList.pcount}
+                                                                            <p class="fb__cart__error">{=trans('주문 가능한 수량은 최대 {productList.stock}개입니다.')}</p>
+                                                                            {/}
+
+                                                                            {? productList.allow_basic_cnt > 0 && productList.allow_basic_cnt > productList.pcount}
+                                                                                <p class="fb__cart__error">{=trans('주문 가능한 수량은 최소 {productList.allow_basic_cnt}개입니다.')}</p>
+                                                                            {/}
+                
+                                                                            {? productList.allow_max_cnt > 0 && productList.allow_max_cnt < productList.pcount}
+                                                                                <p class="fb__cart__error">{=trans('주문 가능한 수량은 최대 {productList.allow_max_cnt}개입니다.')}</p>
+                                                                            {/}
+                                                                        {/}
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- 가격 -->
+                                                            <td class="item-info__price">
+                                                                {? productList.status=='sale'}
+                                                                <span class="item-info__price--current">
+                                                                    <em>{=g_price(productList.total_dcprice)}</em>{=trans('원')}
+                                                                </span>
+                                                                {: productList.status=='stop'}
+                                                                    <span class="item-info__price--soldout">{=trans('판매중지')}</span>
+                                                                {/}
+                                                            </td>
+
+                                                            <!-- 버튼 -->
+                                                            <td class="td-btn-area cart-item__btn-area">
+                                                                <button class="btn-xs btn-dark devDirectBuyButton" {? productList.status!='sale' }disabled{/}>{=trans('바로구매')}</button>
+                                                                <button class="btn-xs btn-white devDeleteButton">{=trans('삭제')}</button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- 추가구성상품 -->
+                                                        {@ addOptionList}
+                                                        <tr class="additem-info devAddOptionContents">
+                                                            <td class="additem-info__empty">
+                                                                <input type="hidden" class="devCartOptionIx" value="{addOptionList.cart_option_ix}">
+                                                            </td>
+
+                                                            <td colspan="3" class="additem-info__cont">
+                                                                <!-- 추가구성상품 정보 -->
+                                                                <div class="additem-info__wrapper">
+                                                                    <div class="additem-info__item">
+                                                                        <p class="additem-info__title">{=trans('추가구성 상품')}</p>
+
+                                                                        <p class="additem-info__option">{addOptionList.opn_text}</p>
+                                                                        
+                                                                        {? addOptionList.stock > 0}
+                                                                        <div class="control cart-item__control">
+                                                                            <ul class="option-up-down">
+                                                                                <li>
+                                                                                    <button class="cart-item__control--minus devCountDownButton"></button>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <input type="text" value="{addOptionList.opn_count}" class="devCount cart-item__control--count">
+                                                                                </li>
+                                                                                <li>
+                                                                                    <button class="cart-item__control--plus devCountUpButton"></button>
+                                                                                </li>
+                                                                            </ul>
+
+                                                                            <button class="btn-xs btn-white devAddOptionCountUpdateButton">{=trans('변경')}</button> 
+
+                                                                            {? addOptionList.stock < addOptionList.opn_count} 
+                                                                                <p class="fb__cart__error">{=trans('주문 가능한 수량은 최대 {addOptionList.stock}개입니다.')}</p>
+                                                                            {/}
+                                                                        </div>
+                                                                        {/}
+                                                                    </div>
+        
+                                                                    <!-- 추가구성상품 가격 -->
+                                                                    <div class="additem-info__price">
+                                                                        {? addOptionList.stock > 0}
+                                                                            <span><em>{=g_price(addOptionList.total_dcprice)}</em>{=trans('원')}</span>
+                                                                        {:}
+                                                                            <span class="additem-info__price--soldout">{=trans('일시품절')}</span>
+                                                                        {/}
+                                                                    </div>
+        
+                                                                    <!-- 추가구성상품 삭제 -->
+                                                                    <div class="additem-info__delete">
+                                                                        <button class="devAddOptionDeleteButton">{=trans('삭제')}</button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        {/}
+                                                    {/}
+                                                </table>
+                                            </div>
+
+                                            <!-- 배송비별: 02 배송비 + 결제금액정보 -->
+                                            <div class="package__summary" devDeliveryTemplatePrice{deliveryTemplateList.dt_ix}>
+                                                <!-- 주문금액 상세정보 -->
+                                                <div class="package__summary__detail">
+                                                    <dl class="detail__list">
+                                                        <dt class="detail__title">{=trans('상품')}</dt>
+                                                        <dd class="detail__price">
+                                                            <em devPrice="template_total_price">{=g_price(deliveryTemplateList.template_total_price)}</em>{=trans('원')}
+                                                        </dd>
+                                                    </dl>
+
+                                                    <span class="sign-minus"></span>
+        
+                                                    <dl class="detail__list">
+                                                        <dt class="detail__title">{=trans('할인')}</dt>
+                                                        <dd class="detail__price">
+                                                            <em devPrice="template_total_sale_price">{=g_price(deliveryTemplateList.template_total_sale_price)}</em>{=trans('원')}
+                                                        </dd>
+                                                    </dl>
+                                                    
+                                                    <span class="sign-plus"></span>
+                                                    
+                                                    <dl class="detail__list">
+                                                        <dt class="detail__title">{=trans('배송비')}</dt>
+
+                                                        <!-- 배송비 상세 툴팁 -->
+                                                        <dd class="detail__price fb__tooltip">
+                                                            <em devPrice="total_delivery_price">{=g_price(deliveryTemplateList.total_delivery_price)}</em>{=trans('원')}
+
+                                                            <!-- 툴팁 아이콘 -->
+                                                            <mark class="tooltip__icon js__infolayer__open" data-layer="shippingTooltip{=.index_}{= ..index_}">{=trans('배송비 툴팁 아이콘')}</mark>
+            
+                                                            <!-- 툴팁 레이어 -->
+                                                            <article id="shippingTooltip{=.index_}{= ..index_}" class="fb__infolayer js__layer">
+                                                                <header class="fb__infolayer__top">
+                                                                    <h4 class="fb__infolayer__title">{=trans('배송비')}</h4>
+                                                                    <button class="fb__infolayer__close js__layer__close">{=trans('닫기버튼')}</button>
+                                                                </header>
+
+                                                                <div class="fb__infolayer__cont">
+                                                                    {deliveryTemplateList.delivery_text}
+                                                                    {? deliveryTemplateList.region_text}<br>{deliveryTemplateList.region_text}{/}
+                                                                    {? deliveryTemplateList.except_text}<br>{deliveryTemplateList.except_text}{/}
+                                                                </div>
+                                                            </article>
+                                                        </dd>
+                                                    </dl>
+
+                                                    <span class="sign-equals"></span>
+
+                                                    <!-- 총 주문금액 -->
+                                                    <dl class="detail__total">
+                                                        <dt class="detail__total__title">{=trans('주문금액')}</dt>
+                                                        <dd class="detail__total__price">
+                                                            <em devPrice="delivery_payment_price">{=g_price(deliveryTemplateList.template_total_dc_price + deliveryTemplateList.total_delivery_price)}</em>{=trans('원')}
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/}
+                                </dd>
+                            </dl>
+                            {/}
+                        </div>
+                    </section>
+                </section>
+
+                <!-- 우측 -->
+                <section class="layout__right">
+                    <h3 class="fb__title--hidden">{=trans('우측 플로팅 메뉴')}</h3>
+
+                    <aside class="fb__shopCommon__summary js__stickyNav">
+                        <div class="summary__wrapper">
+                            <div class="summary__section" id="devCartPriceContents">
+                                <h4 class="summary__title">{=trans('전체합계')}</h4>
+        
+                                <div class="summary__inner">
+        
+                                    <dl class="summary__list">
+                                        <dt class="summary__list__title">{=trans('총 상품금액')}</dt>
+                                        <dd class="summary__list__price">
+                                            <em devPrice="product_listprice">{=g_price(cartSummary.product_listprice)}</em>{=trans('원')}
+                                        </dd>
+                                    </dl>
+            
+                                    <dl class="summary__list">
+                                        <dt class="summary__list__title">{=trans('총 할인금액')}</dt>
+                                        <dd class="summary__list__price">
+                                            <em devPrice="product_discount_amount">{? cartSummary.product_discount_amount>0}-{/}{=g_price(cartSummary.product_discount_amount)}</em>{=trans('원')}
+                                        </dd>
+                                    </dl>
+            
+                                    <dl class="summary__list">
+                                        <dt class="summary__list__title">{=trans('총 배송비')}</dt>
+                                        <dd class="summary__list__price">
+                                            <em devPrice="total_delivery_price">{=g_price(cartSummary.total_delivery_price)}</em>{=trans('원')}
+                                        </dd>
+                                    </dl>
+                                </div>
+                                
+                                <dl class="summary__total">
+                                    <dt class="summary__total__title">{=trans('총 결제 예정 금액')}</dt>
+                                    <dd class="summary__total__price">
+                                        <em devPrice="payment_price">{=g_price(cartSummary.payment_price)}</em>{=trans('원')}
+                                    </dd>
+                                </dl>
+                            </div>
+        
+                            <footer class="summary__footer">
+                                <button class="summary__pay" id="devBuyButton">{=trans('구매하기')}</button>
+                            </footer>
+        
+                            <!--{* 네이버 페이 구매 버튼 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
+                            <!-- <script>
+                                dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn();
+                            </script> -->
+                            <!--{/}{* 네이버 페이 구매 버튼 끝 *}-->
+                        </div>
+                    </aside>
+                </section>
+            </div>
+        {:}
+
+        <!-- 02 장바구니 상품 없는 case -->
+        <div class="fb__cart__empty">
+            <p class="empty__text">{=trans('장바구니에 담긴 상품이 없습니다.')}</p>
+
+            <div class="empty__button fb__button">
+                {? layoutCommon.isLogin}
+                <a href="/" class="border--ccc size--03" id="devHomeButton">{=trans('쇼핑 계속하기')}</button>
+                {:}
+                <a href="/member/login" class="border--ccc size--03">{=trans('로그인 하기')}</button>
+                {/}
+            </div>
+        </div>
+        {/}
+    </div>
+</section>

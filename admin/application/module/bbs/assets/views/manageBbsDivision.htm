@@ -1,0 +1,101 @@
+<section class="fb__menusubmit fb-filter">
+    <form method="post" id="devBbsDivGridForm">
+        <input type="hidden" name="page" value="1" id="devPageNum" />
+        <input type="hidden" name="max"  value="1000"/>
+        <input type="hidden" name="bm_ix"  value="{bm_ix}" id="devBmix"/>
+    </form>
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">분류 목록</h3>
+    </header>
+    <div id="devBbsDivGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<!--{* 등록/수정 모달 *}-->
+<div style="display:none;" id="devBbsDivFormDiv">
+    <section class="fb__menusubmit ">
+        <section class="fb-filter">
+            <form id="devBbsDivForm">
+                <input type="hidden" name="div_ix" />
+                <fieldset>
+                    <legend></legend>
+                    <table>
+                        <colgroup>
+                            <col width="150"/>
+                            <col width="*"/>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">
+                                        분류타입
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <div class="fb-filter__radio">
+                                        <label>
+                                            <input type="radio" name="div_depth" value="1" checked="checked">
+                                            <span>1차분류</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="div_depth" value="2">
+                                            <span>2차분류</span>
+                                        </label>
+                                    </div>
+                                    <div style="display:none;" id="devDivDepth1">
+                                        <select class="fb-filter__select" name="parent_div_ix" id="devParentDiv"></select>
+                                        2차 분류 등록하기 위해서는 반드시 1차분류를 선택하셔야 합니다.
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">
+                                        분류명
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text" name="div_name" title="분류명">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">
+                                        노출순서
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <input type="text"  class="fb-filter__text" style="width:100px" name="view_order" title="노출순서">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="">
+                                        사용유무
+                                    </span>
+                                </th>
+                                <td  class="fb-filter__title-contents">
+                                    <div class="fb-filter__radio">
+                                        <label>
+                                            <input type="radio" name="disp" value="1" checked="checked">
+                                            <span>사용</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="disp" value="0">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <div  class="fb-modal__bottom">
+                    <div class="fb-filter__btn">
+                        <button class="fb-filter__save" type="submit">저장</button>
+                    </div>
+                </div>   
+            </form>
+        </section>
+    </section>
+</div>

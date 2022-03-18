@@ -1,0 +1,56 @@
+<div class="fb__addressBook">
+    <form id="devAddressBookForm">
+        <input type="hidden" name="page" value="1" id="devPage">
+        <input type="hidden" name="max" value="100">
+    </form>
+
+    <div class="fb__addressBook__sec">
+        <ul class="addressBook__box" id="devAddressBooKContent">
+            <!--{'<script id="devAddressBooKLoading" type="text/x-handlebars-template">'}-->
+            <li>
+                <p>Loading...</p>
+            </li>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devAddressBooKEmpty" type="text/x-handlebars-template">'}-->
+            <li class="empty-content">
+                <p class="empty-content__txt">{=trans('등록된 배송지가 없습니다.')}</p>
+            </li>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devAddressBooKList" type="text/x-handlebars-template">'}-->
+            <li class="addressBook__list">
+                <div class="addressBook__list__info">
+                    <span class="info__name">
+                        <span class="name">
+                            {[recipient]}
+
+                            {[#if shipping_name]}
+                                ({[shipping_name]})
+                            {[/if]}
+                        </span>
+
+                        {[#if default_yn]}
+                            <em class="default">{=trans('기본 배송지')}</em>
+                        {[/if]}
+                    </span>
+                    <span class="info__addr">{[address1]}{[#if address2]} {[address2]}{[/if]}</span>
+                    <span class="info__num">{[mobile]}<!-- {[#if tel]}/ {[tel]}{[/if]} --></span>
+                </div>
+
+                <div class="addressBook__list__btn fb__button">
+                    <a href="/mypage/addressbookManage/{[ix]}">{=trans('수정')}</a>
+                    {[#if default_yn]}
+                    {[else]}
+                    <a href="#" class="devAddressBookDelete" data-ix="{[ix]}">{=trans('삭제')}</a>
+                    {[/if]}
+                </div>
+            </li>
+            <!--{'</script>'}-->
+        </ul>
+
+        <div class="addDelivery__btn fb__button">
+            <a href="/mypage/addressbookManage" class="border--ccc">+ {=trans('배송지 추가')}</a>
+        </div>
+    </div>
+</div>

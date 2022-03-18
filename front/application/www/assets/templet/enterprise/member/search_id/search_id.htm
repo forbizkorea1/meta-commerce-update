@@ -1,0 +1,77 @@
+<section class="fb__member-search">
+    <div class="search">
+        <header class="search__header">
+            <h2 class="search__title">{=trans('아이디 찾기')}</h2>
+            <p class="search__summary">{=trans('회원님의 개인정보 보호를 위해 본인확인이 필요합니다.')}</p>
+        </header>
+
+        <!-- <nav class="fb__tab">
+            <a href="#search__normal" class="fb__tab-link fb__tab-link--active">{=trans('일반회원')}</a>
+            <a href="#search__company" class="fb__tab-link">{=trans('기업회원')}</a>
+        </nav> -->
+
+        <section class="search__wrap">
+            <div id="search__normal" class="search__content search__content--show">
+                <div class="search__inner">
+                    <!--{? useCertify}-->
+                    <section class="search__way search__way--photo">
+                        <a href="#" id="devCertifyButton" class="certify-box__btn">{=trans('휴대폰 인증')}</a>
+                    </section>
+                    <!--{/}-->
+                </div>
+
+                <p class="search__way-customer">
+                    {=trans('본인 명의의 휴대폰 인증을 통해 아이디를 찾을 수 있습니다.')}<br/>
+                    {=trans('상기 방법으로 찾기 못하는 경우 <span>고객센터 <em>{csPhone}</em></span>로 문의해주세요.')}
+                </p>
+            </div>
+
+            <div id="search__company" class="search__content">
+                <form id="devCompanyForm">
+                    <fieldset>
+                        <legend>{=trans('기업회원 정보입력 폼')}</legend>
+
+                        <div class="search__inner">
+                            <ul class="search__company">
+                                <li class="search__company__inner">
+                                    <span class="search__company__label">{=trans('상호명')}</span>
+                                    <input type="text" id="devComName" name="comName" title="{=trans('상호명')}">
+                                    <p class="txt-error" devTailMsg="devComName"></p>
+                                </li>
+
+                                <li class="search__company__inner">
+                                    <span class="search__company__label">{=trans('대표자명')}</span>
+                                    <input type="text" id="devComCeo" name="comCeo" title="{=trans('대표자명')}">
+                                    <p class="txt-error" devTailMsg="devComCeo"></p>
+                                </li>
+
+                                <li class="search__company__inner auth-num">
+                                    <span class="search__company__label">{=trans('사업자등록번호')}</span>
+                                    <div class="wrap-input">
+                                        <input type="text" name="comNumber1" id="devComNumber1" title="{=trans('사업자등록번호')}" class="input1">
+                                        <span class="hyphen">-</span>
+                                        <input type="text" name="comNumber2" id="devComNumber2" title="{=trans('사업자등록번호')}" class="input2">
+                                        <span class="hyphen hyphen2">-</span>
+                                        <input type="text" name="comNumber3" id="devComNumber3" title="{=trans('사업자등록번호')}" class="input3">
+                                    </div>
+                                    <p class="txt-error" devTailMsg="devComNumber1 devComNumber2 devComNumber3"></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div>
+                    <button class="btn-lg btn-full fb__btn-point search__company-btn" id="devCompanySubmitButton">{=trans('확인')}</button>
+                </div>
+
+                <p class="search__way-customer">{=trans('상기 방법으로 찾기 못하는 경우 <span>고객센터 <em>{csPhone}</em></span>로 문의해주세요.')}</p>
+            </div>
+        </section>
+
+        <p class="search__other-link">
+            <a href="/member/searchPw">{=trans('비밀번호 찾기')}</a>
+            <a href="/member/authentication">{=trans('회원가입')}</a>
+        </p>
+    </div>
+</section>

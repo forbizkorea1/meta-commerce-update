@@ -1,0 +1,21 @@
+<!-- <div class="wrap-search-header">
+    <button class="btn-back" onclick="history.back();"></button>
+    <div class="wrap-search-input">
+        <input type="search" class="header-input-search" id="devHeaderSearchText" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag} #{.st_title} {/}" value="{=searchText}">
+        <button class="btn-search" id="devHeaderSearchButton">search</button>
+    </div>
+</div> -->
+
+<div class="searchLayer__search">
+    <button type="button" class="btn-back js__header-back">
+        <span class="blind">{=trans('뒤로가기')}</span>
+    </button>
+
+    <div class="searchLayer__search__input">
+        <input type="search" class="header-input-search devAutoComplete js__headerSearch__input" id="devHeaderSearchText" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_title}{/}" value="{=searchText}" autocomplete="off">
+        <i class="search_close_btn" id="devSearchCloseBtn" style="display: none;"></i>
+        <button type="button" class="btn-search" id="devHeaderSearchButton">
+            <span class="blind">search</span>
+        </button>
+    </div>
+</div>

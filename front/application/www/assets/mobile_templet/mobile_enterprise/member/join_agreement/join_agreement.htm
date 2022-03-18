@@ -1,0 +1,109 @@
+<section class="fb__join-agreement">
+	<h1 class="wrap-title">
+		{=trans('회원가입')}
+	</h1>
+
+	<div class="wrap-step">
+		<p class="wrap-step__title">01 {=trans('본인인증 및 약관동의')}</p>
+		<ul class="step">
+			<li class="on">1</li>
+			<li class=""></li>
+			<li class=""></li>
+		</ul>
+	</div>
+
+	<!-- <div class="wrap-agree-sec">
+		<p class="join-agree-desc">
+			· {mallName} 이용을 위해 필수 약관에 동의하셔야 가입이 가능합니다.<br>
+			· 선택 약관에 동의하지 않으셔도 회원가입이 가능합니다.
+		</p>
+	</div> -->
+
+	<h2 class="sect-title">{=trans('본인인증')}</h2>
+	<!-- TODO -->
+	<div class="wrap-box mat20 authentication"  id="devCertifyButton">
+        <div class="box" id="devCertifyButton">
+			<p class="box__text">{=trans('휴대폰 인증')}</p>
+        </div>
+		<p class="sub-txt">{=trans('본인인증 후 회원가입을 진행해 주시기 바랍니다.')}</p>
+	</div>
+
+
+	<h2 class="sect-title">{=trans('약관동의')}</h2>
+	<form id="devForm">
+		<div class="form-box">
+			<div class="term-list">
+				<input type="checkbox" id="agree-all" class="agree-all">
+				<label for="agree-all">{=trans('약관 전체동의')}</label>
+			</div>
+
+			<div class="term-list">
+				<input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
+				<label for="agree-term1">[{=trans('필수')}] {=trans('구매 이용약관')}</label>
+				<span class="accord-btn"></span>
+			</div>
+			<div class="terms-content">
+				{policyData['use']['contents']}
+			</div>
+
+
+			<div class="term-list">
+				<input type="checkbox"  id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" class="devRequired">
+				<label for="agree-term2">[{=trans('필수')}] {=trans('개인정보 수집 및 이용약관')}</label>
+				<span class="accord-btn"></span>
+			</div>
+			<div class="terms-content">
+				{policyData['collection']['contents']}
+			</div>
+
+
+			<div class="term-list">
+				<input type="checkbox"  id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" class="devRequired">
+				<label for="agree-term2">[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</label>
+				<span class="accord-btn"></span>
+			</div>
+			<div class="terms-content">
+				{policyData['consign']['contents']}
+			</div>
+
+			<div class="term-list">
+				<input type="checkbox"  id="agree-term4" name="policyIx[{policyData['third']['ix']}]" >
+				<label for="agree-term4">[{=trans('선택')}] {=trans('제 3자 정보 제공 동의')}</label>
+				<span class="accord-btn"></span>
+			</div>
+			<div class="terms-content">
+				{policyData['third']['contents']}
+			</div>
+
+			<div class="term-list">
+				<input type="checkbox"  id="agree-term5" name="policyIx[{policyData['marketing']['ix']}]" >
+				<label for="agree-term5">[{=trans('선택')}] {=trans('마케팅 활용 동의')}</label>
+				<span class="accord-btn"></span>
+			</div>
+			<div class="terms-content">
+				{policyData['marketing']['contents']}
+			</div>
+
+
+			<div class="marketing-wrap">
+				<input type="checkbox" id="agree-term6" name="sms" value="1" devSms>
+				<label for="agree-term6">{=trans('SMS 수신')}</label>
+
+				<input type="checkbox" id="agree-term7" name="email" value="1" class="mal40">
+				<label for="agree-term7">{=trans('이메일 수신')}</label>
+
+				<p class="sub-txt mat20">{=trans('쇼핑몰에서 제공되는 다양한 정보를 받아보실 수 있습니다.')}<br>
+
+				<p class="sub-txt">{=trans('결제/교환/환불 등의 주문거래 관련 정보는 수신동의 여부와 상관 없이 발송됩니다.')}
+				</p>
+			</div>
+		</div>
+	</form>
+
+
+	<div class="wrap-btn-area agree">
+		<button class="btn-lg btn-point-line" id="devCancelButton">{=trans('취소')}</button>
+		<button class="btn-lg btn-point" id="devSubmitButton">{=trans('다음')}</button>
+	</div>
+	<input type="hidden" id="devMallName" value="{mallName}"/>
+</section>

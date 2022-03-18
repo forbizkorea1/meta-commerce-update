@@ -1,0 +1,9 @@
+.fb__side-header .fb__page-btn.hide {
+    background: #fff;
+    border: none;
+    cursor: auto;
+}
+
+.fb__page-btn.hide span {
+    display: none;
+}

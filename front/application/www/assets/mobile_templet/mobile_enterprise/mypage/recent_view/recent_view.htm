@@ -1,0 +1,87 @@
+<div class="wrap-mypage recentView">
+	<form id="devRecentViewForm">
+		<input type="hidden" name="page" value="1" id="devPage">
+		<input type="hidden" name="max" value="10">
+		{? !is_login() }
+		<input type="hidden" name="usercode" value="{usercode}">
+		{/}
+
+		<div id="devRecentViewSelector">
+			<div class="list-top-area clearfix">
+				<div class="float-l mat10">
+					<label for="all-check" class="fb__comm__checkbox">
+						<input type="checkbox" id="all-check" class="blind">
+						<span>{=trans('전체선택')}</span>
+					</label>
+				</div>
+				<button class="btn-s btn-white float-r" id="devBtnDelRecent">{=trans('삭제')}</button>
+			</div>
+
+			<div class="wrap-sect"></div>
+		</div>
+
+		<ul class="wrap-item-list recent-list" id="devRecentViewContent">
+			<!--{'<script id="devRecentViewLoading" type="text/x-handlebars-template">'}-->
+			<li>
+				<div class="order-list">
+					<div class="wrap-loading">
+						<div class="loading"></div>
+					</div>
+				</div>
+			</li>
+			<!--{'</script>'}-->
+
+			<!--{'<script id="devRecentViewEmpty" type="text/x-handlebars-template">'}-->
+			<li class="empty-content">
+                <p class="empty-content__txt">{=trans('최근 본 상품이 없습니다.')}</p>
+            </li>
+			<!--{'</script>'}-->
+
+			<!--{'<script id="devRecentViewList" type="text/x-handlebars-template">'}-->
+			<li>
+				<div class="check-area">
+					<label class="fb__comm__checkbox">
+						<input type="checkbox" id="recentList_{[index_]}" name="recentList[]" value="{[id]}" class="item-check blind">
+						<span></span>
+					</label>
+				</div>
+
+				<a href="/shop/goodsView/{[id]}">
+					<div class="item">
+						<div class="thumb">
+							<img src="{[image_src]}" alt="{[pname]}">
+							{[#if state_soldout ]}
+							<span class="soldout">{=trans('일시품절')}</span>
+							{[/if]}
+						</div>
+						<div class="info">
+							<p class="title">{[#if brand_name ]}[{[brand_name]}] {[/if]}{[pname]}</p>
+							{[#if state_sale ]}
+							<div class="price-area">
+								{[#if isDiscount]}
+								<span class="rate font-rb">{[discount_rate]}%</span>
+								<p class="strike"><em>{[listprice]}</em>{=trans('원')}</p>
+								<p class="price discount"><em>{[dcprice]}</em>{=trans('원')}</p>
+								{[else]}
+								<p class="price"><em>{[dcprice]}</em>{=trans('원')}</p>
+								{[/if]}
+							</div>
+							{[/if]}
+							{[#if state_stop ]}
+							<p class="price soldout">{=trans('판매중지')}</p>
+							{[/if]}
+							{[#if state_soldout ]}
+							<p class="price soldout">{=trans('일시품절')}</p>
+							{[/if]}
+						</div>
+					</div>
+				</a>
+
+				<span data-devwishbtn='{[id]}' class="wish {[#if alreadyWish]}on{[/if]}" id="{[id]}">wish</span>
+			</li>
+			<!--{'</script>'}-->
+		</ul>
+
+		<div id="devPageWrap" class="wrap-btn-area more"></div>
+	</form>
+</div>

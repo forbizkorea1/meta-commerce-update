@@ -1,0 +1,64 @@
+<script>
+    $("#header .page-name").text("{=trans('상품 {claimTypeName}신청')}");
+</script>
+
+<script>var devClaimType = '{claimType}', devClaimStep = '{claimStep}';</script>
+
+<section class="fb__order-claim fb__claimCommon">
+    <h2 class="fb__title--hidden">{=trans('모바일 교환/반품 신청페이지')}</h2>
+
+    <nav class="fb__order-claim__step">
+        <ul class="step__wrapper">
+            <li class="step__name {? claimStep == 'apply'}active{/}">
+                <span>{=trans('{claimTypeName}정보 입력')}</span>
+            </li>
+            
+            <li class="step__name {? claimStep == 'confirm'}active{/}">
+                <span>{=trans('{claimTypeName}정보 확인')}</span>
+            </li>
+
+            <li class="step__name {? claimStep == 'complete'}active{/}">
+                <span>{=trans('{claimTypeName}신청 완료')}</span>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="wrap-mypage wrap-order-claim">
+        {? claimStep != 'complete'}
+        <header class="fb__orderCommon__header">
+            <dl class="fb__orderCommon__date">
+                <dt>{=trans('주문일자')}</dt>
+                <dd>{order.order_date}</dd>
+            </dl>
+
+            <dl class="fb__orderCommon__oid">
+                <dt>{=trans('주문번호')}</dt>
+                <dd>
+                    <span id="devOid" data-oid="{order.oid}" data-status="{order.status}" data-claimstatus="{=claimstatus}">{order.oid}</span>
+                </dd>
+            </dl>
+        </header>
+        {/}
+    
+        <div class="fb__claimCommon__cont">{#claimPage}</div>
+    
+        {? claimStep != 'complete'}
+            <div class="fb__orderCommon__desc">
+                <p>{=trans('구매자 귀책 사유인 경우 추가 배송비가 발생할 수 있습니다.')}</p>
+                <p>{=trans('판매자 귀책 사유인 경우 추가 배송비가 발생하지 않습니다.')}</p>
+                <p>{=trans('판매자와 협의 없이 신청 시에는 {claimTypeName} 처리가 안될 수 있습니다.')}</p>
+            </div>
+    
+            <div class="order-btn fb__button">
+                <button type="button" class="border--ccc" id="devPrevBtn">{? claimStep == "apply"}{=trans('취소')}{:}{=trans('이전')}{/}</button>
+                <button type="button" class="border--point bg--point" id="devNextBtn" data-claim="{claimType}">{? claimStep == 'confirm'}{=trans('{claimTypeName}신청')}{:}{=trans('다음')}{/}</button>
+            </div>
+        {:}
+            <!--교환완료일 경우-->
+            <div class="order-btn fb__button">
+                <button type="button" class="border--ccc" id="devFineshOrderBtn">{=trans('주문조회')}</button>
+                <button type="button" class="border--point bg--point" id="devFineshBtn">{=trans('취소/교환/반품 조회')}</button>
+            </div>
+        {/}
+    </div>
+</section>

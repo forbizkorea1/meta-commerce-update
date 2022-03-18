@@ -1,0 +1,256 @@
+<section class="join-input-company join-input__comm">
+	<div class="wrap-step">
+		<p class="wrap-step__title">02 {=trans('정보입력')}</p>
+
+		<ul class="step">
+			<li></li>
+			<li class="on">2</li>
+			<li></li>
+		</ul>
+	</div>
+
+	<form id="devCompanyForm" enctype="multipart/form-data">
+		<!-- 로그인 정보 입력 -->
+		<div class="join-input__form">
+			<div class="input-cpn-tit">{=trans('로그인 정보 입력')}</div>
+
+			<section class="wrap-input-form">
+				<!-- 아이디 -->
+				<dl class="id-area">
+					<dt>{=trans('아이디')} <em>*</em></dt>
+					<dd>
+						<input type="text" id="devUserId" name="userId" title="{=trans('아이디')}">
+						<button class="btn-default btn-dark" id="devUserIdDoubleCheckButton">{=trans('중복 확인')}</button>
+						<p class="txt-guide" devTailMsg="devUserId">{=trans('영문, 숫자 조합하여 6~20자리로 입력해 주세요.')}</p>
+					</dd>
+				</dl>
+
+				<!-- 비밀번호 -->
+				<dl class="pw-area">
+					<dt>{=trans('비밀번호')} <em>*</em></dt>
+					<dd>
+						<input type="password" id="devUserPassword" name="pw" title="{=trans('비밀번호')}">
+						<p class="txt-guide password" devTailMsg="devUserPassword">{=trans('영문 대소문자, 숫자, 특수문자 중 3개 이상을 조합하여 8자리 이상 입력해 주세요.')}</p>
+					</dd>
+				</dl>
+
+				<!-- 비밀번호 확인 -->
+				<dl>
+					<dt>{=trans('비밀번호 확인')} <em>*</em></dt>
+					<dd>
+						<input type="password" id="devCompareUserPassword" name="comparePw" title="{=trans('비밀번호 확인')}">
+						<p class="txt-error" devTailMsg="devCompareUserPassword"></p>
+					</dd>
+				</dl>
+			</section>
+		</div>
+
+		<div class="wrap-sect"></div>
+
+		<!-- 사업자 정보 입력 -->
+		<div class="join-input__form">
+			<div class="input-cpn-tit">{=trans('사업자 정보 입력')}</div>
+
+			<section class="wrap-input-form">
+				<!-- 이름 -->
+				<dl>
+					<dt>{=trans('상호명')} <em>*</em></dt>
+					<dd>
+						<input type="text" value="{comName}" disabled>
+					</dd>
+				</dl>
+
+				<!-- 생년월일 -->
+				<dl>
+					<dt>{=trans('사업자등록번호')} <em>*</em></dt>
+					<dd>
+						<input type="text" value="{comNumber}" disabled>
+					</dd>
+				</dl>
+
+				<!-- 전화번호 -->
+				<dl class="tel-area" style="display: none;">
+					<dt>{=trans('전화번호')} <em>*</em></dt>
+					<dd>
+						<div class="fb__input__phone">
+							<select class="fb__input__phone--01" name="comPhone1">
+								<option value="02">02</option>
+								<option value="031">031</option>
+								<option value="032">032</option>
+								<option value="041">041</option>
+								<option value="042">042</option>
+								<option value="043">043</option>
+								<option value="051">051</option>
+								<option value="052">052</option>
+								<option value="053">053</option>
+								<option value="054">054</option>
+								<option value="055">055</option>
+								<option value="061">061</option>
+								<option value="062">062</option>
+								<option value="063">063</option>
+								<option value="064">064</option>
+								<option value="070">070</option>
+								<option value="080">080</option>
+								<option value="090">090</option>
+							</select>
+
+							<div class="fb__input__phone--box">
+								<input type="number" name="comPhone2" id="comPhone2" title="{=trans('사업자 전화번호')}" class="fb__input__phone--02 js__input--onlyNumber">
+								<span class="dash"></span>
+								<input type="number" name="comPhone3" id="comPhone3" title="{=trans('사업자 전화번호')}" class="fb__input__phone--03 js__input--onlyNumber">
+							</div>
+						</div>
+					</dd>
+				</dl>
+
+				<!-- 주소 -->
+				<dl class="address-area">
+					<dt>{=trans('주소')} <em>*</em></dt>
+					<dd>
+						<div class="fb__input__address">
+							<div class="fb__input__address--zipCode">
+								<input type="text" class="dim" name="comZip" id="devComZip" title="{=trans('사업자 주소')}" readonly>
+								<button type="button" id="devComZipPopupButton">{=trans('주소찾기')}</button>
+							</div>
+							<input type="text" class="fb__input__address--01" name="comAddr1" id="devComAddress1" readonly>
+							<input type="text" class="fb__input__address--02" name="comAddr2" id="devComAddress2" title="{=trans('사업자 주소')}" placeholder="{=trans('상세주소를 입력해 주세요.')}">
+						</div>
+					</dd>
+				</dl>
+			</section>
+		</div>
+
+		<div class="wrap-sect"></div>
+
+		<!-- 대표자 정보 입력 -->
+		<div class="join-input__form">
+			<div class="input-cpn-tit">{=trans('대표자 정보 입력')}</div>
+
+			<section class="wrap-input-form">
+				<!-- 대표자명 -->
+				<dl>
+					<dt>{=trans('대표자명')} <em>*</em></dt>
+					<dd>
+						<input type="text" id="devComCeo" name="comCeo" title="{=trans('대표자명')}">
+					</dd>
+				</dl>
+				<!-- @todo. 프론트: 이메일 -->
+				<!-- 이메일 -->
+				<dl class="email-area">
+					<dt>{=trans('이메일')} <em>*</em></dt>
+					<dd>
+						<div>
+							<input type="text" name="comEmail" id="devComEmail" title="{=trans('이메일')}" class="email-input">
+						</div>
+
+						<p class="txt-error" devTailMsg="devComEmail"></p>
+					</dd>
+				</dl>
+
+				<!-- 휴대폰 번호 -->
+				<dl class="phone-area">
+					<dt>{=trans('휴대폰 번호')} <em>*</em></dt>
+					<dd>
+						<div class="fb__input__phone">
+							<select name="comPcs1" id="devComPcs1" class="fb__input__phone--01">
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="016">016</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="019">019</option>
+							</select>
+
+							<div class="fb__input__phone--box">
+								<input type="number" name="comPcs2" id="devComPcs2" title="{=trans('담당자 휴대폰번호')}" class="fb__input__phone--02">
+								<span class="dash"></span>
+								<input type="number" name="comPcs3" id="devComPcs3" title="{=trans('담당자 휴대폰번호')}" class="fb__input__phone--03">
+							</div>
+						</div>
+					</dd>
+				</dl>
+			</section>
+		</div>
+
+		<div class="wrap-sect"></div>
+
+		<!-- 담당자 정보 입력 -->
+		<div class="join-input__form">
+			<div class="input-cpn-tit">{=trans('담당자 정보 입력')}</div>
+
+			<section class="wrap-input-form">
+				<!-- 담당자명 -->
+				<dl>
+					<dt>{=trans('담당자명')} <em>*</em></dt>
+					<dd>
+						<input type="text" id="devUserName" name="userName" title="{=trans('담당자명')}">
+					</dd>
+				</dl>
+
+				<!-- 이메일 -->
+				<dl class="email-area">
+					<dt>{=trans('담당자 이메일')} <em>*</em></dt>
+					<dd>
+						<div>
+							<input type="text" name="email" id="devEmail" title="{=trans('이메일')}" class="email-input">
+						</div>
+
+						<p class="txt-error" devTailMsg="devEmail"></p>
+
+						<button class="btn-default btn-full btn-dark" id="devEmailDoubleCheckButton">{=trans('이메일 중복 확인')}</button>
+					</dd>
+				</dl>
+
+				<!-- 담당자 휴대폰 번호 -->
+				<dl class="phone-area">
+					<dt>{=trans('담당자 휴대폰 번호')} <em>*</em></dt>
+					<dd>
+						<button class="btn-default btn-full btn-dark" id="devCertifyButton">{=trans('휴대폰 인증')}</button>
+						<input type="text" id="devCertifyPcsText" readonly style="display: none;">
+					</dd>
+				</dl>
+			</section>
+		</div>
+
+		<div class="wrap-sect"></div>
+
+		<!-- 증빙자료 서류첨부 -->
+		<div class="join-input__form">
+			<div class="input-cpn-tit">{=trans('증빙자료 서류첨부')}</div>
+
+			<section class="wrap-input-form">
+				<dl>
+					<dt>{=trans('사업자등록증')} <em>*</em></dt>
+					<dd class="wrap-license-upload">
+						<div class="relative" id="devBusinessFileWrap">
+							<button class="file-upload-btn"></button>
+							<input type="file" class="file-upload" name="businessFile" id="devBusinessFile" title="{=trans('사업자등록증')}" accept="image/*">
+						</div>
+
+						<div class="upload-img-area" id="devBusinessFileImageWrap" style="display:none;">
+							<img id="devBusinessFileImage">
+							<span class="upload-cancel-btn" id="devBusinessFileDeleteButton"></span>
+						</div>
+
+						<p class="desc">· {=trans('파일 형식은 이미지 파일(jpg, jpeg, gif, png)로 제출 가능합니다.')}</p>
+						<p class="desc">· {=trans('파일 용량은 최대 30MB까지 가능합니다.')}</p>
+						<p class="desc">· {=trans('서류는 별도 이메일 주소로 추가 제출 가능합니다.<br> &nbsp&nbsp담당자 이메일 : forbiz@forbiz.co.kr')}</p>
+
+					</dd>
+				</dl>
+			</section>
+		</div>
+
+		<div class="wrap-sect"></div>
+
+		<!-- 버튼 -->
+		<div class="fb__join-input__btn fb__button">
+			<!-- <button class="btn-lg btn-point-line" id="devCancelButton">취소</button> -->
+			<button class="btn-lg btn-point size--full" id="devCompanySubmitButton">{=trans('회원가입')}</button>
+		</div>
+	</form>
+</section>
+
+<script>
+	var devAppType = '<?php echo getAppType()?>';
+</script>

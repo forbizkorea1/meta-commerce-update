@@ -1,0 +1,53 @@
+<!--{? popupType!='L'}-->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/css/common/common.css?version={c.CLIENT_VERSION}">
+        <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/css/common/reset.css?version={c.CLIENT_VERSION}">
+        <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupCssSrc ) }-->
+        <link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}">
+        <!--{/}-->
+        <!-- js library -->
+        <script>var forbizCsrf = {name: "{layout.ForbizCsrfName}", hash: "{layout.ForbizCsrfHash}", isLogin: {=json_encode(is_login())}};</script>
+        <script src="{layoutCommon.templetSrc}/js/common/library.js?version={c.CLIENT_VERSION}"></script>
+        <script src="{layoutCommon.templetSrc}/js/common/dev_common.js?version={c.CLIENT_VERSION}"></script><!-- 개발공통 -->
+        <script>
+            //set environment
+            common.environment = "{c.ENVIRONMENT}";
+
+            var notiPopupWidth, notiPopupHeight;
+            $(document).ready(function (){
+                setInterval(function(){
+                    var width = $('body').outerWidth() + (window.outerWidth - window.innerWidth);
+                    var height = $('body').outerHeight() + (window.outerHeight - window.innerHeight);
+                    if(notiPopupWidth != width || notiPopupHeight != height){
+                        window.resizeTo(width, height);
+                        notiPopupWidth = width;
+                        notiPopupHeight = height;
+                    }
+                }, 300);
+            });
+        </script>
+        <title>{popupTitle}</title>
+    </head>
+    <body>
+
+<!--{/}-->
+    <div class="fb__notice-pop__cont">
+        {popupText}
+    </div>
+
+    <div class="fb__notice-pop__bottom">
+        {? popupToday == '1'}
+        <!--오늘 하루보기 사용 체크박스 -->
+        <button type="button" class="fb__notice-pop__today js__notice__today-close">{=trans('오늘하루 보지않기')}</button>
+        {/}
+        <button type="button" class="fb__notice-pop__close js__notice__close" onClick="common.noti.popup.close('{popupType}', '{popupIx}');">{=trans('닫기')}</button>
+        <!-- <span class="noti__popup__closebtn" onClick="common.noti.popup.close('{popupType}', '{popupIx}');">[닫기]</span> -->
+    </div>
+<!--{? popupType!='L'}-->
+
+    </body>
+</html>
+<!--{/}-->

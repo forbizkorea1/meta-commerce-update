@@ -1,0 +1,18 @@
+<div class="fb__privacy-terms">
+    <p class="fb__privacy-terms__title">{=trans('약관내용')}</p>
+
+    <div class="fb__privacy-terms__cont devContents">
+        {@ policy}
+        <div class='devPolicyContentsClass' id='devPolicyContentsId{policy.pi_ix}'>
+            {policy.pi_contents}
+        </div>
+        {/}
+    </div>
+
+    <select class="fb__privacy-terms__history" id="devPolicyHistory">
+        <option value="">{=trans('약관 변경 이력 보기')}</option>
+        {@ policy}
+        <option value="{policy.pi_ix}">{policy.regdate} {=trans('시행')}</option>
+        {/}
+    </select>
+</div>

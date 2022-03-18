@@ -1,0 +1,186 @@
+<section class="fb__menusubmit">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">결제모듈 KSNET</h3>
+    </header>
+
+    <section class="fb-filter">
+        <table>
+            <caption></caption>
+            <colgroup>
+                <col width="14%">
+                <col width="35%">
+                <col width="14%">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr> <!-- 라디오 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            서비스타입
+                        </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="service_type" value="test" {?
+                                       config.service_type== 'test' || !config.service_type } checked {/} >
+                                <span>TEST</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="service_type" value="service" {?
+                                       config.service_type== 'service' } checked {/} >
+                                <span>SERVICE</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+           {? false}
+            <tr>
+                <th class="fb-filter__title">
+                    <span class="fb-filter__title--ne">
+                        KSNET 주 결제수단 사용여부
+                    </span>
+                </th>
+                <td colspan="3">
+                    <div class="fb-filter__radio">
+                        <label>
+                            <input type="checkbox" name="sndPaymethod" value="1000000000" {?
+                                   config.sndPaymethod == "1000000000" } checked {/} >
+                            <span>신용카드</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="sndPaymethod" value="0100000000" {?
+                                   config.sndPaymethod == "0100000000" } checked {/} >
+                            <span>가상계좌</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="sndPaymethod" value="0010000000" {?
+                                   config.sndPaymethod== "0010000000" } checked {/} >
+                            <span>계좌이체</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="sndPaymethod" value="0000010000" {?
+                                   config.sndPaymethod== "0000010000" } checked {/} >
+                            <span>휴대폰</span>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="fb-filter__title">
+                    <span class="fb-filter__title--ne">
+                        KSNET 간편결제 사용여부
+                    </span>
+                </th>
+                <td colspan="3">
+                    <div class="fb-filter__radio">
+                        <label>
+                            <input type="checkbox" name="sndStore" value="kakaopay" {?
+                                   config.sndStore == "kakaopay" } checked {/} >
+                            <span>카카오페이</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="sndStore" value="naverpay" {?
+                                   config.sndStore == "naverpay" } checked {/} >
+                            <span>네이버페이</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="sndStore" value="payco" {?
+                                   config.sndStore== "payco" } checked {/} >
+                            <span>PAYCO</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="sndStore" value="toss" {?
+                                   config.sndStore== "toss" } checked {/} >
+                            <span>토스</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="sndStore" value="ssgpay" {?
+                                   config.sndStore== "ssgpay" } checked {/} >
+                            <span>SSGPAY</span>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            {/}
+            <tbody class="typeTest" {? config.service_type== 'service' } style="display:none;" {/}>
+                <tr> <!-- Test 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            상점 아이디
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="sndTestStoreid" value="{config.sndTestStoreid}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            상점 비밀번호
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="sndTestStorepasswd" value="{config.sndTestStorepasswd}">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="typeService" {? config.service_type== 'test' || !config.service_type } style="display:none;" {/}>
+                <tr> <!--  Service 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                상점 아이디
+                            </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="sndStoreid" value="{config.sndStoreid}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            상점 비밀번호
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="sndStorepasswd" value="{config.sndStorepasswd}">
+                        </div>
+                    </td>
+                </tr>
+                {? false}
+                <tr> <!-- 라디오 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            에스크로 사용 여부
+                        </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="sndEscrow" value="0" {?
+                                       config.sndEscrow== '0' || !config.sndEscrow } checked {/} >
+                                <span>미사용</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="sndEscrow" value="1" {?
+                                       config.sndEscrow== '1' } checked {/} >
+                                <span>사용</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                {/}
+            </tbody>
+            <input type="hidden" name="sndEscrow" value="0">
+        </table>
+    </section>
+
+</section>

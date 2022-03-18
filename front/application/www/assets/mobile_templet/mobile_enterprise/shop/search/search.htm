@@ -1,0 +1,241 @@
+<form id="devListForm">
+    <input type="hidden" name="page" value="1" id="devPage">
+    <input type="hidden" name="max" value="30">
+    <input type="hidden" name="orderBy" value="regdateDesc" id="devSort">
+    <input type="hidden" name="filterCid" value="{cid}">
+    <input type="hidden" name="filterBrands" value="">
+    <input type="hidden" name="filterDeliveryFree" value="">
+    <input type="hidden" name="filterInsideText" value="">
+    <input type="hidden" name="filterText" value="{searchText}">
+</form>
+
+<section class="fb__search">
+    <div class="fb__search__header">
+        <span class="fb__search__total">{=trans('총 <em class='devSearchTotal'>0</em>개')}</span>
+
+        <div class="fb__search__filter">
+            <select class="sortFilter devSortTab">
+                <option value="orderCnt">{=trans('판매인기순')}</option>
+                <option value="lowPrice">{=trans('낮은가격순')}</option>
+                <option value="highPrice">{=trans('높은가격순')}</option>
+                <option value="regDate">{=trans('최근등록순')}</option>
+            </select>
+
+            <button type="button" class="btn-search-detail"></button>
+        </div>
+    </div>
+
+    <div class="fb__search__cont">
+        <ul class="fb__items listType2" id="devListContents">
+            <!--{'<script id="devListLoading" type="text/x-handlebars-template">'}-->
+            <li>loading...</li>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devListEmpty" type="text/x-handlebars-template">'}-->
+            <li class="empty-content borderTop">
+                <!-- 상세검색 결과가 없는 경우 -->
+                <div id="devEmptyKeyword">
+                    <p class="empty-content__txt">
+                        {=trans('<em>&#39;{=searchText}&#39;</em>에 대한 검색 결과가 없습니다.')}
+                    </p>
+
+                    <div class="empty-content__desc">
+                        - {=trans('일시적으로 상품이 품절되었을 수 있습니다.')}<br>
+                        - {=trans('검색어가 올바르게 입력되었는지 확인해 주세요.')}<br>
+                        - {=trans('일반적인 검색어로 다시 검색해 주세요.')}<br>
+                        - {=trans('검색어의 띄어쓰기를 다르게 해보세요.')}
+                    </div>
+                </div>
+
+                <!-- 검색 결과가 없는 경우 -->
+				<div id="devEmptyFilter" style="display: none">
+					<p class="empty-content__txt">{=trans('선택한 조건에 대한 검색결과가 없습니다.')}</p>
+					<div class="empty-content__desc" style="text-align: center;">{=trans('다른 조건을 선택해서 검색해 보세요.')}</div>
+				</div>
+            </li>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devListDetail" type="text/x-handlebars-template">'}-->
+            <li class="item__box">
+                <a href="/shop/goodsView/{[id]}" class="item__link">
+                    <figure class="item__thumb">
+                        <!-- 상품이미지 -->
+                        <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[image_src]}" alt="{[pname]}">
+
+                        <!-- 찜버튼 -->
+                        <button class="item__wish {[#if alreadyWish]}on{[/if]}" data-devWishBtn="{[id]}">{=trans('찜 버튼')}</button>
+                    </figure>
+
+                    <div class="item__info">
+                        <!-- 브랜드 -->
+                        {[#if brand_name]}
+                        <span class="item__brand">{[brand_name]}</span>
+                        {[/if]}
+
+                        <!-- 상품명 -->
+                        <strong class="item__name">{[pname]}</strong>
+
+                        <!-- 상품가격 -->
+                        <div class="item__price">
+                            {[#if status_soldout]}
+                                <p class="item__price--soldout">{=trans('일시품절')}</p>
+                            {[else]}
+
+                                {[#if isDiscount]}
+                                    <!-- 할인율 -->
+                                    <span class="item__price--perc"><em>{[discount_rate]}</em>%</span>
+                                    <!-- 원가 -->
+                                    <del class="item__price--strike"><em>{[listprice]}</em>{=trans('원')}</del>
+                                {[/if]}
+                            
+                                <!-- 판매가 -->
+                                <p class="item__price--current"><em>{[dcprice]}</em>{=trans('원')}</p>
+                            {[/if]}
+                        </div>
+
+                        {[#if icons]}
+                        <div class="item__badge">
+                            {[#each icons as |icon|]}
+                                {[#if this.isText]}
+                                    <span>{{[this.content]}}</span>
+                                {[else]}
+                                    {{[this.content]}}
+                                {[/if]}
+                            {[/each]}
+                        </div>
+                        {[/if]}
+                    </div>
+                </a>
+            </li>
+            <!--{'</script>'}-->
+        </ul>
+        <!-- 상품리스트 구조 -->
+    </div>
+
+    <div id="devPageWrap" class="wrap-btn-area more"></div>
+</section>
+
+<!-- 카테고리 필터 -->
+<div class="layer-search-detail searchFilter js__searchFilter">
+    <div class="dim searchFilter__dim js__searchFilter__dim"></div>
+
+    <div class="wrap-search-detail searchFilter__wrapper js__searchFilter__cont">
+        <div class="searchFilter__header">
+            <div class="searchFilter__header__txt">
+                <strong class="title">{=trans('상세검색')}</strong>
+                <span class="count">{=trans('총 <em class="devSearchTotal">0</em>개')}</span>
+            </div>
+
+            <div class="searchFilter__header__btn">
+                <button type="button" class="btn__searchFilter btn__searchFilter--reset devRefresh">
+                    <span class="blind">{=trans('초기화')}</span>
+                </button>
+                
+                <button type="button" class="btn__searchFilter btn__searchFilter--close" onclick="searchDetailClose();">
+                    <span class="blind">{=trans('닫기')}</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="searchFilter__cont">
+            <!-- 카테고리 필터 -->
+            <dl class="searchFilter__list filterCategory">
+                <dt class="searchFilter__list__title js--accdBtn">
+                    <span>{=trans('카테고리')}</span>
+                    <em class="devSearchCategoryName"></em>
+                </dt>
+
+                <dd class="searchFilter__list__cont filterCategory js--accdTarget">
+                    <ul class="depth01">
+                        <!--li class="depth01__list">
+                            <label>
+                                <input type="radio" name="categoryList" class="blind" value="" data-name="전체">
+                                <span>전체</span>
+                            </label>
+                        </li-->
+
+                        {@ headerMenu.categoryList}
+                        <li class="depth01__list">
+                            <label>
+                                <input type="radio" name="categoryList" class="blind categoryList{.cid}" value="{.cid}" data-name="{.cname}" data-depth="{.depth}">
+                                <span>{.cname}</span>
+                            </label>
+                            {? .subCateList}
+                            <ul class="depth02">
+                                {@ .subCateList}
+                                <li class="depth02__list">
+                                    <label>
+                                        <input type="radio" name="categoryList" class="blind categoryList{..cid}" value="{..cid}" data-name="{..cname}" data-depth="{..depth}">
+                                        <span>{..cname}</span>
+                                    </label>
+                                    {? ..subCateList}
+                                    <ul class="depth03">
+                                        {@ ..subCateList}
+                                        <li class="depth03__list">
+                                            <label>
+                                                <input type="radio" name="categoryList" class="blind categoryList{...cid}" value="{...cid}" data-name="{...cname}" data-depth="{...depth}">
+                                                <span>{...cname}</span>
+                                            </label>
+                                        </li>
+                                        {/}
+                                    </ul>
+                                    {/}
+                                </li>
+                                {/}
+                            </ul>
+                            {/}
+                        </li>
+                        {/}
+                    </ul>
+                </dd>
+            </dl>
+            <div class="searchFilter__hr"></div>
+
+            <!-- 브랜드 필터 -->
+            <dl class="searchFilter__list filterBrand">
+                <dt class="searchFilter__list__title js--accdBtn">
+                    <span>{=trans('브랜드')}</span>
+                    <em class="category__list__choice devBrandCount">0개</em>
+                </dt>
+
+                <dd class="searchFilter__list__cont filterBrand js--accdTarget">
+                    <ul class="filterBrand__box" id="brand-list-area">
+                        {@ brandList}
+                        <li class="filterBrand__list">
+                            <label class="fb__comm__checkbox">
+                                <input type="checkbox" class="blind devBrandSelect{.b_ix}" data-ix="{.b_ix}">
+                                <span>{.brand_name}</span>
+                            </label>
+                        </li>
+                        {/}
+                    </ul>
+                </dd>
+            </dl>
+            <div class="searchFilter__hr"></div>
+            
+            <!-- 검색 필터 -->
+            <div class="searchFilter__list filterSearch">
+                <strong class="filterSearch__title">{=trans('검색 내 결과')}</strong>
+
+                <div class="filterSearch__box">
+                    <input type="text" class="sub-searchWord devInsideText" placeholder="{=trans('검색어를 입력해주세요.')}">
+                    <button type="button" class="btn-inside-search" id="devGoInsideSearch">
+                        <span class="blind">{=trans('검색')}</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 선택옵션 -->
+            <div class="searchFilter__list filterTotal">
+                <strong class="filterTotal__title">{=trans('선택 옵션')}</strong>
+
+                <div class="filterTotal__box" id="devSelectedView">
+                    <div id="devSelected" class="filterTotal__list {[devFilter]}">
+                        <span class="filterTotal__list__txt">{[selected]}</span>
+                        <span class="filterTotal__list__delete devRemoveSelected" data-kind="{[kind]}" data-depth="{[depth]}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

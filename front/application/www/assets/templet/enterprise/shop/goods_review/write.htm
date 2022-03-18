@@ -1,0 +1,109 @@
+<div class="fb__review-write">
+    <!-- 헤더 -->
+    <div class="fb__modal__header">
+        <span class="fb__modal__title">{? mode == 'modify'}{=trans('상품 후기 수정')}{:}{=trans('상품 후기 작성')}{/}</span>
+        <span class="fb__modal__close js__modal__close close" onclick="window.close();"></span>
+    </div>
+
+    <!-- 상품정보 -->
+    <div class="review-write__item">
+        <figure class="review-write__item__img">
+            <img src="{thumb}" alt="">
+        </figure>
+
+        <!-- 상품 정보 -->
+        <div class="review-write__item__info">
+            <span class="review-write__item__name">{? brand_name}[{brand_name}] {/}{pname}</span>
+            <span class="review-write__item__option">{option_name}</span>
+            <span class="review-write__item__date">{=trans('구매일')} : {buy_date}</span>
+        </div>
+    </div>
+
+    <!-- 후기영역 -->
+    <div class="review-write__form">
+        <form id="devReviewForm" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="pid" value="{pid}">
+            <input type="hidden" name="oid" value="{oid}">
+            <input type="hidden" name="option_id" value="{option_id}">
+            <input type="hidden" name="od_ix" value="{od_ix}">
+            <input type="hidden" name="bbsIx" value="{bbs_ix}">
+            <input type="hidden" name="mode" id="mode" value="{mode}">
+
+            {? use_valuation_goods == 'Y'}
+            <!-- 별점 평가 -->
+            <dl class="review-write__score">
+                <dt>{=trans('상품 만족도는 어떤가요?')}</dt>
+                <dd>
+                    <input type="hidden" name="valuation_goods" class="valuation-goods" value="{valuation_goods}" id="devValuationGoods" title="{=trans('상품평가')}">
+                    <div class="star-links">
+                        <a href="#" onclick="starRate(this, 1, '#devValuationGoods');" name="star-link_1" class="star-link">1</a>
+                        <a href="#" onclick="starRate(this, 2, '#devValuationGoods');" name="star-link_2" class="star-link">2</a>
+                        <a href="#" onclick="starRate(this, 3, '#devValuationGoods');" name="star-link_3" class="star-link">3</a>
+                        <a href="#" onclick="starRate(this, 4, '#devValuationGoods');" name="star-link_4" class="star-link">4</a>
+                        <a href="#" onclick="starRate(this, 5, '#devValuationGoods');" name="star-link_5" class="star-link on">5</a>
+                    </div>
+                    <img src="/assets/templet/enterprise/images/common/star_s_{valuation_goods}.png" alt="5" class="rating-img" style="height: 30px; cursor: pointer;" >
+                </dd>
+            </dl>
+            {/}
+
+            <!-- 게시글 작성 -->
+            <div class="review-write__textarea js__textcount__area">
+                <input type="hidden" name="bbs_subject" value="{? !empty(bbs_subject)}{bbs_subject}{:}{=trans('{=sess_val('user','name')}님의 후기')}{/}" placeholder="{=trans('제목을 입력해 주세요.')}">
+
+                <textarea name="bbs_contents" class="js__textCount__textarea" placeholder="{=trans('내용은 최소 30자 이상, 최대 500자 이내로 작성해 주세요.')}" id="devBbsContents" title="{=trans('내용')}" maxlength="500" >{bbs_contents}</textarea>
+
+                <div class="write__textCount">
+                    <em class="js__textCount__current">0</em>/
+                    <span class="js__textCount__maxLength">500</span>
+                </div>
+            </div>
+
+            <!-- 사진첨부 영역 -->
+            {? mode != 'modify'}
+            <div id="devPhotoUpload" class="review-write__photo">
+            {:}
+            <div id="devPhotoUpload" class="review-write__photo write__video--show">
+            {/}  
+                <div class="wrap-file flex-wrap">
+                    {@ range(1,5)}
+                    <div class="wrap-file__list">
+                        <input type="hidden" class="devFileDelete{.value_}" name="delFile{.value_}" value="0">
+                        <div class="write__file-wrap devFileWrap{.value_}" id="devFileWrap{.value_}">
+                            <button type="button" class="write__upload file-upload-btn"></button>
+                            <input type="file" class="file-upload"  name="bbsFile{.value_}" id="devBbsFile{.value_}"  title="{=trans('첨부파일')}" accept=".jpg, .jpeg, .png, .gif">
+                        </div>
+                        
+                        <div class="upload-img-area" id="devFileImageWrap{.value_}" style="display: none;">
+                            <img id="devFileImage{.value_}">
+                            <span class="upload-cancel-btn" id="devFileDeleteButton{.value_}"></span>
+                        </div>
+                    </div>
+                    {/}
+                </div>
+
+                <!-- 사진첨부 안내 -->
+                <p class="review-write__desc file-upload">{=trans('이미지 당 10MB 이내의 이미지 파일(jpg, jpeg, gif, png)만 첨부할 수있습니다. 이미지는 최대 5장까지 첨부 가능합니다.')}</p>
+            </div>
+
+            <!-- 상품후기 안내 -->
+            <p class="review-write__desc">
+                {=trans('작성하신 상품후기는 <span class="fb__point-color">마이페이지 <em>&gt;</em> 나의 상품 후기</span>에서 확인하실 수 있습니다.')}
+            </p>
+
+            <!-- 버튼영역 -->
+            <div class="fb__button review-write__btn">
+                <button class="border--ccc size--03" type="button" id="devReviewCancel">{=trans('취소')}</button>
+                <button class="bg--point size--03" type="submit" id="devReviewSubmit">{=trans('저장')}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--{'<script>'}-->
+var bbsFile1 = { = json_encode(bbs_file_1_path)};
+var bbsFile2 = { = json_encode(bbs_file_2_path)};
+var bbsFile3 = { = json_encode(bbs_file_3_path)};
+var bbsFile4 = { = json_encode(bbs_file_4_path)};
+var bbsFile5 = { = json_encode(bbs_file_5_path)};
+<!--{'</script>'}-->

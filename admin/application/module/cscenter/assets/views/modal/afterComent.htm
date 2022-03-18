@@ -1,0 +1,181 @@
+<!--{'<script id="devAfterComentTpl" type="text/x-handlebars-template">'}-->
+<div class="devCopyLayer">
+    <form id="devAfterComentForm">
+
+        <section class="fb__menusubmit">            
+            <section class="fb-filter">
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="17%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                제목
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[bbs_subject]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                상품명
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[pname]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                작성자
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[name]}
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                공개설정
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[bbs_hidden_text]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                등록일
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[regdate]}
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                조회수
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[bbs_hit]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="display:none;"> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                베스트 후기 지정
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[is_best_text]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                첨부파일
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[#if isBbsFile1]}<a href="{[bbs_file_1]}" download = "{[origin_name_1]}">{[origin_name_1]}</a><br>{[/if]}
+                                {[#if isBbsFile2]}<a href="{[bbs_file_2]}" download = "{[origin_name_2]}">{[origin_name_2]}</a><br>{[/if]}
+                                {[#if isBbsFile3]}<a href="{[bbs_file_3]}" download = "{[origin_name_3]}">{[origin_name_3]}</a><br>{[/if]}
+                                {[#if isBbsFile4]}<a href="{[bbs_file_4]}" download = "{[origin_name_4]}">{[origin_name_4]}</a><br>{[/if]}
+                                {[#if isBbsFile5]}<a href="{[bbs_file_5]}" download = "{[origin_name_5]}">{[origin_name_5]}</a>{[/if]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #d7d7d7;">
+                        <th class="fb-filter__title">
+                            <span class="">
+                                내용
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {*@TODO. 퍼블필요.*}
+                                <textarea style="width: 100%;height: 100px;resize: none" disabled="disabled">
+                                    {[bbs_contents]}
+                                </textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="fb__menusubmit-divide" style="overflow-y:auto; height: 450px">
+
+                    <table class="popListTable">
+                        <caption></caption>
+                        <colgroup>
+                            <col width="17%">
+                            <col width="35%">
+                            <col width="14%">
+                            <col width="*">
+                        </colgroup>
+                        <tr> <!-- 텍스트 타입 -->
+                            <th class="fb-filter__title">
+                                <span class="">
+                                    관리자 댓글
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap" style="padding: 10px;">
+                                <div class="fb-filter__title-contents commentList">
+                                    <span style="float: left"><b>{[charger]} ({[charger_id]})</b></span>
+                                    <input type="button" class="fb-filter__search devReBtn devReAdd" value="등록" style="float:right; display: inline-block; width: 50px; line-height: 25px; box-sizing: border-box;">
+                                    <div class="fb-filter__title-contents" style="padding-top: 34px;">
+                                        <textarea class="fb-filter__textarea" name="reply" id="devEditor"></textarea>
+                                    </div>
+                                    <div id="devReContent"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>        
+        </section>
+    </form>
+    <form id="devHideCmt">
+        <input type="hidden" name="bbs_ix" id="hide_bbs_ix"   value="{[bbs_ix]}" />
+        <input type="hidden" name="cmt_ix" id="hide_cmt_ix"   value="" />
+        <input type="hidden" name="devHideMode" id="devHideMode"   value="insert" />                
+        <input type="hidden" name="mem_ix" id="hide_mem_ix"   value="{[charger_ix]}" />
+        <input type="hidden" name="cmt_name" id="hide_cmt_name" value="{[charger]}" />
+        <input type="hidden" name="cmt_contents" id="hide_cmt_contents" value="" />
+    </form>
+    <div id="cloneHide" style="display: none;">
+        <div id="devCloneForm">
+            <div class="devReply"><hr><span class="devReplaySubTitle"></span>
+                <input type="button" class="fb-filter__reset devReBtn devReDel" value="삭제" style="float:right; display: inline-block; width: 50px; line-height: 25px; box-sizing: border-box;">
+                <input type="button" class="fb-filter__search devReBtn devReMod" value="수정" style="float:right; display: inline-block; width: 50px; line-height: 25px; box-sizing: border-box;">
+                <input type="button" class="fb-filter__reset devReBtn devReCan" value="취소" style="float:right; display: inline-block; width: 50px; line-height: 25px; box-sizing: border-box;">
+                <input type="button" class="fb-filter__search devReBtn devReSave" value="저장" style="float:right; display: inline-block; width: 50px; line-height: 25px; box-sizing: border-box;">
+                <br><span class="devReplaySubText"></span>
+                <div class="devReplaySubTextArea"><textarea class="" name="replay_sub"></textarea><input type="hidden" name="hide_cmt_ix" /></div>
+            </div>
+        </div>
+    </div>    
+</div>
+<!--{'</script>'}-->

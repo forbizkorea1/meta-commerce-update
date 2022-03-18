@@ -1,0 +1,431 @@
+<form id="devForm" method="POST">
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">기본 설정</h3>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>기본 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                사용여부
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label for="mileage_use_n">
+                                    <input type="radio" name="mileage_use_yn" id="mileage_use_n" value="N" {? config.mileage_use_yn == 'N' || !config.mileage_use_yn } checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                                <label for="mileage_use_y">
+                                    <input type="radio" name="mileage_use_yn" id="mileage_use_y" value="Y" {? config.mileage_use_yn == 'Y' } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                마일리지 노출 명칭
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text" name="mileage_name"  value="{config.mileage_name}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                마일리지 노출 단위
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text" name="mileage_unit_txt"  value="{config.mileage_unit_txt}">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">적립 설정</h3>
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>적립 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                적립 범위
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label for="scale_a">
+                                    <input type="radio" name="scale" id="scale_a" value="A" {? config.scale == 'A' || !config.scale } checked {/} >
+                                           <span>전체 상품</span>
+                                </label>
+                                <label for="scale_h">
+                                    <input type="radio" name="scale" id="scale_h" value="H" {? config.scale == 'H' } checked {/} >
+                                           <span>본사 상품(셀러 상품 제외)</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                적립 기준
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label for="standard_s">
+                                    <input type="radio" name="standard" id="standard_s" value="S" {? config.standard == 'S' || !config.standard } checked {/} >
+                                           <span>판매가(기획, 특별할인 미포함)</span>
+                                </label>
+                                <label for="standard_d">
+                                    <input type="radio" name="standard" id="standard_d" value="D" {? config.standard == 'D' } checked {/} >
+                                           <span>할인가(기획, 특별할인 포함)</span>
+                                </label>
+                                <label for="standard_p">
+                                    <input type="radio" name="standard" id="standard_p" value="P" {? config.standard == 'P' } checked {/} >
+                                           <span>최종 결제가(기획, 특별할인, 쿠폰할인 포함)</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                적립 비율
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label for="mileage_info_use_s">
+                                    <input type="radio" name="mileage_info_use" id="mileage_info_use_s" value="S" {? config.mileage_info_use == 'S' || !config.mileage_info_use } checked {/} >
+                                           <span>공통 적립</span>
+                                </label>
+                                <label for="mileage_info_use_p">
+                                    <input type="radio" name="mileage_info_use" id="mileage_info_use_p" value="P" {? config.mileage_info_use == 'P' } checked {/} >
+                                           <span>플랫폼별 차등 적립</span>
+                                </label>
+                                <label for="mileage_info_use_g">
+                                    <input type="radio" name="mileage_info_use" id="mileage_info_use_g" value="G" {? config.mileage_info_use == 'G' } checked {/} >
+                                           <span>회원그룹별 차등 적립</span>
+                                </label>
+                            </div>
+                            <br />
+                            <div class="fb-filter__title-contents">                                
+                                <table class="mileage_info_use_s">
+                                    <caption>공통 적립</caption>
+                                    <colgroup>
+                                        <col width="150">
+                                        <col width="*">
+                                        <col width="175">
+                                    </colgroup>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                상품 금액
+                                            </span>
+                                        </th>
+                                        <td colspan="3" class="fb-filter__day-wrap">
+                                            <input type="number" class="fb-filter__text floatNo" name="mileage_rate[common]"  value="{config.mileage_rate_common}">
+                                            <label>% 적립</label>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="mileage_info_use_p">
+                                    <caption>플랫폼별 차등 적립</caption>
+                                    <colgroup>
+                                        <col width="150">
+                                        <col width="*">
+                                        <col width="175">
+                                    </colgroup>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                PC 상품 금액
+                                            </span>
+                                        </th>
+                                        <td colspan="3" class="fb-filter__day-wrap">
+                                            <input type="number" class="fb-filter__text floatNo" name="mileage_rate[p]"  value="{config.mileage_rate_p}">
+                                            <label>% 적립</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                Mobile 상품금액
+                                            </span>
+                                        </th>
+                                        <td colspan="3" class="fb-filter__day-wrap">
+                                            <input type="number" class="fb-filter__text floatNo" name="mileage_rate[m]"  value="{config.mileage_rate_m}">
+                                            <label>% 적립</label>
+                                        </td>
+                                    </tr>                                    
+                                </table>
+                                <table class="mileage_info_use_g">
+                                    <caption>회원그룹별 차등 적립</caption>
+                                    <colgroup>
+                                        { @memberGroup }
+                                        <col width="100px">                                        
+                                        {/}
+                                    </colgroup>
+                                    <tr>
+                                        { @memberGroup }
+                                        <th class="fb-filter__title" height="32">
+                                            <span class="">
+                                                { .gp_name}
+                                            </span>
+                                        </th>
+                                        {/}
+                                    </tr>
+                                    <tr>
+                                        { @memberGroup }
+                                        <td class="fb-filter__day-wrap">
+                                            <input type="number" id="mileage_rate_{.gp_ix}" class="fb-filter__text fb-filter__text--40" name="mileage_rate[{.gp_ix}]"  value="{.mileage_rate}">
+                                            <label>% 적립</label>
+                                        </td>
+                                        {/}
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 체크박스 타입-->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                적립일
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label for="mileage_add_setup">
+                                    <input type="radio" name="mileage_add_setup" id="mileage_add_setup" value="C" checked >
+                                    <span>구매확정일</span>
+                                </label>                                
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="pulsMileage"> <!-- 체크박스 타입-->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                추가 적립
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio" style="float: left;">
+                                <label>회원가입 시</label>                                
+                                <label for="join_use_n">
+                                    <input type="radio" name="join_use" id="join_use_n" value="N" {? config.join_use == 'N' } checked {/} >
+                                           <span>사용안함</span>
+                                </label>
+                                <label for="join_use_y">
+                                    <input type="radio" name="join_use" id="join_use_y" value="Y" {? config.join_use == 'Y' || !config.join_use } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                            </div>
+                            <input type="number" class="fb-filter__text" name="join_rate"  value="{config.join_rate}">
+                            마일리지 적립
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">사용 설정</h3>
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>사용 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                사용 단위
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <select name="use_unit" class="fb-filter__select" item='{config.use_unit}'>
+                                    <option value="1">1</option>
+                                    <option value="10" selected="">10</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                보유 마일리지 제한
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="number" class="fb-filter__text" name="min_mileage_price"  value="{config.min_mileage_price}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 체크박스 타입-->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                배송비 사용 제한
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+
+                                <label for="deliveryprice_n">
+                                    <input type="radio" name="deliveryprice" id="deliveryprice_n" value="N" {? config.deliveryprice == 'N' } checked {/} >
+                                           <span>배송비 결제 불가</span>
+                                </label>
+                                <label for="deliveryprice_y">
+                                    <input type="radio" name="deliveryprice" id="deliveryprice_y" value="Y" {? config.deliveryprice == 'Y' || !config.deliveryprice } checked {/} >
+                                           <span>배송비 결제 가능</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                상품 구매금액 제한
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="number" class="fb-filter__text" name="total_order_price"  value="{config.total_order_price}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 체크박스 타입-->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                최대 사용한도 제한
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio" >
+                                <ul >
+                                    <li style="height: 30px;">
+                                        <label for="mileage_one_use_type_3">
+                                            <input type="radio" name="mileage_one_use_type" id="mileage_one_use_type_3" value="3" {? config.mileage_one_use_type == '3' || !config.mileage_one_use_type } checked {/} >
+                                                   <span>한도 제한 없음 (전액 마일리지 사용 가능)</span>
+                                        </label>
+                                    </li>
+                                    <li style="height: 40px;">
+                                        <label for="mileage_one_use_type_1">
+                                            <input type="radio" name="mileage_one_use_type" id="mileage_one_use_type_1" value="1" {? config.mileage_one_use_type == '1' } checked {/} >
+                                                   <span>정액(원) 제한 | 1회 결제 시 최대 </span>
+                                        </label>
+                                        <input type="number" class="fb-filter__text floatNo" name="use_mileage_max"  value="{config.use_mileage_max}" style="width: auto;" > 마일리지까지 사용가능
+                                    </li>
+                                    <li>
+                                        <label for="mileage_one_use_type_2">
+                                            <input type="radio" name="mileage_one_use_type" id="mileage_one_use_type_2" value="2" {? config.mileage_one_use_type == '2' } checked {/} >
+                                                   <span>정액(%) 제한 | 1회 결제 시 상품구매 합계액의</span>
+                                        </label>
+                                        <input type="number" class="fb-filter__text floatNo" name="max_goods_sum_rate"  value="{config.max_goods_sum_rate}" style="width: auto;" >% 까지 사용 가능
+                                    </li>
+                                </ul>
+
+
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">자동 소멸 설정</h3>
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>자동 소멸 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                자동 소멸 사용 여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="auto_extinction_n">
+                                    <input type="radio" name="auto_extinction" id="auto_extinction_n" value="N" {? config.auto_extinction == 'N' || !config.auto_extinction } checked {/} >
+                                           <span>사용 안함</span>
+                                </label>
+                                <label for="auto_extinction_y">
+                                    <input type="radio" name="auto_extinction" id="auto_extinction_y" value="Y" {? config.auto_extinction == 'Y' } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                마일리지 자동 소멸 기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="">
+                                <span class="fb-filter__day__line">적립일 로부터</span>
+                                <select class="fb-filter__select" name="cancel_year" item='{config.cancel_year}'>
+                                    <option value="0">0</option><option value="1" >1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+                                </select>
+                                <span class="fb-filter__day__line">년</span>
+                            </div>
+                            <div>
+                                <select class="fb-filter__select floatNo" name="cancel_month" item='{config.cancel_month}'>
+                                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                                </select>
+                                개월 지난 미사용 마일리지 자동 소멸
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>

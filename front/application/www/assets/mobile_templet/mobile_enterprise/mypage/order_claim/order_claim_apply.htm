@@ -1,0 +1,332 @@
+<main class="fb__order-claim fb__infoinput">
+    <h2 class="fb__title--hidden">{=trans('모바일 교환/반품신청')} - {=trans('정보입력')}</h2>
+
+    <form id="devClaimApplyForm" method="post">
+        <input type="hidden" name="oid" value="{order.oid}">
+
+        <!-- 교환/반품 상품 선택 -->
+        <div class="fb__orderCommon__cont js__check__wrapper">
+            <div class="claimCommon__allcheck">
+                <label class="fb__comm__checkbox">
+                    <input type="checkbox" id="all_check" class="js__check__all">
+                    <span>{=trans('전체선택')}</span>
+                </label>
+            </div>
+        
+            {@ order.orderDetail}
+            <ul class="fb__shopCommon__item">
+                {@ .value_}
+                <li class="item-info">
+                    <label for="devOdIx{..od_ix}" class="item-info__checkbox fb__comm__checkbox">
+                        <input type="checkbox" class="devOdIxCls js__check__each" id="devOdIx{..od_ix}" name="od_ix[]" value='{..od_ix}' {? ..od_ix == claimOdIx}checked{/}>
+                        <span></span>
+                    </label>
+        
+                    <div class="item-info__wrapper">
+                        <figure class="item-info__thumb">
+                            <a class="item-info__link" href="/shop/goodsView/{..pid}">
+                                <img data-src="{..pimg}">
+                            </a>
+                        </figure>
+        
+                        <div class="item-info__info">
+                            <a href="/shop/goodsView/{..pid}">
+                                <strong class="item-info__name">
+                                    {? ..brand_name}[{..brand_name}] {/}{..pname}
+                                </strong>
+                            </a>
+                            
+                            <p class="item-info__option">
+                                <span>{..option_text}</span>
+                                <span class="item-info__count"><em>{..pcnt}</em>{=trans('개')}</span>
+                            </p>
+        
+                            <dl class="claimCommon__info">
+                                <dt class="claimCommon__info__name">{=trans('{claimTypeName}수량')}</dt>
+                                <dd class="claimCommon__info__count">
+                                    <select class="fb__select--small devClaimCntCls" id="devClaimCnt{..od_ix}" name="claim_cnt[{..od_ix}]">
+                                        {@ range(..pcnt, 1, -1)}<option value="{...value_}">{...value_}</option>{/}
+                                    </select>
+                                </dd>
+                            </dl>
+                         
+                            <dl class="claimCommon__info">
+                                <dt class="claimCommon__info__name">{=trans('결제금액')}</dt>
+                                <dd class="claimCommon__info__price"><em>{=g_price(..pt_dcprice)}</em>{=trans('원')}</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </li>
+                {/}
+            </ul>
+            {/}
+        </div>
+        <div class="wrap-sect"></div>
+
+        <!-- 사유 선택 -->
+        <section class="wrap-reason">
+            <h3 class="fb__mypage__title">{=trans('{claimTypeName}사유')}<em></em></h3>
+    
+            <div class="wrap-reason__inner">
+                <select name="claim_reason" id="devClaimReason" title="{=trans('{claimTypeName}사유')}">
+                    {@claimReason}<option value="{.key_}" data-type="{.type}">{.title}</option>{/}
+                </select>
+
+                <textarea name="claim_msg" placeholder="{=trans('{claimTypeName}사유를 입력해주세요.(최대 100자)')}" maxlength="100" id="devClaimMsg" title="{=trans('{claimTypeName}사유')}"></textarea>
+            </div>
+        </section>
+        <div class="wrap-sect"></div>
+
+        <!-- 방법 선택 -->
+        <section class="changeMethod">
+            <h3 class="fb__mypage__title">{=trans('{claimTypeName}방법')}</h3>
+            <input type="hidden" name="send_type" value="2">
+
+            <div class="changeMethod__sec wrap-delivery-info">
+                <h3 class="changeMethod__title">{=trans('{claimTypeName} 발송 방법')}</h3>
+                
+                <ul class="changeMethod__box">
+                    <li class="changeMethod__list">
+                        <label class="fb__comm__radio">
+                            <input type="radio" value="2" class="blind devSendTypeCls" id="send_type_2" name="sendType" data-type="2" checked>
+                            <span>{=trans('지정택배 방문 요청')} <em>({=trans('판매사와 계약된 택배업체에서 방문수령 수거')})</em></span>
+                        </label>
+                    </li>
+
+                    <li class="changeMethod__list">
+                        <label class="fb__comm__radio">
+                            <input type="radio" value="1" class="blind devSendTypeCls" id="send_type_1" name="sendType" data-type="1">
+                            <span>{=trans('직접발송')} <em>({=trans('구매자께서 개별로 상품을 이미 발송한 경우')})</em></span>
+                        </label>
+                    </li>
+                </ul>
+                
+                <!-- 직접발송 -->
+                <div class="changeMethod__inner active" id="devDirectDelivery" style="display: none;">
+                    <h3 class="changeMethod__title">{=trans('{claimTypeName} 발송 정보')}</h3>
+                    <input type="hidden" name="quick_info" value="">
+
+                    <ul class="changeMethod__box">
+                        <li class="changeMethod__list">
+                            <label class="fb__comm__radio">
+                                <input type="radio" value="2" class="blind devSelectDeliveryInfo" id="devSelectDeliveryInfo2" name="deliveryInfo" data-type="2" checked>
+                                <span>{=trans('배송업체 정보 입력 안함')}</span>
+                            </label>
+                        </li>
+
+                        <li class="changeMethod__list">
+                            <label class="fb__comm__radio">
+                                <input type="radio" value="1" class="blind devSelectDeliveryInfo" id="devSelectDeliveryInfo1" name="deliveryInfo" data-type="1">
+                                <span>{=trans('배송업체 정보 입력')}</span>
+                            </label>
+                        </li>
+                    </ul>
+    
+                    <!-- 발송정보 show/hide -->
+                    <div id="devDeliveryInfo" class="active mat40" style="display: none;">
+                        <select name="quick" id="devQuick" class="devClaimDeliveryCls" title="{=trans('배송업체')}">
+                            <option value="">{=trans('배송업체 선택')}</option>
+                            {@ deliveryCompany}<option value="{.key_}">{.name}</option>{/}
+                        </select>
+                        <input type="text" name="invoice_no" id="devInvoiceNo" class="mat20 devClaimDeliveryCls" placeholder="{=trans('송장번호 입력')}" title="{=trans('송장번호')}">
+                    </div>
+    
+                    <div class="changeMethod__inner">
+                        <h3 class="changeMethod__title">{=trans('상품발송 시 배송비')}</h3>
+                        <input type="hidden" name="delivery_pay_type" value="1">
+
+                        <ul class="changeMethod__box">
+                            <li class="changeMethod__list">
+                                <label class="fb__comm__radio">
+                                    <input type="radio" value="2" class="blind devPayType" id="devPayType1" name="payType" data-type="1" checked>
+                                    <span>{=trans('선불')}</span>
+                                </label>
+                            </li>
+
+                            <li class="changeMethod__list">
+                                <label class="fb__comm__radio">
+                                    <input type="radio" value="1" class="blind devPayType" id="devPayType2" name="payType" data-type="2">
+                                    <span>{=trans('착불')}</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 지정택배 방문 요청 -->
+                <div class="wrap-input-form addressForm changeMethod__inner">
+                    <h3 class="changeMethod__title">{=trans('상품 수거지 주소')}</h3>
+    
+                    <!-- 받는분 -->
+                    <dl>
+                        <dt>{=trans('이름')} <em></em></dt>
+                        <dd>
+                            <input type="text" name="cname" id="devRname" title="{=trans('받으실분 이름')}" value="{deliveryInfo.rname}">
+                        </dd>
+                    </dl>
+
+                    <!-- 주소 -->
+                    <dl>
+                        <dt>{=trans('주소')} <em></em></dt>
+                        <dd>
+                            <div class="fb__input__address">
+                                <div class="fb__input__address--zipCode">
+                                    <input type="text" name="czip" id="devClaim1Zip" readonly title="{=trans('수거지 우편번호')}" value="{deliveryInfo.zip}">
+                                    <button type="button" id="devClaim1ZipPopupButton">{=trans('주소찾기')}</button>
+                                </div>
+
+                                <input type="text" class="fb__input__address--01" name="caddr1" id="devClaim1Address1"  readonly title="{=trans('수거지 주소')}" value="{deliveryInfo.addr1}">
+                                <input type="text" class="fb__input__address--02" name="caddr2" id="devClaim1Address2" title="{=trans('수거지 상세주소')}" value="{deliveryInfo.addr2}">
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!-- 휴대폰 번호 -->
+                    <dl>
+                        <dt>{=trans('휴대폰 번호')} <em></em></dt>
+                        <dd>
+                            <div class="fb__input__phone">
+                                <select name="rmobile1" id="devCmobile1" class="fb__input__phone--01">
+                                    <option value="010" {? deliveryInfo.rm1 == '010'}selected{/}>010</option>
+                                    <option value="011" {? deliveryInfo.rm1 == '011'}selected{/}>011</option>
+                                    <option value="016" {? deliveryInfo.rm1 == '016'}selected{/}>016</option>
+                                    <option value="017" {? deliveryInfo.rm1 == '017'}selected{/}>017</option>
+                                    <option value="018" {? deliveryInfo.rm1 == '018'}selected{/}>018</option>
+                                    <option value="019" {? deliveryInfo.rm1 == '019'}selected{/}>019</option>
+                                </select>
+
+                                <div class="fb__input__phone--box">
+                                    <input class="fb__input__phone--02 js__input--onlyNumber" type="number" name="cmobile2" id="devCmobile2" value="{deliveryInfo.rm2}" title="{=trans('받으실분 휴대폰번호 가운데자리')}">
+                                    <span class="dash"></span>
+                                    <input class="fb__input__phone--03 js__input--onlyNumber" type="number"  name="cmobile3" id="devCmobile3" value="{deliveryInfo.rm3}" title="{=trans('받으실분 휴대폰번호 끝자리')}">
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!--배송요청사항-->
+                    <dl class="delivery-desc">
+                        <dt>{=trans('배송요청사항')} </dt>
+                        <dd>
+                            <div class="delivery__request__cont devDeliveryMessageContents">
+                                <select class="devDeliveryMessageSelectBox" name="cmsg_select">
+                                    <option value="">{=trans('배송요청사항 선택')}</option>
+                                    <option value="door">{=trans('문 앞에 놓아주세요.')}</option>
+                                    <option>{=trans('배송 전에 미리 연락 바랍니다.')}</option>
+                                    <option>{=trans('부재 시 경비실에 맡겨주세요.')}</option>
+                                    <option>{=trans('부재 시 전화주시거나 문자 남겨 주세요.')}</option>
+                                    <option value="direct">{=trans('직접입력')}</option>
+                                </select>
+
+                                <div class="delivery-request__write devDeliveryMessageDirectContents" style="display: none;">
+                                    <input type="text" class="devDeliveryMessage" name="cmsg" maxlength="30" data-type="direct" placeholder="{=trans('배송 메세지를 입력해주세요. (30자 이내)')}">
+                                </div>
+
+                                <div class="delivery-request__write devDeliveryMessageDoorContents" style="display: none;">
+                                    <select class="devDeliveryEntranceWay" name="cdoor_select">
+                                        <option value="">{=trans('공동현관 출입방법 선택')}</option>
+                                        <option value="door">{=trans('공동현관 출입번호')}</option>
+                                        <option>{=trans('경비실 호출')}</option>
+                                        <option>{=trans('비밀번호 없이 출입가능')}</option>
+                                        <option value="direct">{=trans('직접입력')}</option>
+                                    </select>
+
+                                    <div class="delivery-request__write devDeliveryEntranceWayMessageWrap" style="display: none;">
+                                        <input type="text" name="cdoor_msg" class="devDoorMessage" placeholder="{=trans('예) #101(호수) + #0000(비밀번호)')}" maxlength="30" data-type="door">
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+
+                {? claimType == 'change'}
+                <div class="wrap-input-form address changeMethod__inner">
+                    <h3 class="changeMethod__title">{=trans('{claimTypeName}상품 받으실 주소')}<span>({=trans('구매자 주소지')})</span></h3>
+    
+                    <!-- 받는분 -->
+                    <dl>
+                        <dt>{=trans('이름')} <em></em></dt>
+                        <dd>
+                            <input type="text" name="rname" id="devRname" title="{=trans('받으실분 이름')}" value="{deliveryInfo.rname}">
+                        </dd>
+                    </dl>
+
+                    <!-- 주소 -->
+                    <dl>
+                        <dt>{=trans('주소')} <em></em></dt>
+                        <dd>
+                            <div class="fb__input__address">
+                                <div class="fb__input__address--zipCode">
+                                    <input type="text" name="rzip" id="devClaim2Zip" readonly title="{=trans('받으실곳 우편번호')}" value="{deliveryInfo.zip}">
+                                    <button type="button" id="devClaim2ZipPopupButton">{=trans('주소찾기')}</button>
+                                </div>
+                                <input type="text" class="fb__input__address--01" name="raddr1" id="devClaim2Address1" title="{=trans('받으실 곳 주소')}" value="{deliveryInfo.addr1}" readonly>
+                                <input type="text" class="fb__input__address--02" name="raddr2" id="devClaim2Address2" title="{=trans('받으실곳 상세주소')}" value="{deliveryInfo.addr2}">
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!-- 휴대폰 번호 -->
+                    <dl>
+                        <dt>{=trans('휴대폰 번호')} <em></em></dt>
+                        <dd>
+                            <div class="fb__input__phone">
+                                <select name="rmobile1" id="devRmobile1" class="fb__input__phone--01">
+                                    <option value="010" {? deliveryInfo.rm1 == '010'}selected{/}>010</option>
+                                    <option value="011" {? deliveryInfo.rm1 == '011'}selected{/}>011</option>
+                                    <option value="016" {? deliveryInfo.rm1 == '016'}selected{/}>016</option>
+                                    <option value="017" {? deliveryInfo.rm1 == '017'}selected{/}>017</option>
+                                    <option value="018" {? deliveryInfo.rm1 == '018'}selected{/}>018</option>
+                                    <option value="019" {? deliveryInfo.rm1 == '019'}selected{/}>019</option>
+                                </select>
+
+                                <div class="fb__input__phone--box">
+                                    <input class="fb__input__phone--02 js__input--onlyNumber" type="number" name="rmobile2" id="devRmobile2" value="{deliveryInfo.rm2}" title="{=trans('받으실분 휴대폰번호 가운데자리')}">
+                                    <span class="dash"></span>
+                                    <input class="fb__input__phone--03 js__input--onlyNumber" type="number"  name="rmobile3" id="devRmobile3" value="{deliveryInfo.rm3}" title="{=trans('받으실분 휴대폰번호
+                                    끝자리')}">
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>{=trans('배송요청사항')} </dt>
+                        <dd>
+                            <div class="delivery__request__cont devDeliveryMessageContents">
+                                <select class="devDeliveryMessageSelectBox" name="rmsg_select">
+                                    <option value="">{=trans('배송요청사항 선택')}</option>
+                                    <option value="door">{=trans('문 앞에 놓아주세요.')}</option>
+                                    <option>{=trans('배송 전에 미리 연락 바랍니다.')}</option>
+                                    <option>{=trans('부재 시 경비실에 맡겨주세요.')}</option>
+                                    <option>{=trans('부재 시 전화주시거나 문자 남겨 주세요.')}</option>
+                                    <option value="direct">{=trans('직접입력')}</option>
+                                </select>
+
+                                <div class="delivery-request__write devDeliveryMessageDirectContents" style="display: none;">
+                                    <input type="text" class="devDeliveryMessage" name="rmsg" maxlength="30" data-type="direct" placeholder="{=trans('배송 메세지를 입력해주세요. (30자 이내)')}">
+                                </div>
+
+                                <div class="delivery-request__write devDeliveryMessageDoorContents" style="display: none;">
+                                    <select class="devDeliveryEntranceWay" name="rdoor_select">
+                                        <option value="">{=trans('공동현관 출입방법 선택')}</option>
+                                        <option value="door">{=trans('공동현관 출입번호')}</option>
+                                        <option>{=trans('경비실 호출')}</option>
+                                        <option>{=trans('비밀번호 없이 출입가능')}</option>
+                                        <option value="direct">{=trans('직접입력')}</option>
+                                    </select>
+
+                                    <div class="delivery-request__write devDeliveryEntranceWayMessageWrap" style="display: none;">
+                                        <input type="text" name="rdoor_msg" class="devDoorMessage" placeholder="{=trans('예) #101(호수) + #0000(비밀번호)')}" maxlength="30" data-type="door">
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                {/}
+            </div>
+        </section>
+        <div class="wrap-sect"></div>
+    </form>
+</main>

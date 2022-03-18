@@ -1,0 +1,121 @@
+<section class="fb__menusubmit">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">결제모듈 이니시스(Standard)</h3>
+    </header>
+
+    <section class="fb-filter">
+        <table>
+            <caption></caption>
+            <colgroup>
+                <col width="14%">
+                <col width="35%">
+                <col width="14%">
+                <col width="*">
+            </colgroup>
+            <tbody>
+                <tr> <!-- 라디오 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            서비스타입
+                        </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="service_type" value="test" {?
+                                       config.service_type== 'test' || !config.service_type } checked {/} >
+                                <span>TEST</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="service_type" value="service" {?
+                                       config.service_type== 'service' } checked {/} >
+                                <span>SERVICE</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="typeTest" {? config.service_type== 'service' } style="display:none;" {/}>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            가맹점 ID
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="test_mid" value="{config.test_mid}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사인키
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="test_service_key"
+                                   value="{config.test_service_key}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            취소 비밀번호
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="password" class="fb-filter__text" name="test_cancel_pwd"
+                                   value="{config.test_cancel_pwd}">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="typeService" {? config.service_type== 'test' || !config.service_type } style="display:none;" {/}>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            가맹점 ID
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="mid" value="{config.mid}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사인키
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="service_key"
+                                   value="{config.service_key}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            취소 비밀번호
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="password" class="fb-filter__text" name="cancel_pwd"
+                                   value="{config.cancel_pwd}">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</section>

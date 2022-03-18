@@ -1,0 +1,150 @@
+<section class="fb__mypage fb__mypage-coupon wrap-mypage">
+    <h3 class="fb__title--hidden">{=trans('마이페이지 쿠폰')}</h3>
+
+    <!-- 마이페이지 쿠폰(탑) -->
+    <section class="fb__mypage__section br__mypage-coupon__input registration">
+        <h2 class="fb__mypage__title-top">{=trans('쿠폰')}</h2>
+
+        <div class="coupon__wrapper">
+            <!-- 사용가능 쿠폰 -->
+            <div class="coupon__box coupon__use">
+                <p class="coupon__tit">{=trans('사용 가능 쿠폰')}</p>
+                <span class="coupon__count">{=g_number_format(mypage.couponCnt)}</span>
+            </div>
+
+            <!-- 쿠폰 등록하기 -->
+            <form class="coupon__box registration" id="devInputCoupon">
+                <div class="registration__area">
+                    <p class="tit registration__title">{=trans('쿠폰 등록하기')}</p>
+                    <input type="text" name="coupon_num" class="registration__number" id="devCouponNum" title="{=trans('쿠폰번호')}" placeholder="{=trans('하이픈(-)없이 숫자만 입력해 주세요.')}">
+                    <button type="submit" id="devSubmitBtn" class="btn-default btn-point registration__btn--submit">{=trans('등록')}</button>
+                </div>
+                <p class="registration__desc registration__desc--fail" id="devInputFail" style="display: none;">{=trans('잘못 입력되거나 존재하지 않는 쿠폰 번호입니다.')}</p>
+                <p class="desc registration__desc">{=trans('오프라인 쿠폰, 메일, 모바일 등에서 받으신 쿠폰 번호를 입력해서 등록하실 수 있습니다.')}</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- 쿠폰내역 -->
+    <section class="fb__mypage__section mypage-coupon">
+        <h2 class="fb__mypage__title">{=trans('쿠폰 내역')}</h2>
+        <div class="tab-control">
+            <ul class="tab-link tab-link--2">
+                <li class="tab-menu tab1 active">
+                    <a href="#tab1">{=trans('사용가능 쿠폰')}</a>
+                </li>
+
+                <li class="tab-menu tab2">
+                    <a href="#tab2">{=trans('사용완료 쿠폰')}</a>
+                </li>
+            </ul>
+
+            <div class="tab-contents coupon">
+                <div id="tab1" class="tab active">
+                    <form id="devListForm">
+                        <input type="hidden" name="page" value="1" id="devPage">
+                        <input type="hidden" name="max" value="10">
+                        <input type="hidden" name="couponUseYn" value="1" id="devCouponUse">
+                    </form>
+
+                    <table class="table-default coupon-table">
+                        <colgroup>
+                            <col style="width: 380px;">
+                            <col style="width: 160px;">
+                            <col style="width: 160px;">
+                            <col style="width: 180px;">
+                            <col style="width: 180px;">
+                        </colgroup>
+
+                        <thead>
+                            <th>{=trans('쿠폰명')}</th>
+                            <th>{=trans('할인액/할인율')}</th>
+                            <th>{=trans('사용기간')}</th>
+                            <th>{=trans('사용조건')}</th>
+                            <th id="devUseAbleTitleTxt">{=trans('사용여부')}</th>
+                            <th>{=trans('적용대상')}</th>
+                        </thead>
+
+                        
+                        <tbody id="devListContents">
+                            <tr id="devListDetail" class="devForbizTpl">
+                                <td class="txt-l">
+                                    <strong>
+                                        {[cupon_div_text]}
+                                        {[publish_name]}
+                                    </strong>
+                                </td>
+                                <td class="coupon__discount">
+                                    <em>{[cupon_sale_value]}</em>
+                                    {[#if cupon_sale_type_percent]}
+                                    <span class="coupon__discount__unit">%</span>
+                                    {[else]}
+                                    <span class="coupon__discount__unit">{=trans('원')}</span>
+                                    {[/if]}
+                                </td>
+                                <td>
+                                    {[#if isUseDateLimit]}
+                                    {[regist_start]}<br>
+                                    ~ {[regist_end]}
+                                    {[else]}
+                                    {=trans('제한 없음')}
+                                    {[/if]}
+                                </td>
+                                <td>
+                                    {[#if isUsePriceAllLimit]}
+                                        {=trans('제한조건 없음')}
+                                    {[else]}
+                                        {[#if isUsePriceLimit]}
+                                            {=trans('{[publish_condition_price]}원 이상 구매시')}
+                                        {[else]}
+                                            {[#if isUsePriceUpLimit]}{[else]}
+                                                {=trans('최소구매 제한조건 없음')}
+                                            {[/if]}
+                                        {[/if]}
+                                        <br>
+                                        {[#if isUsePriceUpLimit]}
+                                            {=trans('최대 {[publish_limit_price]}원 할인')}
+                                        {[else]}
+                                            {[#if isUsePriceLimit]}{[else]}
+                                                {=trans('최대할인 제한조건 없음')}
+                                            {[/if]}
+                                        {[/if]}
+                                    {[/if]}
+                                </td>
+                                <td>
+                                    {[isUseYnTxt]}
+                                </td>
+                                <td>
+                                    {[#if isUseProductType]}
+                                    {=trans('전체상품 적용')}
+                                    {[else]}
+                                    <a href="javascript:void(0)" class="coupon__btn--target btn-apply-item" devRegistix="{[regist_ix]}">{=trans('적용대상 확인')}</a>
+                                    {[/if]}
+                                </td>
+                            </tr>
+
+                            <tr id="devListLoading" class="devForbizTpl">
+                                <td colspan="6">
+                                    <div class="fb__loading">
+                                        <div class="fb__loading__icon"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr id="devListEmpty" class="devForbizTpl">
+                                <td colspan="6" class="fb__empty">
+                                    <p class="fb__empty__text">{=trans('쿠폰 내역이 없습니다.')}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="devPageWrap" class="fb__bbs__page"></div>
+                </div>
+                
+                <div id="tab2" class="tab">
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

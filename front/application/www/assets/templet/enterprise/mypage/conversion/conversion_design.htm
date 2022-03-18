@@ -1,0 +1,305 @@
+<!-- step 확인용 -->
+<ul class="conversion__nav">
+    <li>
+        <button data-id="data1">{=trans('승인 대기')}</button>
+    </li>
+    <li>
+        <button data-id="data2">{=trans('승인 신청')}</button>
+    </li>
+    <li>
+        <button data-id="data3">{=trans('승인 거부')}</button>
+    </li>
+    <li>
+        <button data-id="data4">{=trans('승인 완료')}</button>
+    </li>
+</ul>
+
+<section class="sect" id="procedure">
+    <p class="sect__title">{=trans('셀러회원 전환 가입 절차')}</p>
+
+    <ul class="step">
+        <li class="step__list input">
+            <span class="step__list__tit"><em class="step__list__num">01</em> {=trans('약관동의 및 정보입력')}</span>
+            <span class="step__list__desc">{=trans('판매활동에 필요한<br>약관동의와 추가 정보 입력')}</span>
+        </li>
+
+        <li class="step__list apply">
+            <span class="step__list__tit"><em class="step__list__num">02</em> {=trans('전환신청')}</span>
+            <span class="step__list__desc">{=trans('셀러회원으로 전환 신청')}</span>
+        </li>
+
+        <li class="step__list check">
+            <span class="step__list__tit"><em class="step__list__num">03</em> {=trans('전환검토')}</span>
+            <span class="step__list__desc">{=trans('셀러회원 전환 승인 검토')}</span>
+        </li>
+        
+        <li class="step__list done">
+            <span class="step__list__tit"><em class="step__list__num">04</em> {=trans('셀러회원 전환 승인완료')}</span>
+            <span class="step__list__desc">{=trans('상품등록 및 판매활동 가능')}</span>
+        </li>
+    </ul>
+</section>
+
+<!-- 승인 대기 -->
+<section class="sect state-area" id="data1">
+    <p class="sect__title">{=trans('전환신청 상태')}</p>
+
+    <div class="state sect__inner">
+        <dl class="state__row">
+            <dt class="state__title">{=trans('상태')}</dt>
+
+            <!-- 노출 Case : 승인대기 -->
+            <dd class="state__cont">{=trans('승인대기(검토중)')}</dd>
+        </dl>
+
+        <dl class="state__row">
+            <dt class="state__title">{=trans('전환 신청일시')}</dt>
+            <dd class="state__cont">2020.12.30 14:30:33</dd>
+        </dl>
+    </div>
+
+    <ul class="state-desc">
+        <li class="state-desc__list">{=trans('셀러회원 전환 승인완료 혹은 승인거부 된 경우 회원가입 시 입력한 담당자 이메일로 안내 메일이 전송됩니다.')}</li>
+        <li class="state-desc__list">{=trans('셀러회원 전환 관련 문의는 <em>고객센터 1588-1600</em>로 문의해주세요.')}</li>
+    </ul>
+</section>
+
+<!-- 회원 전환 신청 -->
+<section class="sect state-area" id="data2">
+    <section class="sect">
+        <p class="sect__title">{=trans('필수 동의 항목')}</p>
+        
+        <form id="devForm" class="form-box sect__inner">
+            <dl class="box">
+                <dt class="box__title">
+                    <span class="requiredMark">{=trans('판매 이용약관')}</span>
+                </dt>
+                <dd class="box__cont">
+                    <div class="terms-content" style="display: block;">
+                        {policyData['use']['contents']}
+                    </div>
+
+                    <div class="fb__checkbox">
+                        <label for="agree-term1" class="agree-area">
+                            <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
+                            <span>
+                                {=trans('동의')}
+                            </span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+            <div class="agree-area">
+            </div>
+        </form>
+    </section>
+
+    <section class="sect">
+        <p class="sect__title">{=trans('추가 정보 입력')}</p>
+
+        <form action="" class="inputInfo sect__inner">
+            <!-- 사업자 유형 -->
+            <dl class="box">
+                <dt class="box__title">
+                    <span class="requiredMark">{=trans('사업자 유형')}</span>
+                </dt>
+                <dd class="box__cont business-type">
+                    <label class="fb__radio">
+                        <input type="radio" name="businessType">
+                        <span class="fb__radio__text">{=trans('개인사업자')}</span>
+                    </label>
+
+                    <label class="fb__radio">
+                        <input type="radio" name="businessType">
+                        <span class="fb__radio__text">{=trans('법인사업자')}</span>
+                    </label>
+
+                    <label class="fb__radio">
+                        <input type="radio" name="businessType">
+                        <span class="fb__radio__text">{=trans('간이과세자')}</span>
+                    </label>
+
+                    <label class="fb__radio">
+                        <input type="radio" name="businessType">
+                        <span class="fb__radio__text">{=trans('면세사업자')}</span>
+                    </label>
+                </dd>
+            </dl>
+
+            <!-- 예금주 -->
+            <dl class="box">
+                <dt class="box__title">
+                    <span class="requiredMark">{=trans('예금주')}</span>
+                </dt>
+                <dd class="box__cont">
+                    <input type="text" value="">
+                </dd>
+            </dl>
+
+            <!-- 은행명 -->
+            <dl class="box">
+                <dt class="box__title">
+                    <span class="requiredMark">{=trans('은행명')}</span>
+                </dt>
+                <dd class="box__cont">
+                    <select>
+                        <option value="">{=trans('선택')}</option>
+                        <option value="">{=trans('우리은행')}</option>
+                        <option value="">{=trans('기업은행')}</option>
+                        <option value="">{=trans('신한은행')}</option>
+                        <option value="">{=trans('국민은행')}</option>
+                    </select>
+                </dd>
+            </dl>
+
+            <!-- 계좌번호 -->
+            <dl class="box">
+                <dt class="box__title">
+                    <span class="requiredMark">{=trans('계좌번호')}</span>
+                </dt>
+                <dd class="box__cont">
+                    <input type="text" value="">
+                </dd>
+            </dl>
+
+            <!-- 계약정보 서류첨부 -->
+            <dl class="box license-info">
+                <dt class="box__title">
+                    <span class="requiredMark">{=trans('계약정보 서류첨부')}</span>
+                </dt>
+                <dd class="box__cont wrap-license-upload">
+
+                    <div id="devBusinessFileWrap">
+                        <input type="file" name="businessFile" id="devBusinessFile" style="display: none;" title="{=trans('사업자등록증')}" accept="image/*">
+                        <input type="text" class="pub-input-text" style="width: 500px;" id="devBusinessFileText" readonly>
+                        <button type="button" class="btn-default btn-dark mal10" id="devBusinessFileButton">{=trans('파일찾기')}</button>
+                        <button type="button" class="btn-default btn-dark mal10" id="devBusinessFileDeleteButton" style="display: none;">{=trans('파일삭제')}</button>
+                    </div>
+
+                    <div class="upload-img-area" id="devBusinessFileImageWrap" style="display: none;">
+                        <img id="devBusinessFileImage">
+                        <span class="upload-cancel-btn" id="devBusinessFileDeleteButton"></span>
+                    </div>
+
+                    <ul class="desc">
+                        <li class="desc__list">{=trans('파일 형식은 이미지 파일(jpg, jpeg, gif, png)로 제출 가능합니다.')}</li>
+                        <li class="desc__list">
+                            {=trans('첨부하실 서류가 1개 이상인 경우에는 별도 이메일 주소로 추가 전달 가능합니다.(담당자 이메일 : forbiz@forbiz.co.kr)')}
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </form>
+    </section>
+
+    <div class="wrap-btn-area">
+        <button class="btn-lg btn-point-line">{=trans('취소')}</button>
+        <button class="btn-lg btn-point">{=trans('전환신청')}</button>
+    </div>
+</section>
+
+<!-- 승인 거부 -->
+<section class="sect state-area" id="data3">
+    <p class="sect__title">{=trans('전환신청 상태')}</p>
+
+    <div class="state sect__inner">
+        <dl class="state__row">
+            <dt class="state__title">{=trans('상태')}</dt>
+            <!-- 노출 Case : 승인거부 -->
+            <dd class="state__cont">{=trans('승인거부')}</dd>
+        </dl>
+
+        <dl class="state__row">
+            <dt class="state__title">{=trans('전환 신청일시')}</dt>
+            <dd class="state__cont">2020.12.30 14:30:33</dd>
+        </dl>
+
+        <!-- 노출 Case : 승인거부 -->
+        <dl class="state__row">
+            <dt class="state__title">{=trans('전환 거부일시')}</dt>
+            <dd class="state__cont">2020.12.30 14:30:33</dd>
+        </dl>
+        <dl class="state__row">
+            <dt class="state__title">{=trans('거부사유')}</dt>
+            <dd class="state__cont">
+                {=trans('올바르지 않은 서류 첨부로 인해 셀러회원 전환 신청이 거부되었습니다.')}
+            </dd>
+        </dl>
+    </div>
+
+    <ul class="state-desc">
+        <li class="state-desc__list">
+            {=trans('셀러회원 전환 승인완료 혹은 승인거부 된 경우 회원가입 시 입력한 담당자 이메일로 안내 메일이 전송됩니다.')}
+        </li>
+        <li class="state-desc__list">{=trans('셀러회원 전환 관련 문의는 <em>고객센터 1588-1600</em>로 문의해주세요.')}</li>
+    </ul>
+</section>
+
+<!-- 노출 Case : 승인완료 -->
+<section class="sect state-area" id="data4">
+    <section class="sect success">
+        <h2 class="tit">{=trans('<strong>포비즈코리아</strong>님은 현재 <span class="color-point">셀러회원</span>입니다.')}</h2>
+        <p class="txt">
+            {=trans('셀러회원은 상품을 등록하여 상품 판매활동이 가능합니다.<br>다양한 상품을 등록하여 판매해 보세요!<br><br>단, 셀러회원 본인이 등록한 상품은 구매할 수 없습니다.')}
+        </p>
+    </section>
+
+    <section class="sect sect-area">
+        <p class="sect__title">{=trans('전환신청 상태')}</p>
+
+        <div class="state sect__inner">
+            <dl class="state__row">
+                <dt class="state__title">{=trans('상태')}</dt>
+                <!-- 노출 Case : 승인완료 -->
+                <dd class="state__cont">{=trans('승인완료')}</dd>
+            </dl>
+
+            <dl class="state__row">
+                <dt class="state__title">{=trans('전환 신청일시')}</dt>
+                <dd class="state__cont">2020.12.30 14:30:33</dd>
+            </dl>
+
+            <!-- 노출 Case : 승인완료 -->
+            <dl class="state__row">
+                <dt class="state__title">{=trans('전환 승인일시')}</dt>
+                <dd class="state__cont">2020.12.30 14:30:33</dd>
+            </dl>
+        </div>
+
+        <ul class="state-desc">
+            <li class="state-desc__list">{=trans('셀러회원 전환 관련 문의는 <em>고객센터 1588-1600</em>로 문의해주세요.')}</li>
+        </ul>
+    </section>
+</section>
+
+<style>
+    .conversion__nav {
+        display: flex;
+        margin-bottom: 50px;
+    }
+
+    .state-area {
+        display: none;
+    }
+    
+</style>
+
+<script>
+    $(function(){
+        $('section#data1').css('display','block');
+
+        $('button[data-id]').on('click',function(e) {
+            const id = e.target.dataset.id;
+
+            $('section.state-area').css('display', 'none');
+            $('#' + id).css('display','block');
+
+            if (id != 'data4') {
+                $("#procedure").css('display', 'block');
+            }
+            else {
+                $("#procedure").css('display', 'none');
+            }
+        })
+    })
+</script>

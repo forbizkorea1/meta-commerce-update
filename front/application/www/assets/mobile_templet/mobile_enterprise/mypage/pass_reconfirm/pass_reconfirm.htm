@@ -1,0 +1,20 @@
+<!-- @회원정보 수정 / 회원탈퇴 동일 페이지를 사용해서 아래와 같이 js로 분기처리시킴 -->
+<script>
+    var title = "{? passReconfirmType == 'profile'}{=trans('회원정보 수정')}{:}{=trans('회원탈퇴')}{/}";
+    $(".page-name").text(title);
+</script>
+
+<div class="wrap-mypage">
+    <div class="wrap-profile-intro">
+        <form id="devRevalidatePasswordForm">
+            <h2>{=trans('비밀번호 재확인')}</h2>
+            <p class="desc">{=trans('고객님의 개인정보 보호를 위해<br> 비밀번호를 다시 입력해주시기 바랍니다.')}</p>
+
+            <input type="password" name="pass" value="" id="devUserPassword" title="{=trans('비밀번호')}" placeholder="{=trans('비밀번호를 입력해 주세요.')}">
+
+            <div class="wrap-btn-area">
+                <input type="submit" value="{=trans('확인')}" title="{=trans('확인')}" class="btn-lg btn-point" id="devPasswordSubmit">
+            </div>
+        </form>
+    </div>
+</div>

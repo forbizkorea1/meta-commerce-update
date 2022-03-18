@@ -1,0 +1,85 @@
+<div class="wrap-mypage inquiryDetail">
+    <div class="inquiryDetail__header">
+        <div class="inquiryDetail__header__cont cont">
+            <span class="cont__title">{bbs_subject}</span>
+            <span class="cont__date">{regdate}</span>
+        </div>
+
+        {? status == '1'}
+        <span class="inquiryDetail__header__state"><em>{=trans('문의중')}</em></span>
+        {: status == '2'}
+        <span class="inquiryDetail__header__state"><em>{=trans('처리중')}</em></span>
+        {: status == '5'}
+        <span class="inquiryDetail__header__state complete"><em>{=trans('답변<br>완료')}</em></span>
+        {/}
+    </div>
+
+    <div class="inquiryDetail__main">
+        {? bbs_etc4 != ''}
+        <div class="inquiryDetail__main__order order">
+            <a href="#">
+                <div class="order__item">
+                    <figure class="order__item__thumb thumb">
+                        <img src="{productImage}">
+                    </figure>
+
+                    <div class="order__item__info info">
+                        <p class="info__num">{=trans('주문번호')} <span class="bar">{bbs_etc4}</span></p>
+                        <p class="order__item__info__brand">{brandName}</p>
+                        {productName}
+                    </div>
+                </div>
+            </a>
+        </div>
+        {/}
+
+        <div class="inquiryDetail__main__cont cont">
+            <div class="cont__question">
+                <div class="cont__question__detail">{=nl2br(bbs_contents)}</div>
+    
+                <div>
+                    {? org_file_name1 != ''}
+                    <!--파일링크 추가 필요-->
+                        <div class="addFile">
+                            <a href="javascript:void(0);" data-href="/download/{bbs_file_1}" class="devAppDwn" data-encoded="{bbs_file_1_encode}">{=trans('첨부이미지')} : {org_file_name1}</a>
+                        </div>
+                    {/}
+        
+                    {? org_file_name2 != ''}
+                    <!--파일링크 추가 필요-->
+                        <div class="addFile">
+                            <a href="javascript:void(0);" data-href="/download/{bbs_file_2}" class="devAppDwn" data-encoded="{bbs_file_2_encode}">{=trans('첨부이미지')} : {org_file_name2}</a>
+                        </div>
+                    {/}
+        
+                    {? org_file_name3 != ''}
+                    <!--파일링크 추가 필요-->
+                        <div class="addFile">
+                            <a href="javascript:void(0);" data-href="/download/{bbs_file_3}" class="devAppDwn" data-encoded="{bbs_file_3_encode}">{=trans('첨부이미지')} : {org_file_name3}</a>
+                        </div>
+                    {/}
+                </div>
+            </div>
+
+            <div>
+                {@ cInfo}
+                <div class="cont__answer">
+                    <div class="cont__answer__detail">{=nl2br(.cmt_contents)}</div>
+                    <div class="cont__answer__info info">
+                        <span class="info__name">{.cmt_name}</span>
+                        <span class="info__date">{.regdate}</span>
+                    </div>
+                </div>
+                {/}
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap-btn-area list">
+        <button class="btn-default btn-point-line" onclick="history.back()">{=trans('목록')}</button>
+    </div>
+</div>
+
+<script>
+    var appType = '{layoutCommon.appType}'
+</script>

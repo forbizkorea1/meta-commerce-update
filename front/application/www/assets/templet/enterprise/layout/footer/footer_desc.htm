@@ -1,0 +1,55 @@
+<div class="fb__footer__desc">
+	<div class="footer__sns">
+		<ul class="footer__sns__box">
+			<li class="footer__sns__list">
+				<a href="#"><img src="{layoutCommon.templetSrc}/images/layout/ico_footer_sns-facebook.png" alt="facebook"></a>
+			</li>
+
+			<li class="footer__sns__list">
+				<a href="#"><img src="{layoutCommon.templetSrc}/images/layout/ico_footer_sns-twitter.png" alt="twitter"></a>
+			</li>
+
+			<li class="footer__sns__list">
+				<a href="#"><img src="{layoutCommon.templetSrc}/images/layout/ico_footer_sns-instagram.png" alt="instagram"></a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="footer__btm">
+		<div class="footer__info">
+			<div class="footer__info__sec">
+				<span>{companyInfo.com_name} {=trans('대표')} : {companyInfo.com_ceo}</span>
+				<span>{=trans('주소')} : {companyInfo.com_addr1} {companyInfo.com_addr2}</span>
+				<span>{=trans('사업자 등록번호')} : {companyInfo.com_number}</span>
+				<a href="javascript:void(0)" class="company__register__link" onclick="common.util.popup('http://www.ftc.go.kr/bizCommPop.do?wrkr_no={companyInfo.com_number}', 600, 650, '', true);">{=trans('사업자 정보확인')}</a>
+			</div>
+
+			<div class="footer__info__sec">
+				<span>{=trans('통신판매업신고번호')} : {companyInfo.online_business_number}</span>
+				<span>{=trans('개인정보관리책임')} : {companyInfo.officer_name}</span>
+				<span>{=trans('대표 번호')} : {companyInfo.cs_phone}</span>
+			</div>
+
+			<p class="copy">Copyrightⓒ 2021 FORBIZKOREA x NAVER Cloud CO.LTD.</p>
+		</div>
+
+		<div class="footer__customer">
+			<div class="footer__customer__phone">
+				{=trans('고객센터')} <em>{companyInfo.cs_phone}</em>
+				<a href="/customer">{=trans('바로가기')}</a>
+			</div>
+			<span class="footer__customer__txt footer__customer__time">{=nl2br(companyInfo.opening_time)}</span>
+			<span class="footer__customer__txt footer__customer__email">{=trans('이메일 문의')} <a href="mailto:{companyInfo.com_email}">{companyInfo.com_email}</a></span>
+		</div>
+	</div>
+</div>
+
+
+{? talktalk_use_type == 'Y'}
+<div class="pub-talktalk">
+	<button type="button" class="pub-talktalk__btn btn-talktalk">{=trans('네이버톡톡')}</button>
+	<div class="pub-talktalk__wrap">
+		{talktalk_script}
+	</div>
+</div>
+{/}

@@ -1,0 +1,424 @@
+<section class="fb__main">
+    <h2 class="fb__title--hidden">{=trans('메인 페이지')}</h2>
+
+    <!-- keyvisual -->
+    {? mainBanner}
+    <section class="fb__main__visual">
+        <h3 class="fb__title--hidden">
+            {=trans('메인슬라이더')}
+        </h3>
+
+        <div class="visual">
+            <div class="visual__slider swiper-container">
+                <ul class="visual__inner swiper-wrapper">
+                    {@ mainBanner}
+                    <li class="visual__item swiper-slide">
+                        <a href="{.bd_link}" class="visual__link">
+                            <figure class="visual__image">
+                                <img src="{.imgSrc}" alt="{.banner_name}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                            </figure>
+                        </a>
+                    </li>
+                    {/}
+                </ul>
+
+                <nav class="visual__controler js__slider__nav">
+                    <nav class="controler__btn">
+                        <button class="controler__btn--prev" type="button">{=trans('이전')}</button>
+                        <button class="controler__btn--next" type="button">{=trans('다음')}</button>
+                    </nav>
+
+                    <span class="controler__pagination">
+                        <em class="controler__pagination--current">1</em>
+                        <em>/</em>
+                        <em class="controler__pagination--total">5</em>
+                    </span>
+                </nav>
+            </div>
+        </div>
+    </section>
+    {/}
+    <!-- 신상 -->
+    {? mainWhatsNew}
+    <section class="fb__main__new fb__layout__width">
+        <header class="fb__main__header">
+            <h3 class="fb__title">NEW NOW</h3>
+            <nav class="fb__main__nav">
+                {@ mainWhatsNew.details}
+                <a href="#goodsWhatsNew" data-group_code="{.group_code}" class="{? .index_ == 0}active{/} devWhatsNewTab">{.group_name}</a>
+                {/}
+            </nav>
+        </header>
+    
+        {@ mainWhatsNew.details}
+        <div class="fb__main__inner devWhatsNew" data-group_code="{.group_code}" {? .index_ > 0} style="display: none"{/}>
+
+            <!-- 상품루프 -->
+            <ul class="fb__items listType5">
+                {? .goods}
+                    {@ .goods}
+                    <!-- 상품 한개 -->
+                    <li class="item__box">
+                        <!-- 상품링크 -->
+                        <a href="/shop/goodsView/{..id}" class="item__link" data-fatid="{..id}">
+                            <!-- 상품 상단 -->
+                            <figure class="item__thumb">
+                                <!-- 상품 이미지 -->
+                                <img data-src="{..image_src}" alt="{..pname}">
+    
+                                <button type="button" class="item__wish {? ..alreadyWish}on{/}" data-devwishbtn="{..id}">{=trans('찜버튼')}</button>
+                            </figure>
+    
+                            <!-- 상품정보 -->
+                            <div class="item__info">
+                                <!-- 브랜드 -->
+                                {? ..brand_name}
+                                <span class="item__brand">{..brand_name}</span>
+                                {/}
+                                
+                                <!-- 상품명 -->
+                                <strong class="item__name">{..pname}</strong>
+    
+                                <!-- 상품가격 -->
+                                <div class="item__price">
+                                    {? ..status == 'soldout'}
+                                        <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                    {:}
+    
+                                    {? ..discount_rate > 0}
+                                        <!-- 할인율 -->
+                                        <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                        <!-- 원가 -->
+                                        <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                    {/}
+                                    
+                                    <!-- 판매가 -->
+                                    <p class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</p>
+                                    {/}
+                                </div>
+    
+                                <!-- 상품 뱃지 -->
+                                {? ..icons}
+                                    <div class="item__badge">
+                                        {@ ..icons}
+                                            {? ...isText}
+                                                <span>{ ...content}</span>
+                                            {:}
+                                                { ...content}
+                                            {/}
+                                        {/}
+                                    </div>
+                                {/}
+                            </div>
+                        </a>
+                    </li>
+                    {/}
+                {:}
+                <li class="fb__empty">{=trans('등록되어있는 상품이 없습니다.')}</li>
+                {/}
+            </ul>
+        </div>
+        {/}
+    </section>
+    {/}
+    
+    <!-- 기획전 -->
+    {? exhibition}
+    <section class="fb__main__promotion fb__layout__width">
+        <header class="fb__main__header">
+            <h3 class="fb__title quick__title">
+                {=trans('기획전')}
+            </h3>
+            <a href="/event/promotion" class="quick__button">{=trans('바로가기')}</a>
+        </header>
+        
+        <ul class="fb__promotion__box">
+            {@ exhibition}
+                {? .index_ < 3}
+                <!-- 기획전 리스트 -->
+                <li class="fb__promotion__list">
+                    <a href="/event/eventDetail/{.event_ix}" class="fb__promotion__link">
+                        <figure class="fb__promotion__image">
+                            <img src="{.imgPath}" alt="{.event_title}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                        </figure>
+
+                        <div class="fb__promotion__info">
+                            <p class="fb__promotion__name">{.event_title}</p>
+                            <p class="fb__promotion__desc">{.manage_title}</p>
+                        </div>
+                    </a>
+
+                    <!-- 아이템 : 카드형 -->
+                    <ul class="fb__items cardType">
+                        {? !empty(.productInfo)}
+                            {@ .productInfo}
+                                <!-- 아이템 -->
+                                <li class="item__box">
+                                    <a href="/shop/goodsView/{..id}" class="item__link">
+                                        <!-- 아이템 사진 -->
+                                        <figure class="item__thumb">
+                                            <img data-src="{..image_src}" alt="{..pname}">
+                                        </figure>
+
+                                        <!-- 아이템 정보 -->
+                                        <div class="item__info">
+                                            <!-- 브랜드 -->
+                                            {? ..brand_name}
+                                            <span class="item__brand">{..brand_name}</span>
+                                            {/}
+
+                                            <!-- 상품명 -->
+                                            <strong class="item__name">{..pname}</strong>
+                                            
+                                            <div class="item__price">
+                                                {? ..status != 'soldout'}
+                                                    {? ..discount_rate > 0}
+                                                        <!-- 힐인율 -->
+                                                        <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                                        <!-- 원가 -->
+                                                        <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                                    {/}
+                                                    <!-- 판매가 -->
+                                                    <span class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</span>
+                                                {:}
+                                                    <span class="item__price--soldout">{=trans('일시품절')}</span>
+                                                {/}
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- 찜버튼 -->
+                                    <div class="item__wishBox">
+                                        <button type="button" class="item__wish" data-devwishbtn="{..id}">{=trans('찜버튼')}</button>
+                                    </div>
+                                </li>
+                            {/}
+                        {/}
+                    </ul>
+                </li>
+                {/}
+            {/}
+        </ul>
+    </section>
+    {/}
+    
+    <!-- STYLE& -->
+    {? styleTag}
+    <section class="fb__main__style fb__layout__width">
+        <header class="fb__main__header">
+            <h3 class="fb__title">
+                STYLE &
+            </h3>
+            <nav class="style__nav">
+                {@ styleTag.details}
+                <a href="#goodsStyleTag" data-group_code="{.group_code}" class="{? .index_ == 0}active{/} devStyleTagTab">{.group_name}</a>
+                {/}
+            </nav>
+        </header>
+        
+        {@ styleTag.details}
+        <div class="fb__main__inner devStyleTag" data-group_code="{.group_code}" {? .index_ > 0} style="display: none"{/}>
+            <!-- 상품루프 -->
+            <ul class="fb__items listType5">
+                <!-- 상품 한개 -->
+                {? .goods}
+                    {@ .goods}
+                    <li class="item__box">
+                        <a href="/shop/goodsView/{..id}" class="item__link" data-fatid="{..id}">
+                            <!-- 상품 상단 -->
+                            <figure class="item__thumb">
+                                <!-- 상품이미지 -->
+                                <img data-src="{..image_src}" alt="{..pname}">
+
+                                <!-- 찜버튼 -->
+                                <button type="button" class="item__wish {? ..alreadyWish}on{/}" data-devwishbtn="{..id}">
+                                    {=trans('찜버튼')}
+                                </button>
+                            </figure>
+
+                            <!-- 상품정보 -->
+                            <div class="item__info">
+                                <!-- 브랜드 -->
+                                {? ..brand_name}
+                                <span class="item__brand">{..brand_name}</span>
+                                {/}
+
+                                <!-- 상품명 -->
+                                <strong class="item__name">{..pname}</strong>
+
+                                <!-- 상품가격 -->
+                                <div class="item__price">
+                                    {? ..status == 'soldout'}
+                                        <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                    {:}
+                                        {? ..discount_rate > 0}
+                                            <!-- 할인율 -->
+                                            <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                            <!-- 원가 -->
+                                            <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                        {/}
+                                        <!-- 판매가 -->
+                                        <p class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</p>
+                                    {/}
+                                </div>
+                            </div>
+
+                            <!-- 상품 뱃지 -->
+                            {? ..icons}
+                                <div class="item__badge">
+                                    {@ ..icons}
+                                        {? ...isText}
+                                            <span>{ ...content}</span>
+                                        {:}
+                                            { ...content}
+                                        {/}
+                                    {/}
+                                </div>
+                            {/}
+                        </a>
+                    </li>
+                    {/}
+                {:}
+                    <!-- 상품 없는 케이스 -->
+                    <li class="fb__empty">{=trans('등록되어있는 상품이 없습니다.')}</li>
+                {/}
+            </ul>
+        </div>
+        {/}
+    </section>
+    {/}
+
+    <!-- 메인 띠배너 -->
+    {? mainBeltMiddleBanner}
+        {@ mainBeltMiddleBanner}
+            {? 1 > index_}
+            <section class="fb__main__banner">
+                <h3 class="fb__title--hidden">{=trans('배너 영역')}</h3>
+
+                <a href="{.bd_link}" class="banner__link">
+                    <figure class="banner__image">
+                        <img src="{.imgSrc}" alt="{.banner_name}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                    </figure>
+                </a>
+            </section>
+            {/}
+        {/}
+    {/}
+    
+    <!-- 베스트셀러 -->
+    {? topSeller}
+    <section class="fb__main__best fb__layout__width">
+        <header class="fb__main__header">
+            <h3 class="fb__title">
+                BEST SELLER
+            </h3>
+            <nav class="fb__main__nav">
+                {@ topSeller.details}
+                <a href="#goodsTopSeller" data-group_code="{.group_code}" class="{? .index_ == 0}active{/} devTopSellerTab">{.group_name}</a>
+                {/}
+            </nav>
+        </header>
+    
+        {@ topSeller.details}
+        <div class="fb__main__inner devTopSeller" data-group_code="{.group_code}" {? .index_ > 0} style="display: none"{/}>
+    
+            <ul class="fb__items listType5">
+                {? .goods}
+                    {@ .goods}
+                        <li class="item__box">
+                            <a href="/shop/goodsView/{..id}" class="item__link" data-fatid="{..id}">
+    
+                                <!-- 상품상단 -->
+                                <figure class="item__thumb">
+                                    <img data-src="{..image_src}" alt="{..pname}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                                    <button class="item__wish {? ..alreadyWish}on{/}" data-devwishbtn="{..id}">
+                                        {=trans('찜버튼')}
+                                    </button>
+                                </figure>
+    
+                                <!-- 상품정보 -->
+                                <div class="item__info">
+    
+                                    <!-- 브랜드 -->
+                                    {? ..brand_name}
+                                    <span class="item__brand">{..brand_name}</span>
+                                    {/}
+    
+                                    <!-- 상품명 -->
+                                    <strong class="item__name">{..pname}</strong>
+                                                            
+                                    <!-- 상품가격 -->
+                                    <div class="item__price">
+                                        {? ..status == 'soldout'}
+                                            <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                        {:}
+    
+                                            {? ..discount_rate > 0}
+                                                <!-- 할인율 -->
+                                                <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                                <!-- 원가 -->
+                                                <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                            {/}
+                                            
+                                            <!-- 판매가 -->
+                                            <p class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</p>
+                                        {/}
+                                    </div>
+    
+                                    <!-- 상품 뱃지 -->
+                                    {? ..icons}
+                                    <div class="item__badge">
+                                        {@ ..icons}
+                                            {? ...isText}
+                                                <span>{ ...content}</span>
+                                            {:}
+                                                { ...content}
+                                            {/}
+                                        {/}
+                                    </div>
+                                    {/}
+                                </div>
+                            </a>
+                        </li>
+                    {/}
+                {:}
+                    <li class="fb__empty">{=trans('등록되어있는 상품이 없습니다.')}</li>
+                {/}
+            </ul>
+        </div>
+        {/}
+    </section>
+    {/}
+    
+    <!-- 이벤트 -->
+    {? event}
+    <section class="fb__main__event fb__layout__width">
+        <header class="fb__main__header">
+            <h3 class="fb__title quick__title">
+                {=trans('이벤트')}
+            </h3>
+            <a href="/event/eventList" class="quick__button">{=trans('바로가기')}</a>
+        </header>
+        
+        <ul class="fb__event__box">
+            {@ event}
+                {? .index_ < 2}
+                <li class="fb__event__list">
+                    <a href="/event/eventDetail/{.event_ix}" class="fb__event__link">
+                        <figure class="fb__event__image">
+                            <img src="{.imgPath}" alt="{.event_title}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                        </figure>
+                
+                        <div class="fb__event__info">
+                            <p class="fb__event__name">{.event_title}</p>
+                            <p class="fb__event__desc">{.manage_title}</p>
+                            <p class="fb__event__date">{.startDate} ~ {.endDate}</p>
+                        </div>
+                    </a>
+                </li>
+                {/}
+            {/}
+        </ul>
+    </section>
+    {/}
+</section>

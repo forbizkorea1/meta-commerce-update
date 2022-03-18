@@ -1,0 +1,14 @@
+<!-- FAQ 빠른검색 -->
+<section class="customer__search">
+    <h2 class="customer__search__title">
+        <span>{=trans('자주 묻는 질문')}</span>
+        <a href="/customer/faq" class="title"></a>
+    </h2>
+    
+    <div class="customer__search__box">
+        <form name='devFaqForm' method="get" action="/customer/faq" onsubmit='return searchFaq(this)'>
+            <input type="text" name="sText" id="devSearchFaqText" value="{=sText}" class="customer__search__input" placeholder="{=trans('궁금하신 내용을 검색해주세요.')}">
+            <button type="submit" class="customer__search__btn"></button>
+        </form>
+    </div>
+</section>

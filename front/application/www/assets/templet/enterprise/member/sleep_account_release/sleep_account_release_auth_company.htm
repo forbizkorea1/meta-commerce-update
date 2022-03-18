@@ -1,0 +1,149 @@
+<section class="fb__join-member">
+
+    <!--<h2 class="fb__join-member__title">{=trans('휴면계정 전환 안내')}</h2>-->
+    <!-- @추가한 내용 -->
+    <div class="title-area">
+        <h2 class="fb__join-member__title">{=trans('휴면 계정 해제')}</h2>
+
+        <span class="breadcrumb">
+            <span class="breadcrumb__num">1<em class="breadcrumb__all">/3</em></span> {=trans('사업자인증 및 약관동의')}
+        </span>
+    </div>
+
+    <!-- #기존 내용 -->
+    <!--<ul class="fb__join-member__top-area top-area">
+        <li class="top-area__step top-area__step01 top-area__step--active">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 01</span>
+                <p class="top-area__step__tit">{=trans('사업자인증')}</p>
+            </div>
+        </li>
+        <li class="top-area__step top-area__step02">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 02</span>
+                <p class="top-area__step__tit">{=trans('약관동의')}</p>
+            </div>
+        </li>
+        <li class="top-area__step top-area__step03">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 03</span>
+                <p class="top-area__step__tit">{=trans('정보입력')}</p>
+            </div>
+        </li>
+        <li class="top-area__step top-area__step04">
+            <div class="top-area__step__inner">
+                <span class="top-area__step__subtit">STEP 04</span>
+                <p class="top-area__step__tit">{=trans('가입완료')}</p>
+            </div>
+        </li>
+    </ul>-->
+
+
+    <div class="wrap-joininput-layout fb__authentication__company">
+        <h3 class="wrap-joininput-layout__title">{=trans('사업자 인증')}</h3>
+        <div class="wrap-line-box">
+            <form id="devCompanyForm">
+
+                <ul class="authentication-company">
+                    <li class="authentication-company__list">
+                        <span class="authentication-company__title">
+                            {=trans('상호명')}
+                        </span>
+                        <div class="authentication-company__cont">
+                            <input type="text" id="devComName" name="comName" title="{=trans('상호명')}" class="input-full">
+                            <!--<p class="txt-error" devTailMsg="devComName"></p>-->
+                        </div>
+                    </li>
+                    <li class="authentication-company__list">
+                        <span class="authentication-company__title">
+                            {=trans('사업자등록번호')}
+                        </span>
+                        <div class="authentication-company__cont authentication-company__cont-num">
+                            <div class="devComNumber-container">
+                                <div>
+                                    <div class="devComNumber-container__input-wrapper">
+                                        <input type="number" name="comNumber1" id="devComNumber1" title="{=trans('사업자등록번호')}">
+                                    </div>
+                                    <div class="devComNumber-container__input-wrapper">
+                                        <input type="number" name="comNumber2" id="devComNumber2" title="{=trans('사업자등록번호')}">
+                                    </div>
+                                    <div class="devComNumber-container__input-wrapper">
+                                        <input type="number" name="comNumber3" id="devComNumber3" title="{=trans('사업자등록번호')}">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-dark" id="devCompanySubmitButton">{=trans('사업자 확인')}</button>
+                            </div>
+                            <!--<p class="txt-error" devTailMsg="devComNumber1 devComNumber2 devComNumber3"></p>-->
+                        </div>
+                    </li>
+                </ul>
+
+            </form>
+        </div>
+    </div>
+
+    <section class="sect">
+        <h3 class="sect__title">{=trans('약관 동의')}</h3>
+
+        <form id="devForm" class="agree-area">
+            <input type="hidden" name="devCerti" id="devCerti" value="">
+
+            <div class="wrap-chk-all">
+                <div class="fb__checkbox">
+                    <label for="agree-all">
+                        <input type="checkbox" id="agree-all" >
+                        <span class="agree-all">
+							{=trans('약관 전체 동의')}
+						</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="wrap-terms accordion">
+                <div class="wrap-terms-check wrap-terms__title">
+                    <label class="fb__checkbox">
+                        <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
+                        <span>[{=trans('필수')}] {=trans('구매 이용 약관')}</span>
+                    </label>
+                    <span class="view-more"></span>
+                </div>
+                <div class="wrap-terms__cont">
+                    {policyData['use']['contents']}
+                </div>
+            </div>
+
+            <div class="wrap-terms accordion">
+                <div class="wrap-terms-check wrap-terms__title">
+                    <label class="fb__checkbox">
+                        <input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" value="Y" class="devRequired">
+                        <span>[{=trans('필수')}] {=trans('개인정보 수집 및 이용에 대한 안내')}</span>
+                    </label>
+                    <span class="view-more"></span>
+                </div>
+                <div class="wrap-terms__cont">
+                    {policyData['collection']['contents']}
+                </div>
+            </div>
+
+            <div class="wrap-terms accordion">
+                <div class="wrap-terms-check wrap-terms__title">
+                    <label class="fb__checkbox">
+                        <input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" value="Y" class="devRequired">
+                        <span>[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</span>
+                    </label>
+                    <span class="view-more"></span>
+                </div>
+                <div class="wrap-terms__cont">
+                    {policyData['consign']['contents']}
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+    <div class="fb__authentication__company__btn">
+        <button class="btn-lg btn-dark-line" id="devCancelButton">{=trans('취소')}</button>
+        <button class="btn-lg btn-point" id="devSubmitButton">{=trans('다음')}</button>
+    </div>
+</section>

@@ -1,0 +1,174 @@
+<input type="hidden" id="devMode" value="{mode}"/>
+<form id="devForm" method="POST">
+    <input type="hidden" name="gc_ix" value="{gc_ix}">
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">오프라인 쿠폰 생성</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>기본 정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">쿠폰 이름</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="gift_certificate_name" value="{gift_certificate_name}" title="쿠폰 이름" maxlength="100">
+                            <br/>
+                            고객에게 노출되는 명칭입니다. (단, 쿠폰 지급 상품권의 경우에는 쿠폰 이름이 노출됨)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>쿠폰 설명</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--60" name="memo" value="{memo}" maxlength="100">
+                            <br/>
+                            관리자에게만 노출되는 명칭입니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">발급 유형</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ giftTypeList}
+                                <label>
+                                    <input type="radio" name="gift_type" value="{.key_}"
+                                           {? mode=='add' || mode=='copy'}
+                                            {? .index_==0}checked{/}
+                                           {:}
+                                            {? gift_type== .key_}checked{/} disabled
+                                           {/}/>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">시리얼넘버 생성 방법</span>
+                        </th>
+                        <td colspan="3">
+                            <label>
+                                <select name="gift_way" class="fb-filter__select" {? mode== "put"}disabled{/}>
+                                <option value="1" {? gift_way==1}selected{/}>수동</option>
+                                <option value="2" {? gift_way==2}selected{/}>자동</option>
+                                </select>
+                            </label>
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="gift_prefix_code" value="{gift_prefix_code}" {? gift_way==2}disabled{: mode=="put"}disabled{/} maxlength='4' style="ime-mode:disabled">
+                            <br/>
+                            <span class="devInfoText">* 수동 선택 시, 시리얼 넘버 중 앞의 4자리를 직접 설정할 수 있습니다</span>
+                        </td>
+                    </tr>
+                    <tr class="devIssueTypeContentsCc" {? gift_type=='R' || gift_type=='C'}style{:}{? mode=="add"}style{:}style="display:none"{/}{/}>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">생성 개수</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--5" style="width:5%" name="create_cnt" value="{create_cnt}" maxlength="5" {? mode=="put"} disabled {/}>
+                            <br/>
+                            장 생성 (1회 최대 10,000장 생성 가능) * 10,000장 이상 생성이 필요한 경우, 여러 번 나누어서 생성해주세요
+                        </td>
+                    </tr>
+                    <tr class="devIssueTypeContentsGa" {? gift_type=='R'}style{:}{? mode=="add"}style{:}style="display:none"{/}{/}>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">마일리지 지급 금액</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--5" name="gift_amount" value="{gift_amount}" maxlength="5" {? mode=="put"}disabled{/}/>
+                            <br/>
+                            마일리지
+                        </td>
+                    </tr>
+                    <tr class="devIssueTypeContentsAp" {? gift_type=='C' || gift_type=='U'}style{:}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>지급 쿠폰 목록</span>
+                        </th>
+                        <td colspan="3">
+                            {@ giftCertificateCuponList}
+                            <label class="devGroupSection">
+                                <div class="fb-add_select__btn">
+                                    <select name='appoint_publish_ix[]' class='fb-filter__select devAppointSelect' {? mode=="put"} disabled {/}>
+                                    <option value=''>발행쿠폰 전체 목록</option>
+                                    {@ .select}
+                                    <option value='{..publish_ix}' {? ..publish_ix== .gift_cupon_ix} selected {
+                                    /}> [{..cupon_no}] {..publish_name}</option>
+                                    {/}
+                                    </select>
+                                    {? .index_ == 0}
+                                    <input type="button" class="fb__menusubmit-del devSelectGroupAddBtn" {? mode=="put"}disabled{/} value="지급쿠폰추가">
+                                    {:}
+                                    <input type="button" class="fb__menusubmit-del devSelectGroupDelBtn" {? mode=="put"}disabled{/} value="삭제">
+                                    {/}
+                                </div>
+                            </label>
+                            <br>
+                            {:}
+                            <label class="devGroupSection">
+                                <div class="fb-add_select__btn">
+                                    <select name='appoint_publish_ix[]' class='fb-filter__select devAppointSelect'>
+                                        <option value=''>발행쿠폰 전체 목록</option>
+                                        {@ giftCouponRuleSelectBox}
+                                        <option value='{giftCouponRuleSelectBox.publish_ix}'>[{giftCouponRuleSelectBox.cupon_no}] {giftCouponRuleSelectBox.publish_name}</option>
+                                        {/}
+                                    </select>
+                                    <input type="button" class="fb__menusubmit-del devSelectGroupAddBtn" value="지급쿠폰추가">
+                                </div>
+                            </label>
+                            <br>
+                            {/}
+                            <!--{'<script id="devSelectGroupTpl" type="text/x-handlebars-template">'}-->
+                            <label class="devGroupSection">
+                                <div class="fb-add_select__btn">
+                                    <select name='appoint_publish_ix[]' class='fb-filter__select devAppointSelect'>
+                                        <option value=''>발행쿠폰 전체 목록</option>
+                                        {@ giftCouponRuleSelectBox}
+                                        <option value='{giftCouponRuleSelectBox.publish_ix}'>[{giftCouponRuleSelectBox.cupon_no}] {giftCouponRuleSelectBox.publish_name}</option>
+                                        {/}
+                                    </select>
+                                    <input type="button" class="fb__menusubmit-del devSelectGroupDelBtn" value="삭제">
+                                </div>
+                            </label>
+                            <br>
+                            <!--{'</script>'}-->
+                            <section id="devGroupContents"></section>
+                            * 쿠폰 생성 메뉴에서 ‘오프라인 상품권 발급’으로 등록한 쿠폰이 노출됩니다
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                            상품권 사용 기간
+                            </span>
+                        </th>
+                        <td class="fb-filter__day-wrap" colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__input__day"
+                                   id="devBetweenDatePickerStart" name="gift_start_date"
+                                   value="{gift_start_date}" readonly>
+                            <span class="fb-filter__day__line">~</span>
+                            <input type="text" class="fb-filter__text fb-filter__input__day"
+                                   id="devBetweenDatePickerEnd" name="gift_end_date"
+                                   value="{gift_end_date}" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>

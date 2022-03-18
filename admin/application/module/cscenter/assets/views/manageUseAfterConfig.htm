@@ -1,0 +1,319 @@
+<form id="devForm" method="POST">
+    <input type="hidden" name="page_type" value="use_after" />
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">기본 기능 설정</h3>                
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>기본 기능 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr style="display:none;"> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                베스트 사용 여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="use_best_y">
+                                    <input type="radio" name="use_best" id="use_best_y" value="Y" {? config.use_best == 'Y' || !config.use_best } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                                <label for="use_best_n">
+                                    <input type="radio" name="use_best" id="use_best_n" value="N" {? config.use_best == 'N' } checked {/} >
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                상품 평점 사용여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="use_valuation_goods_y">
+                                    <input type="radio" name="use_valuation_goods" id="use_valuation_goods_y" value="Y" {? config.use_valuation_goods == 'Y' || !config.use_valuation_goods } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                                <label for="use_valuation_goods_n">
+                                    <input type="radio" name="use_valuation_goods" id="use_valuation_goods_n" value="N" {? config.use_valuation_goods == 'N' } checked {/} >
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="display:none;"> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                배송 평점 사용여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="use_valuation_delivery_y">
+                                    <input type="radio" name="use_valuation_delivery" id="use_valuation_delivery_y" value="Y" {? config.use_valuation_delivery == 'Y' || !config.use_valuation_delivery } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                                <label for="use_valuation_delivery_n">
+                                    <input type="radio" name="use_valuation_delivery" id="use_valuation_delivery_n" value="N" {? config.use_valuation_delivery == 'N' } checked {/} >
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">권한 설정</h3>                
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>권한 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                후기 작성 가능 시점
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="write_auth_1">
+                                    <input type="radio" name="write_auth" id="write_auth_1" value="1" {? config.write_auth == '1' || !config.write_auth } checked {/} >
+                                    <span>구매여부와 상관없이 회원만 작성 가능</span>
+                                </label>
+                            </div>
+                            <br>
+                            <div class="fb-filter__radio">
+                                <label for="write_auth_2">
+                                    <input type="radio" name="write_auth" id="write_auth_2" value="2" {? config.write_auth == '2' } checked {/} >
+                                    <span>구매내역이 존재하는 경우에만 후기 작성 가능</span>
+                                </label>
+                                <span>작성가능시점(</span>
+                                <label> <select name="write_timing" class="fb-filter__select"><option value="BF" checked="">구매확정 이후</option></select></label>
+                                <span>)</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                쓰기권한 (관리자)
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="write_admin_y">
+                                    <input type="radio" name="write_admin" id="write_admin_y" value="Y" {? config.write_admin == 'Y' || !config.write_admin } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                                <label for="write_admin_n">
+                                    <input type="radio" name="write_admin" id="write_admin_n" value="N" {? config.write_admin == 'N' } checked {/} >
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                글 수정 여부(사용자)
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="modify_posts_y">
+                                    <input type="radio" name="modify_posts" id="modify_posts_y" value="Y" {? config.modify_posts == 'Y' || !config.modify_posts } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                                <label for="modify_posts_n">
+                                    <input type="radio" name="modify_posts" id="modify_posts_n" value="N" {? config.modify_posts == 'N' } checked {/} >
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                글 삭제 여부(사용자)
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="delete_posts_y">
+                                    <input type="radio" name="delete_posts" id="delete_posts_y" value="Y" {? config.delete_posts == 'Y' || !config.delete_posts } checked {/} >
+                                           <span>사용</span>
+                                </label>
+                                <label for="delete_posts_n">
+                                    <input type="radio" name="delete_posts" id="delete_posts_n" value="N" {? config.delete_posts == 'N' } checked {/} >
+                                           <span>사용하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">마일리지 설정</h3>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>마일리지 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>                    
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                마일리지 적립여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="use_mileage_y">
+                                    <input type="radio" name="use_mileage" id="use_mileage_y" value="Y" {? config.use_mileage == 'Y' || !config.use_mileage } checked {/} >
+                                           <span>적립</span>
+                                </label>
+                                <label for="use_mileage_n">
+                                    <input type="radio" name="use_mileage" id="use_mileage_n" value="N" {? config.use_mileage == 'N' } checked {/} >
+                                           <span>적립안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                마일리지 적립 형태
+                            </span>
+                        </th>
+                        <td colspan="" >
+                            <section class="fb-filter">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="fb-filter__radio">
+                                                    <label for="add_mileage_type1">
+                                                        <input type="radio" name="add_mileage_type" value="1" id="add_mileage_type1" {? config.add_mileage_type == '1' } checked {/}  >
+                                                               <span>일괄적립</span>
+                                                    </label>
+                                                    <label><input type="text" name="mileage_amount" value="{config.mileage_amount}" class="fb-filter__text fb-filter__text--20" ></label> 적립
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="fb-filter__radio">
+                                                    <label for="add_mileage_type2">
+                                                        <input type="radio" name="add_mileage_type" value="2" id="add_mileage_type2" {? config.add_mileage_type == '2' } checked {/} >
+                                                               <span>분류별 적립</span></label>
+                                                </div>
+                                                <section class="fb-filter">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th class="fb-filter__title">일반후기</th>
+                                                                <td >
+                                                                    작성시 <input type="text" name="mileage_amount_r" value="{config.mileage_amount_r}" class="fb-filter__text fb-filter__text--20" > 적립
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="fb-filter__title">프리미엄후기</th>
+                                                                <td >
+                                                                    작성시 <input type="text" name="mileage_amount_p" value="{config.mileage_amount_p}" class="fb-filter__text fb-filter__text--20" > 적립
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                                <div class="fb-filter__radio">
+                                                    <label for="add_mileage_type3">
+                                                        <input type="radio" name="add_mileage_type" value="3" id="add_mileage_type3" {? config.add_mileage_type == '3' } checked {/}>
+                                                               <span>회원그룹별 적립</span>                                                        
+                                                    </label>
+                                                </div>
+                                                <section class="fb-filter">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th class="fb-filter__title">
+                                                                    <span class="">
+                                                                        회원그룹
+                                                                    </span>
+                                                                </th>
+                                                                <td class="fb-filter__title">
+                                                                    <span class="">
+                                                                        마일리지
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+                                                            {@ memberGroup}
+                                                            <tr>
+                                                                <th class="fb-filter__title">
+                                                                    <span>{.gp_name}</span>
+                                                                </th>
+                                                                <td >
+                                                                    <input type="text" name="mileage_amount_group[{.gp_ix}]" value="{.memory_value}" class="fb-filter__text fb-filter__text--20">
+                                                                </td>
+                                                            </tr>
+                                                            {/}
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </td>
+                        <td></td><td></td>
+                    </tr>
+
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devFormSubmit" value="저장">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="취소">
+                </div>
+            </section>
+        </section>
+
+
+
+    </fieldset>
+</form>
+<!--{#afterConfig}-->

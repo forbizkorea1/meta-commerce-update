@@ -1,0 +1,392 @@
+<section class="fb__orderCommon fb__orderClaim">
+    <h2 class="fb__mypage__title">{=trans('신청내역 조회')}</h2>
+
+    <!-- 주문상품 -->
+    <section class="fb__mypage__section">
+        <h3 class="fb__title--hidden">{=trans('주문상품')}</h3>
+
+        <!-- 상단 -->
+        <header class="fb__orderCommon__detailHeader">
+            <dl class="fb__orderCommon__date">
+                <dt>{=trans('주문일자')}</dt>
+                <dd>{order.order_date}</dd>
+            </dl>
+
+            <dl class="fb__orderCommon__oid">
+                <dt>{=trans('주문번호')}</dt>
+                <dd><span>{order.oid}</span></dd>
+            </dl>
+        </header>
+
+        <!-- 상품 -->
+        <div class="fb__shopCommon__table orderDetailTable">
+            {@ order.orderDetail}
+                <table>
+                    <colgroup>
+                        <col width="*"/>
+                        <col width="140px"/>
+                        <col width="140px"/>
+                        {? claimType == "R" || claimType == "E"}
+                        <col width="140px"/>
+                        {/}
+                        <col width="140px"/>
+                    </colgroup>
+
+                    {? .index_ == 0}
+                    <thead>
+                        <th>{=trans('상품명/옵션')}</th>
+                        <th>{=trans('주문수량')}</th>
+                        {? claimType == "R" || claimType == "E"}
+                            <th>{claimTypeName}수량</th>
+                        {/}
+                        <th>{=trans('결제금액')}</th>
+                        <th>{=trans('주문상태')}</th>
+                    </thead>
+                    {/}
+
+                    <tbody>
+                        {@ .value_}
+                            <tr>
+                                <td class="orderDetailTable__item item-info">
+                                    <a href="/shop/goodsView/{..pid}" class="item-info__link">
+                                        <figure class="item-info__thumb">
+                                            <img data-src="{..pimg}">
+                                        </figure>
+
+                                        <div class="item-info__info">
+                                            <p class="item-info__name">{? ..brand_name}[{..brand_name}] {/}{..pname}</p>
+                                            <p class="item-info__option">{..option_text}</p>
+                                        </div>
+                                    </a>
+                                </td>
+
+                                <td class="orderDetailTable__count">
+                                    <em>{..pcnt}</em>{=trans('개')}
+                                </td>
+
+                                {? claimType == "R" || claimType == "E"}
+                                <td class="orderDetailTable__count">
+                                    <em>{..pcnt}</em>{=trans('개')}
+                                </td>
+                                {/}
+
+                                <td class="orderDetailTable__price">
+                                    <span class="item-info__price--current">
+                                        <em>{=g_number_format(..pt_dcprice)}</em>{=trans('원')}
+                                    </span>
+                                </td>
+
+                                <td class="orderTable__status">
+                                    <p>{..status_text}</p>
+                                    {? ..refund_status}<p>{..refund_status_text}</p>{/}
+                                </td>
+                            </tr>
+                        {/}
+                    </tbody>
+                </table>
+
+                <!-- 배송비영역 -->
+                <div class="orderDetailTable__shipping fb__shopCommon__shipping">
+                    <span class="shipping__price">{=trans('배송비')} <em devPrice="total_delivery_price">{=g_number_format(order.deliveryPrice[.key_])}</em>{=trans('원')}</span>
+                    <span class="shipping__detail">{order.deliveryPricePolicyText[.key_]}</span>
+                </div>
+            {/}
+        </div>
+    </section>
+
+    <!-- 교환/반품사유 -->
+    <section class="fb__mypage__section fb__shopCommon__section">
+        <ul class="section__infoTable">
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('{claimTypeName} 사유')}
+                </span>
+                <div class="infoTable__div">
+                    <p class="infoTable__div__row">
+                        <span class="row__txt">{reason.type_text}</span>
+                    </p>
+                    <p class="infoTable__div__row">
+                        <span class="row__txt">{reason.detail_text}</span>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    {? deny}
+    <!-- 거부/불가내역 -->
+    <section class="fb__mypage__section fb__shopCommon__section">
+        <h2 class="fb__mypage__title">{=trans('{claimTypeName}거부/불가내역')}</h2>
+
+        <ul class="section__infoTable">
+            {@ deny}
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('상품정보')}
+                </span>
+                <div class="infoTable__div">
+                    {.pname}<br/>{=trans('옵션')} : {.option_text}
+                </div>
+            </li>
+
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {claimTypeName}{? .deny_type=='Y'}{=trans('거부 사유')}{:}{=trans('불가 사유')}{/}
+                </span>
+                <div class="infoTable__div">
+                    {.deny_message}
+                </div>
+            </li>
+            {/}
+        </ul>
+    </section>
+    {/}
+
+    {? returnMethod}
+    <!-- 교환/반품 방법 -->
+    <section class="fb__mypage__section fb__shopCommon__section">
+        <h2 class="fb__mypage__title">{=trans('{claimTypeName}방법')}</h2>
+
+        <ul class="section__infoTable">
+
+            <!-- 교환발송방법 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('{claimTypeName} 발송 방법')}
+                </span>
+
+                <div class="infoTable__cont">
+                    {? returnMethod.returnData.send_type == 1}
+                        <span class="color--111">
+                            {=trans('직접발송')}
+                        </span>
+                        <span>({=trans('구매자께서 개별로 상품을 이미 발송한 경우')})</span>
+                    {:}
+                        <span class="color--111">
+                            {=trans('지정택배 방문요청')}
+                        </span>
+                        <span>({=trans('판매사와 계약된 택배업체에서 방문수령 수거')})</span>
+                    {/}
+                </div>
+            </li>
+
+            {? returnMethod.returnData.send_type == 1} {* 직접발송 *}
+                <li class="infoTable__list">
+                    <span class="infoTable__title">
+                        {=trans('{claimTypeName} 발송 정보')}
+                    </span>
+                    <div class="infoTable__cont">
+                        {? returnMethod.returnData.invoice_no != ''}
+                            <span class="color--111">
+                                {returnMethod.returnData.quickText}
+                            </span>
+                            <span>({=trans('송장번호')}:{returnMethod.returnData.invoice_no})</span> <br>
+                        {/}
+                        <span class="color--111">
+                            {=trans('상품 발송 시 배송비')}
+                        </span>
+                        <span>{? returnMethod.returnData.delivery_pay_type == 1}{=trans('선불')}{:}{=trans('착불')}{/}</span>
+                    </div>
+                </li>
+
+            {:} {* 지정택배 *}
+
+                <li class="infoTable__list">
+                    <span class="infoTable__title">
+                        {=trans('상품 수거지 주소')}
+                    </span>
+
+                    <div class="infoTable__div">
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('이름')}</dt>
+                            <dd class="row__cont">
+                                {returnMethod.returnData.rname}
+                            </dd>
+                        </dl>
+
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('주소')}</dt>
+                            <dd class="row__cont">
+                                {returnMethod.returnData.zip} {returnMethod.returnData.addr1} {returnMethod.returnData.addr2}
+                            </dd>
+                        </dl>
+
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('휴대폰 번호')}</dt>
+                            <dd class="row__cont">
+                                <em>{returnMethod.returnData.rmobile}</em>
+                            </dd>
+                        </dl>
+
+                        <!-- @todo 프론트: 배송요청사항 공동현관 하는거 확정되면 확인필요 -->
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('배송요청사항')}</dt>
+                            <dd class="row__cont">{=nl2br(returnMethod.returnData.msg)} {returnMethod.returnData.door_msg}</dd>
+                        </dl>
+                    </div>
+                </li>
+            {/}
+
+            {? claimType == 'E'} {* 교환일 때 *}
+                <li class="infoTable__list">
+                    <span class="infoTable__title">
+                        {=trans('교환상품 받으실 주소')}<br>
+                        <span class="color--666">({=trans('구매자 주소지')})</span>
+                    </span>
+
+                    <div class="infoTable__div">
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('이름')}</dt>
+                            <dd class="row__cont">
+                                {returnMethod.reDeliveryData.rname}
+                            </dd>
+                        </dl>
+
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('주소')}</dt>
+                            <dd class="row__cont">
+                                {returnMethod.reDeliveryData.zip} {returnMethod.reDeliveryData.addr1} {returnMethod.reDeliveryData.addr2}
+                            </dd>
+                        </dl>
+
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('휴대폰 번호')}</dt>
+                            <dd class="row__cont">
+                                <em>{returnMethod.reDeliveryData.rmobile}</em>
+                            </dd>
+                        </dl>
+
+                        <dl class="infoTable__div__row">
+                            <dt class="row__name">{=trans('배송요청사항')}</dt>
+                            <dd class="row__cont">
+                                {=nl2br(returnMethod.reDeliveryData.msg)} {returnMethod.reDeliveryData.door_msg}
+                            </dd>
+                        </dl>
+                    </div>
+                </li>
+            {/}
+        </ul>
+    </section>
+    {/}
+
+    <!-- 교환/반품 내역 -->
+    {? expectedRefund}
+        {? claimType == 'E'}
+            <section class="fb__mypage__section">
+                <h2 class="fb__mypage__title">{=trans('교환내역')}</h2>
+
+                <div class="change-list">
+                    <div class="first">
+                        <dl>
+                            <dt>{=trans('교환신청 상품 총 금액')}</dt>
+                            <dd><em>{=g_number_format(expectedRefund.productPrice)}</em>{=trans('원')}</dd>
+                        </dl>
+                    </div>
+
+                    <div class="last">
+                        <dl>
+                            <dt>{=trans('교환 시 추가 배송비')}</dt>
+                            <dd><em>{=g_number_format(expectedRefund.claimDeliveryPrice)}</em>{=trans('원')}</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <p class="fb__orderCommon__desc">
+                    {=trans('교환 배송비는 판매자가 교환상품 최종 승인 후 변경될 수 있습니다.')}
+                </p>
+            </section>
+        {:}
+            <section class="fb__mypage__section">
+                <h2 class="fb__mypage__title">{=trans('환불내역')}</h2>
+
+                <div class="refund-area__inner">
+                    <div class="pay-info devCancelPriceContents">
+                        <div class="pay-info__box">
+                            <div class="pay-info__top">
+                                <p class="pay-info__top__tit">{=trans('{claimTypeName}신청 상품 금액')}</p>
+                                <p class="pay-info__top__price"><em>{=g_price(expectedRefund.productPrice + expectedRefund.deliveryPrice + expectedRefund.refundMileage)}</em>{=trans('원')}</p>
+                            </div>
+
+                            <div class="pay-info__bottom">
+                                <dl>
+                                    <dt>{=trans('실 결제 금액')}</dt>
+                                    <dd><em>{=g_price(expectedRefund.productPrice)}</em>{=trans('원')}</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>{=trans('배송비')}</dt>
+                                    <dd><em>{=g_price(expectedRefund.deliveryPrice)}</em>{=trans('원')}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>{=trans('{layoutCommon.mileageName} 사용금액')}</dt>
+                                    <dd><em>{=g_price(expectedRefund.refundMileage)}</em>{layoutCommon.mileageUnit}</dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="pay-info__box pay-info__box-delivery">
+                            <div class="pay-info__top">
+                                <p class="pay-info__top__tit">{=trans('{claimTypeName} 시 추가 배송비')}</p>
+                                <p class="pay-info__top__price"><em>{=g_price(expectedRefund.claimDeliveryPrice)}</em>{=trans('원')}</p>
+                            </div>
+
+                            <div class="pay-info__bottom">
+                                <dl>
+                                    <dt>{=trans('{claimTypeName} 배송비')}</dt>
+                                    <dd><em>{=g_price(expectedRefund.claimDeliveryPrice)}</em>{=trans('원')}</dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="pay-info__box pay-info__box-sum">
+                            <div class="pay-info__top">
+                                <p class="pay-info__top__tit">{=trans('환불 예정 금액')}</p>
+                                <p class="pay-info__top__price fb__point-color"><em>{=g_price(expectedRefund.expectedRefundPrice + expectedRefund.refundMileage)}</em>{=trans('원')}</p>
+                            </div>
+                            <div class="pay-info__bottom">
+                                <dl>
+                                    <dt>{=trans('결제수단 환불금액')}</dt>
+                                    <dd><em>{=g_price(expectedRefund.expectedRefundPrice)}</em>{=trans('원')}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>{=trans('{layoutCommon.mileageName} 환불금액')}</dt>
+                                    <dd><em>{=g_price(expectedRefund.refundMileage)}</em>{layoutCommon.mileageUnit}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="refund-info">
+                        <dl class="refund-info__box">
+                            <dt>{=trans('결제수단(상품 구매 시)')}</dt>
+                            <dd>
+                                {@expectedRefund.paymentInfo}
+                                    {.method_text}
+                                    <p>{.card_memo}</p>
+                                {/}
+                            </dd>
+                        </dl>
+
+                        {? expectedRefund.returnBankBool}
+                        {? expectedRefund.paymentInfo[0].method == 4 || expectedRefund.paymentInfo[0].method == 9}
+                        <dl>
+                            <dt>{=trans('환불수단')}</dt>
+                            <dd>{expectedRefund.refundBankName} / {expectedRefund.refundBankOwner} / {expectedRefund.refundBankNumber}</dd>
+                        </dl>
+                        {/}
+                        {/}
+                    </div>
+                </div>
+
+                <p class="fb__orderCommon__desc">
+                    {=trans('결제수단 중 신용카드 및 실시간 계좌이체는 자동 환불 처리되며 기타 결제수단을 통해 결제하신 고객님은 환불수단에 입력된 환불계좌로 송금 처리됩니다.<br>결제 시 사용한 쿠폰 및 마일리지는 내부정책에 따라 취소신청 완료 후 환불됩니다.')}
+                </p>
+            </section>
+        {/}
+    {/}
+
+    <!-- 하단 버튼 -->
+    <section class="fb__mypage__section wrap-btn-area">
+        <button class="btn-lg btn-point" onclick="parent.history.back(-1);">{=trans('이전')}</button>
+    </section>
+</section>

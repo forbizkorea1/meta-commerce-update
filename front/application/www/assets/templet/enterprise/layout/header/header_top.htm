@@ -1,0 +1,89 @@
+<div class="fb__header__top">
+    <!-- 로고 -->
+    <h1 class="logo">
+        <a href="/"><img src="/data/mall_data/images/shop_logo.png"></a>
+    </h1>
+
+    <!-- 검색 -->
+    <div class="header-search">
+        <div class="header-search__inner js__autoComplete">
+            <input type="text" class="header-search__input js__headerSearch__input devAutoComplete" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag} #{.st_title} {/}" value="{=searchText}" autocomplete="off">
+            <span class="header-search__reset js__headerSearch__reset">{=trans('초기화 버튼')}</span>
+            <button type="submit" class="header-search__btn" id="devHeaderSearchButton">
+                <span class="blind">{=trans('검색')}</span>
+            </button>
+
+            <div class="header-search__layer">
+                <div class="header-search__layer__sec">
+                    <div class="header-search__layer__header">
+                        <strong>{=trans('최근 검색어')}</strong>
+                        <button class="btn-del-all" id="devRecentKeyWordDeleteAll">{=trans('전체삭제')}</button>
+                    </div>
+                    
+                    {? headerTop.recentKeyword}
+                        <ul class="lately">
+                            {@ headerTop.recentKeyword}
+                            <li class="lately__list" devDelKey="{.key_}">
+                                <a href="/shop/search/?searchText={=rawurlencode(.value_)}">{.value_}</a>
+                                <button class="search-word-del" id="devRecentKeyWordDelete" devDelText="{.value_}">del</button>
+                            </li>
+                            {/}
+                        </ul>
+                    {:}
+                        <p class="lately__noList devRecentEmpty">{=trans('최근 검색어가 없습니다.')}</p>
+                    {/}
+                </div>
+
+                <div class="header-search__layer__sec">
+                    <div class="header-search__layer__header">
+                        <strong>{=trans('추천 검색어')}</strong>
+                    </div>
+                    
+                    <ul class="popularity">
+                        {@ headerTop.popularKeyword}
+                        {? .key_ < 10}
+                            <li class="popularity__list">
+                                <a href="/shop/search/?searchText={=rawurlencode(.keyword)}">
+                                    <em>{.key_+1}</em>{.keyword}
+                                </a>
+                            </li>
+                        {/}
+                        {/}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 유틸메뉴 -->
+    <div class="util-menu">
+        <ul class="util-menu__box">
+            {? layoutCommon.isLogin}
+                <li class="util-menu__list">
+                    <a href="javascript:void(0);" style="cursor: auto;">{=trans('<strong>{=layoutCommon.userInfo.name}</strong>님')}</a>
+                </li>
+
+                <li class="util-menu__list">
+                    <a href="/member/logout">{=trans('로그아웃')}</a>
+                </li>
+            {:}
+                <li class="util-menu__list">
+                    <a href="/member/login?url={layoutCommon.redirectUrl}">{=trans('로그인')}</a>
+                </li>
+
+                <li class="util-menu__list">
+                    <a href="/member/authentication">{=trans('회원가입')}</a>
+                </li>
+            {/}
+
+            <li class="util-menu__list">
+                <a href="/mypage">{=trans('마이페이지')}</a>
+            </li>
+        </ul>
+
+        <a href="/shop/cart" class="util-menu__cart">
+            <span class="blind">{=trans('장바구니')}</span>
+            <em id="cart_total_cnt">{layoutCommon.userInfo.cartCnt}</em>
+        </a>
+    </div>
+</div>

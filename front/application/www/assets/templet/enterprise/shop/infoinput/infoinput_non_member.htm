@@ -1,0 +1,179 @@
+<!-- 주문자정보 -->
+<section class="fb__shopCommon__section fb__infoinput__customer">
+    <header class="section__header">
+        <h2 class="section__title">{=trans('주문자 정보')}</h2>
+    </header>
+
+    <div class="section__box">
+        <ul class="fb__write">
+            <li class="write__list">
+                <span class="write__title required">{=trans('주문자명')}</span>
+
+                <div class="write__cont">
+                    <label class="write__input">
+                        <input type="text" id="devBuyerName" title="{=trans('주문자명')}">
+                    </label>
+                </div>
+            </li>
+            <!-- @todo. 프론트: 이메일 -->
+            <li class="write__list">
+                <span class="write__title required">{=trans('이메일')}</span>
+                <div class="write__cont">
+                    <div class="write__input">
+                        <input type="text" id="devBuyerEmail">
+                    </div>
+                </div>
+            </li>
+
+            <li class="write__list">
+                <span class="write__title required">{=trans('휴대폰 번호')}</span>
+                <div class="write__cont">
+                    <div class="write__input phone">
+                        <select id="devBuyerMobile1">
+                            <option>010</option>
+                            <option>011</option>
+                            <option>016</option>
+                            <option>017</option>
+                            <option>018</option>
+                            <option>019</option>
+                        </select>
+                        <span>-</span>
+                        <input type="text" id="devBuyerMobile2" value="" title="{=trans('휴대폰 번호')}">
+                        <span>-</span>
+                        <input type="text" id="devBuyerMobile3" value="" title="{=trans('휴대폰 번호')}">
+                    </div>
+                </div>
+            </li>
+
+            <li class="write__list">
+                <span class="write__title required">{=trans('주문 비밀번호')}</span>
+                <div class="write__cont">
+                    <div class="write__input">
+                        <input type="password" id="devOrderPassword" title="{=trans('주문 비밀번호')}">
+                        <span class="write__guide">{=trans('영문 대소문자, 숫자, 특수문자 중 3개 이상을 조합하여 8자리 이상 입력해 주세요.')}</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="write__list">
+                <span class="write__title required">{=trans('주문 비밀번호 확인')}</span>
+                <div class="write__cont">
+                    <div class="write__input">
+                        <input type="password" id="devOrderPasswordCompare" title="{=trans('주문 비밀번호 확인')}">
+                        <span class="write__guide">{=trans('비밀번호 확인을 위해 다시 한번 입력해 주세요.')}</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- 배송지 정보 -->
+<section id="devAddDeliveryTemplate" class="fb__shopCommon__section fb__infoinput__delivery devRecipientContents">
+    
+    <header class="section__header">
+        <h2 class="section__title">{=trans('배송지 정보')}</h2>
+
+        <label class="section__header__right fb__comm__checkbox">
+            <input type="checkbox" class="devSameBuyerInfo">
+            <span>{=trans('주문자 정보와 동일')}</span>
+        </label>
+    </header>
+
+    <div class="section__box">
+        <ul class="fb__write">
+            <!-- 받는분 -->
+            <li class="write__list">
+                <span class="write__title required">{=trans('받는 분')}</span>
+                <div class="write__cont">
+                    <label class="write__input">
+                        <input type="text" class="devRecipientName" title="{=trans('받는 분 이름')}">
+                    </label>
+                </div>
+            </li>
+            
+            <!-- 주소 -->
+            <li class="write__list">
+                <span class="write__title required">{=trans('주소')}</span>
+                <div class="write__cont">
+                    <label class="write__input address">
+                        <div class="zipcode">
+                            <input type="text" class="zip-code devRecipientZip" title="{=trans('받는 분 주소')}" readonly>
+                            <button class="btn-default btn-dark devRecipientZipPopupButton">{=trans('주소찾기')}</button>
+                        </div>
+
+                        <input type="text" class="input-address devRecipientAddr1" title="{=trans('받는 분 주소')}" readonly>
+                        <input type="text" class="input-add-detail devRecipientAddr2" title="{=trans('받는 분 상세주소')}">
+                    </label>
+                </div>
+            </li>
+
+            <!-- 휴대폰 번호 -->
+            <li class="write__list">
+                <span class="write__title required">{=trans('휴대폰 번호')}</span>
+                <div class="write__cont">
+                    <label class="write__input phone">
+                        <select class="devRecipientMobile1" name="mobile">
+                            <option>010</option>
+                            <option>011</option>
+                            <option>016</option>
+                            <option>017</option>
+                            <option>018</option>
+                            <option>019</option>
+                        </select>
+                        <span>-</span>
+                        <input type="text" class="devRecipientMobile2" title="{=trans('받는 분 휴대폰 번호')}">
+                        <span>-</span>
+                        <input type="text" class="devRecipientMobile3" title="{=trans('받는 분 휴대폰 번호')}">
+                    </label>
+                </div>
+            </li>
+        </ul>
+
+        <div class="delivery__request">
+            <span class="delivery__request__title">{=trans('배송요청사항')}</span>
+
+            <div class="devDeliveryMessageContents delivery__request__cont">
+                <!-- 요청사항 선택 -->
+                <select class="devDeliveryMessageSelectBox">
+                    <option value="">{=trans('배송요청사항 선택')}</option>
+                    <option value="door">{=trans('문 앞에 놓아주세요.')}</option>
+                    <option>{=trans('배송 전에 미리 연락 바랍니다.')}</option>
+                    <option>{=trans('부재 시 경비실에 맡겨주세요.')}</option>
+                    <option>{=trans('부재 시 전화주시거나 문자 남겨 주세요.')}</option>
+                    <option value="direct">{=trans('직접입력')}</option>
+                </select>
+
+                <!-- 요청사항: 직접입력 -->
+                <div class="delivery__request__write devDeliveryMessageDirectContents" style="display: none;">
+                    <input type="text" class="devDeliveryMessage" maxlength="30" data-type="direct">
+                </div>
+
+                <div class="delivery__request__write devDeliveryMessageDoorContents" style="display: none;">
+                    <select class="devDeliveryEntranceWay">
+                        <option value="">{=trans('공동현관 출입방법 선택')}</option>
+                        <option value="door">{=trans('공동현관 출입번호')}</option>
+                        <option>{=trans('경비실 호출')}</option>
+                        <option>{=trans('비밀번호 없이 출입가능')}</option>
+                        <option value="direct">{=trans('직접입력')}</option>
+                    </select>
+
+                    <div class="delivery__request__write devDeliveryEntranceWayMessageWrap" style="display: none;">
+                        <input type="text" class="devDoorMessage" placeholder="{=trans('예) #101(호수) + #0000(비밀번호)')}" maxlength="30" data-type="door">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 주문상품 -->
+<section class="fb__shopCommon__section fb__infoinput__item">
+    <header class="section__header">
+        <h2 class="section__title">{=trans('주문상품')}</h2>
+    </header>
+
+    <div class="section__box">
+        {# cartTemplate}
+    </div>
+</section>

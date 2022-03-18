@@ -1,0 +1,89 @@
+<form id="devForm">
+    <fieldset>
+        <section class="fb__menusubmit">
+            <section class="fb-filter">
+                <input type="hidden" name="device_type" value="all"/>
+                <table>
+                    <caption>푸시 보내기</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">발송구분</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="send_type" value="D" checked/>
+                                <span>즉시 발송</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="send_type" value="R"/>
+                                <span>예약 발송</span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr id="devSendTypeReservationContents" style="display:none;">
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">예약시간</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time"
+                                   id="devReservationDate" name="reservationDate" value="{reservationDate}" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">관리제목</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--50" name="title"
+                                   title="관리 제목"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">푸시제목</span>
+                            </br>
+                            <span class="fb-filter__title--ne" style="color:red">최대 23자 내로 입력해주세요.</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--50" name="push_title"
+                                   title="푸시제목" id="devPushTitle"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">푸시내용</span>
+                            </br>
+                            <span class="fb-filter__title--ne" style="color:red">최대 26자 내로 입력해주세요.</span>
+                        </th>
+                        <td colspan="3">
+                            <textarea name="contents" class="fb-filter__textarea" title="푸시내용" type="text" id="devPushContent"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>푸시 이미지</span><br><br><span style="color:red">(1024px * 512px)</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="devPushFileupload" data-img-src=""></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">푸시링크</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="link" title="푸시링크"/>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>
+

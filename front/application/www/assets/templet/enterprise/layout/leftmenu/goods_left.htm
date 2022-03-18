@@ -1,0 +1,24 @@
+<section class="fb__left">
+    <h2 class="fb__left__title">{depth1.cname}</h2>
+    <ul class="menu">
+        <li class="menu__list menu__list-all">
+            <a href="/shop/goodsList/{depth1.cid}" class="menu__link {? cid == depth1.cid}active{/}">{=trans('전체')}</a>
+        </li>
+
+        {@ subCateList}
+        <li class="menu__list">
+            <a href="{.cid}" class="menu__link {? cid == .cid}active{/}">{.cname}</a>
+
+            {? .child}
+            <ul class="menu__sub" {? substr(cid, 0, 6) == substr(.cid, 0, 6)}style="display: block;"{/}>
+                {@ .child}
+                <li class="menu__sub-list">
+                    <a href="/shop/goodsList/{..cid}" class="menu__sub-link {? cid == ..cid}active{/}">{..cname}</a>
+                </li>
+                {/}
+            </ul>
+            {/}
+        </li>
+        {/}
+    </ul>
+</section>

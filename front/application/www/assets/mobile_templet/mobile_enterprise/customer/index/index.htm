@@ -1,0 +1,60 @@
+<section class="fb__customer wrap-customer">
+    <h2 class="fb__title--hidden">{=trans('고객센터')}</h2>
+   
+    {#customerTop}
+
+    <!-- 자주 묻는 질문 -->
+    <section class="fb__customer__faq faq-best-wrap">
+    
+
+        <div class="customer__sec">
+            {@ faqList}
+            <dl class="faq__list">
+                <!-- FAQ Q -->
+                <dt class="faq__list__ques js__faq__ques">
+                    <!-- 분류 -->
+                    <span class="faq__list__type">{.div_name}</span>
+                    <!-- 제목 -->
+                    <p class="faq__list__title">{.bbs_q}</p>
+                </dt>
+                <!-- FAQ A -->
+                <dd class="faq__list__anwser">
+                    <p>{.bbs_a}</p>
+                </dd>
+            </dl>
+            {/}
+        </div>
+    </section>
+    
+    <!-- 공지사항 -->
+    <div class="wrap-sect"></div>
+    <section>
+        <a href="/customer/notice" class="customer__title bdbx">{=trans('공지사항')}</a>
+        <!--         
+            <div class="customer__sec">
+                <ul class="cus-noti">
+                    {@ noticeList}
+                    <li onclick="location.href = '/customer/notice/read/{.bbs_ix}'">{.notice_subject}</li>
+                    {/}
+                </ul>
+            </div> 
+        -->
+    </section>
+
+    <!-- 고객센터 문의 전화 -->
+    <div class="wrap-sect"></div>
+    <section class="fb__customer__info">
+        <h2 class="info__title">{=trans('고객지원센터')}</h2>
+
+        <!-- 전화번호 -->
+        <strong class="info__phone">{companyInfo.cs_phone}</strong>
+
+        <!-- 영업시간 -->
+        <div class="info__time">{=nl2br(companyInfo.opening_time)} </div>
+
+        <div class="info__bottom">
+            <a href="tel:{companyInfo.cs_phone}">{=trans('전화걸기')}</a>
+            <a href="/customer/qna">{=trans('1:1 문의하기')}</a>
+        </div>
+    </section>
+</section>

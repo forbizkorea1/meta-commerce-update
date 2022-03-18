@@ -1,0 +1,128 @@
+<!-- 노출 Case : 승인신청/승인거부 -->
+<section class="sect">
+    <p class="sect__title">{=trans('셀러회원 전환 가입 절차')}</p>
+    <ul class="step">
+        <li class="step__list input">
+            <span><em class="step__list__num">01</em>{=trans('약관동의 및<br>정보입력')}</span>
+        </li>
+        <li class="step__list apply">
+            <span><em class="step__list__num">02</em>{=trans('전환신청')}</span>
+        </li>
+        <li class="step__list check">
+            <span><em class="step__list__num">03</em>{=trans('전환검토')}</span>
+        </li>
+        <li class="step__list done">
+            <span><em class="step__list__num">04</em>{=trans('셀러회원 전환<br>승인완료')}</span>
+        </li>
+    </ul>
+</section>
+
+<div class="wrap-sect"></div>
+
+<section class="sect">
+    <p class="sect__title">{=trans('필수 동의 항목')}</p>
+    <form id="devForm" class="form-box">
+        <div class="term-list">
+            <label class="fb__comm__checkbox">
+                <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
+                <span>[{=trans('필수')}] {=trans('구매 이용약관')}</span>
+            </label>
+            <span class="accord-btn on"></span>
+        </div>
+        <div class="terms-content" style="display: block;">
+            {policyData['use']['contents']}
+        </div>
+    </form>
+</section>
+
+<div class="wrap-sect"></div>
+
+<section class="sect">
+    <p class="sect__title">{=trans('추가 정보 입력')}</p>
+
+    <form action="" class="inputInfo">
+        <!-- 사업자 유형 -->
+        <dl class="box">
+            <dt class="box__title">{=trans('사업자 유형')} <em class="required-mark">*</em></dt>
+            <dd class="business-type">
+                <label class="fb__comm__radio">
+                    <input type="radio" name="businessType" class="blind">
+                    <span>{=trans('개인사업자')}</span>
+                </label>
+                
+                <label class="fb__comm__radio">
+                    <input type="radio" name="businessType" class="blind">
+                    <span>{=trans('법인사업자')}</span>
+                </label>
+                
+                <label class="fb__comm__radio">
+                    <input type="radio" name="businessType" class="blind">
+                    <span>{=trans('간이과세자')}</span>
+                </label>
+                
+                <label class="fb__comm__radio">
+                    <input type="radio" name="businessType" class="blind">
+                    <span>{=trans('면세사업자')}</span>
+                </label>
+            </dd>
+        </dl>
+
+        <!-- 예금주 -->
+        <dl class="box">
+            <dt class="box__title" class="">{=trans('예금주')} <em class="required-mark">*</em></dt>
+            <dd>
+                <input type="text" value="">
+            </dd>
+        </dl>
+
+        <!-- 은행명 -->
+        <dl class="box">
+            <dt class="box__title">{=trans('은행명')} <em class="required-mark">*</em></dt>
+            <dd>
+                <select>
+                    <option value="">{=trans('선택')}</option>
+                    <option value="">{=trans('우리은행')}</option>
+                    <option value="">{=trans('기업은행')}</option>
+                    <option value="">{=trans('신한은행')}</option>
+                    <option value="">{=trans('국민은행')}</option>
+                </select>
+            </dd>
+        </dl>
+        
+        <!-- 계좌번호 -->
+        <dl class="box">
+            <dt class="box__title">{=trans('계좌번호')} <em class="required-mark">*</em></dt>
+            <dd>
+                <input type="text" value="">
+            </dd>
+        </dl>
+        
+        <!-- 계약정보 서류첨부 -->
+        <dl class="box">
+            <dt class="box__title">{=trans('계약정보 서류첨부')} <em class="required-mark">*</em></dt>
+            <dd class="wrap-license-upload">
+                <div id="devBusinessFileWrap">
+                    <button class="file-upload-btn"></button>
+                    <input type="file" class="file-upload" name="businessFile" id="devBusinessFile" title="{=trans('사업자등록증')}" accept="image/*">
+                </div>
+
+                <div class="upload-img-area" id="devBusinessFileImageWrap" style="display:none;">
+                    <img id="devBusinessFileImage">
+                    <span class="upload-cancel-btn" id="devBusinessFileDeleteButton"></span>
+                </div>
+
+                <ul class="desc">
+                    <li class="desc__list">{=trans('파일 형식은 이미지 파일(jpg, jpeg, gif, png)로 제출 가능합니다.')}</li>
+                    <li class="desc__list">
+                        {=trans('첨부하실 서류가 1개 이상인 경우에는 별도 이메일 주소로 추가 전달<br>가능합니다.(담당자 이메일 : forbiz@forbiz.co.kr)')}
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </form>
+</section>
+
+<div class="wrap-btn-area">
+    <button class="btn-lg btn-dark-line">{=trans('취소')}</button>
+    <button class="btn-lg btn-point">{=trans('전환신청')}</button>
+</div>

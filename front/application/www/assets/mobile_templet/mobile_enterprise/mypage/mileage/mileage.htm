@@ -1,0 +1,93 @@
+<section class="wrap-mypage fb__mileage">
+    <!-- 상단 영역 -->
+    <div class="mileage__top">
+        <!-- 사용가능 -->
+        <p class="mileage__top__myMileAmount">
+            <span class="myMileAmount__name">{=trans('사용가능')}</span>
+            <em class="myMileAmount__number">{=myMileAmount}</em>
+        </p>
+
+        <!-- 예정 -->
+        <ul class="mileage__top__change">
+            <li class="change__mileAmount">
+                <em class="change__number">{=ext_mileage_amount}</em>
+                <p class="change__name">{=trans('30일 이내 소멸예정')}</p>
+            </li>
+            <li class="change__mileAmount">
+                <em class="change__number">{=myMileageWaitAmount}</em>
+                <p class="change__name">{=trans('적립예정')}</p>
+            </li>
+        </ul>
+
+        <!-- 완료 -->
+        <ul class="mileage__top__completed">
+            <li class="completed__mileAmount used">
+                <em class="completed__name">{=trans('총 사용완료')}</em>
+                <span class="completed__number">{=usedMileAmount}</span>
+            </li>
+            <li class="completed__mileAmount received">
+                <em class="completed__name">{=trans('총 적립완료')}</em>
+                <span class="completed__number">{=availMileAmount}</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 내역 조회 필터 -->
+    <form id="devMileageForm" name="devMileageForm">
+        <input type="hidden" name="page" value="1" id="devPage"/>
+        <input type="hidden" name="max" value="20" id="devMax"/>
+        <input type="hidden" name="state" value="" id="state"/>
+        <input type="hidden" name="sDate" id="sDate" value="{sDate}"/>
+        <input type="hidden" name="eDate" id="eDate" value="{eDate}"/>
+
+        <div class="mileage__filter">
+            <div class="mileage__filter__top">
+                <h2 class="mileage__filter__title">{=trans('{mileageName} 내역')}</h2>
+                <select class="mileage__filter__select" id="devSelectDate">
+                    <option data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</option>
+                    <option data-sdate="{oneWeek}" data-edate="{today}">{=trans('1주일')}</option>
+                    <option data-sdate="{oneMonth}" data-edate="{today}" selected>{=trans('1개월')}</option>
+                    <option data-sdate="{sixMonth}" data-edate="{today}">{=trans('6개월')}</option>
+                    <option data-sdate="{oneYear}" data-edate="{today}">{=trans('1년')}</option>
+                </select>
+            </div>
+
+            <div class="jq-radio">
+                <a class="on" devFilterState="">{=trans('전체')}</a>
+                <a class="" devFilterState="1">{=trans('적립')}</a>
+                <a class="" devFilterState="2">{=trans('사용')}</a>
+            </div>
+        </div> 
+    </form>
+
+    <!-- 마일리지 적립 내역 -->
+    <div class="mileage__list" id="devMileageContent">
+        <!--{'<script id="devMileageLoading" type="text/x-handlebars-template">'}-->
+        <div>
+            <p>loading...</p>
+        </div>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devMileageListEmpty" type="text/x-handlebars-template">'}-->
+        <div class="empty-content">
+            <p class="empty-content__txt">{=trans('{mileageName} 내역이 없습니다.')}</p>
+        </div>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devMileageList" type="text/x-handlebars-template">'}-->
+        <dl class="{[#if soldoutClassName]}showBg{[else]}hideBg{[/if]}">
+            <dt>
+            <p>{[message]}</p>
+            <span>{[date]}</span>
+            </dt>
+            <dd>
+                <p class="{[log_type]}"><em>{[mileage_desc]}</em></p>
+                <span>{[state_desc]}</span>
+            </dd>
+        </dl>
+        <!--{'</script>'}-->
+    </div>
+
+    <!-- 더보기 버튼 -->
+    <div id="devPageWrap" class="wrap-btn-area more"></div>
+</section>

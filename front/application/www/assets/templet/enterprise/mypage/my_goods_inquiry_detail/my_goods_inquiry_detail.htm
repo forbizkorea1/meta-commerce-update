@@ -1,0 +1,43 @@
+<div class="fb__my-inquiry-detail">
+    <div class="detail">
+        <div class="detail__top">
+            <span class="detail__top__date">{=trans('작성일시')} <em class="font-rb">{regdate}</em></span>
+            {? isResponse}
+                <span class="status--complete">{=trans('답변완료')}</span>
+            {:}
+                <span class="status--normal">{=trans('답변대기')}</span>
+            {/}
+        </div>
+
+        <div class="detail__title">{bbs_subject}</div>
+
+        <div class="detail__content wrap-question">
+            <div class="detail__item">
+                <div class="detail__item__thumb">
+                    <a href="/shop/goodsView/{pid}">
+                        <img src="{image_src}" alt="{pname}">
+                    </a>
+                </div>
+
+                <div class="detail__item__info">
+                    {? brand_name}<p class="detail__item__info__brand">{brand_name}</p>{/}
+                    <p class="detail__item__info-title">{pname}</p>
+                </div>
+            </div>
+
+            <div class="detail__question question">{=nl2br(bbs_contents)}</div>
+        </div>
+
+        {? isResponse}
+        {@ comments}
+        <div class="detail__answer">
+            <div class="detail__answer__info">
+                <span class="detail__answer__info-name">{.cmt_name}</span>
+                <span class="detail__answer__info-date">{=trans('답변일시')}: <em>{.regdate}</em></span>
+            </div>
+            <div class="detail__answer__content answer">{=nl2br(.cmt_contents)}</div>
+        </div>
+        {/}
+        {/}
+    </div>
+</div>

@@ -1,0 +1,201 @@
+<form id="devListForm">
+    <input type="hidden" name="page" value="1" id="devPage">
+    <input type="hidden" name="max" value="30">
+    <input type="hidden" name="orderBy" value="regdateDesc" id="devSort">
+    <input type="hidden" name="vlevel1" value="1">
+    
+    <input type="hidden" name="filterCid" value="">
+    <input type="hidden" name="filterBrands" value="">
+    <input type="hidden" name="filterDeliveryFree" value="">
+    <input type="hidden" name="filterInsideText" value="">
+    <input type="hidden" name="filterText" value="{=searchText}">
+</form>
+
+<section class="fb__search">
+    <header class="fb__search__header">
+        <h2 class="fb__search__title">‘{=searchText}’ {=trans('검색 결과')}</h2>
+    </header>
+
+    <div id="devPrdSearchSection">
+        <div class="wrap-search-detail" id="devSelectSearchOption">
+            <dl class="dl-category">
+                <dt>
+                    {=trans('카테고리')}
+                    <button type="button" class="btn-dl-open"></button>
+                </dt>
+
+                <dd>
+                    <div id="devCategoryPath" class="category-path"></div>
+                    <ul class="search-filter" id="devSubCategorysContents">
+                        <!--{'<script id="devSubCategorys" type="text/x-handlebars-template">'}-->
+                        <li id="devCategorySelect{[cid]}" class="search-filter__list devCategorySelect devCategorySelect{[cid]}" data-cid="{[cid]}" data-path="{[path]}" data-depth="{[depth]}"><span>{[cname]}</span></li>
+                        <!--{'</script>'}-->
+                    </ul>
+                </dd>
+            </dl>
+
+            <dl class="dl-brand">
+                <dt>
+                    {=trans('브랜드')}
+                    <button type="button" class="btn-dl-open"></button>
+                </dt>
+
+                <dd>
+                    <ul class="search-filter">
+                        {@ brandList}
+                        <li id="devBrand{.b_ix}" class="search-filter__list devBrandSelect{.b_ix}" data-ix="{.b_ix}"><span>{.brand_name}</span></li>
+                        {/}
+                    </ul>
+                </dd>
+            </dl>
+
+            <!-- <dl class="dl-free">
+                <dt>배송</dt>
+
+                <dd>
+                    <div class="devFreeDelivery btn-free-delivery">무료배송</div>
+                </dd>
+            </dl> -->
+
+            <dl class="dl-search">
+                <dt>{=trans('결과 내 검색')}</dt>
+
+                <dd>
+                    <div class="search-input">
+                        <div class="search-input__box">
+                            <input type="text" class="search-input__text devInsideText">
+                            <button type="button" id="devGoInsideSearch" class="search-input__btn btn-search">{=trans('검색')}</button>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="dl-option-list">
+                <dt>{=trans('선택조건')}</dt>
+
+                <dd>
+                    <div class="filter-chioce">
+                        <ul class="filter-chioce__box" id="devSelectedView">
+                            <!--{'<script id="devSelected" type="text/x-handlebars-template">'}-->
+                            <li id="{[devFilter]}" class="filter-chioce__list {[devFilter]}">
+                                <span>{[selected]}</span>
+                                <button type="button" class="devRemoveSelected btn-sel-remove" data-kind="{[kind]}" data-ix = "{[ix]}" data-depth="{[depth]}"></button>
+                            </li>
+                            <!--{'</script>'}-->
+                        </ul>
+
+                        <button type="button" id="devRefresh" class="btn-sel-refresh">{=trans('전체해제')}</button>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="item__header">
+            <strong class="item__header__title">
+                {=trans('<span id="devSearchTotal">0</span>개의 상품')}
+            </strong>
+
+            <div class="item__header__filter">
+                <select class="fb__select--small devSortTab">
+                    <option value="orderCnt">{=trans('판매인기순')}</option>
+                    <option value="lowPrice">{=trans('낮은가격순')}</option>
+                    <option value="highPrice">{=trans('높은가격순')}</option>
+                    <option value="regDate">{=trans('최근등록순')}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="item__content">
+            <ul class="fb__items listType5" id="devListContents">
+                <!--{'<script id="devListLoading" type="text/x-handlebars-template">'}-->
+                <li class="loading-text">loading...</li>
+                <!--{'</script>'}-->
+
+                <!--{'<script id="devListEmpty" type="text/x-handlebars-template">'}-->
+                <li>
+                    <!--상세 검색결과가 없을 때-->
+                    <div class="no-search type01" id="devEmptyFilter" style="display: none">
+                        <p class="no-search__top">
+                            <span>{=trans('선택한 조건에 대한 검색결과가 없습니다.')}</span>
+                        </p>
+                        
+                        <ul class="no-search__txt">
+                            <li>{=trans('다른 조건을 선택해서 검색해 보세요.')}</li>
+                        </ul>
+                    </div>
+
+                    <!--검색결과가 없을 때-->
+                    <div class="no-search" id="devEmptyKeyword">
+                        <p class="no-search__top">
+                            <span>{=trans(‘&#39;{=searchText}에 대한 검색 결과가 없습니다.&#39;')}</span>
+                        </p>
+
+                        <ul class="no-search__txt">
+                            <li>- {=trans('일시적으로 상품이 품절되었을 수 있습니다.')}</li>
+                            <li>- {=trans('검색어가 올바르게 입력되었는지 확인해 주세요.')}</li>
+                            <li>- {=trans('일반적인 검색어로 다시 검색해 주세요.')}</li>
+                            <li>- {=trans('검색어의 띄어쓰기를 다르게 해보세요.')}</li>
+                        </ul>
+                    </div>
+                </li>
+                <!--{'</script>'}-->
+
+                <!--{'<script id="devListDetail" type="text/x-handlebars-template">'}-->
+                <li class="item__box">
+                    <a href="/shop/goodsView/{[id]}" class="item__link">
+                        <figure class="item__thumb">
+                            <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[image_src]}" alt="{[pname]}">
+                            
+                            <button type="button" class="item__wish {[#if alreadyWish]}on{[/if]}" data-devwishbtn="{[id]}">
+                                {=trans('찜버튼')}
+                            </button>
+                        </figure>
+
+                        <div class="item__info">
+                            <!-- 브랜드 -->
+                            {[#if brand_name]}
+                            <span class="item__brand">{[brand_name]}</span>
+                            {[/if]}
+
+                            <!-- 상품명 -->
+                            <strong class="item__name">{[pname]}</strong>
+                            
+                            <!-- 상품가격 -->
+                            <div class="item__price">
+                                {[#if status_soldout]}
+                                    <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                {[else]}
+
+                                    {[#if isDiscount]}
+                                        <!-- 할인율 -->
+                                        <span class="item__price--perc"><em>{[discount_rate]}</em>%</span>
+                                        <!-- 원가 -->
+                                        <del class="item__price--strike"><em>{[listprice]}</em>{=trans('원')}</del>
+                                    {[/if]}
+                                
+                                    <!-- 판매가 -->
+                                    <p class="item__price--current"><em>{[dcprice]}</em>{=trans('원')}</p>
+                                {[/if]}
+                            </div>
+                        </div>
+
+                        {[#if icons]}
+                        <div class="item__badge">
+                            {[#each icons as |icon|]}
+                                {[#if this.isText]}
+                                    <span>{{[this.content]}}</span>
+                                {[else]}
+                                    {{[this.content]}}
+                                {[/if]}
+                            {[/each]}
+                        </div>
+                        {[/if]}
+                    </a>
+                </li>
+                <!--{'</script>'}-->
+            </ul>
+        </div>
+
+        <div id="devPageWrap"></div>
+    </div>
+</section>

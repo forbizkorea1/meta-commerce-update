@@ -1,0 +1,52 @@
+<section class="fb__promotion fb__main">
+
+    <h2 class="fb__title--hidden">{=trans('기획전 페이지')}</h2>
+
+    <!-- form -->
+    <form id="devEventForm" action="/controller/event/getEventList">
+        <input type="hidden" name="orderBy" value="startDate">
+        <input type="hidden" name="orderByType" value="desc">
+        <input type="hidden" name="page" value="1" id="devPage">
+        <input type="hidden" name="max" value="18" id="devMax">
+        <input type="hidden" name="type" value="P" id="devType">
+        <input type="hidden" name="ForbizCsrfTestName" class="clsForbizCsrfId" value="07c885755827195e35805bacc87f7700">
+    </form>
+    
+    <!-- 기획전 내용 -->
+    <ul id="devEventContent" class="fb__event__box promo">
+        <!--{'<script id="devEventLoading" type="text/x-handlebars-template">'}-->
+        <li>
+            <div class="wrap-loading">
+                <div class="loading"></div>
+            </div>
+        </li>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devEventListEmpty" type="text/x-handlebars-template">'}-->
+        <li class="empty-content">
+            <p class="empty-content__txt">{=trans('등록된 이벤트가 없습니다.')}</p>
+        </li>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devEventList" type="text/x-handlebars-template">'}-->
+        <li class="fb__event__list">
+            <a href="/event/eventDetail/{[event_ix]}" class="fb__event__link">
+                <div class="fb__event__item">
+                    <figure class="fb__event__image">
+                        <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[imgPath]}" alt="" onerror="this.src='/assets/mobile_templet/mobile_enterprise/images/noimg.gif'">
+                        {[#if onOff]}{[else]}<span class="end__txt">{=trans('기획전이 종료되었습니다.')}</span>{[/if]}
+                    </figure>
+                </div>
+
+                <!-- 리스트 하단 -->
+                <dl class="fb__event__info {[#if onOff]}{[else]}end{[/if]}">
+                    <dt class="fb__event__name">{[event_title]}</dt>
+                    <dd class="fb__event__date">{[startDate]} ~ {[endDate]}</dd>
+                </dl>
+            </a>
+        </li>
+        <!--{'</script>'}-->
+    </ul>
+
+    <div id="devPageWrap"></div>
+</section>

@@ -1,0 +1,173 @@
+<link rel="stylesheet" href="/assets/templet/enterprise/js/themes/base/ui.all.css">
+
+<section class="fb__mypage">
+    <h2 class="fb__title--hidden">{=trans('마이페이지 취소교환반품 조회')}</h2>
+
+    {? !nonMemberOid}
+        {* 회원 로그인 *}
+        <section class="fb__mypage__search">
+            <h2 class="fb__mypage__title">{=trans('취소/교환/반품 내역 검색')}</h2>
+
+            <form id="devReturnHistoryForm">
+                <input type="hidden" name="page" value="1" id="devPage" />
+                <input type="hidden" name="max" value="10"/>
+
+                <div class="search">
+                    <div class="search__row">
+                        <div class="search__col">
+                            <span class="search__col-title">{=trans('조회기간')}</span>
+
+                            <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick " title="{=trans('조회시작기간')}">
+                            ~
+                            <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick " title="{=trans('조회종료기간')}">
+                        </div>
+                        <div class="search__col__day">
+                            <div class="day-radio">
+                                <a href="#"  class="day-radio__btn today devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
+                                <a href="#"  class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}">{=trans('<em>1</em>주일')}</a>
+                                <a href="#"  class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault">{=trans('<em>1</em>개월')}</a>
+                                <a href="#"  class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}">{=trans('<em>6</em>개월')}</a>
+                                <a href="#"  class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}">{=trans('<em>1</em>년')}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search__row order">
+                        <div class="search__col">
+                            <span class="search__col-title">{=trans('주문상태')}</span>
+                            <select class="search__select" name="status" id="devStatus" title="{=trans('주문상태 선택')}">
+                                <option value="all">{=trans('전체')}</option>
+                                {@ status}<option value="{status.key_}">{status.value_}</option>{/}
+                            </select>
+                        </div>
+                        <script>$(function () {
+                            $('#devStatus').val('{orderStatus}');
+                        });</script>
+
+                        <div class="search__col search__col__pname">
+                            <label class="search__col-title search__col__pname-title" for="devPname">{=trans('상품명')}</label>
+                            <input type="text" name="pname" class="search__pname-input" id="devPname">
+                        </div>
+                    </div>
+                </div>
+                <div class="search__btn">
+                    <button type="button" id="devSearchInitBtn" class="search__btn--cancel" data-sDate="{oneMonth}" data-eDate="{today}">{=trans('초기화')}</button>
+                    <button type="button" id="devSearchBtn" title="검색" class="search__btn--search">{=trans('검색')}</button>
+                </div>
+            </form>
+
+        </section>
+    {:}
+        {* 비회원 주문조회 *}
+        <form id="devReturnHistoryForm">
+            <input type="hidden" name="page" value="1" id="devPage" />
+            <input type="hidden" name="max" value="1"/>
+        </form>
+    {/}
+
+    <!-- 취소교환반품내역 -->
+    <section class="fb__mypage__section fb__orderCommon">
+        <h3 class="fb__mypage__title">{=trans('취소/교환/반품 내역')}</h3>
+
+        <div id="devReturnHistoryContent">
+            {* Return History Loading *}
+            <!--{'<script id="devReturnHistoryLoading" type="text/x-handlebars-template">'}-->
+            <div class="fb__loading">
+                <div class="fb__loading__icon"></div>
+            </div>
+            <!--{'</script>'}-->
+
+            {* Return History Empty *}
+            <!--{'<script id="devReturnHistoryEmpty" type="text/x-handlebars-template">'}-->
+            <div class="fb__empty borderTopBottom">
+                <p class="fb__empty__text">{=trans('취소/교환/반품한 내역이 없습니다.')}</p>
+            </div>
+            <!--{'</script>'}-->
+
+            {* Return History List *}
+            <!--{'<script id="devReturnHistoryList" type="text/x-handlebars-template">'}-->
+            <div class="fb__mypage__list">
+                <div class="fb__orderCommon__box">
+                    <header class="fb__orderCommon__header">
+                        <dl class="fb__orderCommon__date">
+                            <dt>{=trans('신청일자')}</dt>
+                            <dd>{[claim_date]}</dd>
+                        </dl>
+                        <dl class="fb__orderCommon__oid">
+                            <dt>{=trans('주문번호')}</dt>
+                            <dd>
+                                <a href="/mypage/orderDetail?oid={[oid]}" class="oid__link">
+                                <span>{[oid]}</span>
+                            </dd>
+                        </dl>
+    
+                        <a class="fb__orderCommon__link" href="/mypage/orderClaimDetail/{[oid]}/{[claim_group]}">
+                            <span>{=trans('신청내역조회')}</span>
+                        </a>
+                    </header>
+
+                    <div class="fb__orderCommon__cont fb__shopCommon__table orderTable">
+                        <table>
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <tbody id="devOrderDetailContent">{[{\orderDetail}]}</tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--{'</script>'}-->
+            
+            {* Return History Detail *}
+            <!--{'<script id="devReturnProduct" type="text/x-handlebars-template">'}-->
+            <tr>
+                <td class="orderTable__item item-info">
+                    <a href="/shop/goodsView/{[pid]}" class="item-info__link">
+
+                        <figure class="item-info__thumb">
+                            <img data-src="{[pimg]}" alt="">
+
+                            {[#if exchangePrd]}
+                            <mark class="item-info__badge--exchange">{=trans('교환상품')}</mark>
+                            {[/if]}
+                        </figure>
+
+                        <div class="item-info__info">
+                            <p class="item-info__name">{[#if brand_name]}[{[brand_name]}]{[/if]} {[pname]}</p>
+
+                            <span class="item-info__option">
+                                <span>{[{\option_text}]}</span>
+                                <span class="item-info__count"><em>{[pcnt]}</em>{=trans('개')}</span>
+                            </span>
+
+                            <span class="item-info__price item-info__price--text">
+                                <span>{[listprice]}</span>{=trans('원')}
+                            </span>
+                        </div>
+                    </a>
+                </td>
+
+                <td class="orderTable__status">
+                    <p>{[status_text]}</p>
+                    
+                    {[#if refund_status_text]}
+                        <p>{[refund_status_text]}</p>
+                    {[/if]}
+                </td>
+                
+                <td class="orderTable__action">
+                    <!-- 
+                        기획요청사항: 1:1문의하기 버튼 삭제처리 
+                        <button class="btn-dark-line btn-s" style="font-size:13px">1:1문의</button> 
+                    -->
+                </td>
+            </tr>
+            {'</script>'}
+        </div>
+        
+        <div id="devPageWrap"></div>
+    </section>
+    
+</section>

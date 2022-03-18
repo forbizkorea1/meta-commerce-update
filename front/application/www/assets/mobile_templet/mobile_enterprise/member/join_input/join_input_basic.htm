@@ -1,0 +1,176 @@
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<section class="join-input-basic join-input__comm">
+    <div class="wrap-step">
+        <p class="wrap-step__title">02 {=trans('정보입력')}</p>
+        <ul class="step">
+            <li class=""></li>
+            <li class="on">2</li>
+            <li class=""></li>
+        </ul>
+    </div>
+
+    <form id="devBasicForm" class="wrap-input-form">
+        <div>
+            <!-- 아이디 -->
+            <dl class="id-area">
+                <dt>{=trans('아이디')} <em>*</em></dt>
+                <dd>
+                    <input type="text" id="devUserId" name="userId" title="{=trans('아이디')}">
+                    <button class="btn-default btn-dark" id="devUserIdDoubleCheckButton">{=trans('중복확인')}</button>
+                    <p class="txt-guide" devTailMsg="devUserId">{=trans('영문, 숫자 조합하여 6~20자리로 입력해 주세요.')}</p>
+                </dd>
+            </dl>
+
+            <!-- 비밀번호 -->
+            <dl class="pw-area">
+                <dt>{=trans('비밀번호')} <em>*</em></dt>
+                <dd>
+                    <input type="password" id="devUserPassword" name="pw" title="{=trans('비밀번호')}">
+                    <p class="txt-guide password" devTailMsg="devUserPassword">
+                        {=trans('영문 대소문자, 숫자, 특수문자 중 3개 이상을 조합하여 8자리 이상 입력해 주세요.')}
+                    </p>
+                </dd>
+            </dl>
+
+            <!-- 비밀번호 확인 -->
+            <dl>
+                <dt>{=trans('비밀번호 확인')} <em>*</em></dt>
+                <dd>
+                    <input type="password" id="devCompareUserPassword" name="comparePw" title="{=trans('비밀번호 확인')}">
+                    <p class="txt-error" devTailMsg="devCompareUserPassword"></p>
+                </dd>
+            </dl>
+
+            <!-- 이름 -->
+            <dl>
+                <dt>{=trans('이름')}</dt>
+                <dd>
+                    <input type="text" value="{userName}" disabled>
+                </dd>
+            </dl>
+
+            <!-- 생년월일 -->
+            <dl class="birth-area">
+                <dt>{=trans('생년월일')}</dt>
+                <dd>
+                    <input type="text" class="birth-input" value="{changeFormatBirthday}" disabled>
+
+                    <div class="sex">
+                        <label class="sex__box">
+                            <input type="radio" id="male" name="sex" value="{=trans('남성')}" {? changeFormatSexDiv != "{=trans('여성')}"}checked{/}>
+                            <span>{=trans('남성')}</span>
+                        </label>
+
+                        <label class="sex__box">
+                            <input type="radio" id="female" name="sex" value="{=trans('여성')}" {? changeFormatSexDiv =="{=trans('여성')}"}checked{/}>
+                            <span>{=trans('여성')}</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+
+            <!-- 이메일 -->
+            <dl class="email-area">
+                <dt>{=trans('이메일')} <em>*</em></dt>
+                <dd>
+                    <label>
+                        <input type="text" name="email" id="devEmail" title="{=trans('이메일')}" class="email-input">
+                    </label>
+
+                    <p class="txt-error" devTailMsg="devEmail"></p>
+
+                    <button class="btn-default btn-full btn-dark" id="devEmailDoubleCheckButton">{=trans('이메일 중복확인')}</button>
+                </dd>
+            </dl>
+
+            <!-- 휴대폰 번호 -->
+            <dl class="phone-area">
+                <dt>{=trans('휴대폰번호')} <em>*</em></dt>
+                <dd>
+                    <div class="fb__input__phone">
+                        {? explodePcs[0]!=''}
+                            <input type="text" name="pcs1" id="devPcs1" value="{explodePcs[0]}" title="{=trans('휴대폰번호')}" class="address__phone__0" readonly>
+                        {:}
+                            <select class="fb__input__phone--01" name="pcs1" id="devPcs1">
+                                <option value="010" {? explodePcs[0]=="010"}selcted{/}>010</option>
+                                <option value="011" {? explodePcs[0]=="011"}selcted{/}>011</option>
+                                <option value="016" {? explodePcs[0]=="016"}selcted{/}>016</option>
+                                <option value="017" {? explodePcs[0]=="017"}selcted{/}>017</option>
+                                <option value="018" {? explodePcs[0]=="018"}selcted{/}>018</option>
+                                <option value="019" {? explodePcs[0]=="019"}selcted{/}>019</option>
+                            </select>
+                        {/}
+                        
+                        <div class="fb__input__phone--box {? explodePcs[1] != '' && explodePcs[2] != ''}readonly{/}">
+                            <input type="number" name="pcs2" id="devPcs2" value="{explodePcs[1]}" title="{=trans('휴대폰번호')}" class="fb__input__phone--02 js__input--onlyNumber" {? explodePcs[1]!='' }readonly{/}>
+                            <span class="dash"></span>
+                            <input type="number" name="pcs3" id="devPcs3" value="{explodePcs[2]}" title="{=trans('휴대폰번호')}" class="fb__input__phone--03 js__input--onlyNumber" {? explodePcs[2]!='' }readonly{/}>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <!-- 전화번호 -->
+            <!-- 
+                버전픽스 개선으로 안보이게 처리하였습니다.
+                개발 이슈와 추후 사용될 가능성이 있어 css로만 hidden처리하였습니다. (21.05)
+             -->
+            <dl class="tel-area" style="display: none;">
+                <dt>{=trans('전화번호')}</dt>
+                <dd>
+                    <div class="fb__input__phone">
+                        <select class="fb__input__phone--01" name="tel1">
+                            <option value="02">02</option>
+                            <option value="031">031</option>
+                            <option value="032">032</option>
+                            <option value="041">041</option>
+                            <option value="042">042</option>
+                            <option value="043">043</option>
+                            <option value="051">051</option>
+                            <option value="052">052</option>
+                            <option value="053">053</option>
+                            <option value="054">054</option>
+                            <option value="055">055</option>
+                            <option value="061">061</option>
+                            <option value="062">062</option>
+                            <option value="063">063</option>
+                            <option value="064">064</option>
+                            <option value="070">070</option>
+                            <option value="080">080</option>
+                            <option value="090">090</option>
+                        </select>
+
+                        <div class="fb__input__phone--box">
+                            <input type="number" name="tel2" id="devTel2" title="{=trans('전화번호 가운데자리')}" class="fb__input__phone--02 js__input--onlyNumber">
+                            <span class="dash"></span>
+                            <input type="number" name="tel3" id="devTel3" title="{=trans('전화번호 끝자리')}" class="fb__input__phone--03 js__input--onlyNumber">
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <!-- 주소 -->
+            <dl class="address-area">
+                <dt>{=trans('주소')}</dt>
+                <dd>
+                    <div class="fb__input__address">
+                        <div class="fb__input__address--zipCode">
+                            <input type="text" class="dim" name="zip" id="devZip" readonly>
+                            <button type="button" id="devZipPopupButton">{=trans('주소찾기')}</button>
+                        </div>
+
+                        <input type="text" class="fb__input__address--01" name="addr1" id="devAddress1" readonly>
+                        <input type="text" class="fb__input__address--02" name="addr2" placeholder="{=trans('상세주소 입력')}">
+                    </div>
+                </dd>
+            </dl>
+        </div>
+
+        <!-- 버튼 -->
+        <div class="wrap-btn-area nospace">
+            <!-- <button class="btn-lg btn-point-line" id="devCancelButton">취소</button> -->
+            <button class="btn-lg btn-point" id="devBasicSubmitButton">{=trans('회원가입')}</button>
+        </div>
+    </form>
+</section>

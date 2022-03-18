@@ -1,0 +1,151 @@
+<section class="br__order-detail receipt-print">
+    <div class="order-detail" id="js__capture">
+        <section class="br__odhistory__each order-detail">
+            <div class="odeach">
+                <header class="odeach__top">
+                    <dl class="odeach__top__order-num">
+                        <dt>{=trans('주문번호')}</dt>
+                        <dd>{order.oid}</dd>
+                    </dl>
+
+                    <div class="odeach__top__info">
+                        <p class="odeach__top__text"><span class="fb__hidden">{=trans('주문일자')}</span> <span>{order.bdatetime}</span>
+                        </p>
+                        <p class="odeach__top__oderer">{=trans('주문자')} <span>{order.bname}</span></p>
+                    </div>
+
+                    {@paymentInfo.payment}
+                        {? (.method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE || .method == c.ORDER_METHOD_ASCROW) && .receipt_yn == 'Y'}
+                            {? .tid}
+                            <button type="button" class="btn-dark-line receipt-print__title__btn devCachInfo" data-settle_module="{.settle_module}" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('현금영수증 조회')}</button>
+                            {/}
+                        {: .method == c.ORDER_METHOD_CARD }
+                            {? .tid}
+                            <button type="button" class="btn-dark-line receipt-print__title__btn devCardInfo" data-settle_module="{.settle_module}" data-tid="{.tid}" data-oid="{order.oid}" data-total="{=intval(.payment_price)}">{=trans('신용카드 전표')}</button>
+                            {/}
+                        {/}
+                    {/}
+                </header>
+
+                <div class="wrap-sect"></div>
+                <h2 class="receipt-print__title">{=trans('구매내역')}</h2>
+                <div class="order-detail__goods">
+                    {@ order.orderDetail}
+                    <ul class="odeach__list">
+                        {@ .value_}
+                        <li class="odeach__item">
+                            <div class="odeach__item__inner">
+                                <figure class="odeach__item__thumb">
+                                    <a href="/shop/goodsView/{..pid}">
+                                        <img src="{..pimg}" data-protocol="{c.IMAGE_SERVER_DOMAIN}">
+                                    </a>
+                                </figure>
+
+                                <div class="odeach__item__info">
+                                    <p class="odeach__item__title">{..pname}</p>
+                                    {? ..set_group > 0}
+                                        <!-- 세트 상품 -->
+                                        {@ setData}
+                                        <p class="odeach__item__option">{setData.option_text} ({=trans('구성수량:{setData.pcnt}개')})</p>
+                                        {/}
+                                    {:}
+                                        <!-- 일반 상품 -->
+                                        <p class="odeach__item__option">
+                                            {..option_text}
+                                            {? ..pcnt}
+                                                <span class="option__length">{..pcnt}{=trans('개')}</span>
+                                            {/}
+                                        </p>
+                                    {/}
+
+                                    {? ..add_info}
+                                        <p class="odeach__item__option">{..add_info}</p>
+                                    {/}
+
+                                    <div class="odeach__item__bottom">
+                                        <span class="title">{=trans('결제금액')}</span>
+                                        <span class="price">
+                                            <em>{=g_number_format(..pt_dcprice)}</em>{=trans('원')} {? ..surtax_yorn == 'N'}({=trans('과세')}){:}({=trans('면세')}){/}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/}
+                    </ul>
+                    {/}
+                </div>
+            </div>
+        </section>
+
+        <div class="wrap-sect"></div>
+        <section class="order-payment-list">
+            <h2 class="receipt-print__title">{=trans('결제내역')}</h2>
+
+            <div class="section-wrap">
+                <!--
+                    * @신규 #19217로 인한 주석
+                    
+                    <div class="section payMethods">
+                        {@ paymentInfo.payment}
+                        <div class="top-area clearfix">
+                            <h2 class="float-l">결제수단</h2>
+                            <p class="float-r">{.method_text}</p>
+                        </div>
+
+                        <div class="content">
+                            {? .method == c.ORDER_METHOD_BANK || .method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE}
+                                <p>{.vb_info}{? .bank_input_name != ''}(예금주:{.bank_input_name}){/}</p>
+                                <p><em>{.bank} {.bank_account_num}</em></p>
+                                <p class="deadline">입금 마감 기한 <em>{=date('Y-m-d', strtotime(.bank_input_date))}</em></p>
+                            {:}
+                                <p>{.memo}</p>
+                            {/}
+                        </div>
+                        {/}
+                    </div>
+                -->
+
+                <div class="orderPrice">
+                    <div class="orderPrice__detail">
+                        {@ paymentInfo.payment}
+                        <dl>
+                            <dt>{=trans('결제수단')}</dt>
+                            <dd>{.method_text}</dd>
+                        </dl>
+                        {/}
+
+                        <!--
+                            * @신규 #19217로 인한 주석
+
+                            <dl>
+                                <dt>총 상품금액</dt>
+                                <dd><em>{=g_number_format(paymentInfo.total_listprice)}</em>원</dd>
+                            </dl>
+
+                            <dl class="sub disc-total">
+                                <dt>총 할인금액</dt>
+                                <dd><em>{? paymentInfo.total_dc > 0}-{/}{=g_number_format(paymentInfo.total_dc)}</em>원</dd>
+                            </dl>
+
+                            <dl class="sub shipping-total">
+                                <dt>총 배송비</dt>
+                                <dd><em>{=g_number_format(order.delivery_price)}</em>원</dd>
+                            </dl>
+                        -->
+
+                        <dl>
+                            <dt>{? order.status == 'IR'}{=trans('총 결제 예정 금액')}{:}{=trans('총 결제금액')}{/}</dt>
+                            <dd><em>{=g_number_format(paymentInfo.pt_dcprice+order.delivery_price)}</em>{=trans('원')}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="receipt-print__btn">
+        <button type="button" class="js__receipt__print">{=trans('이미지 저장')}</button>
+        <p class="receipt-print__notice">{=trans('본 영수증은 소득공제 및 매입 계산서로 사용할 수 없으며 결제된 내역을 증명하는 용도입니다.')}</p>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+<div class="wrap-mypage secede">
+    <form id="devSecedeForm" data-shopname="{companyInfo.shop_name}">
+        <input type="hidden" name="withdrawCode" value="{withdrawCode}">
+
+        <div class="secede-title">
+            {=trans('그동안 {companyInfo.shop_name}을/를 이용해 주셔서 감사합니다.')}<br>
+            {=trans('회원탈퇴 전 다음 사항을 꼭 숙지하시기 바랍니다.')}
+        </div>
+
+        <div class="secede-box">
+            <dl>
+                <dt>1. {=trans('기존 아이디로 재가입이 불가능 합니다.')}</dt>
+                <dd>{=trans('회원탈퇴 신청 시, 해당 아이디는 탈퇴처리 되며 동일한 아이디로 재가입할 수 없습니다.')}</dd>
+                <dd>{=trans('재가입 시 새로운 아이디로 가입이 가능합니다.')}</dd>
+            </dl>
+            <dl>
+                <dt>2. {=trans('현재 회원님이 보유하고 계신 쿠폰 및 마일리지는 회원탈퇴 시 즉시 소멸됩니다.')}</dt>
+            </dl>
+            <dl>
+                <dt>3. {=trans('회원님이 기존에 작성하신 상품후기, 상품문의 게시물은 회원탈퇴 시에도 삭제되지 않습니다.')}</dt>
+                <dd>{=trans('작성하신 게시물의 삭제를 원하실 경우에는 직접 삭제하신 후 탈퇴바라며, 삭제가 불가능한 경우 고객센터로 문의 바랍니다.')}</dd>
+            </dl>
+            <dl>
+                <dt>4. {=trans('회원님의 주문 및 상담 내역, 1:1 문의 내역은 회원탈퇴 시 즉시 삭제되지 않으며 일정기간이 지난 후 파기됩니다.')}</dt>
+                <dd>{=trans('주문 내역은 5년이 지난 경우에 자동 파기 처리됩니다.')}</dd>
+                <dd>{=trans('주문 상담 내역, 1:1 문의 내역은 3년이 지난 경우 자동 파기 처리됩니다.')}</dd>
+            </dl>
+            <dl>
+                <dt>5. {=trans('현재 진행 중인 거래 건이 있는 경우 탈퇴가 불가능합니다.')}</dt>
+                <dd>{=trans('모든 상품의 주문 상태가 구매확정, 반품확정, 교환확정, 취소완료인 경우에만 탈퇴가 가능합니다.')}</dd>
+            </dl>
+        </div>
+
+
+        <div class="wrap-input-form">
+            <dl>
+                <dt>{=trans('탈퇴사유')} <em>*</em></dt>
+                <dd>
+                    <select name="drop_ix" style="width:100%;" title="{=trans('탈퇴사유')}" id="devWithdrawReason">
+                        <option value="">{=trans('탈퇴사유 선택')}</option>
+                        {@reason}<option value="{reason.drop_ix}">{reason.dp_name}</option>{/}
+                    </select>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>{=trans('기타의견')}</dt>
+                <dd><textarea name="other_reason"></textarea></dd>
+            </dl>
+        </div>
+
+        <div class="wrap-btn-area">
+            <button type="button" class="btn-lg btn-white" id="devSecedeCancel">{=trans('취소')}</button>
+            <input type="submit" class="btn-lg btn-point" value="{=trans('회원탈퇴')}" id="devSecedeSubmit" />
+        </div>
+    </form>
+</div>

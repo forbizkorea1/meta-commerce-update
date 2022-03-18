@@ -1,0 +1,81 @@
+<div class="wrap-mypage community-list inquiry devTotalWrap" style="display: none">
+    <p class="title-count">{=trans('총 <em id="devTotal">0</em>개')}</p>
+</div>
+
+<form id="devMyGoodsForm">
+    <input type="hidden" name="type" value="mine">
+    <input type="hidden" name="page" value="1" id="devPage">
+    <input type="hidden" name="max" value="10">
+    <input type="hidden" name="type" value="mine">
+
+    <div class="wrap-mypage community-list inquiry" id="devMyGoodsContent">
+        <!--{'<script id="devMyGoodsLoading" type="text/x-handlebars-template">'}-->
+        <dl>
+            <div class="wrap-loading">
+                <div class="loading"></div>
+            </div>
+        </dl>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devMyGoodsEmpty" type="text/x-handlebars-template">'}-->
+        <div class="empty-content">
+            <p class="empty-content__txt">{=trans('상품 문의 내역이 없습니다.')}</p>
+        </div>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devMyGoodsList" type="text/x-handlebars-template">'}-->
+        <div>
+            <dl class="head-area">
+                <dt class="title">
+                    <strong>[{[div_name]}]</strong>
+                <p>{[bbs_subject]}</p>
+                <span class="date">{[regdate]}</span>
+                </dt>
+                {[#if isResponse]}
+                <dd class="inquiry__status"><span class="complete inquiry__status__text"><span>{=trans('답변<br>완료')}</span></span></dd>
+                {[else]}
+                <dd class="inquiry__status"><span class="inquiry__status__text"><span>{=trans('답변<br>대기')}</span></span></dd>
+                {[/if]}
+            </dl>
+
+            <dl class="inquiry-content">
+                <dt>
+                    <a href="/shop/goodsView/{[pid]}">
+                        <div class="item">
+                            <div class="thumb">
+                                <img src="{[image_src]}">
+                            </div>
+                            <div class="info">
+                                {[#if brand_name]}[{[brand_name]}] {[/if]}{[pname]}
+                            </div>
+                        </div>
+                    </a>
+                </dt>
+                <dd>
+                    <p class="question">
+                        {[{\bbs_contents}]}
+                    </p>
+                </dd>
+                {[{\cmtHtml}]}
+            </dl>
+
+            <div class="wrap-sect"></div>
+        </div>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devCommentList" type="text/x-handlebars-template">'}-->
+        <dd class="wrap-answer">
+            <p class="answer">
+                {[{\cmt_contents}]}
+            </p>
+            <div class="top-area">
+                <em>{[cmt_name]}</em>
+                <em>{[regdate]}</em>
+            </div>
+        </dd>
+        <!--{'</script>'}-->
+   
+    </div>
+    <div id="devPageWrap" class="wrap-btn-area more"></div>
+
+</form>

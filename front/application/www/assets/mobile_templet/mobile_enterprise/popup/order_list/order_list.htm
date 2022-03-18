@@ -1,0 +1,47 @@
+<form id="devListForm">
+    <input type="hidden" name="page" value="1" id="devPage"/>
+</form>
+<div class="order-check">
+    <ul class="order-check__inner" id="devListContents">
+        <!--{'<script id="devListLoading" type="text/x-handlebars-template">'}-->
+        <li>
+            <div class="wrap-loading">
+                <div class="loading"></div>
+            </div>
+        </li>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devListEmpty" type="text/x-handlebars-template">'}-->
+        <li class="empty-content">
+            <p class="empty-content__txt">{=trans('주문하신 내역이 없습니다.')}</p>
+        </li>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devListDetail" type="text/x-handlebars-template">'}-->
+        <li class="order-check__list">
+            <!--주문일 주문번호-->
+            <div class="order-check__top">
+                <p class="date">{[order_date]}</p>
+                <p class="order-num">{[oid]}</p>
+                <button class="btn-xs btn-white m_selbtn" data-oid="{[oid]}">{=trans('선택')}</button>
+            </div>
+
+            <!--주문디테일-->
+            <div class="order-check__detail">
+                <figure class="thumb">
+                    <img src="{[orderDetail.[0].pimg]}" alt="{[orderDetail.[0].pname]}">
+                </figure>
+
+                <div class="info">
+                    <div class="info__title">
+                        {[#if orderDetail.[0].brand_name]}[{[orderDetail.[0].brand_name]}]{[/if]}
+                        {[orderDetail.[0].pname]}
+                        {[#if overOrder]}외 {[countOrder]}{=trans('건')}{[/if]}
+                    </div>
+                    <div class="info__price">{=trans('총 결제금액 <em>{[payment_price]}</em>원')}</div>
+                </div>
+            </div>
+        </li>
+        <!--{'</script>'}-->
+    </ul>
+</div>

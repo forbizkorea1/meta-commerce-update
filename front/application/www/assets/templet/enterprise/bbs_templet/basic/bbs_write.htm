@@ -1,0 +1,138 @@
+<div class="wrap-inquiry fb__bbs__write">
+    <div class="qna__header">
+        <h2 class="qna__header__title">{=trans('1:1 문의하기')}</h2>
+        <p class="qna__header__desc">{=trans('문의하신 내용의 답변은 마이페이지 > 나의 커뮤니티 > <a href="/mypage/myInquiry#page1&bType=qna&">1:1문의내역</a>을 통해 확인 하실 수 있습니다.')}</p>
+    </div>
+    
+    <form name="bbsForm" id="devBbsForm" method='post' enctype="multipart/form-data">
+        <input type="hidden" name="bbsTableName" value='{bbs_table_name}'>
+        <input type="hidden" name="board" value="{board_ename}">
+        <input type="hidden" name="focusInfo">
+        <input type="hidden" name="isHtml" value='N'>
+        <input type='hidden' name='antispamYn' value='N'>
+
+        <table class="join-table type02">
+            <colgroup>
+                <col width="160px">
+                <col width="*">
+            </colgroup>
+
+            <tbody>
+                <tr>
+                    <th>{=trans('분류')}<em></em></th>
+                    <td>
+                        <select name="bbsDiv" id="devBbsDivSelect" title="{=trans('분류')}" style="width: 260px;">
+                            <option value="">{=trans('선택')}</option>
+                            <!--{@ bbsDiv}-->
+                            <option value="{.div_ix}">{.div_name}</option>
+                            <!--{/}-->
+                        </select>
+                        <select name="subBbsDiv" id="devSubBbsDiv" title="{=trans('2차분류')}" style="width: 260px; display:none;">
+                            <option value="">{=trans('선택')}</option>
+                        </select>
+                        <p class="txt-guide" devTailMsg="devBbsDiv"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>{=trans('주문번호')}</th>
+                    <td>
+                        <input type="text" name="oid" id="devOid" style="width:260px;" title="{=trans('주문번호')}" value="{oid}" readOnly>
+                        <button type="button" id="devBtnOrderQuery" class="btn-default btn-dark">{=trans('조회')}</button>
+                        <button type="button" id="devBtnOrderdel" class="btn-default btn-dark-line delete-btn">{=trans('삭제')}</button>
+                        <p class="txt-guide">{=trans('관련된 주문건이 있는 경우 조회하여 선택해 주세요.')}</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <!-- @todo. 프론트: 이메일 -->
+                    <th>{=trans('이메일')}<em></em></th>
+                    <td>
+                        <span class="pub-email">
+                            <input type="text" name="bbsEmail" id="devBbsEmail" title="{=trans('이메일')}" value="{email}" style="width: 260px;" >
+                        </span>
+                        <span class="txt-guide"></span>
+                        <label class="fb__checkbox">
+                            <input type="checkbox" name="notifyEmail" id="devNotifyEmail" checked="true" class="mal10">
+                            <span>{=trans('답변 알림 수신')}</span>
+                        </label>
+                        <div class="txt-guide" devTailMsg="devBbsEmail"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>{=trans('휴대폰번호')}<em></em></th>
+                    <td>
+                        <div class="selectWrap">
+                            <select name="bbsHp1" id="devBbsHp1">
+                                <option value="010" {? phone1 == '010'} selected {/} >010</option>
+                                <option value="011" {? phone1 == '011'} selected {/} >011</option>
+                                <option value="016" {? phone1 == '016'} selected {/} >016</option>
+                                <option value="018" {? phone1 == '018'} selected {/} >018</option>
+                                <option value="019" {? phone1 == '019'} selected {/} >019</option>
+                            </select>
+                            <span class="hyphen">-</span>
+                            <input type="number" name="bbsHp2" value="{phone2}" id="devBbsHp2" title="{=trans('휴대폰')}">
+                            <span class="hyphen">-</span>
+                            <input type="number" name="bbsHp3" value="{phone3}" id="devBbsHp3" title="{=trans('휴대폰')}">
+                            <label class="fb__checkbox">
+                                <input type="checkbox" name="notifyHp" id="devNotifyHp" value="Y" checked="true" style="width:20px;" class="mal10">
+                                <span>{=trans('답변 알림 수신')}</span>
+                            </label>
+                            <p class="txt-guide" devTailMsg="devBbsHp1 devBbsHp2 devBbsHp3"></p>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>{=trans('제목')}<em></em></th>
+                    <td><input type="text" name="bbsSubject" id="devBbsSubject" value="" title="{=trans('제목')}" style="width: 100%;">
+                        <p class="txt-guide"></p>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th>{=trans('내용')}<em></em></th>
+                    <td><textarea name="bbsContents" id="devBbsContents" title="{=trans('내용')}" style="width: 100%; height: 300px;"></textarea>
+                        <p class="txt-guide" devTailMsg="devBbsContents"></p>
+                    </td>
+                </tr>
+
+                {? board_file_yn == 'Y'}
+                <tr>
+                    <th>{=trans('첨부파일')}</th>
+                    <td>
+                        <div>
+                            <input type="file" name="bbsFile1" id="devBbsFile1" style="display:none;" title="{=trans('첨부파일')}">
+                            <input type="text" class="pub-input-text" id="devBbsFileText1" style="width:500px;" readonly>
+                            <button type="button" class="btn-default btn-dark" id="devBbsFileButton1">{=trans('파일찾기')}</button>
+                            <button type="button" class="btn-default btn-dark mal10" id="devBbsFileUpdateButton1" style="display:none;">{=trans('파일변경')}</button>
+                            <button type="button" class="btn-default btn-dark-line delete-btn" id="devBbsFileDeleteButton1" style="display:none;">{=trans('파일삭제')}</button>
+                        </div>
+                        <div class="mat10">
+                            <input type="file" name="bbsFile2" id="devBbsFile2" style="display:none;" title="{=trans('첨부파일')}">
+                            <input type="text" class="pub-input-text" id="devBbsFileText2" style="width:500px;" readonly>
+                            <button type="button" class="btn-default btn-dark" id="devBbsFileButton2">{=trans('파일찾기')}</button>
+                            <button type="button" class="btn-default btn-dark mal10" id="devBbsFileUpdateButton2" style="display:none;">{=trans('파일변경')}</button>
+                            <button type="button" class="btn-default btn-dark-line delete-btn" id="devBbsFileDeleteButton2" style="display:none;">{=trans('파일삭제')}</button>
+                        </div>
+                        <div class="mat10">
+                            <input type="file" name="bbsFile3" id="devBbsFile3" style="display:none;" title="{=trans('첨부파일')}">
+                            <input type="text" class="pub-input-text" id="devBbsFileText3" style="width:500px;" readonly>
+                            <button type="button" class="btn-default btn-dark" id="devBbsFileButton3">{=trans('파일찾기')}</button>
+                            <button type="button" class="btn-default btn-dark mal10" id="devBbsFileUpdateButton3" style="display:none;">{=trans('파일변경')}</button>
+                            <button type="button" class="btn-default btn-dark-line delete-btn" id="devBbsFileDeleteButton3" style="display:none;">{=trans('파일삭제')}</button>
+                        </div>
+                        <p class="txt-guide">{=trans('파일 형식은 이미지 파일(jpg, jepg, gif, png)로 제출 가능하며, 파일당 최대 30MB까지 가능합니다.')}</p>
+                    </td>
+                </tr>
+                {/}
+            </tbody>
+        </table>
+
+        <div class="fb__bbs__write__submit">
+            <button type="button" id="devBbsRegCancel" class="btn-lg btn-dark-line">{=trans('취소')}</button>
+            <button type="button" id="devBbsRegSubmit" class="btn-lg fb__btn-point">{=trans('등록')}</button>
+        </div>
+    </form>
+</div>

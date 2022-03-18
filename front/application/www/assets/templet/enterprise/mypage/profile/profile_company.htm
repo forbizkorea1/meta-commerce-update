@@ -1,0 +1,365 @@
+<div class="fb__profile profile-detail">
+    <form id="devCompanyProfileForm" class="fb__mypage__profile">
+        <input type="hidden" name="pcs" value="{pcs[0]}-{pcs[1]}-{pcs[2]}" id="devPcs">
+
+        <div class="profile">
+            <!-- 로그인 정보 수정 -->
+            <section>
+                <h2 class="fb__mypage__title">{=trans('로그인 정보 수정')}</h2>
+
+                <div class="profile__table">
+                    <table>
+                        <caption>{=trans('로그인 정보')}</caption>
+
+                        <colgroup>
+                            <col style="width: 210px;">
+                            <col style="width: 850px;">
+                        </colgroup>
+
+                        <tbody>
+                            <tr>
+                                <th scope="col">{=trans('아이디')}</th>
+                                
+                                <td>
+                                    <input type="text" readonly placeholder="{id}" style="width: 345px;" disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="col">{=trans('비밀번호')} <em></em></th>
+
+                                <td>
+                                    <div class="fb__button">
+                                        <button type="button" class="bg--666" id="devChangePassword">{=trans('비밀번호 변경')}</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 사업자 정보 수정 -->
+            <section class="fb__mypage__section">
+                <h2 class="fb__mypage__title">{=trans('사업자 정보 수정')}</h2>
+
+                <div class="profile__table">
+                    <table>
+                        <caption>{=trans('사업자 정보')}</caption>
+
+                        <colgroup>
+                            <col style="width: 210px;">
+                            <col style="width: 850px;">
+                        </colgroup>
+
+                        <tbody>
+                            <tr>
+                                <th scope="col">{=trans('상호명')}</th>
+                                
+                                <td>
+                                    <input type="text" readonly placeholder="{com_name}" style="width: 345px;" disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="col">{=trans('사업자등록번호')}</th>
+
+                                <td>
+                                    <input type="text" readonly placeholder="{com_number}" style="width: 345px;" disabled>
+                                </td>
+                            </tr>
+
+                            <tr style="display: none;">
+                                <th scope="col">{=trans('전화번호')} <em></em></th>
+
+                                <td>
+                                    <div class="fb__input__phone">
+                                        <select class="fb__input__phone--01" name="com_tel1" id="devComTel1">
+                                            <option value="02" {? com_phone[0]=="02"}selcted{/}>02</option>
+                                            <option value="031" {? com_phone[0]=="031"}selcted{/}>031</option>
+                                            <option value="032" {? com_phone[0]=="032"}selcted{/}>032</option>
+                                            <option value="041" {? com_phone[0]=="041"}selcted{/}>041</option>
+                                            <option value="042" {? com_phone[0]=="042"}selcted{/}>042</option>
+                                            <option value="043" {? com_phone[0]=="043"}selcted{/}>043</option>
+                                            <option value="051" {? com_phone[0]=="051"}selcted{/}>051</option>
+                                            <option value="052" {? com_phone[0]=="052"}selcted{/}>052</option>
+                                            <option value="053" {? com_phone[0]=="053"}selcted{/}>053</option>
+                                            <option value="054" {? com_phone[0]=="054"}selcted{/}>054</option>
+                                            <option value="055" {? com_phone[0]=="055"}selcted{/}>055</option>
+                                            <option value="061" {? com_phone[0]=="061"}selcted{/}>061</option>
+                                            <option value="062" {? com_phone[0]=="062"}selcted{/}>062</option>
+                                            <option value="063" {? com_phone[0]=="063"}selcted{/}>063</option>
+                                            <option value="064" {? com_phone[0]=="064"}selcted{/}>064</option>
+                                            <option value="070" {? com_phone[0]=="070"}selcted{/}>070</option>
+                                            <option value="080" {? com_phone[0]=="080"}selcted{/}>080</option>
+                                            <option value="090" {? com_phone[0]=="090"}selcted{/}>090</option>
+                                        </select>
+                                        <span class="dash">-</span>
+                                        <input type="text" name="com_tel2" value="{com_phone[1]}" id="devComTel2" title="{=trans('사업자')} " class="fb__input__phone--02">
+                                        <span class="dash">-</span>
+                                        <input type="text" name="com_tel3" value="{com_phone[2]}" id="devComTel3" title="{=trans('사업자 전화번호')}" class="fb__input__phone--03">
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="col">{=trans('주소')} <em></em></th>
+
+                                <td>
+                                    <div class="form-info-wrap" style="width: 500px">
+                                        <input type="text" name="com_zip" value="{com_zip}" id="devComZip" style="width: 140px;" readonly>
+                                        <div class="fb__button">
+                                            <button type="button" class="bg--666" id="devComZipPopupButton">{=trans('주소찾기')}</button>
+                                        </div>
+                                        <div>
+                                            <input type="text" class="mat10" name="com_addr1" value="{com_addr1}" id="devComAddress1" style="width: 500px;" readonly>
+                                            <input type="text" class="mat10" name="com_addr2" value="{com_addr2}" id="devComAddress2" style="width: 500px;">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 대표자 정보 수정 -->
+            <section class="fb__mypage__section">
+                <h2 class="fb__mypage__title">{=trans('대표자 정보 수정')}</h2>
+
+                <div class="profile__table">
+                    <table>
+                        <caption>{=trans('대표자 정보')}</caption>
+
+                        <colgroup>
+                            <col style="width: 210px;">
+                            <col style="width: 850px;">
+                        </colgroup>
+
+                        <tbody>
+                            <tr>
+                                <th scope="col">{=trans('대표자명')}</th>
+
+                                <td>
+                                    <input type="text" readonly placeholder="{com_ceo}" disabled style="width: 345px;">
+                                </td>
+                            </tr>
+
+                            <!-- @todo. 프론트: 이메일 -->
+                            <tr>
+                                <th scope="col">{=trans('이메일')} <em></em></th>
+
+                                <td>
+                                    <div>
+                                        <input type="text" name="comEmail" value="{com_email}" id="devComEmail" title="{=trans('이메일')}" style="width: 345px;">
+    
+                                        <div class="fb__button">
+                                            <button type="button" class="bg--666" id="devComEmailDoubleCheckButton">{=trans('이메일 중복 확인')}</button>
+                                        </div>
+                                    </div>
+                                    <p class="txt-error" devTailMsg="devComEmail"></p>
+                                </td>
+                            </tr>
+
+                            <tr class="last-tr phone-area">
+                                <th scope="col">{=trans('대표 휴대폰 번호')} <em></em></th>
+
+                                <td class="phone-area__table">
+                                    <div class="fb__input__phone">
+                                        <select class="fb__input__phone--01" name="com_pcs1" id="devComPcs1">
+                                            <option value="010" {? com_mobile[0]=="010"}selcted{/}>010</option>
+                                            <option value="011" {? com_mobile[0]=="011"}selcted{/}>011</option>
+                                            <option value="016" {? com_mobile[0]=="016"}selcted{/}>016</option>
+                                            <option value="017" {? com_mobile[0]=="017"}selcted{/}>017</option>
+                                            <option value="018" {? com_mobile[0]=="018"}selcted{/}>018</option>
+                                            <option value="019" {? com_mobile[0]=="019"}selcted{/}>019</option>
+                                        </select>
+                                        <span class="dash">-</span>
+                                        <input type="number" name="com_pcs2" id="devComPcs2" value="{com_mobile[1]}" title="{=trans('대표 휴대폰 번호')}" class="fb__input__phone--02">
+                                        <span class="dash">-</span>
+                                        <input type="number"  name="com_pcs3" id="devComPcs3" value="{com_mobile[2]}" title="{=trans('대표 휴대폰 번호')}" class="fb__input__phone--03">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 담당자 정보 수정 -->
+            <section class="fb__mypage__section">
+                <h2 class="fb__mypage__title">{=trans('담당자 정보 수정')}</h2>
+
+                <div class="profile__table">
+                    <table>
+                        <caption>{=trans('담당자 정보')}</caption>
+
+                        <colgroup>
+                            <col style="width: 210px;">
+                            <col style="width: 850px;">
+                        </colgroup>
+
+                        <tbody>
+                            <tr>
+                                <th scope="col">
+                                    <span class="requiredMark">
+                                        {=trans('담당자명')} <em></em> 
+                                    </span>
+                                </th>
+                                <td>
+                                    <input type="text" name="name" value="{name}" id="devName" title="{=trans('담당자명')}" style="width: 345px;">
+                                </td>
+                            </tr>
+
+                            <!-- @todo. 프론트: 이메일 -->
+                            <tr>
+                                <th scope="col">
+                                    <span class="requiredMark">
+                                        {=trans('담당자 이메일')} <em></em>
+                                    </span>
+                                </th>
+                                <td>
+                                    <div>
+                                        <input type="text" name="userEmail" value="{mail}" id="devEmail" title="{=trans('이메일')}" style="width: 345px;">
+    
+                                        <div class="fb__button">
+                                            <button type="button" class="bg--666" id="devEmailDoubleCheckButton">{=trans('이메일 중복 확인')}</button>
+                                        </div>
+                                    </div>
+                                    <p class="txt-error" devTailMsg="devEmail"></p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="col">
+                                    <span class="requiredMark">
+                                        {=trans('담당자 휴대폰번호')} <em></em>
+                                    </span>
+                                </th>
+                                <td>
+                                    <!-- @TODO 개발: 아래 input 1개에서 3개로 분할됨. 스크립트 확인 필요 -->
+                                    <!-- <input type="text" readonly placeholder="{pcs[0]}-{pcs[1]}-{pcs[2]}" style="width: 345px;" disabled> -->
+                                    <div class="fb__input__phone">
+                                        <select class="fb__input__phone--01" name="com_pcs1" id="devComPcs1" disabled>
+                                            <option value="010" {? pcs[0] == "010"}selcted{/}>010</option>
+                                            <option value="011" {? pcs[0] == "011"}selcted{/}>011</option>
+                                            <option value="016" {? pcs[0] == "016"}selcted{/}>016</option>
+                                            <option value="017" {? pcs[0] == "017"}selcted{/}>017</option>
+                                            <option value="018" {? pcs[0] == "018"}selcted{/}>018</option>
+                                            <option value="019" {? pcs[0] == "019"}selcted{/}>019</option>
+                                        </select>
+                                        <span class="dash">-</span>
+                                        <input type="number" name="com_pcs2" id="devComPcs2" value="{pcs[1]}" title="{=trans('담당자 휴대폰번호')}" class="fb__input__phone--02" disabled>
+                                        <span class="dash">-</span>
+                                        <input type="number"  name="com_pcs3" id="devComPcs3" value="{pcs[2]}" title="{=trans('담당자 휴대폰번호')}" class="fb__input__phone--03" disabled>
+                                        <div class="fb__button">
+                                            <button type="button" class="bg--666" id="devCertifyButton">{=trans('휴대폰번호 변경')}</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {? false}
+            <!-- 오류 #9750 에서 삭제 요청 -->
+            <!-- 증빙자료 서류 첨부 -->
+            <section class="fb__mypage__section">
+                <h2 class="fb__mypage__title">{=trans('증빙자료 서류 첨부')}</h2>
+
+                <p class="title-guide">
+                    <span>{=trans('파일 형식은 이미지 파일(jpg, jpeg, gif, png)로 제출 가능하며, 최대 30MB까지 가능합니다.')}</span><br>
+                    <span>{=trans('서류는 별도 이메일 주소로 추가 전달 가능합니다.')} {=trans('담당자 이메일')}<em class="fb__point-color">(forbiz@forbiz.co.kr)</em></span>
+                </p>
+
+                <table class="profile__table join-table">
+                    <caption>{=trans('증빙자료 서류 첨부')}</caption>
+
+                    <colgroup>
+                        <col style="width: 210px;">
+                        <col style="width: 850px;">
+                    </colgroup>
+
+                    <tbody>
+                        <tr class="first-tr last-tr">
+                            <th scope="col">{=trans('사업자등록증')}</th>
+                            <td>
+                                <div>
+                                    <input type="file" name="businessFile" id="devBusinessFile" style="display:none;" title="{=trans('사업자등록증')}" accept="image/*"/>
+                                    <input type="text" class="pub-input-text" style="width:500px;" id="devBusinessFileText" readonly>
+                                    <button type="button" class="btn-default btn-dark" id="devBusinessFileButton">{=trans('파일찾기')}</button>
+                                    <button type="button" class="btn-default btn-dark mal10" id="devBusinessFileDeleteButton" style="display:none;">{=trans('파일삭제')}</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            {/}
+
+            <!-- 선택 동의 항목 -->
+            <section class="fb__profile__sec">
+                <h2 class="fb__mypage__title">{=trans('선택 동의 항목')}</h2>
+                
+                <div class="profile__table">
+                    <table>
+                        <caption>{=trans('마케팅 활용 동의')}</caption>
+    
+                        <colgroup>
+                            <col style="width: 210px;">
+                            <col style="width: 850px;">
+                        </colgroup>
+    
+                        <tbody>
+                            <tr>
+                                <th scope="col">{=trans('마케팅 활용 동의')}</th>
+                                <td>
+                                    <div class="terms__cont">
+                                        <div class="terms__marketing">
+                                            <div class="terms__marketing__cont">{policyData['marketing']['contents']}</div>
+                                        </div>
+                        
+                                        <div class="terms__details">
+                                            <div class="terms__details__check">
+                                                <label class="terms__details__check--main fb__comm__checkbox">
+                                                    <input type="checkbox" class="blind" id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/}>
+                                                    <span>{=trans('동의')}</span>
+                                                </label>
+    
+                                                <div class="terms__details__check--sub">
+                                                    (
+                                                    <label class="fb__comm__checkbox">
+                                                        <input type="checkbox" class="blind" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/}>
+                                                        <span>{=trans('SMS 수신')}</span>
+                                                    </label>
+                                
+                                                    <label class="fb__comm__checkbox">
+                                                        <input type="checkbox" class="blind" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40">
+                                                        <span>{=trans('이메일 수신')}</span>
+                                                    </label>
+                                                    )
+                                                </div>
+                                            </div>
+                        
+                                            <ul class="terms__details__desc">
+                                                <li>· {=trans('쇼핑몰에서 제공되는 다양한 이벤트/할인정보/공지사항 등의 내용을 받아 보실 수 있습니다.')}</li>
+                                                <li>· {=trans('결제/교환/환불 등의 주문거래 관련 정보는 수신동의 여부와 상관없이 발송됩니다.')}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="fb__profile__btn fb__button">
+                <button type="button" class="border--ccc" id="devProfileModifyCancel">{=trans('취소')}</button>
+                <button type="submit" class="bg--point">{=trans('저장')}</button>
+            </div>
+        </div>
+    </form>
+</div>

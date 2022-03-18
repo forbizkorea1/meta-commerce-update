@@ -1,0 +1,297 @@
+<script>
+    function onSignLink(googleUser) {
+        var auth2 = gapi.auth2.getAuthInstance();
+
+        if (auth2.isSignedIn.get()) {
+            var profile = auth2.currentUser.get().getBasicProfile();
+
+            $.ajax({
+                url: '/controller/member/google/link',
+                type: 'get',
+                data: {
+                    id : profile.getId(),
+                    id_token : googleUser.getAuthResponse().id_token
+                },
+                async: true,
+                dataType: 'json'
+            }).done(function(response) {
+                if (response.result == "success") {
+                    alert(response.data.msg);
+                    $('#devGoogleBtn').attr('disabled', false);
+                }
+            });
+        }
+    }
+</script>
+
+<div class="fb__profile wrap-mypage profile-detail userUpdate">
+    <form id="devMemberProfileForm">
+        <!-- 회원정보 영역 -->
+        <div class="wrap-input-form">
+            <section class="fb__profile__sec">
+                <!--아이디-->
+                <dl>
+                    <dt>{=trans('아이디')}</dt>
+                    <dd><input type="text" value="{id}" disabled></dd>
+                </dl>
+
+                <!-- 비밀번호 -->
+                <dl>
+                    <dt>{=trans('비밀번호')}</dt>
+                    <dd>
+                        <div class="fb__button">
+                            <button type="button" class="bg--666 size--full" id="devChangePassword">{=trans('비밀번호 변경')}</button>
+                        </div>
+                    </dd>
+                </dl>
+
+                <!-- 이름 -->
+                <dl>
+                    <dt>{=trans('이름')}</dt>
+                    <dd>
+                        <input type="text" value="{name}" disabled>
+                    </dd>
+                </dl>
+
+                <!-- 생년월일 -->
+                <dl class="birth-area">
+                    <dt>{=trans('생년월일')}</dt>
+                    <dd>
+                        <input type="text" value="{birthday}" class="birth-input" disabled>
+
+                        <ul class="gender">
+                            <li class="gender__list">
+                                <label>
+                                    <input type="radio" class="blind" id="male" name="sex" value="{=trans('남성')}">
+                                    <span>{=trans('남성')}</span>
+                                </label>
+                            </li>
+
+                            <li class="gender__list">
+                                <label>
+                                    <input type="radio" class="blind" id="female" name="sex" value="{=trans('여성')}" checked>
+                                    <span>{=trans('여성')}</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <!-- 성별 -->
+                 <!-- 
+                <dl>
+                    <dt>성별</dt>
+                    <dd>
+                        <input type="text" value="{? sex_div == 'M'}남성{:}여성{/}" disabled>
+                    </dd>
+                </dl>
+                -->
+                <!-- @todo. 프론트: 이메일 -->
+                <!-- 이메일 -->
+                <dl class="email-input">
+                    <dt>{=trans('이메일')}</dt>
+                    <dd>
+                        <div>
+                            <input type="text" name="userEmail" value="{mail}" id="devEmail" title="이메일">
+                        </div>
+
+                        <p class="txt-error mat10" devTailMsg="devEmail"></p>
+
+                        <div class="fb__button">
+                            <button type="button" class="bg--666 size--full" id="devEmailDoubleCheckButton">{=trans('이메일 중복 확인')}</button>
+                        </div>
+                    </dd>
+                </dl>
+
+                <!-- 휴대폰 번호 -->
+                <dl class="number-input">
+                    <dt>{=trans('휴대폰 번호')} <em>*</em></dt>
+                    <dd>
+                        <!--
+                            @TODO: 해당영역 커스텀 영역으로 쓰인데서 아래 조건 빼놓음. 추후 사용 시 select/input에 추가 필요
+                            {? useCertify == 'Y'}readonly{/}
+                        -->
+                        <div class="fb__input__phone">
+                            <select class="fb__input__phone--01"  name="pcs1" id="devPcs1">
+                                <option value="010" {? pcs[0]=="010"}selected{/}>010</option>
+                                <option value="011" {? pcs[0]=="011"}selected{/}>011</option>
+                                <option value="016" {? pcs[0]=="016"}selected{/}>016</option>
+                                <option value="017" {? pcs[0]=="017"}selected{/}>017</option>
+                                <option value="018" {? pcs[0]=="018"}selected{/}>018</option>
+                                <option value="019" {? pcs[0]=="019"}selected{/}>019</option>
+                            </select>
+
+                            <div class="fb__input__phone--box">
+                                <input type="number" class="fb__input__phone--02 js__input--onlyNumber" name="pcs2" id="devPcs2" value="{pcs[1]}" title="{=trans('휴대폰번호')}">
+                                <span class="dash"></span>
+                                <input type="number" class="fb__input__phone--03 js__input--onlyNumber" name="pcs3" id="devPcs3" value="{pcs[2]}" title="{=trans('휴대폰번호')}">
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <!-- 전화번호 -->
+                <dl class="number-input" style="display: none;">
+                    <dt>{=trans('전화번호')}</dt>
+                    <dd>
+                        <div class="fb__input__phone">
+                            <select class="fb__input__phone--01" name="tel1">
+                                <option value="02" {? tel[0]=="02"}selected{/}>02</option>
+                                <option value="031" {? tel[0]=="031"}selected{/}>031</option>
+                                <option value="032" {? tel[0]=="032"}selected{/}>032</option>
+                                <option value="041" {? tel[0]=="041"}selected{/}>041</option>
+                                <option value="042" {? tel[0]=="042"}selected{/}>042</option>
+                                <option value="043" {? tel[0]=="043"}selected{/}>043</option>
+                                <option value="051" {? tel[0]=="051"}selected{/}>051</option>
+                                <option value="052" {? tel[0]=="052"}selected{/}>052</option>
+                                <option value="053" {? tel[0]=="053"}selected{/}>053</option>
+                                <option value="054" {? tel[0]=="054"}selected{/}>054</option>
+                                <option value="055" {? tel[0]=="055"}selected{/}>055</option>
+                                <option value="061" {? tel[0]=="061"}selected{/}>061</option>
+                                <option value="062" {? tel[0]=="062"}selected{/}>062</option>
+                                <option value="063" {? tel[0]=="063"}selected{/}>063</option>
+                                <option value="064" {? tel[0]=="064"}selected{/}>064</option>
+                                <option value="070" {? tel[0]=="070"}selected{/}>070</option>
+                                <option value="080" {? tel[0]=="080"}selected{/}>080</option>
+                                <option value="090" {? tel[0]=="090"}selected{/}>090</option>
+                            </select>
+
+                            <div class="fb__input__phone--box">
+                                <input type="number" class="fb__input__phone--02 js__input--onlyNumber" name="tel2" id="devTel2" value="{tel[1]}" title="{=trans('전화번호 가운데자리')}">
+                                <span class="dash"></span>
+                                <input type="number" class="fb__input__phone--03 js__input--onlyNumber" name="tel3" id="devTel3" value="{tel[2]}" title="{=trans('전화번호 끝자리')}">
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <!-- 주소 -->
+                <dl class="address-area">
+                    <dt>{=trans('주소')}</dt>
+                    <dd>
+                        <div class="fb__input__address">
+                            <div class="fb__input__address--zipCode">
+                                <input type="text" name="zip" value="{zip}" id="devZip" readonly>
+                                <button type="button" id="devZipPopupButton">{=trans('주소찾기')}</button>
+                            </div>
+
+                            <input type="text" name="addr1" value="{addr1}" class="fb__input__address--01" id="devAddress1" readonly>
+                            <input type="text" name="addr2" value="{addr2}" class="fb__input__address--02" id="devAddress2" placeholder="{=trans('상세주소를 입력해 주세요.')}">
+                        </div>
+                    </dd>
+                </dl>
+            </section>
+        </div>
+        <div class="wrap-sect"></div>
+       
+
+        <!-- 선택 동의 항목 -->
+        <section class="fb__profile__terms">
+            <h2 class="terms__title">{=trans('선택 동의 항목')}</h2>
+
+            <div class="terms__cont">
+                <div class="terms__marketing">
+                    <div class="terms__marketing__box">
+                        <label class="fb__comm__checkbox">
+                            <input type="checkbox" class="blind" id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/}>
+                            <span>{=trans('마케팅 활용 동의')}({=trans('선택')})</span>
+                        </label>
+                        <button type="button" class="terms__marketing__accd"></button>
+                    </div>
+
+                    <div class="terms__marketing__cont">{policyData['marketing']['contents']}</div>
+                </div>
+
+                <div class="terms__details">
+                    <div class="terms__details__check">
+                        <label class="fb__comm__checkbox">
+                            <input type="hidden" id="devBeforeSmsValue" value="{sms}" />
+                            <input type="checkbox" class="blind" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/}>
+                            <span>{=trans('SMS 수신')}</span>
+                        </label>
+    
+                        <label class="fb__comm__checkbox">
+                            <input type="hidden" id="devBeforeInfoValue" value="{info}" />
+                            <input type="checkbox" class="blind" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40">
+                            <span>{=trans('이메일 수신')}</span>
+                        </label>
+                    </div>
+
+                    <ul class="terms__details__desc">
+                        <li>{=trans('쇼핑몰에서 제공되는 다양한 정보를 받아보실 수 있습니다.')}</li>
+                        <li>{=trans('결제/교환/환불 등의 주문거래 관련 정보는 수신동의 여부와 상관 없이 발송됩니다.')}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SNS 계정 연동 -->
+        <section class="fb__profile__sns">
+            <h2 class="sns__title">{=trans('SNS 계정 연동')}</h2>
+
+            <div class="sns__cont">
+                <ul class="sns__box">
+                    {? sns_simple_login_naver == 'Y'}
+                        <li class="sns__list">
+                            <input type="hidden" id="devNaverId" name="devNaverId">
+                            <button type="button" data-href="{naver_login}" id="devNaverIdBtn" class="sns__list__connect sns__list__connect--naver devSnsJoin" {? snsInfo.naver}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                                <span>{=trans('네이버 연동하기')}</span>
+                            </button>
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devNaverBtn" data-type="naver" data-sns-id="devNaverId" {? !snsInfo.naver}style="display: none;"{/}>{=trans('연동해제')}</button>
+                        </li>
+                    {/}
+
+                    {? sns_simple_login_kakao == 'Y'}
+                        <li class="sns__list">
+                            <input type="hidden" id="devKakaoId" name="devKakaoId">
+                            <button type="button" data-href="{kakao_login}" id="devKakaoIdBtn" class="sns__list__connect sns__list__connect--kakao devSnsJoin" {? snsInfo.kakao}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                                <span>{=trans('카카오 연동하기')}</span>
+                            </button>
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devKakaoBtn" data-type="kakao" data-sns-id="devKakaoId" {? !snsInfo.kakao}style="display: none;"{/}>{=trans('연동해제')}</button>
+                        </li>
+                    {/}
+
+                    {? sns_simple_login_facebook == 'Y'}
+                        <li class="sns__list">
+                            <input type="hidden" id="devFacebookId" name="devFacebookId">
+                            <button type="button" data-href="{facebook_login}" id="devFBIdBtn" class="sns__list__connect sns__list__connect--facebook devSnsJoin" {? snsInfo.facebook}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                                <span>{=trans('페이스북 연동하기')}</span>
+                            </button>
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devFBBtn" data-type="facebook" data-sns-id="devFacebookId" {? !snsInfo.facebook}style="display: none;"{/}>{=trans('연동해제')}</button>
+                        </li>
+                    {/}
+
+                    {? sns_simple_login_google == 'Y'}
+                        <li class="sns__list">
+                            <input type="hidden" id="devGoogleId" name="devGoogleId">
+                            <button type="button" class="sns__list__connect sns__list__connect--google" {? appType} id="appLoginGoogle" data-type="{appType}"{/} {? snsInfo.google}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                                <span>{=trans('구글 연동하기')}</span>
+                            </button>
+                            {? !appType}<span class="g-signin2" id="g-signin2" data-onsuccess="onSignLink"></span>{/}
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devGoogleBtn" data-type="google" data-sns-id="devGoogleId" {? !snsInfo.google}style="display: none;"{/}>{=trans('연동해제')}</button>
+                        </li>
+                    {/}
+
+                    {? appType == 'iOS'}
+                    {? sns_simple_login_apple == 'Y'}
+                        <li class="sns__list">
+                            <input type="hidden" id="devAppleId" name="devAppleId">
+                            <button type="button" data-href="#" id="devAppleIdBtn" class="sns__list__connect sns__list__connect--apple devAppleLogin" {? snsInfo.apple}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                                <span>{=trans('애플 연동하기')}</span>
+                            </button>
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devAppleBtn" data-type="apple" data-sns-id="devAppleId" {? !snsInfo.apple}style="display: none;"{/}>{=trans('연동해제')}</button>
+                        </li>
+                    {/}
+                    {/}
+                </ul>
+            </div>
+        </section>
+
+        <p class="fb__profile__inquiry">{=trans('개명한 경우 <em>고객센터 {companyInfo.com_phone}</em>로 문의해 주세요.')}</p>
+     
+        <div class="fb__profile__btn fb__button">
+            <button type="button" class="border--ccc" id="devProfileModifyCancel">{=trans('취소')}</button>
+            <button type="submit" class="bg--point">{=trans('저장')}</button>
+        </div>
+    </form>
+</div>

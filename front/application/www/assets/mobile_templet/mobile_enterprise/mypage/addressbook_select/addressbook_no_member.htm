@@ -1,0 +1,99 @@
+<script>var addressPopMode = 'guest';</script>
+<div class="change-address-nomem">
+    <div class="wrap-address-add">
+        <div class="wrap-input-form">
+           <form id="devGuestAddressBookForm" method="post">
+                <dl>
+                    <dt>{=trans('받는 분')} <em>*</em></dt>
+                    <dd>
+                        <input type="text" name="recipient" value="{recipient}" id="devRecipient" title="{=trans('받는 분')}">
+                    </dd>
+                </dl>
+
+                <dl class="address-area">
+                    <dt>{=trans('주소')} <em>*</em></dt>
+                    <dd>
+                        <div class="fb__input__address">
+                            <div class="fb__input__address--zipCode">
+                                <input type="text" name="zip"  value="{zipcode}" id="devZip" readonly="" title="{=trans('우편번호')}">
+                                <button type="button" id="devZipPopupButton">{=trans('주소찾기')}</button>
+                            </div>
+                            <input type="text" class="address__1" name="addr1" id="devAddress1"  value="{address1}" readonly="" title="{=trans('주소')}">
+                            <input type="text" class="address__2" name="addr2" id="devAddress2" value="{address2}" title="{=trans('상세주소')}">
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl class="phone-area">
+                    <dt>{=trans('휴대폰번호')} <em>*</em></dt>
+                    <dd>
+                        <div class="fb__input__phone">
+                            <select name="pcs1" id="devPcs1" title="{=trans('휴대폰번호')}" class="fb__input__phone--01">
+                                <option value="">{=trans('선택')}</option>
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+
+                            <div class="fb__input__phone--box">
+                                <input type="number" name="pcs2" id="devPcs2" value="{pcs2}" class="fb__input__phone--02 js__input--onlyNumber" devmaxlength="4" title="{=trans('휴대폰번호')}">
+                                <span class="dash"></span>
+                                <input type="number" name="pcs3" id="devPcs3" value="{pcs3}" class="fb__input__phone--03 js__input--onlyNumber" devmaxlength="4" title="{=trans('휴대폰번호')}">
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl class="phone-area" style="display: none;">
+                    <dt>{=trans('전화번호')}</dt>
+                    <dd>
+                        <div class="fb__input__phone">
+                            <select name="tel1" id="devTel1" class="fb__input__phone--01">
+                                <option value="">{=trans('선택')}</option>
+                                <option value="02">02</option>
+                                <option value="031">031</option>
+                                <option value="032">032</option>
+                                <option value="041">041</option>
+                                <option value="042">042</option>
+                                <option value="043">043</option>
+                                <option value="051">051</option>
+                                <option value="052">052</option>
+                                <option value="053">053</option>
+                                <option value="054">054</option>
+                                <option value="055">055</option>
+                                <option value="061">061</option>
+                                <option value="062">062</option>
+                                <option value="063">063</option>
+                                <option value="064">064</option>
+                                <option value="070">070</option>
+                                <option value="080">080</option>
+                                <option value="090">090</option>
+                            </select>
+
+                            <div class="fb__input__phone--box">
+                                <input type="number" name="tel2" value="" id="devTel2" title="{=trans('전화번호 가운데자리입력')}" class="fb__input__phone--02 js__input--onlyNumber" devmaxlength="4">
+                                <span class="dash"></span>
+                                <input type="number" name="tel3" value="" id="devTel3" title="{=trans('전화번호 끝자리 입력')}" class="fb__input__phone--03 js__input--onlyNumber" devmaxlength="4">
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>{=trans('배송지 별칭')}</dt>
+                    <dd>
+                        <input type="text" name="shipping_name" value="" id="" title="{=trans('배송지 별칭')}">
+                    </dd>
+                </dl>
+            </form>
+
+            <div class="wrap-btn-area">
+                <button type="button" class="address__btn__cancel" id="devAddressBookPopColseBtn">{=trans('취소')}</button>
+                <button type="button" class="address__btn__save" id="devAddressBookPopSaveBtn" data-oid="{oid}">{=trans('저장')}</button>
+            </div>
+        </div>
+    </div>
+</div>

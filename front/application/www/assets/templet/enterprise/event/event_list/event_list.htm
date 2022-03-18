@@ -1,0 +1,70 @@
+<section class="fb__event fb__layout__width">
+    <h2 class="fb__title--hidden">{=trans('이벤트 페이지')}</h2>
+    
+    <!-- 필터 -->
+    <form id="devEventForm">
+        <input type="hidden" name="orderBy" value="startDate">
+        <input type="hidden" name="orderByType" value="desc">
+        <input type="hidden" name="page" value="1" id="devPage">
+        <input type="hidden" name="max" value="18" id="devMax">
+        <input type="hidden" name="ingType" value="ing" id="devIngType">
+    </form>
+
+    <h2 class="fb__title">{=trans('이벤트')}</h2>
+
+    <!-- 탭메뉴 -->
+    <nav class="event-bbs__tab__wrapper">
+        <label class="event-bbs__tab">
+            <input type="radio" name="event-tab" class="devIngType" data-type="ing" autocomplete="off" checked>
+            <span>{=trans('진행 중인 이벤트')}</span>
+        </label>
+        <label class="event-bbs__tab">
+            <input type="radio" name="event-tab" class="devIngType" data-type="end" autocomplete="off">
+            <span>{=trans('종료된 이벤트')}</span>
+        </label>
+    </nav>
+
+    <!-- 이벤트 -->
+    <div class="fb__event__wrap">
+        <ul id="devEventContent" class="fb__event__box">
+            <!--{* loading *}-->
+            <!--{'<script id="devEventLoading" type="text/x-handlebars-template">'}-->
+            <li>
+                <div class="fb__loading">
+                    <div class="fb__loading__icon"></div>
+                </div>
+            </li>
+            <!--{'</script>'}-->
+
+            <!--{* empty *}-->
+            <!--{'<script id="devEventListEmpty" type="text/x-handlebars-template">'}-->
+            <li class="fb__empty">
+                <p class="fb__empty__text">{=trans('등록된 이벤트가 없습니다.')}</p>
+            </li>
+            <!--{'</script>'}-->
+
+            <!--{* list *}-->
+            <!--{'<script id="devEventList" type="text/x-handlebars-template">'}-->
+            <li class="fb__event__list">
+                <a href="/event/eventDetail/{[event_ix]}" class="fb__event__link">
+                    <figure class="fb__event__image">
+                        <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[imgPath]}" alt="">
+                        {[#if onOff]}{[else]}<span class="end__txt">{=trans('이벤트가 종료되었습니다.')}</span>{[/if]}
+                    </figure>
+
+                    <div class="fb__event__info{[#if onOff]}{[else]} end{[/if]}">
+                        <p class="fb__event__name">{[event_title]}</p>
+                        <p class="fb__event__desc">{[manage_title]}</p>
+                        <p class="fb__event__date">{[startDate]} - {[endDate]}</p>
+                    </div>
+                </a>
+            </li>
+            <!--{'</script>'}-->
+
+        </ul>
+    </div>
+
+    <!-- 페이지네이션 -->
+    <div id="devPageWrap"></div>
+</section>
+

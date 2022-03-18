@@ -1,0 +1,53 @@
+<div class="review-popup fb__mypage__review-pop">
+    <div class="fb__modal__content js__modal__content review-pop__inner">
+
+        <!-- 상품정보 -->
+        <div class="item">
+            <div class="thumb">
+                <img src="{thumb}">
+            </div>
+            <div class="info">
+                <p class="title">{? brand_name}[{brand_name}]{/} {pname}</p>
+                <p class="option">{=trans('옵션')} : {option_name}</p>
+                {? buy_date}
+                <p class="date">{=trans('구매일')}:{buy_date}</p>
+                {/}
+            </div>
+        </div>
+
+        <!-- 별점평가 -->
+        <div class="score">
+            <p class="score__title">{=trans('상품만족도')}</p>
+            <img src="/assets/templet/enterprise/images/common/star_s_{valuation_goods}.png">
+            <span class="score__inner">
+                <em>{valuation_goods}.0</em>
+                <span class="score__slash">/</span>
+                <span>5</span>
+            </span>
+        </div>
+
+        <!-- 리뷰 내용 -->
+        <div class="review-content">
+            <p class="content">{bbs_contents}</p>
+            <div class="img-area">
+                {@ anotherImgs}
+                <div>
+                    <img src="{anotherImgs.value_}">
+                </div>
+                {/}
+            </div>
+        </div>
+
+        <!-- 댓글 내용 -->
+        <div class="review-comment-area">
+            {@ cList }
+            <section>
+                <div class="comment-info"> <p><em>{=trans('댓글')}</em> <span>{bbs_name}</span></p>  <span class="comment-info__date">{=trans('등록일')}:{reg_date}</span></div>
+                <div class="comment-content">
+                    {.cmt_contents}
+                </div>
+            </section>
+            {/}
+        </div>
+    </div>
+</div>

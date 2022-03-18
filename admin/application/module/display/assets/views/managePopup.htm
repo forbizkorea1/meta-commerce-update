@@ -1,0 +1,188 @@
+<section class="fb__menusubmit" xmlns="http://www.w3.org/1999/html">
+    <section class="fb-filter">
+        <form id="devDisplayForm">
+            <input type="hidden" name="popup_ix" value="{ix}">
+            <fieldset>
+                <legend>
+                    팝업 등록/수정
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">팝업명</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input type="text" name="popup_title" class="fb-filter__text fb-filter__text--100" value="{popupList.popup_title}" title="팝업명">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">노출위치 설정</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="display_position" value="M" {? mode=='add'|| mode!='add' && popupList.display_position=='M'}checked{/}>
+                                    <span>메인</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="display_position" value="E" {? mode!='add' && popupList.display_position=='E'}checked{/}>
+                                    <span>URL 직접입력</span>
+                                    <div id="display_url_div" {? mode=='add'|| mode!='add' && popupList.display_position=='M'}style="display:none"{/}>
+                                        <input type="text" name="display_url" class="fb-filter__text fb-filter__text--100" value="{popupList.display_url}" title="URL 직접입력">
+                                        * 팝업을 뛰우고 싶은 url을 도메인 제외하고 입력해주시기 바랍니다.<br>
+                                        * event/eventList (이벤트 리스트)<br>
+                                        * event/goodsEvent/3 (특정 이벤트 페이지)
+                                    </div>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">노출회원 설정</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="display_target" value="A" {? mode=='add'|| mode!='add' && popupList.display_target=='A'}checked{/}>
+                                    <span>전체</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="display_target" value="T" {? mode!='add' && popupList.display_target=='T'}checked{/}>
+                                    <span>그룹</span>
+                                    <label id="display_target_show" {? mode=='add'|| mode!='add' && popupList.display_target=='A'}style="display:none"{/}>
+                                        <select name="groupInfo" id="groupInfo" class="fb-filter__select">
+                                            <option value="">전체보기</option>
+                                            {@ groupInfo}
+                                            <option value="{.gp_ix}">{.gp_name}</option>
+                                            {/}
+                                        </select>
+
+                                        <table id="devGroupInfoTable">
+                                            <tbody id="devGroupInfoList">
+                                            <tr class="fb__menusubmit-active devForbizTpl devGroupInfo" id="devGroupInfoListTemplate">
+                                                <input type="hidden" name="groupInfoList[]" value="{[r_ix]}">
+                                                <td class="fb__menusubmit-indecater">
+                                                    <ul>
+                                                        {[gp_name]}
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <input type="button" class="fb__menusubmit-del devGroupInfoDelete" value="삭제"/>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </label>
+                                </label>
+                                <input type="hidden" name="display_sub_target" value="G">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">사용 기간</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="popup_use_sdate" value="{popupList.popup_use_sdate}" readonly title="팝업 시작일">
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="popup_use_edate" value="{popupList.popup_use_edate}" readonly title="팝업 종료일">
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">노출 유무</span>
+                        </th>
+                        <td>
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="disp" value="1" {? mode=='add'|| mode!='add' && popupList.disp=='1'}checked{/}>
+                                        <span>표시</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="disp" value="0" {? mode!='add' && popupList.disp=='0'}checked{/}>
+                                        <span>표시하지 않음</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">전시타입</span>
+                        </th>
+                        <td>
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="popup_position" value="F" {? mode=='add'|| mode!='add' && popupList.popup_position=='F'}checked{/}>
+                                        <span>PC</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="popup_position" value="A" {? mode!='add' && popupList.popup_position=='A'}checked{/}>
+                                        <span>관리자</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="popup_position" value="M" {? mode!='add' && popupList.popup_position=='M'}checked{/}>
+                                        <span>모바일</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>창 위치</span>
+                        </th>
+                        <td>
+                            <input type="radio" name="popup_type" value="L" checked style="display:none;">
+                            <label>상단부터(top) :
+                                <input type="text" name="popup_top" class="fb-filter__text fb-filter__text--20" value="{popupList.popup_top}" title="팝업창 위치 상단" {? popupList.popup_position == 'M'}disabled{/}> px
+                            </label>
+                            <label>좌측부터(left) :
+                                <input type="text" name="popup_left" class="fb-filter__text fb-filter__text--20" value="{popupList.popup_left}" title="팝업창 위치 좌측" {? popupList.popup_position == 'M'}disabled{/}> px
+                            </label>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">오늘하루보기 사용</span>
+                        </th>
+                        <td>
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="popup_today" value="1" {? mode=='add'|| mode!='add' && popupList.popup_today=='1'}checked{/}>
+                                        <span>사용</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="popup_today" value="0" {? mode!='add' && popupList.popup_today=='0'}checked{/}>
+                                        <span>미사용</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="fb-filter__title-contents">
+                            <textarea id="devEditor" name="popup_text">{popupList.popup_text}</textarea>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+</section>
+<!--{'<script>'}-->
+var groupRelDataList = { = json_encode(groupRelData)};
+<!--{'</script>'}-->

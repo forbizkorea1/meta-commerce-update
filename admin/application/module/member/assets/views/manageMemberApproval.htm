@@ -1,0 +1,91 @@
+<form id="devGridForm" method="POST">
+    <input type="hidden" name="is_serach" value="N" />
+    <input type="hidden" name="page" value="1" id="devPageNum"/>
+    <input type="hidden" name="max" value="50"/>    
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">일반회원승인</h3>                
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>일반회원승인</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                신청처리상태
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="authorized_nl">
+                                    <input type="radio" name="authorized" id="authorized_nl" value="">
+                                    <span>전체</span>
+                                </label>
+                                <label for="authorized_y">
+                                    <input type="radio" name="authorized" id="authorized_y" value="Y" >
+                                    <span>승인</span>
+                                </label>
+                                <label for="authorized_n">
+                                    <input type="radio" name="authorized" id="authorized_n" value="N" checked >
+                                    <span>승인대기</span>
+                                </label>
+                                <label for="authorized_x">
+                                    <input type="radio" name="authorized" id="authorized_x" value="X" >
+                                    <span>승인거부</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">                               
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="authBetweenDatePickerStart" value="" readonly>
+                            <span class="fb-filter__day__line">~</span>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="authBetweenDatePickerEnd" value="" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                조건검색
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select" name="searchType" item=''>
+                                    <option value="name">신청회원명</option>
+                                    <option value="id">신청회원ID</option>                                    
+                                </select>
+                                <input type="text" class="fb-filter__text" name="searchText"  value="">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="button" class="fb-filter__save " id="devSerach" value="검색" />
+                    <input type="button" class="fb-filter__reset " id="devFormReset" value="초기화" />
+                </div>
+            </section>
+        </section>
+    </fieldset>
+
+    <section class="fb__menusubmit fb-filter">
+        <div id="devPagingGrid"></div>
+        <div id="devPageWrap" class="fb__bbs__page"></div>
+    </section>
+</form>
+
+<!--{#memberDetail}-->

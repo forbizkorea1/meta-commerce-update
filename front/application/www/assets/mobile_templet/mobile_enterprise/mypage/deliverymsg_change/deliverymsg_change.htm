@@ -1,0 +1,45 @@
+<section class="fb__deliverymsg fb__infoinput">
+    <form name="devDeliveryMsgForm" id="devDeliveryMsgForm" class="wrap-delivery-info wrap-delivery-request">
+        <input type="hidden" name="oid" id="devOid" value="{oid}">
+        <input type="hidden" name="odd_ix" id="devOddIx" value="{odd_ix}">
+    
+        <!-- 배송요청사항 -->
+        <div class="fb__deliverymsg__wrapper">
+            <h2 id="devDeliveryRequestTitle" class="fb__deliverymsg__title">{=trans('배송요청사항')}</h2>
+    
+            <div class="fb__deliverymsg__inner devDeliveryMessageContents">
+                <select class="devDeliveryMessageSelectBox">
+                    <option value="">{=trans('배송요청사항을 선택해주세요.')}</option>
+                    <option value="door">{=trans('문 앞에 놓아주세요.')}</option>
+                    <option>{=trans('배송 전에 미리 연락 바랍니다.')}</option>
+                    <option>{=trans('부재 시 경비실에 맡겨주세요.')}</option>
+                    <option>{=trans('부재 시 전화주시거나 문자 남겨 주세요.')}</option>
+                    <option value="direct">{=trans('직접입력')}</option>
+                </select>
+    
+                <div class="delivery-request__write devDeliveryMessageDirectContents" style="display: none;">
+                    <input type="text" class="devDeliveryMessage" maxlength="30" data-type="direct">
+                </div>
+    
+                <div class="delivery-request__write devDeliveryMessageDoorContents" style="display: none;">
+                    <select class="devDeliveryEntranceWay">
+                        <option value="">{=trans('공동현관 출입방법 선택')}</option>
+                        <option value="door">{=trans('공동현관 출입번호')}</option>
+                        <option>{=trans('경비실 호출')}</option>
+                        <option>{=trans('비밀번호 없이 출입가능')}</option>
+                        <option value="direct">{=trans('직접입력')}</option>
+                    </select>
+    
+                    <div class="delivery-request__write devDeliveryEntranceWayMessageWrap" style="display: none;">
+                        <input type="text" class="devDoorMessage" placeholder="{=trans('예) #101(호수) + #0000(비밀번호)')}" maxlength="30" data-type="door">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fb__deliverymsg__button">
+            <a href="#" class="request-change__btn__cancel" id="devMsgCancelBtn">{=trans('취소')}</a>
+            <a href="#" class="request-change__btn__change" id="devMsgSubmitBtn">{=trans('변경')}</a>
+        </div>
+    </form>
+</section>

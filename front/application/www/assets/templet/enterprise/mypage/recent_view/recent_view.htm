@@ -1,0 +1,103 @@
+<section class="fb__wishlist fb__interest">
+    <h2 class="fb__mypage__title">{=trans('최근 본 상품')}</h2>
+
+    <form id="devRecentViewForm" class="recentList">
+        <input type="hidden" name="page" value="1" id="devPage">
+        <input type="hidden" name="max" value="20">
+
+        {? !is_login()}
+        <input type="hidden" name="usercode" value="{usercode}">
+        {/}
+
+        <!-- 상단 -->
+        <div class="top-area" id="devRecentViewSelector" style="display: none;">
+            <label for="all-check" class="fb__comm__checkbox">
+                <input type="checkbox" class="blind" id="all-check">
+                <span>{=trans('전체선택')}</span>
+            </label>
+
+            <div class="fb__button">
+                <button type="button" class="border--ccc" id='devBtnDelRecent'>{=trans('삭제')}</button>
+            </div>
+        </div>
+
+        <div class="fb__interest__box">
+            <ul class="fb__items listType4" id="devRecentViewContent">
+                <!--{'<script id="devRecentViewLoading" type="text/x-handlebars-template">'}-->
+                    <li>
+                        <div class="fb__loading">
+                            <div class="fb__loading__icon"></div>
+                        </div>
+                    </li>
+                <!--{'</script>'}-->
+            
+                <!--{'<script id="devRecentViewList" type="text/x-handlebars-template">'}-->
+                    <li class="item__box">
+                        <label for="recentList_{[id]}" class="fb__comm__checkbox">
+                            <input type="checkbox" class="blind item-check devPid" id="recentList_{[id]}" name="recentList[]" value="{[id]}">
+                            <span></span>
+                        </label>
+
+                        <a href="/shop/goodsView/{[id]}" class="item__link">
+                            <figure class="item__thumb">
+                                <img src="{[image_src]}" alt="{[pname]}">
+
+                                <button class="item__wish {[#if alreadyWish]}on{[/if]}" data-devwishbtn="{[id]}">
+                                    <span class="blind">{=trans('찜버튼')}</span>
+                                </button>
+                            </figure>
+
+                            <div class="item__info">
+                                <!-- 브랜드 -->
+                                {[#if brand_name]}
+                                <span class="item__brand">{[brand_name]}</span>
+                                {[/if]}
+
+                                <!-- 상품명 -->
+                                <strong class="item__name">{[pname]}</strong>
+
+                                <!-- 상품가격 -->
+                                <div class="item__price">
+                                    {[#if state_soldout]}
+                                        <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                    {[else]}
+
+                                        {[#if isDiscount]}
+                                            <!-- 할인율 -->
+                                            <span class="item__price--perc"><em>{[discount_rate]}</em>%</span>
+                                            <!-- 원가 -->
+                                            <del class="item__price--strike"><em>{[listprice]}</em>{=trans('원')}</del>
+                                        {[/if]}
+                                    
+                                        <!-- 판매가 -->
+                                        <p class="item__price--current"><em>{[dcprice]}</em>{=trans('원')}</p>
+                                    {[/if]}
+                                </div>
+                            </div>
+
+                            {[#if icons]}
+                            <div class="item__badge">
+                                {[#each icons as |icon|]}
+                                    {[#if this.isText]}
+                                        <span>{{[this.content]}}</span>
+                                    {[else]}
+                                        {{[this.content]}}
+                                    {[/if]}
+                                {[/each]}
+                            </div>
+                            {[/if]}
+                        </a>
+                    </li>
+                <!--{'</script>'}-->
+
+                <!--{'<script id="devRecentViewEmpty" type="text/x-handlebars-template">'}-->
+                    <li class="fb__empty borderBottom">
+                        <p class="fb__empty__text">{=trans('최근 본 상품이 없습니다.')}</p>
+                    </li>
+                <!--{'</script>'}-->
+            </ul>
+        </div>
+
+        <div id="devPageWrap"></div>
+    </form>
+</section>

@@ -1,0 +1,167 @@
+<form id="devListForm" enctype="multipart/form-data">
+    <input type="hidden" name="st_ix" value="{putList.st_ix}">
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">판매방식/카테고리</h3>
+                <input type="button" class="fb__menusubmit-btn">
+                <a class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                검색어 관리명
+                            </span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="st_text" title="검색어 관리명" value="{putList.st_text}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                노출기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="st_sdate" value="{putList.st_sdate}" title="시작일" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="st_edate" value="{putList.st_edate}" title="종료일" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>사용여부</span>
+                        </th>
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <div class="fb-filter__radio">
+                                    {@ disp}
+                                    <label>
+                                        <input type="radio" name="disp" value="{.key_}" {? (mode=='add' && .index_=='0') || (mode=='put' && putList.disp== .key_)}checked{/}>
+                                        <span>{.value_}</span>
+                                    </label>
+                                    {/}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devStTypeText" {? mode=='put' && putList.st_type=='2'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">노출 문구</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="st_title" value="{putList.st_title}">
+                        </td>
+                    </tr>
+                    <tr class="devStTypeImage" {? mode=='add' || (mode=='put' && putList.st_type=='1')}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">노출 이미지</span>
+                        </th>
+                        <td colspan="3">
+                            <div id="devBasicFileupload" data-img-src="{basicImageSrc}"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>노출 링크</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="st_url" value="{putList.st_url}">
+                            <br>ex> http://urlname.com/index.php <- http:// 포함된 풀URL 입력
+                        </td>
+                    </tr>
+                    <tr style="display:none;">
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                노출위치 설정
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb__table fb__menusubmit-divide">
+                            <div class="fb-filter__checkbox">
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="display_position" value="A" checked>
+                                        <span>전체</span>
+                                    </label>
+                                    {? false}
+                                    <label>
+                                        <input type="radio" name="display_position" value="C" {? mode=='put' && putList.display_position=='C'}checked{/}>
+                                        <span>카테고리별</span>
+                                    </label>
+                                    {/}
+                                </div>
+                            </div>
+                            <div class="devCategoryList" devCategoryType="C" {? (mode=='add') || (mode=='put' && putList.display_position=='A')}style="display:none"{/}>
+                                <div class="cascading" id="devSelectCategory"></div>
+                                <div class="fb__menusubmit-dividelist dividelist">
+                                    <span class="dividelist__title">선택한 상품 분류: </span>
+                                    <ul class="dividelist__list" id="devSelCategory">
+                                        <li>
+                                            대분류 메뉴명
+                                        </li>
+                                        <li>
+                                            중분류 메뉴명
+                                        </li>
+                                    </ul>
+                                    <input type="button" class="dividelist__btn" id="devProductCategoryButton" value="상품분류 선택"/>
+                                </div>
+                                <table id="devCategoryTable">
+                                    <caption>분류 추가 테이블</caption>
+                                    <colgroup>
+                                        <col width="*">
+                                        <col width="175">
+                                    </colgroup>
+                                    <thader>
+                                        <tr>
+                                            <th>
+                                                선택한 상품분류 목록
+                                            </th>
+                                            <th>
+                                                삭제
+                                            </th>
+                                        </tr>
+                                    </thader>
+                                    <tbody id="devProductCategoryList">
+                                    <tr class="fb__menusubmit-active devForbizTpl devProductCategory" id="devProductCategoryTemplate">
+                                        <input type="hidden" name="cidList[]" value="{[cid]}">
+                                        <td class="fb__menusubmit-indecater">
+                                            <ul>
+                                                {[path]}
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <input type="button" class="fb__menusubmit-del devProductCategoryDelete"
+                                                   value="삭제"/>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p class="fb__menusubmit-text">
+                                    - 상품에 설정된 모든 속성은 대표 상품분류로 선택된 목록에 종속됩니다.
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>
+
+<!--{'<script>'}-->
+var categoryRelationData = { = json_encode(categoryRelation)};
+<!--{'</script>'}-->

@@ -1,0 +1,47 @@
+<div class="fb__myInquiry">
+    <div class="wrap-mypage community-list review devTotalWrap" style="display: none">
+        <p class="title-count">{=trans('총 <em id="devTotal">0</em>개')}</p>
+    </div>
+
+    <form id="devMyInquiryForm">
+        <input type="hidden" name="page" value="1" id="devPage">
+        <input type="hidden" name="max" value="20">
+        <input type="hidden" name="bType" value="qna">
+
+        <div class="wrap-mypage community-list" id="devMyInquiryContent">
+            <!--{'<script id="devMyInquiryLoading" type="text/x-handlebars-template">'}-->
+            <dl>
+                <div class="wrap-loading">
+                    <div class="loading"></div>
+                </div>
+            </dl>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devMyInquiryEmpty" type="text/x-handlebars-template">'}-->
+            <div class="empty-content borderTop">
+                <p class="empty-content__txt">{=trans('1:1 문의 내역이 없습니다.')}</p>
+            </div>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devMyInquiryList" type="text/x-handlebars-template">'}-->
+            <dl onclick="location.href='/mypage/myInquiryDetail/{[bbs_ix]}'">
+                <dt>
+                    <strong>[{[div_name]}]</strong>
+                    <p class="fb__myInquiry__title">{[bbs_subject]}</p>
+                    <span>{[regdate]}</span>
+                </dt>
+                <dd class="community-list__qna__status">
+                    {[#if complete_status ]}
+                    <span class="complete">{=trans('답변<br>완료')}</span>
+                    {[else]}
+                    <span class="ing">{[qna_status]}</span>
+                    {[/if]}
+                </dd>
+            </dl>
+            <!--{'</script>'}-->
+        </div>
+        
+        <div id="devPageWrap" class="wrap-btn-area more"></div>
+    </form>
+</div>
+

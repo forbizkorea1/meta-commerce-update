@@ -1,0 +1,181 @@
+<script>
+    var addressPopMode = 'member';
+    var ix = '{ix}';
+</script>
+
+<div class="addressPop">
+    <!-- 배송지 목록 | 배송지 추가/수정 탭 -->
+    <ul class="addressPop__tab">
+        <li class="addressPop__tab__list js__address__tab on" data-tab="addressList">
+            <a href="#">{=trans('배송지 목록')}</a>
+        </li>
+
+        <li class="addressPop__tab__list js__address__tab" data-tab="addressInput">
+            <a href="#">{=trans('배송지 추가/수정')}</a>
+        </li>
+    </ul>
+
+    <div class="addressPop__cont addressList show">
+        <ul class="addressPop__box" id="devAddressBooKContent">
+            <!--{'<script id="devAddressBooKLoading" type="text/x-handlebars-template">'}-->
+            <li>
+                <div class="wrap-loading">
+                    <div class="loading"></div>
+                </div>
+            </li>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devAddressBooKList" type="text/x-handlebars-template">'}-->
+            <li class="addressPop__list">
+                <label class="fb__comm__radio addressPop__list__radio">
+                    <input type="radio" class="blind devOrderAddressRadio" name="address-list" value="{[ix]}" {[#if isChecked]}checked{[/if]}>
+                    <span>
+                        <div class="addressPop__list__name">
+                            {[recipient]}
+                            <span class="sub-name">({[shipping_name]})</span>
+                            {[#if default_yn]}
+                            <span class="delivery-default">{=trans('기본 배송지')}</span>
+                            {[/if]}
+                        </div>
+
+                        <div class="addressPop__list__address">
+                            {[address1]}<br>
+                            {[address2]}
+                        </div>
+
+                        <div class="addressPop__list__number">
+                            {[mobile]}
+                        </div>
+                    </span>
+                </label>
+
+                <div class="addressPop__list__btn">
+                    <button type="button" class="btn__addressUpdate devUpdateAddress" data-ix="{[ix]}">{=trans('수정')}</button>
+                    {[#unless default_yn]}
+                    <button type="button" class="btn__addressDelete devAddressBookDelete" data-ix="{[ix]}">{=trans('삭제')}</button>
+                    {[/unless]}
+                </div>
+            </li>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devAddressBooKEmpty" type="text/x-handlebars-template">'}-->
+            <li>
+                <div class="fb__empty">
+                    <p class="fb__empty__text">{=trans('등록된 배송지가 없습니다.')}</p>
+                </div>
+            </li>
+            <!--{'</script>'}-->
+        </ul>
+
+        <div id="devPageWrap"></div>
+
+        <div class="addressPop__btn fb__button center">
+            <button type="button" class="border--ccc" id="devAddressBookSetCancelBtn">{=trans('취소')}</button>
+            <button type="button" class="bg--point border--point" id="devAddressBookSetBtn">{=trans('배송지 적용')}</button>
+        </div>
+    </div>
+
+    <div class="addressPop__cont addressInput">
+        <form id="devAddressBookAddForm">
+            <input type="hidden" name="ix" value="">
+            <input type="hidden" name="mode" value="insert" id="devMode">
+
+            <div class="addressPop__write">
+                <table>
+                    <colgroup>
+                        <col style="width: 150px;">
+                        <col style="width: 350px;">
+                    </colgroup>
+                    
+                    <tbody>
+                        <tr>
+                            <th scope="col">
+                                <span class="requiredMark">{=trans('받는 분')}</span>
+                            </th>
+
+                            <td>
+                                <div>
+                                    <input type="text" name="recipient" value="{recipient}" class="input-full" id="devRecipient" title="{=trans('받는 분')}">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col">
+                                <span class="requiredMark">{=trans('주소')}</span>
+                            </th>
+
+                            <td>
+                                <div class="form-info-wrap">
+                                    <div>
+                                        <input type="text" class="input-zipCode dim" name="zipcode" value="{zipcode}" id="devZip" readonly="" title="{=trans('우편번호')}">
+                                        <button type="button" class="zipCode__btn" id="devZipPopupButton">{=trans('주소찾기')}</button>
+                                    </div>
+                                    <input type="text" class="input-full mat10 dim" name="address1" id="devAddress1"  value="{address1}" readonly="" title="{=trans('주소')}">
+                                    <input type="text" class="input-full mat10" name="address2" id="devAddress2" value="{address2}" title="{=trans('상세주소')}" placeholder="{=trans('상세주소를 입력해 주세요.')}">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col">
+                                <span class="requiredMark">{=trans('휴대폰 번호')}</span>
+                            </th>
+                            
+                            <td>
+                                <div class="table">
+                                    <select name="pcs1" class="input-phone" id="devPcs1" title="{=trans('휴대폰번호')}">
+                                        <option value="">{=trans('선택')}</option>
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="019">019</option>
+                                    </select>
+                                    {? pcs1}
+                                    <script>
+                                        $(function () {
+                                            $('#devPcs1').val('{pcs1}');
+                                        });
+                                    </script>
+                                    {/}
+                                    <span class="hyphen">-</span>
+                                    <input type="text" name="pcs2" class="input-phone" id="devPcs2" value="{pcs2}" title="{=trans('휴대폰번호')}">
+                                    <span class="hyphen">-</span>
+                                    <input type="text" name="pcs3" class="input-phone" id="devPcs3" value="{pcs3}" title="{=trans('휴대폰번호')}">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col">{=trans('배송지명')}</th>
+
+                            <td>
+                                <div class="form-info-wrap">
+                                    <input type="text" name="shipping_name" value="{shipping_name}" class="input-full" id="devShippingName" title="{=trans('배송지 별칭')}">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="default-choice">
+                    <label class="fb__comm__checkbox">
+                        <input type="checkbox" name="default_yn" value="Y" class="blind" id="devDefaultYn" {? default_yn =='Y'}checked{/} title="{=trans('기본 배송지로설정')}">
+                        <span>{=trans('기본 배송지로 설정')}</span>
+                    </label>
+                </div>
+            </div>
+        </form>
+        
+        <div class="addressPop__btn fb__button center">
+            <button type="button" class="border--ccc" id="devAddressBookAddCancelBtn">{=trans('취소')}</button>
+            <button type="button" class="bg--point border--point" id="devAddressBookAddBtn">{=trans('저장')}</button>
+        </div>
+    </div>
+
+    <div class="popup-btn-area" style="display: none;">
+        <button class="btn-default btn-dark-line" id="devAddressBookPopColseBtn">{=trans('닫기')}</button>
+    </div>
+</div>

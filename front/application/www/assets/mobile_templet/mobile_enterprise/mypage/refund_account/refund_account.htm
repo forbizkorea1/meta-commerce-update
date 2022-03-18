@@ -1,0 +1,73 @@
+<div class="wrap-mypage wrap-refund-account">
+    <form id="devRefundAccountForm">
+        <div id="devRefundAccountContent">
+            <!--{'<script id="devRefundAccountList" type="text/x-handlebars-template">'}-->
+            <!--등록된 case -->
+            <div class="wrap-refund-complete">
+                <dl id="devRefundAccountData" data-bankix="{[bank_ix]}" data-bankcode="{[bank_code]}" data-bankowner="{[bank_owner]}">
+                    <dt>{=trans('은행명')}</dt>
+                    <dd>{[bank_name]}</dd>
+                </dl>
+
+                <dl>
+                    <dt>{=trans('예금주')}</dt>
+                    <dd>{[bank_owner]}</dd>
+                </dl>
+
+                <dl>
+                    <dt>{=trans('계좌번호')}</dt>
+                    <dd class="font-rb">{[bank_number]}</dd>
+                </dl>
+            </div>
+            <!--{'</script>'}-->
+
+            {* Loading *}
+            <!--{'<script id="devRefundAccountLoading" type="text/x-handlebars-template">'}-->
+            <div class="wrap-refund-complete">Loading...</div>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devRefundAccountReplaceForm" type="text/x-handlebars-template">'}-->
+            <!--등록된 계좌 없을 때 / 변경할 때-->
+            <div class="wrap-input-form">
+                <dl>
+                    <dt>{=trans('은행명')} <em>*</em></dt>
+                    <dd>
+                        <select title="{=trans('은행명')}" name="bank_code" style="width:100%;" id="devBankCode">
+                            <option value="">{=trans('선택')}</option>
+                            {@ bankList}<option value="{bankList.key_}">{bankList.value_}</option>{/}
+                        </select>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>{=trans('예금주')} <em>*</em></dt>
+                    <dd>
+                        <input type="text" name="bank_owner" title="{=trans('예금주')}" id="devBankOwner">
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>{=trans('계좌번호')} <em>*</em></dt>
+                    <dd>
+                        <input type="text" name="bank_number" title="{=trans('계좌번호')}" id="devBankNumber">
+                    </dd>
+                </dl>
+            </div>
+            <!--{'</script>'}-->
+        </div>
+        
+        <div class="wrap-refund-account__btn">
+            <p class="desc">{=trans('계좌는 1개만 등록 가능하며, 등록된 계좌는 현금결제 주문취소 시 해당 계좌로 환불 금액이 입금 되오니 최대한 정확하게 기입해 주시기 바랍니다.')}</p>
+            
+            <div class="wrap-btn-area" id="devDivModifyBtnGroup" style="display: none;">
+                <button type="button" class="btn-lg btn-ccc-line" id="devRefundAccountItemDelete">{=trans('삭제')}</button>
+                <button type="button" class="btn-lg btn-point" id="devRefundAccountItemModify">{=trans('변경')}</button>
+            </div>
+
+            <div class="wrap-btn-area" id="devDivSaveBtnGroup" style="display: none;">
+                <button type="button" class="btn-lg btn-ccc-line" id="devRefundAccountModifyCancel">{=trans('취소')}</button>
+                <button type="button" class="btn-lg btn-point" id="devRefundAccountItemSave">{=trans('저장')}</button>
+            </div>
+        </div>
+    </form>
+</div>

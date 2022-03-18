@@ -1,0 +1,163 @@
+<section class="fb__login">
+    {? empty(pageType)}
+    <h2 class="fb__title--hidden">{=trans('로그인 페이지')}</h2>
+
+    <!-- 회원 로그인 -->
+    <div class="fb__login__member">
+
+        <!-- 중앙 -->
+        <div class="fb__login__inner">
+
+            <!-- 로그인 정보 입력 -->
+            <form id="devLoginForm">
+                <input type="hidden" name="url" value="{url}"/>
+
+                <input type="text" placeholder="{=trans('아이디(이메일)')}" name="userId"
+                       id="devUserId" title="{=trans('아이디')}" value="{userSaveLoginId}">
+
+                <p class="txt-error" devTailMsg="devUserId" ></p>
+    
+                <input type="password" placeholder="{=trans('비밀번호')}" class="mat20" name="userPw"
+                       id="devUserPassword" title="{=trans('비밀번호')}">
+    
+                <p class="txt-error" devTailMsg="devUserPassword"></p>
+    
+                <!-- 아이디 저장 -->
+                <label for="c1" class="fb__comm__checkbox member__save">
+                    <input type="checkbox" class="blind" id="c1" name="saveId" value="Y" {saveIdChecked}>
+                    <span>{=trans('아이디 저장')}</span>
+                </label>
+    
+                <!-- 로그인 버튼 -->
+                <button type="submit" class="fb__login__button" id="devLoginSubmitButton">{=trans('로그인')}</button>
+                <!-- 비회원 구매 -->
+                {? mode == 'noMembuy'}
+                <div class="wrap-btn-area mat20">
+                    <button class="btn-lg btn-point-line" id="devNoMemberBuy" data-url="{url}">{=trans('비회원 구매하기')}</button>
+                </div>
+                {/}
+            </form>
+    
+            <!-- 로그인 옵션 -->
+            <div class="member__option">
+                <a href="/member/authentication">{=trans('회원가입')}</a>
+                <a href="/member/searchId">{=trans('아이디/비밀번호 찾기')}</a>
+                <!-- <a href="/member/searchPw">비밀번호 찾기</a> -->
+            </div>
+
+            <div class="fb__login__sns">
+                <p class="sns__title">{=trans('간편 로그인')}</p>
+                <div class="sns__inner">
+                    {? sns_simple_login_naver == 'Y'}
+                        <a href="{naver_login}" class="sns__button naver">{=trans('네이버 로그인')}</a>
+                    {/}
+
+                    {? sns_simple_login_kakao == 'Y'}
+                        <a href="{kakao_login}" class="sns__button kakao">{=trans('카카오 로그인')}</a>
+                    {/}
+                    
+                    {? sns_simple_login_facebook == 'Y'}
+                        <a href="{facebook_login}" class="sns__button facebook">{=trans('페이스북 로그인')}</a>
+                    {/}
+
+                    {? sns_simple_login_google == 'Y'}
+                        <a href="#google" class="sns__button google" {? appType} id="appLoginGoogle" data-type="{appType}"{/}>
+                            {=trans('구글로 시작하기')}
+                            {? !appType}
+                            <span class="g-signin2" id="g-signin2" data-onsuccess="onSignIn"></span>
+                            {/}
+                        </a>
+                    {/}
+                    
+                    {? appType == 'iOS'}
+                    {? sns_simple_login_apple == 'Y'}
+                        <a href="#" class="sns__button apple devAppleLogin">{=trans('애플 로그인')}</a>
+                    {/}
+                    {/}
+                </div>
+            </div>
+
+            <!-- 비회원 주문조회 -->
+            <button id="devNonMember" class="fb__login__button--white">{=trans('비회원 주문조회')}</button>
+        </div>
+        </div>
+    </div>
+    {:}
+    
+    <!-- 비회원 로그인 -->
+    <div class="fb__login__nomember">
+
+        <!-- 중앙 -->
+        <div class="fb__login__inner">
+
+            <!-- 로그인 정보 입력 -->
+            <form id="devNonMemberLoginForm">
+
+                <input type="text" placeholder="{=trans('주문자명을 입력해주세요.')}"  name="buyerName"
+                       id="devBuyerName" title="{=trans('주문자명')}">
+                <p class="txt-error" devTailMsg="devBuyerName"></p>
+    
+                <input type="text" placeholder="{=trans('주문번호를 입력해 주세요.')}" class="mat20" name="orderId"
+                       id="devOrderId" title="{=trans('주문번호')}">
+                <p class="txt-error" devTailMsg="devOrderId"></p>
+    
+                <input type="password" placeholder="{=trans('주문 비밀번호를 입력해 주세요.')}" class="mat20"
+                       name="orderPassword" id="devOrderPassword" title="{=trans('주문 비밀번호')}">
+                <p class="txt-error" devTailMsg="devOrderPassword"></p>
+    
+                <!-- 확인 버튼 -->
+                <button type="submit" class="fb__login__button" id="devNonMemberLoginSubmitButton">{=trans('확인')}</button>
+            </form>
+    
+            <!-- 주문번호 설명 -->
+            <p class="nomember__desc">
+                {=trans('주문번호가 기억나지 않으시면 <span>고객센터 <a href="tel:02-3210-3210" class="font-rb">{companyInfo.cs_phone}</a></span>로 문의해주세요.')}
+            </p>
+            
+            <!-- 간편 로그인 -->
+            <div class="fb__login__sns">
+                <p class="sns__title">{=trans('간편 로그인')}</p>
+                <div class="sns__inner">
+                    {? sns_simple_login_naver == 'Y'}
+                    <a href="{naver_login}" class="sns__button naver">{=trans('네이버 로그인')}</a>
+                    {/}
+                    {? sns_simple_login_kakao == 'Y'}
+                    <a href="{kakao_login}" class="sns__button kakao">{=trans('카카오 로그인')}</a>
+                    {/}
+                    {? sns_simple_login_facebook == 'Y'}
+                    <a href="{facebook_login}" class="sns__button facebook">{=trans('페이스북 로그인')}</a>
+                    {/}
+                    {? sns_simple_login_google == 'Y'}
+                    <a href="#google" class="sns__button google" {? appType} id="appLoginGoogle" data-type="{appType}"{/}>
+                        {=trans('구글로 시작하기')}
+                        {? !appType}
+                        <span class="g-signin2" id="g-signin2" data-onsuccess="onSignIn"></span>
+                        {/}
+                    </a>
+                    {/}
+                    {? appType == 'iOS'}
+                        {? sns_simple_login_apple == 'Y'}
+                        <a href="#" class="sns__button apple devAppleLogin">{=trans('애플 로그인')}</a>
+                        {/}
+                    {/}
+                </div>            
+            </div>
+
+            <!-- 회원가입 유도 -->
+            <ul class="nomember__joining">
+                <li class="nomember__joining__text">
+                    {=trans('아직 회원이 아니신가요?<br> 회원가입 하시고 다양한 혜택을 받으세요.')}
+                </li>
+
+                <li>
+                    <a href="/member/authentication" class="fb__login__button--white">{=trans('회원가입')}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {/}
+</section>
+
+<script>
+    var devAppType = '{layoutCommon.appType}';
+</script>

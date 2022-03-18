@@ -1,0 +1,424 @@
+<section class="fb__main">
+    <h2 class="fb__title--hidden">{=trans('메인 페이지')}</h2>
+
+    <article class="main" id="main__content">
+        <!-- GNB -->
+        <section class="main__menu__wrapper">
+            <nav>
+                <a class="main__menu active" href="/">{=trans('홈')}</a>
+                <!--{@ headerMenu.categoryList}-->
+                <a class="main__menu" href="/shop/goodsList/{.cid}">{.cname}</a>
+                <!--{/}-->
+                <a class="main__menu" href="/event/eventList">{=trans('이벤트')}</a>
+                <a class="main__menu" href="/event/promotion">{=trans('기획전')}</a>
+            </nav>
+        </section>
+
+        <!-- KV -->
+        {? mainBanner}
+        <section class="main__slider">
+            <h3 class="fb__title--hidden">
+                keyVisual
+            </h3>
+
+            <div class="main__slider__wrapper swiper-container">
+                <ul class="main__slider__inner swiper-wrapper">
+                    {@ mainBanner}
+                    <li class="main__slider__item swiper-slide">
+                        <a href="{.bd_link}" class="main__slider__link">
+                            <figure class="main__slider__image">
+                                <img src="{.imgSrc}" alt="{.banner_name}" onerror="this.src='/assets/mobile_templet/mobile_enterprise/images/noimg.gif'">
+                            </figure>
+                        </a>
+                    </li>
+                    {/}
+                </ul>
+
+                <nav class="main__slider__pagination js__slider__nav">
+                    <span class="pagination--current">1</span> 
+                    <em>/</em> 
+                    <span class="pagination--total">2</span>
+                </nav>
+            </div>
+        </section>
+        {/}
+
+        <!-- 신상품 -->
+        {? mainWhatsNew}
+        <section class="main__new js__mainProd">
+            <h3 class="main__content__title">NEW NOW</h3>
+            <nav class="main__content__nav js__mainProd__nav">
+                <div class="inner">
+                    <!-- 활성화 카테고리 'active' 클래스 추가 -->
+                    {@ mainWhatsNew.details}
+                    <a href="#goodsWhatsNew" data-group_code="{.group_code}" class="{? .index_ == 0}active{/} devWhatsNewTab">{.group_name}</a>
+                    {/}
+                </div>
+            </nav>
+
+            {@ mainWhatsNew.details}
+            <div class="js__new__wrapper">
+                <div class="swiper-container main__new__wrapper devWhatsNew js__mainCont__wrap newSliderIndex{=.index_} {? .index_ == 0}show{/}" data-group_code="{.group_code}">
+                    <!-- 상품루프 -->
+                    <ul class="swiper-wrapper fb__items">
+                        {? .goods}
+                            {@ .goods}
+                            <!-- 상품 한개 -->
+                            <li class="swiper-slide item__box">
+                                <a href="/shop/goodsView/{..id}" class="item__link">
+    
+                                    <!-- 상품상단 -->
+                                    <figure class="item__thumb">
+                                        <img src="{..image_src}" alt="{..pname}" onerror="this.src='/assets/mobile_templet/mobile_enterprise/images/noimg.gif'">
+                                    </figure>
+    
+                                    <!-- 상품정보 -->
+                                    <div class="item__info">
+    
+                                        <!-- 브랜드 -->
+                                        {? ..brand_name}
+                                            <span class="item__brand">{..brand_name}</span>
+                                        {/}
+    
+                                        <!-- 상품명 -->
+                                        <strong class="item__name">{..pname}</strong>
+
+                                        <div class="item__price">
+                                            {? ..status != 'soldout'}
+                                                {? ..discount_rate > 0}
+                                                <!-- 할인율 -->
+                                                <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                                <!-- 원가 -->
+                                                <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                                {/}
+                                                <!-- 판매가 -->
+                                                <p class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</p>
+                                            {:}
+                                                <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                            {/}
+                                        </div>
+
+                                        <!-- 상품 뱃지 -->
+                                        {? ..icons}
+                                        <div class="item__badge">
+                                            {@ ..icons}
+                                                {? ...isText}
+                                                    <span>{ ...content}</span>
+                                                {:}
+                                                    { ...content}
+                                                {/}
+                                            {/}
+                                        </div>
+                                        {/}
+                                    </div>
+                                    
+                                </a>
+                            </li>
+                            {/}
+                        {:}
+                            <li class="empty-content">{=trans('등록되어 있는 상품이 없습니다.')}</li>
+                        {/}
+                    </ul>
+                </div>
+            </div>
+            {/}
+        </section>
+        {/}
+
+        <!-- 기획전 -->
+        {? exhibition}
+        <section class="main__promotion">
+            <header class="main__content__header quick">
+                <h3 class="main__content__title">{=trans('기획전')}</h3>
+                <a href="event/promotion/" class="quick__button">{=trans('바로가기')}</a>
+            </header>
+            
+
+            <div class="promotion__wrapper">
+                <ul id="devEventContent" class="fb__event__box">
+                    {@ exhibition}
+                    {? .index_ < 3}
+                    <!-- 기획전 리스트 -->
+                    <li class="fb__event__list">
+                        <a href="/event/eventDetail/{.event_ix}" class="fb__event__link">
+                            <!-- 리스트 상단 -->
+                            <div class="fb__event__item">
+                                <figure class="fb__event__image">
+                                    <img src="{.imgPath}" alt="{.event_title}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                                </figure>
+                            </div>
+
+                            <!-- 리스트 하단 -->
+                            <dl class="fb__event__info">
+                                <dt class="fb__event__name">
+                                    {.event_title}
+                                </dt>
+                                <dd class="promotion__summary">
+                                    {.manage_title}
+                                </dd>
+                            </dl>
+                        </a>
+
+                        <!-- ***추가된 영역*** 아이템 : 카드형 -->                        
+                        {? !empty(.productInfo)}
+                        <ul class="fb__items cardType">
+                            {@ .productInfo}
+                            <li class="item__box">
+                                <a href="/shop/goodsView/{..id}" class="item__link">
+                                    <!-- 아이템 사진 -->
+                                    <figure class="item__thumb">
+                                        <img data-src="{..image_src}" alt="{..pname}">
+                                    </figure>
+
+                                    <!-- 아이템 정보 -->
+                                    <div class="item__info">
+                                        <!-- 브랜드 -->
+                                        {? ..brand_name}
+                                        <span class="item__brand">{..brand_name}</span>
+                                        {/}
+                                        <!-- 상품명 -->
+                                        <strong class="item__name">{..pname}</strong>
+
+                                        {? ..status != 'soldout'}
+                                        <div class="item__price">
+                                            {? ..discount_rate > 0}
+                                            <!-- 힐인율 -->
+                                            <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                            <!-- 원가 -->
+                                            <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                            {/}
+                                            <!-- 판매가 -->
+                                            <p class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</p>
+                                        </div>
+                                        {:}
+                                            <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                        {/}
+                                    </div>
+                                </a>
+
+                                <!-- 찜버튼 -->
+                                <div class="item__wishBox">
+                                    <button class="item__wish " data-devwishbtn="{..id}">
+                                        {=trans('찜버튼')}
+                                    </button>
+                                </div>
+                            </li>
+                            {/}
+                        </ul>
+                        {/}
+                    </li>
+                    {/}
+                    {/}
+                </ul>
+            </div>
+        </section>
+        {/}
+
+        <!-- 스타일 -->
+        {? styleTag}
+        <section class="main__style js__mainProd">
+             <h3 class="main__content__title">STYLE &</h3>
+ 
+             <nav class="main__style__nav js__mainProd__nav">
+                 {@ styleTag.details}
+                 <a href="#goodsStyleTag" data-group_code="{.group_code}" class="{? .index_ == 0}active{/} devStyleTagTab">{.group_name}</a>
+                 {/}
+             </nav>
+ 
+            {@ styleTag.details}
+            <div class="js__style__wrapper">
+                <div class="main__style__wrapper js__mainCont__wrap swiper-container devStyleTag styleSliderIndex{=.index_} {? .index_ == 0}show{/}" data-group_code="{.group_code}">
+                    <!-- 상품루프 -->
+                    <ul class="swiper-wrapper fb__items">
+                        {? .goods}
+                            {@ .goods}
+                            <!-- 상품 한개 -->
+                            <li class="swiper-slide item__box">
+                                <a href="/shop/goodsView/{..id}" class="item__link">
+                                    <!-- 상품 상단 -->
+                                    <figure class="item__thumb">
+                                        <img src="{..image_src}" alt="{..pname}" onerror="this.src='/assets/mobile_templet/mobile_enterprise/images/noimg.gif'">
+                                    </figure>
+    
+                                    <!-- 상품 정보 -->
+                                    <div class="item__info">
+    
+                                        <!-- 브랜드 -->
+                                        {? ..brand_name}
+                                            <span class="item__brand">{..brand_name}</span>
+                                        {/}
+    
+                                        <!-- 상품명 -->
+                                        <strong class="item__name">{..pname}</strong>
+
+                                        <div class="item__price">
+                                            {? ..status != 'soldout'}
+                                                {? ..discount_rate > 0}
+                                                    <!-- 할인율 -->
+                                                    <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                                    <!-- 원가 -->
+                                                    <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                                {/}
+                                                <!-- 판매가 -->
+                                                <p class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</p>
+                                            {:}
+                                                <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                            {/}
+                                        </div>
+
+                                        <!-- 상품 뱃지 -->
+                                        {? ..icons}
+                                        <div class="item__badge">
+                                            {@ ..icons}
+                                                {? ...isText}
+                                                    <span>{ ...content}</span>
+                                                {:}
+                                                    { ...content}
+                                                {/}
+                                            {/}
+                                        </div>
+                                        {/}
+    
+                                    </div>
+                                </a>
+                            </li>
+                            {/}
+                        {/}
+                    </ul>
+                </div>
+            </div>  
+
+             {/}
+        </section>
+        {/}
+
+        <!-- 메인 띠 배너 -->
+        {? mainBeltMiddleBanner}
+            {@ mainBeltMiddleBanner}
+                {? index_ < 1}
+                <div class="main__banner">
+                    <a href="{.bd_link}" class="main__banner__link">
+                        <figure class="main__banner__image">
+                            <img data-src="{.imgSrc}" alt="{.banner_name}"  onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                        </figure>
+                    </a>
+                </div>
+                {/}
+            {/}
+        {/}
+
+        <!-- 베스트셀러 -->
+        {? topSeller}
+        <section class="main__seller">
+            <h3 class="main__content__title">BEST SELLER</h3>
+
+            <nav class="main__content__nav js__mainProd__nav">
+                <div class="inner">
+                    <!-- 활성화된 카테고리에 "on" 클래스 추가 -->
+                    {@ topSeller.details}
+                    <a href="#goodsTopSeller" data-group_code="{.group_code}" class="{? .index_ == 0}on{/} devTopSellerTab">{.group_name}</a>
+                    {/}
+                </div>
+            </nav>
+
+            {@ topSeller.details}
+            <!-- 상품루프 -->
+            <ul class="fb__items devTopSeller js__best__wrapper" data-group_code="{.group_code}" bsetSliderIndex{=.index_} {? .index_ == 0}show{/} {? .index_ > 0} style="display: none"{/}>
+                {? .goods}
+                    {@ .goods}
+                    <!-- 상품 한개 -->
+                    <li class="item__box devTopSellerItem{.group_code}" data-index="{..index_}" {? ..index_ >= 10} style="display: none"{/}>
+                        <a href="/shop/goodsView/{..id}" class="item__link">
+                            <!-- 상품상단 -->
+                            <figure class="item__thumb">
+                                <img data-src="{..image_src}" alt="{..pname}" onerror="this.src='/assets/mobile_templet/mobile_enterprise/images/noimg.gif'">
+                                <span class="best-number">{..index_ + 1}</span>
+                            </figure>
+
+                            <!-- 상품정보 -->
+                            <div class="item__info">
+                                <!-- 브랜드 -->
+                                {? ..brand_name}
+                                    <span class="item__brand">{..brand_name}</span>
+                                {/}
+
+                                <!-- 상품명 -->
+                                <strong class="item__name">{..pname}</strong>
+
+                                <div class="item__price">
+                                    {? ..status != 'soldout'}
+                                        {? ..discount_rate > 0}
+                                            <!-- 할인율 -->
+                                            <span class="item__price--perc"><em>{..discount_rate}</em>%</span>
+                                            <!-- 원가 -->
+                                            <del class="item__price--strike"><em>{=g_price(..listprice)}</em>{=trans('원')}</del>
+                                        {/}
+                                        <!-- 판매가 -->
+                                        <span class="item__price--current"><em>{=g_price(..dcprice)}</em>{=trans('원')}</span>
+                                    {:}
+                                        <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                    {/}
+                                </div>
+
+                                <!-- 상품 뱃지 -->
+                                {? ..icons}
+                                <div class="item__badge">
+                                    {@ ..icons}
+                                        {? ...isText}
+                                            <span>{ ...content}</span>
+                                        {:}
+                                            { ...content}
+                                        {/}
+                                    {/}
+                                </div>
+                                {/}
+                            </div>
+                        </a>
+                    </li>
+                    {/}
+                {/}
+            </ul>
+            {/}
+        </section>
+        {/}
+
+        <!-- 이벤트 -->
+        {? event}
+        <section class="main__event">
+            <header class="main__content__header quick">
+                <h3 class="main__content__title">{=trans('이벤트')}</h3>
+                <a href="/event/eventList/" class="quick__button">{=trans('바로가기')}</a>
+            </header>
+
+
+            <ul class="main__event__wrapper">
+                {@ event}
+                    {? .index_ < 2}
+                    <li class="fb__event__list">
+                        <a href="/event/eventDetail/{.event_ix}" class="fb__event__link">
+
+                            <!-- 이벤트 상단 -->
+                            <div class="fb__event__item">
+                                <figure class="fb__event__image">
+                                    <img data-src="{.imgPath}" alt="{.event_title}" onerror="this.src='/assets/mobile_templet/mobile_enterprise/images/noimg.gif'">
+                                </figure>
+                            </div>
+
+                            <!-- 이벤트 하단 -->
+                            <div class="fb__event__info">
+                                <p class="fb__event__name">{.event_title}</p>
+                                {? .manage_title}
+                                    <p class="fb__event__desc">{.manage_title}</p>
+                                {/}
+
+                                <dd class="fb__event__date">{.startDate} ~ {.endDate}</dd>
+                            </div>
+                        </a>
+                    </li>
+                    {/}
+                {/}
+            </ul>
+        </section>
+        {/}
+    </article>
+</section>

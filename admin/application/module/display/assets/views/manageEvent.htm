@@ -1,0 +1,290 @@
+<section class="fb__menusubmit" xmlns="http://www.w3.org/1999/html">
+    <section class="fb-filter">
+        <form id="devDisplayForm" enctype="multipart/form-data">
+            <input type="hidden" name="event_ix" value="{ix}">
+            <fieldset>
+                <legend>
+                    이벤트/기획전 등록/수정
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">이벤트/기획전 구분</span>
+                        </th>
+                        <td>
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="kind" value="E" {? mode=='add' || mode!='add' && event.kind=='E'}checked{/}>
+                                        <span>이벤트</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="kind" value="P" {? mode!='add' && event.kind=='P'}checked{/}>
+                                        <span>기획전</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">전시여부</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp" value="1" {? mode=='add'|| mode!='add' && event.disp=='1'}checked{/}>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp" value="0" {? mode!='add' && event.disp=='0'}checked{/}>
+                                    <span>미사용</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                분류선택
+                            </span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="er_ix" class="fb-filter__select" title="분류">
+                                <option value="" selected>선택하세요</option>
+                                {@ relationList}
+                                <option value="{.er_ix}" {? .er_ix== event.er_ix}selected{/}>{.title}</option>
+                                {/}
+                            </select>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">전시 타입</span>
+                        </th>
+                        <td>
+                            <div>
+                                <div class="fb-filter__radio">
+                                    {@ ismobileUseList}
+                                    <label>
+                                        <input type="radio" name="agent_type" value="{.key_}" {? (mode=='add' && .key_=='A') || (mode!='add' && .key_==event.agent_type)}checked{/}>
+                                        <span>{.value_}</span>
+                                    </label>
+                                    {/}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">이벤트/기획전 제목</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text" name="event_title" class="fb-filter__text fb-filter__text--100" value="{event.event_title}" title="이벤트/기획전 제목">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">댓글사용여부</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <div>
+                                <div class="fb-filter__radio devComment">
+                                    <label>
+                                        <input type="radio" name="use_comment" value="1" {? mode!='add' && event.use_comment=='1'}checked{/}>
+                                        <span>사용</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="use_comment" value="2" {? mode=='add' || mode!='add' && event.use_comment=='2'}checked{/}>
+                                        <span>미사용</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>이벤트/기획전 관리제목</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text" name="manage_title" class="fb-filter__text fb-filter__text--100" value="{event.manage_title}" title="이벤트/기획전 간단설명">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class=""></span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <div class="fb-filter__radio fb__color--disabled">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">이벤트/기획전 기간</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="event_use_sdate" value="{event.event_use_sdate}" readonly title="이벤트/기획전 시작일">
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="event_use_edate" value="{event.event_use_edate}" readonly title="이벤트/기획전 종료일">
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>OG Tag 이미지</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <div class="devOgFileupload" data-img-src="{event.ogImageSrc}"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>리스트 이미지(PC)</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <div class="devListFileupload_pc" data-img-src="{event.basicImageSrc_pc}"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>리스트 이미지(M)</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <div class="devListFileupload_m" data-img-src="{event.basicImageSrc_m}"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>이벤트 상세내용(PC)</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <textarea id="devEditorPc" name="event_text">{event.event_text}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>이벤트 상세내용(M)</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <textarea id="devEditorM" name="event_text2">{event.event_text2}</textarea>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+</section>
+<section id="devGroupContents"></section>
+
+<!--{'<script id="devBasicGroupTpl" type="text/x-handlebars-template">'}-->
+<section class="fb__menusubmit devGroupSection" groupCode="{[group_code]}">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">
+            상품그룹 <span>(Group {[group_code]})</span>
+        </h3>
+        <nav class="fb__menusubmit-headerBtn fb-filter__btn devNav">
+            <button class="fb-filter__org fb__menusubmit-headerBtn--goodsadd devGroupAddBtn">상품그룹 추가</button>
+            {[#if delBtnBool]}
+            <button class="fb-filter__gary devGroupDelBtn">삭제</button>
+            {[/if]}
+        </nav>
+        <a href="#" class="fb__menusubmit-btn">
+            <span>닫기</span>
+            <span>열기</span>
+        </a>
+    </header>
+    <section class="fb-filter">
+        <form class="devGroupForm">
+            <input type="hidden" name="group_code" value=""/>
+            <fieldset>
+                <legend>
+                    그룹 정보
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>상품그룹명</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text" name="group_name" class="fb-filter__text fb-filter__text--100" value="" title="상품그룹명">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>전시 여부</span>
+                        </th>
+                        <td>
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="use_yn" value="Y" {[#if useYn]}checked{[/if]}>
+                                        <span>전시</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="use_yn" value="N" {[#unless useYn]} checked{[/unless]}>
+                                        <span>전시 하지 않음</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>상품 그룹 이벤트명</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input type="text" name="event_name" class="fb-filter__text fb-filter__text--100" value="" title="상품 그룹 이벤트명">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>상품노출갯수</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <label>
+                                <input type="text" name="product_cnt" class="fb-filter__text fb-filter__number fb-filter__text--50" value="">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr style="display:none;">
+                        <th class="fb-filter__title">
+                            <span>상품그룹 이미지</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <div class="devFileupload" data-img-src="{[groupImageSrc]}"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>전시상품</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <section class="fb__menusubmit">
+                                <section class="fb-filter fb__goodssearch">
+                                    <div class="fb__goodssearch__btn">
+                                        <button type="button" class="fb__goodssearch__btn--search devAddChoiceProductButton">상품검색</button>
+                                    </div>
+                                    <div class="devChoiceProduct"></div>
+                                </section>
+                            </section>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+</section>
+<!--{'</script>'}-->
+
+<!--{'<script>'}-->
+var productGroupListData = { = json_encode(productGroupList)};
+<!--{'</script>'}-->

@@ -1,0 +1,161 @@
+<div class="fb__mypage fb__community fb__myGoodsReview">
+    <section class="fb__mypage__search">
+        <h2 class="fb__mypage__title">{=trans('상품 후기 내역 검색')}</h2>
+
+        <form id="devMyReviewForm">
+            <input type="hidden" name="page" value="1" id="devPage">
+            <input type="hidden" name="max" value="10" id="devMax">
+            <input type="hidden" name="sDateDef" id="sDateDef" value="{sDate}">
+            <input type="hidden" name="eDateDef" id="eDateDef" value="{eDate}">
+
+            <div class="search">
+                <div class="search__row">
+                    <div class="search__col">
+                        <span class="search__col-title">{=trans('조회기간')}</span>
+                        <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick" title="{=trans('조회시작기간')}"> ~
+                        <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick"  title="{=trans('조회종료기간')}">
+                    </div>
+
+                    <div class="search__col__day">
+                        <div class="day-radio">
+                            <a href="#" class="day-radio__btn today devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}">{=trans('<em>1</em>주일')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault">{=trans('<em>1</em>개월')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}">{=trans('<em>6</em>개월')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}">{=trans('<em>1</em>년')}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search__btn">
+                <a href="#" id="devBtnReset" class="search__btn--cancel">{=trans('초기화')}</a>
+                <button type="button" id="devBtnSearch" title="{=trans('검색')}" class="search__btn--search">{=trans('검색')}</button>
+            </div>
+        </form>
+    </section>    
+
+    <!-- 상품후기 내역 -->
+    <section class="fb__mypage__section">
+        <h3 class="fb__mypage__title">
+            {=trans('상품 후기 내역')}
+            <span class="fb__mypage__title--detail">
+                {=trans('총')} <em id="devTotal" class="detail__amount"></em>{=trans('건')}
+            </span>
+        </h3>
+
+        <!-- 상품후기 리스트 -->
+        <table class="fb__community__table fb__myGoodsReview__table" id="tplMyReview">
+            <colgroup>
+                <col style="width: 740px;">
+                <col style="width: 140px;">
+                <col style="width: 180px;">
+            </colgroup>
+
+            <!-- 카테고리 -->
+            <thead>
+                <th>{=trans('상품 후기')}</th>
+                <th>{=trans('작성일')}</th>
+                <th>{=trans('관리')}</th>
+            </thead>
+
+            <!-- case 01. 내역 -->
+            <tbody id="devMyReviewContent">
+                <!--{'<script id="devMyReviewList" type="text/x-handlebars-template">'}-->
+                <tr class="goodsReview__list">
+                    <td colspan="3">
+                        <div class="goodsReview__item">
+                            <figure class="goodsReview__item__img">
+                                <a href="/shop/goodsView/{[pid]}">
+                                    <img src="{[pimg]}" alt="{[pname]}">
+                                </a>
+                            </figure>
+
+                            <div class="goodsReview__item__info">
+                                <span class="goodsReview__item__name">{[#if brand_name]}[{[brand_name]}]{[/if]} {[pname]}</span>
+                                <span class="goodsReview__item__option">{=trans('옵션')} : {[option_name]}</span>
+                                <span class="goodsReview__item__date">{=trans('구매일')} : {[order_date]}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="goodsReview__cont">
+                    <td>
+                        <div class="goodsReview__my">
+                            <div class="goodsReview__my__score">
+                                <span class="set-star">
+                                    <span class="score" style="width: {[avg_pct]}%"></span>
+                                </span>
+                            </div>
+    
+                            <div class="goodsReview__my__review">
+                                <ul id="devReviewImgsContents" class="review__img">
+                                    {[#each anotherImgs]}
+                                    <li id="devReviewImgsDetails" class="review__img__list">
+                                        <figure>
+                                            <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[this]}" alt="">
+                                        </figure>
+                                    </li>
+                                    {[/each]}
+                                </ul>
+
+                                <div class="review__txt">{[{\bbs_contents}]}</div>
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <td class="center">
+                        <span class="goodsReview__date">{[regdate]}</span>
+                    </td>
+
+                    <td class="center">
+                        <div class="fb__button">
+                            {? delete_posts == 'Y'}
+                                <button type="button" class="border--ccc size--01 devReviewDeleteBtnCls" data-bbsidx="{[bbs_ix]}">{=trans('삭제')}</button>
+                            {/}
+                            {? modify_posts == 'Y'}
+                                <button type="button" class="bg--666 size--01 devReviewModifyBtnCls" data-bbsidx="{[bbs_ix]}" data-odix="{[od_ix]}">{=trans('수정')}</button>
+                            {/}
+                        </div>
+                    </td>
+                </tr>
+                <!--{'</script>'}-->
+
+                <!-- case 02. 댓글 있을 때 -->
+                <!--{'<script id="devMyReviewCmt" type="text/x-handlebars-template">'}-->
+                <tr class="goodsReview__admin">
+                    <td colspan="3">
+                        <div class="goodsReview__admin__top">
+                            <span class="goodsReview__admin__badge">{[cmt_name]}</span>
+                            <span class="goodsReview__admin__date">{[cmt_date]}</span>
+                        </div>
+                        <div class="goodsReview__admin__txt">{[{\cmt_contents}]}</div>
+                    </td>
+                </tr>
+                <!--{'</script>'}-->
+
+                <!-- case 03. 로딩중 -->
+                <!--{'<script id="devMyReviewLoading" type="text/x-handlebars-template">'}-->
+                <tr>
+                    <td colspan="3">
+                        <div class="fb__loading">
+                            <div class="fb__loading__icon"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--{'</script>'}-->
+                
+                <!-- case 04. 댓글이 없을 때 -->
+                <!--{'<script id="devMyReviewListEmpty" type="text/x-handlebars-template">'}-->
+                <tr>
+                    <td colspan="3" class="fb__empty">
+                        <p class="fb__empty__text">{=trans('상품 후기 내역이 없습니다.')}</p>
+                    </td>
+                </tr>
+                <!--{'</script>'}-->
+            </tbody>
+        </table>
+    </section>
+    
+    <div id="devPageWrap"></div>
+</div>

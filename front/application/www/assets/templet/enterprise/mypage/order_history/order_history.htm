@@ -1,0 +1,296 @@
+<link rel="stylesheet" href="/assets/templet/enterprise/js/themes/base/ui.all.css">
+
+<section class="fb__mypage">
+    <h2 class="fb__title--hidden">{=trans('마이페이지 주문내역조회')}</h2>
+
+    <!-- 주문내역 검색 -->
+    {? !nonMemberOid}
+        {* 로그인된 회원 주문조회 *}
+        <section class="fb__mypage__search">
+            <h3 class="fb__mypage__title">{=trans('주문내역 검색')}</h3>
+
+            <form id="devOrderHistoryForm">
+                <input type="hidden" name="page" value="1" id="devPage" />
+                <input type="hidden" name="max" value="10"/>
+
+                <div class="search"> <!--wrap-sort-->
+                    <div class="search__row">
+                        <div class="search__col">
+                            <span class="search__col-title">{=trans('조회기간')}</span>
+
+                            <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick " title="{=trans('조회시작기간')}">
+                            ~
+                            <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick "  title="{=trans('조회종료기간')}">
+                        </div>
+                        <div class="search__col__day">
+                            <div class="day-radio">
+                                <a href="#" class="day-radio__btn today devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
+                                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}">{=trans('<em>1</em>주일')}</a>
+                                <a href="#" class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault">{=trans('<em>1</em>개월')}</a>
+                                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}">{=trans('<em>6</em>개월')}</a>
+                                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}">{=trans('<em>1</em>년')}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search__row  order">
+                        <div class="search__col">
+                            <span class="search__col-title ">{=trans('주문상태')}</span>
+                            <select class="search__select" name="status" id="devStatus" title="{=trans('주문상태 선택')}">
+                                <option value="all">{=trans('전체')}</option>
+                                {@ status}<option value="{status.key_}">{status.value_}</option>{/}
+                            </select>
+                        </div>
+                        <script>
+                            $(function () {
+                                $('#devStatus').val('{orderStatus}');
+                            });
+                        </script>
+
+                        <div class="search__col search__col__pname">
+                            <label class="search__col-title search__col__pname-title" for="devPname">{=trans('상품명')}</label>
+                            <input class="search__pname-input" type="text" name="pname" id="devPname">
+                        </div>
+                    </div>
+                </div>
+                <div class="search__btn"> <!--wrap-btn-area-->
+                    <button type="button" id="devSearchInitBtn" class="search__btn--cancel" data-sDate="{oneMonth}" data-eDate="{today}">{=trans('초기화')}</button>
+                    <button type="button" id="devSearchBtn" title="검색" class="search__btn--search">{=trans('검색')}</button>
+                </div>
+            </form>
+        </section>
+    {:}
+        {* 비회원 주문조회 *}
+        <form id="devOrderHistoryForm">
+            <input type="hidden" name="page" value="1" id="devPage" />
+            <input type="hidden" name="max" value="1"/>
+        </form>
+    {/}
+
+    <!-- 주문내역 -->
+    <section class="fb__mypage__section fb__orderCommon">
+        <form method="post" id="devOrderHistoryContentForm">
+            <h3 class="fb__mypage__title">{=trans('주문내역')}</h3>
+
+            <div id="devOrderHistoryContent">
+                {* Order History Loading *}
+                <!--{'<script id="devOrderHistoryLoading" type="text/x-handlebars-template">'}-->
+                <div class="fb__loading">
+                    <div class="fb__loading__icon"></div>
+                </div>
+                <!--{'</script>'}-->
+
+                {* Order History Empty *}
+                <!--{'<script id="devOrderHistoryEmpty" type="text/x-handlebars-template">'}-->
+                <div class="fb__empty borderTopBottom">
+                    <p class="fb__empty__text">{=trans('주문한 내역이 없습니다.')}</p>
+                </div>
+                <!--{'</script>'}-->
+
+                {* Order History List *}
+                <!--{'<script id="devOrderHistoryList" type="text/x-handlebars-template">'}-->
+                <div class="fb__mypage__list">
+                    <div class="fb__orderCommon__box">
+                        <header class="fb__orderCommon__header">
+                            <dl class="fb__orderCommon__date">
+                                <dt>{=trans('주문일자')}</dt>
+                                <dd>{[order_date]}</dd>
+                            </dl>
+                            <dl class="fb__orderCommon__oid">
+                                <dt>{=trans('주문번호')}</dt>
+                                <dd><span>{[oid]}</span></dd>
+                            </dl>
+        
+                            {[#if isAllCancel]}
+                                <button type="button" class="orderTable__action__btn mal10 devOrderCancelAllBtn" data-oid="{[oid]}">{=trans('전체취소')}</button>
+                            {[/if]}
+
+                            <a class="fb__orderCommon__link" href="/mypage/orderDetail?oid={[oid]}">
+                                <span>{=trans('상세보기')}</span>
+                            </a>
+                        </header>
+
+                        <div class="fb__orderCommon__cont fb__shopCommon__table orderTable">
+                            <table>
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                
+                                <tbody id="devOrderDetailContent">{[{\orderDetail}]}</tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--{'</script>'}-->
+
+                <!--{* Order History Detail *}-->
+                <!--{'<script id="devOrderDetailProduct" type="text/x-handlebars-template">'}-->
+
+                <!--
+                    *조건 참고*
+                    {[#if isOther]}
+                        동일상품인경우 (옵션만 다른경우): order-wrap
+                    {[else]}
+                        다른상품인경우(이게 일반적) other 
+                    {[/if]}
+
+                    {[#if isExchange]}
+                        교환인경우: orderTable__exchange
+                    {[/if]}
+
+                    {[#if isExchangeDetail]}
+                        교환받을상품인경우: orderTable__exchangeGoods
+                    {[/if]}
+                -->
+                {[#if isExchangeDetail]}
+                <!-- 교환받을상품 (exchange detail) -->
+                    <tr class="orderTable__exchangeGoods devEcDetail{[exKey]}">
+                        <td colspan="3" class="exchangeGoods__cont">
+                            <div class="exchangeGoods__wrapper">
+                                <!-- 교환상품 -->
+                                <div class="exchangeGoods__item item-info">
+                                    <a class="item-info__link" href="/shop/goodsView/{[pid]}" target="_blank">
+                                        <figure class="item-info__thumb">
+                                            <img data-src="{[pimg]}">
+
+                                            {[#if isExchangeToggle]}
+                                            <mark class="orderTable__exchange__badge">{=trans('교환상품')}</mark>
+                                            {[/if]}
+                                        </figure>
+                                        
+                                        <div class="item-info__info">
+                                            <p class="item-info__name">
+                                                {[#if brand_name]}[{[brand_name]}]{[/if]} {[pname]}
+                                            </p>
+                                            <p class="item-info__option">
+                                                <span>{[{\option_text}]}</span>
+                                                <span class="item-info__count"><em>{[pcnt]}</em>{=trans('개')}</span>
+                                            </p>
+                                            <p class="item-info__price item-info__price--text">
+                                                <span>{[listprice]}</span>{=trans('원')}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- 교환상품상태 -->
+                                <div class="exchangeGoods__status orderTable__status">
+                                    <p>{[status_text]}</p>
+
+                                    {[#if isDeleveryTrace]}
+                                        <a href="#" class="orderTable__status__trace devInvoice" data-quick="{[quick]}" data-invoice_no="{[invoice_no]}">{=trans('배송추적')}</a>
+                                    {[/if]}
+                                </div>
+
+                                <!-- 교환상품 버튼 -->
+                                <div class="exchangeGoods__action orderTable__action">
+                                    <input type="hidden" name="oid" value="{[oid]}"/>
+                                    <input type="hidden" name="odIx" value="{[od_ix]}"/>
+                                    <input type="hidden" name="status" value="{[status]}"/>
+            
+                                    {* 배송중 *}
+                                        {[#if isDeliveryIng]}
+                                        <button class="orderTable__action__btn devOrderComplateBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('배송완료')}</button>
+                                        {[/if]}
+            
+                                    {* 배송완료 *}
+                                    {[#if isDeliveryComplate]}
+                                        <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('반품신청')}</button>
+                                        <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</button>
+                                    {[/if]}
+            
+                                    {* 구매확정 *}
+                                    {? is_login()}
+                                        {[#if isByFinalized]}
+                                        <button class="orderTable__action__btn devByFinalized" data-pid="{[pid]}" data-oid="{[oid]}" data-optionid="{[option_id]}" data-odix="{[od_ix]}">{=trans('상품후기 작성')}</button>
+                                        {[/if]}
+                                    {/}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {[else]}
+                <!-- 주문상품 -->
+                    <tr>
+                        <td class="orderTable__item item-info">
+                            <a href="/shop/goodsView/{[pid]}" class="item-info__link">
+                                <figure class="item-info__thumb">
+                                    <img data-src="{[pimg]}" alt="">
+    
+                                    {[#if isExchangeToggle]}
+                                    <mark class="item-info__badge--exchange">{=trans('교환상품')}</mark>
+                                    {[/if]}
+                                </figure>
+    
+                                <div class="item-info__info">
+                                    <p class="item-info__name">{[#if brand_name]}[{[brand_name]}]{[/if]} {[pname]}</p>
+    
+                                    <span class="item-info__option">
+                                        <span>{[{\option_text}]}</span>
+                                        <span class="item-info__count"><em>{[pcnt]}</em>{=trans('개')}</span>
+                                    </span>
+    
+                                    <span class="item-info__price item-info__price--text">
+                                        <span>{[listprice]}</span>{=trans('원')}
+                                    </span>
+                                </div>
+                            </a>
+                        </td>
+    
+                        <td class="orderTable__status">
+                            <p>{[status_text]}</p>
+                            
+                            {[#if refund_status_text]}
+                                <p>{[refund_status_text]}</p>
+                            {[/if]}
+                            
+                            {[#if isDeleveryTrace]}
+                                <a href="javascript:void(0);" class="orderTable__status__trace devInvoice" data-quick="{[quick]}" data-invoice_no="{[invoice_no]}">{=trans('배송추적')}</a>
+                            {[/if]}
+                        </td>
+    
+                        <td class="orderTable__action">
+                            <input type="hidden" name="oid" value="{[oid]}"/>
+                            <input type="hidden" name="odIx" value="{[od_ix]}"/>
+                            <input type="hidden" name="status" value="{[status]}"/>
+    
+                            {* 입금확인 *}
+                                {[#if isIncomeComplate]}
+                                <button class="orderTable__action__btn devOrderCancelBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('주문취소')}</button>
+                                {[/if]}
+    
+                            {* 배송중 *}
+                                {[#if isDeliveryIng]}
+                                <button class="orderTable__action__btn devOrderComplateBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('배송완료')}</button>
+                                {[/if]}
+    
+                            {* 배송완료 *}
+                                {[#if isDeliveryComplate]}
+                                <button class="orderTable__action__btn devOrderExchangeBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('교환신청')}</button>
+                                <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('반품신청')}</button>
+                                <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</button>
+                                {[/if]}
+                            
+                            {* 구매확정 *}
+                            {? is_login()}
+                                {[#if isByFinalized]}
+                                <button class="orderTable__action__btn dark devByFinalized" data-pid="{[pid]}" data-oid="{[oid]}" data-optionid="{[option_id]}" data-odix="{[od_ix]}">{=trans('상품후기')}</button>
+                                {[/if]}
+    
+                                <!-- 교환상품인경우 -->
+                                {[#if isExchangeToggle]}
+                                <button data-exkey="{[exKey]}" class="action__toggle btn-toggle devEcDetailToggleBtn">{=trans('접기버튼')}</button>
+                                {[/if]}
+                            {/}
+                        </td>
+                    </tr>
+                {[/if]}
+                <!--{'</script>'}-->
+            </div>
+            
+            <div id="devPageWrap"></div>
+        </form>
+    </section>
+</section>

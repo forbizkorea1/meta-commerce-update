@@ -1,0 +1,141 @@
+<section class="fb__login">
+    <header  class="fb__login__header">
+        <h2 class="fb__login__title">{=trans('로그인')}</h2>
+    </header>
+
+    <div class="fb__login__wrapper">
+        <!-- 로그인 탭 -->
+        <nav class="fb__login__tab">
+            <a href="#" class="tab__menu js__login__tab active" data-target="js__tab__member">{=trans('회원 로그인')}</a>
+            <a href="#" class="tab__menu js__login__tab" data-target="js__tab__nomember">{=trans('비회원(주문배송조회)')}</a>
+        </nav>
+
+        <!-- 로그인 탭 콘텐츠 -->
+        <div class="fb__login__box">
+            <!-- 01 회원 -->
+            <div id="js__tab__member" class="fb__login__member show">
+                <form id="devLoginForm">
+                    <input type="hidden" name="url" value="{url}">
+
+                    <input type="text" placeholder="{=trans('아이디')}" class="" name="userId" id="devUserId" title="{=trans('아이디')}" value="{userSaveLoginId}">
+                    <p class="txt-error" devTailMsg="devUserId"></p>
+
+                    <input type="password" placeholder="{=trans('비밀번호')}" class="mat10" name="userPw" id="devUserPassword" title="{=trans('비밀번호')}">
+                    <p class="txt-error" devTailMsg="devUserPassword"></p>
+
+                    <!-- 아이디 저장 -->
+                    <div class="fb__login__save">
+                        <label class="fb__checkbox">
+                            <input type="checkbox" id="c1" name="saveId" value="Y" {saveIdChecked}>
+                            <span>{=trans('아이디 저장')}</span>
+                        </label>
+                    </div>
+                    
+                    <!-- 로그인 -->
+                    <button type="submit" class="fb__login__button" id="devLoginSubmitButton">{=trans('로그인')}</button>
+                    <!--@todo 프론트 : 버튼 css 작업필요-->
+
+                    <!-- 로그인 옵션 -->
+                    <ul class="fb__login__option">
+                        <li class="option__list login-option__sch-id">
+                            <a href="/member/searchId">{=trans('아이디 찾기')}</a>
+                        </li>
+
+                        <li class="option__list login-option__sch-pw">
+                            <a href="/member/searchPw">{=trans('비밀번호 찾기')}</a>
+                        </li>
+
+                        <li class="option__list login-option__sch-join">
+                            <a href="/member/authentication">{=trans('회원가입')}</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+            <!-- 02 비회원 -->
+            <div id="js__tab__nomember" class="fb__login__nomember">
+
+                <form id="devNonMemberLoginForm">
+                    <!-- 주문자명 -->
+                    <input type="text" placeholder="{=trans('주문자명')}" class="" name="buyerName" id="devBuyerName" title="{=trans('주문자명')}">
+                    <p class="txt-error" devTailMsg="devBuyerName"></p>
+
+                    <!-- 주문번호 -->
+                    <input type="text" placeholder="{=trans('주문번호')}" class="mat10" name="orderId" id="devOrderId" title="{=trans('주문번호')}">
+                    <p class="txt-error" devTailMsg="devOrderId"></p>
+
+                    <!-- 주문비밀번호 -->
+                    <input type="password" placeholder="{=trans('주문 비밀번호')}" class="mat10" name="orderPassword" id="devOrderPassword" title="{=trans('주문 비밀번호')}">
+                    <p class="txt-error" devTailMsg="devOrderPassword"></p>
+
+                    <!-- 비회원 주문조회 버튼 -->
+                    <button type="submit" class="fb__login__button" id="devNonMemberLoginSubmitButton">
+                        {=trans('확인')}
+                    </button>
+                </form>
+
+                <p class="fb__login__tip">
+                    {=trans('주문번호가 기억나지 않으시면 <span>고객센터</span> <span class="rbt">{companyInfo.cs_phone}</span>로 문의해주세요.')}
+                </p>
+            </div>
+
+            <!-- 간편로그인 -->
+            <div class="sns-login">
+                <h3 class="sns-login__title">{=trans('간편 로그인')}</h3>
+
+                <div class="sns-login__box">
+                    {? sns_simple_login_naver == 'Y'}
+                        <button type="button" data-href="{naver_login}" class="sns-login__list naver devSnsLogin">
+                            <span>{=trans('네이버 로그인')}</span>
+                        </button>
+                    {/}
+
+                    {? sns_simple_login_kakao == 'Y'}
+                        <button type="button" data-href="{kakao_login}" class="sns-login__list kakao devSnsLogin">
+                            <span>{=trans('카카오 로그인')}</span>
+                        </button>
+                    {/}
+
+                    {? sns_simple_login_facebook == 'Y'}
+                        <button type="button" data-href="{facebook_login}" class="sns-login__list facebook devSnsLogin">
+                            <span>{=trans('페이스북 로그인')}</span>
+                        </button>
+                    {/}
+
+                    {? sns_simple_login_google == 'Y'}
+                        <button type="button" class="sns-login__list g-signin2 google" id="g-signin2" data-onsuccess="onSignIn">
+                            <span>{=trans('구글 로그인')}</span>
+                        </button>
+                    {/}
+                </div>
+            </div>
+
+            <!-- 비회원일 경우: 회원가입 유도 영역 -->
+            <div class="fb__login__join">
+                <p class="join__comment">
+                    {=trans('아직 회원이 아니신가요?<br/>회원가입 하시고 다양한 혜택을 받으세요.')}
+                </p>
+
+                <div>
+                    <a class="join__button" href="/member/authentication">
+                        <span>{=trans('회원가입')}</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 비회원 주문조회 및 구매 -->
+            {? mode == 'noMembuy'}
+            <div class="fb__login__nomemberSearch active">
+                <!-- 비회원 구매 -->
+                {? mode == 'noMembuy'}
+                    <button class="nomemberSearch__button" id="devNoMemberBuy" data-url="{url}">{=trans('비회원 구매하기')}</button>
+                {:}
+                    <!-- <button class="nomemberSearch__button js__nomemeber__button">
+                        <span>{=trans('비회원 주문조회')}</span>
+                    </button> -->
+                {/}
+            </div>
+            {/}
+        </div>
+    </div>
+</section>

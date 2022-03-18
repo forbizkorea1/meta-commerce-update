@@ -1,0 +1,59 @@
+<fieldset>
+    <section class="fb__menusubmit">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">스팸단어 관리</h3>
+        </header>
+        <section class="fb-filter">
+            <form id="devSpamConfigForm">
+                <table>
+                    <colgroup>
+                        <col width="20%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>스팸단어</span>
+                        </th>
+                        <td>
+                            <textarea class="fb-filter__text fb-filter__text--100" name="spam_word" style="height:80px;">{spam_word}</textarea>
+                            <p class="fb__menusubmit-text">
+                                스팸 단어인 [성인, 포커] 뿐만 아니라 [성-인, 성+인, 성☆인, 포-커, 포^커] 등 스팸 단어 사이에 특수문자를 끼워넣어 스팸 인식 범위를 넓혀 등록하시기를 권장 합니다.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>차단 IP 목록</span>
+                        </th>
+                        <td>
+                            <textarea class="fb-filter__text fb-filter__text--100" name="block_ip" style="height:80px;">{block_ip}</textarea>
+                            <p class="fb__menusubmit-text">
+                                IP주소를 차단하며, IP 영역을 213.112.* 형식으로도 차단 할 수 있습니다.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">스팸적용여부</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="spam_usable" value="1" {? spam_usable == '1'}checked{/}>
+                                    <span>적용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="spam_usable" value="0" {? spam_usable == '0'}checked{/}>
+                                    <span>적용하지 않음</span>
+                                </label>
+                            </div>
+                            <p class="fb__menusubmit-text">
+                                개별 게시판 설정에 관계없이 전체 게시판에 적용됩니다.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </section>
+</fieldset>

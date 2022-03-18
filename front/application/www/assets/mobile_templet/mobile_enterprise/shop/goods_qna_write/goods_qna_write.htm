@@ -1,0 +1,74 @@
+<!-- <h1 class="wrap-title">
+    상품문의 작성
+    <button class="back"></button>
+</h1> -->
+<div class="wrap-goods-qna fb__qna">
+    <form id="devGoodsQnaFrom">
+        <input type="hidden" name="pid" id="devPid" value="{pid}">
+        <div class="wrap-input-form">
+            <section class="qna">
+                {? productQnaSetting.use_div == 'Y'}
+                <dl>
+                    <dt>{=trans('문의유형')} <em>*</em></dt>
+                    <dd>
+                        <select name="div" id="devQnaDiv" title="{=trans('문의유형')}">
+                            <option value="">{=trans('선택')}</option>
+                            {@ qnaDivs}
+                            <option value="{.ix}">{.div_name}</option>
+                            {/}
+                        </select>
+                    </dd>
+                </dl>
+                {/}
+                <dl class="qna__write">
+                    <dt>{=trans('문의 작성')} <em>*</em></dt>
+                    <dd>
+                        <!-- 제목 -->
+                        <input type="text" name="subject" id="devQnaSubject" title="{=trans('제목')}" placeholder="{=trans('문의 제목을 입력해 주세요.')}">
+                       
+                        <!-- 내용 -->
+                        <div class="qna__write__box js__textcount__area">
+                            <textarea class="textarea js__textCount__textarea" name="contents" id="devQnaContents" title="{=trans('문의 내용')}" placeholder="{=trans('문의하실 내용을 입력해 주세요.')}" maxlength="500"></textarea>
+                            <div class="write__textCount">
+                                <em class="js__textCount__current">0</em>
+                                <span>/</span>
+                                <em>500</em>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+                <!-- @todo. 프론트: 이메일 -->
+                <dl>
+                    <dt>{=trans('이메일')} <em>*</em></dt>
+                    <dd>
+                        <div class="wrap-multi-input">
+                            <input type="text" name="email" id="devEmail" title="{=trans('이메일')}" value="">
+                        </div>
+                        <p class="mat30 qna__desc">{=trans('상품문의 답변 완료 시 등록된 이메일 주소로 알려드립니다.')}</p>
+                    </dd>
+                </dl>
+            </section>
+
+            <section class="wrap-desc">
+                <p class="title">{=trans('문의 시 유의해 주세요!')}</p>
+                <p class="list">{=trans('전화번호, 이메일, 배송지 주소, 환불계좌 정보 등 개인정보가 포함된 게시글은 개인정보 도용의 위험이 있으니 비밀글로 문의해 주시기 바랍니다.')}</p>
+                <p class="list">{=trans('상품과 관계없는 내용, 비방, 욕설, 광고, 도배 등의 게시물은 예고없이 삭제될 수 있습니다.')}</p>
+            </section>
+            
+            {? productQnaSetting.write_secret == 'Y'}
+            <div class="write-secret ">
+                <label class="fb__comm__checkbox">
+                    <input type="checkbox" class="blind" name="isHidden" value="1">
+                    <span>{=trans('비공개 문의')}</span>
+                </label>
+            </div>
+            {/}
+            
+            <div class="wrap-btn-area mat60">
+                <!-- 취소버튼 맘지막 확인 후 삭제 -->
+                <!-- <button class="btn-lg btn-point-line" type="button" id="devCancelBtn">취소</button> -->
+                <button class="btn-lg btn-point" type="button" id="devSubmitBtn">{=trans('등록')}</button>
+            </div>
+        </div>
+    </form>
+</div>

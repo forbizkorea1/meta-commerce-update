@@ -1,0 +1,267 @@
+<form method="post" id="devGridForm">
+    <input type="hidden" name="page" value="1" id="devPageNum"/>
+    <input type="hidden" name="max" value="100"/>
+</form>
+
+<section class="fb__menusubmit">
+    <div id="devPagingGrid"></div>
+</section>
+
+<!--{'<script id="devMemberGroupTpl" type="text/x-handlebars-template">'}-->
+<section class="fb__menusubmit ">
+    <section class="fb-filter">
+        <form id="devForm">
+            <input type="hidden" name="gp_ix"/>
+            <fieldset>
+                <table>
+                    <caption>그룹 추가&수정 하기</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                회원그룹명
+                            </span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text fb-filter__text--90" title="회원그룹명" name="gp_name"
+                                   value="">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                그룹등급
+                            </span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number"
+                                   title="그룹등급"
+                                   name="gp_level" value="">
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                회원가입 시 기본 회원그룹
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="basic" title="기본회원그룹" value="N" checked="">
+                                    <span>N</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="basic" title="기본회원그룹" value="Y">
+                                    <span>Y</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                소매/도매
+                            </span>
+                        </th>
+                        <td colspan="">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="selling_type" title="회원타입" value="R" checked="">
+                                    <span>소매</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="selling_type" title="회원타입" value="W">
+                                    <span>도매</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                가격 노출 타입
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="dc_standard_price" title="가격노출타입" value="l"
+                                           checked="">
+                                    <span>판매가</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="dc_standard_price" title="가격노출타입" value="s">
+                                    <span>할인가</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                사용유무
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="disp" value="1" title="사용유무" checked="">
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="disp" title="사용유무" value="0">
+                                    <span>미사용</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                쿠폰 사용 가능여부
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="use_coupon_yn" id="use_coupon_y"
+                                           title="쿠폰 사용 가능여부" value="Y" checked="">
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="use_coupon_yn" id="use_coupon_n"
+                                           title="쿠폰 사용 가능여부" value="N">
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                마일리지 사용/적립 가능여부
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="use_reserve_yn" value="Y" title="마일리지 사용" checked>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="use_reserve_yn" title="마일리지 사용" value="N">
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                회원그룹할인율 사용여부
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="use_discount_type" title="회원그룹할인율 사용여부" value="" checked>
+                                    <span>미사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="use_discount_type" title="회원그룹할인율 사용여부" value="g">
+                                    <span>사용</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>
+                                회원그룹할인율
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number"
+                                       name="retail_dc" value=""> <br> %
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                자동 그룹 변경 여부
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="all_disp" value="1" title="자동 회원 그룹 변경 여부"
+                                           checked>
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="all_disp" value="0" title="자동 회원 그룹 변경 여부">
+                                    <span>미사용</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                산정기간
+                            </span>
+                        </th>
+                        <td class="fb-filter__day-wrap">
+                            <div class="">
+                                <select class="fb-filter__select" title="산정기간" name="gp_type">
+                                    <option value="1" selected="">1 개월</option>
+                                    <option value="2">2 개월</option>
+                                    <option value="3">3 개월</option>
+                                    <option value="4">4 개월</option>
+                                    <option value="5">5 개월</option>
+                                    <option value="6">6 개월</option>
+                                    <option value="7">7 개월</option>
+                                    <option value="8">8 개월</option>
+                                    <option value="9">9 개월</option>
+                                    <option value="10">10 개월</option>
+                                    <option value="11">11 개월</option>
+                                    <option value="12">12 개월</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                산정 주문금액 시작
+                            </span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text fb-filter__text--40 fb-filter__number"
+                                   name="order_price">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                산정 주문금액 끝
+                            </span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text fb-filter__text--40 fb-filter__number"
+                                   name="ed_order_price">
+                        </td>
+                    </tr>
+                    <tr> <!-- 단일 이미지 업로드 타입-->
+                        <th class="fb-filter__title">
+                            <span class="">그룹 이미지</span>
+                        </th>
+                        <td colspan="3">
+                            <div id="devOrganizationImg"></div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+</section>
+<div class="fb-filter__btn">
+    <button class="fb-filter__search" id="devFormSubmitButton">저장</button>
+</div>
+<!--{'</script>'}-->

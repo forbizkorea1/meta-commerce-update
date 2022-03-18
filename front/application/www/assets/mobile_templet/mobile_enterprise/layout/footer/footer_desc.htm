@@ -1,0 +1,86 @@
+<div class="footer__inner">
+	<!-- 사업자정보 -->
+	<details class="footer__info" open="open">
+		<summary class="footer__info__btn">
+			<span>{companyInfo.com_name}</span>
+		</summary>
+
+		<!-- 푸터 사업자정보 버튼 열었을때 -->
+		<div class="footer__info__detail">
+			<p>
+				{=trans('대표이사')}
+				<span>{companyInfo.com_ceo}</span>
+			</p>
+			
+			<p>
+				{=trans('주소')}
+				<span>{companyInfo.com_addr1} {companyInfo.com_addr2}</span>
+			</p>
+			
+			<p>
+				{=trans('사업자등록번호')}
+				<span>{companyInfo.com_number}</span>
+				<a href="//www.ftc.go.kr/bizCommPop.do?wrkr_no={companyInfo.com_number}" class="confirm_biz_info" target="_blank">
+					<span class="blind">{=trans('사업자 정보확인')}</span>
+				</a>
+			</p>
+
+			<p>
+				{=trans('통신판매업신고')} 
+				<span>{companyInfo.online_business_number}</span>
+			</p>
+
+			<p>
+				{=trans('개인정보관리책임')} 
+				<span>{companyInfo.officer_name}</span>
+			</p>
+		</div>
+	</details>
+	
+	<!-- 개인정보처리방침 | 이용약관 | 이메일 무단수집거부 -->
+	<ul class="footer__regal">
+		<li class="footer__regal__list">
+			<a href="/company/privacy" class="footer__regal__privacy">{=trans('개인정보처리방침')}</a>
+		</li>
+
+		<li class="footer__regal__list">
+			<a href="/company/agreement">{=trans('이용약관')}</a>
+		</li>
+	</ul>
+
+	<!-- 고객센터 | 날짜 | 이메일문의 -->
+	<div class="footer__customer">
+		<!-- 고객센터 -->
+		<div class="footer__customer__txt footer__customer__phone">
+			{=trans('고객센터')} <em>{companyInfo.cs_phone}</em>
+			<a href="/customer" class="footer__customer__direct">
+				<span class="blind">{=trans('바로가기')}</span>
+			</a>
+		</div>
+		<!-- 평일 -->
+		<span class="footer__customer__txt footer__customer__time">{=nl2br(companyInfo.opening_time)}</span>
+		<!-- 이메일 문의 -->
+		<span class="footer__customer__txt footer__customer__email">{=trans('이메일 문의')} <a href="mailto:{companyInfo.com_email}">{companyInfo.com_email}</a></span>
+	</div>
+
+	<!-- SNS ICON -->
+	<div class="footer__sns">
+		<!-- 페이스북 -->
+		<a href="#">
+			<img src="{layoutCommon.templetSrc}/img/main/icon-facebook.png" alt="facebook" class="sns-comm sns__facebook">
+		</a>
+
+		<!-- 유튜브를 트위터로 변경함 -->
+		<a href="#">
+			<img src="{layoutCommon.templetSrc}/img/main/icon-twitter.png" alt="twitter" class="sns-comm sns__twitter">
+		</a>
+
+		<!-- 인스타 -->
+		<a href="#">
+			<img src="{layoutCommon.templetSrc}/img/main/icon-insta.png" alt="instagram" class="sns-comm sns__insta">
+		</a>
+	</div>
+
+	<!-- copy -->
+	<p class="footer__copyright">© 2021 FORBIZKOREA x NAVER Cloud CO.LTD.</p>
+</div>

@@ -1,0 +1,90 @@
+<script>
+    var _title = "{? ix}{=trans('배송지 수정')}{:}{=trans('배송지 추가')}{/}";
+
+    $(".header .page-name").text(_title);
+</script>
+
+<div class="wrap-mypage wrap-address-add">
+    <form id="devAddressBookAddForm">
+        {? ix}
+            <input type="hidden" name="ix" value="{ix}">
+            <input type="hidden" name="mode" value="update" id="devMode">
+        {:}
+            <input type="hidden" name="mode" value="insert" id="devMode">
+        {/}
+
+        <div class="wrap-input-form">
+            <!-- 받는분 -->
+            <dl>
+                <dt>{=trans('받는 분')} <em></em></dt>
+                <dd>
+                    <input type="text" name="recipient" value="{recipient}" id="devRecipient" title="{=trans('받는 분')}">
+                </dd>
+            </dl>
+
+            <!-- 주소 -->
+            <dl class="address-area">
+                <dt>{=trans('주소')} <em></em></dt>
+                <dd>
+                    <div class="fb__input__address">
+                        <div class="fb__input__address--zipCode">
+                            <input type="text" name="zipcode" value="{zipcode}" id="devZip" title="{=trans('우편번호')}" readonly>
+                            <button type="button" id="devZipPopupButton">{=trans('주소찾기')}</button>
+                        </div>
+                        <input type="text" name="address1" value="{address1}" title="{=trans('주소')}" class="fb__input__address--01" id="devAddress1" readonly>
+                        <input type="text" name="address2" value="{address2}" title="{=trans('상세주소')}" class="fb__input__address--02" id="devAddress2" placeholder="{=trans('상세주소를 입력해 주세요.')}">
+                    </div>
+                </dd>
+            </dl>
+
+            <!-- 휴대폰 번호 -->
+            <dl>
+                <dt>{=trans('휴대폰 번호')} <em></em></dt>
+                <dd>
+                    {? pcs1}
+                    <script>
+                        $(function() {$('#devPcs1').val('{pcs1}');});
+                    </script>
+                    {/}
+
+                    <div class="fb__input__phone">
+                        <select class="fb__input__phone--01" name="pcs1" id="devPcs1" title="{=trans('휴대폰번호')}">
+                            <option value="">{=trans('선택')}</option>
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                            <option value="016">016</option>
+                            <option value="017">017</option>
+                            <option value="018">018</option>
+                            <option value="019">019</option>
+                        </select>
+
+                        <div class="fb__input__phone--box {? explodePcs[1] != '' && explodePcs[2] != ''}readonly{/}">
+                            <input class="fb__input__phone--02 js__input--onlyNumber" type="number" name="pcs2" id="devPcs2" value="{pcs2}" title="{=trans('휴대폰번호 가운데자리')}" maxlength="4" {? explodePcs[1] != ''}readonly{/}>
+                            <span class="dash"></span>
+                            <input class="fb__input__phone--03 js__input--onlyNumber" type="number" name="pcs3" id="devPcs3" value="{pcs3}" title="{=trans('휴대폰번호 끝자리')}" maxlength="4" {? explodePcs[2] != ''}readonly{/}>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <!-- 배송지명 -->
+            <dl>
+                <dt>{=trans('배송지명')}</dt>
+                <dd>
+                    <input type="text" name="shipping_name" value="{shipping_name}">
+                    <div class="address__nickname__default">
+                        <label for="devDefaultYn" class="fb__comm__checkbox">
+                            <input type="checkbox" name="default_yn" value="Y" id="devDefaultYn" {? default_yn =='Y'}checked{/} title="{=trans('기본 배송지로설정')}" class="blind">
+                            <span>{=trans('기본 배송지로 설정')}</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+
+            <div class="fb__button">
+                <!-- <button type="button" class="border--point" id="devAddressBookAddCancelBtn">취소</button> -->
+                <button type="button" class="border--point bg--point" id="devAddressBookAddBtn" style="width: 100%;">{=trans('저장')}</button>
+            </div>
+        </div>
+    </form>
+</div>

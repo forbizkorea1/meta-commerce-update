@@ -1,0 +1,141 @@
+<section class="fb__shopCommon fb__payComplete">
+    <!-- 공통 상단 step -->
+    <section class="fb__shopCommon__header">
+        <h2 class="fb__shopCommon__title">{=trans('주문완료')}</h2>
+        <ul class="fb__shopCommon__step-area">
+            <li class="fb__shopCommon__step"><em>01</em> {=trans('장바구니')}</li>
+            <li class="fb__shopCommon__step"><em>02</em> {=trans('주문/결제')}</li>
+            <li class="fb__shopCommon__step fb__shopCommon__step--on"><em>03</em> {=trans('주문완료')}</li>
+        </ul>
+    </section>
+
+    <!-- 주문완료 상단 -->
+    <section class="fb__payComplete__message">
+        <span class="message__title">
+            {=trans('주문이 정상적으로 완료되었습니다.')}
+        </span>
+
+        <p class="message__desc">
+            <span>{=trans('고객님의 주문번호는 <em>{order.oid}</em>입니다.')}</span>
+            <span class="message__tip">{=trans('주문하신 내역은 마이페이지 <i></i> 주문조회에서 확인하실 수 있습니다.')}</span>
+        </p>
+    </section>
+
+    <!-- 결제정보 -->
+    <section class="fb__shopCommon__section fb__payComplete__payment">
+        <header class="section__header">
+            <h3 class="section__title">{=trans('결제정보')}</h3>
+        </header>
+
+        <ul class="section__infoTable">
+            <!-- 결제금액 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK))} {=trans('결제예정금액')} {:}{=trans('결제금액')}{/}
+                </span>
+                <div class="infoTable__cont">
+                    <span class="payment__price">
+                        <em>{=g_price(paymentData.payment_price)}</em>{=trans('원')}
+                    </span>
+                </div>
+            </li>
+
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('결제수단')}
+                </span>
+                <div class="infoTable__cont">
+                    {paymentData.method_text} {? in_array(paymentData.method,array(c.ORDER_METHOD_CARD)) && paymentData.memo} {paymentData.memo} {/}
+                </div>
+            </li>
+
+            <!-- 가상계좌 또는  -->
+            {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK,c.ORDER_METHOD_ASCROW,c.ORDER_METHOD_ICHE))}
+                <li class="infoTable__list">
+                    <span class="infoTable__title">
+                        {=trans('계좌정보')}
+                    </span>
+                    <div class="infoTable__cont">
+                        <span>
+                            {paymentData.bank} {paymentData.bank_account_num} ({=trans('예금주')}: {paymentData.bank_input_name})
+                        </span>
+                    </div>
+                </li>
+                {? paymentData.method != c.ORDER_METHOD_ICHE}
+                    <li class="infoTable__list">
+                        <span class="infoTable__title">
+                            {=trans('입금기한')}
+                        </span>
+                        <div class="infoTable__cont">
+                            {paymentData.bank_input_date_yyyy}.{paymentData.bank_input_date_mm}.{paymentData.bank_input_date_dd} ({paymentData.bank_input_date_dw}) {=trans('까지')}
+                        </div>
+                    </li>
+                {/}
+            {/}
+        </ul>
+    </section>
+
+    <!-- 배송지정보 -->
+    <section class="fb__shopCommon__section delivery-info">
+        <header class="section__header">
+            <h3 class="section__title">{=trans('배송지 정보')}</h3>
+        </header>
+
+        <ul class="section__infoTable">
+            <!-- 받는분 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('받는 분')}
+                </span>
+                <div class="infoTable__cont">
+                    {deliveryInfo.rname}
+                </div>
+            </li>
+
+            <!-- 주소 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('주소')}
+                </span>
+                <div class="infoTable__cont">
+                    ({deliveryInfo.zip}) {deliveryInfo.addr1} {deliveryInfo.addr2}
+                </div>
+            </li>
+
+            <!-- 휴대폰 번호 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('휴대폰 번호')}
+                </span>
+                <div class="infoTable__cont">
+                    <em>{deliveryInfo.rmobile}</em>
+                </div>
+            </li>
+            
+            <!-- 배송 요청사항 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('배송 요청사항')}
+                </span>
+                <div class="infoTable__cont">
+                    {@ deliveryInfo.msg}
+                        {? .msg}
+                        <span>
+                            {.msg} {.door_msg}
+                        </span>
+                        {/}
+                    {/}
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <div class="fb__payComplete__action fb__button type--or">
+        <a href="/" class="border--ccc size--04">{=trans('쇼핑 계속하기')}</a>
+        {? layoutCommon.isLogin}
+        <a href="/mypage/orderHistory" class="bg--point size--04">{=trans('주문내역 확인')}</a>
+        {:}
+        <a href="/member/login" class="bg--point size--04">{=trans('주문내역 확인')}</a>
+        {/}
+    </div>
+</section>

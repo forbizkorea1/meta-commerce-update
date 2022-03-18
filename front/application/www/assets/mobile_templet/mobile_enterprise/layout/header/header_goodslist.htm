@@ -1,0 +1,144 @@
+<div class="header__inner">
+    <button type="button" class="back js__header-back">
+        <span class="blind">{=trans('뒤로가기')}</span>
+    </button>
+
+    <button id="category-filter__btn" class="category js__header__category" type="button">{nowCate.cname}</button>
+
+    <a href="javascript:void(0)" id="icon_search" class="search">
+        <span class="blind">SEARCH</span>
+    </a>
+
+    <a href="/shop/cart" class="cart">
+        <span class="blind">cart</span>
+        <em>{=g_number_format(layoutCommon.userInfo.cartCnt)}</em>
+    </a>
+</div>
+
+<!-- 검색 레이어 -->
+<div class="searchLayer wrap-search-layer" style="display: none;">
+    <div class="searchLayer__inner">
+        <!-- 검색 영역 -->
+        <div class="searchLayer__search">
+            <button type="button" class="btn-back" onclick="searchLayerClose();"></button>
+
+            <div class="searchLayer__search__input">
+                <input type="search" class="header-input-search devAutoComplete js__headerSearch__input" id="devHeaderSearchText" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_title}{/}" autocomplete="off">
+                <i class="search_close_btn" id="devSearchCloseBtn" style="display: none;"></i>
+                <button type="button" class="btn-search" id="devHeaderSearchButton">
+                    <span class="blind">search</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 최근 검색어 -->
+        <div class="searchLayer__sec">
+            <div class="searchLayer__box searchLayer__lately">
+                <div class="searchLayer__header">
+                    <strong  class="searchLayer__header__title">{=trans('최근 검색어')}</strong>
+                    {? headerTop.recentKeyword}
+                    <button class="btn-del-all" id="devRecentKeyWordDeleteAll">{=trans('검색기록 모두삭제')}</button>
+                    {/}
+                </div>
+
+                {? headerTop.recentKeyword}
+                    <div class="searchLayer__cont">
+                        <ul class="lately__box" id="devRecent">
+                            {@ headerTop.recentKeyword}
+                            <li class="lately__list" devDelKey="{.key_}">
+                                <a href="/shop/search/?searchText={=rawurlencode(.value_)}">{.value_}</a>
+                                <button class="search-word-del" id="devRecentKeyWordDelete" devDelText="{.value_}">
+                                    <span class="blind">{=trans('삭제')}</span>
+                                </button>
+                            </li>
+                            {/}
+                        </ul>
+                    </div>
+                {:}
+                    <p class="searchLayer__noList">{=trans('최근 검색어가 없습니다.')}</p>
+                {/}
+            </div>
+
+            <hr class="fb__layout-division">
+
+            <!-- 인기 검색어 -->
+            <div class="searchLayer__box searchLayer__popularity">
+                <div class="searchLayer__header">
+                    <strong class="searchLayer__header__title">{=trans('인기 검색어')}</strong>
+                </div>
+                
+                {? headerTop.popularKeyword}
+                    <div class="searchLayer__cont">
+                        <ul class="popularity__box">
+                            {@ headerTop.popularKeyword}
+                            <li class="popularity__list">
+                                <a href="/shop/search/?searchText={=rawurlencode(.keyword)}">
+                                    <em class="rank">{.key_+1}</em>
+                                    <span class="txt">{.keyword}</span>
+                                </a>
+                            </li>
+                            {/}
+                        </ul>
+                    </div>
+                {:}
+                    <p class="searchLayer__noList">{=trans('인기 검색어가 없습니다.')}</p>
+                {/}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 카테고리 뎁스 -->
+<section class="categoryLayer">
+    <ul class="depth01__box">
+        {@ headerMenu.categoryList}
+        <li class="depth01__list">
+            {? .subCateList}
+                <details {? substr(cid, 0, 3) == substr(.cid, 0, 3)}open{/}>
+                    <summary class="depth01__list__link">
+                        <span data-cid="{.cid}">{.cname}</span>
+                    </summary>
+
+                    {? .subCateList}
+                    <ul class="depth02__box">
+                        <li class="depth02__list">
+                            <a href="/shop/goodsList/{.cid}" class="depth02__list__link" data-cid="{.cid}">{=trans('전체')}</a>
+                        </li>
+
+                        {@ .subCateList}
+                        <li class="depth02__list">
+                            {? ..subCateList}
+                                <details {? substr(cid, 3, 3) == substr(..cid, 3, 3)}open{/}>
+                                    <summary class="depth02__list__link{? ..cid == cid} active{/}">
+                                        <span data-cid="{..cid}">{..cname}</span>
+                                    </summary>
+
+                                    {? ..subCateList}
+                                    <ul class="depth03__box">
+                                        {@ ..subCateList}
+                                        <li class="depth03__list">
+                                            <a href="/shop/goodsList/{...cid}" class="depth03__list__link{? ...cid == cid} active{/}" data-cid="{...cid}">
+                                                <span >{...cname}</span>
+                                            </a>
+                                        </li>
+                                        {/}
+                                    </ul>
+                                    {/}
+                                </details>
+                            {:}
+                                <a href="/shop/goodsList/{..cid}" class="depth02__list__link{? ..cid == cid} active{/}" data-cid="{..cid}">{..cname}</a>
+                            {/}
+                        </li>
+                        {/}
+                    </ul>
+                    {/}
+                </details>
+            {:}
+                <a href="/shop/goodsList/{.cid}" class="depth01__list__link">
+                    <span>{.cname}</span>
+                </a>
+            {/}
+        </li>
+        {/}
+    </ul>
+</section>

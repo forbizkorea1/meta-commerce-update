@@ -1,0 +1,82 @@
+<form id="devAddressBookForm">
+    <input type="hidden" name="page" value="1" id="devPage">
+    <input type="hidden" name="max" value="10">
+</form>
+
+<section class="fb__addressbook">
+    <h2 class="fb__mypage__title" class="mat50">{=trans('배송지 관리')}</h2>
+
+    <table class="fb__comm__table">
+        <caption>{=trans('배송지 관리 리스트')}</caption>
+
+        <colgroup>
+            <col style="width: 130px;">
+            <col style="width: 410px;">
+            <col style="width: 180px;">
+            <col style="width: 145px;">
+            <col style="width: 195px;">
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th>{=trans('받는분')}</th>
+                <th>{=trans('주소')}</th>
+                <th>{=trans('연락처')}</th>
+                <th>{=trans('배송지명')}</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody id="devAddressBooKContent">
+            <!--{* Address book Loading *}-->
+            <!--{'<script id="devAddressBooKLoading" type="text/x-handlebars-template">'}-->
+            <tr>
+                <td colspan="5">
+                    <div class="wrap-loading">
+                        <div class="loading"></div>
+                    </div>
+                </td>
+            </tr>
+            <!--{'</script>'}-->
+            
+            <!--{* Address book list *}-->
+            <!--{'<script id="devAddressBooKList" type="text/x-handlebars-template">'}-->
+            <tr>
+                <td>
+                    {[#if default_yn]}<span class="default">{=trans('기본')}</span>{[/if]}
+                    <p>{[recipient]}</p>
+                </td>
+                <td class="left color666">{[address1]}<br>{[address2]}</td>
+                <td class="color666">{[mobile]}<br>{[tel]}</td>
+                <td class="color666">{[shipping_name]}</td>
+                <td>
+                    <div class="fb__button">
+                        <button type="button" class="bg--666 size--01 devAddressBookModify" data-ix="{[ix]}">{=trans('수정')}</button>
+                        {[#if default_yn]}
+                        {[else]}
+                        <button type="button" class="border--ccc size--01 devAddressBookDelete" data-ix="{[ix]}">{=trans('삭제')}</button>
+                        {[/if]}
+                    </div>
+                </td>
+            </tr>
+            <!--{'</script>'}-->
+            
+            <!--{* Address book empty *}-->
+            <!--{'<script id="devAddressBooKEmpty" type="text/x-handlebars-template">'}-->
+            <tr>
+                <td class="fb__mypage__empty-text" colspan="5">
+                    <div class="fb__empty">
+                        <p class="fb__empty__text">{=trans('등록된 배송지가 없습니다.')}</p>
+                    </div>
+                </td>
+            </tr>
+            <!--{'</script>'}-->
+        </tbody>
+    </table>
+
+    <div class="addDelivery__btn">
+        <a href="#" id="devAddressBookAddBtn">{=trans('배송지 추가')}</a>
+    </div>
+
+    <div id="devPageWrap"></div>
+</section>

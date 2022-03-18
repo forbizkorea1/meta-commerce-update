@@ -1,0 +1,308 @@
+<!-- 주문자정보 -->
+<section class="fb__shopCommon__section fb__infoinput__customer">
+    <header class="section__header">
+        <h2 class="section__title">{=trans('주문자 정보')}</h2>
+    </header>
+    <div class="section__box">
+        <ul class="fb__write">
+            <li class="write__list">
+                <span class="write__title">{=trans('주문자명')}</span>
+                <div class="write__input">
+                    <input type="text" id="devBuyerName" value="{buyerName}" title="{=trans('주문자 이름')}">
+                </div>
+            </li>
+
+            <li class="write__list">
+                <span class="write__title">{=trans('휴대폰 번호')}</span>
+                <div class="write__input phone">
+                    <select id="devBuyerMobile1" title="{=trans('휴대폰 번호')}">
+                        <option {? buyerMobile1 == '010'}selected{/}>010</option>
+                        <option {? buyerMobile1 == '011'}selected{/}>011</option>
+                        <option {? buyerMobile1 == '016'}selected{/}>016</option>
+                        <option {? buyerMobile1 == '017'}selected{/}>017</option>
+                        <option {? buyerMobile1 == '018'}selected{/}>018</option>
+                        <option {? buyerMobile1 == '019'}selected{/}>019</option>
+                    </select>
+                    <span>-</span>
+                    <input type="text" id="devBuyerMobile2" value="{buyerMobile2}" title="{=trans('휴대폰 번호')}">
+                    <span>-</span>
+                    <input type="text" id="devBuyerMobile3" value="{buyerMobile3}" title="{=trans('휴대폰 번호')}">
+                </div>
+            </li>
+            <!-- @todo. 프론트: 이메일 -->
+            <li class="write__list">
+                <span class="write__title">{=trans('이메일')}</span>
+                <div class="write__input">
+                    <input type="text" id="devBuyerEmail" value="{buyerEmail}" title="{=trans('주문자 이메일')}">
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>
+
+<section class="fb__shopCommon__section fb__infoinput__delivery delivery-info wrap-delivery-info">
+    <header class="section__header">
+        <h2 class="section__title">{=trans('배송지 정보')}</h2>
+
+        <label id="devSameBuyer" class="section__header__right fb__comm__checkbox">
+            <input type="checkbox" class="devSameBuyerInfo" >
+            <span>{=trans('주문자 정보와 동일')}</span>
+        </label>
+    </header>
+
+    <div class="section__box">
+        <div class="delivery">
+            <div id="devExistDeliveryTemplate" class="delivery__wrapper devRecipientContents" devRecipientTypeSelect="address">
+                <form id="devOrderAddressListForm"><input type="hidden" name="type" value="true"/></form>
+
+                    <ul class="delivery__box" id="devOrderAddressListContent">
+                        <!--{'<script id="devOrderAddressListLoading" type="text/x-handlebars-template">'}-->
+                        <li>
+                            <div class="list-info">
+                                <p class="list-info__name">
+                                    <strong>Loading ...</strong>
+                                </p>
+                            </div>
+                        </li>
+                        <!--{'</script>'}-->
+
+                        <!--{'<script id="devOrderAddressList" type="text/x-handlebars-template">'}-->
+                        <li class="delivery__list devOrderAddress">
+                            <input type="radio" name="orderAddress" class="devOrderAddressRadio" data-ix="{[ix]}" value="{[index]}" style="display:none;" checked/>
+                            <div class="delivery__list__name">
+                                <span class="name devName">{[recipient]}</span> <span class="sub-name devSubName">{[#if shipping_name]}({[shipping_name]}){[/if]}</span>
+                                {[#if isBasic]}<span class="default-delivery devBasic">{=trans('기본 배송지')}</span>{[/if]}
+                            </div>
+                            <div class="delivery__list__addr"><span class="devAddress1">{[address1]}</span> {[#if address2]}<br><span class="devAddress2">{[address2]}</span>{[/if]}</div>
+                            <div class="delivery__list__tel devMobile">{[mobile]}</div>
+                        </li>
+                        <!--{'</script>'}-->
+
+                        <!--{'<script id="devOrderAddressListEmpty" type="text/x-handlebars-template">'}-->
+                        <li>
+                            <div class="list-info">
+                                <p class="name">
+                                    <strong>{=trans('등록된 배송지가 없습니다.')}</strong>
+                                </p>
+                            </div>
+                        </li>
+                        <!--{'</script>'}-->
+                    </ul>
+
+                <button type="button" class="btn__deliveryList" id="devAddressListButton">{=trans('배송지 변경')}</button>
+            </div>
+            <ul id="devAddDeliveryTemplate" class="fb__write devRecipientContents" devRecipientTypeSelect="input" style="display: none;">
+                <li class="write__list">
+                    <span class="write__title">{=trans('받는 분')}</span>
+
+                    <div class="write__input">
+                        <input type="text" class="devRecipientName" title="{=trans('받는 분 이름')}">
+                    </div>
+                </li>
+
+                <li class="write__list">
+                    <span class="write__title">{=trans('주소')}</span>
+
+                    <div class="write__input">
+                        <div class="fb__input__address">
+                            <div class="fb__input__address--zipCode">
+                                <input type="text" class="devRecipientZip" title="{=trans('받는 분 주소')}" readonly>
+                                <button type="button" class="devRecipientZipPopupButton">{=trans('주소찾기')}</button>
+                            </div>
+
+                            <input type="text" class="fb__input__address--01 devRecipientAddr1" title="{=trans('받는 분 주소')}" readonly>
+                            <input type="text" class="fb__input__address--02 devRecipientAddr2" title="{=trans('받는 분 상세주소')}">
+                        </div>
+                    </div>
+                </li>
+
+                <li class="write__list">
+                    <span class="write__title">{=trans('휴대폰 번호')}</span>
+
+                    <div class="write__input phone">
+                        <select class="fb__input__phone--01 devRecipientMobile1" name="mobile">
+                            <option>010</option>
+                            <option>011</option>
+                            <option>016</option>
+                            <option>017</option>
+                            <option>018</option>
+                            <option>019</option>
+                        </select>
+                        <span>-</span>
+                        <input type="text" class="devRecipientMobile2" title="{=trans('받는 분 휴대폰 번호')}">
+                        <span>-</span>
+                        <input type="text" class="devRecipientMobile3" title="{=trans('받는 분 휴대폰 번호')}">
+                    </div>
+                </li>
+            </ul>
+
+            <!-- 배송요청사항 -->
+            <div class="delivery__request">
+                <span id="devDeliveryRequestTitle" class="delivery__request__title">{=trans('배송요청사항')}</span>
+
+                <div class="delivery__request__cont devDeliveryMessageContents">
+                    <select class="devDeliveryMessageSelectBox">
+                        <option value="">{=trans('배송요청사항 선택')}</option>
+                        <option value="door">{=trans('문 앞에 놓아주세요.')}</option>
+                        <option>{=trans('배송 전에 미리 연락 바랍니다.')}</option>
+                        <option>{=trans('부재 시 경비실에 맡겨주세요.')}</option>
+                        <option>{=trans('부재 시 전화주시거나 문자 남겨 주세요.')}</option>
+                        <option value="direct">{=trans('직접입력')}</option>
+                    </select>
+
+                    <div class="delivery__request__write devDeliveryMessageDirectContents" style="display: none;">
+                        <input type="text" class="devDeliveryMessage" maxlength="30" data-type="direct">
+                    </div>
+
+                    <div class="delivery__request__write devDeliveryMessageDoorContents" style="display: none;">
+                        <select class="devDeliveryEntranceWay">
+                            <option value="">{=trans('공동현관 출입방법 선택')}</option>
+                            <option value="door">{=trans('공동현관 출입번호')}</option>
+                            <option>{=trans('비밀번호 없이 출입가능')}</option>
+                            <option value="direct">{=trans('직접입력')}</option>
+                        </select>
+
+                        <div class="delivery__request__write devDeliveryEntranceWayMessageWrap" style="display: none;">
+                            <input type="text" class="devDoorMessage" placeholder="{=trans('예) #101(호수) + #0000(비밀번호)')}" maxlength="30" data-type="door">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="devDefaultDeliveryTemplate" class="default-choice">
+        <label for="devBasicAddressBookCheckBox" class="fb__comm__checkbox">
+            <input type="checkbox" id="devBasicAddressBookCheckBox" class="blind">
+            <span>{=trans('기본 배송지로 선택')}</span>
+        </label>
+    </div>
+</section>
+
+<!-- 주문상품 -->
+<section class="fb__shopCommon__section fb__infoinput__item">
+    <header class="section__header">
+        <h2 class="section__title">{=trans('주문상품')}</h2>
+    </header>
+
+    <div class="section__box">
+        {# cartTemplate}
+    </div>
+</section>
+
+<!-- 할인/혜택 적용 -->
+<section class="fb__shopCommon__section fb__infoinput__benefit">
+    <header class="section__header">
+        <h2 class="section__title">{=trans('할인/혜택 적용')}</h2>
+    </header>
+
+    <ul class="section__box">
+        <!-- 쿠폰할인 -->
+        <li class="benefit__box">
+            <span class="benefit__name">
+                {=trans('쿠폰할인')}
+            </span>
+
+            <div class="benefit__cont">
+                <div class="benefit__inner">
+                    <label class="benefit__amount">
+                        <input type="text" id="devUseCouponInputText" readonly>
+                        <span class="benefit__amount__unit">{=trans('원')}</span>
+                    </label>
+
+                    {? userCouponCnt > 0}
+                    <button class="benefit__btn" id="devUseCouponButton">{=trans('쿠폰변경')}</button>
+
+                    <!--
+                        2021.05 버픽개선사항 (추후 사용할 가능성이 있어 주석처리)
+                        <button class="btn-default btn-white discount-box__btn discount-box__btn-cancel" id="devCouponButtonCancel">{=trans('적용취소')}</button>
+                    -->
+                    {/}
+                    <span class="benefit__have">
+                        {=trans('보유쿠폰')} <em>{userCouponCnt}</em>{=trans('건')}
+                    </span>
+                </div>
+
+                <div class="benefit__desc">
+                    <p>{=trans('쿠폰은 옵션당 1매만 사용 가능합니다.')}</p>
+                </div>
+            </div>
+        </li>
+
+        <!-- 마일리지 사용 -->
+        <li class="benefit__box">
+            <span class="benefit__name">
+                {=trans('{mileageName} 사용')}
+            </span>
+
+            <div class="benefit__cont">
+                <div class="benefit__inner">
+                    <label class="benefit__amount mileage">
+                        <input type="text" id="devUseMileage" value="0" {? !useMileageBool}readonly{/}>
+                        <span class="benefit__amount__unit">{mileageUnit}</span>
+                    </label>
+
+                    <label for="devAllUseMileageCheckBox" class="benefit__btn">
+                        <input type="checkbox" id="devAllUseMileageCheckBox" devAllUseMileage="{maxUseMileage}" devMileageTargetPrice="{mileageTargetPrice}" {? !useMileageBool}disabled{/}>
+                        <span>{=trans('전액 사용')}</span>
+                    </label>
+
+                    <span class="benefit__have">
+                        {=trans('보유 {mileageName}: <em>{=g_price(userMileage)}</em>{mileageUnit}')}
+                    </span>
+                </div>
+
+                <div class="benefit__desc">
+                    <p>
+                        · {=trans('{? mileageConditionMinMileage > 0}{mileageName}은 &#39;{=g_price(mileageConditionMinMileage)}&#39; {mileageName} 이상 보유한 경우에만 사용 가능하며 {/}&#39;{mileageConditionUseUnit}&#39;&nbsp;{mileageName} 단위로 사용 가능합니다.')}
+                    </p>
+                    <p>
+                        · {? mileageConditionMinBuyAmt > 0}
+                            {? mileageConditionUseLimitType =='noLimit'}
+                                    {=trans('상품 구매금액 합계가 &#39;{=g_price(mileageConditionMinBuyAmt)}&#39;원 이상인 경우 사용가능 합니다.')}
+                            {:}
+                                {?mileageConditionUseLimitType =='price'}
+                                    {=trans('상품 구매금액 합계가 &#39;{=g_price(mileageConditionMinBuyAmt)}&#39;원 이상인 경우 최대 &#39;{=g_price(mileageConditionUseLimitValue)}&#39; {mileageName} 까지 사용 가능합니다.')}
+                                {:}
+                                    {=trans('상품 구매금액 합계가 &#39;{=g_price(mileageConditionMinBuyAmt)}&#39;원 이상인 경우 최대 &#39;{=g_price(mileageConditionUseLimitValue)}&#39; % 까지 사용 가능합니다.')}
+                                {/}
+                            {/}
+                        {:}
+                            {? mileageConditionUseLimitType =='noLimit'}
+                                    {=trans('상품 구매금액과 상관없이 사용가능 합니다.')}
+                            {:}
+                                {?mileageConditionUseLimitType =='price'}
+                                    {=trans('상품 구매금액과 상관없이 최대 &#39;{=g_price(mileageConditionUseLimitValue)}&#39; {mileageName} 까지 사용 가능합니다.')}
+                                {:}
+                                    {=trans('상품 구매금액과 상관없이 최대 &#39;{=g_price(mileageConditionUseLimitValue)}&#39; % 까지 사용 가능합니다.')}
+                                {/}
+                            {/}
+                        {/}
+                    </p>
+                    <p>
+                        {? mileageConditionUseDeliverypriceYn =='Y'}
+                        · {=trans('{mileageName}로 배송비 사용은 가능 합니다.')}
+                        {:}
+                        · {=trans('{mileageName}로 배송비 사용은 불가 합니다.')}
+                        {/}
+                    </p>
+                </div>
+            </div>
+        </li>
+
+        <!-- 마일리지 적립 -->
+        <li class="benefit__box">
+            <span class="benefit__name">
+                {=trans('마일리지 적립')}
+            </span>
+
+            <div class="benefit__cont">
+                <span class="benefit__reword">
+                    <em devPrice="mileage">{=g_price(cartSummary.mileage)}</em>
+                    {=trans('{mileageUnit} 적립 예정')}
+                </span>
+            </div>
+        </li>
+    </ul>
+</section>

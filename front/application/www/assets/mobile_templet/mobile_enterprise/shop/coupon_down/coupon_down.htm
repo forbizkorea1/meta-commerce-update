@@ -1,0 +1,79 @@
+
+<div class="wrap-coupon-down">
+    <p class="top-desc">{=trans('해당 상품에서 사용 가능한 쿠폰 리스트입니다.')}</p>
+
+    <ul class="devCouponContents available__coupon">
+        {@ list}
+        <li class="available__coupon__list">
+            <div class="list-desc">
+                <!-- <div class="per"><span>{=g_number_format(.cupon_sale_value)}</span>{? .cupon_sale_type == '1'}%{/}</div> -->
+                <div class="per">
+                    <span>{=g_number_format(.cupon_sale_value)}</span>
+                    {? .cupon_sale_type == '1'}%{/}
+                </div>
+
+                <!-- <p class="tit">{? .cupon_use_div == 'G'}[웹전용]{: .cupon_use_div == 'M'}[모바일전용]{/} {.publish_name}</p> -->
+                <p class="tit">
+                    {? .cupon_use_div == 'G'}[{=trans('웹전용')}]{: .cupon_use_div == 'M'}[{=trans('모바일전용')}]{/} {.publish_name}
+                </p>
+
+                <p class="desc">
+                    {=trans('쿠폰혜택')} : <span class="font-rb">{=g_price(.cupon_sale_value)}{? .cupon_sale_type == '1'}%{:}{=trans('원')}{/}</span> {=trans('할인')}
+                    (
+                    {? (.publish_min == 'N' || .publish_condition_price == 0)
+                    && (.publish_max == 'N' || .publish_limit_price == 0)
+                    }
+                        {=trans('제한조건없음')}
+                    {:}
+                        {? .publish_min == 'N' || .publish_condition_price == 0}
+                            {? .publish_max == 'N' || .publish_limit_price == 0}
+                                {=trans('최소 구매제한 조건없음')}
+                            {/}
+                        {:}
+                            {=trans('{=g_number_format(.publish_condition_price)} 원 이상 구매시')}
+                        {/}
+                        <br>
+                        {? .publish_max == 'N' || .publish_limit_price == 0}
+                            {? .publish_min == 'N' || .publish_condition_price == 0}
+                                {=trans('최대 구매제한 조건없음')}
+                            {/}
+                        {:}
+                            {=trans('최대 {=g_price(.publish_limit_price)}원 할인')}
+                        {/}
+                    {/}
+
+                    )<br> 
+                    <span class="use-period font-rb">
+                        {? .use_date_type == '9'}
+                            {=trans('무기한')}
+                        {: .use_date_type == '1'}
+                            {.regdate}~{.publish_limit_date}
+                        {: .use_date_type == '2'}
+                            {? .regist_date_type == '3'}
+                                {=trans('발급 후 {.regist_date_differ}일 이내 사용 가능')}
+                            {: .regist_date_type == '2'}
+                                {=trans('발급 후 {.regist_date_differ}개월 이내 사용 가능')}
+                            {: .regist_date_type == '1'}
+                                {=trans('발급 후 {.regist_date_differ}년 이내 사용 가능')}
+                            {/}
+                        {: .use_date_type == '3'}
+                            {.use_sdate}~{.use_edate}
+                        {/}    
+                    </span>
+                </p>
+            </div>
+            <div class="coupon-common-btn">
+                {? .isPublished}
+                <button disabled>{=trans('다운로드 완료')}</button>
+                {:}
+                <button devPublishIx="{.pubKey}" devPid="{pid}">{=trans('쿠폰 다운로드')}</button>
+                {/}
+            </div>
+        </li>
+        {/}
+    </ul>
+
+    <p class="bottom-desc">{=trans('다운로드 된 쿠폰은 마이페이지<em></em>나의 쿠폰 및 주문/결제 시 쿠폰 적용 단계에서 확인 하실 수 있습니다.')}</p>
+</div>
+
+<!-- <button type="button" class="btn-close-bottom">닫기</button> -->

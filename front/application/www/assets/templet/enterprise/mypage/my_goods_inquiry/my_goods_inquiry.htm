@@ -1,0 +1,163 @@
+<div class="fb__mypage fb__community fb__myGoodsInquiry">
+    <section class="fb__mypage__search">
+        <h2 class="fb__mypage__title">{=trans('상품 문의 내역 검색')}</h2>
+
+        <form id="devMyGoodsInquiryForm">
+            <input type="hidden" name="type" value="mine"/>
+            <input type="hidden" name="page" id="devPage" value="1"/>
+            <input type="hidden" name="max" id="devMax" value="10"/>
+            <input type="hidden" name="sDateDef" id="sDateDef" value="{sDate}" />
+            <input type="hidden" name="eDateDef" id="eDateDef" value="{eDate}" />
+
+            <div class="search">
+                <div class="search__row">
+                    <div class="search__col">
+                        <span class="search__col-title">{=trans('조회기간')}</span>
+                        <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick" title="{=trans('조회시작기간')}"> ~
+                        <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick"  title="{=trans('조회종료기간')}">
+                    </div>
+
+                    <div class="search__col__day">
+                        <div class="day-radio">
+                            <a href="#" class="day-radio__btn today devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}">{=trans('<em>1</em>주일')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault">{=trans('<em>1</em>개월')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}">{=trans('<em>6</em>개월')}</a>
+                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}">{=trans('<em>1</em>년')}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search__row">
+                    <div class="search__col">
+                        <label class="search__col-title" for="devDivInfo">{=trans('분류')}</label>
+                        <select class="search__select" name="bbsDiv" id="devDivInfo">
+                            <option value="">{=trans('전체')}</option>
+                            {@ divsInfo}
+                            <option value="{.ix}">{.div_name}</option>
+                            {/}
+                        </select>
+                    </div>
+
+                    <!--<div class="search__col wrap-checkbox">-->
+                        <!--<span class="search__col-title">{=trans('처리상태')}</span>-->
+                        <!--<label>-->
+                            <!--<input type="radio" name="resYn" value="all" checked>-->
+                            <!--<span class="check-area">{=trans('전체')}</span>-->
+                        <!--</label>-->
+                        <!--<label>-->
+                            <!--<input type="radio" name="resYn" value="N">-->
+                            <!--<span class="check-area">{=trans('답변대기')}</span>-->
+                        <!--</label>-->
+                        <!--<label>-->
+                            <!--<input type="radio" name="resYn" value="Y">-->
+                            <!--<span class="check-area">{=trans('답변완료')}</span>-->
+                        <!--</label>-->
+                    <!--</div>-->
+                    <div class="fb__mypage__checkbox search__col wrap-checkbox inquiry-checkbox">
+                        <span class="search__col-title">{=trans('처리상태')}</span>
+                        <!--<label>-->
+                            <!--<input type="checkbox" name="resYn" value="all" checked>-->
+                            <!--<span class="check-area">{=trans('전체')}</span>-->
+                        <!--</label>-->
+                        <label>
+                            <input type="checkbox" class="devResYn" name="resN" value="N" checked>
+                            <span class="check-area">{=trans('답변대기')}</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" class="devResYn" name="resY" value="Y" checked>
+                            <span class="check-area">{=trans('답변완료')}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search__btn ">
+                <a href="#" id="devBtnReset" class="search__btn--cancel">{=trans('초기화')}</a>
+                <button type="button" id="devBtnSearch" class="search__btn--search">{=trans('검색')}</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="fb__mypage__section">
+        <h2 class="fb__mypage__title">
+            {=trans('상품 문의 내역')}
+            <span class="fb__mypage__title--detail">
+                {=trans('총')} <em id="devTotal" class="fb__n"></em>{=trans('건')}
+            </span>
+        </h2>
+
+        <table class="fb__community__table fb__myGoodsInquiry__table inquiry-table">
+            <caption>{=trans('상품 문의 리스트')}</caption>
+
+            <colgroup>
+                <col style="width: 80px;">
+                <col style="width: 275px;">
+                <col style="width: 415px;">
+                <col style="width: 180px;">
+                <col style="width: 110px;"> 
+            </colgroup>
+
+            <thead>
+                <th>{=trans('분류')}</th>
+                <th>{=trans('상품명')}</th>
+                <th>{=trans('제목')}</th>
+                <th>{=trans('작성일시/답변일시')}</th>
+                <th>{=trans('처리상태')}</th>
+            </thead>
+
+            <tbody id="devMyContent">
+                <!--{'<script id="devMyList" type="text/x-handlebars-template">'}-->
+                <tr>
+                    <td class="center divName">{[div_name]}</td>
+
+                    <td>
+                        <div class="item" >
+                            <figure class="item__img">
+                                <a href="/shop/goodsView/{[pid]}" target="_blank">
+                                    <img src="{[image_src]}" alt="{[pname]}">
+                                </a>
+                            </figure>
+
+                            <div class="item__info">
+                                <span class="item__info__title">{[#if brand_name]}[{[brand_name]}]{[/if]} {[pname]}</span>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="title">
+                        <span style="cursor: pointer;" devBbsIx="{[bbs_ix]}">{[bbs_subject]}</span>
+                    </td>
+
+                    <td class="center date">
+                        {[regdate]}<br>{[resDate]}
+                    </td>
+                    <td class="center status {[#if isResponse]}answer{[/if]}">{[res_status]}</td>
+                </tr>
+                <!--{'</script>'}-->
+
+                <!--{'<script id="devMyLoading" type="text/x-handlebars-template">'}-->
+                <tr>
+                    <td colspan="5">
+                        <div class="fb__loading">
+                            <div class="fb__loading__icon"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--{'</script>'}-->
+
+                <!--{'<script id="devMyListEmpty" type="text/x-handlebars-template">'}-->
+                <tr>
+                    <td colspan="5" class="fb__empty">
+                        <p class="fb__empty__text">
+                            {=trans('나의 상품 문의 내역이 없습니다.')}
+                        </p>
+                    </td>
+                </tr>
+                <!--{'</script>'}-->
+            </tbody>
+        </table>
+    </section>
+
+    <div id="devPageWrap"></div>
+</div>

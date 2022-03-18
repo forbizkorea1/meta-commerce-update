@@ -1,0 +1,484 @@
+<!--{? !nonMemberOid}-->
+<script>var orderDetailMode = 'member';</script>
+<!--{:}-->
+<script>var orderDetailMode = 'guest';</script>
+<!--{/}-->
+
+<section class="fb__orderCommon fb__order-detail" id="devOrderDetailContent">
+    <h2 class="fb__mypage__title">{=trans('주문상세 조회')}</h2>
+
+    <!-- 주문상품 -->
+    <section class="fb__mypage__section fb__order-detail__items">
+        <h3 class="fb__title--hidden">{=trans('주문상품')}</h3>
+
+        <!-- 상단 -->
+        <header class="fb__orderCommon__detailHeader">
+            <dl class="fb__orderCommon__date">
+                <dt>{=trans('주문일자')}</dt>
+                <dd>{order.order_date}</dd>
+            </dl>
+
+            <dl class="fb__orderCommon__oid">
+                <dt>{=trans('주문번호')}</dt>
+                <dd><span>{order.oid}</span></dd>
+            </dl>
+
+            <div class="fb__order-detail__action fb__button">
+                {? order.status == 'IR' || order.status == 'IC'}
+                <button type="button" class="border--ccc size--01 devOrderCancelAllBtn" data-oid="{order.oid}">{=trans('전체취소')}</button>
+                {/}
+                {? order.status != 'IR'}
+                <button class="border--ccc size--01 receipt-btn" data-oid="{order.oid}">{=trans('결제영수증 출력')}</button>
+                {/}
+            </div>
+        </header>
+        
+        <!-- 상품 -->
+        <div id="devOrderDetailList" class="fb__shopCommon__table orderDetailTable">
+            {@ order.orderDetail}
+            <table>
+                <colgroup>
+                    <col width="*"/>
+                    <col width="130px"/>
+                    <col width="130px"/>
+                    <col width="130px"/>
+                    <col width="130px"/>
+                </colgroup>
+    
+                {? .index_ == 0}
+                <thead>
+                    <th>{=trans('상품명/옵션')}</th>
+                    <th>{=trans('수량')}</th>
+                    <th>{=trans('결제금액')}</th>
+                    <th>{=trans('주문상태')}</th>
+                    <th></th>
+                </thead>
+                {/}
+                
+                <tbody>
+                    {@ .value_}
+                    <tr>
+                        <td class="orderDetailTable__item item-info">
+                            <a href="/shop/goodsView/{..pid}" class="item-info__link">
+                                <figure class="item-info__thumb">
+                                    <img data-src="{..pimg}">
+                                </figure>
+
+                                <div class="item-info__info">
+                                    <p class="item-info__name">{? ..brand_name}[{..brand_name}] {/}{..pname}</p>
+                                    <p class="item-info__option">{..option_text}</p>
+                                </div>
+                            </a>
+                        </td>
+    
+                        <td class="orderDetailTable__count">
+                            <em>{..pcnt}</em>{=trans('개')}
+                        </td>
+    
+                        <td class="orderDetailTable__price">
+                            {? ..pt_listprice > ..pt_dcprice}
+                            <del class="item-info__price--strike">
+                                <em>{=g_number_format(..pt_listprice)}</em>{=trans('원')}
+                            </del>
+                            {/}
+
+                            <span class="item-info__price--current">
+                                <em>{=g_number_format(..pt_dcprice)}</em>{=trans('원')}
+                            </span>
+
+                            {? ..total_dc > 0}
+                            <div class="fb__tooltip orderTable__tooltip">
+                                <!-- 툴팁 아이콘 -->
+                                <mark class="tooltip__icon js__infolayer__open" data-layer="discountTooltip{=.index_}{= ..index_}">{=trans('할인 상세보기 아이콘')}</mark>
+                
+                                <!-- 툴팁 레이어 -->
+                                <article id="discountTooltip{=.index_}{= ..index_}" class="orderTable__tooltip__layer fb__infolayer js__layer">
+                                    <header class="fb__infolayer__top">
+                                        <h4 class="fb__infolayer__title">{=trans('할인금액')}</h4>
+                                        <button class="fb__infolayer__close js__layer__close">{=trans('닫기버튼')}</button>
+                                    </header>
+    
+                                    <div class="fb__infolayer__cont">
+                                        {*즉시할인*}
+                                        {? ..dr_dc > 0}
+                                            <dl>
+                                                <dt>{=trans('{disTit.IN}')}</dt>
+                                                <dd>
+                                                    <em>{=g_number_format(..dr_dc)}</em>{=trans('원')}
+                                                </dd>
+                                            </dl>
+                                        {/}
+
+                                        {*회원할인*}
+                                        {? ..mg_dc > 0}
+                                        <dl>
+                                            <dt>{=trans('{disTit.MG}')}</dt>
+                                            <dd>
+                                                <em>{=g_number_format(..mg_dc)}</em>{=trans('원')}
+                                            </dd>
+                                        </dl>
+                                        {/}
+
+                                        {*기획할인*}
+                                        {? ..gp_dc > 0}
+                                        <dl>
+                                            <dt>{=trans('{disTit.GP}')}</dt>
+                                            <dd>
+                                                <em>{=g_number_format(..gp_dc)}</em>{=trans('원')}
+                                            </dd>
+                                        </dl>
+                                        {/}
+
+                                        {*특별할인*}
+                                        {? ..sp_dc > 0}
+                                        <dl>
+                                            <dt>{=trans('{disTit.SP}')}</dt>
+                                            <dd>
+                                                <em>{=g_number_format(..sp_dc)}</em>{=trans('원')}
+                                            </dd>
+                                        </dl>
+                                        {/}
+                                        
+                                        {*쿠폰할인*}
+                                        <dl>
+                                            <dt>{=trans('{disTit.CP}')}</dt>
+                                            <dd>
+                                                <em>{=g_number_format(..cp_dc)}</em>{=trans('원')}
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="total">
+                                            <dt>{=trans('{=trans('총 할인금액')}')}</dt>
+                                            <dd>
+                                                <em>{=g_number_format(..total_dc)}</em>{=trans('원')}
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </article>
+                            </div>
+                            {/}
+                        </td>
+    
+                        <td class="orderTable__status">
+                            <p>{..status_text}</p>
+                            {? ..refund_status}<p>{..refund_status_text}</p>{/}
+
+                            {? ..status == c.ORDER_STATUS_DELIVERY_ING || ..status == c.ORDER_STATUS_DELIVERY_COMPLETE}
+                                <a href="#" type="button" class="orderTable__status__trace devDeliveryTrace" data-quick="{..quick}" data-invoice_no="{..invoice_no}">{=trans('배송추적')}</a>
+                            {/}
+                        </td>
+    
+                        <td class="orderTable__action">
+                            {? ..status == c.ORDER_STATUS_INCOM_COMPLETE && !order.cartCouponApply}{* 입금확인 *}
+                                <button type="button" class="orderTable__action__btn devOrderCancelBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('주문취소')}</button>
+                            {/}
+
+                            {? ..status == c.ORDER_STATUS_DELIVERY_ING}{* 배송중 *}
+                                <button type="button" class="orderTable__action__btn devOrderComplateBtn" data-oid="{order.oid}" data-odix="{..od_ix}" data-status="{..status}">{=trans('배송완료')}</button>
+                            {/}
+
+                            {? ..status == c.ORDER_STATUS_DELIVERY_COMPLETE}{* 배송완료 *}
+                                <button type="button" class="orderTable__action__btn devOrderExchangeBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('교환신청')}</button>
+                                <button type="button" class="orderTable__action__btn devOrderReturnBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
+                                <button type="button" class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{order.oid}" data-odix="{..od_ix}" data-status="{..status}">{=trans('구매확정')}</button>
+                            {/}
+
+                            {? is_login() }
+                                {? ..status == c.ORDER_STATUS_BUY_FINALIZED}{* 구매확정 *}
+                                    {? ..is_comment == 0}
+                                <button type="button" class="orderTable__action__btn devByFinalized" data-pid="{..pid}" data-oid="{order.oid}" data-odix="{..od_ix}" data-optionid="{..option_id}">{=trans('상품후기 작성')}</button>
+                                    {/}
+                                {/}
+                            {/}
+                        </td>
+                    </tr>
+                    {/}
+                    <form id="devOrderDetailContentForm">
+                        <input type="hidden" name="oid" value="{order.oid}"/>
+                        <input type="hidden" name="odIx" value=""/>
+                        <input type="hidden" name="status" value="{order.status}"/>
+                    </form>
+                </tbody>
+            </table>
+    
+            <!-- 배송비영역 -->
+            <div class="orderDetailTable__shipping fb__shopCommon__shipping">
+                <span class="shipping__price">{=trans('배송비')} <em devPrice="total_delivery_price">{=g_number_format(order.deliveryPrice[.key_])}</em>{=trans('원')}</span>
+                <span class="shipping__detail">{order.deliveryPricePolicyText[.key_]}</span>
+            </div>
+            {/}
+        </div>
+    </section>
+
+    <!-- 주문결제내역 -->
+    <section class="fb__mypage__section order-payment-history__wrapper">
+        <h2 class="fb__mypage__title">{=trans('주문결제 내역')}</h2>
+        <div class="order-payment-list">
+            <div class="section">
+                <div class="sec">
+                    <!--{@ paymentInfo.payment}-->
+                    {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ICHE : c.ORDER_METHOD_ASCROW}
+                    <h2>{=trans('결제수단')}</h2>
+
+                    <p class="tit">{.method_text}</p>
+
+                    <dl>
+                        <dt>{=trans('은행명')}</dt>
+                        <dd>{.bank}</dd>
+                    </dl>
+                    {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ASCROW}
+                    <dl>
+                        <dt>{=trans('예금주')}</dt>
+                        <dd>{.bank_input_name}</dd>
+                    </dl>
+                    <dl>
+                        <dt>{=trans('계좌번호')}</dt>
+                        <dd>{.bank_account_num}</dd>
+                    </dl>
+                    <dl>
+                        <dt>{=trans('입금마감기한')}</dt>
+                        <dd>{.bank_input_date}</dd>
+                    </dl>
+                    {/}
+                    {:}
+                    <h2>{=trans('결제수단')}</h2>
+                    <dl>
+                        <dt>{.method_text}</dt>
+                        {? .method != c.ORDER_METHOD_PAYCO}
+                        <dd>{.memo}</dd>
+                        <dd>{.card_memo}</dd>
+                        {/}
+                    </dl>
+                    {/}
+                    <!--{/}-->
+                </div>
+
+                {? layoutCommon.isLogin}
+                <div class="sec">
+                    <h2>{=trans('{mileageName} 적립')}</h2>
+                    <p>{=g_number_format(paymentInfo.total_reserve)}{mileageUnit} {=trans('적립(상품 구매 시)')}</p>
+                </div>
+                {/}
+            </div>
+            <div class="section price">
+                <dl>
+                    <dt>{=trans('총 상품금액')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.total_listprice)}</em>{=trans('원')}</dd>
+                </dl>
+                <dl>
+                    <dt>{=trans('총 할인금액')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.total_dc * -1)}</em>{=trans('원')}</dd>
+                </dl>
+                {? paymentInfo.dr_dc > 0}
+                <dl class="disc-list">
+                    <dt>{=trans('즉시할인')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.dr_dc)}</em>{=trans('원')}</dd>
+                </dl>
+                {/}
+                {? paymentInfo.mg_dc > 0}
+                <dl class="disc-list">
+                    <dt>{=trans('회원할인')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.mg_dc)}</em>{=trans('원')}</dd>
+                </dl>
+                {/}
+                {? paymentInfo.gp_dc > 0}
+                <dl class="disc-list">
+                    <dt>{=trans('기획할인')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.gp_dc)}</em>{=trans('원')}</dd>
+                </dl>
+                {/}
+                {? paymentInfo.sp_dc > 0}
+                <dl class="disc-list">
+                    <dt>{=trans('특별할인')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.sp_dc)}</em>{=trans('원')}</dd>
+                </dl>
+                {/}
+                
+                {? layoutCommon.isLogin}
+                <dl class="disc-list">
+                    <dt>{=trans('쿠폰할인')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.cp_dc)}</em>{=trans('원')}</dd>
+                </dl>
+
+                <dl>
+                    <dt>{=trans('{mileageName} 사용')}</dt>
+                    <dd><em>{=g_number_format(paymentInfo.use_reserve * -1)}</em>{mileageUnit}</dd>
+                </dl>
+                {/}
+
+                <dl class="mat10">
+                    <dt>{=trans('총 배송비')}</dt>
+                    <dd><em>{=g_number_format(order.delivery_price)}</em>{=trans('원')}</dd>
+                </dl>
+                <dl class="total-price">
+                    <dt>
+                        {? order.status == 'IR'}
+                        {=trans('총 결제 예정 금액')}
+                        {:}
+                        {=trans('총 결제 금액')}
+                        {/}
+                    </dt>
+                    <dd class="point-color"><em>{=g_number_format(paymentInfo.payment[0].payment_price)}</em>{=trans('원')}</dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 주문취소 환불내역 (취소완료) -->
+    {? claimData.cancelData}
+    <section class="fb__mypage__section">
+        <h2 class="fb__mypage__title">{=trans('취소 환불내역')}</h2>
+        <table class="table-default refund-table">
+            <colgroup>
+                <col width="*">
+                <col width="145px">
+                <col width="145px">
+                <col width="170px">
+            </colgroup>
+            <thead>
+            <th>{=trans('상품명')}</th>
+            <!--<th>주문취소 상품 총 금액</th>
+            <th>주문취소 배송비</th> -->
+            <th>{=trans('결제수단 환불')}</th>
+            <th>{=trans('마일리지 환불')}</th>
+            <th>{=trans('환불 처리일자')}</th>
+            </thead>
+            <tbody>
+            {@ claimData.cancelData}
+            <tr>
+                <td class="product" style="text-align:left">
+                    {@ productList}
+                    <div>
+                        {? productList.brand_name}
+                        [{productList.brand_name}]
+                        {/}
+                        {productList.pname}
+                    </div>
+                    {/}
+                </td>
+                <td><em>{=g_number_format(.totReturnPrice)}</em>{=trans('원')}</td>
+                <td><em>{=g_number_format(.totReturnMileage)}</em>{layoutCommon.mileageUnit}</td>
+                <td><em>{.refundDate}</em></td>
+            </tr>
+            {/}
+            </tbody>
+        </table>
+    </section>
+    {/}
+
+    <!-- 반품신청 환불내역 (반품완료) -->
+    {? claimData.returnData }
+    <section class="fb__mypage__section">
+        <h2 class="fb__mypage__title">{=trans('반품 환불내역')}</h2>
+        <table class="table-default refund-table">
+            <colgroup>
+                <col width="*">
+                <col width="145px">
+                <col width="145px">
+                <col width="170px">
+            </colgroup>
+            <thead>
+            <th>{=trans('상품명')}</th>
+            <!--<th>반품신청 상품 총 금액</th>
+            <th>반품 배송비</th>-->
+            <th>{=trans('결제수단 환불')}</th>
+            <th>{=trans('마일리지 환불')}</th>
+            <th>{=trans('환불 처리일자')}</th>
+            </thead>
+            <tbody>
+            {@ claimData.returnData}
+            <tr>
+                <td class="product" style="text-align:left">
+                    {@ productList}
+                    <div>
+                        {? productList.brand_name}
+                        [{productList.brand_name}]
+                        {/}
+                        {productList.pname}
+                    </div>
+                    {/}
+                </td>
+                <td><em>{=g_number_format(.totReturnPrice)}</em>{=trans('원')}</td>
+                <td><em>{=g_number_format(.totReturnMileage)}</em>{layoutCommon.mileageUnit}</td>
+                <td><em>{.refundDate}</em></td>
+            </tr>
+            {/}
+            </tbody>
+        </table>
+    </section>
+    {/}
+
+    <!-- 배송지 정보 -->
+    <section class="fb__mypage__section fb__shopCommon__section">
+        <h2 class="fb__mypage__title clearfix fb__button">
+            {=trans('배송지 정보')}
+
+            {? order.deliveryChange > 0 && order.deliveryNotChange == 0}
+                <button class="border--ccc size--01 float-r address-link" id="devDeliveryChangeBtn" data-oid="{order.oid}">{=trans('배송지 변경')}</button>
+            {/}
+        </h2>
+
+        <ul class="section__infoTable">
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('받는 분')}
+                </span>
+                <div class="infoTable__cont">
+                    <span id="devRnameTxt">{deliveryInfo.rname}</span>
+                </div>
+            </li>
+
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('주소')}
+                </span>
+                <div class="infoTable__cont">
+                    <p><span id="devZipTxt">{deliveryInfo.zip}</span></p>
+                    <p><span id="devAddr1Txt">{deliveryInfo.addr1}</span> <span id="devAddr2Txt">{deliveryInfo.addr2}</span></p>
+                </div>
+            </li>
+
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('휴대폰번호')}
+                </span>
+                <div class="infoTable__cont">
+                    <span id="devRmobileTxt">{deliveryInfo.rmobile}</span>
+                </div>
+            </li>
+
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('배송요청사항')}
+                </span>
+                
+                <div class="infoTable__cont fb__orderCommon__deliveryMsg">
+                    {@ deliveryInfo.msg}
+                    <div class="deliveryMsg__box">
+                        <!-- 요청사항 메세지 -->
+                        {? .msg}
+                        <p id="devDeliveryMsgText{.msg_ix}" class="deliveryMsg__msg">{.msg} {.door_msg}</p>
+                        {/}
+                        {? order.status == c.ORDER_STATUS_INCOM_READY || order.status == c.ORDER_STATUS_INCOM_COMPLETE}
+                        <!-- 요청사항 변경 -->
+                        <div class="deliveryMsg__change fb__button">
+                            <button class="border--ccc size--01 devDeliveryMsgModifyBtn" data-oid="{order.oid}" data-msgix="{.msg_ix}" data-msgtype="{.msg_type}">
+                                {=trans('배송요쳥사항 변경')}
+                            </button>
+                        </div>
+                        {/}
+                        <!-- 에러메세지 -->
+                        <em class="deliveryMsg__error txt-error">{=trans('요청사항을 입력하세요.')}</em>
+                    </div>
+                </div>
+            </li>
+            {/}
+        </ul>
+    </section>
+
+    <!-- 버튼 -->
+    <section class="fb__mypage__section wrap-btn-area">
+        <button class="btn-lg btn-point" onclick="parent.history.back(-1);">{=trans('이전')}</button>
+    </section>
+</section>

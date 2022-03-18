@@ -1,0 +1,49 @@
+<section class="fb__promotion">
+	<h2 class="fb__title">{=trans('기획전')}</h2>
+	
+	<!-- 필터 -->
+	<form id="devEventForm" action="/controller/event/getEventList">
+		<input type="hidden" name="orderBy" value="startDate">
+		<input type="hidden" name="orderByType" value="desc">
+		<input type="hidden" name="page" value="1" id="devPage">
+		<input type="hidden" name="max" value="18" id="devMax">
+		<input type="hidden" name="type" value="P" id="devType">
+		<input type="hidden" name="ForbizCsrfTestName" class="clsForbizCsrfId" value="07c885755827195e35805bacc87f7700">
+	</form>
+
+	<div class="fb__promotion__wrap">
+		<ul id="devEventContent" class="fb__promotion__box">
+			<!--{'<script id="devEventLoading" type="text/x-handlebars-template">'}-->
+			<li class="fb__loading">
+				<div class="fb__loading__icon"></div>
+			</li>
+			<!--{'</script>'}-->
+
+			<!-- case 02. 기획전 없을 시 -->
+			<!--{'<script id="devEventListEmpty" type="text/x-handlebars-template">'}-->
+			<li class="fb__empty">
+				<p class="fb__empty__text">{=trans('등록된 기획전이 없습니다.')}</p>
+			</li>
+			<!--{'</script>'}-->
+			
+			<!-- case 03. 기획전 리스트 -->
+			<!--{'<script id="devEventList" type="text/x-handlebars-template">'}-->
+			<li class="fb__promotion__list">
+				<a href="/event/eventDetail/{[event_ix]}" class="fb__promotion__link">
+					<figure class="fb__promotion__image">
+						<img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[imgPath]}" alt="">
+						{[#if onOff]}{[else]}<span class="end__txt">{=trans('기획전이 종료되었습니다.')}</span>{[/if]}
+					</figure>
+
+					<div class="fb__promotion__info{[#if onOff]}{[else]} end{[/if]}">
+						<p class="fb__promotion__name">{[event_title]}</p>
+						<p class="fb__promotion__date">{[startDate]} ~ {[endDate]}</p>
+					</div>
+				</a>
+			</li>
+			<!--{'</script>'}-->
+		</ul>
+	</div>
+	
+	<div id="devPageWrap"></div>
+</section>

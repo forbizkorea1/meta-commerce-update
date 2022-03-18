@@ -1,0 +1,125 @@
+<div class="fb__myGoodsReview">
+    <div class="community-list review devTotalWrap" style="display: none">
+        <p class="title-count">{=trans('총 <em id="devTotal">0</em>개')}</p>
+    </div>
+
+    <form id="devMyReviewForm">
+        <input type="hidden" name="page" value="1" id="devPage">
+        <input type="hidden" name="max" value="20">
+
+        <div class="fb__myGoodsReview__sec">
+            <ul class="fb__myGoodsReview__box" id="devMyReviewContent">
+                <!--{'<script id="devMyReviewLoading" type="text/x-handlebars-template">'}-->
+                <li>
+                    <div class="wrap-loading">
+                        <div class="loading"></div>
+                    </div>
+                </li>
+                <!--{'</script>'}-->
+
+                <!--{'<script id="devMyReviewEmpty" type="text/x-handlebars-template">'}-->
+                <li class="empty-content">
+                    <p class="empty-content__txt">{=trans('상품 후기 내역이 없습니다.')}</p>
+                </li>
+                <!--{'</script>'}-->
+                
+                <!--{'<script id="devMyReviewList" type="text/x-handlebars-template">'}-->
+                <li class="goodsReview__list">
+                    <div class="goodsReview__item">
+                        <figure class="goodsReview__item__img">
+                            <a href="#">
+                                <img src="{[pimg]}" alt="{[pname]}">
+                            </a>
+                        </figure>
+
+                        <div class="goodsReview__item__info">
+                            <span class="goodsReview__item__name">{[#if brand_name]}[{[brand_name]}]{[/if]} {[pname]}</span>
+                            <span class="goodsReview__item__option">{[option_name]}</span>
+                            <span class="goodsReview__item__date">{[order_date]}</span>
+                        </div>
+                    </div>
+
+                    <div class="goodsReview__cont">
+                        <div class="goodsReview__my">
+                            <div class="goodsReview__my__score">
+                                <span class="set-star">
+                                    <span class="score" style="width:{[avg_pct]}%"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="goodsReview__my__review">
+                            <ul class="review__img">
+                                {[#if bbs_file_1]}
+                                <li class="review__img__list">
+                                    <figure>
+                                        <img src="{image_review_src}/{[bbs_ix]}/{[bbs_file_1]}">
+                                    </figure>
+                                </li>
+                                {[/if]}
+
+                                {[#if bbs_file_2]}
+                                <li class="review__img__list">
+                                    <figure>
+                                        <img src="{image_review_src}/{[bbs_ix]}/{[bbs_file_2]}">
+                                    </figure>
+                                </li>
+                                {[/if]}
+
+                                {[#if bbs_file_3]}
+                                <li class="review__img__list">
+                                    <figure>
+                                        <img src="{image_review_src}/{[bbs_ix]}/{[bbs_file_3]}">
+                                    </figure>
+                                </li>
+                                {[/if]}
+
+                                {[#if bbs_file_4]}
+                                <li class="review__img__list">
+                                    <figure>
+                                        <img src="{image_review_src}/{[bbs_ix]}/{[bbs_file_4]}">
+                                    </figure>
+                                </li>
+                                {[/if]}
+
+                                {[#if bbs_file_5]}
+                                <li class="review__img__list">
+                                    <figure>
+                                        <img src="{image_review_src}/{[bbs_ix]}/{[bbs_file_5]}">
+                                    </figure>
+                                </li>
+                                {[/if]}
+                            </ul>
+
+                            <div class="review__txt">{[{\bbs_contents}]}</div>
+
+                            <div class="review__btn fb__button">
+                                {? delete_posts == 'Y'}
+                                    <button type="button" class="border--ccc devReviewDeleteBtnCls" data-bbsidx="{[bbs_ix]}">{=trans('삭제')}</button>
+                                {/}
+                                {? modify_posts == 'Y'}
+                                    <button type="button" class="border--point devReviewModifyBtnCls" data-bbsidx="{[bbs_ix]}" data-odix="{[od_ix]}">{=trans('수정')}</button>
+                                {/}
+                            </div>
+                        </div>
+                        
+                        {[#if cmt.cmt_ix]}
+                        <ul class="goodsReview__admin">
+                            <li class="goodsReview__admin__list">
+                                <div class="goodsReview__admin__top">
+                                    <span class="goodsReview__admin__badge">{[cmt/cmt_name]}</span>
+                                    <span class="goodsReview__admin__date">{[cmt.cmt_date]}</span>
+                                </div>
+                                <div class="goodsReview__admin__txt">{[{\cmt.cmt_contents}]}</div>
+                            </li>
+                        </ul>
+                        {[/if]}
+                    </div>
+                </li>
+                <!--{'</script>'}-->
+            </ul>
+        </div>
+
+        <div id="devPageWrap" class="wrap-btn-area more"></div>
+    </form>
+</div>

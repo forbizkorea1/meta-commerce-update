@@ -1,0 +1,110 @@
+<div class="join-agreement-area fb__join-member fb__join-agreement">
+    <div class="title-area">
+        <h2 class="fb__join-member__title">{=trans('휴면 계정 해제')}</h2>
+        <ul class="fb__join-member__top-area top-area">
+            <li class="top-area__step top-area__step01">
+                <div class="top-area__step__inner">
+                    <span class="top-area__step__subtit">STEP 01</span>
+                    <!--{? joinType == 'C'}--><!--사업자-->
+                    <p class="top-area__step__tit">{=trans('사업자인증')}</p>
+                    <!--{:}--><!--일반-->
+                    <p class="top-area__step__tit">{=trans('본인인증')}</p>
+                    <!--{/}-->
+                </div>
+            </li>
+            <li class="top-area__step top-area__step02 top-area__step--active">
+                <div class="top-area__step__inner">
+                    <span class="top-area__step__subtit">STEP 02</span>
+                    <p class="top-area__step__tit">{=trans('약관동의')}</p>
+                </div>
+            </li>
+            <li class="top-area__step top-area__step03">
+                <div class="top-area__step__inner">
+                    <span class="top-area__step__subtit">TEP 03</span>
+                    <p class="top-area__step__tit">{=trans('비밀번호 변경')}</p>
+                </div>
+            </li>
+            <li class="top-area__step top-area__step04">
+                <div class="top-area__step__inner">
+                    <span class="top-area__step__subtit">TEP 04</span>
+                    <p class="top-area__step__tit">{=trans('계정 활성화')}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="wrap-joininput-layout">
+		<div class="wrap-agree-sec">
+			<p class="join-agree-desc">
+				* {=trans('{mallName} 이용을 위해 약관에 동의하셔야 휴면 상태를 해지할 수 있습니다.')}
+			</p>
+		</div>
+
+        <form id="devForm">
+
+			<div class="wrap-chk-all">
+				<div class="fb__checkbox">
+					<label for="agree-all">
+						<input type="checkbox" id="agree-all" >
+						<span>
+							{=trans('약관 전체 동의')}
+						</span>
+					</label>
+				</div>
+            </div>
+
+
+            <div class="wrap-terms">
+                <p class="terms-tit">{=trans('구매 이용 약관 <span>(필수)</span>')}</p>
+                <div class="input-terms">
+                    {policyData['use']['contents']}
+                </div>
+                <div class="wrap-terms-check">
+					<label class="fb__checkbox">
+						<input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
+						<span>{=trans('동의')}</span>
+					</label>
+                </div>
+            </div>
+
+            <div class="wrap-terms">
+                <p class="terms-tit">{=trans('개인정보 수집 및 이용에 대한 안내 <span>(필수)</span>')}</p>
+                <div class="input-terms">
+                    {policyData['collection']['contents']}
+                </div>
+                <div class="wrap-terms-check">
+					<label class="fb__checkbox">
+						<input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" value="Y" class="devRequired">
+						<span>{=trans('동의')}</span>
+					</label>
+                </div>
+            </div>
+
+            <div class="wrap-terms">
+                <p class="terms-tit">{=trans('개인정보 취급 위탁 <span>(필수)</span>')}</p>
+                <div class="input-terms">
+                    {policyData['consign']['contents']}
+                </div>
+                <div class="wrap-terms-check">
+					<label class="fb__checkbox">
+						<input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" value="Y" class="devRequired">
+						<span>{=trans('동의')}</span>
+					</label>
+				</div>
+				<p class="fb__sleep-account__confirm">
+					{=trans('휴면 상태를 해지하겠습니까?')}<br>
+				</p>
+		
+            </div>
+		</form>
+		
+		<div class="wrap-btn-area fb__join-member__btn-area">
+			<button class="btn-lg btn-dark-line" id="devCancelButton">{=trans('취소')}</button>
+			<button class="btn-lg btn-point" id="devSubmitButton">{=trans('휴면 상태 해지')}</button>
+		</div>
+    </div>
+
+   
+
+
+</div>

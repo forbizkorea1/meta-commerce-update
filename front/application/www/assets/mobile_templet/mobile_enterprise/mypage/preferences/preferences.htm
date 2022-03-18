@@ -1,0 +1,50 @@
+<h1 class="setup-page wrap-title">
+    {=trans('설정')}
+    <button type="button" class="back" onClick="history.go(-1);"></button>
+</h1>
+
+<div class="setup-wrap">
+        <div class="setup-alarm">
+            <dt class="set-tit">{=trans('쇼핑 알림설정')}</dt>
+            <dd>
+                {=trans('쇼핑 알림설정 시 App 전용 혜택, 세일정보 등<br />유용한 혜택 정보를 받아보실 수 있습니다.')}<br /><br />
+            </dd>
+            <dd>
+                <span>&#183;</span> {=trans('디바이스의 알림 수신 설정은 단말기의 설정에서 변경하실 수<br /><span></span> 있습니다. &#40;설정&#62;알림&#41;')}
+            </dd>
+            <dd>
+                <span>&#183;</span> {=trans('단말기의 알림 수신에 따라 쇼핑 정보가 전달되지 않을 수 있습니다.')}
+            </dd>
+        </div>
+
+        <dl class="setup-info">
+            <dt class="set-tit">{=trans('버전정보')}</dt>
+            <dd>
+                <em>{=trans('현재버전')}</em> <span id="appVersion">{=trans('알수없음')}</span><br />
+            </dd>
+            <dd>
+                <em>{=trans('최신버전')}</em> {newVersion}<br />
+            </dd>
+        </dl>
+
+        <!--{? is_login() }-->
+        <div class="setup-page-logout wrap-btn-area">
+            <button class="logout">{=trans('로그아웃')}</button>
+        </div>
+        <!--{:}-->
+        <div class="setup-page-logout wrap-btn-area">
+            <button class="login">{=trans('로그인')}</button>
+        </div>
+        <!--{/}-->
+
+        <div class="check" devUserCode="{=sess_val('user','code')}">
+            <input type="checkbox" class="ios" style="display: none;" id="devPushAllow">>
+            <div class="ios-ui-select">
+                <div class="inner"></div>
+            </div>
+        </div>
+
+</div>
+<script>
+    var devAppType = '{=getAppType()}';
+</script>

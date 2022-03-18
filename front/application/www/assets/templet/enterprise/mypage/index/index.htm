@@ -1,0 +1,359 @@
+<section class="fb__mypage fb__mymain fb__orderCommon">
+    
+    <h2 class="fb__title--hidden">{=trans('마이페이지 메인')}</h2>
+    
+    <!-- 마이페이지 공통 상단 -->
+    <header class="fb__mymain__header">
+        {# mypage_top}
+    </header>
+    
+    <!-- 메인 콘텐츠 -->
+    <div class="fb__mymain__inner">
+
+        <!-- 나의 주문현황 -->
+        <section class="mymain__section">
+            <h2 class="fb__mypage__title">{=trans('나의 주문 현황')}</h2>
+    
+            <div class="fb__mymain__overview">
+                <ul class="overview__box">
+                    <li class="overview__list devOrderStatusCnt" data-status="{c.ORDER_STATUS_INCOM_READY}">
+                        <strong class="overview__circle active">{=number_format(incom_ready_cnt)}</strong>
+                        <p class="overview__tit">{=trans('입금예정')}</p>
+                    </li>
+    
+                    <li class="overview__list devOrderStatusCnt" data-status="{c.ORDER_STATUS_INCOM_COMPLETE}">
+                        <strong class="overview__circle">{=number_format(incom_end_cnt)}</strong>
+                        <p class="overview__tit">{=trans('입금확인')}</p>
+                    </li>
+    
+                    <li class="overview__list devOrderStatusCnt" data-status="{c.ORDER_STATUS_DELIVERY_READY}">
+                        <strong class="overview__circle">{=number_format(delivery_ready_cnt)}</strong>
+                        <p class="overview__tit">{=trans('배송준비중')}</p>
+                    </li>
+    
+                    <li class="overview__list devOrderStatusCnt" data-status="{c.ORDER_STATUS_DELIVERY_ING}">
+                        <strong class="overview__circle">{=number_format(delivery_ing_cnt)}</strong>
+                        <p class="overview__tit">{=trans('배송중')}</p>
+                    </li>
+    
+                    <li class="overview__list devOrderStatusCnt" data-status="{c.ORDER_STATUS_DELIVERY_COMPLETE}">
+                        <strong class="overview__circle">{=number_format(delivery_end_cnt)}</strong>
+                        <p class="overview__tit">{=trans('배송완료')}</p>
+                    </li>
+                </ul>
+
+                <!-- 주문현황(주문취소,교환신청,반품신청 리스트) -->
+                <ul class="order-status">
+                    <li class="order-status__list devReturnStatusCnt" data-status="{c.ORDER_STATUS_CANCEL_APPLY}">
+                        <p class="order-status__list__tit">{=trans('주문취소')}</p>
+                        <span class="order-status__list__num">{=number_format(cancel_apply_cnt)}</span>
+                    </li>
+    
+                    <li class="order-status__list devReturnStatusCnt" data-status="{c.ORDER_STATUS_EXCHANGE_APPLY}">
+                        <p class="order-status__list__tit">{=trans('교환신청')}</p>
+                        <span class="order-status__list__num">{=number_format(exchange_apply_cnt)}</span>
+                    </li>
+    
+                    <li class="order-status__list devReturnStatusCnt" data-status="{c.ORDER_STATUS_RETURN_APPLY}">
+                        <p class="order-status__list__tit">{=trans('반품신청')}</p>
+                        <span class="order-status__list__num">{=number_format(return_apply_cnt)}</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    
+        <!-- 최근 주문내역 -->
+        <section class="mymain__section">
+            <h2 class="fb__mypage__title">{=trans('최근 주문 내역')}</h2>
+    
+            {? order_data && !empty(order_data)}
+                {@ order_data}
+                <div class="fb__orderCommon__box">
+                    <header class="fb__orderCommon__header">
+                        <dl class="fb__orderCommon__date">
+                            <dt>{=trans('주문일자')}</dt>
+                            <dd>{.order_date}</dd>
+                        </dl>
+
+                        <dl class="fb__orderCommon__oid">
+                            <dt>{=trans('주문번호')}</dt>
+                            <dd><span>{.oid}</span></dd>
+                        </dl>
+    
+                        <a class="fb__orderCommon__link" href="/mypage/orderDetail?oid={.oid}">
+                            <span>{=trans('상세보기')}</span>
+                        </a>
+                    </header>
+    
+                    <div class="fb__orderCommon__cont fb__shopCommon__table orderTable">
+                        <table>
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+    
+                            <tbody>
+                                {@ order_data.orderDetail}
+                                    <tr>
+                                        <!-- 주문상품 -->
+                                        <td class="orderTable__item item-info">
+                                            <a class="item-info__link" href="/shop/goodsView/{..pid}">
+                                                <figure class="item-info__thumb">
+                                                    <img data-src="{..pimg}" alt="{..pname}">
+                                                </figure>
+    
+                                                <div class="item-info__info">
+                                                    <span class="item-info__name">{?..brand_name}[{..brand_name}] {/}{..pname}</span>
+                                                    <span class="item-info__option">{..option_text}</span>
+                                                    <span class="item-info__price item-info__price--text">
+                                                        <span>{..listprice}</span>{=trans('원')} / <span>{..pcnt}</span>{=trans('개')}
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </td>
+    
+                                        <!-- 주문상태 -->
+                                        <td class="orderTable__status">
+                                            <span>{..status_text}</span>
+                                            
+                                            <!-- 배송중 || 배송완료일때 : 배송추적 -->
+                                            {? ..status == c.ORDER_STATUS_DELIVERY_ING || ..status == c.ORDER_STATUS_DELIVERY_COMPLETE}
+                                            <a href="javascript:void(0);" class="orderTable__status__trace devInvoice" data-quick="{..quick}" data-invoice_no="{..invoice_no}">{=trans('배송추적')}</a>
+                                            {/}
+                                        </td>
+    
+                                        <!-- 주문상품 버튼 -->
+                                        <td class="orderTable__action">
+                                            {? ..status == c.ORDER_STATUS_INCOM_COMPLETE}
+                                                {? false}<button class="btn-xs btn-dark-line devOrderCancelBtn" data-oid="{..oid}" data-odix="{..od_ix}">{=trans('주문취소')}</button>{/}
+                                            {: ..status == c.ORDER_STATUS_DELIVERY_ING}
+                                                <button class="orderTable__action__btn devOrderComplateBtn" data-oid="{..oid}" data-odix="{..od_ix}" data-status="{..status}">{=trans('배송완료')}</button>
+                                            {: ..status == c.ORDER_STATUS_DELIVERY_COMPLETE}
+                                                <button class="orderTable__action__btn devOrderExchangeBtn" data-oid="{..oid}" data-odix="{..od_ix}">{=trans('교환신청')}</button>
+                                                <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{..oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
+                                                <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{..oid}" data-odix="{..od_ix}" data-status="{..status}">{=trans('구매확정')}</button>
+                                            {: (..status == c.ORDER_STATUS_BUY_FINALIZED && !..is_comment)}
+                                                <button class="orderTable__action__btn dark devByFinalized" data-oid="{..oid}" data-pid="{..pid}" data-odeix="{..option_id} " data-optionid="{..option_id}" data-odix="{..od_ix}">{=trans('후기 작성')}</button>
+                                            {/}
+                                        </td>
+                                    </tr>
+                                    
+                                    {? ..exchageDetail}
+                                        {@ ..exchageDetail}
+                                        <tr class="orderTable__exchangeGoods devEcDetail{.key_}-{..key_}">
+                                            <td colspan="3" class="exchangeGoods__cont">
+                                                <div class="exchangeGoods__wrapper">
+                                                    <!-- 교환상품 -->
+                                                    <div class="exchangeGoods__item item-info">
+                                                        <a class="item-info__link" href="/shop/goodsView/{..pid}" target="_blank">
+                                                            <figure class="item-info__thumb">
+                                                                <img data-src="{...pimg}" alt="{...pname}">
+                                                            </figure>
+                                                            
+                                                            <div class="item-info__info">
+                                                                <span class="item-info__name">{...pname}</span>
+                                                                <span class="item-info__option">{...option_text}</span>
+                                                                <span class="item-info__price item-info__price--text">
+                                                                    <span>{=g_price(...listprice)}</span>{=trans('원')}/ <span>{...pcnt}</span>{=trans('개')}
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <!-- 교환상품상태 -->
+                                                    <div class="exchangeGoods__status orderTable__status">
+                                                        <p>{...status_text}</p>
+                                                    </div>
+
+                                                    <!-- 교환상품 버튼 -->
+                                                    <div class="exchangeGoods__action orderTable__action">
+                                                        {? ...status == c.ORDER_STATUS_DELIVERY_ING}
+                                                            <button class="orderTable__action__btn devOrderComplateBtn" data-oid="{...oid}" data-odix="{...od_ix}" data-status="{...status}">{=trans('배송완료')}</button>
+                                                        {: ...status == c.ORDER_STATUS_DELIVERY_COMPLETE}
+                                                            <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{...oid}" data-odix="{...od_ix}">{=trans('반품신청')}</button>
+                                                            <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{...oid}" data-odix="{...od_ix}">{=trans('구매확정')}</button>
+                                                        {: ...status == c.ORDER_STATUS_BUY_FINALIZED}
+                                                            {? ...is_comment == 0}
+                                                            <button class="orderTable__action__btn dark devByFinalized" data-oid="{...oid}" data-pid="{...pid}" data-odeix="{...ode_ix}" data-odix="{...od_ix}">{=trans('후기 작성')}</button>
+                                                            {/}
+                                                        {/}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {/}
+                                    {/}
+                                {/}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {/} 
+            {:}
+                <div class="fb__empty borderTopBottom">
+                    <p class="fb__empty__text">
+                        {=trans('최근 1개월간 주문한 내역이 없습니다.')}
+                    </p>
+                </div>
+            {/}
+        </section>
+    
+        <!--{* 최근, 관심, 장바구니 탭 *}-->
+        <section class="mymain__section mymain__wish">
+            <h2 class="fb__mypage__title">{=trans('관심 상품 정보')}</h2>
+    
+            <div class="fb__mypage__tabs__wrapper tab-control">
+                <!-- 탭 메뉴 -->
+                <ul class="fb__mypage__tabs fb__mypage__tabs--2 tab-link">
+                    <li class="fb__mypage__tabs__item active"><a href="#tab1">{=trans('최근 본 상품')}</a></li>
+                    <li class="fb__mypage__tabs__item"><a href="#tab2">{=trans('관심 상품')}</a></li>
+                </ul>
+    
+                <!-- 탭 콘텐츠 -->
+                <div class="fb__mypage__tabs__contents__wrapper tab-contents">
+                    <!-- 최근 본 상품 -->
+                    <div id="tab1" class="fb__mypage__tabs__contents tab active">
+                        <form method="post" id="devRecentViewForm" name="devRecentViewForm">
+                            {? historyList}
+                                <div class="mymain__wish__items">
+                                    <ul class="fb__items listType4">
+                                        {@ historyList}
+                                            {? .index_ < 4}
+                                            <li class="item__box">
+                                                <label for="historyList_{.index_}" class="fb__comm__checkbox">
+                                                    <input type="checkbox" id="historyList_{.index_}" name="recentList[]" value="{.id}" class="blind">
+                                                    <span></span>
+                                                </label>
+                                    
+                                                <a href="/shop/goodsView/{.id}" class="item__link">
+                                                    <figure class="item__thumb">
+                                                        <!-- 상품 뱃지는 커스텀영역이기 때문에 고개사에 따라 작업 -->
+                                                        <img data-src="{.image_src}" alt="{.pname}">
+                                                    </figure>
+                                    
+                                                    <div class="item__info">
+                                                        {?.brand_name}
+                                                        <span class="item__brand">{.brand_name}</span>
+                                                        {/}
+                                                        
+                                                        <strong class="item__name">{.pname}</strong>
+        
+                                                        <!-- 상품가격 -->
+                                                        <div class="item__price">
+                                                            {? .status == 'soldout'}
+                                                                <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                                            {:}
+        
+                                                            {? .discount_rate}
+                                                                <!-- 할인율 -->
+                                                                <span class="item__price--perc"><em>{.discount_rate}</em>%</span>
+                                                                <!-- 원가 -->
+                                                                <del class="item__price--strike"><em>{=g_price(.listprice)}</em>{=trans('원')}</del>
+                                                            {/}
+                                                            
+                                                            <!-- 판매가 -->
+                                                            <p class="item__price--current"><em>{=g_price(.dcprice)}</em>{=trans('원')}</p>
+                                                            {/}
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            {/} 
+                                        {/}
+                                    </ul>
+                                </div>
+                            {:}
+                                <div class="fb__empty">
+                                    <p class="fb__empty__text">
+                                        {=trans('최근 본 상품이 없습니다.')}
+                                    </p>
+                                </div>
+                            {/}
+                        </form>
+                        {? historyList}
+                        <div class="mymain__wish__bottom">
+                            <button id="devBtnDelRecent" class="mymain__wish__remove">{=trans('선택 상품 삭제')}</button>
+                        </div>
+                        {/}
+                    </div>
+    
+                    <!-- 관심상품 -->
+                    <div id="tab2" class="fb__mypage__tabs__contents tab">
+                        <form method="get" id="wishlist_bottom_frm" name="wishlist_bottom_frm" target="act">
+                            {? wishList} 
+                                <div class="mymain__wish__items">
+                                    <!-- 상품루프 -->
+                                    <ul class="fb__items listType4">
+                                        {@ wishList}
+                                            {? .index_ < 4}
+                                            <!-- 상품 한개 -->
+                                            <li class="item__box">
+                                                <label for="historyList_2{.index_}" class="fb__comm__checkbox">
+                                                    <input type="checkbox" id="historyList_2{.index_}" name="wishList[]" value="{.id}" class="blind">
+                                                    <span></span>
+                                                </label>
+                                    
+                                                <!-- 상품 이미지 -->
+                                                <a href="/shop/goodsView/{.id}" class="item__link">
+                                                    <figure class="item__thumb">
+                                                        <img data-src="{.image_src}" alt="{.pname}">
+                                                    </figure>
+        
+                                                    <!-- 상품정보 -->
+                                                    <div class="item__info">
+        
+                                                        <!-- 브랜드 -->
+                                                        {? .brand_name}
+                                                        <span class="item__brand">{.brand_name}</span>
+                                                        {/}
+        
+                                                        <!-- 상품명 -->
+                                                        <strong class="item__name">{.pname}</strong>
+        
+                                                        <!-- 상품가격 -->
+                                                        <div class="item__price">
+                                                            {? .status == 'soldout'}
+                                                                <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                                            {:}
+        
+                                                            {? .discount_rate}
+                                                                <!-- 할인율 -->
+                                                                <span class="item__price--perc"><em>{.discount_rate}</em>%</span>
+                                                                <!-- 원가 -->
+                                                                <del class="item__price--strike"><em>{=g_price(.listprice)}</em>{=trans('원')}</del>
+                                                            {/}
+                                                            
+                                                            <!-- 판매가 -->
+                                                            <p class="item__price--current"><em>{=g_price(.dcprice)}</em>{=trans('원')}</p>
+                                                            {/}
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            {/} 
+                                        {/}
+                                    </ul>
+                                </div>
+                             {:}
+                                <div class="fb__empty">
+                                    <p class="fb__empty__text">
+                                        {=trans('관심 상품이 없습니다.')}
+                                    </p>
+                                </div>
+                            {/}
+                        </form>
+                        {? wishList}
+                        <div class="mymain__wish__bottom">
+                            <a href="javascript:FavoriteDelete(document.wishlist_bottom_frm,'20');">
+                                <button id="devBtnDelRecent2" class="mymain__wish__remove">{=trans('선택 상품 삭제')}</button>
+                            </a>
+                        </div>
+                        {/}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

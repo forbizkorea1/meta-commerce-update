@@ -1,0 +1,1028 @@
+<script src="{layoutCommon.templetSrc}/js/common/minicart.js?version={c.CLIENT_VERSION}" data-url="/controller/product/loadOptionDatas/{pid}" id="devMinicartScript"></script>
+<script src='//play.wecandeo.com/html/utils/iframeAPI.js'></script>
+
+{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}
+<!--{* 네이버 페이 시작 *}-->
+<script type="text/javascript" src="http://pay.naver.com/customer/js/naverPayButton.js" charset="UTF-8"></script>
+<!--{* 네이버 페이 끝 *}-->
+{/}
+
+<section class="fb__goodsView fb__goods-view">
+    <h2 class="blind">{=trans('상품상세')}</h2>
+    
+    <!-- 카테고리 nav -->
+    <nav class="fb__page-nav goods__list__page-nav">
+        <ul class="fb__page-nav__inner">
+            <li class="fb__page-nav__home">{=trans('홈')}</li>
+            {@ categorys}
+            <li class="fb__page-nav__select breadcrumb">
+                <select class="devSelectCid custom-select">
+                    {@ .value_}
+                    <option value="{..cid}" {? ..isBelong == 1}selected{/}>{..cname}</option>
+                    {/}
+                </select>
+            </li>
+            {/}
+        </ul>
+    </nav>
+
+    <!-- 상품 상단 -->
+    <section class="fb__goodsView__top">
+        <!-- 썸네일 영역 -->
+        <div class="top__photo">
+            <div class="top__photo__main" data-fatid="{pid}">
+                <figure class="picZoomer photo__main__pic js__goods-view__thumb">
+                    <img class="js__goods-view__image" src="{image_src}" alt="{pname}">
+                </figure>
+            </div>
+
+            <div class="top__photo__sub js__goodsPhoto__wrapper">
+                <div class="top__photo__slider js__goodsPhoto__slider swiper-container">
+                    <div class="top__photo__inner swiper-wrapper">
+                        <div class="top__photo__slide js__goodsPhoto__item swiper-slide">
+                            <a href="#" class="top__photo__link on">
+                                <figure class="top__photo__image">
+                                    <img src="{image_src}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+    
+                        {@ add_image_src}
+                        <div class="top__photo__slide js__goodsPhoto__item swiper-slide">
+                            <a href="#" class="top__photo__link">
+                                <figure class="top__photo__image">
+                                    <img src="{.smallImg}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        {/}
+                    </div>
+                </div>
+
+                <nav class="top__photo__nav js__slider__nav">
+                    <button class="top__photo__nav--prev js__goodsImages__prev">{=trans('이전')}</button>
+                    <button class="top__photo__nav--next js__goodsImages__next">{=trans('다음')}</button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- 정보 영역 -->
+        <section class="fb__goodsView__info">
+            <div class="info">
+                <header class="info__header">
+                    {? brand_name}
+                    <div class="info__brand">
+                        <a href="/shop/search/?searchText={brand_name}" class="info__brand__name">{brand_name}</a>
+                    </div>
+                    {/}
+
+                    <div class="info__top">
+                        <h3 class="info__name">{pname}</h3>
+                        <span class="info__shotinfo">{=shotinfo}</span>
+
+                        <div class="info__sns">
+                            <button class="info__sns__btn btn-wish {? alreadyWish}on{/}" data-devWishBtn="{=pid}" type="button">{=trans('하트버튼')}</button>
+                            <button class="info__sns__btn btn-link js__sns__btn--open" type="button">{=trans('링크복사')}</button>
+
+                            <div class="fb__sns__wrapper">
+                                <div class="fb__sns__header">
+                                    <span class="fb__sns__title">{=trans('공유하기')}</span>
+                                    <button class="fb__sns__close js__sns__btn--close">{=trans('닫기')}</button>
+                                </div>
+
+                                <div class="fb__sns__content">
+                                    <ul class="fb__sns__box">
+                                        <li class="fb__sns__list">
+                                            <button type="button" class="fb__sns__btn fb__sns__btn--kakao" devSnsShare="kakaotalk"></button>
+                                        </li>
+                                        <li class="fb__sns__list">
+                                            <button type="button" class="fb__sns__btn fb__sns__btn--facebook" devsnsshare="facebook"></button>
+                                        </li>
+                                        <li class="fb__sns__list">
+                                            <button type="button" class="fb__sns__btn fb__sns__btn--url" devsnsshare="url-copy"></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 가격 -->
+                    <div class="info__number">
+                        {? discount_rate > 0}
+                            <span class="info__percent">
+                                <em>{discount_rate}</em>%
+                            </span> 
+                        {/}
+
+                        <div class="info__price">
+                            <span class="info__price--now">
+                                <em>{=g_price(dcprice)}</em>{=trans('원')}
+                            </span>
+                            {? discount_rate > 0}
+                                <span class="info__price--ori">
+                                    <span class="info__price--ori--unit">{=g_price(listprice)}</span>{=trans('원')}
+                                </span>
+                            {/}
+                        </div>
+
+                        {? discount_rate > 0}
+                        <div class="info__discount info__wrap-popup">
+                            <button type="button" class="info__question"></button>
+                            <div class="info__popup info__popup__discount">
+                                <div class="info__popup__title">{=trans('할인내역')}</div>
+                                <button class="info__popup__close">{=trans('닫기버튼')}</button>
+
+                                <div class="discount__cont">
+                                    {? discountList}
+                                        <div class="discount__division">
+                                            {@ discountList}
+                                            <dl>
+                                                <dt>{.title}</dt>
+                                                <dd>
+                                                    <span>{? .discount_amount != 0}-{/}{=g_price(.discount_amount)}</span>{=trans('원')}
+                                                </dd>
+                                            </dl>
+                                            {/}
+                                        </div>
+
+                                        <dl class="discount__total">
+                                            <dt class="discount__bold">{=trans('총 할인금액')}</dt>
+                                            <dd>
+                                                <span class="discount__bold">{=g_price(lastDcPrice)}</span>{=trans('원')}
+                                            </dd>
+                                        </dl>
+                                        
+                                        <ul class="discount__desc">
+                                            <li class="discount__desc__list">
+                                                · {=trans('회원할인은 현재 회원 등급 기준으로 산정됩니다.')}
+                                            </li>
+                                            <li class="discount__desc__list">
+                                                · {=trans('쿠폰할인은 현재 보유하고 있는 상품쿠폰 중 할인율이 가장 높은 쿠폰 기준으로 산정됩니다.')}
+                                            </li>
+                                            <li class="discount__desc__list">
+                                                · {=trans('회원할인과 쿠폰할인은 로그인 한 회원에게만 제공됩니다.')}
+                                            </li>
+                                        </ul>
+                                    {:}
+                                        <p class="discount__none">{=trans('할인정보가 없습니다.')}</p>
+                                    {/}
+                                </div>
+                            </div>
+                        </div>
+                        {/}
+
+                        {? coupon_use_yn == 'Y' && couponApplyCnt > 0}
+                            <button type="button" class="info__coupon" data-pid="{pid}" id="devCouponDown">
+                                <span>{=trans('쿠폰 다운로드')}</span>
+                            </button>
+                        {/}
+                    </div>
+                </header>
+
+                <ul class="info__box">
+                    {? isCoupon}
+                    <li class="info__list">
+                        <span class="info__title">{=trans('쿠폰 적용가')}</span>
+                        <div class="info__cont">
+                            <span class="coupon__price"><em>{=g_price(coupon_dcprice)}</em>{=trans('원')}</span>
+                        </div>
+                    </li>
+                    {/}
+
+                    {? !empty(pcode)}
+                    <!-- 상품코드 -->
+                    <li class="info__list">
+                        <span class="info__title">{=trans('상품코드')}</span>
+                        <div class="info__cont">{pcode}</div>
+                    </li>
+                    {/}
+
+                    <!-- 카드혜택 -->
+                    {? cardBenefit}
+                        <li class="info__list">
+                            <span class="info__title">{=trans('카드혜택')}</span>
+                        
+                            <div class="info__cont">
+                                <div class="info__wrap-popup">
+                                    <div class="info__wrap-question">
+                                        {@ cardBenefit}
+                                            {? .index_ == 0}
+                                                <div class="info__card-detail">
+                                                    {.bd_title} <i class="info__question"></i>
+                                                </div>
+                                            {:}
+                                                <span class="info__card-detail">{.title}</span>
+                                            {/}
+                                        {/}
+                                    </div>
+
+                                    <div class="info__popup info__popup__card ">
+                                        <div class="info__popup__title">{=trans('카드혜택')}</div>
+                                        <button class="info__popup__close">{=trans('카드혜택 닫기버튼')}</button>
+                                        <figure class="info__popup__cont">
+                                            {@ cardBenefit}
+                                                <img data-src="{.imgSrc}" title="{.bd_title}">
+                                            {/}
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {/}
+
+                    <!-- 배송정보 -->
+                    <li class="info__list ship-list">
+                        <span class="info__title">{=trans('배송정보')}</span>
+                        <div class="info__cont">
+                            <p>
+                                {? delivery.deliveryPolicy == 1}
+                                <!-- 무료배송 -->
+                                {delivery.text} {: delivery.deliveryPolicy == 2}
+                                <!-- 고정배송비 -->
+                                {=g_price(delivery.sumPrice)}{=trans('원')} {:}
+                                <!-- 조건배송비 -->
+                                {=g_price(delivery.sumPrice)}{=trans('원')} ({delivery.text}) {/}
+                            </p>
+
+                            {? delivery.regionText != ''}
+                                <div class="info__wrap-popup">
+                                    <div class="info__text--light">
+                                        {delivery.regionText}
+                                        <i class="info__question"></i>
+                                    </div>
+                                    <!-- [S] 제주/도서산간 추가 배송비 hover layer -->
+                                    <div class="info__popup info__popup__delivery ">
+                                        <!--layer-delivery-->
+                                        <div class="info__popup__title">{=trans('제주, 도서산간 추가 배송비')}</div>
+                                        <button type="button" class="info__popup__close"></button>
+                                        <div class="info__popup__detail ">
+                                            <p class="info__popup__text">{=trans('배송지가 제주/도서산간인 경우 추가 배송비가 발생합니다.')}</p>
+                                            <p class="info__popup__text--black">
+                                                {? delivery.delivery_region_area == 2}
+                                                    {=trans('2권역(제주 및 도서산간)')}
+                                                {: delivery.delivery_region_area == 3}
+                                                    {=trans('3권역(제주, 도서산간)')}
+                                                {/}
+                                            </p>
+                                            {? delivery.delivery_region_area == 2}
+                                                <p class="info__popup__text">{=trans('배송비 {=g_price(delivery.regionPrice2)} 원 추가')}</p>
+                                            {: delivery.delivery_region_area == 3}
+                                                <p class="info__popup__text">{=trans('배송비 제주 {=g_price(delivery.regionPrice2)} 원 / 제주 외 도서산간 {=g_price(delivery.regionPrice3)}원 추가')}</p>
+                                            {/}
+
+                                            <div class="info__popup__bottom">
+                                                <span>{=trans('제주, 도서산간 지역 안내')}</span>
+                                                <a href="/customer/faq">{=trans('바로가기')}</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- [E] 제주/도서산간 추가 배송비 hover layer -->
+                                </div>
+                            {/}
+
+                            <!-- @TODO: 신규 #18899로 인한 삭제 -->
+                            {? false}
+                            <p>
+                                {delivery.deliveryComName}
+                                {? average_delivery_day || (deadline.average_delivery_day && deadline.deadlineUse == 'Y') || deadline.deadlineUse == 'Y'}
+                                ({/} {? deadline.average_delivery_day}평균배송일 {deadline.average_delivery_day}일{/}
+                                {? deadline.average_delivery_day && deadline.deadlineUse == 'Y'} / {/} {? deadline.deadlineUse == 'Y'}배송 마감시간 {deadline.deadlineHour} : {deadline.deadlineMinute} 분{/} {? average_delivery_day || (deadline.average_delivery_day && deadline.deadlineUse
+                                == 'Y') || deadline.deadlineUse == 'Y'}){/}
+                            </p>
+                            {/}
+                        </div>
+                    </li>
+
+                    <!-- 판매자 -->
+                    <li class="info__list">
+                        <span class="info__title">{=trans('판매자')}</span>
+                        <div class="info__cont">{=com_name}</div>
+                    </li>
+
+                    <!-- 구매조건 -->
+                    {? allow_basic_cnt > 0 || allow_byoneperson_cnt > 0}
+                        <li class="info__list">
+                            <span class="info__title">{=trans('구매조건')}</span>
+                            <div class="info__cont">
+                                <p>{? allow_basic_cnt > 0}{=trans('최소 구매 수량 {=allow_basic_cnt}개')}{/}</p>
+                                <p>{? allow_byoneperson_cnt > 0}{=trans('ID당 최대 구매 수량 {=allow_byoneperson_cnt}개')}{/}</p>
+                            </div>
+                        </li>
+                    {/}
+
+                    <li class="info__list" id="devIncomming" style="display: none;">
+                        <span class="info__title">{=trans('추가정보')}</span>
+                        <div class="info__cont">
+                            <button type="button" id="devIncommingBtn">{=trans('입고 알림 신청')}</button>
+                        </div>
+                    </li>
+
+                    <!-- 데이터 확인 -->
+                    {? is_use_reserve}
+                        <li class="info__list">
+                            <span class="info__title">{mileageName}</span>
+                            <div class="info__cont">{=trans('{=g_price(save_reserve)}{mileageUnit} 적립예정')}</div>
+                        </li>
+                    {/}
+
+                    {? displayOptionInfos} 
+                        {@ displayOptionInfos}
+                            <li class="info__list">
+                                <span class="info__title">{.dp_title}</span>
+                                <div class="info__cont">
+                                    <p>{.dp_desc}{? .dp_etc_desc} / {.dp_etc_desc}{/}</p>
+                                </div>
+                            </li>
+                        {/} 
+                    {/}
+                </ul>
+
+                <!-- 옵션 영역 -->
+                <div class="goods-option" id="devMinicartArea" data-pid="{pid}">
+
+                    <div class="option">
+                        <p class="option-tit devOptionHeadline">{=trans('옵션선택')}</p>
+                        
+                        <!--{* when has only 1 option *}-->
+                        <div id="devLonelyOption">
+                            <!--{'<script id="devLonelyOptionName" type="text/x-handlebars-template">'}-->
+                            <p>{[option_name]}</p>
+                            <!--{'</script>'}-->
+                        </div>
+
+                        <!--{* option select *}-->
+                        <div id="devMinicartOptions"></div>
+
+                        <!-- 추가구성 영역 -->
+                        <!--{* add option select *}-->
+                        <div id="devMinicartAddOption" class="hidden select-area">
+                            <p class="option-tit">{=trans('추가구성 상품')}</p>
+                        </div>
+
+                        <!--{* choosed option *}-->
+                        <div id="devMinicartSelected">
+                            <!--{'<script id="devOptionBox" type="text/x-handlebars-template">'}-->
+                            <div class="info__decided option-box devOptionBox" devOptionKind="{[option_kind]}" devOptid="{[option_id]}" devUnit="{[option_dcprice]}" devStock="{[option_stock]}">
+
+                                <div class="info__decided-info tit">
+                                    <!-- {[option_prefix]}{pname} -->
+                                    {[option_prefix]}{[option_div]}
+                                    <!--<button class="info__decided__del btn-option-del devMinicartDelete"></button>-->
+                                </div>
+                                <div class="info__decided-btns control">
+                                    <ul class="devControlCntBox">
+                                        <!-- option-up-down 클래스 삭제 -->
+                                        <li class="devCntMinus">
+                                            <button class="info__decided-btns--minus down"></button>
+                                        </li>
+                                        <li>
+                                            <input type="text" value="{[allowBasicCnt]}" class="info__decided-btns--count devMinicartPrdCnt">
+                                        </li>
+                                        <li class="devCntPlus js__sameOption__plus">
+                                            <button class="info__decided-btns--plus up"></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="info__decided__del btn-option-del devMinicartDelete"></button>
+                                <div class="info__decided-price price"><em class="devMinicartEachPrice">{[eachPrice]}</em>{=trans('원')}</div>
+                            </div>
+                            <!--{'</script>'}-->
+                        </div>
+                    </div>
+
+                    <!-- 합계 영역 -->
+                    <!--{* total price *}-->
+                    <div class="info__total-box total-price ">
+                        <p class="info__total-box--tit">{=trans('총 상품 금액')}</p>
+                        <p class="info__total-box--price"><em id="devMinicartTotal">0</em>{=trans('원')}</p>
+                    </div>
+
+                    <!-- 버튼 영역 -->
+                    <div class="goods-btn-area">
+                        <!--<button class="btn-wish {? alreadyWish}on{/}" data-devWishBtn="{=pid}">하트버튼</button>-->
+                        {? status == 'sale'}
+                        <div class="goods-btn-area__inner">
+                            <button class="btn-lg btn-point-line devAddCart">{=trans('장바구니')}</button>
+                            <button class="btn-lg btn-point devOrderDirect">{=trans('바로구매')}</button>
+                        </div>
+                        <!--{* 네이버 페이 구매 버튼 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
+                        <!-- <div class="Naver-pay-wrap">
+                            <script>
+                                dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn();
+                            </script>
+                        </div> -->
+                        <!--{/}<!--{* 네이버 페이 구매 버튼 끝 *}-->
+                        {:}
+                        <button class="btn-lg btn-soldout" disabled>{=trans('상품이 품절되었습니다.')}</button> {/}
+                    </div>
+                </div>
+
+                <!-- 관련 기획전 -->
+                {? promotionInfos}
+                <article class="related-exhibition" id="devPromotionSection">
+                    <div class="related-exhibition__scroll">
+                        <p class="related-exhibition__title">{=trans('관련 기획전')}</p>
+    
+                        <ul class="related-exhibition__cont">
+                            {@ promotionInfos}
+                            <li class="related-exhibition__list">
+                                <a class="related-exhibition__link" href="/event/eventDetail/{.event_ix}">
+                                    <figure class="related-exhibition__image">
+                                        <img src="{.imgPath}" alt="">
+                                    </figure>
+                                    <div class="related-exhibition__info">
+                                        <strong class="related-exhibition__name">{.event_title}</strong>
+                                        <p class="related-exhibition__summary">{.manage_title}</p>
+                                    </div>
+                                </a>
+                            </li>
+                            {/}
+                        </ul>
+                    </div>
+                </article>
+                {/}
+            </div>
+        </section>
+    </section>
+
+    <!-- 카테고리 관련상품 -->
+    <section class="fb__related__products">
+    {? relationInfos}
+        <div class="related js__related__slider">
+            <p class="related__title">{=trans('연관상품')}</p>
+
+            <div class="related__slider swiper-container">
+                <ul class="fb__items listType6 swiper-wrapper">
+                    {@ relationInfos}
+                    <li class="item__box swiper-slide">
+                        <a href="/shop/goodsView/{.id}" target="_blank" class="item__link">
+                            <figure class="item__thumb">
+                                <img src="{.image_src}" alt="{.pname}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                                <button class="item__wish {? .alreadyWish}on{/}" data-devwishbtn="{.id}">{=trans('찜버튼')}</button>
+                            </figure>
+
+                            <div class="item__info">
+                                {? .brand_name}
+                                <span class="item__brand">{.brand_name}</span>
+                                {/}
+                                <strong class="item__name">{.pname}</strong>
+                                <div class="item__price">
+                                    {? .status == 'soldout'}
+                                        <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                    {:}
+                                        {? .discount_rate >0}
+                                            <span class="item__price--perc"><em>{.discount_rate}</em>%</span>
+                                            <del class="item__price--strike"><em>{=g_price(.listprice)}</em>{=trans('원')}</del>
+                                        {/}
+                                        <p class="item__price--current"><em>{=g_price(.dcprice)}</em>{=trans('원')}</p>
+                                    {/}
+                                </div>
+
+                                {? .icons}
+                                    <div class="item__badge">
+                                        {@ .icons}
+                                            {? ..isText}
+                                                <span>{ ..content}</span>
+                                            {:}
+                                                { ..content}
+                                            {/}
+                                        {/}
+                                    </div>
+                                {/}
+                            </div>
+                        </a>
+                    </li>
+                    {/}
+                </ul>
+            </div>
+
+            <nav class="related__control">
+                <button href="#" class="related__control__btn--prev js__related__prev">{=trans('이전')}</button>
+                <div class="related__control__page js__related__pagination"></div>
+                <button href="#" class="related__control__btn--next js__related__next">{=trans('다음')}</button>
+            </nav>
+        </div>
+    {/}
+    </section>
+
+    <!-- 상품 하단 작업 -->
+    <div class="fb__goodsView__detail">
+        <div class="detail__info">
+            <!-- tab메뉴 -->
+            <div class="detail__tab">
+                <ul class="detail__tab__box">
+                    <li class="detail__tab__list js__goodsTab active">
+                        <a href="#" class="devDetailTabs " data-content="devViewDetail">
+                            <span class="detail__tab__title">{=trans('상품정보')}</span>
+                        </a>
+                    </li>
+        
+                    <li class="detail__tab__list js__goodsTab">
+                        <a href="#" class="devDetailTabs" data-content="devTabReview">
+                            <span class="detail__tab__title">{=trans('후기')}</span>
+                            {? allReviewTotal > 0}
+                            <em class="detail__tab__count">{=g_number_format(allReviewTotal)}</em>
+                            {/}
+                        </a>
+                    </li>
+        
+                    <li class="detail__tab__list js__goodsTab">
+                        <a href="#" class="devDetailTabs" data-content="devTabInquiry">
+                            <span class="detail__tab__title">{=trans('문의')}</span>
+                            {? qnaTotal > 0}
+                            <em class="detail__tab__count">{=g_number_format(qnaTotal)}</em>
+                            {/}
+                        </a>
+                    </li>
+        
+                    <li class="detail__tab__list js__goodsTab">
+                        <a href="#" class="devDetailTabs" data-content="devTabExchange">
+                            <span class="detail__tab__title">{=trans('교환/반품')}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- tab 콘텐츠 -->
+            <div class="detail__sec">
+                <!-- 상품정보 -->
+                <div class="detail__cont goodsInfo show" id="devViewDetail">
+                    <!-- 공지사항 배너 -->
+                    {? sellerNotice}
+                    <figure class="goodsInfo__notice">
+                        <img src="{=sellerNotice}" alt="">
+                    </figure>
+                    {/}
+        
+                    <!-- 상품상세 정보 -->
+                    <div class="goodsInfo__cont">{=html_entity_decode(basicinfo)}</div>
+        
+                    <!-- 상품정보 제공고시 -->
+                    {? mandatory_use == 'Y'}
+                    <div class="goodsInfo__offer">
+                        <h3 class="detail__cont__title">{=trans('상품 필수 정보')}</h3>
+        
+                        <table class="goodsInfo__offer__table">
+                            <caption>{=trans('상품정보 제공')}</caption>
+        
+                            <colgroup>
+                                <col style="width: 25%;">
+                                <col style="width: 75%;">
+                            </colgroup>
+                            
+                            <tbody>
+                                {@ mandatoryInfos}
+                                <tr>
+                                    <th>{.pmi_title}</th>
+                                    <td>{.pmi_desc}</td>
+                                </tr>
+                                {/}
+                            </tbody>
+                        </table>
+                    </div>
+                    {/}
+                </div>
+        
+                <!-- 상품후기 -->
+                <div class="detail__cont goodsReview " id="devTabReview">
+                    <div class="goodsReview__total" id="devReviewTotalScore">
+                        <div class="total__txt">
+                            <span class="total__txt__top">{=trans('상품 만족도')}</span>
+                            <span class="total__txt__btm">{=trans('구매하신 분들의 상품에 대한 평점입니다.')}</span>
+                        </div>
+
+                        <div class="total__score">
+                            <span class="total__score__img score--big">
+                                <span style="width: {avg.goodsAvgPct}%;"></span>
+                            </span>
+
+                            <span class="total__score__num"><em>{avg.goodsAvg}</em> / 5.0</span>
+                        </div>
+                    </div>
+        
+                    <div class="goodsReview__preview">
+                        <form id="devPhotoReviewForm">
+                            <input type="hidden" name="id" value="{pid}" />
+                            <input type="hidden" name="orderBy" value="regdate" />
+                            <input type="hidden" name="orderByType" value="desc" />
+                            <input type="hidden" name="bbsDiv" value="1" />
+                            <input type="hidden" name="max" value="6" />
+                            <input type="hidden" name="page" value="1" />
+                            <input type="hidden" name="bbsHidden" value="Y" /> <!--비공개 숨김 옵션-->
+                        </form>
+                        {? premiumReviewTotal > 0}
+                        <span class="preview__title">{=trans('포토후기 <em>{premiumReviewTotal}</em>건')}</span>
+                        {/}
+
+                        <ul id="devPhotoReviewImageContents" class="preview__box">
+                            {* empty *}
+                            <li id="devPhotoReviewEmpty"></li>
+
+                            {* loading *}
+                            <li id="devPhotoReviewLoading" class="fb__loading">
+                                <div class="fb__loading__icon"></div>
+                            </li>
+                            
+                            {* list *}
+                            <li id="devPhotoReviewImageDetail" class="preview__list" data-bbsix="{[bbs_ix]}">
+                                <a id="devPhotoReviewImgsContents">
+                                    <figure class="preview__list__img">
+                                        <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[thumb]}" alt="">
+                                        {[#if isManyImg]}
+                                        <span class="preview__list__count">{[imageCnt]}</span>
+                                        {[/if]}
+                                    </figure>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <div class="goodsReview__wrapper">
+                        <form id="devProductReviewForm">
+                            <input type="hidden" name="id" value="{pid}" />
+                            <input type="hidden" name="orderBy" value="regdate" />
+                            <input type="hidden" name="orderByType" value="desc" />
+                            <input type="hidden" name="bbsDiv" value="" />
+                            <input type="hidden" name="page" value="1" id="devPage" />
+                            <input type="hidden" name="max" value="3" id="devMax" />
+                            <input type="hidden" name="bbsHidden" value="Y" /> <!--비공개 숨김 옵션-->
+                        </form>
+
+                        <ul class="goodsReview__tab" style="display: none;">
+                            <li class="goodsReview__tab__list">
+                                <label>
+                                    <input type="radio" class="blind devSort" name="goodsReviewFilter" value="real_regdate" data-sort="desc" checked>
+                                    <span>{=trans('최신순')}</span>
+                                </label>
+                            </li>
+        
+                            <li class="goodsReview__tab__list">
+                                <label>
+                                    <input type="radio" class="blind devSort" name="goodsReviewFilter" value="avg" data-sort="desc">
+                                    <span>{=trans('평점 높은순')}</span>
+                                </label>
+                            </li>
+        
+                            <li class="goodsReview__tab__list">
+                                <label>
+                                    <input type="radio" class="blind devSort" name="goodsReviewFilter" value="avg" data-sort="asc">
+                                    <span>{=trans('평점 낮은순')}</span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                        <div class="goodsReview__cont">
+                            <ul id="devReviewContents" class="goodsReview__box">
+                                {* list *}
+                                <li id="devReviewDetail" class="goodsReview__list" data-bbsix="{[bbs_ix]}">
+                                    <div class="goodsReview__list__user">
+                                        <div class="goodsReview__list__score">
+                                            <span class="set-star">
+                                                <span class="score" style="width: {[avg_pct]}%"></span>
+                                            </span>
+                                        </div>
+            
+                                        <!-- 컨텐츠 -->
+                                        <div class="goodsReview__list__view">
+                                            {[#if isThumb]}
+                                            <ul id="devReviewImgsContents" class="photo__box">
+                                                <li class="photo__list" id="devReviewImgsDetails">
+                                                    <a href="#" >
+                                                        <figure class="photo__list__img">
+                                                            <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[img]}" alt="">
+                                                            {[#if isManyImg]}
+                                                            <span class="photo__list__count">{[imageCnt]}</span>
+                                                            {[/if]}
+                                                        </figure>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            {[/if]}
+
+                                            <div class="info devReviewDetailWrap">
+                                                <span class="info__option">{=trans('옵션')}: {[option_name]}</span>
+                                                <p class="info__txt">
+                                                    <a href="#" class="js--reviewBtn">{[{\bbs_contents}]}</a>
+                                                </p>
+                                            </div>
+                                        </div>
+            
+                                        <!-- 유저아이디 -->
+                                        <div class="goodsReview__list__id">{[bbs_id]}</div>
+            
+                                        <!-- 날짜 -->
+                                        <div class="goodsReview__list__date">{[regdate]}</div>
+                                    </div>
+                                    {[#if isComments]}
+                                    <div class="goodsReview__list__admin">
+                                        <ul id="devReviewCmtContents" class="admin-reply">
+                                            <li id="devReviewCmtList" class="admin-reply__list" data-cmtIx="{[cmt/cmt_ix]}">
+                                                <div class="admin-reply__list__top">
+                                                    <span class="admin-reply__list__badge">{[cmt/cmt_name]}</span>
+                                                    <span class="admin-reply__list__date">{[cmt/cmt_date]}</span>
+                                                </div>
+                                                <div class="admin-reply__list__txt">{[{\cmt/cmt_contents}]}</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    {[/if]}
+                                </li>
+
+                                {* loading *}
+                                <li class="fb__loading" id="devReviewLoading">
+                                    <div class="fb__loading__icon"></div>
+                                </li>
+
+                                {* empty *}
+                                <li class="fb__empty" id="devReviewEmpty">
+                                    <p class="fb__empty__text">{=trans('등록된 상품후기가 없습니다.')}</p>
+                                </li>
+                            </ul>
+
+                            <div class="wrap-pagination" id="devReviewPageWrap">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 상품문의 -->
+                <div class="detail__cont goodsInquiry" id="devTabInquiry">
+                    <form id="devProductQnaForm">
+                        <input type="hidden" name="id" value="{pid}" id="devQnaPid">
+                        <input type="hidden" name="qnaType" value="all" id="devQnaType">
+                        <input type="hidden" name="qnaDiv" value="all">
+                        <input type="hidden" name="page" value="1" id="devQnaPage">
+                        <input type="hidden" name="max" value="10" id="devQnaMax">
+                    </form>
+        
+                    <div class="goodsInquiry__top">
+                        <div class="goodsInquiry__top__inner">
+                            <span class="goodsInquiry__top__txt">{=trans('상품에 대해 궁금한 점을 물어보세요.')}</span>
+                            <span class="goodsInquiry__top__desc">{=trans('상품이 아닌 배송 및 주문관련 문의는 고객센터 FAQ나 1:1 문의를 이용해 주세요.')}</span>
+                        </div>
+        
+                        <button type="button" class="goodsInquiry__write" id="devQnaWrite" data-useauth="{productQnaSetting.write_auth}" data-pid="{pid}">{=trans('상품문의 작성')}</button>
+                    </div>
+        
+                    <div class="goodsInquiry__sort" style="display: none;">
+                        <div class="goodsInquiry__sort__tab">
+                            <a href="#" class="goodsInquiry__sort__all devQnaSort active" data-type="all" data-pid="{pid}">
+                                <span>{=trans('전체문의')}</span>
+                                <em id="devQnaTotal">{=g_number_format(qnaTotal)}</em>
+                            </a>
+        
+                            <a href="#" class="goodsInquiry__sort__mine devQnaSort" data-type="mine" data-pid="{pid}">
+                                <span>{=trans('내 문의')}</span>
+                                <em id="devQnaMine">{=g_number_format(myQnaTotal)}</em>
+                            </a>
+                        </div>
+        
+                        <select class="goodsInquiry__sort__type fb__select--small" id="qnaDivSelectBox">
+                            <option value="all">{=trans('전체')}</option>
+                            {@ qnaDivs}
+                            <option value="{.ix}">{.div_name}</option>
+                            {/}
+                        </select>
+                    </div>
+        
+                    <div class="tab-qna__list goodsInquiry__list">
+                        {? qnaTotal > 0}
+                            <ul id="devQnaContents" class="goodsInquiry__list__inner">
+                                <li id="devQnaBasicContents">
+                                    <div class="goodsInquiry__list__row goodsInquiry__list__title">
+                                        <strong class="cols type">{=trans('분류')}</strong>
+                                        <strong class="cols status">{=trans('처리상태')}</strong>
+                                        <strong class="cols tit">{=trans('제목')}</strong>
+                                        <strong class="cols user">{=trans('작성자')}</strong>
+                                        <strong class="cols date">{=trans('작성일시')}</strong>
+                                    </div>
+                                </li>
+        
+                                {* loading *}
+                                <li id="devQnaLoading" class="fb__loading">
+                                    <div class="fb__loading__icon"></div>
+                                </li>
+        
+                                {* empty *}
+                                <li id="devQnaEmpty" class="fb__empty">
+                                    <p class="fb__empty__text">{=trans('등록된 상품문의가 없습니다.')}</p>
+                                </li>
+        
+                                {* list *}
+                                <li id="devQnaDetail" class="js__qna__wrapper">
+                                    <div class="goodsInquiry__list__row goodsInquiry__list__preview inquiry js__qna__title devQnaDetailCover tab-qna__row">
+                                        <div class="cols type">{[div_name]}</div>
+                                        <div class="cols status">
+                                            <p class="{[#if isResponse]}complete{[/if]}">
+                                                {[#if isResponse]}
+                                                    {=trans('답변완료')}
+                                                {[else]}
+                                                    {=trans('답변대기')}
+                                                {[/if]}
+                                            </p>
+                                        </div>
+                                        <div class="cols tit js__qna__question">
+                                            <p class="tit-txt {[#if isHidden]}private {[#if isSameUser]}{[else]}devNotSameUser{[/if]}{[/if]}">
+                                                {[#if isHidden]} 
+                                                    {[#if isSameUser]}
+                                                        {[bbs_subject]}
+                                                    {[else]}
+                                                        {=trans('비공개 문의입니다.')}
+                                                    {[/if]} 
+                                                {[else]}
+                                                    {[bbs_subject]}
+                                                {[/if]}
+                                            </p>
+                                        </div>
+                                        <div class="cols user">{[bbs_id]}</div>
+                                        <div class="cols date">{[regdate]}</div>
+                                    </div>
+        
+                                    <div class="goodsInquiry__list__view js__qna__answer" id="devQnaDetailContents">
+                                        <!-- 문의 상세내용 -->
+                                        <p class="goodsInquiry__list__view__question" id="devQnaQuestion">{[{\bbs_contents}]}</p>
+        
+                                        <!-- 어드민 답변 (답변없을시 해당영역 아예 삭제로 처리) -->
+                                        <div class="goodsInquiry__list__view__answer" id="devQnaResponse">
+                                            <p class="answer">{[{\cmt_contents}]}</p>
+
+                                            <div class="info">
+                                                {[cmt_name]} <span>{[regdate]}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        {:}
+                            <div class="fb__empty" id="devAllQnaEmpty">
+                                <p class="fb__empty__text">{=trans('등록된 상품문의가 없습니다.')}</p>
+                            </div>
+                        {/}
+        
+                        <div class="wrap-pagination" id="devQnaPageWrap">
+                            <!-- <button class="first">first</button>
+                            <button class="prev">prev</button>
+                            <a class="on" href="javascript:void(0)">1</a>
+                            <button class="next">first</button>
+                            <button class="last">prev</button> -->
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 교환/반품 안내 -->
+                <div class="detail__cont goodsExchange" id="devTabExchange">
+                    <h3 class="fb__title--hidden">{=trans('교환/반품 안내')}</h3>
+        
+                    <figure class="goodsExchange__inner">
+                        <img src="" class="goodsExchange__image">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 플로팅 금액 -->
+        <section class="detail__aside goods-option option-area" id="devSildeMinicartArea" data-pid="{pid}">
+            <div class="detail__aside__top">
+                <p class="detail__aside__title">{=pname}</p>
+                <p class="detail__aside__title devOptionHeadline">{=trans('옵션선택')}</p>
+
+                <!-- when has only 1 option -->
+                <div id="devSildeLonelyOption">
+                    <!--{'<script id="devSildeLonelyOptionName" type="text/x-handlebars-template">'}-->
+                    <span class="option__name">
+                        <p>{[option_name]}</p>
+                    </span>
+                    <!--{'</script>'}-->
+                </div>
+
+                <!-- option select -->
+                <div id="devSildeMinicartOptions"></div>
+
+                <!-- add option select -->
+                <div id="devSlideMinicartAddOption" class="hidden">
+                    <p class="detail__aside__title">{=trans('추가구성 상품')}</p>
+                </div>
+
+                <!-- choosed option -->
+                <div id="devSlideMinicartSelected">
+                    <!--{'<script id="devSlideOptionBox" type="text/x-handlebars-template">'}-->
+                    <div class="detail__aside__option-box devSlideOptionBox" devOptionKind="{[option_kind]}" devOptid="{[option_id]}" devUnit="{[option_dcprice]}" devStock="{[option_stock]}">
+                        <p class="detail__aside__option-tit detail__aside__title">{[option_prefix]}{[option_div]}</p>
+
+                        <div class="detail__aside__option-btns option-btn control">
+                            <ul class="devControlCntBox">
+                                <!-- option-up-down 클래스 삭제 -->
+                                <li class="devCntMinus detail__aside__option-btns--minus">
+                                    <button class="down">-</button>
+                                </li>
+
+                                <li class="detail__aside__option-btns--count">
+                                    <input type="text" value="{[allowBasicCnt]}" class="devMinicartPrdCnt">
+                                </li>
+
+                                <li class="devCntPlus detail__aside__option-btns--plus">
+                                    <button class="up">+</button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="detail__aside__option-price price">
+                            <em class="devMinicartEachPrice">{[eachPrice]}</em>{=trans('원')}
+                        </div>
+
+                        <button class="detail__aside__option-del btn-option-del devMinicartDelete"></button>
+                    </div>
+                    <!--{'</script>'}-->
+                </div>
+            </div>
+
+            <div class="detail__aside__bottom">
+                <div class="total-price">
+                    <span class="total-price__txt">{=trans('총 상품금액')}</span>
+                    <span class="total-price__price"><em id="devSildeMinicartTotal">0</em>{=trans('원')}</span>
+                </div>
+
+                <div class="detail__aside__btns">
+                    {? status == 'sale'}
+                        <button class="detail__aside__btns--buy  devSlideOrderDirect">{=trans('바로구매')}</button>
+                        <button class="detail__aside__btns--cart devSlideAddCart">{=trans('장바구니')}</button>
+                    {:}
+                        <button class="detail__aside__btns--soldout btn-soldout" disabled>{=trans('상품이 품절되었습니다.')}</button>
+                    {/}
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 카테고리 인기상품 -->
+    <section class="fb__related__products popular">
+        <div class="popular js__popular__slider">
+            <p class="related__title">{=trans('카테고리 인기상품')}</p>
+            
+            {? ranking}
+                <!-- 인기상품 있는 경우 -->
+                <div class="popular__slider swiper-container">
+                    <ul class="fb__items listType5 swiper-wrapper">
+                        {@ ranking}
+                        <li class="item__box swiper-slide">
+                            <a href="/shop/goodsView/{.id}" class="item__link">
+    
+                                <figure class="item__thumb">
+                                    <img src="{.image_src}" alt="{.pname}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
+                                    <button class="item__wish {? .alreadyWish}on{/}" data-devwishbtn="{.id}">{=trans('찜버튼')}</button>
+                                    <span class="ranking__badge">{.index_ + 1}</span>
+                                </figure>
+                
+                                <div class="item__info">
+                                    {? .brand_name}
+                                    <span class="item__brand">{.brand_name}</span>
+                                    {/}
+                                    <strong class="item__name">{.pname}</strong>
+                                    <div class="item__price">
+                                        {? .status == 'soldout'}
+                                            <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                        {:}
+                                            {? .discount_rate > 0}
+                                                <span class="item__price--perc"><em>{.discount_rate}</em>%</span>
+                                                <del class="item__price--strike"><em>{=g_price(.listprice)}</em>{=trans('원')}</del>
+                                            {/}
+
+                                            <p class="item__price--current"><em>{=g_price(.dcprice)}</em>{=trans('원')}</p>
+                                        {/}
+                                    </div>
+                                </div>
+
+                                {? .icons}
+                                    <div class="item__badge">
+                                        {@ .icons}
+                                            {? ..isText}
+                                                <span>{ ..content}</span>
+                                            {:}
+                                                { ..content}
+                                            {/}
+                                        {/}
+                                    </div>
+                                {/}
+                            </a>
+                        </li>
+                        {/}
+                    </ul>
+                </div>
+
+                <nav class="popular__control">
+                    <button href="#" class="popular__control__btn--prev js__popular__prev">{=trans('이전')}</button>
+                    <div class="popular__control__page js__popular__pagination"></div>
+                    <button href="#" class="popular__control__btn--next js__popular__next">{=trans('다음')}</button>
+                </nav>
+            {:}
+                <!-- 인기상품 없는 경우 -->
+                <div class="noSlider fb__empty">
+                    <p class="fb__empty__text">{=trans('카테고리 인기상품이 없습니다.')}</p>
+                </div>
+            {/}
+        </div>
+    </section>
+</section>

@@ -1,0 +1,30 @@
+<!--회원 수정 인트로 시작-->
+
+<section class="wrap-mypage fb__mypage" id='check_pass_form'>
+    <div class="fb__mypage__modify">
+        <form id="devRevalidatePasswordForm">
+            {? passReconfirmType == 'profile'}
+            <h2 class="fb__mypage__title">{=trans('회원정보 수정')}</h2>
+            {:}
+            <h2 class="fb__mypage__title">{=trans('회원탈퇴')}</h2>
+            {/}
+
+            <section class="wrap-profile-intro fb__pass-reconfirm">
+                <h3 class="fb__pass-reconfirm__tit">{=trans('비밀번호 재확인')}</h3>
+                <p class="fb__pass-reconfirm__subtit">{=trans('고객님의 개인정보 보호를 위해 비밀번호를 다시 입력해주시기 바랍니다.')}</p>
+
+                <dl class="password-area">
+                    <dt class="password-area__tit">{=trans('비밀번호')}</dt>
+                    <dd class="password-area__input-area">
+                        <input type="password" name="pass" value='' id="devUserPassword" title="{=trans('비밀번호')}">
+                    </dd>
+                </dl>
+            </section>
+
+            <div class="wrap-btn-area mat30">
+                <button type="submit" class="btn-default btn-point" id="devPasswordSubmit">{=trans('확인')}</button>
+            </div>
+        </form>
+    </div>
+</section>
+<!--회원 수정 인트로 끝-->

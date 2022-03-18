@@ -1,0 +1,174 @@
+<section class="fb__menusubmit">
+    <fieldset class="fb-filter">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#devList" class="fb__tap__menu--active">
+                        원산지 리스트
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devDiv">
+                        원산지 분류
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <section class="fb-filter" id="devList">
+        <form id="devListGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <fieldset>
+                <table>
+                    <caption>원산지 리스트</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="searchType" class="fb-filter__select">
+                                <option value="origin_name">원산지명</option>
+                                <option value="origin_code">관리코드</option>
+                            </select>
+                            <input name="searchText" type="text" class="fb-filter__text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>사용여부</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name='disp' id='disp_' value='' checked>
+                                    <span>전체</span>
+                                </label>
+                                {@ dispList}
+                                <label>
+                                    <input type="radio" name='disp' id='disp_{.key_}' value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>원산지 분류</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="od_ix" class="fb-filter__select">
+                                <option value="">전체</option>
+                                {@ divNameList}
+                                <option value="{.od_ix}">{.div_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    등록일
+                                </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day"
+                                       id="devBetweenDatePickerStart" name="startDate" value="" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day"
+                                   id="devBetweenDatePickerEnd" name="endDate" value="" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="fb-filter fb__tapcontent__inner" id="devDiv">
+        <form id="devDivForm">
+            <input type="hidden" name="od_ix" devReset>
+            <table>
+                <caption>원산지 분류</caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">원산지 분류명</span>
+                    </th>
+                    <td colspan="3" class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text" name="div_name" title="원산지명">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title"><span class="fb-filter__title--ne">노출순서</span></th>
+                    <td colspan="3" class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text" name="vieworder" title="노출순서">
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title"><span class="fb-filter__title--ne">사용유무</span></th>
+                    <td colspan="3" class="fb-filter__title-contents">
+                        <div class="fb-filter__radio">
+                            {@ dispDivList}
+                            <label>
+                                <input type="radio" name='disp' id='disp_{.key_}' value='{.key_}' checked>
+                                <span>{.value_}</span>
+                            </label>
+                            {/}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="fb-filter__btn">
+                <input type="submit" class="fb-filter__save" value="저장"/>
+                <input type="button" class="fb-filter__reset" id="devDivFormReset" value="초기화">
+            </div>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devListGridSection">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em
+                class="fb-maincontent-count" id="devListTotal">0</em>개)</span></h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+            <button class="fb-filter__btn-excel" id="devExcelDownload">
+                            <span>
+                                엑셀 다운로드
+                            </span>
+            </button>
+        </div>
+    </header>
+    <div id="devListGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<form id="devDivGridForm"></form>
+<section class="fb__menusubmit fb-filter" id="devDivGridSection">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">상품목록<span class="fb-maincontent-total">(총 <em
+                class="fb-maincontent-count" id="devDivTotal">0</em>개)</span></h3>
+    </header>
+    <div id="devDivGrid"></div>
+</section>

@@ -1,0 +1,93 @@
+{@ cart}
+<dl>
+    <dt class="fb__title--hidden">{=trans('셀러별 묶음')}</dt>
+
+    <dd class="package__seller__items">
+        {@ deliveryTemplateList}
+        <div class="fb__shopCommon__table">
+            <table>
+                <colgroup>
+                    <col width="*">
+                    <col width="140px">
+                    <col width="140px">
+                </colgroup>
+        
+                <thead>
+                    <tr>
+                        <th>{=trans('상품명/옵션')}</th>
+                        <th>{=trans('주문수량')}</th>
+                        <!-- <th>{=trans('상품금액')}</th> -->
+                        <!-- <th>{=trans('할인금액')}</th> -->
+                        <th>{=trans('결제금액')}</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    {@ productList}
+                        <tr>
+                            <td class="item-info">
+                                <a class="item-info__link" href="/shop/goodsView/{productList.id}">
+                                    <figure class="item-info__thumb">
+                                        <img data-src="{productList.image_src}">
+                                    </figure>
+
+                                    <div class="item-info__info">
+                                        <p class="item-info__name">
+                                            {? productList.brand_name}[{productList.brand_name}] {/}{productList.pname}
+                                        </p>
+                                        <p class="item-info__option">{productList.options_text}</p>
+                                    </div>
+                                </a>
+                            </td>
+
+                            <td>
+                                <em>{productList.pcount}</em>{=trans('개')}
+                            </td>
+
+                            <!-- 
+                                2021.05 버픽개선사항 (추후 사용할 가능성이 있어 주석처리)
+                                <td><em>{=g_price(productList.total_listprice)}</em>원</td>
+                                <td><em>-{=g_price(productList.discount_amount)}</em>원</td> 
+                            -->
+                            
+                            <td>
+                                <em>{=g_price(productList.total_dcprice)}</em>{=trans('원')}
+                            </td>
+                        </tr>
+                
+                        <!-- 추가옵션 -->
+                        {@ addOptionList}
+                        <tr class="additem-info">
+                            <td colspan="3" class="additem-info__cont">
+                                <div class="additem-info__wrapper">
+                                    <div class="additem-info__item">
+                                        <p class="additem-info__title">{=trans('추가구성 상품')}</p>
+
+                                        <!-- 상품옵션 -->
+                                        <p class="additem-info__option item-info__option">
+                                            <span>{addOptionList.opn_text}</span>
+                                            <span class="item-info__count"><em>{addOptionList.opn_count}</em>{=trans('개')}</span>
+                                        </p>
+                                    </div>
+
+                                    <!-- 추가구성상품 가격 -->
+                                    <div class="additem-info__price">
+                                        <span><em>{=g_price(addOptionList.total_dcprice)}</em>{=trans('원')}</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {/}
+                    {/}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="fb__shopCommon__shipping">
+            <span class="shipping__price">{=trans('배송비')} <em>{=g_price(deliveryTemplateList.delivery_price)}</em>{=trans('원')}</span>
+            <span class="shipping__detail">({deliveryTemplateList.delivery_text})</span>
+        </div>
+        {/}
+    </dd>
+</dl>
+{/}

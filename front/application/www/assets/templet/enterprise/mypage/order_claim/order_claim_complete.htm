@@ -1,0 +1,57 @@
+<main class="fb__order-claim__complete">
+    <h3 class="fb__title--hidden">{=trans('교환/반품신청 - 완료')}</h3>
+
+    <div class="fb__payComplete__message">
+        <span class="message__title">{=trans('주문상품의 {claimTypeName}신청이 완료되었습니다.')}</span>
+
+        <p class="message__desc">
+            <!--
+                @신규 #19236, 신규 #19237 : 삭제 요청으로 인한 주석
+                <span>고객님의 주문번호는 <em>{order.oid}</em>입니다.</span>
+            -->
+            <span class="message__tip">{=trans('{claimTypeName}처리 현황은 마이페이지 > 취소/교환/반품 조회에서 확인하실 수 있습니다.')}</span>
+        </p>
+    </div>
+
+    <!-- 추가결제 -->
+    <!-- @todo 개발: 추가결제 관련 부분입니다. 현재 하드코딩입니다! 작업시 아래style="display:none"삭제해주세요 -->
+    <section class="fb__order-claim__addpay fb__shopCommon__section" style="display: none;">
+        <header class="section__header noAccordian">
+            <h3 class="section__title">{=trans('추가결제')}</h3>
+        </header>
+
+        <ul class="section__infoTable">
+            <!-- 결제금액 -->
+            <li class="infoTable__list payment__price">
+                <span class="infoTable__title">
+                    {=trans('{claimTypeName} 시 추가 배송비')}
+                </span>
+                <div class="infoTable__cont">
+                    <span>
+                        <em>2,500</em>{=trans('원')}
+                    </span>
+                </div>
+            </li>
+
+            <!-- 결제방식 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('결제방식')}
+                </span>
+                <div class="infoTable__cont">
+                    {=trans('즉시결제')}
+                </div>
+            </li>
+
+            <!-- 결제수단 -->
+            <li class="infoTable__list">
+                <span class="infoTable__title">
+                    {=trans('결제수단')}
+                </span>
+                <div class="infoTable__cont">
+                    {=trans('신용카드')}
+                </div>
+            </li>
+        </ul>
+    </section>
+</main>

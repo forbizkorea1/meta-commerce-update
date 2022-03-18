@@ -1,0 +1,275 @@
+<form id="devEventDetailForm">
+    <input type="hidden" name="event_ix" value="{event_ix}"/>
+    <input type="hidden" name="kind" value="{kind}"/>
+    <input type="hidden" name="orderBy" value="ec_ix"/>
+    <input type="hidden" name="orderByType" value="desc"/>
+    <input type="hidden" name="page" value="1" id="devPage"/>
+    <input type="hidden" name="max" value="20" id="devMax"/>
+    <input type="hidden" value="{use_comment}" id="devUseComment"/>
+</form>
+
+<main class="fb__event-detail">
+    <h2 class="fb__title--hidden">{=trans('기획전/이벤트 디테일 페이지')}</h2>
+
+    <!-- 상단 헤더 -->
+    <header class="fb__event-detail__header">
+        <!-- 왼쪽 영역 : 이벤트 정보 -->
+        <ul class="fb__event-detail__info">
+            <li class="fb__event-detail__title">{event_title}</li>
+            <li class="fb__event-detail__subtitle">{manage_title}</li>
+        </ul>
+
+        <!-- 오른쪽 영역 : 진행기간, 공유 -->
+        <div class="fb__event-detail__date">
+            <div class="date__area">
+                <span class="date__form">
+                    <em>{startDate}</em> ~ <em>{endDate}</em>
+                </span>
+
+                {? onOff == 'Y'}
+                    <!-- case 01. 이벤트 진행중 -->
+                    <span class="date__form ing">{=trans('진행 중')}</span>
+                {:}
+                    <!-- case 02. 이벤트 종료 -->
+                    <span class="date__form end">{=trans('종료')}</span>
+                {/}
+            </div>
+
+            {? layout.isSnsShare == 'Y'}
+            <button type="button" class="fb__event-detail__share js__sns__btn--open">{=trans('공유하기')}</button>
+
+            <div class="fb__sns__wrapper">
+                <div class="fb__sns__header">
+                    <span class="fb__sns__title">{=trans('공유하기')}</span>
+                    <button class="fb__sns__close js__sns__btn--close">{=trans('닫기')}</button>
+                </div>
+
+                <div class="fb__sns__content">
+                    <ul class="fb__sns__box">
+                        <li class="fb__sns__list">
+                            <button type="button" class="fb__sns__btn fb__sns__btn--kakao" devSnsShare="kakaotalk"></button>
+                        </li>
+                        <li class="fb__sns__list">
+                            <button type="button" class="fb__sns__btn fb__sns__btn--facebook" devsnsshare="facebook"></button>
+                        </li>
+                        <li class="fb__sns__list">
+                            <button type="button" class="fb__sns__btn fb__sns__btn--url" devsnsshare="url-copy"></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {/}
+        </div>
+    </header>
+
+    <!-- Todo 프론트 : CSS 작업 필요 -->
+    <!-- 당첨자 발표 -->
+    {? kind == 'E' && event_announce_yn == 'Y'}
+        <section class="fb__event-detail__winner">
+            <img src="{event_announce_img}" />
+        </section>
+    {/}
+
+    {? kind == 'P' || kind == 'E'}
+        <!-- 이벤트 배너 -->
+        <section class="fb__event-detail__banner">
+            <h3 class="fb__event-detail__banner__title">{=trans('이벤트 상세 배너이미지')}</h3>
+
+            {? event_bannerImg}
+                <figure class="fb__event-detail__banner__thumb">
+                    <img src="{event_bannerImg}" alt="{event_title}">
+                </figure>
+            {/}
+            <p class="fb__event-detail__banner__text">{event_text}</p>
+        </section>
+
+        <!-- 상품박스 -->
+        {? !empty(eventGroupGoodsData)}
+        <section class="fb__event-detail__goodsbox">
+            <!-- 상품 탭 -->
+            <div class="goodsbox__tab">
+                <ul class="goodsbox__tab__box" id="stickytab">
+                    {@ eventGroupGoodsData}
+                    <li class="goodsbox__tab__list {?.index_ == 0}on{/}">
+                        <a href="#{.epg_ix}" listName="{.epg_ix}">{? kind == 'E'}{.event_name}{:}{.group_name}{/}</a>
+                    </li>
+                    {/}
+                    {? remainCnt > 0}
+                        {@ range(1,remainCnt)}
+                            <li class="goodsbox__tab__list"></li>
+                        {/}
+                    {/}
+                </ul>
+            </div>
+
+            <!-- 상품 루프 -->
+            <div class="goodsbox__sec">
+                {@ eventGroupGoodsData}
+                <div class="goodsbox__contents" id="{.epg_ix}">
+                    <h3 class="goodsbox__contents__title">
+                        <span>{.event_name}</span>
+                    </h3>
+                    
+                    <!-- 아이템 박스 -->
+                    <ul class="fb__items listType4">
+                        {@ goods}
+                            <!-- 상품 -->
+                            <li class="item__box">
+                                <!-- 상품링크 -->
+                                <a href="/shop/goodsView/{goods.id}" class="item__link" data-fatid="{goods.id}">
+                                    
+                                    <!-- 상품 상단 -->
+                                    <figure class="item__thumb">
+                                        <!-- 상품 이미지 -->
+                                        <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{goods.image_src}" alt="{goods.pname}" title="{goods.pname}">
+                                        <button type="button" class="item__wish {? alreadyWish}on{/}" data-devWishBtn="{id}">{=trans('찜버튼')}</button>
+                                    </figure>
+
+                                    <!-- 아이템 정보 -->
+                                    <div class="item__info">
+                                        <!-- 브랜드 -->
+                                        {? goods.brand_name}
+                                        <span class="item__brand">{goods.brand_name}</span>
+                                        {/}
+                                        
+                                        <!-- 상품명 -->
+                                        <strong class="item__name">{goods.pname}</strong>
+
+                                        <!-- 상품가격 -->
+                                        <div class="item__price">
+                                            <!-- 할인인경우 -->
+                                            {? goods.discount_rate > 0}
+                                                <!-- 할인율 -->
+                                                <span class="item__price--perc"><em>{goods.discount_rate}</em>%</span>
+                                                <!-- 원가 -->
+                                                <del class="item__price--strike"><em>{=g_price(goods.listprice)}</em>{=trans('원')}</del>
+                                            {/}
+                                            <!-- 판매가 -->
+                                            <p class="item__price--current"><em>{=g_price(goods.dcprice)}</em>{=trans('원')}</p>
+                                        </div>
+
+                                        <!-- 상품 뱃지 -->
+                                        {? ..icons}
+                                            <div class="item__badge">
+                                                {@ ..icons}
+                                                    {? ...isText}
+                                                        <span>{ ...content}</span>
+                                                    {:}
+                                                        { ...content}
+                                                    {/}
+                                                {/}
+                                            </div>
+                                        {/}
+                                    </div> 
+                                </a>
+                            </li>
+                        {/}
+                    </ul>
+                </div>
+                {/}
+            </div>
+        </section>
+        {/}
+    {/}
+
+    <!-- 댓글영역 -->
+    {? use_comment == 1}
+        <section class="fb__event-detail__comment">
+            <h3 class="fb__title--hidden">{=trans('이벤트 상세 댓글')}</h3>
+
+            <div class="comment__write">
+                {? onOff == 'Y'}
+                <form class="comment__write__form js__textcount__area" id="eventDetailInputComment">
+                    <input type="hidden" name="" value="">
+                    <textarea class="comment__write__area js__write__textArea js__textCount__textarea"
+                              id="devInputComment" cols="30" rows="10" title="{=trans('댓글')}"
+                              placeholder="{=trans('댓글을 입력해주세요.')}"
+                              maxlength="100" disabled></textarea>
+
+                    <!-- 로그인 전일 때 -->
+                    <span class="comment__write__login js__form__login">
+                        <a href="/member/login">{=trans('로그인 하기')}</a>
+                    </span>
+
+                    <div class="comment__write__option">
+                        <span class="comment__write__byte">
+                            <em class="js__textCount__current">0</em>/<span class="js__textCount__maxLength">100</span>{=trans('자')}
+                        </span>
+
+                        <label class="comment__write__button">
+                            <input type="submit" id="devBtn" value="{=trans('등록')}">
+                            <span>{=trans('등록')}</span>
+                        </label>
+                    </div>
+                </form>
+                {/}
+            </div>
+
+            <div class="comment__list">
+                <p class="comment__list__total">
+                    {=trans('댓글 <em id="devCommentCount">0</em>개')}
+                </p>
+
+                <div id="devEventDetailContent">
+                    <!--{* loading *}-->
+                    <!--{'<script id="devEventDetailLoading" type="text/x-handlebars-template">'}-->
+                    <div class="fb__loading borderBottom">
+                        <div class="fb__loading__icon"></div>
+                    </div>
+                    <!--{'</script>'}-->
+
+                    <!--{* empty *}-->
+                    <!--{'<script id="devEventDetailListEmpty" type="text/x-handlebars-template">'}-->
+                    <div class="fb__empty borderBottom">
+                        <p class="fb__empty__text">{=trans('등록된 댓글이 없습니다.')}</p>
+                    </div>
+                    <!--{'</script>'}-->
+
+                    <!--{* list *}-->
+                    <!--{'<script id="devEventDetailList" type="text/x-handlebars-template">'}-->
+                    <div class="comment__list__inner js__comment">
+                        <div class="comment__list__cont">
+                            <p class="comment__list__text js__comment__text">{[{\comment}]}</p>
+
+                            <div class="comment__list__info">
+                                <span class="comment__list__name">{[id]}</span>
+
+                                <span class="comment__list__name">
+                                    <em>{[comment_regdate]}</em>
+                                </span>
+                            </div>
+
+                            {[#if idChk]}
+                                {[#if isModify]}
+                                <button class="comment__list__edit-btn js__edit__btn">{=trans('수정')}</button>
+                                {[/if]}
+                            {[/if]}
+                        </div>
+
+                        <div class="comment__list__edit-area js__edit__wrapper">
+
+                            <form class="comment__write__form js__textcount__area">
+                                <textarea class="comment__write__area js__edit__textArea js__textCount__textarea"
+                                          name="comment" cols="30" rows="10" maxlength="100"></textarea>
+
+                                <div class="comment__write__option">
+                                    <span class="comment__write__byte">
+                                        <em class="js__textCount__current">0</em>/<span class="js__textCount__maxLength">100</span>{=trans('자')}
+                                    </span>
+
+                                    <div class="comment__write__button">
+                                        <button type="button" class="comment__write__button push js__edit__cancel">{=trans('취소')}</button>
+                                        <button type="button" class="comment__write__button devCommentModifyBtn" data-ec_ix="{[ec_ix]}">{=trans('등록')}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--{'</script>'}-->
+                </div>
+            </div>
+            
+            <div id="devPageWrap"></div>
+        </section>
+    {/}
+</main>

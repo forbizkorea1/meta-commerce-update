@@ -1,0 +1,204 @@
+<section class="fb__menusubmit">
+    <section class="fb-filter">
+        <form id="devGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <fieldset>
+                <legend>
+                    푸시 발송 (회원)
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원그룹
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ groupList}
+                                <label>
+                                    <input type="checkbox" name="gp_ix[]" value="{.gp_ix}"/>
+                                    <span>{.gp_name}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                이벤트/혜택 수신여부
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ isAllowableList}
+                                <label>
+                                    <input type="checkbox" name="is_allowable[]" value="{.key_}"/>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                날짜
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="">
+                                <select class="fb-filter__select" name="searchDateType">
+                                    <option value='date'>가입일자</option>
+                                    <option value='last'>최근방문일</option>
+                                </select>
+                                <input type="text" class="fb-filter__text fb-filter__input__day"
+                                       id="devBetweenDatePickerStart" name="startDate" value="" readonly>
+                                <span class="fb-filter__day__line">~</span>
+                                <input type="text" class="fb-filter__text fb-filter__input__day"
+                                       id="devBetweenDatePickerEnd" name="endDate" value="" readonly>
+                                <span id="devQuickBetweenDate"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count"
+                                                                                     id="devTotal">0</em>개)</span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<div class="fb__bottom">
+    <article class="fb__bottom-fixemenu " id="fb_bottom-nav">
+        <section class="fb__fixemenu">
+            <header class="fb__fixemenu-header">
+                <h2 class="fb__fixemenu-title">일괄 발송</h2>
+                <p class="fb__fixemenu-summary">
+                    목록에서 선택한 항목 또는 검색 결과의 속성을 일괄 발송합니다.
+                </p>
+                <a href="#" class="fb__fixemenu-btn">
+                    <span>열기</span>
+                </a>
+            </header>
+            <div class="fb__fixemenu__contents">
+                <section class="fb-filter">
+                    <form method="post" id="devModifyForm">
+                        <table>
+                            <caption>푸시 보내기</caption>
+                            <colgroup>
+                                <col width="14%">
+                                <col width="35%">
+                                <col width="14%">
+                                <col width="*">
+                            </colgroup>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">발송구분</span>
+                                </th>
+                                <td colspan="3" class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="send_type" value="D" checked/>
+                                        <span>즉시 발송</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="send_type" value="R"/>
+                                        <span>예약 발송</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="devSendTypeReservationContents" style="display:none;">
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">예약시간</span>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="fb-filter__text fb-filter__input__day--time"
+                                           id="devReservationDate" name="reservationDate" value="{reservationDate}"
+                                           readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">관리제목</span>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="fb-filter__text fb-filter__text--50" name="title"
+                                           title="관리 제목"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">푸시제목</span><br>
+                                    <span class="fb-filter__title--ne" style="color:red">최대 23자 내로 입력해주세요.</span>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="fb-filter__text fb-filter__text--50" name="push_title"
+                                           title="푸시제목" id="devPushTitle"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">푸시내용</span><br>
+                                    <span class="fb-filter__title--ne" style="color:red">최대 26자 내로 입력해주세요.</span>
+                                </th>
+                                <td colspan="3">
+                                    <textarea name="contents" class="fb-filter__textarea" title="푸시내용" type="text" id="devPushContent"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span>푸시 이미지</span><br/><span style="color:red">(1024px * 512px)</span>
+                                </th>
+                                <td colspan="3">
+                                    <div class="devPushFileupload" data-img-src=""></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="fb-filter__title">
+                                    <span class="fb-filter__title--ne">푸시링크</span>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="fb-filter__text fb-filter__text--100" name="link"
+                                           title="푸시링크"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="fb-filter__btn">
+                            <button type="button" class="fb-filter__search" id="devModifyBtn">일괄발송</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </article>
+</div>

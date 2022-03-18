@@ -1,0 +1,97 @@
+<section class="fb__join-member">
+
+    <!-- #기존 내용 -->
+    <!--<h2 class="fb__join-member__title">{=trans('휴면 계정 해제123')}</h2>-->
+
+
+    <!-- @추가한 내용 -->
+    <div class="title-area">
+        <h2 class="fb__join-member__title">{=trans('휴면 계정 해제')}</h2>
+
+        <span class="breadcrumb">
+            <span class="breadcrumb__num">1<em class="breadcrumb__all">/3</em></span>
+            <span>{=trans('본인인증 및 약관동의')}</span>
+        </span>
+    </div>
+
+    <!-- @추가한 내용 -->
+    <section class="sect">
+        <h3 class="sect__title">{=trans('본인 인증')}</h3>
+        <div class="sect__cont">
+            <!--{? useCertify == 'Y'}-->
+            <div class="certify-box">
+
+                <!-- 인증완료되면 클래스 추가 : success -->
+                <a href="#" class="certify-box__btn" id="devCertifyButton">
+                    <span class="certify-box__title" id="devCertifyButtonTxt">{=trans('휴대폰 인증')}</span>
+                </a>
+                <p class="certify-box__desc">· {=trans('휴면 계정 해제를 위해 본인인증을 진행해 주시기 바랍니다.')}</p>
+            </div>
+            <!--{/}-->
+        </div>
+    </section>
+
+    <section class="sect">
+        <h3 class="sect__title">{=trans('약관 동의')}</h3>
+
+        <form id="devForm" class="agree-area">
+            <input type="hidden" name="devCerti" id="devCerti" value="">
+            <div class="wrap-chk-all">
+                <div class="fb__checkbox">
+                    <label for="agree-all">
+                        <input type="checkbox" id="agree-all">
+                        <span class="agree-all">{=trans('약관 전체 동의')}</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="wrap-terms accordion">
+                <div class="wrap-terms-check wrap-terms__title">
+                    <label class="fb__checkbox">
+                        <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
+                        <span>[{=trans('필수')}] {=trans('구매 이용 약관')}</span>
+                    </label>
+                    <span class="view-more"></span>
+                </div>
+                <div class="wrap-terms__cont">
+                    {policyData['use']['contents']}
+                </div>
+            </div>
+
+            <div class="wrap-terms accordion">
+                <div class="wrap-terms-check wrap-terms__title">
+                    <label class="fb__checkbox">
+                        <input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" value="Y" class="devRequired">
+                        <span>[{=trans('필수')}] {=trans('개인정보 수집 및 이용에 대한 안내')}</span>
+                    </label>
+                    <span class="view-more"></span>
+                </div>
+                <div class="wrap-terms__cont">
+                    {policyData['collection']['contents']}
+                </div>
+            </div>
+
+            <div class="wrap-terms accordion">
+                <div class="wrap-terms-check wrap-terms__title">
+                    <label class="fb__checkbox">
+                        <input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" value="Y" class="devRequired">
+                        <span>[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</span>
+                    </label>
+                    <span class="view-more"></span>
+                </div>
+                <div class="wrap-terms__cont">
+                    {policyData['consign']['contents']}
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+    <!--<div class="fb__authentication__cancel">-->
+        <!--<button id="devCancelButton">{=trans('취소')}</button>-->
+    <!--</div>-->
+    <div class="fb__join-agreement__submit">
+        <button type="button" class="btn-lg btn-point-line" id="devCancelButton">{=trans('취소')}</button>
+        <button type="button" class="btn-lg fb__btn-point" id="devSubmitButton">{=trans('다음')}</button>
+    </div>
+</section>

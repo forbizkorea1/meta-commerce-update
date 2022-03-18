@@ -1,0 +1,186 @@
+<div class="fb__store-main">
+    <div class="fb__devide fb__devide--4 fb__store-main-info">
+        <div class="main-info">
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-info__order">
+                        <h2>
+                            주문관리
+                        </h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        입금확인
+                                    </h3>
+                                    <span>{orderState[0]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        배송준비중
+                                    </h3>
+                                    <span>{orderState[1]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        배송완료
+                                    </h3>
+                                    <span>{orderState[2]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-info__chack">
+                        <h2>클레임 관리</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        취소요청
+                                    </h3>
+                                    <span>{claimState[0]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        반품요청
+                                    </h3>
+                                    <span>{claimState[1]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        교환요청
+                                    </h3>
+                                    <span>{claimState[2]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-info__goods">
+                        <h2>상품현황</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        판매중
+                                    </h3>
+                                    <span>{productState[0]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        일시품절
+                                    </h3>
+                                    <span>{productState[1]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        판매종료
+                                    </h3>
+                                    <span>{productState[2]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-info__agree">
+                        <h2>상품 승인관리</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        상품 승인대기/거부
+                                    </h3>
+                                    <span>{sellerState[0]}</span> / <span>{sellerState[1]}</span>건
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="#">
+                                    <h3>
+                                        상품 수정대기/거부
+                                    </h3>
+                                    <span>{sellerState[2]}</span> / <span>{sellerState[3]}</span>건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="fb__devide fb__devide--3-2 fb__store-main-state">
+        <div class="main-state">
+            <section class="fb__devide__box ">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header main-state__graph">
+                        <h2>매출 그래프</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <canvas id="devChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner fb__devide__inner-site">
+                    <header class="fb__devide__header main-state__site">
+                        <h2>문의 현황</h2>
+                    </header>
+                    <div class="fb__devide__content fb__store-main-info clearfix">
+                        <ul class="main-info__bbs floatNo" style="width: 100%;">
+                            <li class="main-info__list">
+                                <a href="/cscenter/listProductQna">
+                                    <h3>
+                                        상품문의 대기 건
+                                    </h3>
+                                    <span>{qnaState[0]}</span> 명
+                                </a>
+                            </li>
+                            <li class="main-info__list">
+                                <a href="/cscenter/listUseAfter">
+                                    <h3>
+                                        상품리뷰 대기 건
+                                    </h3>
+                                    <span>{qnaState[1]}</span> 건
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!--{'<script>'}-->
+var dailySales = {=json_encode(dailySales, JSON_NUMERIC_CHECK)};
+<!--{'</script>'}-->
+
+{#detailModal}

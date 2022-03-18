@@ -1,0 +1,157 @@
+<div>
+    {@ firstCartDeliveryTemplateData}
+        <ul class="fb__shopCommon__item">
+            {@ productList}
+                <!-- 상품 -->
+                <li class="item-info">
+                    <div class="item-info__wrapper">
+                        <figure class="item-info__thumb">
+                            <img data-src="{productList.image_src}">
+                        </figure>
+    
+                        <div class="item-info__info">
+                            <!-- 상품명 -->
+                            <strong class="item-info__name">{? productList.brand_name}[{productList.brand_name}] {/}{productList.pname}</strong>
+                            
+                            <!-- 상품옵션 -->
+                            <p class="item-info__option">
+                                <span>{productList.options_text}</span>
+                                <span class="item-info__count"><em>{productList.pcount}</em>{=trans('개')}</span>
+                            </p>
+    
+                            <!-- 상품가격 -->
+                            <div class="item-info__price">
+                                <span class="item-info__price--current">
+                                    <em>{=g_price(productList.total_dcprice)}</em>{=trans('원')}
+                                </span>
+                            </div>
+                        </div>
+    
+                         <!-- 
+                            [추가구성상품]
+                            ** 추후 만약 추가구성상품을 일반상품과 동일하게 해달라고하면 위에 일반상품 템플릿 가져가서 데이터만 입히면 됨.
+                        -->
+                        {@ addOptionList}
+                        <dl class="additem-info">
+                            <dt class="additem-info__title">{=trans('추가구성 상품')}</dt>
+    
+                            <dd class="additem-info__info">
+                                <!-- 상품옵션 -->
+                                <p class="additem-info__option item-info__option">
+                                    <span>{addOptionList.opn_text}</span>
+                                    <span class="item-info__count"><em>{addOptionList.opn_count}</em>{=trans('개')}</span>
+                                </p>
+                                
+                                <div class="additem-info__cont">
+                                    <p class="additem-info__price"><em>{=g_price(addOptionList.total_dcprice)}</em>{=trans('원')}</p>
+                                </div>
+                            </dd>
+                        </dl>
+                        {/}
+                    </div>
+                </li>
+            {/}
+        </ul>
+    
+        <div class="fb__shopCommon__summary">
+            <span class="summary__text">{=trans('배송비')} <em >{=g_price(firstCartDeliveryTemplateData.delivery_price)}</em>{=trans('원')}</span>
+    
+            <!-- 배송비 상세 툴팁 -->
+            <div class="summary__tooltip">
+                <!-- 툴팁 아이콘 -->
+                <mark class="tooltip__icon js__layer__open" data-layer="shippingTooltip{= .index_}">{=trans('배송비 툴팁 아이콘')}</mark>
+    
+                <!-- 툴팁 레이어 -->
+                <article id="shippingTooltip{= .index_}" class="tooltip__layer fb__infolayer js__layer">
+                    <header class="fb__infolayer__top">
+                        <h4 class="fb__infolayer__title">{=trans('배송비')}</h4>
+                        <button type="button" class="fb__infolayer__close js__layer__close">{=trans('닫기버튼')}</button>
+                    </header>
+    
+                    <div class="fb__infolayer__cont">{firstCartDeliveryTemplateData.delivery_text}</div>
+                </article>
+            </div>
+        </div>
+    {/}
+    
+    {? moreCartDeliveryTemplateData}
+    <div class="more">
+        {@ moreCartDeliveryTemplateData}
+            <ul class="fb__shopCommon__item">
+                {@ productList}
+                <!-- 상품 -->
+                <li class="item-info">
+                    <div class="item-info__wrapper">
+                        <figure class="item-info__thumb">
+                            <img data-src="{productList.image_src}">
+                        </figure>
+    
+                        <div class="item-info__info">
+                            <!-- 상품명 -->
+                            <strong class="item-info__name">{? productList.brand_name}[{productList.brand_name}] {/}{productList.pname}</strong>
+                            
+                            <!-- 상품옵션 -->
+                            <p class="item-info__option">
+                                <span>{productList.options_text}</span>
+                                <span class="item-info__count"><em>{productList.pcount}</em>{=trans('개')}</span>
+                            </p>
+    
+                            <!-- 상품가격 -->
+                            <div class="item-info__price">
+                                <del class="item-info__price--strike">
+                                    <em>{=g_price(productList.total_listprice)}</em>{=trans('원')}
+                                </del>
+                                <span class="item-info__price--current">
+                                    <em>{=g_price(productList.total_dcprice)}</em>{=trans('원')}
+                                </span>
+                            </div>
+                        </div>
+    
+                        <!-- 
+                            [추가구성상품]
+                            ** 추후 만약 추가구성상품을 일반상품과 동일하게 해달라고하면 위에 일반상품 템플릿 가져가서 데이터만 입히면 됨.
+                        -->
+                        {@ addOptionList}
+                        <dl class="additem-info">
+                            <dt class="additem-info__title">{=trans('추가구성 상품')}</dt>
+    
+                            <dd class="additem-info__info">
+                                <p class="additem-info__option item-info__option">
+                                    <span>{addOptionList.opn_text}</span>
+                                    <span class="item-info__count"><em>{addOptionList.opn_count}</em>{=trans('개')}</span>
+                                </p>
+
+                                <div class="additem-info__cont">
+                                    <p class="additem-info__price"><em>{=g_price(addOptionList.total_dcprice)}</em>{=trans('원')}</p>
+                                </div>
+                            </dd>
+                        </dl>
+                        {/}
+                    </div>
+                </li>
+                {/}
+            </ul>
+
+            <div class="fb__shopCommon__summary">
+                <span class="summary__text">{=trans('배송비')} <em>{=g_price(moreCartDeliveryTemplateData.delivery_price)}</em>{=trans('원')}</span>
+        
+                <!-- 배송비 상세 툴팁 -->
+                <div class="summary__tooltip">
+                    <!-- 툴팁 아이콘 -->
+                    <mark class="tooltip__icon js__layer__open" data-layer="shippingTooltip{= .index_}">{=trans('배송비 툴팁 아이콘')}</mark>
+        
+                    <!-- 툴팁 레이어 -->
+                    <article id="shippingTooltip{= .index_}" class="tooltip__layer fb__infolayer js__layer">
+                        <header class="fb__infolayer__top">
+                            <h4 class="fb__infolayer__title">{=trans('배송비')}</h4>
+                            <button type="button" class="fb__infolayer__close js__layer__close">{=trans('닫기버튼')}</button>
+                        </header>
+        
+                        <div class="fb__infolayer__cont">{moreCartDeliveryTemplateData.delivery_text}</div>
+                    </article>
+                </div>
+            </div>
+        {/}
+    </div>
+    {/}
+</div>

@@ -1,0 +1,60 @@
+<div class="fb__tapcontent">
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devShopInfo">
+        <form id="devShopInfoForm" method="POST">
+            <input type="hidden" name="tabType" value="shop">
+            <input type="hidden" name="company_id" value="{company_id}">
+
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            상점이름
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="shop_name"  value="{config.shop_name}">
+                        </div>
+                    </td>
+                </tr>               
+                <tr style="display: none">
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            배송마감 시간
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__radio">
+                            <label for="delivery_deadline_n">
+                                <input type="radio" name="delivery_deadline_yn" id="delivery_deadline_n" value="N" {? config.delivery_deadline_yn == 'N' || !config.delivery_deadline_yn } checked {/} >
+                                       <span>미사용</span>
+                            </label>
+                            <label for="delivery_deadline_y">
+                                <input type="radio" name="delivery_deadline_yn" id="delivery_deadline_y" value="Y" {? config.delivery_deadline_yn == 'Y' } checked {/} >
+                                       <span>사용</span>
+                            </label>
+                        </div>
+                        <div class="fb-filter__title-contents" id="devDDT">
+                            <select class="fb-filter__select" name="delivery_deadline_hour"  item="{config.delivery_deadline_hour}"><option value="0">0</option><option value="1" selected="">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option>
+                            </select>
+                            <span class="" style="display: block; float: left; vertical-align: middle;">시</span>
+                            <select class="fb-filter__select" name="delivery_deadline_minute" item="{config.delivery_deadline_minute}"><option value="0">0</option><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20" selected="">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55">55</option>
+                            </select>
+                            <span class=""  style="display: block; float: left; vertical-align: middle;">분</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="fb-filter__btn">
+                <input type="button" class="fb-filter__save devSave" value="저장" />
+            </div>
+        </form>
+    </section>
+</div>

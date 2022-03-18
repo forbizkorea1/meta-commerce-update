@@ -1,0 +1,286 @@
+<script>
+    window.onpageshow = function(event) {
+        if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+            window.location.reload();
+        }
+    };
+</script>
+
+<section class="fb__infoinput fb__shopCommon">
+    <h2 class="fb__title--hidden">{=trans('주문서 작성')}</h2>
+
+    <div class="wrap-infoinput" id="devPaymentContents">
+        <!-- 회원 / 비회원 구분 템플릿 -->
+        {* 회원 infoinput_member.htm, 비회원 infoinput_non_member.htm *} 
+        {#userTemplate}
+
+        <!-- 결제금액 -->
+        <details class="fb__shopCommon__section wrap-payment-price" open>
+            <summary class="section__header">
+                <h3 class="section__title">{=trans('결제금액')}</h3>
+            </summary>
+
+            <div class="payment-price">
+                <dl>
+                    <dt>{=trans('총 상품금액')}</dt>
+                    <dd>
+                        <em>{=g_price(cartSummary.product_listprice)}</em>{=trans('원')}
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>{=trans('총 할인금액')}</dt>
+                    <dd>
+                        <em devPrice="product_discount_amount">{=g_price(cartSummary.product_discount_amount * -1)}</em>{=trans('원')}
+                    </dd>
+                </dl>
+
+                {@ cartSummary.productDiscountList}
+                    <dl class="discount-price">
+                        <dt>{.title}</dt>
+                        <dd>
+                            <em>{=g_price(.discount_amount)}</em>{=trans('원')}
+                        </dd>
+                    </dl>
+                {/}
+
+                {? layoutCommon.isLogin}
+                    <dl class="discount-price">
+                        <dt>{=trans('쿠폰할인')}</dt>
+                        <dd>
+                            <em devPrice="use_cupon">0</em>{=trans('원')}
+                        </dd>
+                    </dl>
+
+                    <dl class="shipping-total">
+                        <dt>{=trans('{mileageName} 사용')}</dt>
+                        <dd>
+                            -<em devPrice="use_mileage">0</em>{mileageUnit}
+                        </dd>
+                    </dl>
+                {/}
+
+                <dl class="shipping-total">
+                    <dt>{=trans('총 배송비')}</dt>
+                    <dd>
+                        <em devPrice="total_delivery_price">{=g_price(cartSummary.total_delivery_price)}</em>{=trans('원')}
+                    </dd>
+                </dl>
+
+                <dl class="total-price">
+                    <dt>{=trans('총 결제 예정 금액')}</dt>
+                    <dd>
+                        <em devPrice="payment_price">{=g_price(cartSummary.payment_price)}</em>{=trans('원')}
+                    </dd>
+                </dl>
+                {? layoutCommon.isLogin}
+                <div class="mileage-save">{mileageName} <em devPrice="mileage">{=g_number_format(cartSummary.mileage)}</em> {=trans('적립 예정')}</div>
+                {/}
+            </div>
+        </details>
+
+        <!-- 결제수단 선택 -->
+        <details class="fb__shopCommon__section wrap-payment-mehtod" open>
+            <summary class="section__header">
+                <h3 class="section__title">{=trans('결제수단 선택')}</h3>
+            </summary>
+
+            <div class="payment-mehtod">
+                <ul class="payment-mehtod__box js__paymentTab">
+                    <li class="payment-mehtod__list on" devPaymentMethod="{c.ORDER_METHOD_CARD}">
+                        <a href="#">{=trans('신용카드 결제')}</a>
+                    </li>
+
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_ICHE}">
+                        <a href="#">{=trans('실시간 계좌이체')}</a>
+                    </li>
+
+                    {? sattle_module !== "ksnet"}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_VBANK}">
+                        <a href="#">{=trans('가상계좌 결제')}</a>
+                    </li>
+                    {:}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_PHONE}">
+                        <a href="#">{=trans('휴대폰 결제')}</a>
+                    </li>
+                    {/}
+
+                    {? false}
+                    {? add_sattle_module_naverpay_pg == 'Y'}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_NPAY}">
+                        <a href="#" class="nPay">NPAY</a>
+                    </li>
+                    {/}
+
+                    {? add_sattle_module_kakaopay == 'Y'}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_KAKAOPAY}">
+                        <a href="#" class="kakaoPay">{=trans('카카오페이')}</a>
+                    </li>
+                    {/}
+
+                    {? add_sattle_module_payco == 'Y'}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_PAYCO}">
+                        <a href="#" class="payco">PAYCO</a>
+                    </li>
+                    {/}
+
+                    {? add_sattle_module_toss == 'Y'}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_TOSS}">
+                        <a href="#">{=trans('토스')}</a>
+                    </li>
+                    {/}
+
+                    {? add_sattle_module_ssg == 'Y'}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_SSG}">
+                        <a href="#" class="ssg">SSG</a>
+                    </li>
+                    {/}
+                    {/}
+                    {? false} {* 추후 사용 예정 *}
+                    <li class="payment-mehtod__list" devPaymentMethod="{c.ORDER_METHOD_EXIMBAY}">
+                        <a href="#">EXIMBAY</a>
+                    </li>
+                    {/}
+                </ul>
+
+                <div class="payment-mehtod__notice show" devPaymentDescription="{c.ORDER_METHOD_CARD}">
+                    <p>{=trans('고객이 온라인 쇼핑몰에서 상품 및 서비스를 신용카드로 진행하는 결제 서비스입니다.')}</p>
+                    <p>{=trans('카드번호 유효기간 등의 신용정보는 안전하게 암호화되어 해당 신용카드사로 전달됩니다.')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_ICHE}">
+                    <p>{=trans('상품 및 서비스 대금을 고객이 입력한 본인의 계좌통장에서 실시간으로 출금지불하는 결제 수단입니다.')}</p>
+                    <p>{=trans('[마이페이지 > 환불계좌관리] 혹은 환불신청 시 입력한 환불계좌로 입금됩니다.')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_VBANK}">
+                    <p>{=trans('주문완료 후 {cancelAutoDay} 일 이내 입금완료 하셔야 상품이 발송됩니다.')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_BANK}">
+                    <p>{=trans('무통장 입금 안내문구')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_NPAY}">
+                    <p>{=trans('네이버페이 안내문구')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_KAKAOPAY}">
+                    <p>{=trans('카카오페이 안내문구')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_PAYCO}">
+                    <p>{=trans('페이코 안내문구')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_TOSS}">
+                    <p>{=trans('토스 안내문구')}</p>
+                </div>
+
+                <div class="payment-mehtod__notice" devPaymentDescription="{c.ORDER_METHOD_EXIMBAY}">
+                    <p>{=trans('EXIMBAY 안내문구')}</p>
+                </div>
+            </div>
+        </details>            
+
+        <!-- 이용약관동의 -->
+        <details class="fb__shopCommon__section wrap-terms js__check__wrapper" open>
+            <summary class="section__header">
+                <h3 class="section__title">{=trans('이용약관 동의')}</h3>
+            </summary>
+
+            <div class="terms">
+                <div class="terms__all">
+                    <label class="fb__comm__checkbox" for="all_terms_check">
+                        <input type="checkbox" id="all_terms_check" class="js__check__all">
+                        <span>{=trans('모두 동의합니다.')}</span>
+                    </label>
+                </div>
+
+                <ul class="terms__box">
+                    {? !layoutCommon.isLogin}
+                    <li class="terms__list">
+                        <label for="area-terms-nomember" class="fb__comm__checkbox">
+                            <input type="checkbox" id="area-terms-nomember" class="devTerms js__check__each" name="terms-nomember">
+                            <span>{=trans('비회원 이용약관 동의')}({=trans('필수')})</span>
+                        </label>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-nomember" data-title="{=trans('비회원 이용약관 동의')}">{=trans('내용보기')}</button>
+                    </li>
+                    {/}
+
+                    <li class="terms__list">
+                        <label class="fb__comm__checkbox" for="area-terms-1">
+                            <input type="checkbox" id="area-terms-1" class="devTerms js__check__each" name="terms-1">
+                            <span>
+                                {=trans('주문하실 상품, 가격, 배송정보, 할인내역 등을 최종확인<br> 하였으며 구매에 동의하시겠습니까?')}({=trans('필수')})
+                                <em class="sub-txt">({=trans('전자상거래법 제8조 제2항')})</em>
+                            </span>
+                        </label>
+                    </li>
+
+                    <li class="terms__list">
+                        <label class="fb__comm__checkbox" for="area-terms-4">
+                            <input type="checkbox" id="area-terms-4" class="devTerms js__check__each" name="terms-4">
+                            <span>{=trans('개인정보 제 3자 정보 제공 동의')}({=trans('필수')})</span>
+                        </label>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-4" data-title="{=trans('개인정보 제 3자 정보 제공 동의')}">{=trans('내용보기')}</button>
+                    </li>
+
+                    <li class="terms__list">
+                        <label for="area-terms-3" class="fb__comm__checkbox">
+                            <input type="checkbox" id="area-terms-3" class="devTerms js__check__each" name="terms-3">
+                            <span>{=trans('개인정보 취급 위탁 동의')}</span>
+                        </label>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-3" data-title="{=trans('개인정보 취급 위탁 동의')}">{=trans('내용보기')}</button>
+                    </li>
+
+                    <li class="terms__list">
+                        <label for="area-terms-2" class="fb__comm__checkbox">
+                            <input type="checkbox" id="area-terms-2" class="devTerms js__check__each" name="terms-2">
+                            <span>{=trans('개인정보 수집 및 이용 동의')}</span>
+                        </label>
+                        <button type="button" class="btn__termsDetail js__termsLayer--open" name="terms-2" data-title="{=trans('개인정보 수집 및 이용 동의')}">{=trans('내용보기')}</button>
+                    </li>
+                </Ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- 하단 플로팅 버튼 -->
+    <div class="fb__infoinput__payBtn fb__button">
+        <!-- <button type="button" class="bg-" id="devPaymentCancelButton">취소하기</button> -->
+        <button type="button" class="bg--point border--point" id="devPaymentButton">
+            {=trans('<em devPrice="payment_price">{=g_price(cartSummary.payment_price)}</em>원 결제하기')}
+        </button>
+    </div>
+    
+    {paymentIncludeJavaScript}
+    <div id="devPaymentGatewayContents">{* pg 결제 영역 *}</div>
+</section>
+
+<div class="fb__terms-layer-pop">
+    <div class="popup-layout">
+        <h1 class="popup-title">
+            <span id="agree_title">{=trans('약관 전체보기')}</span>
+            <i class="close"></i>
+        </h1>
+
+        <div class="popup-content">
+            <!-- 개인정보 수집 및 이용 동의 -->
+            <div class="pop-cont-detail" id="terms-2">{collection.contents}</div>
+
+            <!-- 개인정보 취급 위탁 동의 -->
+            <div class="pop-cont-detail" id="terms-3">{consign.contents}</div>
+
+            {? isThirdBool}
+            <!-- 개인정보 제 3자 정보 제공 동의 -->
+            <div class="pop-cont-detail" id="terms-4">{third.contents}</div>
+            {/}
+
+            <!-- 비회원 구매 이용약관 -->
+            {? !layoutCommon.isLogin}
+            <div class="pop-cont-detail" id="terms-nomember">{termsNonMember}</div>
+            {/}
+        </div>
+    </div>
+</div>

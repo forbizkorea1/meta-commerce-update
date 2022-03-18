@@ -1,0 +1,179 @@
+<form id="devListForm">
+    <input type="hidden" name="page" value="1" id="devPage"/>
+    <input type="hidden" name="max" value="24" />
+    <input type="hidden" name="filterCid" value="{cid}" id="devCid"/>
+    <input type="hidden" name="orderBy" value="regdateDesc" id="devSort"/>
+</form>
+
+<section class="fb__goods-list">
+    <nav class="fb__page-nav">
+        <ul class="fb__page-nav__inner">
+            <li class="fb__page-nav__home ">
+                <a href="/">{=trans('홈')}</a>
+            </li>
+            {@ layoutCommon.breadcrumbs}
+            <li class="fb__page-nav__select">
+                <a href="/shop/goodsList/{.cid}">{.cname}</a>
+            </li>
+            {/}
+        </ul>
+    </nav>
+
+    <h2 class="fb__title--hidden">{=trans('상품 리스트')}</h2>
+
+    {? bannerData}
+        <section class="fb__goods-list__banner">
+            <div class="list__banner">
+                <h3 class="fb__title--hidden">{=trans('상품 리스트 베너')}</h3>
+                <div class="list__banner__slider">
+
+                    <!--{@ bannerData}-->
+                    <div class="list__banner__slider-item">
+                        <a href="{.bannerLink}">
+                            <figure>
+                                <img src="{.imgSrc}" width="{.banner_width}" height="{.banner_height}" alt="{.bd_title}">
+                            </figure>
+                        </a>
+                    </div>
+                    <!--{/}-->
+
+                </div>
+                <div class="list__banner__slider-nav slider-btn">
+                    <div class="slider-btn__inner">
+                        <a href="#" class="slider-btn__left">
+                            left
+                        </a>
+                        <a href="#" class="slider-btn__right">
+                            right
+                        </a>
+                        <div class="slider-btn__pageing">
+                            <span class="slider-btn__paging--now">1</span><span class="slider-btn__paging--all">/ 14</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {:}
+        <!--hr class="fb__margin" /-->
+    {/}
+
+    <section class="fb__goods-list__nav {? !bannerData} fb__goods-list__nav--mt {/}" style="display: none;">
+        <h3 class="fb__goods-list__title">{? cname} {cname} {:} noTitle {/}</h3>
+        <div class="fb__goods-list__menu fb__flt-top">
+            <ul class="list-menu">
+                <li class="list-menu__list">
+                    <a href="#" class="{? depth !=3} list-menu__list--active{/} devSubCategoryTab" devSubCategory="{cid}">
+                        {=trans('전체')}
+                    </a>
+                </li>
+                <!--{@ devSubCate3}-->
+                <li class="list-menu__list" >
+                    <a href="#" class="{? .cid == cid}list-menu__list--active{/} devSubCategoryTab" devSubCategory="{.cid}">
+                        {.cname}
+                    </a>
+                </li>
+                <!--{/}-->
+            </ul>
+        </div>
+    </section>
+
+    <section class="fb__goods-list__contents" style="margin-top: 0;">
+        <div class="list-contents">
+            <header class="list-contents__header">
+                <h3 class="fb__title--hidden">{=trans('상품 리스트')}</h3>
+                <p class="list-contents__info">
+                    {? nowCate.depth == 0}
+                        <span class="list-contents__info__item">{=trans('전체')}</span>
+                    {:}
+                        <span class="list-contents__info__item">{nowCate.cname}</span>
+                    {/}
+                    <span class="list-contents__info__count">
+                        (<span id="devTotalProduct"></span>)
+                    </span>
+                </p>
+
+                <select name="sort" id="devSortTab" class="goods-list__sort__select list-contents__select">
+                    <option value="orderCnt">{=trans('판매인기순')}</option>
+                    <option value="regDate">{=trans('최근등록순')}</option>
+                    <option value="lowPrice">{=trans('낮은가격순')}</option>
+                    <option value="highPrice">{=trans('높은가격순')}</option>
+                </select>
+
+            </header>
+            <div class="fb__main__goods  product-box four-boxes-wrap">
+                <ul class="fb__items listType4"  id="devListContents">
+                    <!--{* loading  contents *}-->
+                    <!--{'<script id="devListLoading" type="text/x-handlebars-template">'}-->
+                    <li>loading...</li>
+                    <!--{'</script>'}-->
+
+                    <!--{* empty contents *}-->
+                    <!--{'<script id="devListEmpty" type="text/x-handlebars-template">'}-->
+                    <li class="fb__empty">
+                        <p class="fb__empty__text">{=trans('등록되어있는 상품이 없습니다.')}</p>
+                    </li>
+                    <!--{'</script>'}-->
+
+                    <!--{* list contents *}-->
+                    <!--{'<script id="devListDetail" type="text/x-handlebars-template">'}-->
+
+                    <li class="item__box">
+                        <a href="/shop/goodsView/{[id]}" class="item__link" data-fatid="{[id]}">
+
+                            <figure class="item__thumb">
+                                <img data-src="{[image_src]}" alt="{[pname]}">
+
+                                <button class="item__wish {[#if alreadyWish]}on{[/if]}" data-devwishbtn="{[id]}">
+                                    <span class="blind">{=trans('찜버튼')}</span>
+                                </button>
+                            </figure>
+
+                            <div class="item__info">
+                                <!-- 브랜드 -->
+                                {[#if brand_name]}
+                                <span class="item__brand">{[brand_name]}</span>
+                                {[/if]}
+
+                                <!-- 상품명 -->
+                                <strong class="item__name">{[pname]}</strong>
+
+                                <!-- 상품가격 -->
+                                <div class="item__price">
+                                    {[#if status_soldout]}
+                                        <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                    {[else]}
+
+                                        {[#if isDiscount]}
+                                            <!-- 할인율 -->
+                                            <span class="item__price--perc"><em>{[discount_rate]}</em>%</span>
+                                            <!-- 원가 -->
+                                            <del class="item__price--strike"><em>{[listprice]}</em>{=trans('원')}</del>
+                                        {[/if]}
+
+                                        <!-- 판매가 -->
+                                        <p class="item__price--current"><em>{[dcprice]}</em>{=trans('원')}</p>
+                                    {[/if]}
+                                </div>
+                            </div>
+
+                            {[#if icons]}
+                            <div class="item__badge">
+                                {[#each icons as |icon|]}
+                                    {[#if this.isText]}
+                                        <span>{{[this.content]}}</span>
+                                    {[else]}
+                                        {{[this.content]}}
+                                    {[/if]}
+                                {[/each]}
+                            </div>
+                            {[/if]}
+                        </a>
+                    </li>
+                    <!--{'</script>'}-->
+                </ul>
+            </div>
+        </div>
+    </section>
+</section>
+
+<div id="devPageWrap"></div>

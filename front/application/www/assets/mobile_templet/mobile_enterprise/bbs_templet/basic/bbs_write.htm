@@ -1,0 +1,157 @@
+<div class="wrap-inquiry">
+
+    <div class="inquiry-info">
+        <p>{=trans('1:1 문의내역은 마이페이지 <em></em> <span class="point-color" id="devGoMyInquiry">1:1 문의내역에서</span> 확인하실 수 있습니다.')}</p>
+    </div>
+
+    <form name='bbsForm' id="devBbsForm" method='post' enctype="multipart/form-data" >
+        <input type="hidden" name="url" value="/customer/"/>
+        <input type="hidden" name="bbsTableName" value='{bbs_table_name}'>
+        <input type="hidden" name="board" value="{board_ename}">
+        <input type="hidden" name="focusInfo">
+        <input type="hidden" name="isHtml" value='N'>
+        <input type='hidden' name='antispamYn' value='N'>
+
+        <div class="wrap-input-form">
+            <dl>
+                <dt>{=trans('분류')} <em>*</em></dt>
+                <dd>
+                    <select name="bbsDiv" id="devBbsDivSelect" title="{=trans('분류')}">
+                        <option value="">{=trans('선택')}</option>
+                        <!--{@ bbsDiv}-->
+                        <option value="{.div_ix}">{.div_name}</option>
+                        <!--{/}-->
+                    </select>
+                    <select name="subBbsDiv" id="devSubBbsDiv" title="{=trans('2차분류')}" style="display:none;">
+                        <option value="">{=trans('선택')}</option>
+                    </select>
+                    <p class="txt-error mat10" devTailMsg="devBbsDiv"></p>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>{=trans('주문 번호')}</dt>
+                <dd>
+                    <div class="wrap-multi-input flex-layout">
+                        <input type="text" name="oid" id="devOid" value="{oid}" title="주문번호" class="order__number" readonly>
+                        <button type="button" class="btn-default btn-point btn-order-check order__btn" id="devBtnOrderQuery">{=trans('조회')}</button>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>{=trans('이메일')} <em>*</em></dt>
+                <dd>
+                    <label for="devBbsEmail">
+                        <input type="text" name="bbsEmail" id="devBbsEmail" title="{=trans('이메일')}" value="{email}" class="mail__input">
+                    </label>
+                    <p class="txt-error mat10" devTailMsg="devBbsEmail"></p>
+                    <div class="alert-anwser">
+                        <label for="devNotifyEmail" class="fb__comm__checkbox">
+                            <input type="checkbox" name="notifyEmail" id="devNotifyEmail" class="blind" value="Y" checked="true">
+                            <span>{=trans('답변 알림 수신')}</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+
+
+            <dl class="wrap-address-add">
+                <dt>{=trans('휴대폰 번호')} <em>*</em></dt>
+                <dd>
+                    <div class="wrap-multi-input address__phone__area">
+                        <select name="bbsHp1" id="devBbsHp1" title="{=trans('휴대폰')}" class="address__phone__0">
+                            <option value="010" {? phone1 == '010'} selected {/}>010</option>
+                            <option value="011" {? phone1 == '011'} selected {/}>011</option>
+                            <option value="016" {? phone1 == '016'} selected {/}>016</option>
+                            <option value="018" {? phone1 == '018'} selected {/}>018</option>
+                            <option value="019" {? phone1 == '019'} selected {/}>019</option>
+                        </select>
+
+                        <input type="text" name="bbsHp2" value="{phone2}" id="devBbsHp2" title="{=trans('휴대폰')}" class="address__phone__1">
+                        <span class="address__phone__hyphen"></span>
+                        <input type="text" name="bbsHp3" value="{phone3}" id="devBbsHp3" title="{=trans('휴대폰')}" class="address__phone__2">
+
+                        <!-- <input class="address__phone__1" type="text" name="pcs2" id="devPcs2" value="{pcs2}" title="휴대폰번호" {? explodePcs[1]!='' }readonly{/}>
+                        <span class="address__phone__hyphen"></span>
+                        <input class="address__phone__2" type="text" name="pcs3" id="devPcs3" value="{pcs3}" title="휴대폰번호" {? explodePcs[2]!='' }readonly{/}> -->
+                    </div>
+
+                    <p class="txt-error mat10" devTailMsg="devBbsHp2 devBbsHp3"></p>
+
+                    <div class="alert-anwser">
+                        <label for="devNotifyHp" class="fb__comm__checkbox">
+                            <input type="checkbox" name="notifyHp" id="devNotifyHp" class="blind" value="Y" checked="true">
+                            <span>{=trans('답변 알림 수신')}</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+
+            {? board_file_yn == 'Y'}
+            <dl>
+                <dt>{=trans('첨부파일')}</dt>
+                <dd>
+                    <div class="wrap-upload">
+                        <div class="wrap-file">
+                            <div id="devBusinessFileWrap1">
+                                <button type="button" class="file-upload-btn"></button>
+                                <input type="file" class="file-upload" name="bbsFile1" id="devBbsFileText1" title="" accept="image/*">
+                            </div>
+
+                            <div class="upload-img-area" id="devBusinessFileImageWrap1" style="display:none;">
+                                <img id="devBusinessFileImage1">
+                                <span class="upload-cancel-btn" id="devBusinessFileDeleteButton1"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="wrap-file">
+                            <div id="devBusinessFileWrap2">
+                                <button type="button" class="file-upload-btn"></button>
+                                <input type="file" class="file-upload" name="bbsFile2" id="devBbsFileText2" title="" accept="image/*">
+                            </div>
+
+                            <div class="upload-img-area" id="devBusinessFileImageWrap2" style="display:none;">
+                                <img id="devBusinessFileImage2">
+                                <span class="upload-cancel-btn" id="devBusinessFileDeleteButton2"></span>
+                            </div>
+                        </div>
+
+                        <div class="wrap-file">
+                            <div id="devBusinessFileWrap3">
+                                <button type="button" class="file-upload-btn"></button>
+                                <input type="file" class="file-upload" name="bbsFile3" id="devBbsFileText3" title="" accept="image/*">
+                            </div>
+
+                            <div class="upload-img-area" id="devBusinessFileImageWrap3" style="display:none;">
+                                <img id="devBusinessFileImage3">
+                                <span class="upload-cancel-btn" id="devBusinessFileDeleteButton3"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="desc">· {=trans('파일 형식은 이미지 파일(jpg, jpeg, gif, png)로 제출 가능합니다.')}</p>
+                    <p class="desc">· {=trans('파일 용량은 최대 30MB까지 가능합니다.')}</p>
+                </dd>
+            </dl>
+            {/}
+            <dl>
+                <dt>{=trans('문의 작성')} <em>*</em></dt>
+                <dd>
+                    <input type="text" name="bbsSubject" id="devBbsSubject" title="{=trans('제목')}" placeholder="{=trans('문의 제목을 입력해 주세요.')}">
+                    <p class="txt-guide" devTailMsg="devBbsSubject"></p>
+                    <textarea class="mat20 textarea-input" name="bbsContents" id="devBbsContents" title="{=trans('내용')}" placeholder="{=trans('문의 내용을 입력해 주세요.')}"></textarea>
+                    <p class="txt-guide" devTailMsg="devBbsContents"></p>
+                </dd>
+            </dl>
+        </div>
+        <div class="wrap-btn-area">
+            <button class="btn-lg btn-point" id="devBbsRegSubmit">{=trans('등록')}</button>
+        </div>
+    </form>
+</div>
+<script>
+    var devAppType = '{layoutCommon.appType}';
+</script>

@@ -1,0 +1,51 @@
+<div class="popCoupon">
+	<!-- 해당 쿠폰정보 보여주기 -->
+	<div class="popCoupon__info">
+		<p class="popCoupon__info__title">{? cupon_use_div == 'G'}[{=trans('웹전용')}] {: cupon_use_div == 'M'}[{=trans('모바일전용')}] {:}[{=trans('전체')}]{/} {publish_name}</p>
+		<p class="popCoupon__info__desc">
+			{=trans('쿠폰혜택')} : {=g_price(cupon_sale_value)}{? cupon_sale_type == '1'}%{: cupon_sale_type == '2'}{=trans('원')}{/} {=trans('할인')}
+			{? publish_condition_price > '0'}
+			({=trans('{=g_price(publish_condition_price)}원 이상 구매 시')})
+			{:}
+			({=trans('제한조건 없음')})
+			{/}
+			<br>
+			{=trans('사용기간')} : {? use_date_limit > '3000-12-31 00:00:00' || use_date_type == '9'}
+			{=trans('무기한')}
+			{: use_date_type == '2'}
+				{=substr(regist_start,0,10)} ~ {=substr(regist_end,0,10)}
+			{: use_date_type == '1'}
+				{=substr(regdate,0,10)} ~ {=substr(publish_limit_date,0,10)}
+			{:}
+				{=substr(use_sdate,0,10)} ~ {=substr(use_edate,0,10)}
+			{/}
+			<br>
+			{=trans('적용대상')} : {? use_product_type == '4'}{=trans('브랜드')}
+			{: use_product_type == '2'}{=trans('카테고리')}
+			{: use_product_type == '5'}{=trans('셀러')}
+			{: use_product_type == '3'}{=trans('상품')}
+			{/}
+		</p>
+		
+		<p class="popCoupon__info__comment">{=trans('적용대상에 따라 쿠폰 사용이 제한될 수 있습니다.')}</p>
+	</div>
+
+	<!-- 적용대상 브랜드 -->
+	<div class="popCoupon__target">
+		<ul class="popCoupon__target__box">
+			{? use_product_type == '1'} <!--전체상품-->
+			<li>{=trans('전체 상품에 사용 가능합니다.')}</li>
+			{: use_product_type == '2' || use_product_type == '3' || use_product_type == '5'}
+				{@ plist}
+				<li class="popCoupon__target__list"><a href="{link}/{.id}" target="_blank">{.name}</a></li>
+				{/}
+			{: use_product_type == '4'}
+				{@ plist}
+				<li class="popCoupon__target__list">{.name}</li>
+				{/}
+			{:}
+			<li>{=trans('적용대상 정보가 없습니다.')}</li>
+			{/}
+		</ul>
+	</div>
+</div>

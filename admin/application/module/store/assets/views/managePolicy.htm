@@ -1,0 +1,207 @@
+<section class="fb__menusubmit">
+    <fieldset class="fb__menusubmit--line">
+        <legend></legend>
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">약관/개인정보취급방침</h3>
+        </header>
+
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#devList" class="fb__tap__menu--active">
+                        쇼핑몰 이용약관
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devPriveDiv">
+                        개인정보처리방침
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devEtcDiv">
+                        기타약관
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="fb__tapcontent">
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devList">
+                <fieldset>
+                    <ul class="fb__tap__inner" >
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="" item="use" class="fb__tap__menu--active">
+                                이용약관
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devList2" item="seller">
+                                셀러 이용약관
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap" class="fb__tap_menu__sub">
+                            <a href="#devList3" item="protect">
+                                셀러 개인정보 보호 준수사항
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devList4" item="teen">
+                                청소년 보호대책
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devList5" item="email">
+                                이메일 무단 수집 거부
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devList6" item="marketing">
+                                마케팅 활용 동의
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devList7" item="terms-nomember">
+                                비회원 이용약관
+                            </a>
+                        </li>
+                    </ul>
+                </fieldset>
+            </section>
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devPriveDiv">
+                <fieldset>
+                    <ul class="fb__tap__inner" >
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devPriveDiv1" item="person" class="fb__tap__menu--active">
+                                개인정보처리방침
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devPriveDiv2" item="collection">
+                                개인정보 수집 및 이용
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devPriveDiv3" item="consign">
+                                개인정보처리위탁
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devPriveDiv4" item="third">
+                                개인정보 제3자 제공
+                            </a>
+                        </li>                        
+                    </ul>
+                </fieldset>
+            </section>
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devEtcDiv">
+                <fieldset>
+                    <ul class="fb__tap__inner" >
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devEtcDiv1" item="finance" class="fb__tap__menu--active">
+                                세금 납부 유의사항
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devEtcDiv2" item="caution">
+                                상품 구매 주의사항
+                            </a>
+                        </li>
+                        <li class="fb__tap__menu devSubTap">
+                            <a href="#devPriveDiv3" item="alliance">
+                                제휴문의
+                            </a>
+                        </li>                      
+                    </ul>
+                </fieldset>
+            </section>
+        </div>
+
+
+        <div class="fb__tapcontent">
+            <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devViewForm">
+                <form id="devManagePolicyForm">                    
+                    <input type="hidden" name="pi_ix" value="" devReset />
+                    <input type="hidden" name="mode" value="insert"/>
+                    <input type="hidden" name="pi_code" value="use"/> <!-- 기본은 이용약관1 -->
+                    <fieldset>
+                        <table>
+                            <caption>약관/개인정보취급방침/기타약관</caption>
+                            <colgroup>
+                                <col width="14%">
+                                <col width="35%">
+                                <col width="14%">
+                                <col width="*">
+                            </colgroup>
+                            <tr> <!-- 라디오 타입 -->
+                                <th class="fb-filter__title">
+                                    <span>
+                                        약관 사용 유무
+                                    </span>
+                                </th>
+                                <td colspan="3" >
+                                    <div class="fb-filter__radio">
+                                        <label for="dis_use">
+                                            <input type="radio" name="disp" id="dis_use" value="Y" checked=""  >
+                                                   <span>사용</span>
+                                        </label>
+                                        <label for="dis_unuse">
+                                            <input type="radio" name="disp" id="dis_unuse" value="N"  >
+                                                   <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr> <!-- 텍스트 타입 -->
+                                <th class="fb-filter__title">
+                                    <span>
+                                        약관 실행일 설정
+                                    </span>
+                                </th>
+                                <td colspan="3" class="fb-filter__day-wrap">
+                                    <div class="fb-filter__title-contents">
+                                        <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="startdate"  value="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr> <!-- 텍스트 타입 -->
+                                <th class="fb-filter__title">
+                                    <span>
+                                        수정 약관내용
+                                    </span>
+                                </th>
+                                <td colspan="3" class="fb-filter__day-wrap">
+                                    <div class="fb-filter__title-contents">                                        
+                                        <textarea id="devEditor" name="policy_text" class="fb-filter__text"></textarea>
+                                    </div>
+                                </td>
+                            </tr>                            
+                        </table>
+                        <div class="fb-filter__btn">
+                            <input type="button" class="fb-filter__save devSave" value="저장" />
+                            <input type="button" class="" id="devFormReset"
+                                   style="float: right; color: #fff; background: #4e4e4e; border: 1px solid #d7d7d7;"
+                                   value="신규버전등록"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+
+
+        <section class="fb__menusubmit">
+            <form method="post" id="devGridForm">
+                <input type="hidden" name="page" value="1" id="devPageNum"/>
+                <input type="hidden" name="max" value="50"/>
+                <input type="hidden" name="mode" value="insert"/>
+                <input type="hidden" name="pi_code" value="use"/> <!-- 기본은 이용약관 -->
+            </form>
+            <header class="fb-maincontent-header">
+                <h3 class="fb-maincontent-title">약관변경리스트</h3>
+            </header>
+            <div id="devPagingGrid"></div>
+            <div id="devPageWrap" class="fb__bbs__page"></div>
+        </section>
+
+    </fieldset>
+</section>
+

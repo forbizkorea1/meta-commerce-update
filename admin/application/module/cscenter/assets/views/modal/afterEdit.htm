@@ -1,0 +1,168 @@
+<!--{'<script id="devAfterEditTpl" type="text/x-handlebars-template">'}-->
+<div class="devCopyLayer">
+    <form id="devAfterEditForm">
+        <input type="hidden" name="bbs_ix" value="">
+
+        <section class="fb__menusubmit">
+            <section class="fb-filter">
+                <table class="popListTable">
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                작성자
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[id]} ({[name]})
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                제목
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text" name="" readonly  value="{[bbs_subject]}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                후기분류
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">                            
+                            <div class="fb-filter__checkbox">
+                                <select class="fb-filter__select" name="bbs_div" item='' disabled>
+                                    <option value="">전체</option>
+                                    <option value="1">프리미엄</option>
+                                    <option value="2">일반</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="display:none;"> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                베스트 후기
+                            </span>
+                        </th>
+                        <td colspan="" >
+                            <div class="fb-filter__radio">
+                                <label for="devIsBestY">
+                                    <input type="radio" name="is_best" id="devIsBestY" value="Y"  >
+                                    <span>지정</span>
+                                </label>
+                                <label for="devIsBestN">
+                                    <input type="radio" name="is_best" id="devIsBestN" value="N"  >
+                                    <span>미지정</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                상품명
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text" name="pname" value=""  readonly>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                상품평가
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[valuation_goods]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="display: none"> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                배송평가
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[valuation_delivery]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                공개설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="devBbsHidden0">
+                                    <input type="radio" name="bbs_hidden" id="devBbsHidden0" value="0" >
+                                    <span>공개</span>
+                                </label>
+                                <label for="devBbsHidden1">
+                                    <input type="radio" name="bbs_hidden" id="devBbsHidden1" value="1" >
+                                    <span>비공개</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                첨부파일
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                {[#if isBbsFile1]}<a href="{[bbs_file_1]}" download = "{[origin_name_1]}">{[origin_name_1]}</a><br>{[/if]}
+                                {[#if isBbsFile2]}<a href="{[bbs_file_2]}" download = "{[origin_name_2]}">{[origin_name_2]}</a><br>{[/if]}
+                                {[#if isBbsFile3]}<a href="{[bbs_file_3]}" download = "{[origin_name_3]}">{[origin_name_3]}</a><br>{[/if]}
+                                {[#if isBbsFile4]}<a href="{[bbs_file_4]}" download = "{[origin_name_4]}">{[origin_name_4]}</a><br>{[/if]}
+                                {[#if isBbsFile5]}<a href="{[bbs_file_5]}" download = "{[origin_name_5]}">{[origin_name_5]}</a>{[/if]}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트에리아 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                내용
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <textarea class="fb-filter__textarea" name="bbs_contents" readonly=""></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devFormEdit" value="수정">
+                    <input type="button" class="fb-filter__reset" id="devFormCansle" value="취소">
+                </div>             
+            </section>            
+        </section>
+    </form>
+</div>
+
+<!--{'</script>'}-->

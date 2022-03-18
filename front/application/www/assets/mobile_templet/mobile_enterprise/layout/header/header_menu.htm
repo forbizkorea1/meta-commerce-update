@@ -1,0 +1,123 @@
+<div class="navi__top">
+	<div class="navi__top__join">
+		{? layoutCommon.isLogin}
+			<span class="user-grade">{=sess_val("user", "gp_name")}</span>
+			<a href="#" class="joinAgreement js__membership__open">{=trans('회원등급혜택')}</a>
+		{:}
+			<a href="/member/authentication" class="joinAgreement">{=trans('회원가입')}</a>
+		{/}
+
+		<button type="button" class="menu-close">
+			<span class="blind">CLOSE</span>
+		</button>
+	</div>
+
+	<div class="navi__top__login">
+		{? layoutCommon.isLogin}
+			<span>{=trans('<em>{=layoutCommon.userInfo.name}</em>님 반가워요!')}</span>
+		{:}
+			<a href="/member/login" class="guide-login">{=trans('로그인을 해주세요.')}</a>
+		{/}
+	</div>
+</div>
+
+<div class="navi__menu">
+	<!-- 주메뉴 -->
+	<div class="gnb">
+		<ul class="oneDepth">
+			{@ headerMenu.categoryList}
+			<li class="oneDepth__list">
+				<div class="oneDepth__list__inner">
+					<a href="/shop/goodsList/{.cid}" class="oneDepth__list__link">{.cname}</a>
+				</div>
+
+				<ul class="twoDepth">
+					<li class="twoDepth__list">
+						<a href="/shop/goodsList/{.cid}" class="twoDepth__list__link">{=trans('전체')}</a>
+					</li>
+
+					{@ subCateList}
+						<li class="twoDepth__list">
+							{? ..subCateList}
+								<button type="button" class="twoDepth__list__btn">{subCateList.cname}</button>
+
+								{? ..subCateList}
+									<ul class="threeDepth">
+										{@ ..subCateList}
+											<li class="threeDepth__list">
+												<a href="/shop/goodsList/{...cid}" class="threeDepth__list__link">{...cname}</a>
+											</li>
+										{/}
+									</ul>
+								{/}
+							{:}
+								<a href="/shop/goodsList/{subCateList.cid}" class="twoDepth__list__link">{subCateList.cname}</a>
+							{/}
+						</li>
+					{/}
+				</ul>
+			</li>
+			{/}
+		</ul>
+	</div>
+	
+	<!-- 이벤트 / 기획전 -->
+	<div class="lnb">
+		<ul class="lnb__box">
+			<li class="lnb__list">
+				<a href="/event/eventList" class="lnb__list__link">
+					<em class="dots">{=trans('이벤트')}</em>
+					<span>{=trans('새로운 이벤트 소식입니다:)!')}</span>
+				</a>
+			</li>
+
+			<li class="lnb__list">
+				<a href="/event/promotion/" class="lnb__list__link">
+					<em>{=trans('기획전')}</em>
+					<span>{=trans('당신을 위한 기간한정 SPECIAL COLLECTION')}</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	{? !empty(headerMenu.eventBanner)}
+	<div class="event__banner swiper-container">
+		<div class="event__banner__box swiper-wrapper">
+			{@ headerMenu.eventBanner}
+			<a href="/event/eventDetail/{.event_ix}" class="event__banner__list swiper-slide">
+				<figure>
+					<img src="{.imgPath}" alt="{.event_title}">
+				</figure>
+			</a>
+			{/}
+		</div>
+
+		<div class="event__banner__pager"></div>
+	</div>
+	{/}
+</div>
+
+<!-- 1대1문의 / 고객센터 -->
+<ul class="navi__customer">
+	<li class="navi__customer__list">
+		<a href="/customer/qna">{=trans('1:1 문의하기')}</a>
+	</li>
+
+	<li class="navi__customer__list">
+		<a href="/customer/">{=trans('고객센터')}</a>
+	</li>
+
+	{? layoutCommon.isLogin}
+		{? layoutCommon.appType}
+			<li class="navi__customer__list">
+				<a href="/mypage/preferences">{=trans('설정')}</a>
+			</li>
+		{/}
+
+		<li class="navi__customer__list">
+			<a href="/member/logout">{=trans('로그아웃')}</a>
+		</li>
+	{/}
+</ul>
+
+<div class="dim"></div>

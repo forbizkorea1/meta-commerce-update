@@ -1,0 +1,37 @@
+<section class="join-end">
+	<h2 class="fb__title--hidden">{=trans('회원가입 완료')}</h2>
+
+	<div class="wrap-step">
+		<p class="wrap-step__title">03 {=trans('가입완료')}</p>
+		<ul class="step">
+			<li class=""></li>
+			<li class=""></li>
+			<li class="on">3</li>
+		</ul>
+	</div>
+
+	<div class="layout-padding wrap-join-end">
+		<p class="wrap-join-end__title">{=trans('회원가입이 정상적으로 완료 되었습니다.')}</p>
+
+		<p class="desc">
+			{=trans('{name}님, 가입해주셔서 감사합니다.')}<br>
+			<!--{? authorized != 'Y' && memberType == 'C'}-->
+			{=trans('기업회원은 회원가입 승인이 완료된 후 로그인이 가능하며, 승인<br>완료 된 경우 <span class="point-color">회원가입 시 입력한담당자 이메일</span>로<br>메일이 전송됩니다.')}
+			<!--{:}-->
+			{=trans('지금부터 {mallName}의 다양한 컨텐츠 및 혜택을 누려보세요!')}
+			<!--{/}-->
+		</p>
+
+		<p class="desc gray">
+			{=trans('가입 시 입력하신 회원정보는 <strong class="mypage">마이페이지에서 확인/수정</strong>하실 수 있습니다.')}
+		</p>
+
+		<div class="wrap-btn-area {? authorized == 'Y' && memberType == 'C'}mat100{/}">
+			 <!--{? authorized != 'Y' && memberType == 'C'}-->
+			 <a href="/" class="btn-lg btn-point">{=trans('홈으로')}</a>
+			 <!--{:}-->
+			 <a href="/" class="btn-lg btn-point">{=trans('쇼핑 시작하기')}</a>
+			<!--{/}-->
+		</div>
+	</div>
+</section>

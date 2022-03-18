@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[S] FAVICON-->
+    <link rel="shortcut icon" href="/data/{c.MALL_ID}_data/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/data/{c.MALL_ID}_data/images/favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/data/{c.MALL_ID}_data/images/favicon_32.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/data/{c.MALL_ID}_data/images/favicon_152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/data/{c.MALL_ID}_data/images/favicon_180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/data/{c.MALL_ID}_data/images/favicon_192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/data/{c.MALL_ID}_data/images/favicon_256.png">
+    <!--[E] FAVICON-->
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupCssSrc ) }-->
+    <!--<link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}">-->
+    <!--{/}-->
+    <!-- js library -->
+    <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}};</script>
+    <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/assets/css/main.css?version={c.CLIENT_VERSION}">
+    <script src="{layoutCommon.templetSrc}/assets/js/vendor.js?version={c.CLIENT_VERSION}"></script>
+    <script src="{layoutCommon.templetSrc}/assets/js/main.js?version={c.CLIENT_VERSION}"></script>
+
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.LanguageJsSrc)}-->
+    <!-- 언어 -->
+    <script src="{layout.LanguageJsSrc}?version={c.CLIENT_VERSION}"></script>
+    <!--{/}-->
+
+    <script src="{layoutCommon.templetSrc}/js/common/ui_common.js?version={c.CLIENT_VERSION}"></script><!-- 퍼블공통 -->
+    <script src="{layoutCommon.templetSrc}/js/common/dev_common.js?version={c.CLIENT_VERSION}"></script><!-- 개발공통 -->
+    <script src="{layoutCommon.templetSrc}/js/common/dev_ext.js?version={c.CLIENT_VERSION}"></script><!-- 개발확장 -->
+    <script src="{layoutCommon.templetSrc}/js/common/layout.js?version={c.CLIENT_VERSION}"></script><!-- 레이아웃 스크립트 -->
+    <script src="{layoutCommon.templetSrc}/js/common/wish.js?version={c.CLIENT_VERSION}"></script><!-- 고객센터공통 -->
+    <!--구글 script-->
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script>
+        //set environment
+        common.templetSrc = '{layoutCommon.templetSrc}';
+        common.environment = "{c.DB_CONNECTION_DIV}";
+        common.fat = {useFat: '{useFat}'}; // FAT obj
+        dev_ext.npay.useNpay = '{c.NPAY_USE}';
+    </script>
+
+    <!--구글 로그인-->
+    <meta name="google-signin-client_id" content="{c.GOOGLE_CLIENT_ID}">
+
+    <script>
+        function onSignLink(googleUser) {
+            var auth2 = gapi.auth2.getAuthInstance();
+
+            if(auth2.isSignedIn.get()) {
+                var profile = auth2.currentUser.get().getBasicProfile();
+
+                $.ajax({
+                    url : '/controller/member/google/link'
+                    , type : 'get'
+                    , data : {
+                        id : profile.getId()
+                        , id_token : googleUser.getAuthResponse().id_token
+                    }
+                    ,async : true
+                    , dataType: 'json'
+                }).done(function(response){
+                    if(response.result == 'success') {
+                        alert(response.data.msg);
+                        $('#devGoogleBtn').attr('disabled', false);
+                    }
+                });
+            }
+        }
+
+        function signOut() {
+            try{
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+                auth2.disconnect();
+            }catch(e){
+                console.log(e);
+            }
+        }
+
+        function onLoad() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init();
+            });
+        }
+    </script>
+
+    <!-- 몰 관련 태그 -->
+    <title>{layoutCommon.title}</title>
+    <meta name="description" content="{title_desc}">
+    <meta name="keywords" content="{keyword_desc}">
+</head>
+
+<body id="{layoutCommon.bodyId}" class="fb">
+    <header id="header" class="fb__header">
+        <div class="fb__header__inner">
+            {#headerTop}
+            <nav id="navigation" class="fb__header__nav">
+                {#headerMenu}
+            </nav>
+        </div>
+    </header>
+
+    <section id="container" class="layout-main-lnb fb__layout__leftmenu-type">
+        <nav class="layout-lnb">
+            {#leftMenu}
+        </nav>
+        
+        <div class="layout-content">
+            <!--{?  useFat === true }{#_fat}{/}-->
+            {#contents}
+        </div>
+    </section>
+
+    <footer id="footer" class="fb__footer">
+        <div class="fb__footer__inner">
+            {#footerMenu}
+            {#footerDesc}
+        </div>
+    </footer>
+
+    <!-- modal -->
+    <div class="fb__modal__mask js__modal__mask"></div>
+    <article class="fb__modal__layer js__modal__layer">
+        <header class="popup-title fb__modal__header">
+            <h3 id="devModalTitle" class="fb__modal__title">{=trans('제목')}</h3>
+            <span class="fb__modal__close js__modal__close">{=trans('팝업닫기')}</span>
+        </header>
+
+        <main id='devModalContent' class="fb__modal__content js__modal__content">{=trans('내용')}</main>
+    </article>
+
+    <!-- <div class="popup-mask"></div>
+    <div class="popup-layout">
+        <p class="popup-title">
+            <span id="devModalTitle">제목</span>
+            <span class="close"></span>
+        </p>
+        <div id='devModalContent' class="popup-content">내용</div>
+    </div> -->
+
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupJsSrc ) }-->
+    <!-- 퍼블&개발 공통:폴더별 -->
+    <script src="{layout.GroupJsSrc}?version={c.CLIENT_VERSION}"></script>
+    <!--{/}-->
+
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.PageJsSrc ) }-->
+    <!-- 퍼블&개발 공통:각 페이지 별 -->
+    <script src="{layout.PageJsSrc}?version={c.CLIENT_VERSION}"></script>
+    <!--{/}-->
+
+    <script>
+        <!--{? c.DB_CONNECTION_DIV == 'development' }-->
+        //load 된 언어 서버요청
+        common.lang.jsLanguageCollection();
+        <!--{/}-->
+
+        common.noti.popup.load({layout.jsonPopupList});
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<section class="fb__menusubmit">
+    <section class="fb-filter">
+        <form id="devListForm">
+            <input type="hidden" name="discount_type" value="SP"/>
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <fieldset>
+                <legend>
+                    특별할인
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>검색조건</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="filterType" class="fb-filter__select">
+                                <option value="" selected>검색조건</option>
+                                <option value="discount_sale_title">특별할인명</option>
+                            </select>
+                            <input type="text" class="fb-filter__text" name="search_text">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>진행여부</span>
+                        </th>
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <div class="fb-filter__radio">
+                                    {@ isIng}
+                                    <label>
+                                        <input type="radio" name="is_ing" value="{.key_}" {? .index_=='0'}checked{/}>
+                                        <span>{.value_}</span>
+                                    </label>
+                                    {/}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>사용여부</span>
+                        </th>
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <div class="fb-filter__radio">
+                                    {@ isUse}
+                                    <label>
+                                        <input type="radio" name="is_use" value="{.key_}" {? .index_=='0'}checked{/}>
+                                        <span>{.value_}</span>
+                                    </label>
+                                    {/}
+                                </div>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>
+                                회원조건
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__checkbox">
+                                {@ memberTarget}
+                                <label>
+                                    <input type="checkbox" name="member_target[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                요일선택
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__checkbox">
+                                {@ weekNo}
+                                <label>
+                                    <input type="checkbox" name="week_no[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                시작일자
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="startDate" value="" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="endDate" value="" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                종료일자
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart2" name="startDate2" value="" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd2" name="endDate2" value="" readonly>
+                            <span id="devQuickBetweenDate2"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devFormSubmit" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devListGridSection">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>

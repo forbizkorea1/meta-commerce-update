@@ -1,0 +1,71 @@
+<div class="wrap-faq">
+
+    <form id="devFaqForm">
+        <div class="wrap-search">
+            <div class="input-search">
+                <input type="hidden" name="page"  value="1"   id="devPage"/>
+                <input type="hidden" name="max"   value="20"  id="devMax"/>
+                <input type="hidden" name="bType" value="faq" id="bType"/>
+                <input type="hidden" name="curPage" value="" id="curPage"/>
+                <input type="hidden" name="lastPage" value="" id="lastPage"/>
+                <input type="hidden" name="divIx" value="{=divIx}" id="divIx"/>
+                <input type="hidden" name="bbsIx" value="{=bbsIx}" id="bbsIx"/>
+                <input type="text"   name="sText" id="devSearchFaqText" class="input-faq" placeholder="{=trans('궁금하신 내용을 검색해주세요.')}" title="{=trans('검색어')}" value="{=sText}">
+                <button type="submit" id="btnSearch" title="{=trans('검색')}" class="icon-btn-search"></button>
+            </div>
+        </div>
+
+        <div class="wrap-faq-tab jq-radio">
+            <a href="javascript:void(0)" class="on" devDivIx="">{=trans('전체')}</a>
+            {@ bbs_divs}
+            <a href="javascript:void(0)" class="" devDivIx="{.div_ix}">{.div_name}</a>
+            {/}
+            {? count(bbs_divs) % 3 == 0}
+            <a></a><a></a>
+            {: count(bbs_divs) % 3 == 1}
+            <a></a>
+            {/}
+        </div>
+
+        <div class="wrap-sect"></div>
+
+        <!-- 200818 : 검색어 없는 경우 숨김 처리 필요 -->
+        <div class="count">
+            <span id="devSearchWord" style="display:{? sText != ''}block{:}none{/}">{=trans('<strong>{=sText}</strong>에 대한 검색결과')}</span>
+            {=trans('총 <em id="devTotal">0</em>개')}
+        </div>
+
+        <div class="fb__customer__faq" id="devFaqContent">
+            <!--{'<script id="devFaqLoading" type="text/x-handlebars-template">'}-->
+            <div>
+                <p>Loading...</p>
+            </div>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devFaqEmpty" type="text/x-handlebars-template">'}-->
+            <div class="empty-content">
+                <p class="empty-content__txt" id="emptyMsg"><strong></strong></p>
+            </div>
+            <!--{'</script>'}-->
+
+            <!--{'<script id="devFaqList" type="text/x-handlebars-template">'}-->
+            <dl class="faq__list">
+                <dt class="faq__list__ques js__faq__ques">
+                    <div class="question">
+                        <span class="faq__list__type">{[div_name]}</span>
+                        <p class="faq__list__title title">{[{\bbs_q}]}</p>
+                    </div>
+                </dt>
+                <dd class="faq__list__anwser devFaqAnswer">
+                    <div class="answer">
+                        <p>{[{\bbs_a}]}</p>
+                    </div>
+                </dd>
+            </dl>
+            <!--{'</script>'}-->
+        </div>
+
+        <!-- 200818 : 검색어 없는 경우 숨김 처리 필요 -->
+        <div id="devPageWrap" class="wrap-btn-area more"></div>
+    </form>
+</div>

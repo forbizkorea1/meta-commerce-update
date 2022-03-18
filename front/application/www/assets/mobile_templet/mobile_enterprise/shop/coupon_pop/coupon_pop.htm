@@ -1,0 +1,132 @@
+<div class="couponPopup__wrapper">
+    <div class="coupon">
+        <p class="coupon__notice">{=trans('전체 쿠폰 리스트는 <span>마이페이지 <em>&gt;</em> 나의 쿠폰</span>에서 확인하실 수 있습니다.')}</p>
+
+        <div class="coupon-box">
+
+            <div class="coupon-box__header js__couponPop--accd">
+                <strong class="coupon-box__header__title">{=trans('상품 쿠폰')}</strong>
+            </div>
+        
+            <div class="coupon-box__cont">
+                <ul class="fb__shopCommon__item">
+                    {@ list}
+                    <li class="fb__orderCommon__list item-info">
+                        <div class="item-info__wrapper">
+                            <figure class="item-info__thumb">
+                                <img src="{list.image_src}" alt="{list.pname}">
+                            </figure>
+
+                            <div class="item-info__info">
+                                <strong class="item-info__name">{? list.brand_name}[{list.brand_name}] {/}{list.pname}</strong>                        
+                                <p class="item-info__option">
+                                    <span>{list.options_text}</span>
+                                    <span class="item-info__count"><em>{list.pcount}</em>{=trans('개')}</span>
+                                </p>
+                            </div>
+
+                            <div class="item-info__select">
+                                <select devCouponSelect="{list.cart_ix}">
+                                    {? !empty(.couponList)}
+                                        <option value="">{=trans('적용안함')}</option>
+                                        {@ .couponList}
+                                            {? ..activeBool}
+                                            <option value="{..regist_ix}"
+                                                    devTotalCouponWithDcprice="{..total_coupon_with_dcprice}"
+                                                    devDiscountAmount="{..discount_amount}"
+                                                    {? ..isSelected}selected{/}>{..publish_name}</option>
+                                            {/}
+                                        {/}
+                                    {:}
+                                        <option value="">{=trans('사용 가능한 쿠폰이 없습니다.')}</option>
+                                    {/}
+                                </select>
+                            </div>
+
+                            <div class="total-price">
+                                <div class="total-price__list">
+                                    <span class="title">{=trans('상품금액')}</span>
+                                    <span class="price">
+                                        <em>{=g_price(list.total_dcprice)}</em>{=trans('원')}
+                                    </span>
+                                </div>
+
+                                <div class="total-price__list total-price__list--discount">
+                                    <span class="title">{=trans('할인금액')}</span>
+                                    <span class="price">
+                                        <em devDiscountAmountText="{list.cart_ix}">0,000</em>{=trans('원')}
+                                    </span>
+                                </div>
+
+                                <div class="total-price__list">
+                                    <span class="title">{=trans('쿠폰적용금액')}</span>
+                                    <span class="price">
+                                        <em devTotalCouponWithDcpriceText="{list.cart_ix}">0</em>{=trans('원')}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {/}
+                </ul>
+            </div>
+        </div>
+
+        <div class="wrap-sect"></div>
+        <div class="coupon-box">
+            <div class="coupon-box__header">
+                <strong class="coupon-box__header__title">{=trans('장바구니 쿠폰')}</strong>
+            </div>
+
+            <div class="coupon-box__cont">
+                <ul class="cartCoupon">
+                    <li class="cartCoupon__list">
+                        <select devCartCouponSelect="" {? !cartCouponList}disabled{/}>
+                            <option value="">{=trans('적용안함')}</option>
+                            {@ (cartCouponList)}
+                                {? .activeBool}
+                                <option value="{.regist_ix}" devTotalCouponWithDcprice="{.total_coupon_with_dcprice}" devDiscountAmount="{.discount_amount}" devCouponDiv="{.cupon_div}" {? .isSelected}selected{/}>{.publish_name}</option>
+                                {/}
+                            {/}
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="wrap-sect"></div>
+        <div class="coupon-footer">
+            <input type="hidden" id="devTotalProductDcprice" value="{totalProductDcprice}">
+    
+            <dl>
+                <dt>{=trans('총 상품금액')}</dt>
+                <dd>
+                    <em>{=g_price(totalProductDcprice)}</em>{=trans('원')}
+                </dd>
+            </dl>
+    
+            <dl>
+                <dt>{=trans('총 할인금액')}</dt>
+                <dd>
+                    <em id="devTotalCouponDiscountAmount">0</em>{=trans('원')}
+                </dd>
+            </dl>
+    
+            <dl class="coupon-footer__total">
+                <dt>{=trans('총 쿠폰 적용 금액')}</dt>
+                <dd>
+                    <em id="devTotalCouponWithProductDcprice">0</em>{=trans('원')}
+                </dd>
+            </dl>
+        </div>
+    </div>
+   
+    <div class="couponPopup__btn fb__button">
+        <button type="button" class="btn__cancel" id="devCouponCancelButton">{=trans('취소')}</button>
+        <button type="button" class="border--point bg--point" id="devApplyCouponButton">{=trans('쿠폰적용')}</button>
+    </div>
+</div>
+
+<script>
+    var couponMode = '{couponMode}';
+</script>

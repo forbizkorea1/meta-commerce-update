@@ -1,0 +1,106 @@
+<div class="popupPhotoReview__wrapper">
+    <header class="popupPhotoReview__header">
+        <button type="button" id="devAllReviewList" class="popupPhotoReview__header__back js__PhotoReview__back">{=trans('전체보기')}</button>
+        <strong class="popupPhotoReview__header__title">{=trans('포토후기')}</strong>
+        <button type="button" class="fb__modal__close js__modal__close">
+            <span class="blind">{=trans('팝업닫기')}</span>
+        </button>
+    </header>
+
+    <!-- 포토후기 리스트 -->
+    <div id="devPopPhotoReviewList" class="popupPhotoReview__item">
+        <form id="devPhotoReviewListForm">
+            <input type="hidden" name="id" value="" id="devPhotoReviewListPid">
+            <input type="hidden" name="orderBy" value="regdate">
+            <input type="hidden" name="orderByType" value="desc">
+            <input type="hidden" name="bbsDiv" value="1">
+            <input type="hidden" name="page" value="1" id="devPhotoReviewPage">
+            <input type="hidden" name="max" value="24">
+        </form>
+
+        <ul id="devPhotoReviewContents" class="popupPhotoReview__item__box">
+            {* loading *}
+            <li class="empty-content" id="devPhotoReviewListLoading">
+                <div class="wrap-loading">
+                    <div class="loading"></div>
+                </div>
+            </li>
+
+            {* empty *}
+            <li class="empty-content" id="devPhotoReviewListEmpty">
+                <p class="empty-content__txt">{=trans('등록된 상품후기가 없습니다.')}</p>
+            </li>
+
+            {* list *}
+            <li id="devPhotoReviewListDetail" class="popupPhotoReview__item__list " data-bbsix="{[bbs_ix]}">
+                <a id="devPhotoReviewImgsList">
+                    <figure>
+                        <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[thumb]}" alt="">
+                        {[#if isManyImg]}
+                        <span class="count">{[imageCnt]}</span>
+                        {[/if]}
+                    </figure>
+                </a>
+            </li>
+        </ul>
+
+        <div id="devPhotoReviewListPageWrap"></div>
+    </div>
+
+    <!-- 포토후기 상세 -->
+    <div id="devPopPhotoReviewDetail" class="popupPhotoReview__detail" style="display: none;"></div>
+</div>
+
+<script>
+    var bbs_ix = '{bbs_ix}';
+</script>
+
+<!--{'<script id="devReviewDetailTpl" type="text/x-handlebars-template">'}-->
+<div id="devPhotoReviewDetailTemplate">
+    <div class="popupPhotoReview__detail__photo swiper-container">
+        <ul class="photoSlider swiper-wrapper">
+            {[#each review/anotherImgs]}
+            <li class="photoSlider__list swiper-slide">
+                <figure>
+                    <img src="{[@this]}" alt="">
+                </figure>
+            </li>
+            {[/each]}
+        </ul>
+
+        <div class="photoSlider__controller">
+            <div class="photoSlider__controller__paging"></div>
+        </div>
+    </div>
+
+    <div class="popupPhotoReview__detail__info">
+        <div class="info__header">
+            <span class="info__header__score set-star">
+                <span class="score" style="width: {[review/avg_pct]}%"></span>
+            </span>
+
+            <div class="info__header__user">
+                {[review/bbs_id]} <span>{[review/regdate]}</span>
+            </div>
+        </div>
+
+        <span class="info__option">{[review/option_name]}</span>
+
+        <div class="info__txt">{[{\review/bbs_contents}]}</div>
+        <div class="info__reply">
+            <ul class="info__reply__box">
+                {[#each cmt]}
+                <li class="info__reply__list">
+                    <div class="list__top">
+                        <span class="list__top__badge">{[cmt_name]}</span>
+                        <span class="list__top__date">{[reg_date]}</span>
+                    </div>
+
+                    <div class="list__txt">{[{\cmt_contents}]}</div>
+                </li>
+                {[/each]}
+            </ul>
+        </div>
+    </div>
+</div>
+<!--{'</script>'}-->

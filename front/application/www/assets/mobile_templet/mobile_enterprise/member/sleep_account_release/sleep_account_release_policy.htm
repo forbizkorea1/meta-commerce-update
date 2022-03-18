@@ -1,0 +1,62 @@
+<section class="fb__join-agreement">
+	<div class="wrap-step">
+        <p class="wrap-step__title">01 {=trans('본인인증 및 약관동의')}</p>
+        <ul class="step">
+            <li class="on">1</li>
+            <li class=""></li>
+            <li class=""></li>
+        </ul>
+	</div>
+
+	<form id="devForm">
+		<div class="term-list">
+			<label for="agree-all" class="fb__comm__checkbox">
+				<input type="checkbox" id="agree-all" class="agree-all blind">
+				<span>{=trans('약관 전체동의')}</span>
+			</label>
+		</div>
+
+		<div class="term-list">
+			<input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
+			<label for="agree-term1">{=trans('구매 이용약관')}<em>({=trans('필수')})</em></label>
+			<span class="accord-btn"></span>
+		</div>
+		<div class="terms-content">
+			{policyData['use']['contents']}
+		</div>
+
+
+		<div class="term-list">
+			<input type="checkbox"  id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" class="devRequired">
+			<label for="agree-term2">{=trans('개인정보 수집 및 이용약관')}<em>({=trans('필수')})</em></label>
+			<span class="accord-btn"></span>
+		</div>
+		<div class="terms-content">
+			{policyData['collection']['contents']}
+		</div>
+
+
+		<div class="term-list">
+			<input type="checkbox"  id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" class="devRequired">
+			<label for="agree-term2">{=trans('개인정보 취급 위탁')}<em>({=trans('필수')})</em></label>
+			<span class="accord-btn"></span>
+		</div>
+		<div class="terms-content">
+			{policyData['consign']['contents']}
+		</div>
+
+	</form>
+
+	<div class="wrap-agree-sec">
+		<p class="join-agree-desc">
+			· {=trans('{mallName} 이용을 위해 약관에 동의하셔야 휴면 상태를 해지할 수 있습니다.')}
+		</p>
+	</div>
+
+	<p class="sleep-subtit">{=trans('휴면 상태를 해지 하시겠습니까?')}</p>
+
+	<div class="wrap-btn-area agree">
+		<button class="btn-lg btn-point-line" id="devCancelButton">{=trans('취소')}</button>
+		<button class="btn-lg btn-point" id="devSubmitButton">{=trans('휴면 상태 해지')}</button>
+	</div>
+</section>

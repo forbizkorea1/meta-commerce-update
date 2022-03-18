@@ -1,0 +1,97 @@
+<section class="fb__wishlist fb__interest">
+    <h2 class="fb__mypage__title">{=trans('관심 상품')}</h2>
+
+    <form id="devMyWishForm" class="wishList">
+        <input type="hidden" name="page" id="devPage" value="1">
+        <input type="hidden" name="max" id="devMax" value="20">
+
+        <div class="top-area" id="devTopButton" style="display: none;">
+            <label for="all-check" class="fb__comm__checkbox">
+                <input type="checkbox" class="blind" id="all-check">
+                <span>{=trans('전체선택')}</span>
+            </label>
+
+            <div class="fb__button">
+                <button type="button" class="border--ccc" id="devBtnDelWish">{=trans('삭제')}</button>
+            </div>
+        </div>
+
+        <div class="fb__interest__box">
+            <ul class="fb__items listType4" id="devMyWishContent">
+                {* case 01. 로딩 *}
+                <!--{'<script id="devMyWishLoading" type="text/x-handlebars-template">'}-->
+                <li>
+                    <div class="fb__loading">
+                        <div class="fb__loading__icon"></div>
+                    </div>
+                </li>
+                <!--{'</script>'}-->
+
+                {* case 02. 리스트 *}
+                <!--{'<script id="devMyWishList" type="text/x-handlebars-template">'}-->
+                <li class="item__box">
+                    <label for="wishList_{[id]}" class="fb__comm__checkbox">
+                        <input type="checkbox" class="blind item-check" id="wishList_{[id]}" name="wishList[]" value="{[id]}">
+                        <span></span>
+                    </label>
+
+                    <a href="/shop/goodsView/{[id]}" class="item__link">
+                        <figure class="item__thumb">
+                            <img src="{[image_src]}" alt="{[pname]}">
+                        </figure>
+
+                        <div class="item__info">
+                            <!-- 브랜드 -->
+                            {[#if brand_name]}
+                            <span class="item__brand">{[brand_name]}</span>
+                            {[/if]}
+
+                            <!-- 상품명 -->
+                            <strong class="item__name">{[pname]}</strong>
+
+                            <!-- 상품가격 -->
+                            <div class="item__price">
+                                {[#if status_soldout]}
+                                    <p class="item__price--soldout">{=trans('일시품절')}</p>
+                                {[else]}
+
+                                    {[#if isDiscount]}
+                                        <!-- 할인율 -->
+                                        <span class="item__price--perc"><em>{[discount_rate]}</em>%</span>
+                                        <!-- 원가 -->
+                                        <del class="item__price--strike"><em>{[listprice]}</em>{=trans('원')}</del>
+                                    {[/if]}
+                                
+                                    <!-- 판매가 -->
+                                    <p class="item__price--current"><em>{[dcprice]}</em>{=trans('원')}</p>
+                                {[/if]}
+                            </div>
+                        </div>
+
+                        {[#if icons]}
+                        <div class="item__badge">
+                            {[#each icons as |icon|]}
+                                {[#if this.isText]}
+                                    <span>{{[this.content]}}</span>
+                                {[else]}
+                                    {{[this.content]}}
+                                {[/if]}
+                            {[/each]}
+                        </div>
+                        {[/if]}
+                    </a>
+                </li>
+                <!--{'</script>'}-->
+
+                {* case 03. 없는 케이스 *}
+                <!--{'<script id="devMyWishEmpty" type="text/x-handlebars-template">'}-->
+                <li class="fb__empty borderBottom">
+                    <p class="fb__empty__text">{=trans('관심 상품이 없습니다.')}</p>
+                </li>
+                <!--{'</script>'}-->
+            </ul>
+        </div>
+
+        <div id="devPageWrap"></div>
+    </form>
+</section>

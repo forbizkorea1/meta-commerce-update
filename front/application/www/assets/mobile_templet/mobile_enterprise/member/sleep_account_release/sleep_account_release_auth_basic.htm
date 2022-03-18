@@ -1,0 +1,72 @@
+<div class="wrap-step">
+    <p class="wrap-step__title">01 {=trans('본인인증 및 약관동의')}</p>
+    <ul class="step">
+        <li class="on">1</li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+</div>
+
+<div class="fb__sleep step">
+    <div class="cont">
+        <h2 class="cont__title">{=trans('본인인증')}</h2>
+        <!--{? useCertify}-->        
+        <div class="wrap-box auth-phone">
+            <button type="button" class="box" id="devCertifyButton">
+                <p class="box__text" id="devCertifyButtonTxt">{=trans('휴대폰 인증')}</p>
+            </button>
+            <p class="sub-txt">{=trans('휴면 계정 해제를 위해 본인인증을 진행해 주시기 바랍니다.')}</p>
+        </div>
+        <!--{/}-->
+    </div>
+
+    <div class="cont agree-area">
+        <h2 class="cont__title">{=trans('약관동의')}</h2>
+        <form id="devForm" class="form-box">
+            <input type="hidden" name="devCerti" id="devCerti" value="">
+
+            <!-- 전체동의 -->
+            <div class="term-list">
+                <label for="agree-all" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-all" class="agree-all blind">
+                    <span class="bold">{=trans('약관 전체동의')}</span>
+                </label>
+            </div>
+
+            <!-- 구매 이용약관 -->
+            <div class="term-list">
+                <label for="agree-term1" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired blind">
+                    <span>[{=trans('필수')}] {=trans('구매 이용약관')}</span>
+                </label>
+                <span class="accord-btn"></span>
+            </div>
+            <div class="terms-content">{policyData['use']['contents']}</div>
+
+            <!-- 개인정보 수집 및 이용약관 -->
+            <div class="term-list">
+                <label for="agree-term2" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" class="devRequired blind">
+                    <span>[{=trans('필수')}] {=trans('개인정보 수집 및 이용약관')}</span>
+                </label>
+                <span class="accord-btn"></span>
+            </div>
+            <div class="terms-content">{policyData['collection']['contents']}</div>
+
+            <!-- 개인정보 취급 위탁 -->
+            <div class="term-list bdbx">
+                <label for="agree-term3" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" class="devRequired blind">
+                    <span>[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</span>
+                </label>
+                <span class="accord-btn"></span>
+            </div>
+            <div class="terms-content">{policyData['consign']['contents']}</div>
+        </form>
+    </div>
+
+	<div class="fb__button fb__sleep__btn half">
+		<button type="button" class="border--ccc" id="devCancelButton">{=trans('취소')}</button>
+		<button type="button" class="bg--point" id="devSubmitButton">{=trans('다음')}</button>
+	</div>
+</div>

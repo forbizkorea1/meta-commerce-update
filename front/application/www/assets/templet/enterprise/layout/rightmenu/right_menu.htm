@@ -1,0 +1,53 @@
+<div id="rightMenu">
+    <div class="inner">
+        <div class="wrap_right_menu">
+            <div class="banner">
+                <div>
+                    <!--마이페이지 > 나의 적립금-->
+                    <!--{? layoutCommon.isLogin}-->
+                    <a href="/mypage/mileage">
+                    <!--{:}-->
+                    <a href="/member/login">
+                    <!--{/}-->
+                        <p class="title">{=trans('적립금')}</p>
+                        <p class="point_num"><span>{=g_price(layoutCommon.headerTopMyInfo.myMileAmount)}</span>{=trans('원')}</p>
+                    </a>
+                </div>
+                <div class="banner_cart">
+                    <a href="/shop/cart">
+                        <i class="icon_cart"></i>
+                        <p class="title">{=trans('장바구니')}</p>
+                        <em>{=g_number_format(layoutCommon.userInfo..cartCnt)}</em>
+                    </a>
+                </div>
+                <div>
+                    <a href="/mypage/orderHistory">
+                        <i class="icon_order"></i>
+                        <p class="title">{=trans('주문조회')}</p>
+                    </a>
+                </div>
+                <div class="flexslider">
+                    <p class="title">{=trans('오늘 본 상품')}</p>
+                    <div>
+                        <ul class="slides">
+                            <li>
+                                {@ rightMenu.historyList}
+                                <a href="/shop/goodsView/{.id}">
+                                    <img src="{.image_src}">
+                                </a>
+                                {/}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_top" id="btnScrollTop">
+                TOP
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+
+</script>

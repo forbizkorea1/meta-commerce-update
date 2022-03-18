@@ -1,0 +1,251 @@
+<form id="devGridForm" method="POST">
+    <input type="hidden" name="page" value="1" id="devPageNum"/>
+    <input type="hidden" name="max" value="50"/>
+    <input type="hidden" name="not_mem_type[]" value="A"/><!--관리자 회원 휴면회원 대상 아님-->
+
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">휴면회원 전환 관리</h3>
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>휴면회원 전환 관리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 체크박스 타입-->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원구분
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="checkbox" name="chk_mem_type[]" value="M">
+                                    <span>개인회원</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="chk_mem_type[]" value="C">
+                                    <span>기업회원</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="chk_mem_type[]" value="A">
+                                    <span>직원(관리자)</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원타입
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="checkbox" name="chk_mem_div[]" value="S">
+                                    <span>셀러</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="chk_mem_div[]" value="MD">
+                                    <span>MD</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="chk_mem_div[]" value="D">
+                                    <span>기타</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 체크박스 타입-->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원그룹
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__checkbox">
+                                {@ memberGroup}
+                                <label>
+                                    <input type="checkbox" name="memberGroupBath[]" value="{.gp_ix}"  >
+                                    <span>{.gp_name}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                성별
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="checkbox" name="chk_sex_div[]" value="M"  >
+                                    <span>남자</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="chk_sex_div[]" value="W"  >
+                                    <span>여자</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="chk_sex_div[]" value="D"  >
+                                    <span>기타</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 체크박스 타입-->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                SMS 수신여부
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="checkbox" name="smssend_yn[]" value="1"  >
+                                    <span>수신(O)</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="smssend_yn[]" value="0"  >
+                                    <span>수신거부(X)</span>
+                                </label>
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                메일 수신 여부
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="checkbox" name="mailsend_yn[]" value="1"  >
+                                    <span>수신(O)</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="mailsend_yn[]" value="0"  >
+                                    <span>수신거부(X)</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                기간
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">                               
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="betweenDatePickerStart" value="" readonly>
+                            <span class="fb-filter__day__line">~</span>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="betweenDatePickerEnd" value="" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                            <input type="hidden" name="selDateType" value="C">
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                조건검색
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select" name="searchType" item=''>
+                                    <option value="name">회원명</option>
+                                    <option value="id">회원아이디</option>
+                                    <option value="pcs">휴대폰</option>
+                                </select>
+                                <input type="text" class="fb-filter__text" name="searchText"  value="">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__save" value="검색" />
+                    <input type="button" class="fb-filter__reset" id="devFormReset" style="" value="초기화">
+
+                </div>
+            </section>
+        </section>
+    </fieldset>
+</form>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span>
+        </h3>
+
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<div class="fb__bottom">
+    <article class="fb__bottom-fixemenu " id="fb_bottom-nav">
+        <section class="fb__fixemenu">
+            <header class="fb__fixemenu-header">
+                <h2 class="fb__fixemenu-title">일괄 변경</h2>
+                <p class="fb__fixemenu-summary">
+                    목록에서 선택한 항목 또는 검색 결과의 속성을 일괄 변경합니다.
+                </p>
+                <a href="#" class="fb__fixemenu-btn">
+                    <span>열기</span>
+                </a>
+            </header>
+
+            <div class="fb__fixemenu__contents">
+                <section class="fb-filter">
+                    <form method="post" id="devModifyForm">          
+                        <input type="hidden" name="selectCode" />
+                        <div style="display:none" id="cloneForm"></div>
+                        <fieldset>
+                            <legend>
+                                컨텐츠 필터 폼
+                            </legend>
+                            <table>
+                                <caption></caption>
+                                <colgroup>
+                                    <col width="14%">
+                                    <col width="35%">
+                                    <col width="14%">
+                                    <col width="*">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="fb-filter__title--ne">
+                                                휴면회원 전환
+                                            </span>
+                                        </th>
+                                        <td colspan="3">
+                                            <div class="fb-filter__radio">
+                                                <select name="update_type"  id="devUpdateType" title="휴면회원 전환 선택" class="fb-filter__select" >
+                                                    <option value="">선택</option>
+                                                    <option value="1">검색한 회원 전체에게</option>
+                                                    <option value="2">선택한 회원 전체에게</option>
+                                                </select>                                                
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="fb-filter__btn">
+                                <button type="button" class="fb-filter__search" id="devModifyBtn">일괄변경</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </article>
+</div>
+
+<!--{#memberDetail}-->

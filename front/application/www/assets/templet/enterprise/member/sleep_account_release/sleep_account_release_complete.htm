@@ -1,0 +1,59 @@
+<section class="fb__join-member wrap-member sleep-account-area">
+
+    <!-- @추가한 내용 -->
+    <div class="title-area">
+        <h2 class="fb__join-member__title">{=trans('휴면 계정 해제 완료')}</h2>
+
+        <span class="breadcrumb">
+                    <span class="breadcrumb__num">3<em class="breadcrumb__all">/3</em></span> {=trans('계정 활성화')}
+        </span>
+    </div>
+
+    <!--<h2 class="fb__join-member__title">휴면 계정 해제</h2>-->
+
+    <!--<ul class="fb__join-member__top-area top-area top-area&#45;&#45;sleep">-->
+        <!--<li class="top-area__step top-area__step01">-->
+            <!--<div class="top-area__step__inner">-->
+                <!--<span class="top-area__step__subtit">STEP 01</span>-->
+                <!--&lt;!&ndash;{? joinType == 'C'}&ndash;&gt;&lt;!&ndash;사업자&ndash;&gt;-->
+                <!--<p class="top-area__step__tit">사업자인증</p>-->
+                <!--&lt;!&ndash;{:}&ndash;&gt;&lt;!&ndash;일반&ndash;&gt;-->
+                <!--<p class="top-area__step__tit">본인인증</p>-->
+                <!--&lt;!&ndash;{/}&ndash;&gt;-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="top-area__step top-area__step02">-->
+            <!--<div class="top-area__step__inner">-->
+                <!--<span class="top-area__step__subtit">STEP 02</span>-->
+                <!--<p class="top-area__step__tit">약관동의</p>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="top-area__step top-area__step03 top-area&#45;&#45;sleep__step03">-->
+            <!--<div class="top-area__step__inner">-->
+                <!--<span class="top-area__step__subtit">STEP 03</span>-->
+                <!--<p class="top-area__step__tit">정보입력</p>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="top-area__step top-area__step04 top-area__step&#45;&#45;active">-->
+            <!--<div class="top-area__step__inner">-->
+                <!--<span class="top-area__step__subtit">STEP 04</span>-->
+                <!--<p class="top-area__step__tit">계정 활성화</p>-->
+            <!--</div>-->
+        <!--</li>-->
+    <!--</ul>-->
+
+    <div class="wrap-joininput-layout join-end">
+        <div class="wrap-line-box">
+            <p class="join-end__tit">{=trans('{userName} 회원님의 <span class="fb__point-color">계정이 활성화</span> 되었습니다.')}</p>
+
+            <p class="join-end__desc">
+                {=trans('해당 계정으로 로그인 하시면 {mallName}의 모든 서비스를 이용하실 수 있습니다.<br/>앞으로도 많은 이용과 관심 부탁드립니다.')}
+            </p>
+        </div>
+    </div>
+
+    <div class="wrap-btn-area fb__join-member__btn-area join-end__btn">
+        <button class="btn-lg btn-point" id="devSleepMemberReleaseComplete">{=trans('로그인')}</button>
+    </div>
+
+</section>

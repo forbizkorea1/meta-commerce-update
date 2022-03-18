@@ -1,0 +1,720 @@
+<!-- ManageMallConfig Content -->
+<form id="devManagerConfigForm" method="POST">
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">쇼핑몰 기본 정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter ">
+                <table>
+                    <caption>판매방식 및 카테고리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="35%">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">쇼핑몰 이름</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="mall_name" title="쇼핑몰 이름" value="{config.mall_name}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="">쇼핑몰 로고</span>
+                        </th>
+                        <td colspan="">
+                            <div id="devShopLogo" class="fb-filter__size--55" data-img-src="{config.devShopLogo.url}?{config.devShopLogoId.system_upload_file_id}"></div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>
+                                모바일로고
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div id="devMobileLogo" class="fb-filter__size--55" data-img-src="{config.devMobileLogo.url}?{config.devMobileLogoId.system_upload_file_id}"></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                메일폼로고
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div id="devMailLogo" class="fb-filter__size--55" data-img-src="{config.devMailLogo.url}?{config.devMailLogoId.system_upload_file_id}"></div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>
+                                파비콘 * ico 파일만 가능
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div id="devFavicon" class="fb-filter__size--55" data-img-src="{config.devFavicon.url}?{config.devFaviconId.system_upload_file_id}"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                파비콘 멀티 디바이스<br>
+                                * png 파일만 가능 
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <!--<input type="file" name="userfile" />-->
+                            <div id="devFaviconPng" class="fb-filter__size--55" data-img-src="{config.devFaviconPng.url}?{config.devFaviconPngId.system_upload_file_id}"></div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">쇼핑몰 설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>쇼핑몰 설정</caption>
+                    <colgroup>
+                        <col width="20%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                주 결제모듈 선택
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="sattle_module" value="ksnet" {? config.sattle_module== 'ksnet' } checked {/} />
+                                    <span>KSNET</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="sattle_module" value="nicepay" {? config.sattle_module== 'nicepay' } checked {/} />
+                                    <span>나이스페이</span>
+                                </label>
+                                {? false}
+                                <label>
+                                    <input type="radio" name="sattle_module" value="kcp" {? config.sattle_module== 'kcp' } checked {/} />
+                                    <span>KCP</span>
+                                </label>
+                                {/}
+                                <label>
+                                    <input type="radio" name="sattle_module" value="inicis" {? config.sattle_module== 'inicis' } checked {/} />
+                                    <span>이니시스</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="sattle_module" value="" {? config.sattle_module== '' } checked {/} >
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    {? false}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                추가 결제모듈 선택
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ addSattleModuleList}
+                                <label>
+                                    <input type="checkbox" class="devAddSattleModule" data-pg="{.key_}" name="add_sattle_module_{.key_}" value="Y" {? config['add_sattle_module_' + .key_] == 'Y'  } checked {/}  />
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devAddSattleModuleConfig" data-pg="naverpay_pg" {?config.add_sattle_module_naverpay_pg != 'Y'}style="display:none"{/}>
+                    <th class="fb-filter__title">
+                        <span>
+                            Npay ( PG형 ) - 서비스 타입
+                        </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="naverpay_pg_service_type" value="test" {? config.naverpay_pg_service_type == 'test'  } checked {/}  />
+                                <span>test</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="naverpay_pg_service_type" value="service" checked />
+                                <span>service</span>
+                            </label>
+                        </div>
+                    </td>
+                    </tr>
+                    <tr class="devAddSattleModuleConfig" data-pg="naverpay_pg" {?config.add_sattle_module_naverpay_pg != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                Npay ( PG형 ) - Config
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="naverpay_pg_partner_id" title="Npay ( PG형 ) 파트너 ID" placeholder="파트너 ID" value="{config.naverpay_pg_partner_id}">
+                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_id" title="Npay ( PG형 ) Client ID" placeholder="Client ID" value="{config.naverpay_pg_client_id}">
+                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_secret" title="Npay ( PG형 ) Client Secret" placeholder="Client Secret" value="{config.naverpay_pg_client_secret}">
+                        </td>
+                    </tr>
+                    <tr class="devAddSattleModuleConfig" data-pg="payco" {?config.add_sattle_module_payco !='Y'}style="display:none" {/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                PAYCO - 서비스 타입
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="payco_service_type" value="test" {?
+                                           config.payco_service_type== 'test' } checked {/} />
+                                    <span>test</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="payco_service_type" value="service" {?
+                                           config.payco_service_type== 'service' } checked {/} />
+                                    <span>service</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="devAddSattleModuleConfig" data-pg="payco" {?config.add_sattle_module_payco !='Y'}style="display:none" {/}>
+                    <th class="fb-filter__title">
+                            <span>
+                                PAYCO - Config
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="payco_seller_key" title="PAYCO sellerKey"
+                                   placeholder="sellerKey" value="{config.payco_seller_key}">
+                            <input type="text" class="fb-filter__text" name="payco_cp_id" title="PAYCO cpId"
+                                   placeholder="cpId" value="{config.payco_cp_id}">
+                            <input type="text" class="fb-filter__text" name="payco_product_id" title="PAYCO productId"
+                                   placeholder="productId" value="{config.payco_product_id}">
+                        </td>
+                    </tr>
+                    <tr class="devAddSattleModuleConfig" data-pg="toss" {?config.add_sattle_module_toss !='Y'}style="display:none" {/}>
+                    <th class="fb-filter__title">
+                            <span>
+                                토스 - 서비스 타입
+                            </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="toss_service_type" value="test" {?
+                                       config.toss_service_type== 'test' } checked {/} />
+                                <span>test</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="toss_service_type" value="service" {?
+                                       config.toss_service_type== 'service' } checked {/} />
+                                <span>service</span>
+                            </label>
+                        </div>
+                    </td>
+                    </tr>
+                    <tr class="devAddSattleModuleConfig" data-pg="toss" {?config.add_sattle_module_toss !='Y'}style="display:none" {/}>
+                    <th class="fb-filter__title">
+                            <span>
+                                토스 - Config
+                            </span>
+                    </th>
+                    <td colspan="3">
+                        <input type="text" class="fb-filter__text" name="toss_api_key" title="토스 apiKey"
+                               placeholder="apiKey" value="{config.toss_api_key}">
+                    </td>
+                    </tr>
+                    {/}
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                배송비 부과 정책
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="with_coupon_y">
+                                    <input type="radio" name="delivery_with_coupon" id="with_coupon_y" value="Y" {? config.delivery_with_coupon == 'Y'  } checked {/} >
+                                           <span>쿠폰할인가</span>
+                                </label>
+                                <label for="with_coupon_n">
+                                    <input type="radio" name="delivery_with_coupon" id="with_coupon_n" value="N" {? config.delivery_with_coupon == 'N'  } checked {/} >
+                                           <span>쿠폰할인가 미반영</span>
+                                </label>                                
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                도매/소매 사용여부
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="selling_type_r">
+                                    <input type="radio" name="selling_type" id="selling_type_r" value="R" {? config.selling_type == 'R'  } checked {/}>
+                                           <span>도매</span>
+                                </label>
+                                <label for="selling_type_w">
+                                    <input type="radio" name="selling_type" id="selling_type_w" value="W" {? config.selling_type == 'W'  } checked {/} >
+                                           <span>소매</span>
+                                </label>
+                                <label for="selling_type_rw">
+                                    <input type="radio" name="selling_type" id="selling_type_rw" value="RW" {? config.selling_type == 'RW'  } checked {/} >
+                                           <span>도매+소매</span>
+                                </label>                                
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                톡톡 서비스 사용
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="talktalk_use_type" value="Y" {? config.talktalk_use_type == 'Y'}checked{/}  />
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="talktalk_use_type" value="N" {? config.talktalk_use_type == 'N' || config.talktalk_use_type == ''}checked{/} />
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="talktalkUseConfig" style="display: none;"> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                톡톡 - JavaScript
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <h4>PC</h4><br>
+                            <div class="fb-filter__checkbox">
+                                <textarea type="text" class="fb-filter__textarea" name="talktalk_script" placeholder="PC" title="네이버톡톡 script" style="height: 100px;">{config.talktalk_script}</textarea>
+                            </div>
+                            <br />
+                            <h4>MOBILE</h4><br>
+                            <div>
+                                <textarea type="text" class="fb-filter__textarea" name="talktalk_mobile_script" placeholder="MOBILE" title="네이버톡톡 모바일 script" style="height: 100px;">{config.talktalk_mobile_script}</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 라디오 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                도로명주소 DB TYPE 설정
+                            </span>
+                        </th>
+                        <td colspan="3" >
+                            <div class="fb-filter__radio">
+                                <label for="zipcode_type_D">
+                                    <input type="radio" name="zipcode_type" id="zipcode_type_D" value="D" {? config.zipcode_type == 'D' || config.zipcode_type == ''  } checked {/}  >
+                                           <span>DAUM DB사용</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    <th class="fb-filter__title">
+                            <span>
+                                굿스플로 사용
+                            </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="goodsflow_use_type" class="devGoodsFlowUseType" value="Y" {? config.goodsflow_use_type == 'Y'}checked{/}  />
+                                <span>사용</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="goodsflow_use_type" class="devGoodsFlowUseType" value="N" {? config.goodsflow_use_type == 'N' || config.talktalk_use_type == ''}checked{/} />
+                                <span>사용안함</span>
+                            </label>
+                        </div>
+                    </td>
+                    </tr>
+                    <tr class="devGoodsflowConfig" {?config.goodsflow_use_type !='Y'}style="display:none" {/}>
+                    <th class="fb-filter__title">
+                            <span>
+                                굿스플로 Config
+                            </span>
+                    </th>
+                    <td colspan="3">
+                        <p><span style="display:inline-block; width: 100px">App Key :</span>
+                            <input type="text"
+                                   class="fb-filter__text floatNo"
+                                   name="goodsflow_app_key"
+                                   title="굿스플로 App Key"
+                                   value="{config.goodsflow_app_key}">
+                        </p>
+                        <p style="margin: 5px 0;"><span style="display:inline-block; width: 100px">Company Key :</span>
+                            <input type="text"
+                                   class="fb-filter__text floatNo"
+                                   name="goodsflow_company_key"
+                                   title="굿스플로 Company Key"
+                                   value="{config.goodsflow_company_key}">
+                        </p>
+                    </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">SNS 간편로그인 설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>SNS 간편로그인 설정</caption>
+                    <colgroup>
+                        <col width="18%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                간편로그인 사용 선택
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="checkbox" class="devAddSnsSimpleLogin" name="sns_simple_login_kakao" data-login="kakao" value="Y" {? config.sns_simple_login_kakao == 'Y' } checked {/} />
+                                    <span>카카오</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="devAddSnsSimpleLogin" name="sns_simple_login_naver" data-login="naver" value="Y" {? config.sns_simple_login_naver == 'Y' } checked {/} />
+                                    <span>네이버</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="devAddSnsSimpleLogin" name="sns_simple_login_facebook" data-login="facebook" value="Y" {? config.sns_simple_login_facebook == 'Y' } checked {/} />
+                                    <span>페이스북</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="devAddSnsSimpleLogin" name="sns_simple_login_google" data-login="google" value="Y" {? config.sns_simple_login_google == 'Y' } checked {/} >
+                                    <span>구글</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" class="devAddSnsSimpleLogin" name="sns_simple_login_apple" data-login="apple" value="Y" {? config.sns_simple_login_apple == 'Y' } checked {/} >
+                                    <span>애플</span>
+                                </label>
+                                <small>* 애플은 모바일 IOS 앱에서만 사용가능하며, 사용여부만 사용합니다.</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="kakao" {?config.sns_simple_login_kakao != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                KaKao 간편 로그인 - 서비스 타입
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="kakao_service_type" value="test" {?
+                                           config.kakao_service_type== 'test' || config.kakao_service_type== '' } checked {/} />
+                                    <span>test</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="kakao_service_type" value="service" {?
+                                           config.kakao_service_type== 'service' } checked {/} />
+                                    <span>service</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="kakao" {?config.sns_simple_login_kakao != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                KaKao 간편 로그인 - Config
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="kakao_app_key" title="KAKAO APP KEY" placeholder="KAKAO_APP_KEY" value="{config.kakao_app_key}">
+                            <input type="text" class="fb-filter__text" name="kakao_script_key" title="KAKAO SCRIPT KEY" placeholder="KAKAO_SCRIPT_KEY" value="{config.kakao_script_key}">
+                            <input type="text" class="fb-filter__text" name="kakao_app_secret" title="KAKAO APP SECRET" placeholder="KAKAO_APP_SECRET" value="{config.kakao_app_secret}">
+                            <input type="text" class="fb-filter__text" name="kakao_login_callback_url" title="KAKAO LOGIN CALLBACK URL" placeholder="KAKAO_LOGIN_CALLBACK_URL" value="{config.kakao_login_callback_url}">
+                            <input type="text" class="fb-filter__text" name="kakao_join_callback_url" title="KAKAO JOIN CALLBACK URL " placeholder="KAKAO_JOIN_CALLBACK_URL" value="{config.kakao_join_callback_url}">
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="naver" {?config.sns_simple_login_naver != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                NAVER 간편 로그인 - 서비스 타입
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="naver_service_type" value="test" {?
+                                           config.naver_service_type== 'test' || config.naver_service_type== '' } checked {/} />
+                                    <span>test</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="naver_service_type" value="service" {?
+                                           config.naver_service_type== 'service' } checked {/} />
+                                    <span>service</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="naver" {?config.sns_simple_login_naver != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                NAVER 간편 로그인 - Config
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="naver_client_id" title="NAVER CLIENT ID" placeholder="NAVER_CLIENT_ID" value="{config.naver_client_id}">
+                            <input type="text" class="fb-filter__text" name="naver_client_secret" title="NAVER CLIENT SECRET" placeholder="NAVER_CLIENT_SECRET" value="{config.naver_client_secret}">
+                            <input type="text" class="fb-filter__text" name="naver_login_callback_url" title="NAVER LOGIN CALLBACK URL" placeholder="NAVER_LOGIN_CALLBACK_URL" value="{config.naver_login_callback_url}">
+                            <input type="text" class="fb-filter__text" name="naver_join_callback_url" title="NAVER JOIN CALLBACK URL" placeholder="NAVER_JOIN_CALLBACK_URL" value="{config.naver_join_callback_url}">
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="facebook" {?config.sns_simple_login_facebook != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                FACEBOOK 간편 로그인 - 서비스 타입
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="facebook_service_type" value="test" {?
+                                           config.facebook_service_type== 'test' || config.facebook_service_type== '' } checked {/} />
+                                    <span>test</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="facebook_service_type" value="service" {?
+                                           config.facebook_service_type== 'service' } checked {/} />
+                                    <span>service</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="facebook" {?config.sns_simple_login_facebook != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                FACEBOOK 간편 로그인 - Config
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="facebook_app_id" title="FACEBOOK APP ID" placeholder="FACEBOOK_APP_ID" value="{config.facebook_app_id}">
+                            <input type="text" class="fb-filter__text" name="facebook_app_secret" title="FACEBOOK APP SECRET" placeholder="FACEBOOK_APP_SECRET" value="{config.facebook_app_secret}">
+                            <input type="text" class="fb-filter__text" name="facebook_login_callback_url" title="FACEBOOK LOGIN CALLBACK URL" placeholder="FACEBOOK_LOGIN_CALLBACK_URL" value="{config.facebook_login_callback_url}">
+                            <input type="text" class="fb-filter__text" name="facebook_join_callback_url" title="FACEBOOK JOIN CALLBACK URL" placeholder="FACEBOOK_JOIN_CALLBACK_URL" value="{config.facebook_join_callback_url}">
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="google" {?config.sns_simple_login_google != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                GOOGLE 간편 로그인 - 서비스 타입
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="google_service_type" value="test" {?
+                                           config.google_service_type== 'test' || config.google_service_type== '' } checked {/} />
+                                    <span>test</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="google_service_type" value="service" {?
+                                           config.google_service_type== 'service' } checked {/} />
+                                    <span>service</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devSnsSimpleLoginModuleConfig" data-login="google" {?config.sns_simple_login_google != 'Y'}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>
+                                GOOGLE 간편 로그인 - Config
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="google_client_id" title="GOOGLE CLIENT ID" placeholder="GOOGLE_CLIENT_ID" value="{config.google_client_id}">
+                            <input type="text" class="fb-filter__text" name="google_client_secret" title="GOOGLE CLIENT SECRET" placeholder="GOOGLE_CLIENT_SECRET" value="{config.google_client_secret}">
+                        </td>
+                    </tr>
+
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">타이틀 및 검색엔진 키워드</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>타이틀 및 검색엔진 키워드</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                타이틀
+                            </span>                            
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text" name="mall_title" title="타이틀" value='{config.mall_title}' >                                
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                검색엔진키워드
+                            </span>                            
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text" name="mall_keyword" value='{config.mall_keyword}' >
+                            </div>
+                        </td>
+                    </tr>                    
+                </table>                
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">자동주문상태 변경 설정</h3>
+                <p class="fb__menusubmit-title" style="font-size:12px;">(주말/공휴일 포함)</p>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>판매방식 및 카테고리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                자동배송완료기간 
+                            </span>
+                            
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="mall_dc_interval" title="자동배송완료기간" devnumber="true" value='{config.mall_dc_interval}' > 일 이상된 배송중 주문
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                자동주문취소기간 
+                            </span>                            
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="mall_cc_interval" title="자동주문취소기간" devnumber="true" value='{config.mall_cc_interval}' >  일 이상된 입금예정 주문
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                장바구니 비움기간 
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="cart_delete_day" title="장바구니 비움기간" devnumber="true" value='{config.cart_delete_day}' >  일 이상된 장바구니 상품 비움 기간에 대한 설정입니다.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                취소요청 자동완료기간 
+                            </span>
+
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <input type="text" class="fb-filter__text floatNo" name="cancel_auto_day" title="취소요청 자동완료기간" devnumber="true" value='{config.cancel_auto_day}' > 일 이상된 취소요청 주문을 자동 '취소완료' 처리상태로 변경되는 기간에 대한 설정입니다.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                구매확정일 설정
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text floatNo" name="check_order_day" title="구매확정일 설정" devnumber="true" value='{config.check_order_day}' > <span>배송완료일로 부터 회원이 구매확정을 하지 않을 경우 자동 구매확정으로 상태변경할 수 있게 설정합니다. </span>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span>
+                                공휴일등록
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <span>YYYY.MM.DD로 입력해주세요. 다수 등록 시 콤마(,)로 구분합니다. (ex. 2021.06.01,2021.06.05)</span><pre>
+                                <textarea type="text" class="fb-filter__textarea" style="float: left;" name="holiday_text" >{config.holiday_text}</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>
+

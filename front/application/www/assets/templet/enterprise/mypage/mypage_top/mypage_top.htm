@@ -1,0 +1,47 @@
+<section class="fb__mytop">
+    <h3 class="fb__title--hidden">{=trans('마이페이지 공통 상단')}</h3>
+    
+    <div class="mytop__inner">
+        <dl class="mytop__user">
+            <dt class="mytop__user__top">
+                <span class="mytop__user__name">{=trans('<em>{mypage.userName}</em>님')}</span>
+                <a href="#" class="mytop__user__grade js__membership__open">{mypage.gpName}</a>
+            </dt>
+            
+            <dd class="mytop__user__bottom">
+                <a href="#" class="mytop__user__membership js__membership__open">{=trans('회원등급혜택')}</a>
+            </dd>
+        </dl>
+    
+        <dl class="mytop__benefit mytop__mileage">
+            <dt class="mytop__benefit__name">
+                <span>{=trans('{mileageName}')}</span>
+            </dt>
+            <dd class="mytop__benefit__cont">
+                <a href="/mypage/mileage" class="mytop__benefit__link">
+                    {=g_price(mypage.myMileAmount)}
+                </a>
+            </dd>
+        </dl>
+
+        <dl class="mytop__benefit mytop__coupon">
+            <dt class="mytop__benefit__name">
+                <span>{=trans('쿠폰')}</span>
+            </dt>
+            <dd class="mytop__benefit__cont">
+                <a href="/mypage/coupon" class="mytop__benefit__link">
+                    {=g_number_format(mypage.couponCnt)}
+                </a>
+            </dd>
+        </dl>
+    
+        <!-- <section class="mytop__section">
+            <h2 class="mytop__title-delivery">{=trans('배송중인 상품')}</h2>
+            <p class="mytop__detail">
+                <a href="/mypage/orderHistory#status=DI">
+                    <span class="mytop__num">{=g_number_format(mypage.deliveryIngCnt)}</span>건
+                </a>
+            </p>
+        </section> -->
+    </div>
+</section>

@@ -1,0 +1,40 @@
+<div class="member-search">
+    <ul class="tab">
+        <li class="active"><a href="/member/searchId">{=trans('아이디 찾기')}</a></li>
+        <li class=""><a href="/member/searchPw">{=trans('비밀번호 찾기')}</a></li>
+    </ul>
+
+    <!--{? userId}--> <!-- 아이디 찾기 성공 -->
+    <p class="member-search__success__result">{=trans('아이디 찾기 결과 아이디 정보는 아래와 같습니다.')}</p>
+
+    <div class="member-search__success">
+        <p class="member-search__success__title">
+            {=trans('회원님의 아이디는 <br> <span class="member-search__success__id">{userId}</span> 입니다.')}
+        </p>
+
+        <p class="member-search__success__date">
+            {=trans('가입일')} : <span class="font-rb">{registDate}</span>
+        </p>
+    </div>
+    <div class="member-search__login">
+        <a href="/member/login" class="member-search__login__btn">{=trans('로그인')}</a>
+    </div>
+
+    
+    <!--{:}--> <!-- 아이디 찾기 실패 -->
+    <div class="member-search__id no-result">
+        <p class="no-result__title">
+            {=trans('<strong>가입된 아이디가 없습니다.</strong>')}
+        </p>
+
+        <p class="no-result__desc">
+            {=trans('지금 회원가입을 하시면,<br> {mallName}의 다양한 혜택을 받으실 수 있습니다.')}
+        </p>
+
+        <div class="wrap-btn-area">
+            <a href="/" class="btn-lg btn-point-line">{=trans('홈으로')}</a>
+            <a href="/member/authentication" class="btn-lg btn-point">{=trans('회원가입하기')}</a>
+        </div>
+    </div>
+    <!--{/}-->
+</div>

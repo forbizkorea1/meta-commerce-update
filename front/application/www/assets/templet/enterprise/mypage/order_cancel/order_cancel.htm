@@ -1,0 +1,315 @@
+<section class="fb__orderCommon fb__mypage__order-cancel">
+    <h2 class="fb__mypage__title">{=trans('주문취소 신청')}</h2>
+
+    <form method="post" id="devForm">
+        <!-- 취소상품선택 -->
+        <section class="fb__mypage__section">
+            <h3 class="fb__title--hidden">{=trans('취소상품')}</h3>
+
+            <!-- 상단 -->
+            <header class="fb__orderCommon__detailHeader">
+                <dl class="fb__orderCommon__date">
+                    <dt>{=trans('주문일자')}</dt>
+                    <dd>{order.order_date}</dd>
+                </dl>
+
+                <dl class="fb__orderCommon__oid">
+                    <dt>{=trans('주문번호')}</dt>
+                    <dd>
+                        <span id="devOid" data-oid="{order.oid}" data-status="{order.status}" data-claimstatus="{=claimstatus}">
+                            {order.oid}
+                        </span>
+                    </dd>
+                </dl>
+
+                <input type="hidden" name="oid" value="{=order.oid}" />
+                <input type="hidden" name="claimStatus" value="{=claimstatus}" />
+                <input type="hidden" name="status" value="{=order.status}" />
+            </header>
+
+            <!-- 테이블 -->
+            <div class="fb__shopCommon__table orderDetailTable js__check__wrapper">
+                {@ order.orderDetail}
+                    <!-- 상품테이블 -->
+                    {? cancelOdIx != ''}
+                        {*분할취소*}
+                        <table>
+                            <colgroup>
+                                <col width="80px"/>
+                                <col width="*"/>
+                                <col width="140px"/>
+                                <col width="140px"/>
+                                <col width="140px"/>
+                            </colgroup>
+
+                            {? .index_ == 0}
+                            <thead>
+                                <!-- 전체취소 -->
+                                <th class="fb__mypage__checkbox">
+                                    <input type="checkbox" id="devOdIxAll" class="js__check__all">
+                                </th>
+                                <th>{=trans('상품명/옵션')}</th>
+                                <th>{=trans('주문수량')}</th>
+                                <th>{=trans('취소수량')}</th>
+                                <th>{=trans('결제금액')}</th>
+                            </thead>
+                            {/}
+
+                            <tbody>
+                                {@ .value_}
+                                <tr>
+                                    <td class="fb__mypage__checkbox">
+                                        <input type="checkbox" class="devOdIxCls js__check__each" id="devOdIx{..od_ix}" name="checkOdIx[]" value="{..od_ix}" {? ..od_ix == cancelOdIx}checked{/}>
+                                    </td>
+
+                                    <td class="orderDetailTable__item item-info">
+                                        <a href="/shop/goodsView/{..pid}" class="item-info__link">
+                                            <figure class="item-info__thumb">
+                                                <img data-src="{..pimg}">
+                                            </figure>
+            
+                                            <div class="item-info__info">
+                                                <p class="item-info__name">{? ..brand_name}[{..brand_name}] {/}{..pname}</p>
+                                                <p class="item-info__option">{..option_text}</p>
+                                            </div>
+                                        </a>
+                                    </td>
+
+                                    <!-- 주문수량 -->
+                                    <td class="orderDetailTable__count">
+                                        <em>{..pcnt}</em>{=trans('개')}
+                                    </td>
+
+                                    <!-- 취소수량 -->
+                                    <td>
+                                        <select class="devCancelCntCls fb__select--medium" id="devCancelCnt{..od_ix}" name="odIxs[{..od_ix}]">
+                                            {@ range(..pcnt, 1, -1)}<option value="{...value_}">{...value_}</option>{/}
+                                        </select>
+                                    </td>
+
+                                    <!-- 결제금액 -->
+                                    <td class="orderDetailTable__price">
+                                        <span class="item-info__price--current">
+                                            <em>{=g_number_format(..pt_dcprice)}</em>{=trans('원')}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {/}
+                            </tbody>
+                        </table>
+                    {:}
+                        {*전체취소*}
+                        <table>
+                            <colgroup>
+                                <col width="*"/>
+                                <col width="160px"/>
+                                <col width="160px"/>
+                            </colgroup>
+
+                            {? .index_ == 0}
+                            <thead>
+                                <th>{=trans('상품명/옵션')}</th>
+                                <th>{=trans('주문수량')}</th>
+                                <th>{=trans('결제금액')}</th>
+                            </thead>
+                            {/}
+                            
+                            <tbody>
+                                {@ .value_}
+                                <tr>
+                                    <td class="orderDetailTable__item item-info">
+                                        <input type="checkbox" class="devOdIxCls blind" id="devOdIx{..od_ix}" name="checkOdIx[]" value="{..od_ix}" checked>
+                                        <input type="hidden" class="devCancelCntCls" id="devCancelCnt{..od_ix}" name="odIxs[{..od_ix}]" value="{..pcnt}">
+
+                                        <a href="/shop/goodsView/{..pid}" class="item-info__link">
+                                            <figure class="item-info__thumb">
+                                                <img data-src="{..pimg}">
+                                            </figure>
+            
+                                            <div class="item-info__info">
+                                                <p class="item-info__name">{? ..brand_name}[{..brand_name}] {/}{..pname}</p>
+                                                <p class="item-info__option">{..option_text}</p>
+                                            </div>
+                                        </a>
+                                    </td>
+
+                                    <!-- 주문수량 -->
+                                    <td class="orderDetailTable__count">
+                                        <em>{..pcnt}</em>{=trans('개')}
+                                    </td>
+
+                                    <!-- 결제금액 -->
+                                    <td class="orderDetailTable__price">
+                                        <span class="item-info__price--current">
+                                            <em>{=g_number_format(..pt_dcprice)}</em>{=trans('원')}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {/}
+                            </tbody>
+                        </table>
+                   
+                        {? false}
+                        <!-- 배송비영역 -->
+                        <div class="orderDetailTable__shipping fb__shopCommon__shipping">
+                            <span class="shipping__price">{=trans('배송비')} <em>{=g_number_format(order.deliveryPrice[.key_])}</em>{=trans('원')}</span>
+                            <span class="shipping__detail">{order.deliveryPricePolicyText[.key_]}</span>
+                        </div>
+                        {/}
+                    {/}
+                {/}
+            </div>
+        </section>
+
+        <!-- 취소사유 -->
+        <section class="fb__mypage__section fb__shopCommon__section">
+
+            <ul class="section__infoTable">
+                <li class="infoTable__list">
+                    <span class="infoTable__title">
+                        <em class="requiredMark">
+                            {=trans('취소사유')}
+                        </em>
+                    </span>
+
+                    <div class="infoTable__cont fb__claimCommon__reason">
+                        <!-- 사유선택 -->
+                        <select name="ccReason" id="devCcReason">
+                            {@cancelReason}<option value="{.key_}">{.title}</option>{/}
+                        </select>
+    
+                        <!-- 사유 입력 -->
+                        <div class="write__area js__textcount__area">
+                            <textarea class="js__textCount__textarea" placeholder="{=trans('취소사유를 입력해 주세요.')}" maxlength="100" id="devCcMsg" name="ccReasonMsg" text="{=trans('취소사유')}"></textarea>
+                           
+                            <div class="write__textCount">
+                                <em class="js__textCount__current">0</em>
+                                <span>/</span>
+                                <em class="js__textCount__maxLength">100</em>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 환불내역 -->
+        {? order.status == c.ORDER_STATUS_INCOM_COMPLETE}
+        <section class="fb__mypage__section refund-area">
+            <h2 class="fb__mypage__title">{=trans('환불내역')}</h2>
+
+            <div class="refund-area__inner">
+                <div class="pay-info">
+                    <div class="pay-info__box">
+                        <div class="pay-info__top">
+                            <p class="pay-info__top__tit">{=trans('취소신청 상품 금액')}</p>
+                            <p class="pay-info__top__price"><em id="devCancelTotalPrice">0</em>{=trans('원')}</p>
+                        </div>
+
+                        <div class="pay-info__bottom">
+                            <dl>
+                                <dt>{=trans('실 결제 금액')}</dt>
+                                <dd><em id="devCancelProductPrice">0</em>{=trans('원')}</dd>
+                            </dl>
+
+                            <dl>
+                                <dt>{=trans('배송비')}</dt>
+                                <dd><em id="devCancelDeliveryReturnPrice">0</em>{=trans('원')}</dd>
+                            </dl>
+                            <dl>
+                                <dt>{mileageName} {=trans('사용금액')}</dt>
+                                <dd><em class="devCancelMileageReturnPrice">0</em>{mileageUnit}</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="pay-info__box pay-info__box-delivery">
+                        <div class="pay-info__top">
+                            <p class="pay-info__top__tit">{=trans('취소 시 추가 배송비')}</p>
+                            <p class="pay-info__top__price"><em id="devCancelTotalReceivePrice"></em>{=trans('원')}</p>
+                        </div>
+
+                        <div class="pay-info__bottom">
+                            <dl>
+                                <dt>{=trans('취소 배송비')}</dt>
+                                <dd><em id="devCancelDeliveryPrice">0</em>{=trans('원')}</dd>
+                            </dl>
+                        </div>
+
+                    </div>
+
+                    <div class="pay-info__box pay-info__box-sum">
+                        <div class="pay-info__top">
+                            <p class="pay-info__top__tit">{=trans('환불 예정 금액')}</p>
+                            <p class="pay-info__top__price fb__point-color"><em id="devCancelTotalReturnPrice">0</em>{=trans('원')}</p>
+                        </div>
+                        <div class="pay-info__bottom">
+                            <dl>
+                                <dt>{=trans('결제수단 환불금액')}</dt>
+                                <dd><em id="devCancelProductReturnPrice">0</em>{=trans('원')}</dd>
+                            </dl>
+                            <dl>
+                                <dt>{mileageName} {=trans('환불금액')}</dt>
+                                <dd><em class="devCancelMileageReturnPrice">0</em>{mileageUnit}</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="refund-info">
+                    <dl class="refund-info__box">
+                        <dt>{=trans('결제수단(상품 구매 시)')}</dt>
+                        <dd>{@paymentInfo.payment}
+                                {.method_text}
+                                {? .method != c.ORDER_METHOD_PAYCO}{.memo}{/}
+                            {/}
+                        </dd>
+                    </dl>
+
+                    <dl class="refund-info__box refund-info__box-account" id="devRefundMethod">
+                        <dt>{=trans('환불수단')}</dt>
+                            <input type="hidden" id="devRefundBankIx" value="{refundInfo.bank_ix}">
+                            <dd class="refund-info__input-area">
+                                <label>{=trans('은행명')}</label>
+                                <select name="bankCode" title="{=trans('은행명')}" id="devBankCode">
+                                    <option value="">{=trans('선택')}</option>
+                                    {@ bankList}
+                                    <option value="{bankList.key_}" {? bankList.key_ == refundInfo.bank_code}selected{/}>
+                                        {bankList.value_}
+                                    </option>
+                                    {/}
+                                </select>
+                                <label>{=trans('예금주')}</label>
+                                <input type="text" name="bankOwner" value="{refundInfo.bank_owner}" title="{=trans('예금주')}" id="devBankOwner">
+                                <div class="refund-info__input-area__account">
+                                    <label>{=trans('계좌번호')}</label>
+                                    <input type="text" name="bankNumber" value="{refundInfo.ori_bank_number}" title="{=trans('계좌번호')}" id="devBankNumber" class="bank-num-input">
+                                </div>
+                            </dd>
+                    </dl>
+
+                    {@paymentInfo.payment}
+                        {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ASCROW : c.ORDER_METHOD_CASH}
+                            <script>$(function(){$('#devRefundMethod').show();});</script>
+                        {:}
+                            <script>$(function(){$('#devRefundMethod').hide();});</script>
+                        {/}
+                    {/}
+                </div>
+            </div>
+
+            <div class="fb__orderCommon__desc">
+                {=trans('결제수단 중 신용카드 및 실시간 계좌이체는 자동 환불 처리되며 기타 결제수단을 통해 결제하신 고객님은 환불계좌에 등록된 계좌로 송금 처리됩니다.<br>결제 시 사용한 쿠폰 및 마일리지는 내부정책에 따라 취소신청 완료 후 환불됩니다.')}
+            </div>
+        </section>
+        {/}
+
+        <!-- 하단 버튼 -->
+        <section class="fb__mypage__section">
+            <div class="common-btn">
+                <button class="common-btn__left" id="devClaimCancel" type="button">{=trans('취소')}</button>
+                <button class="common-btn__right" id="devClaimApply" type="button">{=trans('취소신청')}</button>
+            </div>
+        </section>
+    </form>
+</section>

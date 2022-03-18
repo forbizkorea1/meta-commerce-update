@@ -1,0 +1,31 @@
+<script>
+    var bbsMethod = '{bbsMethod}';
+</script>
+
+<div class="wrap-notice-detail">
+    <input type="hidden" id="isList" value="N" />
+    <input type='hidden' name='isAjaxList' id='isAjaxList' value ='N' />
+    <div class="title-area">
+        {? is_notice == 'Y'}
+        <span class="tag">{=trans('공지')}</span>
+        {/}
+        <p class="title">{bbs_subject}</p>
+        <span class="date">{reg_date}</span>
+    </div>
+
+    <!-- 200818 {bbs_contents} 코드 줄바꿈 하면 컨텐츠에 공백 생기므로 줄바꿈 처리하면 안됨 -->
+    <div class="content-area">
+        <div class="content-area__text">{bbs_contents}</div>
+        {? bbs_file_1 != "" || bbs_file_2 != "" || bbs_file_3 != ""}
+        <div class="file">
+            {? bbs_file_1 != ""}<div><a href="{bbs_file_1_url}" download="{bbs_file_1_org_file_name}"><span>{bbs_file_1_org_file_name}</span></a></div>{/}
+            {? bbs_file_2 != ""}<div><a href="{bbs_file_2_url}" download="{bbs_file_2_org_file_name}"><span>{bbs_file_2_org_file_name}</span></a></div>{/}
+            {? bbs_file_3 != ""}<div><a href="{bbs_file_3_url}" download="{bbs_file_3_org_file_name}"><span>{bbs_file_3_org_file_name}</span></a></div>{/}
+        </div>
+        {/}
+    </div>
+
+    <div class="wrap-btn-area">
+        <button class="btn-default btn-full btn-point-line" onclick="javascript:document.location.href = '/customer/notice'">{=trans('목록')}</button>
+    </div>
+</div>

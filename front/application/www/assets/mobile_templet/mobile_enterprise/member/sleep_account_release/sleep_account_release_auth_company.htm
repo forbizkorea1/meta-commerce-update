@@ -1,0 +1,96 @@
+<div class="wrap-step">
+    <p class="wrap-step__title">01 {=trans('사업자인증 및 약관동의')}</p>
+    <ul class="step">
+        <li class="on">1</li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+</div>
+
+<div class="layout-padding wrap-join-auth-com">
+
+    <form id="devCompanyForm" class="cont">
+        <h2 class="cont__title">{=trans('사업자 인증')}</h2>
+        <div class="wrap-input-form">
+            <dl>
+                <dt>{=trans('상호명')} <em>*</em></dt>
+                <dd>
+                    <input type="text" id="devComName" name="comName" title="{=trans('상호명')}">
+                    <p class="txt-error" devTailMsg="devComName"></p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>{=trans('사업자등록 번호')} <em>*</em></dt>
+                <dd class="input-comnum wrap-multi-input">
+                    <input type="text" name="comNumber1" id="devComNumber1" title="{=trans('사업자등록번호')}" class="input-comnum__1">
+                    <span class="input-comnum__hyphen"></span>
+                    <input type="text" name="comNumber2" id="devComNumber2" title="{=trans('사업자등록번호')}" class="input-comnum__2">
+                    <span class="input-comnum__hyphen"></span>
+                    <input type="text" name="comNumber3" id="devComNumber3" title="{=trans('사업자등록번호')}" class="input-comnum__3">
+                    <button class="btn-confirm-comnum btn-default btn-dark-line mal20" id="devCompanySubmitButton">{=trans('사업자 확인')}</button>
+
+                    <p class="txt-error" devTailMsg="devComNumber1 devComNumber2 devComNumber3"></p>
+                </dd>
+            </dl>
+        </div>
+    </form>
+
+    <div class="cont agree-area">
+        <h2 class="cont__title">{=trans('약관동의')}</h2>
+        <form id="devForm" class="form-box">
+            <input type="hidden" name="devCerti" id="devCerti" value="">
+
+            <!-- 전체동의 -->
+            <div class="term-list">
+                <label for="agree-all" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-all" class="agree-all blind">
+                    <span>{=trans('약관 전체동의')}</span>
+                </label>
+            </div>
+
+            <!-- 구매 이용약관 -->
+            <div class="term-list">
+                <label for="agree-term1" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired blind">
+                    <span>[{=trans('필수')}] {=trans('구매 이용약관')}</span>
+                </label>
+                <span class="accord-btn"></span>
+            </div>
+            <div class="terms-content">{policyData['use']['contents']}</div>
+
+            <!-- 개인정보 수집 및 이용약관 -->
+            <div class="term-list">
+                <label for="agree-term2" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" class="devRequired blind">
+                    <span>[{=trans('필수')}] {=trans('개인정보 수집 및 이용약관')}</span>
+                </label>
+                <span class="accord-btn"></span>
+            </div>
+            <div class="terms-content">{policyData['collection']['contents']}</div>
+
+            <!-- 개인정보 취급 위탁 -->
+            <div class="term-list">
+                <label for="agree-term3" class="fb__comm__checkbox">
+                    <input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" class="devRequired blind">
+                    <span>[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</span>
+                </label>
+                <span class="accord-btn"></span>
+            </div>
+            <div class="terms-content">{policyData['consign']['contents']}</div>
+        </form>
+    </div>
+
+	<div class="wrap-agree-sec">
+		<p class="join-agree-desc">
+			· {=trans('{mallName} 이용을 위해 약관에 동의하셔야 휴면 상태를 해지할 수 있습니다.')}
+		</p>
+	</div>
+
+	<p class="sleep-subtit">{=trans('휴면 상태를 해지 하시겠습니까?')}</p>
+
+	<div class="wrap-btn-area agree">
+		<button class="btn-lg btn-point-line" id="devCancelButton">{=trans('취소')}</button>
+		<button class="btn-lg btn-point" id="devSubmitButton">{=trans('휴면 상태 해지')}</button>
+	</div>
+</div>
+

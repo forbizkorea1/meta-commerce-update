@@ -1,0 +1,87 @@
+<section class="fb__event">
+    <h2 class="fb__title--hidden">{=trans('이벤트 페이지')}</h2>
+
+    <!-- 탭 메뉴 -->
+    <nav class="fb__event__tab">
+        <label class="fb__event__menu">
+            <input type="radio" name="event-tab" class="devIngType" data-type="ing" autocomplete="off" checked>
+            <span>{=trans('진행 중인 이벤트')}</span>
+        </label>
+
+        <label class="fb__event__menu">
+            <input type="radio" name="event-tab" class="devIngType" data-type="end" autocomplete="off">
+            <span>{=trans('종료된 이벤트')}</span>
+        </label>
+    </nav>
+
+    <!-- form -->
+    <form id="devEventForm">
+        <input type="hidden" name="orderBy" value="startDate">
+        <input type="hidden" name="orderByType" value="desc">
+        <input type="hidden" name="page" value="1" id="devPage">
+        <input type="hidden" name="max" value="18" id="devMax">
+        <input type="hidden" name="ingType" value="ing" id="devIngType">
+    </form>
+
+    <!-- 이벤트 메인 -->
+    <main class="fb__event__wrap">
+        
+        <!-- 이벤트 내용 -->
+        <ul id="devEventContent" class="fb__event__box">
+            
+            <!-- case 01. 로딩중 -->
+            <!--{'<script id="devEventLoading" type="text/x-handlebars-template">'}-->
+            <li>
+                <div class="wrap-loading">
+                    <div class="loading"></div>
+                </div>
+            </li>
+            <!--{'</script>'}-->
+
+            <!-- case 02. 빈 케이스 -->
+            <!--{'<script id="devEventListEmpty" type="text/x-handlebars-template">'}-->
+            <li class="empty-content">
+                <p class="empty-content__txt">{=trans('등록된 이벤트가 없습니다.')}</p>
+            </li>
+            <!--{'</script>'}-->
+
+            <!-- case 03. 리스트 -->
+            <!--{* list *}-->
+            <!--{'<script id="devEventList" type="text/x-handlebars-template">'}-->
+            <li class="fb__event__list">
+                <a href="/event/eventDetail/{[event_ix]}">
+
+                    <!-- 리스트 상단 -->
+                    <div class="fb__event__item">
+                        <figure class="fb__event__image">
+                            <img src="{[imgPath]}" alt="{[event_title]}" onerror="this.src='/assets/mobile_templet/mobile_enterprise/images/noimg.gif'">
+                            {[#if onOff]}{[else]}<span class="end__txt">{=trans('이벤트가 종료되었습니다.')}</span>{[/if]}
+                        </figure>
+
+                        <!-- 뱃지 -->
+                        <!-- {[#if onOff]}
+                            <mark class="fb__event__badge">
+                                <em>D</em><em>{[dday]}</em>
+                            </mark>
+                        {[else]}
+                            <mark class="fb__event__badge end">종료</mark>
+                        {[/if]} -->
+                    </div>
+
+                    <!-- 리스트 하단 -->
+                    <dl class="fb__event__info {[#if onOff]}{[else]}end{[/if]}">
+                        <dt class="fb__event__name">{[event_title]}</dt>
+                        <dd class="fb__event__desc">{[manage_title]}</dd>
+                        <dd class="fb__event__date">{[startDate]} ~ {[endDate]}</dd>
+                    </dl>
+                </a>
+            </li>
+            <!--{'</script>'}-->
+        </ul>
+        <div id="devPageWrap"></div>
+    </main>
+</section>
+    
+
+
+

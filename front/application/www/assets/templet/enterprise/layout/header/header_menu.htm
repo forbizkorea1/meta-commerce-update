@@ -1,0 +1,64 @@
+<div class="fb__header__menu">
+	<h2 class="blind">{=trans('주메뉴')}</h2>
+	
+	<div class="gnb">
+		<ul class="oneDepth">
+			{@ headerMenu.categoryList}
+			<li class="oneDepth__list">
+				<a href="/shop/goodsList/{.cid}" class="oneDepth__list__link">{.cname}</a>
+
+				{? .subCateList}
+				<div class="gnb__sub">
+					<div class="gnb__sub__inner">
+						<ul class="twoDepth">
+							{@ .subCateList}
+							<li class="twoDepth__list">
+								<a href="/shop/goodsList/{..cid}" class="twoDepth__list__link">{..cname}</a>
+
+								{? ..subCateList}
+								<ul class="threeDepth">
+									{@ ..subCateList}
+									<li class="threeDepth__list">
+										<a href="/shop/goodsList/{...cid}" class="threeDepth__list__link">{...cname}</a>
+									</li>
+									{/}
+								</ul>
+								{/}
+							</li>
+							{/}
+						</ul>
+
+						{? headerMenu.gnbBanner}
+						<ul class="gnb__banner">
+							{@ headerMenu.gnbBanner}
+							<li class="gnb__banner__list">
+								<a href="{..bd_link}">
+									<figure class="gnb__banner__img">
+										<img src="{..imgSrc}" alt="{..banner_name}">
+									</figure>
+									<strong class="gnb__banner__title">{..banner_name}</strong>
+								</a>
+							</li>
+							{/}
+						</ul>
+						{/}
+					</div>
+				</div>
+				{/}
+			</li>
+			{/}
+		</ul>
+	</div>
+
+	<div class="lnb">
+		<ul class="lnb__box">
+			<li class="lnb__list">
+				<a href="/event/promotion">{=trans('기획전')}</a>
+			</li>
+
+			<li class="lnb__list">
+				<a href="/event/eventList">{=trans('이벤트')}</a>
+			</li>
+		</ul>
+	</div>
+</div>

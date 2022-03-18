@@ -1,0 +1,147 @@
+<section class="fb__menusubmit">
+    <fieldset class="fb-filter">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#devDropMemberList" class="fb__tap__menu--active">
+                        탈퇴회원리스트
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devDropMemberConfig">
+                        탈퇴사유분류설정
+                    </a>
+                </li>                
+            </ul>
+        </div>
+    </fieldset>
+
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devDropMemberList">
+        <form id="devDropMemberListForm" method="POST">
+            <input type="hidden" name="tabType" value="">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            이름
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="name"  value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>
+                            탈퇴일
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="betweenDatePickerStart" value="" readonly>
+                        <span class="fb-filter__day__line">~</span>
+                        <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="betweenDatePickerEnd" value="" readonly>
+                        <span id="devQuickBetweenDate"></span>
+                    </td>
+                </tr>
+            </table>
+            <div class="fb-filter__btn">
+                <input type="submit" class="fb-filter__save devSubmit" value="검색" />
+                <input type="button" class="fb-filter__reset devReset" value="초기화" />
+            </div>
+        </form>
+    </section>
+    <section class="fb-filter fb__tapcontent__inner" id="devDropMemberConfig">
+        <form id="devDropMemberConfigForm" method="POST">
+            <input type="hidden" name="drop_ix" value="" />
+            <input type="hidden" name="mode" id="devModeDrop" value="insert" />
+
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사용유무
+                        </span>
+                    </th>
+                    <td colspan="3" >
+                        <div class="fb-filter__radio">
+                            <label for="disp_1">
+                                <input type="radio" name="disp" title="사용유무" id="disp_1" value="1" checked>
+                                <span>사용</span>
+                            </label>
+                            <label for="disp_0">
+                                <input type="radio" name="disp" title="사용유무" id="disp_0" value="0">
+                                <span>미사용</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            탈퇴사유분류명
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" title="탈퇴사유명" name="dp_name"  value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트에리아 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            사유상세설명
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <textarea class="fb-filter__textarea" name="dp_msg"></textarea>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div class="fb-filter__btn">
+            <input type="button" class="fb-filter__save devTapSubmit" value="저장" />
+            <input type="button" class="fb-filter__reset devTapReSet" value="초기화" />
+        </div>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devDropMemberListGrid">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">탈퇴회원 검색<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span></h3>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devDropMemberConfigGrid">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">탈퇴사유리스트</h3>
+    </header>
+    <form id="devDropMemberGridForm" method="POST">
+        <input type="hidden" name="page" value="1" id="devDropPage" />
+        <input type="hidden" name="max" value="50" id="devDropMax" />
+    </form>
+    <div id="devPagingGridDrop"></div>
+    <div id="devPageWrapDrop" class="fb__bbs__page"></div>
+</section>

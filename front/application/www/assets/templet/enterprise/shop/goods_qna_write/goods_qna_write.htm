@@ -1,0 +1,96 @@
+<div class="wrap-window-popup popup-qna-write">
+    <header class="fb__modal__header">
+        <span class="fb__modal__title">{=trans('상품문의 작성')}</span>
+        <span class="close" onclick="window.close();"></span>
+    </header>
+
+    <form id="devGoodsQnaFrom" class="qna-write">
+        <input type="hidden" name="pid" id="devPid" value="{pid}">
+        <div class="fb__modal__content js__modal__content">
+            <p class="desc">{=trans('상품에 대한 내용을 판매자에게 문의할 수 있습니다.')}</p>
+
+            <table class="qna-write__contents">
+                <colgroup>
+                    <col width="140px">
+                    <col width="*">
+                </colgroup>
+                {? productQnaSetting.write_secret == 'Y'}
+                <tr>
+                    <th>
+                        <p>{=trans('공개여부')}<em></em></p>
+                    </th>
+                    <td>
+                        <span class="radio-area">
+                            <input type="radio" name="isHidden" value="0" checked><label>{=trans('공개')}</label>
+                        </span>
+                        <span class="radio-area">
+                            <input type="radio" name="isHidden" value="1" ><label>{=trans('비공개')}</label>
+                        </span>
+                    </td>
+                </tr>
+                {/}
+                {? productQnaSetting.use_div == 'Y'}
+                <tr>
+                    <th>
+                        <p>{=trans('분류')}<em></em></p>
+                    </th>
+                    <td>
+                        {@ qnaDivs}
+                        <span class="radio-area">
+                            <input type="radio" name="div" value="{.ix}" {? .index_ == 0}checked{/}><label>{.div_name}</label>
+                        </span>
+                        {/}
+                    </td>
+                </tr>
+                {/}
+                <tr>
+                    <th>
+                        <p>{=trans('제목')}<em></em></p>
+                    </th>
+                    <td>
+                        <input type="text" name="subject" id="devQnaSubject" title="{=trans('제목')}" placeholder="{=trans('문의 제목을 입력해 주세요.')}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>{=trans('내용')}<em></em></p>
+                    </th>
+                    <td>
+                        <div class="js__textcount__area">
+                            <textarea class="js__textCount__textarea" name="contents" id="devQnaContents" title="{=trans('내용')}" maxlength="500" placeholder="{=trans('문의하실 내용을 입력해 주세요.')}"></textarea>
+
+                            <div class="write__textCount">
+                                <em class="js__textCount__current">0</em>
+                                <span>/</span>
+                                <em>500</em>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- @todo. 프론트: 이메일 -->
+                <tr class="qna-write__feedback__info">
+                    <th>
+                        <p>{=trans('답변수신 이메일')}</p>
+                    </th>
+                    <td>
+                        <div>
+                            <input type="text" name="email" id="devEmail" title="{=trans('이메일')}" value="{email}">
+                        </div>
+                        <p class="qna-write__feedback__desc">{=trans('상품문의 답변 완료 시 등록된 이메일 주소로 알려드립니다.')}</p>
+                    </td>
+                </tr>
+            </table>
+
+            <strong class="tit">{=trans('문의 시 유의해 주세요!')}</strong>
+
+            <ul class="qna-write__desc">
+                <li class="desc__list">{=trans('전화번호, 이메일, 배송지 주소, 환불계좌 정보 등 개인정보가 포함된 게시글은 개인정보 도용의 위험이 있으니 비밀글로 문의해 주시기 바랍니다.')}</li>
+                <li class="desc__list">{=trans('상품과 관계없는 내용, 비방, 욕설, 광고, 도배 등의 게시물은 예고 없이 삭제될 수 있습니다.')}</li>
+            </ul>
+
+            <div class="fb__button type--or">
+                <button class="bg--point size--03" type="button" id="devSubmitBtn">{=trans('등록')}</button>
+            </div>
+        </div>
+    </form>
+</div>

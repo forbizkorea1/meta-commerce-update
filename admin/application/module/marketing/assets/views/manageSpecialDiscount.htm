@@ -1,0 +1,230 @@
+<section class="fb__menusubmit" xmlns="http://www.w3.org/1999/html">
+    <section class="fb-filter">
+        <form id="devDisplayForm" enctype="multipart/form-data">
+            <input type="hidden" name="discount_type" value="SP">
+            <input type="hidden" name="dc_ix" value="{ix}">
+            <fieldset>
+                <legend>
+                    특별할인 등록
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">특별할인명</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input type="text" name="discount_sale_title" class="fb-filter__text fb-filter__text--100" value="{goodsList.discount_sale_title}" title="특별할인명">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">노출기간</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="discount_use_sdate" value="{goodsList.discount_use_sdate}" readonly title="노출기간 시작일">
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="discount_use_edate" value="{goodsList.discount_use_edate}" readonly title="노출기간 종료일">
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">사용여부</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="is_use" value="1" {? mode=="add" || (mode=="put" && goodsList.is_use=='1')}checked{/}/>
+                                        <span>사용</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="is_use" value="0" {? mode=="put" && goodsList.is_use=='0'}checked{/}/>
+                                        <span>미사용</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">회원조건</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="member_target" value="A" {? mode=="add" || (mode=="put" && goodsList.member_target=='A')}checked{/}/>
+                                        <span>회원전체</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="member_target" value="G" {? mode=="put" && goodsList.member_target=='G'}checked{/}/>
+                                        <span>회원 그룹별</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devPublishTypeContents" devPublishType="G" {? mode=="add" || (mode=="put" && goodsList.member_target!='G' )} style='display:none;' {
+                    /}>
+                    <th class="fb-filter__title">
+                        <span>
+                            회원 그룹 설정
+                        </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio">
+                            {@ groupList}
+                            <label>
+                                <input type="checkbox" name="r_ix[]" value="{.gp_ix}" {? mode=='put' && productRelationList && in_array(.gp_ix, productRelationList)}checked{/}/>
+                                <span>{.gp_name}</span>
+                            </label>
+                            {/}
+                        </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+</section>
+<section id="devGroupContents"></section>
+
+<!--{'<script id="devBasicGroupTpl" type="text/x-handlebars-template">'}-->
+<section class="fb__menusubmit devGroupSection" groupCode="{[group_code]}">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">
+            특별할인 상품그룹 <span>(Group {[group_code]})</span>
+        </h3>
+        <nav class="fb__menusubmit-headerBtn fb-filter__btn devNav">
+            <button class="fb-filter__org fb__menusubmit-headerBtn--goodsadd devGroupAddBtn">상품그룹 추가</button>
+            {[#if delBtnBool]}
+            <button class="fb-filter__gary devGroupDelBtn">삭제</button>
+            {[/if]}
+        </nav>
+        <a href="#" class="fb__menusubmit-btn">
+            <span>닫기</span>
+            <span>열기</span>
+        </a>
+    </header>
+    <section class="fb-filter">
+        <form class="devGroupForm">
+            <input type="hidden" name="group_code" value=""/>
+            <fieldset>
+                <legend>
+                    그룹 정보
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">특별할인 상품그룹명</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input type="text" name="group_name" class="fb-filter__text fb-filter__text--100" value="{productGroupList.group_name}" title="특별할인 상품그룹명">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">수수료</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input type="text" name="commission" class="fb-filter__text fb-filter__text--20" value="{productGroupList.commission}" title="수수료"><br>%
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                할인 타입
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ saleTypeList}
+                                <label>
+                                    <input type="radio" name="discount_sale_type" value="{.key_}" {? mode=='add' && .index_==0 || mode=='put' && .key_== productGroupList.discount_sale_type}checked{/}/>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                할인 설정
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__number" style="width:10%" name="headoffice_rate" value="{productGroupList.headoffice_rate}" title="할인설정 본사">
+                            <span id="devSellerSaleContents">
+                                <span class="fb-filter__day__line">+</span>
+                                <input type="text" class="fb-filter__text fb-filter__number" style="width:10%" name="seller_rate" value="{productGroupList.seller_rate}" title="할인설정 셀러">
+                                <span class="fb-filter__day__line">=</span>
+                                <input type="text" class="fb-filter__text fb-filter__number" style="width:10%" name="sale_rate" value="{productGroupList.sale_rate}" readonly>
+                            </span>
+                            <br> 본사 + 셀러 = 전체합계
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">전시 여부</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__checkbox">
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="is_display" value="Y" {? mode=="add" || (mode=="put" && productGroupList.is_display=='Y')}checked{/}>
+                                        <span>전시</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="is_display" value="N" {? mode=='put' && productGroupList.is_display=='N'}checked{/}>
+                                        <span>전시 하지 않음</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">할인상품</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <section class="fb__menusubmit">
+                                <section class="fb-filter fb__goodssearch">
+                                    <div class="fb__goodssearch__btn">
+                                        <button type="button" class="fb__goodssearch__btn--search devAddChoiceProductButton">상품검색</button>
+                                    </div>
+                                    <div class="devChoiceProduct"></div>
+                                </section>
+                            </section>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </section>
+</section>
+<!--{'</script>'}-->
+
+<!--{'<script>'}-->
+var productGroupListData = { = json_encode(productGroupList)};
+<!--{'</script>'}-->

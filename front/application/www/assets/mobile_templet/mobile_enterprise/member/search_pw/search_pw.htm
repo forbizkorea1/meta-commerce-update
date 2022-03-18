@@ -1,0 +1,113 @@
+<div class="fb__searchPw">
+    <h2 class="fb__title--hidden">{=trans('비밀번호 찾기')}</h2>
+  
+    <!-- 아이디/비번 탭 영역-->
+    <ul class="tab fb__search__tab">
+        <li><a href="/member/searchId">{=trans('아이디 찾기')}</a></li>
+        <li class="active"><a href="/member/searchPw">{=trans('비밀번호 찾기')}</a></li>
+    </ul>
+
+    <!-- 비밀번호 찾기 -->
+    <div class="fb__search__wrapper">
+         <!-- 회원유형 선택 -->
+         <!-- <div class="fb__search__memberType">
+            <span class="memberType__title required">회원유형 선택</span>
+
+            <div class="memberType__select">
+                <label class="fb__comm__radio">
+                    <input type="radio" class="blind" id="normal" value="normal" name="memType" checked>
+                    <span>일반회원</span>
+                </label>
+
+                <label class="fb__comm__radio">
+                    <input type="radio" class="blind" id="company" value="company" name="memType">
+                    <span>기업회원</span>
+                </label>
+            </div>
+        </div> -->
+
+        <!-- 인증 방법 -->
+        <div class="wrap-tab-cont fb__search__auth">
+            <!--일반회원-->
+            <div id="tab01" class="cont-normal active">
+                <form id="devBasicForm">
+                    <div class="wrap-input-form">
+                        <!-- 아이디 -->
+                        <dl>
+                            <dt>{=trans('아이디')} <em>*</em></dt>
+                            <dd>
+                                <input type="text" id="devUserId" name="userId" title="{=trans('아이디')}">
+                                <p class="txt-error" devTailMsg="devUserId"></p>
+                            </dd>
+                        </dl>
+
+                        <!--이름-->
+                        <dl>
+                            <dt>{=trans('이름')} <em>*</em></dt>
+                            <dd>
+                                <input type="text" id="devUserName" name="userName" title="{=trans('이름')}">
+                                <p class="txt-error" devTailMsg="devUserName"></p>
+                            </dd>
+                        </dl>
+                    </div>
+                </form>
+
+                {? useCertify}
+                <button type="button" class="auth__phone" id="devCertifyButton">{=trans('휴대폰 인증')}</button>
+                {/}
+
+                <!-- 인증 안내 -->
+                <ul class="auth__phone__desc">
+                    <li class="auth__phone__list">{=trans('본인 명의의 휴대폰 인증을 통해 아이디를 찾을 수 있습니다.')}</li>
+                    <li class="auth__phone__list">{=trans('상기 방법으로 찾기 못하는 경우 <strong>고객센터 <em class="font-rb">{csPhone}</em></strong>로 문의해주세요.')}</li>
+                </ul>
+            </div>
+
+            <!--기업회원-->
+            <div id="tab02" class="cont-company">
+                <form id="devCompanyForm">
+                    <div class="wrap-input-form">
+                        <dl>
+                            <dt>{=trans('아이디')} <em>*</em></dt>
+                            <dd>
+                                <input type="text" id="devCompanyUserId" name="userId" title="{=trans('아이디')}">
+                                <p class="txt-error" devTailMsg="devCompanyUserId"></p>
+                            </dd>
+                        </dl>
+
+                        <dl>
+                            <dt>{=trans('상호명')} <em>*</em></dt>
+                            <dd>
+                                <input type="text" id="devComName" name="comName"title="{=trans('상호명')}">
+                                <p class="txt-error" devTailMsg="devComName"></p>
+                            </dd>
+                        </dl>
+
+                        <dl class="auth-number">
+                            <dt>{=trans('사업자등록 번호')} <em>*</em></dt>
+                            <dd class="input-comnum wrap-multi-input">
+                                <div class="auth-num__area">
+                                    <input type="text" name="comNumber1" class="auth-num__input" id="devComNumber1" title="{=trans('사업자등록번호')}">
+                                    <span class="auth-num__hyphen">-</span>
+                                    <input type="text" name="comNumber2" class="auth-num__input" id="devComNumber2" title="{=trans('사업자등록번호')}">
+                                    <span class="auth-num__hyphen">-</span>
+                                    <input type="text" name="comNumber3" class="auth-num__input" id="devComNumber3" title="{=trans('사업자등록번호')}">
+                                </div>
+                                <span class="txt-error" devTailMsg="devComNumber1 devComNumber2 devComNumber3"></span>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <button type="button" class="auth__phone" id="devCompanyCertifyButton">{=trans('휴대폰 인증')}</button>
+                </form>
+
+                <ul class="auth__phone__desc">
+                    <li class="auth__phone__list">{=trans('회원가입 시 입력한 담당자 본인명의의 휴대폰 인증을 통해<br>비밀번호를 찾을 수 있습니다.')}</li>
+                    <li class="auth__phone__list">{=trans('상기 방법으로 찾기 못하는 경우 <strong>고객센터 <em class="font-rb">{csPhone}</em></strong>로 문의해주세요.')}</li>
+                </ul>
+
+                <button class="btn-default btn-full btn-point btn-confirm">{=trans('확인')}</button>
+            </div>
+        </div>
+    </div>
+</div>

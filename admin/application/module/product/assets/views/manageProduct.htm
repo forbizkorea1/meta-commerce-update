@@ -1,0 +1,796 @@
+<form id="devProductForm">
+    <input type="hidden" name="id" value="{product.id}">
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">판매방식/카테고리</h3>
+                <input type="button" class="fb__menusubmit-btn">
+                <a class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>판매방식 및 카테고리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    {? manageLevel == 9}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">셀러업체</span>
+                        </th>
+                        <td>
+                            <input type="hidden" name="admin"
+                                   value="{? mode =='add'}{manageCompanyId}{:}{product.admin}{/}" title="셀러업체">
+                            <input type="text" class="fb-filter__text" id="devCompanyText"
+                                   value="{? mode =='add'}{manageCompanyName}{:}{product.com_name}{/}" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchCompanyPopup"/>
+                        </td>
+                    </tr>
+                    {/}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>상품구분</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ productType}
+                                <label>
+                                    <input type="radio" class="devProductType" name="product_type" value="{.key_}" title="상품구분" {? product.product_type== .key_}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                전시타입
+                            </span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ mobileUse}
+                                <label>
+                                    <input type="radio" name="is_mobile_use" value="{.key_}" title="전시타입" {?
+                                           (mode=='add' && .index_== 0) || (mode!='add' && product.is_mobile_use==
+                                           .key_)}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">MD</span>
+                        </th>
+                        <td>
+                            {? manageLevel == 9}
+                            <input type="hidden" name="md_code" value="{? mode != 'add'}{product.md_code}{/}"
+                                   title="MD">
+                            <input type="text" class="fb-filter__text" id="devMdText"
+                                   value="{? mode != 'add'}{product.mdName}{:}{mdInfo.name}{/}" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchMdPopup"/>
+                            {:}
+                            <input type="hidden" name="md_code" value="{? mode != 'add'}{product.md_code}{/}"
+                                   title="MD">
+                            <input type="text" class="fb-filter__text" id="devMdText"
+                                   value="{? mode != 'add'}{product.mdName}{:}{mdInfo.name}{/}" readonly>
+                            <input type="hidden" name="admin"
+                                   value="{? mode =='add'}{manageCompanyId}{:}{product.admin}{/}">
+                            {/}
+                        </td>
+                    </tr>
+                    <tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">
+                                상품분류
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb__table fb__menusubmit-divide">
+                            <div class="cascading" id="devSelectCategoryProduct"></div>
+                            <div class="fb__menusubmit-dividelist dividelist">
+                                <span class="dividelist__title">선택한 상품 분류: </span>
+                                <ul class="dividelist__list" id="devSelCategoryProduct">
+                                    <li>대분류 메뉴명</li>
+                                    <li>중분류 메뉴명</li>
+                                </ul>
+                                <input type="button" class="dividelist__btn" id="devProductCategoryButton" value="상품분류 선택"/>
+                            </div>
+                            <table id="devCategoryTable">
+                                <caption>분류 추가 테이블</caption>
+                                <colgroup>
+                                    <col width="75">
+                                    <col width="*">
+                                    <col width="175">
+                                </colgroup>
+                                <thader>
+                                    <tr>
+                                        <th>대표</th>
+                                        <th>선택한 상품분류 목록</th>
+                                        <th>삭제</th>
+                                    </tr>
+                                </thader>
+                                <tbody id="devProductCategoryList">
+                                <tr class="fb__menusubmit-active devForbizTpl devProductCategory" id="devProductCategoryTemplate">
+                                    <input type="hidden" name="cidList[]" value="{[cid]}">
+                                    <td>
+                                        <div class="fb-filter__radio">
+                                            <label>
+                                                {[#if basic]}
+                                                <input type="radio" name="basicCid" value="{[cid]}" checked/>
+                                                {[else]}
+                                                <input type="radio" name="basicCid" value="{[cid]}"/>
+                                                {[/if]}
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="fb__menusubmit-indecater">
+                                        <ul>{[path]}</ul>
+                                    </td>
+                                    <td>
+                                        <input type="button" class="fb__menusubmit-del devProductCategoryDelete" value="삭제"/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p class="fb__menusubmit-text">- 상품에 설정된 모든 속성은 대표 상품분류로 선택된 목록에 종속됩니다.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">판매기간설정</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ isSellDate}
+                                <label>
+                                    <input type="radio" name="is_sell_date" value="{.key_}" title="판매기간설정" {? product.is_sell_date== .key_}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="devDatePicker" {? product.is_sell_date==0}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>판매기간</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <input type="text" class="fb-filter__text fb-filter__input__day" id="devBetweenDatePickerStart" name="sell_priod_sdate" value="{product.sell_priod_sdate}" title="판매기간 시작일" readonly>
+                            <span class="fb-filter__day__line">~</span>
+                            <input type="text" class="fb-filter__text fb-filter__input__day" id="devBetweenDatePickerEnd" name="sell_priod_edate" value="{product.sell_priod_edate}" title="판매기간 종료일" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">노출여부</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ disp}
+                                <label>
+                                    <input type="radio" name="disp" value="{.key_}" title="노출여부" {? (mode !='add' && product.disp== .key_) || (mode=='add' && .index_== 1)}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">판매상태</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ state}
+                                <label>
+                                    <input type="radio" name="state" value="{.key_}" title="판매상태" {? product.state== .key_}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">기본정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>기본정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">상품명</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" name="pname" value="{product.pname}" title="상품명" maxlength="50">
+                            <br> - 상품명은 최대 50자까지 입력 가능합니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">면세제품</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ surtaxYorn}
+                                <label>
+                                    <input type="radio" name="surtax_yorn" value="{.key_}" title="면세제품" {? (mode !='add' && product.surtax_yorn== .key_) || (mode=='add' && .index_== 'N')}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>관리코드</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text fb-filter__text--70" name="pcode" value="{product.pcode}">
+                        </td>
+                    </tr>
+                    <tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span>검색 키워드</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="search_keyword" value="{product.search_keyword}" placeholder="- 이곳에 등록된 검색어에 의해서도 해당상품이 검색, 노출 될 수 있도록 해주는 기능입니다. ( , ) 표기방식 ex ) 종이컵, 컵, 일회용컵, ...">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>원산지</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text fb-filter__text--80" name="origin" value="{product.origin}" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchOriginPopup"/>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>브랜드</span>
+                        </th>
+                        <td>
+                            <input type="hidden" class="fb-filter__text" name="brand" value="{product.brand}" readonly>
+                            <input type="text" class="fb-filter__text fb-filter__text--80" name="brandText" value="{product.brandText}" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchBrandPopup"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>기본 이미지</span>
+                        </th>
+                        <td colspan="3">
+                            <div id="devBasicFileupload" data-img-src="{basicImageSrc}"></div>
+                        </td>
+                    </tr>
+                    <tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span>추가 이미지</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="hidden" name="devAddImage1" value="{addImageId1}">
+                            <input type="hidden" name="devAddImage2" value="{addImageId2}">
+                            <input type="hidden" name="devAddImage3" value="{addImageId3}">
+                            <input type="hidden" name="devAddImage4" value="{addImageId4}">
+                            <input type="hidden" name="devAddImage5" value="{addImageId5}">
+                            <div id="devAddFileupload"
+                                 data-img-src1="{addImageSrc1}"
+                                 data-img-src2="{addImageSrc2}"
+                                 data-img-src3="{addImageSrc3}"
+                                 data-img-src4="{addImageSrc4}"
+                                 data-img-src5="{addImageSrc5}"></div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">판매정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>가격+재고관리 옵션</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">구매단가(원가)</span>
+                        </th>
+                        <td colspan="3">
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="coprice" value="{? product.coprice}{product.coprice}{:}0{/}" title="구매단가(원가)">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">도매가</span>
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="wholesale_price" value="{? product.wholesale_price}{product.wholesale_price}{:}0{/}" title="도매판매가">
+                            </label>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">도매판매가</span>
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="wholesale_sellprice" value="{? product.wholesale_sellprice}{product.wholesale_sellprice}{:}0{/}" title="도매할인가">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">판매가</span>
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="listprice" value="{? product.listprice}{product.listprice}{:}0{/}" title="판매가">
+                            </label>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">실판매가(할인가)</span>
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="sellprice" value="{? product.sellprice}{product.sellprice}{:}0{/}" title="실판매가(할인가)">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span>기본 시작 수량</span>
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="allow_basic_cnt" value="{? product.allow_basic_cnt}{product.allow_basic_cnt}{:}0{/}">
+                            </label>
+                            <p class="fb__menusubmit-text">
+                                - 0 일경우 최소 판매수량 상관없음
+                            </p>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>ID당 구매 수량</span>
+                        </th>
+                        <td>
+                            <label>
+                                <input type="text" class="fb-filter__text fb-filter__number fb-filter__text--50" name="allow_byoneperson_cnt" value="{? product.allow_byoneperson_cnt}{product.allow_byoneperson_cnt}{:}0{/}">
+                            </label>
+                            <p class="fb__menusubmit-text">
+                                - 0 일경우 최소 판매수량 상관없음
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">옵션타입</span>
+                            <input type="hidden" name="option_type" title="옵션타입" value="9" >
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ stockUseYn}
+                                <label>
+                                    <input type="radio" name="stock_use_yn" title="옵션타입" value="{.key_}" {? (mode !='add' && product.stock_use_yn== .key_) || (mode=='add' && .index_== 'Q')}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">옵션</span>
+                        </th>
+                        <td colspan="3">
+                            <table>
+                                <caption>옵션명</caption>
+                                <colgroup>
+                                    <col width="*">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <td class="fb-filter__checkbox">
+                                        <input type="text" class="fb-filter__text" name="option_name" value="{optionData.option_name}" title="옵션명" placeholder="옵션명">
+                                        <label>
+                                            <input type="checkbox" name="option_stock_modify" {? mode=='add'}checked{/}>
+                                            <span>재고수정</span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div id="devOptionGrid"></div>
+                            <section class="fb__menusubmit__btn">
+                                <div class="menusubmit-btn">
+                                    <nav class="menusubmit-btn__nav">
+                                        <span class="fb-filter__btn">
+                                            <input type="submit" class="fb-filter__search" value="추가" id="devOptionGridAdd"/>
+                                            <input type="button" class="fb-filter__search" id="devOptionInventoryGoodsPopup" value="품목 불러오기" {? product.stock_use_yn!='Y' }style="display:none" {/}>
+                                        </span>
+                                    </nav>
+                                </div>
+                            </section>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit devGift_area">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">상세/추가정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>상세 및 추가정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>상품 간략 소개</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="shotinfo" value="{product.shotinfo}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>상품 상세 정보</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb__tap ">
+                                <ul class="fb__tap__inner" id="devTap">
+                                    <li class="fb__tap__menu">
+                                        <a href="#devPcEditor" class="fb__tap__menu--active">
+                                            PC
+                                        </a>
+                                    </li>
+                                    <li class="fb__tap__menu">
+                                        <a href="#devMobileEditor">
+                                            Mobile
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="fb__tapcontent">
+                                <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devPcEditor">
+                                    <textarea id="devEditor" name="basicinfo">{product.basicinfo}</textarea>
+                                </section>
+                                <section class="fb-filter fb__tapcontent__inner" id="devMobileEditor">
+                                    <textarea id="devEditor2" name="m_basicinfo">{product.m_basicinfo}</textarea>
+                                </section>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>상품정보고시 여부</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ mandatoryUse}
+                                <label>
+                                    <input type="radio" name="mandatory_use" value="{.key_}" title="상품정보고시 여부" {? (mode !='add' && product.mandatory_use== .key_) || (mode=='add' && .index_== 'N')}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="mandatoryUseTr" {? product.mandatory_use=='N' || product.mandatory_use==''}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>상품정보고시</span>
+                        </th>
+                        <td colspan="3">
+                            <select class="fb-filter__select" name="mi_ix" id="devNoticeSel">
+                                <option value=''>상품군을 선택하세요</option>
+                                {@ mandatorySelList}
+                                <option value='{.mi_ix}' {? mode !='add' && product.mandatory_type==.mi_ix}selected{/}>{.mandatory_name}</option>
+                                {/}
+                            </select>
+                            <br><br><br>
+                            <div id="devNoticeGrid"></div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">배송정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>상품별 배송 정책 설정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">배송비 정책</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="hidden" name="delivery_type" value="2" title="배송타입">
+                            <select class="fb-filter__select" name="delivery_template" title="배송비 정책" id="devDeliveryTemplate">
+                                <option value='' >배송정책을 선택해주세요</option>
+                                {@ deliveryList.list}
+                                <option value='{.dt_ix}' {? mode !='add' && product.deliveryDtIx== .dt_ix} selected {: mode == 'add' && .is_basic_template == 1}selected{/}>{.template_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">기타정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>상세 및 추가정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr {? manageLevel !=9}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>개별수수료 사용</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ one_commission}
+                                <label>
+                                    <input type="radio" name="one_commission" value="{.key_}" title="개별수수료 사용" {? (mode !='add' && product.one_commission== .key_) || (mode=='add' && .key_== 'N')}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="accountTypeTr" {? product.one_commission=='N' || product.one_commission=='' || manageLevel !=9}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>정산방식</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ account_type}
+                                <label>
+                                    <input type="radio" name="account_type" value="{.key_}" {? (mode !='add' && product.account_type== .key_) || (mode=='add' && .key_== '1')}checked{/}>
+                                    <span>
+                                    {? .key_ == '1'}판매가 정산방식 (판매가에 수수료 적용){/}
+                                    {? .key_ == '2'}매입가 정산방식 (공급가로 정산되며, 하단 수수료에 0 이 아닌 숫자를 입력시 그 숫자의 % 만큼 차감후 정산처리됩니다.){/}
+                                    {? .key_ == '3'}미정산 (선매입이고 본사에 재고가 있으며, 상품등록을 셀러가 진행시에 사용되며, 정산에서 제외됩니다.){/}
+                                    </span>
+                                </label>
+                                <br><br>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="commissionTr1" {? product.one_commission=='N' || product.one_commission=='' || manageLevel !=9}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>소매 수수료</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" style="width:5%" name="commission" value="{? product.commission}{product.commission}{:}0{/}">
+                            <p class="fb__menusubmit-text">% ('개별수수료 사용' 선택시에만 입력 할 수 있습니다.)</p>
+                        </td>
+                    </tr>
+                    <tr id="commissionTr2" {? product.one_commission=='N' || product.one_commission=='' || manageLevel !=9}style="display:none"{/}/>
+                        <th class="fb-filter__title">
+                            <span>도매 수수료</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text" style="width:5%" name="wholesale_commission" value="{? product.wholesale_commission}{product.wholesale_commission}{:}0{/}">
+                            <p class="fb__menusubmit-text">% ('개별수수료 사용' 선택시에만 입력 할 수 있습니다.)</p>
+                        </td>
+                    </tr>
+                    <tr {? manageLevel !=9}style="display:none"{/}>
+                        <th class="fb-filter__title">
+                            <span>개별 적립금 사용유무</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ reserveYn}
+                                <label>
+                                    <input type="radio" name="reserve_yn" value="{.key_}" title="개별 적립금 사용유무" {? (mode !='add' && product.reserve_yn== .key_) || (mode=='add' && .index_== 'N')}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                                <label>
+                                    <input type="text" class="fb-filter__text fb-filter__text--30" name="reserve_rate" value="{product.reserve_rate}"><br>%
+                                    <input type="hidden" name="rate_type" value="1">
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>뱃지 노출</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__checkbox">
+                                {@ icon.list}
+                                <label>
+                                    <input type="checkbox" name="icons[]" value="{.idx}" {? mode !='add' && strpos(product.icons, .idx) !== false}checked{/}>
+                                    {? .icon_type == 'T'}<span>{.icon_text}</span>{:}<span><img src="{.icon_src}"></span>{/}
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>19금 상품</span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ is_adult}
+                                <label>
+                                    <input type="radio" name="is_adult" value="{.key_}" title="19금 상품" {? (mode !='add' && product.is_adult== .key_) || (mode=='add' && .index_== 0)}checked{/}>
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span>디스플레이</span>
+                        </th>
+                        <td colspan="3" class="fb__table">
+                            <div id="devDisplayGrid"></div>
+                            <section class="fb__menusubmit__btn">
+                                <div class="menusubmit-btn">
+                                    <nav class="menusubmit-btn__nav">
+                                        <span class="fb-filter__btn">
+                                            <input type="submit" class="fb-filter__search" value="추가" id="devDisplayGridAdd"/>
+                                        </span>
+                                    </nav>
+                                </div>
+                            </section>
+                        </td>
+                    </tr>
+                    {? false}
+                    <!--추가구성 상품 사용 시 장바구니 쿠폰 마일리지 분할에 문제로 인해 임시 사용 불가 처리 해당 내용 개선 후 오픈 필요 -->
+                    <tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span>추가구성 상품 옵션</span>
+                            <span class="fb-filter__btn"><input type="button" class="fb-filter__search" value="옵션추가" id="devAddOptionGroupAdd"/></span>
+                        </th>
+                        <td colspan="3">
+                            <section class="devAddOptionContents"></section>
+                            <!--{'<script id="devAddOptionGroupTpl" type="text/x-handlebars-template">'}-->
+                            <section class="fb__menusubmit devGroupSection">
+                                <table>
+                                    <caption>추가 옵션명</caption>
+                                    <colgroup>
+                                        <col width="*">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <td class="fb-filter__checkbox">
+                                            <input type="hidden" name="add_option_opn_ix[]">
+                                            <input type="text" class="fb-filter__text" name="add_option_name[]" value="" title="추가 옵션명" placeholder="추가 옵션명">
+                                            <label>
+                                                <input type="checkbox" name="add_option_stock_modify" {? mode=='add'}checked{/}>
+                                                <span>재고수정</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="devAddOptionGrid"></div>
+                                <section class="fb__menusubmit__btn">
+                                    <div class="menusubmit-btn">
+                                    <span class="fb-filter__btn">
+                                        <input type="button" class="fb-filter__search devAddOptionGridAdd" value="옵션구분추가"/>
+                                        <input type="button" class="fb-filter__search" value="품목 불러오기" {? product.stock_use_yn!='Y' }style="display:none" {/}>
+                                        {[#if delBtnBool]}
+                                            <input type="button" class="fb-filter__gary devAddOptionGroupDel" value="삭제">
+                                        {[/if]}
+                                    </span>
+                                    </div>
+                                </section>
+                            </section>
+                            <!--{'</script>'}-->
+                        </td>
+                    </tr>
+                    {/}
+                    <tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span>관련상품</span>
+                        </th>
+                        <td colspan="3">
+                            <section class="fb__menusubmit">
+                                <section class="fb-filter fb__goodssearch">
+                                    <div class="fb__goodssearch__btn">
+                                        <button type="button" class="fb__goodssearch__btn--search" id="devAddRelProductButton">상품검색</button>
+                                    </div>
+                                    <div id="devRelProduct"></div>
+                                </section>
+                            </section>
+                        </td>
+                    </tr>
+                    <!--상품사은품 숨김처리 요청(필요시 오픈)-->
+                    <!--<tr class="devGift_area">
+                        <th class="fb-filter__title">
+                            <span>상품사은품</span>
+                        </th>
+                        <td colspan="3">
+                            <section class="fb__menusubmit">
+                                <section class="fb-filter fb__goodssearch">
+                                    <div class="fb__goodssearch__btn">
+                                        <button type="button" class="fb__goodssearch__btn--search" id="devAddRelGiftProductButton">상품검색</button>
+                                    </div>
+                                    <div id="devRelGiftProduct"></div>
+                                </section>
+                            </section>
+                        </td>
+                    </tr>-->
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>
+<!--{'<script>'}-->
+var categoryRelationData = { = json_encode(categoryRelation)};
+var relProductDataList = { = json_encode(relProductData)};
+var relGiftProductDataList = { = json_encode(relGiftProductData)};
+var MALL_DOMAIN = { = json_encode(MALL_DOMAIN)};
+var optionDetailDataList = { = json_encode(optionDetailData)};
+var addOptionDataList = { = json_encode(addOptionData)};
+var constant_productGiftType = '{productGiftType}';
+var productType = '{product.product_type}';
+<!--{'</script>'}-->

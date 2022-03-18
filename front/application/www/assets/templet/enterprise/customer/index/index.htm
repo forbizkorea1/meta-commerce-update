@@ -1,0 +1,59 @@
+<!-- 고객센터 메인 -->
+{#customerTop}
+
+<section class="fb__customer__index">
+    <h2 class="fb__title--hidden">
+        {=trans('고객센터')}
+    </h2>
+
+    <!-- 자주 묻는 질문 -->
+    <section class="fb__customer__faq">
+
+        <!-- faq 아코디언 테이블 공통 -->
+        <div class="faq">
+            {@ faqList}
+            <dl class="faq__list">
+                <dt class="faq__list__ques js__faq__ques">
+                    <span class="ques__div">{.div_name}</span>
+                    <div class="ques__title">{.bbs_q}</div>
+                </dt>
+                
+                <dd class="faq__list__anwser">
+                    <div>{.bbs_a}</div>
+                </dd>
+            </dl>
+            {/}
+        </div>
+    </section>
+
+    <!-- 공지사항 -->
+    <section class="fb__customer__noti">
+        <div class="noti__box">
+            <header class="fb__customer__noti-header">
+                <h3 class="fb__customer__title">{=trans('공지사항')}</h3>
+                <a href="/customer/notice" class="fb__customer__noti-more">{=trans('전체보기')}</a>
+            </header>
+
+            <ul class="cus-notice">
+                {@ noticeList}
+                <li class="cus-notice__list">
+                    <a href="/customer/notice/read/{.bbs_ix}">
+                        <span class="cus-notice__list__title">{.notice_subject}</span>
+                        <span class="cus-notice__list__date">{.reg_date}</span>
+                    </a>
+                </li>
+                {/}
+            </ul>
+        </div>
+        
+        <div class="customer__call">
+            <div>
+                <span class="customer__call__title">{=trans('고객지원센터')}</span>
+                <strong class="customer__call__number">{companyInfo.cs_phone}</strong>
+            </div>
+            <span class="customer__call__info">{=nl2br(companyInfo.opening_time)}<br>{=trans('이메일 문의')} <a href="mailto:{companyInfo.com_email}">{companyInfo.com_email}</a></span>
+            
+        </div>
+    </section>
+
+</section>
