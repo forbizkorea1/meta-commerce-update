@@ -232,7 +232,9 @@ var devMyPageServiceRegHistoryObj = {
                     width: 200,
                     formatter: function () {
                         if (this.item.status == 'CC') {
-                            return "신청취소"
+                            return "신청취소";
+                        } else if (this.item.service_code == 'seller' || this.item.service_code == 'market') {
+                            return "-";
                         } else if (this.item.status_text == '취소/환불') {
                             return '<input type="button" class="fb-filter__edit devDivGridCancel" data-idx="' + this.item.__index + '" value="취소/환불" />';
                         }

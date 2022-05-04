@@ -1,5 +1,5 @@
 <div class="fb__store-main">
-    <div class="fb__devide fb__devide--5 fb__store-main-info">
+    <div class="fb__devide fb__devide--3 fb__store-main-info">
         <div class="main-info">
             <section class="fb__devide__box">
                 <div class="fb__devide__inner">
@@ -179,6 +179,39 @@
                     </div>
                 </div>
             </section>
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner fb__devide__inner-site">
+                    <header class="fb__devide__header main-info__goods">
+                        <h2>디스크 용량 모니터링</h2>
+                    </header>
+                    <div class="fb__devide__content fb__store-main-info ">
+                        <ul class="main-info__bbs">
+                            <li class="main-info__list">
+                                <h3>
+                                    총 용량
+                                </h3>
+                                <span>{diskInfo.total_disk_size}</span> {diskInfo.total_disk_unit}
+                            </li>
+                            <li class="main-info__list">
+                                <h3>
+                                    사용 가능 용량
+                                </h3>
+                                <span>{diskInfo.free_disk_size}</span> {diskInfo.free_disk_unit}
+                            </li>
+                            <li class="main-info__list">
+                                <h3>
+                                    사용률
+                                </h3>
+                                <span>{diskInfo.used_disk_percent}</span> %
+                            </li>
+                            <li class="main-info__list">
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
@@ -339,6 +372,7 @@
 <!--{'<script>'}-->
 var dailySales = {=json_encode(dailySales, c.JSON_NUMERIC_CHECK)};
 var demoUse = '{c.DEMO_USE}';
+var freeDiskSpace = '{diskInfo.free_disk_percent}';
 window.openChangeService = function() {
     {changeService}
 }

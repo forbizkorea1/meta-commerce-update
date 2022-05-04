@@ -7,7 +7,7 @@ if (isset($_SERVER["SERVER_PORT"]) && $_SERVER["SERVER_PORT"] == "443") {
 }
 
 // 설정별 도메인정보
-if (strstr(FORBIZ_BASEURL, '.devs')) {
+if (strstr(FORBIZ_BASEURL, '.devs') || DIRECTORY_SEPARATOR == '\\') {
     define('DB_CONNECTION_DIV', 'development');
     define('PORTAL_API_URL', 'http://portal.devs');
     define("FRONT_URL", str_replace('admin.', '', FORBIZ_BASEURL));

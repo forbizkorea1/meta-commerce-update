@@ -5,43 +5,147 @@
  *
  * @author hoksi
  */
-class ForbizConfig extends ForbizCoreConfig {
-    public static function getCremaDeliveryCode($key = false)
+class ForbizConfig extends ForbizCoreConfig
+{
+    public static function getPrivacyConfig($key)
     {
-        $data = [
-            //'' => 'unknown', // 미등록 택배업체
-            //'' => 'hyundai_logistics', // 현대택배
-            '18' => 'cj_gls', // CJ GLS
-            '06' => 'korea_express', // 대한통운
-            '45' => 'dhl', // DHL
-            '01' => 'epost', // 우체국택배
-            '05' => 'logen', // 로젠택배
-            //'' => 'self', // 직접배달/수령
-            '25' => 'chunil', // 천일택배
-            '03' => 'dongbu_express', // KG로지스
-            '41' => 'dongbu_express', // KG로지스
-            '23' => 'ilyang_logis', // 일양로지스
-            //'' => 'ems', // EMS
-            '46' => 'ups', // UPS
-            '44' => 'fedex', // Fedex
-            '13' => 'hanjin', // 한진(기업고객)
-            '10' => 'kgb_logis', // KGB택배
-            //'' => 'twenty_four_quick', // 24quick
-            //'' => 'hanjin_b2b', // 한진(기업고객)
-            '21' => 'kyoungdong_express', // 경동택배
-            //'' => 'usps', // USPS
-            '28' => 'innogis', // 이노지스택배
-            '22' => 'daesin_parcel_service', // 대신택배
-            '43' => 'gtx', // GTXLogis
-            //'' => 'pick_up', // 직접배달/수령
-            //'' => 'fastbox', // 패스트박스
-            '12' => 'lotte_logis', // 롯데택배
-            //'' => 'dream_logis', // 드림택배
-        ];
+        static $data = null;
 
-        $code = self::findKey($data, $key, true);
+        if (defined('CACHE_SETTING') && CACHE_SETTING === false) {
+            if ($data === null) {
+                $row = getForbiz()->qb
+                    ->select('config_name')
+                    ->select('config_value')
+                    ->from(TBL_SHOP_MALL_PRIVACY_SETTING)
+                    ->where('mall_ix', MALL_IX)
+                    ->exec()
+                    ->getResultArray();
 
-        return ($code == '' ? 'unknown' : $code);
+                $data = [];
+                foreach ($row as $item) {
+                    switch ($item['config_name']) {
+                        case 'pw_combi':
+                        case 'pw_continuous_check':
+                        case 'pw_same_check':
+                            $data[$item['config_name']] = json_decode($item['config_value'], true);
+                            break;
+                        default:
+                            $data[$item['config_name']] = $item['config_value'];
+                            break;
+                    }
+                }
+            }
+        }else{
+            if(empty($data)){
+                $data = fb_get('getPrivacyConfig');
+                if(empty($data)){
+                    $row = getForbiz()->qb
+                        ->select('config_name')
+                        ->select('config_value')
+                        ->from(TBL_SHOP_MALL_PRIVACY_SETTING)
+                        ->where('mall_ix', MALL_IX)
+                        ->exec()
+                        ->getResultArray();
+
+                    $data = [];
+                    foreach ($row as $item) {
+                        switch ($item['config_name']) {
+                            case 'pw_combi':
+                            case 'pw_continuous_check':
+                            case 'pw_same_check':
+                                $data[$item['config_name']] = json_decode($item['config_value'], true);
+                                break;
+                            default:
+                                $data[$item['config_name']] = $item['config_value'];
+                                break;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        return $data[$key] ?? '';
+    }
+
+    public static function getMallConfig($key)
+    {
+        static $data = [];
+        if (defined('CACHE_SETTING') && CACHE_SETTING === false) {
+            if (!isset($data[$key])) {
+                $row = getForbiz()->qb
+                    ->select('config_value')
+                    ->from(TBL_SHOP_MALL_CONFIG)
+                    ->where('mall_ix', MALL_IX)
+                    ->where('config_name', $key)
+                    ->limit(1)
+                    ->exec()
+                    ->getRow();
+
+                $data[$key] = $row->config_value ?? '';
+            }
+            return $data[$key] ?? '';
+        }else{
+            if(empty($data)) {
+                $data = fb_get('getMallConfig');
+            }
+
+            if (isset($data[$key]) === false) {
+                $row = getForbiz()->qb
+                    ->select('config_value')
+                    ->from(TBL_SHOP_MALL_CONFIG)
+                    ->where('mall_ix', MALL_IX)
+                    ->where('config_name', $key)
+                    ->limit(1)
+                    ->exec()
+                    ->getRow();
+                $data[$key] = $row->config_value ?? '';
+            }
+            return $data[$key];
+        }
+    }
+
+    public static function getPaymentConfig($key, $pg)
+    {
+        static $data = [];
+
+        if (defined('CACHE_SETTING') && CACHE_SETTING === false) {
+            if (!isset($data[$key])) {
+                $row = getForbiz()->qb
+                    ->select('config_value')
+                    ->from(TBL_SHOP_PAYMENT_CONFIG)
+                    ->where('mall_ix', MALL_IX)
+                    ->where('pg_code', $pg)
+                    ->where('config_name', $key)
+                    ->limit(1)
+                    ->exec()
+                    ->getRow();
+
+                $data[$key] = $row->config_value ?? '';
+            }
+
+            return $data[$key] ?? '';
+        }else{
+            if(empty($data)) {
+                $data = fb_get('getPaymentConfig');
+            }
+
+            if (isset($data[$pg][$key]) === false) {
+                $row = getForbiz()->qb
+                    ->select('config_value')
+                    ->from(TBL_SHOP_PAYMENT_CONFIG)
+                    ->where('mall_ix', MALL_IX)
+                    ->where('pg_code', $pg)
+                    ->where('config_name', $key)
+                    ->limit(1)
+                    ->exec()
+                    ->getRow();
+
+                $data[$pg][$key] = $row->config_value ?? '';
+            }
+
+            return $data[$pg][$key];
+        }
     }
 
     public static function getOrderSelectStatus($type, $fkey, $skey, $code = false, $key = false)

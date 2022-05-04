@@ -30,6 +30,7 @@ var devStoreMainObj = {
         // 글로벌 언어셋 설정
         common.lang.load('common.confirm.version.check', '새로운 코어 버전이 출시 되었습니다.\n코어 업데이트 화면으로 이동 하시겠습니까?');
         common.lang.load('metacommerce.server.unofficial', 'META COMMERCE 공식 라이선스를 사용해 주세요.\n비공식 라이선스를 사용할 경우 예고 없이 서비스 이용이 제한될 수 있습니다.');
+        common.lang.load('not.enough.free.space', 'Disk 가용 공간이 20% 이하입니다.');
     },
     initEvent: function () {
         // window.onload = function(){
@@ -337,6 +338,13 @@ var devStoreMainObj = {
             }
         );
     },
+    diskUnitChk: function () {
+        var freeSpace = parseInt(freeDiskSpace);
+
+        if (freeSpace < 21) {
+            common.noti.alert(common.lang.get('not.enough.free.space'));
+        }
+    },
     run: function () {
         var self = this;
 
@@ -352,6 +360,7 @@ var devStoreMainObj = {
         self.getAccountReady();//정산예정
         self.getRemittanceReady();//송금대기
         self.getBannerList();//배너가져오기
+        self.diskUnitChk();
     }
 }
 

@@ -248,6 +248,22 @@ var devCscenterListUseAfterObj = {
                         return '<div class="fb-piz">' +
                             '<img class="fb-piz__img" src="' + this.item.bbs_file_1 + '" data-src="' + this.item.bbs_file_1 + '" height="30" />' +
                             '</div>';
+                    } else if (this.item.after_img_2) {
+                        return '<div class="fb-piz">' +
+                            '<img class="fb-piz__img" src="' + this.item.bbs_file_2 + '" data-src="' + this.item.bbs_file_2 + '" height="30" />' +
+                            '</div>';
+                    } else if (this.item.after_img_3) {
+                        return '<div class="fb-piz">' +
+                            '<img class="fb-piz__img" src="' + this.item.bbs_file_3 + '" data-src="' + this.item.bbs_file_3 + '" height="30" />' +
+                            '</div>';
+                    } else if (this.item.after_img_4) {
+                        return '<div class="fb-piz">' +
+                            '<img class="fb-piz__img" src="' + this.item.bbs_file_4 + '" data-src="' + this.item.bbs_file_4 + '" height="30" />' +
+                            '</div>';
+                    } else if (this.item.after_img_5) {
+                        return '<div class="fb-piz">' +
+                            '<img class="fb-piz__img" src="' + this.item.bbs_file_5 + '" data-src="' + this.item.bbs_file_5 + '" height="30" />' +
+                            '</div>';
                     }
                 }
             },                

@@ -65,7 +65,7 @@ if (is_mobile()) {
 
 
 //개인정보 제3자 정보 제공 동의 노출 조건 체크
-$isThirdBool = false;
+$isThirdBool = true;
 //장바구니 상품명 축약
 $contractionProductName = "";
 //장바구니 상품종류 갯수
@@ -281,7 +281,7 @@ $view->assign($companyModel->getPolicy('consign', 'third', 'collection'));
 if (!$isLogin) {
     //비회원 약관 동의 가지고 오기
     $nonMemberPolicy = $companyModel->getPolicy('terms-nomember');
-    $view->assign('termsNonMember', $nonMemberPolicy['terms-nomember']['contents']);
+    $view->assign('termsNonMember', ($nonMemberPolicy['terms-nomember']['contents'] ?? ''));
 }
 
 echo $view->loadLayout();

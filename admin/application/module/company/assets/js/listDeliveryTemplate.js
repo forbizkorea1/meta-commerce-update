@@ -32,6 +32,7 @@ var devCompanyListDeliveryTemplateObj = {
 
         //배송정책 템플릿 리스트
         common.lang.load('grid.label.template_name', '배송 정책명');
+        common.lang.load('grid.label.delivery_company', '배송업체');
         common.lang.load('grid.label.com_name', '셀러명');
         common.lang.load('grid.label.product_sell_type', '소매/도매');
         common.lang.load('grid.label.delivery_basic_policy', '배송비 결제수단');
@@ -164,6 +165,7 @@ var devCompanyListDeliveryTemplateObj = {
             columns: [
                 {key: "template_name", label: common.lang.get('grid.label.template_name'), width: 330, align: "left"},
                 {key: "product_sell_type", label: common.lang.get('grid.label.product_sell_type'), width: 100, align: "center"},
+                {key: "code_name", label: common.lang.get('grid.label.delivery_company'), width: 150, align: "center"},
                 {key: "delivery_basic_policy", label: common.lang.get('grid.label.delivery_basic_policy'), width: 100, align: "center"},
                 //{key: "delivery_relation", label: common.lang.get('grid.label.delivery_relation'), width: 120, align: "center"},
                 {key: "delivery_policy", label: common.lang.get('grid.label.delivery_policy'), width: 300, align: "left"},

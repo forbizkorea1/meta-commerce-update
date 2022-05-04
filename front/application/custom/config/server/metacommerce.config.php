@@ -17,15 +17,14 @@ if (strstr(FORBIZ_BASEURL, '.devs')) {
     define('DB_CONNECTION_DIV', 'development');
     define('PORTAL_API_URL', 'http://portal.devs');
 } else if(strncmp(FORBIZ_BASEURL, 'mcpkg', 5) === 0) {
-    
     define('DB_CONNECTION_DIV', 'production');
-    define('PORTAL_API_URL', HTTP_PROTOCOL . 'qa.meta-commerce.co.kr');
+    define('PORTAL_API_URL', 'https://qa.meta-commerce.co.kr');
 } else if (strstr(FORBIZ_BASEURL, '.forbiz.co.kr')) {
     define('DB_CONNECTION_DIV', 'development');
-    define('PORTAL_API_URL', HTTP_PROTOCOL . 'qa.meta-commerce.co.kr');
+    define('PORTAL_API_URL', 'https://qa.meta-commerce.co.kr');
 } else {
     define('DB_CONNECTION_DIV', 'production');
-    define('PORTAL_API_URL', HTTP_PROTOCOL . 'meta-commerce.co.kr');
+    define('PORTAL_API_URL', 'https://meta-commerce.co.kr');
 }
 
 $_SERVER['CI_ENV'] = DB_CONNECTION_DIV;

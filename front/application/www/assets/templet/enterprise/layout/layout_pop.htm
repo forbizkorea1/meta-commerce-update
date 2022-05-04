@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[S] FAVICON-->
+    <link rel="shortcut icon" href="/data/{c.MALL_ID}_data/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/data/{c.MALL_ID}_data/images/favicon_16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/data/{c.MALL_ID}_data/images/favicon_32.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/data/{c.MALL_ID}_data/images/favicon_152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/data/{c.MALL_ID}_data/images/favicon_180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/data/{c.MALL_ID}_data/images/favicon_192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/data/{c.MALL_ID}_data/images/favicon_256.png">
+    <!--[E] FAVICON-->
+
+    <!-- layout_pop -->
+    <!-- css -->
+    <!-- <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/css/common/common.css?version={c.CLIENT_VERSION}">
+    <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/css/common/reset.css?version={c.CLIENT_VERSION}"> -->
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupCssSrc ) }-->
+    <!-- <link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}"> -->
+    <!--{/}-->
+    <!-- js library -->
+    <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}};</script>
+    <link rel="stylesheet" type="text/css" href="/assets/templet/enterprise/assets/css/main.css?version=1.0">
+    <script src="{layoutCommon.templetSrc}/assets/js/vendor.js?version=1.0"></script>
+    <script src="{layoutCommon.templetSrc}/assets/js/main.js?version=1.0"></script>
+    <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.LanguageJsSrc)}-->
+    <!-- 언어 -->
+    <script src="{layout.LanguageJsSrc}?version={c.CLIENT_VERSION}"></script>
+    <!--{/}-->
+    <script src="{layoutCommon.templetSrc}/js/common/ui_common.js?version={c.CLIENT_VERSION}"></script><!-- 퍼블공통 -->
+    <script src="{layoutCommon.templetSrc}/js/common/dev_common.js?version={c.CLIENT_VERSION}"></script><!-- 개발공통 -->
+    <script src="{layoutCommon.templetSrc}/js/common/dev_ext.js?version={c.CLIENT_VERSION}"></script><!-- 개발확장 -->
+    <script>
+        //set environment
+        common.templetSrc = '{layoutCommon.templetSrc}';
+        common.environment = "{c.ENVIRONMENT}";
+        dev_ext.npay.useNpay = '{c.NPAY_USE}';
+    </script>
+
+    {? biginsight.use_biginsight_yn == 'Y'}
+    <!-- bigin common code start -->
+    <script>
+        (function (w, d, s, l, i, c) {
+            w["_b_g_e_b_f"] = w["_b_g_e_b_f"] ? w["_b_g_e_b_f"] : [];
+            w[l] = w[l] ? w[l] : {};
+            w[l].user = function (c, d) {
+                w["_b_g_e_b_f"].push({t: "user",a1: c,a2: d});
+            }
+            w[l].event = function (c, d, t) {
+                w["_b_g_e_b_f"].push({t: "event",a1: c,a2: d,a3: t ? t : new Date().getTime()});
+            }
+            w[l].track = function (c, d) {
+                w["_b_g_e_b_f"].push({t: "track",a1: c,a2: d});
+            }
+            function fEv() {
+                if (w["_b_g_e_b_f"] && w["_b_g_e_b_f"].length > 0) {
+                    for (var i = 0; i < w["_b_g_e_b_f"].length; i++) {
+                        var ev = w["_b_g_e_b_f"][i]
+                        w[l][ev["t"]](ev["a1"], ev["a2"], ev["a3"])
+                    }
+                }
+            }
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+            j.async = true;
+            j.src = 'https://sdk.bigin.io/v1/bigin.sdk.js';
+            var u = navigator.userAgent.toLowerCase(), h = {
+                projectID: i,
+                currencyCode: c
+            };
+            if ((u.indexOf('msie') !== -1) && parseInt(u.split('msie')[1]) < 9) {
+                var r = setInterval(function () {
+                    if (w[l] !== undefined) {
+                        clearInterval(r);
+                        w[l].config(h);
+                        fEv();
+                    }
+                }, 50);
+            } else {
+                j.onload = function () {
+                    w[l].config(h)
+                    fEv();
+                };
+            }
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'bigin', '{biginsight.biginsight_id}', "KRW");
+
+        (function() {bigin.track('view');})();
+
+    </script>
+    <!-- bigin common code end -->
+
+    {/}
+    <!--웹폰트cdn 이후 다운로드 받아서 처리 하는 방식으로 수정 예정-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet">
+    <!-- 몰 관련 태그 -->
+    <title>{layoutCommon.title}</title>
+    <meta name="description" content="{title_desc}">
+    <meta name="keywords" content="{keyword_desc}">
+</head>
+<body id="{layoutCommon.bodyId}"  class="fb fb__layout__pop">
+<div>
+    {#contents}
+</div>
+
+<!--{? is_file( c.DOCUMENT_ROOT + '' + layout.GroupJsSrc ) }-->
+<!-- 퍼블&개발 공통:폴더별 -->
+<script src="{layout.GroupJsSrc}?version={c.CLIENT_VERSION}"></script>
+<!--{/}-->
+<!--{? is_file( c.DOCUMENT_ROOT + '' + layout.PageJsSrc ) }-->
+<!-- 퍼블&개발 공통:각 페이지 별 -->
+<script src="{layout.PageJsSrc}?version={c.CLIENT_VERSION}"></script>
+<!--{/}-->
+<!--{? c.DB_CONNECTION_DIV == 'development' }-->
+<script>
+    //load 된 언어 서버요청
+    common.lang.jsLanguageCollection();
+</script>
+<!--{/}-->
+</body>
+</html>

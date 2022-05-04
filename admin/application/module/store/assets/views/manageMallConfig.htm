@@ -443,6 +443,45 @@
 
         <section class="fb__menusubmit">
             <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">System Update 설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <colgroup>
+                        <col width="20%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                업데이트 관리 사용 설정
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="radio" class="" name="sysUpdateUse" value="Y" {? config.sysUpdateUse == 'Y' || config.sysUpdateUse == '' }checked{/} />
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" class="" name="sysUpdateUse" value="N" {? config.sysUpdateUse == 'N' }checked{/} />
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
                 <h3 class="fb__menusubmit-title">SNS 간편로그인 설정</h3>
                 <a href="#" class="fb__menusubmit-btn">
                     <span>닫기</span>
@@ -521,8 +560,8 @@
                             <input type="text" class="fb-filter__text" name="kakao_app_key" title="KAKAO REST API KEY" placeholder="KAKAO_REST_API_KEY" value="{config.kakao_app_key}">
                             <input type="text" class="fb-filter__text" name="kakao_script_key" title="KAKAO SCRIPT KEY" placeholder="KAKAO_SCRIPT_KEY" value="{config.kakao_script_key}">
                             <input type="text" class="fb-filter__text" name="kakao_app_secret" title="KAKAO APP SECRET" placeholder="KAKAO_APP_SECRET" value="{config.kakao_app_secret}">
-                            <input type="text" class="fb-filter__text" name="kakao_join_callback_url" title="KAKAO LOGIN CALLBACK URL " placeholder="KAKAO_LOGIN_CALLBACK_URL" value="{config.kakao_join_callback_url}">
-                            <input type="text" class="fb-filter__text" name="kakao_login_callback_url" title="KAKAO JOIN CALLBACK URL" placeholder="KAKAO_JOIN_CALLBACK_URL" value="{config.kakao_login_callback_url}">
+                            <input type="text" class="fb-filter__text" name="kakao_join_callback_url" title="KAKAO JOIN CALLBACK URL" placeholder="KAKAO_JOIN_CALLBACK_URL" value="{config.kakao_join_callback_url}">
+                            <input type="text" class="fb-filter__text" name="kakao_login_callback_url" title="KAKAO LOGIN CALLBACK URL" placeholder="KAKAO_LOGIN_CALLBACK_URL" value="{config.kakao_login_callback_url}">
                         </td>
                     </tr>
                     <tr class="devSnsSimpleLoginModuleConfig" data-login="naver" {?config.sns_simple_login_naver != 'Y'}style="display:none"{/}>

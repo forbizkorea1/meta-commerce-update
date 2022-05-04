@@ -258,8 +258,11 @@ class PgForbizKsnet extends PgForbiz
                 $rIssCode = $GLOBALS["IssCode"];    // 발급사코드
                 $rAquCode = $GLOBALS["AquCode"];    // 매입사코드
                 $rAuthNo = $GLOBALS["AuthNo"];    // 승인번호 or 거절시 오류코드
-                $rMessage1 = $GLOBALS["Message1"];    // 메시지1
-                $rMessage2 = $GLOBALS["Message2"];    // 메시지2
+                $authNoUtf8 = trim($GLOBALS["AuthNo"]);
+                $rMessage1 = trim($GLOBALS["Message1"]);    // 메시지1
+                $rMessage2 = trim($GLOBALS["Message2"]);    // 메시지2
+                $message1Utf8 = iconv("CP949", "UTF-8", $rMessage1);
+                $message2Utf8 = iconv("CP949", "UTF-8", $rMessage2);
                 $rCardNo = $GLOBALS["CardNo"];    // 카드번호
                 $rExpDate = $GLOBALS["ExpDate"];    // 유효기간
                 $rInstallment = $GLOBALS["Installment"];    // 할부
@@ -278,7 +281,7 @@ class PgForbizKsnet extends PgForbiz
                 $rMPIReUseType = $GLOBALS["MPIReUseType"];    // Y : 재사용, N : 재사용아님
                 $rEncData = $GLOBALS["EncData"];    // MPI, ISP 데이터
             }
-        }  else if ($cancelData->method == ORDER_METHOD_VBANK) {
+        } else if ($cancelData->method == ORDER_METHOD_VBANK) {
             if (SendSocket("1")) {
                 $rVATransactionNo	= $GLOBALS["VATransactionNo"];  	// 거래번호
                 $rStatus			= $GLOBALS["VAStatus"];	// 상태 O : 승인, X : 거절
@@ -291,11 +294,16 @@ class PgForbizKsnet extends PgForbiz
                 $rVACloseTime		= $GLOBALS["VACloseTime"];   // 마감시간
                 $rVARespCode 		= $GLOBALS["VARespCode"];	// 응답코드
 
-                $rVAMessage1		= $GLOBALS["VAMessage1"];	// 메시지1
-                $rVAMessage2		= $GLOBALS["VAMessage2"];	// 메시지2
+                $rVAMessage1		= trim($GLOBALS["VAMessage1"]);	// 메시지1
+                $rVAMessage2		= trim($GLOBALS["VAMessage2"]);	// 메시지2
                 $rVAFiller			= $GLOBALS["VAFiller"];	// 예비
+
+                $authNoUtf8 = trim($GLOBALS["VAName"]);
+                $message1Utf8 = iconv("CP949", "UTF-8", $rVAMessage1);
+                $message2Utf8 = iconv("CP949", "UTF-8", $rVAMessage2);
+
             }
-        }else if ($cancelData->method == ORDER_METHOD_ICHE) {
+        } else if ($cancelData->method == ORDER_METHOD_ICHE) {
             if (SendSocket("1")) {
                 $rApprovalType			=	$GLOBALS["ApprovalType"];
                 $rACTransactionNo	    =	$GLOBALS["ACTransactionNo"]	;   // 거래번호
@@ -315,9 +323,13 @@ class PgForbizKsnet extends PgForbiz
                 $rACBankFee				=	$GLOBALS["ACBankFee"];   // 계좌이체 수수료
                 $rACBankAmount			=	$GLOBALS["ACBankAmount"];   // 총결제금액(결제대상금액+ 수수료)
                 $rACBankRespCode	    =	$GLOBALS["ACBankRespCode"];   // 오류코드
-                $rACMessage1		    =	$GLOBALS["ACMessage1"];   // 오류 message 1
-                $rACMessage2		    =	$GLOBALS["ACMessage2"];   // 오류 message 2
+                $rACMessage1		    =	trim($GLOBALS["ACMessage1"]);   // 오류 message 1
+                $rACMessage2		    =	trim($GLOBALS["ACMessage2"]);   // 오류 message 2
                 $rACFiller				=	$GLOBALS["ACFiller"];   // 예비
+
+                $authNoUtf8 = trim($GLOBALS["ACBankRespCode"]);
+                $message1Utf8 = iconv("CP949", "UTF-8", $rACMessage1);
+                $message2Utf8 = iconv("CP949", "UTF-8", $rACMessage2);
             }
         } else if ($cancelData->method == ORDER_METHOD_PHONE) {
             if (SendSocket("1")) {
@@ -327,7 +339,11 @@ class PgForbizKsnet extends PgForbiz
                 $rTradeDate		= $GLOBALS["MTradeDate"];      // 거래일자
                 $rTradeTime		= $GLOBALS["MTradeTime"];      // 거래시간
                 $rRespCode		= $GLOBALS["MRespCode"];       // 응답코드
-                $rRespMsg		= $GLOBALS["MRespMsg"];        // 응답메시지
+                $rRespMsg		= trim($GLOBALS["MRespMsg"]);        // 응답메시지
+
+                $authNoUtf8 = trim($GLOBALS["MRespCode"]);
+                $message1Utf8 = iconv("CP949", "UTF-8", $rRespMsg);
+                $message2Utf8 = '';
             }
         }
 
@@ -336,7 +352,7 @@ class PgForbizKsnet extends PgForbiz
             $responseData->result = true;
         } else {
             $responseData->result = false;
-            $responseData->message = "취소거절";
+            $responseData->message = sprintf("취소거절(오류코드: %s, %s | %s)", $authNoUtf8, $message1Utf8, $message2Utf8);
         }
 
         return $responseData;

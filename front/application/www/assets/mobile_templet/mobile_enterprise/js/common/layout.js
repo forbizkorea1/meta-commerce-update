@@ -81,9 +81,13 @@ function goSearch() {	//검색입력 우측 검색이미지 클릭시 검색페�
     var pattern = /([^가-힣|a-z|A-Z|0-9|\-|\.|\x20])/i;
 
     if (searchText == '') {
-        alert('검색어는 2글자 이상 입력해 주세요.');
-        $("#devHeaderSearchText").focus();
-        return false;
+        if ($('#devHeaderSearchText').attr('devTagUrl')) {
+            location.href = $('#devHeaderSearchText').attr('devTagUrl');
+        } else {
+            alert('검색어는 2글자 이상 입력해 주세요.');
+            $("#devHeaderSearchText").focus();
+            return false;
+        }
     } else if(searchTextLength < 2) {
         alert('검색어는 2글자 이상 입력해 주세요.');
         $("#devHeaderSearchText").focus();

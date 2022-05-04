@@ -191,6 +191,7 @@ var devSystemManageAlimTalkObj = {
                         $('#devFailoverNumber').val(data.failover_number).prop('selected','selected');
                     } else {
                         $('#devFailOverUseN').prop("checked", true);
+                        $('#devFailoverNumber').prop('disabled', true);
                     }
 
                     if (data.channel_use_yn == 'Y'){
@@ -214,7 +215,7 @@ var devSystemManageAlimTalkObj = {
                             },
                             function () {
                                 //failover 사용시 번호값체크
-                                if($('#devFailoverNumber').val() == ''){
+                                if($('input[name=failover_use_yn]:checked').val() == 'Y' && $('#devFailoverNumber').val() == ''){
                                     common.noti.alert(common.lang.get('channel.validation.failover.fail'));
                                     return false;
                                 }
@@ -299,7 +300,7 @@ var devSystemManageAlimTalkObj = {
                         }
                         $('#devFailoverNumber').prop('disabled', false);
                     } else {
-                        $('#devFailoverNumber').prop('disabled', false);
+                        $('#devFailoverNumber').prop('disabled', true);
                     }
                 });
 
