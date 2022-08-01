@@ -89,7 +89,7 @@ var devCartObj = {
                 document.location.reload();
             }else if(result.result == 'failByOnePersonCount'){
                 common.noti.alert(common.lang.get('cart.update.count.failByOnePersonCount.alert', {count: result.data.buy_cnt}));
-                $contents.find('.devTailMsg').text(common.lang.get('cart.update.count.failByOnePersonCount.alert', {count: result.data.buy_cnt}));
+                //$contents.find('.devTailMsg').text(common.lang.get('cart.update.count.failByOnePersonCount.alert', {count: result.data.buy_cnt}));
             }else if(result.result == 'failCheckCnt'){
                 common.noti.alert(common.lang.get('cart.paymentValidate.fail.checkCnt.alert'))
                 document.location.reload();

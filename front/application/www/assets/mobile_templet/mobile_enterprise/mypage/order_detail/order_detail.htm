@@ -159,7 +159,7 @@
                                             <!-- 배송완료 -->
                                             <button type="button" class="border--ccc size--half devBuyFinalizedBtn" data-oid="{order.oid}" data-odix="{..od_ix}" data-status="{..status}">{=trans('구매확정')}</button>
                                             <button type="button" class="border--point size--half devDeliveryTrace" data-quick="{..quick}" data-invoice_no="{..invoice_no}">{=trans('배송추적')}</button>
-                                            <button type="button" class="border--ccc size--half devOrderExchangeBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans(''교환신청)}</button>
+                                            <button type="button" class="border--ccc size--half devOrderExchangeBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('교환신청')}</button>
                                             <button type="button" class="border--ccc size--half devOrderReturnBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
                                         {/}
 
@@ -223,8 +223,8 @@
                     </div>
 
                     <div class="content">
-                        {? .method == c.ORDER_METHOD_BANK || .method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ICHE}
-                            {? .method : c.ORDER_METHOD_ICHE}
+                        {? .method == c.ORDER_METHOD_BANK || .method == c.ORDER_METHOD_VBANK || .method == c.ORDER_METHOD_ESCROW_VBANK || .method == c.ORDER_METHOD_ICHE || .method == c.ORDER_METHOD_ESCROW_ICHE}
+                            {? .method : c.ORDER_METHOD_ICHE : c.ORDER_METHOD_ESCROW_ICHE}
                             <div class="top-area clearfix">
                                 <h2 class="float-l">{=trans('은행명')}</h2>
                                 <p class="float-r">{.memo}</p>

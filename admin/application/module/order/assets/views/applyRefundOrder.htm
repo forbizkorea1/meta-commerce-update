@@ -1,0 +1,101 @@
+<fieldset>
+    <form id="devRefundForm">
+        <input type="hidden" name="oid" value="{order.oid}"/>
+        <section class="fb__menusubmit">
+            <section class="fb-filter">
+                <table>
+                    <caption>주문자 정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>주문번호</span>
+                        </th>
+                        <td>
+                            {order.oid} / {order.orderFromText}
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>주문자</span>
+                        </th>
+                        <td>
+                            {order.bname} {? order.user_code}({order.buserid}){/} / {order.mem_group}
+                        </td>
+                    </tr>
+                    {? refundBankBool}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">환불정보</span>
+                        </th>
+                        <td colspan="3">
+                            <select name="bankCode" id="bankCode" class="fb-filter__select"
+                                    title="환불은행">
+                                {@ bank}
+                                <option value="{.key_}" {? refundBank.bankCode==.key_}selected{/}>{.value_}
+                                </option>
+                                {/}
+                            </select>
+                            <input type="text" class="fb-filter__text"
+                                   name="bankOwner" value="{refundBank.bankOwner}" id="bankOwner"
+                                   title="환불예금주명" style="width:80px;">
+                            <input type="text" class="fb-filter__text fb-filter__text--50"
+                                   name="bankNumber" value="{refundBank.bankNumber}" id="bankNumber"
+                                   title="환불계좌">
+                        </td>
+                    </tr>
+                    {/}
+                </table>
+            </section>
+        </section>
+        <div class="fb__devide fb__devide--1">
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header">
+                        <h2>요청 정보</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <section class="fb-filter">
+                            <div id="devClaimProductGrid"></div>
+                            <div id="devClaimGrid"></div>
+                        </section>
+                    </div>
+                    {? npayData}
+                    {@ npayData.npayInfoText}
+                    <br>
+                    <span>{.value_}</span>
+                    {/}
+                    {/}
+                </div>
+            </section>
+        </div>
+        <div class="fb__devide fb__devide--1">
+            <section class="fb__devide__box">
+                <div class="fb__devide__inner">
+                    <header class="fb__devide__header">
+                        <h2>환불 정보</h2>
+                    </header>
+                    <div class="fb__devide__content">
+                        <section class="fb-filter">
+                            <div id="devRefundGrid"></div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="fb-filter__btn">
+            <input type="submit" class="fb-filter__search" value="환불">
+        </div>
+    </form>
+</fieldset>
+
+<!--{'<script>'}-->
+var productData = { = json_encode(product)};
+var claimData = { = json_encode(claim)};
+var paymentData = { = json_encode(payment)};
+var npayData = { = json_encode(npayData)};
+<!--paymentData[1]=paymentData[0];-->
+<!--paymentData[1].method=111;-->
+<!--{'</script>'}-->

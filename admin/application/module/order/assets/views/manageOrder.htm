@@ -1,0 +1,225 @@
+<input type="hidden" id="devOid" value="{order.oid}"/>
+<input type="hidden" id="devPaymentMethod" value="{order.method}"/>
+<fieldset>
+    <section class="fb__menusubmit">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">주문자 정보</h3>
+            <a href="#" class="fb__menusubmit-btn">
+                <span>닫기</span>
+                <span>열기</span>
+            </a>
+        </header>
+        <form id="devBuyerForm">
+            <section class="fb-filter">
+                <table>
+                    <caption>주문자 정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>주문번호</span>
+                        </th>
+                        {? order.co_oid != ''}
+                        <td>
+                            {order.oid} ({order.co_oid}) / {order.orderFromText}
+                        </td>
+                        {:}
+                        <td>
+                            {order.oid} / {order.orderFromText}
+                        </td>
+                        {/}
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">주문일자</span>
+                        </th>
+                        <td>
+                            {order.order_date}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>주문자 이름/그룹명</span>
+                        </th>
+                        <td>
+                            {order.bname} {? order.user_code}({order.buserid}){/} / {order.mem_group}
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>주문자 메일</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="bmail" value="{order.bmail}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">주문자 휴대폰 번호</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="bmobile" value="{order.bmobile}"
+                                   title="주문자 휴대폰 번호">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>기본주소</span>
+                        </th>
+                        <td>
+                            {order.orderBasicAddress}
+                        </td>
+                    </tr>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="저장">
+                </div>
+            </section>
+        </form>
+    </section>
+
+    <section class="fb__menusubmit" id="devNormalProductSection">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">상품리스트</h3>
+            <a href="#" class="fb__menusubmit-btn">
+                <span>닫기</span>
+                <span>열기</span>
+            </a>
+        </header>
+        <div id="devNormalProductGrid"></div>
+        {? incomReadyBool}
+        {? adminLevel == 9}
+        <section class="fb__menusubmit__btn">
+            <div class="menusubmit-btn">
+                <nav class="menusubmit-btn__nav">
+                    <span class="fb-filter__btn">
+                        <form id="devIncomCompleteForm">
+                            <input type="submit" class="fb-filter__search" value="입금확인">
+                        </form>
+                    </span>
+                </nav>
+            </div>
+        </section>
+        {/}
+        {:}
+        <form id="devChangeOrderStatusForm">
+            <section class="fb__menusubmit__btn">
+                <div class="menusubmit-btn">
+                    <nav class="menusubmit-btn__nav">
+                        <input type="hidden" name="order_from" value="{order.order_from}"/>
+                        <input type="hidden" name="method" id="devOrderMethod" value="{order.method}"/>
+                        <select class="fb-filter__select " name="status" id="devChangeOrderStatusSelect" title="주문상태">
+                            <option value="">상태변경</option>
+                            {@ changeOrderStatusList}
+                            <option value="{.key_}">{.value_}</option>
+                            {/}
+                        </select>
+                        <select class="fb-filter__select" name="quick" id="devChangeQuick" style="display:none;"
+                                title="배송업체">
+                            <option value="">배송업체선택</option>
+                            {@ useQuickList}
+                            <option value="{.ix}" {?.index_== 0}selected{/}>{.name}</option>
+                            {/}
+                        </select>
+                        <input type="text" class="fb-filter__text" name="invoice_no" id="devChangeInvoiceNo"
+                               placeholder="송장번호" title="송장번호" style="display:none;">
+                        <span class="fb-filter__btn">
+                            <input type="submit" class="fb-filter__search" value="변경">
+                        </span>
+                    </nav>
+                </div>
+            </section>
+        </form>
+        {/}
+    </section>
+
+    <section class="fb__menusubmit" id="devClaimProductSection">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">클레임상품리스트</h3>
+            <a href="#" class="fb__menusubmit-btn">
+                <span>닫기</span>
+                <span>열기</span>
+            </a>
+        </header>
+        <div id="devClaimProductOrderGrid"></div>
+    </section>
+
+    {? adminLevel == 9}
+    <section class="fb__menusubmit fb__menusubmit__memo">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">메모 리스트</h3>
+            <a href="#" class="fb__menusubmit-btn">
+                <span>닫기</span>
+                <span>열기</span>
+            </a>
+        </header>
+        <div id="devMemoGrid"></div>
+    </section>
+
+    <section class="fb__menusubmit">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">결제정보</h3>
+            <a href="#" class="fb__menusubmit-btn">
+                <span>닫기</span>
+                <span>열기</span>
+            </a>
+        </header>
+        <section class="fb-filter">
+            <table>
+                <caption>결제정보</caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>결제금액</span>
+                    </th>
+                    <td>
+                        {=number_format(order.total_price)} (상품: {=number_format(order.product_price)} + 배송:
+                        {=number_format(order.delivery_price)})
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">입금일자</span>
+                    </th>
+                    <td>
+                        {order.ic_date}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>마일리지</span>
+                    </th>
+                    <td colspan="3">
+                        {=number_format(order.useMileage)}
+                    </td>
+                </tr>
+                {? order.total_dc_price > 0}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>할인금액</span>
+                        </th>
+                        <td colspan="3">
+                            {=number_format(order.total_dc_price)}
+                            (
+                            기획할인 : {=number_format(order.plan_dc)}
+                            + 쿠폰할인 : {=number_format(order.coupon_dc)}
+                            + 회원할인 : {=number_format(order.user_dc)}
+                            + 특별할인 : {=number_format(order.special_dc)}
+                            )
+                        </td>
+                    </tr>
+                {/}
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>결제방법</span>
+                    </th>
+                    <td colspan="3">
+                        <div id="devPaymentGrid"></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </section>
+    {/}
+</fieldset>

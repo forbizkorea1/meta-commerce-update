@@ -9,8 +9,25 @@ namespace CustomScm\Model;
  */
 class Crema extends \ForbizScm\Model\Crema
 {
+    const CREMA_APP_ID = '';
+    const CREMA_SECRET = '';
+
     public function __construct($config = [])
     {
         parent::__construct();
+    }
+
+    /**
+     * 인증 엑세스
+     * @return type
+     */
+    public function getAccessToken()
+    {
+        $data = [
+            'grant_type' => 'client_credentials',
+            'client_id' => self::CREMA_APP_ID,
+            'client_secret' =>  self::CREMA_SECRET,
+        ];
+        return $this->call($this->endPoint['oauth'], 'post', __FUNCTION__, $data);
     }
 }

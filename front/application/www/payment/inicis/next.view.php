@@ -49,14 +49,17 @@ if ($applyResult['result']) {
         , 'escrow_use' => 'N'
     ];
 
-    if ($method == ORDER_METHOD_VBANK) { //가상계좌
+    if ($method == ORDER_METHOD_VBANK || $method == ORDER_METHOD_ESCROW_VBANK) { //가상계좌
         $status = ORDER_STATUS_INCOM_READY;
         $payment['bank'] = $paymentGatewayModel->evalModuleMethod('getBankName', $applyData['P_VACT_BANK_CODE']);
         $payment['bank_account_num'] = $applyData['P_VACT_NUM']; // 입금 계좌번호
         $payment['bank_input_date'] = $applyData['P_VACT_DATE']; // 송금 일자
         $payment['bank_input_name'] = $applyData['P_VACT_NAME']; // 계좌주명
-    } else if (in_array($method, [ORDER_METHOD_ICHE, ORDER_METHOD_ASCROW, ORDER_METHOD_INAPP_KBANKPAY])) { //실시간계좌이체
-        if ($method == ORDER_METHOD_ASCROW) {
+        if ($method == ORDER_METHOD_ESCROW_VBANK) {
+            $payment['escrow_use'] = 'Y';
+        }
+    } else if (in_array($method, [ORDER_METHOD_ICHE, ORDER_METHOD_ASCROW, ORDER_METHOD_ESCROW_ICHE, ORDER_METHOD_INAPP_KBANKPAY])) { //실시간계좌이체
+        if ($method == ORDER_METHOD_ASCROW || $method == ORDER_METHOD_ESCROW_ICHE) {
             $payment['escrow_use'] = 'Y';
         }
         $status = ORDER_STATUS_INCOM_COMPLETE;

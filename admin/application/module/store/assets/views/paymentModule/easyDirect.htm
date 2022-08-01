@@ -1,7 +1,7 @@
 <form id="devEasyDirectConfigForm" method="post" >
     <section class="fb__menusubmit">
         <header class="fb__menusubmit-header">
-            <h3 class="fb__menusubmit-title">네이버페이 (결제형)</h3>
+            <h3 class="fb__menusubmit-title">간편결제 네이버페이 (직연동)</h3>
         </header>
         <section class="fb-filter">
             <table>
@@ -16,7 +16,7 @@
                 <tr>
                     <th class="fb-filter__title">
                     <span>
-                        네이버페이 사용 여부
+                        네이버페이(직연동) 사용 여부
                     </span>
                     </th>
                     <td colspan="3">
@@ -35,7 +35,7 @@
                 <tr>
                     <th class="fb-filter__title">
                         <span>
-                            네이버페이 서비스 타입
+                            네이버페이(직연동) 서비스 타입
                         </span>
                     </th>
                     <td colspan="3" >
@@ -54,7 +54,7 @@
                 <tr> <!-- 텍스트 타입 -->
                     <th class="fb-filter__title">
                         <span>
-                            상점 키
+                            상점 키(직연동)
                         </span>
                     </th>
                     <td colspan="3" class="fb-filter__day-wrap">
@@ -72,7 +72,81 @@
 
     <section class="fb__menusubmit">
         <header class="fb__menusubmit-header">
-            <h3 class="fb__menusubmit-title">PAYCO 간편결제</h3>
+            <h3 class="fb__menusubmit-title">간편결제 네이버페이 (주문형)</h3>
+        </header>
+        <section class="fb-filter">
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tbody class="devServiceTable">
+                <tr>
+                    <th class="fb-filter__title">
+                    <span>
+                        네이버페이(주문형) 사용 여부
+                    </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio devServiceSelect">
+                            <label>
+                                <input type="radio" name="naverpay_other_pg_service_use" value="Y" {? payConfig.naverpay_other_pg_service_use =='Y'  } checked {/}  />
+                                <span>사용함</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="naverpay_other_pg_service_use" value="N" {? payConfig.naverpay_other_pg_service_use =='' || payConfig.naverpay_other_pg_service_use =='N'  } checked {/}  />
+                                <span>사용안함</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>
+                            네이버페이(주문형) 서비스 타입
+                        </span>
+                    </th>
+                    <td colspan="3" >
+                        <div class="fb-filter__radio devServiceUse">
+                            <label>
+                                <input type="radio" name="naverpay_other_pg_service_type" value="test" {? payConfig.naverpay_other_pg_service_type =='' || payConfig.naverpay_other_pg_service_type =='test'  } checked {/}  />
+                                <span>test</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="naverpay_other_pg_service_type" value="service" {? payConfig.naverpay_other_pg_service_type =='service'  } checked {/}  />
+                                <span>service</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            상점 키(주문형)
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents devServiceUse">
+                            <input type="text" class="fb-filter__text" name="naverpay_other_pg_shop_id" title="Npay ( 주문형 ) Shop ID" placeholder="Shop ID" value="{payConfig.naverpay_other_pg_shop_id}">
+                            <input type="text" class="fb-filter__text" name="naverpay_other_pg_button_key" title="Npay ( 주문형 ) Button Key" placeholder="Button Key" value="{payConfig.naverpay_other_pg_button_key}">
+                            <input type="text" class="fb-filter__text" name="naverpay_other_pg_certi_key" title="Npay ( 주문형 ) Certi Key" placeholder="Certi Key" value="{payConfig.naverpay_other_pg_certi_key}">
+                            <input type="text" class="fb-filter__text" name="naverpay_other_pg_access_license" title="Npay ( 주문형 ) Access License" placeholder="Access License" value="{payConfig.naverpay_other_pg_access_license}">
+                            <input type="text" class="fb-filter__text" name="naverpay_other_pg_secret_key" title="Npay ( 주문형 ) Secret Key" placeholder="Secret Key" value="{payConfig.naverpay_other_pg_secret_key}">
+                            <input type="text" class="fb-filter__text" name="naverpay_other_pg_common_key" title="Npay ( 주문형 ) Common Key" placeholder="Common Key" value="{payConfig.naverpay_other_pg_common_key}">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+
+    <section class="fb__menusubmit">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">간편결제 페이코 (직연동)</h3>
         </header>
         <section class="fb-filter">
             <table>
@@ -146,7 +220,7 @@
 
     <section class="fb__menusubmit">
         <header class="fb__menusubmit-header">
-            <h3 class="fb__menusubmit-title">토스페이</h3>
+            <h3 class="fb__menusubmit-title">간편결제 토스 (직연동)</h3>
         </header>
         <section class="fb-filter">
             <table>

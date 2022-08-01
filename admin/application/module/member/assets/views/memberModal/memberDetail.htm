@@ -1,0 +1,275 @@
+<!--{'<script id="devMemberDetailTpl" type="text/x-handlebars-template">'}-->
+<div class="fb__tapcontent fb__menusubmit">
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devMemberDetail">
+        <form id="devMemberDetailForm" method="POST">            
+            <input type="hidden" name="mem_code" value="{[code]}" />
+            <table>                
+                <caption>개인정보</caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            등록일
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            {[date]}
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            최근방문일
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            {[last]}
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            이름
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="name" title="이름"  value="{[name]}">                            
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            아이디
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            {[id]}
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            비밀번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="password" class="fb-filter__text" name="pw"  value="{[pw]}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            비번확인
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="password" class="fb-filter__text" name="pw_re"  value="{[pw_re]}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            회원그룹
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <select class="fb-filter__select" name="gp_ix" item='{config.gp_ix}'>
+                                <option value=''>전체보기</option>
+                                {@memberGroup}
+                                <option value="{.gp_ix}">({.gp_level}){.gp_name}</option>
+                                {/}
+                            </select>
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span>
+                            회원구분
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <select class="fb-filter__select" name="mem_type" item='{config.gp_ix}'>
+                                <option value="M">개인회원</option>
+                                <option value="C">기업회원</option>
+                                <option value="A">직원(관리자)</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 라디오 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            생년월일
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap fb-filter__birth">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--birth" name="birthday_1"  value="{[birthday_1]}">
+                            <input type="text" class="fb-filter__text fb-filter__text--birth" name="birthday_2"  value="{[birthday_2]}">
+                            <input type="text" class="fb-filter__text fb-filter__text--birth" name="birthday_3"  value="{[birthday_3]}">
+                        </div>
+
+                        <div class="fb-filter__radio">
+                            <label for="birthday_div_1" style="margin-right: 5px;">
+                                <input type="radio" name="birthday_div" id="birthday_div_1" value="1" >
+                                <span>양력</span>
+                            </label>
+                            <label for="birthday_div_0" style="margin-right: 0;">
+                                <input type="radio" name="birthday_div" id="birthday_div_0" value="0"  >
+                                <span>음력</span> 
+                            </label>                            
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            성별
+                        </span>
+                    </th>
+                    <td>
+                        <div class="fb-filter__radio">
+                            <label for="sex_div_m">
+                                <input type="radio" name="sex_div" id="sex_div_m" value="M" checked >
+                                <span>남성</span>
+                            </label>
+                            <label for="sex_div_w">
+                                <input type="radio" name="sex_div" id="sex_div_w" value="W"  >
+                                <span>여성</span>
+                            </label>
+                            <label for="sex_div_d">
+                                <input type="radio" name="sex_div" id="sex_div_d" value="D"  >
+                                <span>기타</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span>
+                            휴대폰번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="pcs_1"  value="{[pcs_1]}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="pcs_2"  value="{[pcs_2]}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="pcs_3"  value="{[pcs_3]}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            SMS 수신여부
+                        </span>
+                    </th>
+                    <td >
+                        <div class="fb-filter__radio">
+                            <label for="sms_1">
+                                <input type="radio" name="sms" id="sms_1" title="SMS 수신여부" value="1" >
+                                <span>수신함</span>
+                            </label>
+                            <label for="sms_0">
+                                <input type="radio" name="sms" id="sms_0" title="SMS 수신여부" value="0"  >
+                                <span>수신안함</span>
+                            </label>                            
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            이메일
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="mail" title="이메일"  value="{[mail]}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            정보수신
+                        </span>
+                    </th>
+                    <td class="">
+                        <div class="fb-filter__radio">
+                            <label for="info_1">
+                                <input type="radio" name="info" id="info_1" title="정보수신" value="1" >
+                                <span>수신함</span>
+                            </label>
+                            <label for="info_0">
+                                <input type="radio" name="info" id="info_0" title="정보수신" value="0"  >
+                                <span>수신안함</span>
+                            </label>                            
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            우편번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="zip"  value="{[zip]}"><input type="button" class="fb-filter__search-icon" id="devSearchAddressPopup" value="검색">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            집전화
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="tel_1"  value="{[tel_1]}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="tel_2"  value="{[tel_2]}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="tel_3"  value="{[tel_3]}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            주소
+                        </span>
+                    </th>
+                    <td  colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text " name="addr1"  value="{[addr1]}"><br/><br/><br/>
+                            <input type="text" class="fb-filter__text " name="addr2"  value="{[addr2]}">
+                        </div>
+                    </td>
+                </tr>
+                <tr style="    border-bottom: 1px solid #d7d7d7;"> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            승인여부
+                        </span>
+                    </th>
+                    <td  colspan="3" class="fb-filter__day-wrap">
+                        <select class="fb-filter__select" name="authorized" item='{[authorized]}'>
+                            <option value="Y">승인</option>
+                            <option value="N">승인대기</option>
+                            <option value="X">승인거부</option>                            
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="fb-filter__btn">
+                <input type="submit" class="fb-filter__save devPopSave" value="저장" />
+            </div>
+        </form>
+    </section>
+</div>
+<!--{'</script>'}-->

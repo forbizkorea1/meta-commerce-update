@@ -217,7 +217,7 @@
             <div class="section">
                 <div class="sec">
                     <!--{@ paymentInfo.payment}-->
-                    {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ICHE : c.ORDER_METHOD_ASCROW}
+                    {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ESCROW_VBANK : c.ORDER_METHOD_ASCROW}
                     <h2>{=trans('결제수단')}</h2>
 
                     <p class="tit">{.method_text}</p>
@@ -226,7 +226,7 @@
                         <dt>{=trans('은행명')}</dt>
                         <dd>{.bank}</dd>
                     </dl>
-                    {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ASCROW}
+                    {? .method : c.ORDER_METHOD_BANK : c.ORDER_METHOD_VBANK : c.ORDER_METHOD_ESCROW_VBANK : c.ORDER_METHOD_ASCROW}
                     <dl>
                         <dt>{=trans('예금주')}</dt>
                         <dd>{.bank_input_name}</dd>
@@ -243,12 +243,22 @@
                     {:}
                     <h2>{=trans('결제수단')}</h2>
                     <dl>
+                        {? .method : c.ORDER_METHOD_ICHE : c.ORDER_METHOD_ESCROW_ICHE}
+                        <dt>{.method_text}</dt>
+                        {:}
                         <dt>{.method_text}</dt>
                         {? .method != c.ORDER_METHOD_PAYCO}
                         <dd>{.memo}</dd>
                         <dd>{.card_memo}</dd>
                         {/}
+                        {/}
                     </dl>
+                    {? .method : c.ORDER_METHOD_ICHE : c.ORDER_METHOD_ESCROW_ICHE}
+                    <dl>
+                        <dt>{=trans('은행명')}</dt>
+                        <dd>{.memo}</dd>
+                    </dl>
+                    {/}
                     {/}
                     <!--{/}-->
                 </div>
@@ -464,7 +474,7 @@
                         <!-- 요청사항 변경 -->
                         <div class="deliveryMsg__change fb__button">
                             <button class="border--ccc size--01 devDeliveryMsgModifyBtn" data-oid="{order.oid}" data-msgix="{.msg_ix}" data-msgtype="{.msg_type}">
-                                {=trans('배송요쳥사항 변경')}
+                                {=trans('배송요청사항 변경')}
                             </button>
                         </div>
                         {/}

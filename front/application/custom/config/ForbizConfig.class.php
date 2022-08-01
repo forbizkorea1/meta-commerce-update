@@ -175,6 +175,7 @@ class ForbizConfig extends ForbizCoreConfig
                         "NB" => ["type" => "B", "title" => "구매의사없음/변심"],
                         "DD" => ["type" => "S", "title" => "배송처리늦음/지연"],
                         "PIE" => ["type" => "S", "title" => "상품정보상이"],
+                        "PU" => ["type" => "B", "title" => "서비스 및 상품 불만족"],
                         "ETCB" => ["type" => "B", "title" => "기타(구매자책임)"],
                         "ETCS" => ["type" => "S", "title" => "기타(판매자책임)"]
                     ],
@@ -184,6 +185,7 @@ class ForbizConfig extends ForbizCoreConfig
                         "NB" => ["type" => "B", "title" => "구매의사없음/변심"],
                         "DD" => ["type" => "S", "title" => "배송처리늦음/지연"],
                         "PIE" => ["type" => "S", "title" => "상품정보상이"],
+                        "PU" => ["type" => "B", "title" => "서비스 및 상품 불만족"],
                         "ETCB" => ["type" => "B", "title" => "기타(구매자책임)"],
                         "ETCS" => ["type" => "S", "title" => "기타(판매자책임)"]
                     ]
@@ -195,6 +197,7 @@ class ForbizConfig extends ForbizCoreConfig
                         "NB" => ["type" => "B", "title" => "구매의사없음/변심"],
                         "DD" => ["type" => "S", "title" => "배송처리늦음/지연"],
                         "PIE" => ["type" => "S", "title" => "상품정보상이"],
+                        "PU" => ["type" => "B", "title" => "서비스 및 상품 불만족"],
                         "ETCB" => ["type" => "B", "title" => "기타(구매자책임)"],
                         "ETCS" => ["type" => "S", "title" => "기타(판매자책임)"]
                     ]
@@ -206,6 +209,7 @@ class ForbizConfig extends ForbizCoreConfig
                         "NB" => ["type" => "B", "title" => "구매의사없음/변심"],
                         "DD" => ["type" => "S", "title" => "배송처리늦음/지연"],
                         "PIE" => ["type" => "S", "title" => "상품정보상이"],
+                        "PU" => ["type" => "B", "title" => "서비스 및 상품 불만족"],
                         "ETCB" => ["type" => "B", "title" => "기타(구매자책임)"],
                         "ETCS" => ["type" => "S", "title" => "기타(판매자책임)"]
                     ]
@@ -228,6 +232,7 @@ class ForbizConfig extends ForbizCoreConfig
                         "DE" => ["type" => "S", "title" => "배송상품 오배송"],
                         "PNT" => ["type" => "S", "title" => "상품미도착"],
                         "PIE" => ["type" => "S", "title" => "상품정보상이"],
+                        "PU" => ["type" => "B", "title" => "서비스 및 상품 불만족"],
                         "ETCB" => ["type" => "B", "title" => "기타(구매자책임)"],
                         "ETCS" => ["type" => "S", "title" => "기타(판매자책임)"]
                     ]

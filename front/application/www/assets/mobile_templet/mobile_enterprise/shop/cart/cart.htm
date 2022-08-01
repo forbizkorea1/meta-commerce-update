@@ -230,6 +230,15 @@
                             {=trans('<em devPrice="payment_price">{=g_price(cartSummary.payment_price)}</em>원 주문하기')}
                         </button>
                     </div>
+                    <!--{* 네이버 페이 구매 버튼 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
+                    <div class="Naver-pay-wrap">
+                        <div class="areaNaverPay">
+                            <script>
+                                dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn();
+                            </script>
+                        </div>
+                    </div>
+                    <!--{/}{* 네이버 페이 구매 버튼 끝 *}-->
 
                 </div>
     
@@ -237,18 +246,6 @@
                 <div class="fb__cart__tip">
                     <p>{=trans('장바구니에 담긴 상품은 {cartDeleteDay}일 동안 보관되며 {cartDeleteDay}일 이후에는 자동 삭제됩니다.')}</p>
                 </div>
-
-                {* 네이버 페이 구매 버튼*}
-                {? defined('NPAY_USE') && c.NPAY_USE == 'Y'}
-                <!-- <div class="Naver-pay-wrap">
-                    <div class="areaNaverPay">
-                        <script>
-                            dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn();
-                        </script>
-                    </div>
-                </div> -->
-                {/}
-    
             </div>
         {:}
         <!-- 02 장바구니 상품 없는 case -->

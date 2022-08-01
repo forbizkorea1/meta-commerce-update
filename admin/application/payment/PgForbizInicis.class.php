@@ -15,6 +15,20 @@ class PgForbizInicis extends PgForbiz
     private $mid;
 
     /**
+     * 구에스크로 ID
+     * @var type
+     */
+    private $escrowMid;
+
+    /**
+     * INIAPI KEY
+     * @var type
+     */
+    private $iniapiKey;
+
+    protected $api = false;
+    protected $requestData = [];
+    /**
      * 가맹점 KEY
      * @var type
      */
@@ -45,19 +59,19 @@ class PgForbizInicis extends PgForbiz
         $this->homePath = __DIR__ . '/inicis';
 
         if (ForbizConfig::getPaymentConfig('service_type', 'inicis') == 'service') {
-            $this->mid = ForbizConfig::getPaymentConfig('mid', 'inicis');
-            $this->serviceKey = ForbizConfig::getPaymentConfig('service_key', 'inicis');
-            $this->payScriptUrl = 'https://stdpay.inicis.com/stdjs/INIStdPay.js';
+            // 결제 유형
+            $inicis_type = ForbizConfig::getPaymentConfig('inicis_type', 'inicis');
+            $this->iniapiKey = ForbizConfig::getPaymentConfig('iniapi_key', 'inicis');
+
+            if ($inicis_type == 'sin_escrow')  // 신에스크로
+            {
+                $this->mid = ForbizConfig::getPaymentConfig('mid', 'inicis');
+                $this->escrowMid = $this->mid;
+            } else { //구에스크로
+                $this->mid = ForbizConfig::getPaymentConfig('mid', 'inicis');
+                $this->escrowMid = ForbizConfig::getPaymentConfig('escrow_mid', 'inicis');
+            }
             $this->cancelPassword = ForbizConfig::getPaymentConfig('cancel_pwd', 'inicis');
-        } else {
-//            $this->mid = 'INIpayTest';
-//            $this->serviceKey = 'SU5JTElURV9UUklQTEVERVNfS0VZU1RS';
-//            $this->payScriptUrl = 'https://stgstdpay.inicis.com/stdjs/INIStdPay.js';
-//            $this->cancelPassword = "1111";
-            $this->mid = ForbizConfig::getPaymentConfig('test_mid', 'inicis');
-            $this->serviceKey = ForbizConfig::getPaymentConfig('test_service_key', 'inicis');
-            $this->payScriptUrl = 'https://stgstdpay.inicis.com/stdjs/INIStdPay.js';
-            $this->cancelPassword = ForbizConfig::getPaymentConfig('test_cancel_pwd', 'inicis');
         }
     }
 
@@ -74,23 +88,25 @@ class PgForbizInicis extends PgForbiz
         $inipay->SetField("debug", "false");                             // 로그모드("true"로 설정하면 상세로그가 생성됨.)
         $inipay->SetField("mid", $this->mid);                                 // 상점아이디
 
-        if ($cancelData->isEscrow) {
-            $payMethod = 'escrow';
-        } else {
-            if ($cancelData->isPartial) {//부분취소
-                if ($cancelData->method == ORDER_METHOD_VBANK) {
-                    $payMethod = "virtual-part";
-                } else {
-                    $payMethod = "card-part";
-                }
-            } else {//전체취소
-                if ($cancelData->method == ORDER_METHOD_VBANK) {
-                    $payMethod = "virtual-all";
-                } else {
-                    $payMethod = "card-all";
-                }
+        if ($cancelData->method == ORDER_METHOD_ESCROW_VBANK || $cancelData->method == ORDER_METHOD_ESCROW_ICHE)
+        {
+            $inipay->SetField("mid", $this->escrowMid);                                 // 에스크로 상점아이디
+        }
+
+        if ($cancelData->isPartial) {//부분취소
+            if ($cancelData->method == ORDER_METHOD_VBANK || $cancelData->method == ORDER_METHOD_ESCROW_VBANK) {
+                $payMethod = "virtual-part";
+            } else {
+                $payMethod = "card-part";
+            }
+        } else {//전체취소
+            if ($cancelData->method == ORDER_METHOD_VBANK || $cancelData->method == ORDER_METHOD_ESCROW_VBANK) {
+                $payMethod = "virtual-all";
+            } else {
+                $payMethod = "card-all";
             }
         }
+
         $inipay->SetField("type", $payMethod);                            // 고정 (절대 수정 불가)
 
         if (in_array($payMethod, ['virtual-all', 'virtual-part', 'card-part'])) {
@@ -101,7 +117,7 @@ class PgForbizInicis extends PgForbiz
         switch ($payMethod) {
             case 'escrow' :
                 $inipay->SetField("tid", $cancelData->tid); // 거래아이디
-                $inipay->SetField("mid", $this->mid); // 상점아이디
+                //$inipay->SetField("mid", $this->mid); // 상점아이디
                 $inipay->SetField("type", "escrow");                                    // 고정 (절대 수정 불가)
                 $inipay->SetField("escrowtype", "dcnf");                                    // 고정 (절대 수정 불가)
                 $inipay->SetField("dcnf_name", 'system');
@@ -109,7 +125,7 @@ class PgForbizInicis extends PgForbiz
             case 'virtual-all' :
                 // Vcard ( or virtual ) - All Cancel
                 $inipay->SetField("type", "refund");
-                $inipay->SetField("mid", $this->mid);
+                //$inipay->SetField("mid", $this->mid);
                 $inipay->SetField("tid", $cancelData->tid);
                 $inipay->SetField("racctnum", $cancelData->bankNumber);
                 $inipay->SetField("rbankcode", $rbankCode);
@@ -120,7 +136,7 @@ class PgForbizInicis extends PgForbiz
                 $inipay->SetField("type", "vacctrepay");
                 $inipay->SetField("pgid", "INIphpRPAY");
                 $inipay->SetField("subpgip", "203.238.3.10");
-                $inipay->SetField("mid", $this->mid);
+                //$inipay->SetField("mid", $this->mid);
                 $inipay->SetField("oldtid", $cancelData->tid);
                 $inipay->SetField("currency", 'WON');
                 $inipay->SetField("price", $cancelData->amt);
@@ -134,7 +150,7 @@ class PgForbizInicis extends PgForbiz
             case 'card-all':
                 // Card - All Cancel
                 $inipay->SetField("type", "cancel");
-                $inipay->SetField("mid", $this->mid);
+                //$inipay->SetField("mid", $this->mid);
                 $inipay->SetField("tid", $cancelData->tid);
                 break;
             case 'card-part':
@@ -142,7 +158,7 @@ class PgForbizInicis extends PgForbiz
                 $inipay->SetField("type", "repay");
                 $inipay->SetField("pgid", "INIphpRPAY");      // 고정 (절대 수정 불가)
                 $inipay->SetField("subpgip", "203.238.3.10");                // 고정
-                $inipay->SetField("mid", $this->mid);
+                //$inipay->SetField("mid", $this->mid);
                 $inipay->SetField("oldtid", $cancelData->tid);
                 $inipay->SetField("currency", 'WON');
                 $inipay->SetField("price", $cancelData->amt);
@@ -188,6 +204,88 @@ class PgForbizInicis extends PgForbiz
         }
 
         return $responseData;
+
+    }
+
+    public function setApi($type)
+    {
+        // API 서버 선택
+        $apiServer = 'https://iniapi.inicis.com/api/v1';
+
+        switch ($type) {
+            case 'doRefund':
+                $this->api = $apiServer . '/refund';
+                break;
+            case 'doDelivery':
+                $this->api = $apiServer . '/escrow';
+                break;
+            default:
+                $this->api = false;
+                break;
+        }
+
+        if ($this->api !== false) {
+            return $this;
+        }
+
+        throw new \Exception('Not define api type!');
+    }
+
+    public function callApi()
+    {
+        $curl = new \Curl\Curl();
+        $curl->setHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+
+        $curl->post($this->api, $this->requestData);
+
+        $resData = json_decode($curl->response, true);
+
+        return (json_last_error() != 0 ? $curl->response : $resData);
+    }
+
+    /**
+     * 배송등록 API
+     * @return void
+     */
+    public function doDelivery($data)
+    {
+        $hash = $this->iniapiKey . 'Dlv' . date('YmdHis') . getRemoteAddr()
+            . $this->escrowMid . $data['oid'] . $data['tid'] . $data['price'];
+
+        $this->requestData = [
+            'type' => 'Dlv' // 고정
+            , 'mid' => $this->escrowMid
+            , 'clientIp' => getRemoteAddr()
+            , 'timestamp' => date('YmdHis')
+            , 'tid' => $data['tid']
+            , 'oid' => $data['oid']
+            , 'price' => $data['price']
+            , 'report' => "I" // ["I":등록, "U":변경]
+            , 'invoice' => $data['invoice']
+            , 'registName' => $data['registName']
+            , 'exCode' => $this->getDeliveryCode($data['exCode'])
+            , 'exName' => $data['exName']
+            , 'charge' => "SH" // ("SH":판매자부담, "BH":구매자부담)
+            , 'invoiceDay' => date('Y-m-d H:i:s')
+            , 'sendName' => $data['sendName']
+            , 'sendTel' => $data['sendTel']
+            , 'sendPost' => $data['sendPost']
+            , 'sendAddr1' => $data['sendAddr1']
+            , 'sendAddr2' => $data['sendAddr2']
+            , 'recvTel' => $data['recvTel']
+            , 'recvName' => $data['recvName']
+            , 'recvPost' => $data['recvPost']
+            , 'recvAddr' => $data['recvAddr']
+            , 'hashData' => hash("sha512", $hash)
+        ];
+
+        $result = $this->setApi('doDelivery')->callApi();
+
+        if (isset($result["resultCode"]) && $result["resultCode"] == "00") {
+            return $result;
+        } else {
+            return $result;
+        }
     }
 
     private function getBankCodeByForbizBankCode($code)
@@ -228,5 +326,29 @@ class PgForbizInicis extends PgForbiz
         ];
 
         return $BankCode[$code] ?? '';
+    }
+
+    public function getDeliveryCode($code)
+    {
+        $deliveryCode = [
+            //'' => '9999'        //기타택배
+            '18' => 'korex'       //CJ대한통운
+            , '10' => 'kgbps'        //KGB택배
+            //, '' => 'registpost'    //우편등기
+            , '13' => 'hanjin'        //한진택배
+            , '25' => 'chunil'        //천일택배
+            , '23' => 'ilyang'       //일양로지스
+            , '42' => 'cvsnet'       // 편의점택배
+            , '05' => 'kgb'           // 로젠택배
+            , '12' => 'hyundai'       // 롯데택배(구.현대)
+            , '01' => 'EPOST'        // 우체국택배
+            , '18' => 'cjgls'         // CJ GLS
+            , '21' => 'kdexp'         // 경동택배
+            , '22' => 'daesin'        // 대신택배
+            //, '' => 'honam'   // 우리택배(구.호남)
+            , '26' => 'hdexp'          //합동택배
+        ];
+
+        return $deliveryCode[$code] ?? '9999';
     }
 }

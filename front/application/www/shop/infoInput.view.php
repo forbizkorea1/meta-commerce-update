@@ -108,13 +108,60 @@ $sattle_module = ForbizConfig::getMallConfig('sattle_module');
 if (!empty(ForbizConfig::getPaymentConfig('mainPayMethod', $sattle_module))) {
     $mainPayMethodArray = explode('|', ForbizConfig::getPaymentConfig('mainPayMethod', $sattle_module) ?? "");
 
+    // 이니시스 에스크로
+    if ($sattle_module == 'inicis')
+    {
+        $inicis_type = ForbizConfig::getPaymentConfig('inicis_type', $sattle_module);
+
+        if ($inicis_type == 'sin_escrow') { // 신에스크로
+            // 에스크로 사용여부
+            $use_escrow = trim(ForbizConfig::getPaymentConfig('sin_sndEscrow', $sattle_module));
+
+            if ($use_escrow == true) {
+                if (in_array(ORDER_METHOD_VBANK, $mainPayMethodArray))
+                {
+                    $index = array_search(ORDER_METHOD_VBANK, $mainPayMethodArray);
+
+                    $mainPayMethodArray[$index] = ORDER_METHOD_ESCROW_VBANK;
+                }
+
+                if (in_array(ORDER_METHOD_ICHE, $mainPayMethodArray))
+                {
+                    $index = array_search(ORDER_METHOD_ICHE, $mainPayMethodArray);
+
+                    $mainPayMethodArray[$index] = ORDER_METHOD_ESCROW_ICHE;
+                }
+            }
+        } else { // 구에스크로
+            $escrow_mid = trim(ForbizConfig::getPaymentConfig('escrow_mid', $sattle_module));
+            if (!empty($escrow_mid))
+            {
+                if (in_array(ORDER_METHOD_VBANK, $mainPayMethodArray))
+                {
+                    $index = array_search(ORDER_METHOD_VBANK, $mainPayMethodArray);
+
+                    $mainPayMethodArray[$index] = ORDER_METHOD_ESCROW_VBANK;
+                }
+
+                if (in_array(ORDER_METHOD_ICHE, $mainPayMethodArray))
+                {
+                    $index = array_search(ORDER_METHOD_ICHE, $mainPayMethodArray);
+
+                    $mainPayMethodArray[$index] = ORDER_METHOD_ESCROW_ICHE;
+                }
+            }
+        }
+    }
+
     $view->assign('mainPayMethodArray', $mainPayMethodArray);
 
     $mainPayMethod = [
         ORDER_METHOD_CARD => '신용카드 결제',
         ORDER_METHOD_VBANK => '가상계좌 결제',
         ORDER_METHOD_ICHE => '실시간 계좌이체',
-        ORDER_METHOD_PHONE => '휴대폰 결제'
+        ORDER_METHOD_PHONE => '휴대폰 결제',
+        ORDER_METHOD_ESCROW_VBANK => '가상계좌 결제',
+        ORDER_METHOD_ESCROW_ICHE => '실시간 계좌이체'
     ];
 
     $view->assign('mainPayMethod', $mainPayMethod);

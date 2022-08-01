@@ -25,7 +25,14 @@ $ssgpay_direct = $view->input->post('ssgpay_direct');
 
 if (substr_count($view->input->post('card_pay_method'), 'KAKAO_') > 0) { //모바일에서 kakao pay 구분값이 없음
     $kakaopay_direct = 'Y';
+} elseif (substr_count($view->input->post('card_pay_method'), 'LPAY') > 0) { //모바일에서 LPAY pay 구분값이 없음
+    $lpay_direct = 'Y';
+} elseif (substr_count($view->input->post('card_pay_method'), 'SSGPAY') > 0) { //모바일에서 SSG pay 구분값이 없음
+    $ssgpay_direct = 'Y';
+} elseif (substr_count($view->input->post('card_pay_method'), 'NAVERPAY_') > 0) { //모바일에서 NAVER pay 구분값이 없음
+    $naverpay_direct = 'Y';
 }
+
 /* @var $paymentGatewayModel CustomMallPaymentGatewayModel */
 $paymentGatewayModel = $view->import('model.mall.payment.gateway');
 $paymentGatewayModel->init($pgName);

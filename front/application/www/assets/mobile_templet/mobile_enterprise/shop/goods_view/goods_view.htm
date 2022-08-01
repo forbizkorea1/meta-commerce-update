@@ -1,10 +1,9 @@
 <script src="{layoutCommon.templetSrc}/js/common/minicart.js?version={c.CLIENT_VERSION}" data-url="/controller/product/loadOptionDatas/{pid}" id="devMinicartScript"></script>
 
-{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}
-<!-- {* 네이버 페이 시작 *} -->
-<script type="text/javascript" src="http://pay.naver.com/customer/js/mobile/naverPayButton.js" charset="UTF-8"></script>
-<!-- {* 네이버 페이 끝 *} -->
-{/}
+<!--{* 네이버 페이 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
+<script type="text/javascript" src="//pay.naver.com/customer/js/mobile/naverPayButton.js" charset="UTF-8"></script>
+<!--{/}{* 네이버 페이 끝 *}-->
+
 
 <!-- 모바일 상품상세 -->
 <section class="fb__goods-view">
@@ -68,16 +67,6 @@
             </div>
 
             <div class="wrap-sect"></div>
-            <!--{* 네이버 페이 구매 버튼 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
-            <!-- <div class="wrap-sect"></div>
-            <div class="Naver-pay-wrap">
-                <div class="areaNaverPay">
-                    <script>
-                        dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn('product');
-                    </script>
-                </div>
-            </div> -->
-            <!--{/}{* 네이버 페이 구매 버튼 끝 *}-->
 
             <div class="layer-sns">
                 <ul class="sns__icon">
@@ -853,6 +842,16 @@
                     <p class="tit">{=trans('총 상품 금액')}</p>
                     <p class="price"><em id="devMinicartTotal">0</em>{=trans('원')}</p>
                 </div>
+
+                <!--{* 네이버 페이 구매 버튼 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
+                <div class="Naver-pay-wrap">
+                    <div class="areaNaverPay">
+                        <script>
+                            dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn('product');
+                        </script>
+                    </div>
+                </div>
+                <!--{/}{* 네이버 페이 구매 버튼 끝 *}-->
             </div>
         </div>
 

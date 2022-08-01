@@ -2624,11 +2624,19 @@ var common = {
                 }
             }
         },
-        cascading: function (target, joinTarget) {
+        cascading: function (target, joinTarget, joinGroup) {
             var relData = this.relData.map;
-            relData.push(joinTarget);
+            if(typeof joinGroup === 'undefined'){
+                joinGroup = 'default';
+            }
+
+            relData.push({
+                joinTarget: joinTarget,
+                group: joinGroup
+            });
             return {
                 joinTarget: false
+                , group: joinGroup
                 , ajaxUrl: false
                 , redIdx: this.relData.idx++
                 , selData: false
@@ -2706,9 +2714,13 @@ var common = {
                     for (var idx = this.redIdx; idx < relData.length; idx++) {
                         if (relData[idx]) {
                             if (this.allReset) {
-                                $(relData[idx]).empty();
+                                if(this.group == relData[idx].group) {
+                                    $(relData[idx].joinTarget).empty();
+                                }
                             } else {
-                                $(relData[idx]).find('option:not(:eq(0))').remove();
+                                if(this.group == relData[idx].group) {
+                                    $(relData[idx].joinTarget).find('option:not(:eq(0))').remove();
+                                }
                             }
                         }
                     }
@@ -3275,7 +3287,7 @@ var common = {
                         .on('change', self.onChangeFunctoin)
                         .init();
 
-                    common.ui.cascading('#' + id2, '#' + id3)
+                    common.ui.cascading('#' + id2, '#' + id3, 'categoryGroup')
                         .setUrl(url)
                         .setAllReset(reset)
                         .setOptColumn(cascadingColumn)

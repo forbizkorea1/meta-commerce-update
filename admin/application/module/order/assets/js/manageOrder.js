@@ -31,7 +31,7 @@ var devOrderManageOrderObj = {
         common.lang.load('grid.label.company_name', '판매자');
         common.lang.load('grid.label.odd_ix', '배송지 번호');
         common.lang.load('grid.label.rname', '수취인');
-        common.lang.load('grid.label.rmobile', '수취인 핸드폰번호');
+        common.lang.load('grid.label.rmobile', '수취인 휴대폰 번호');
         common.lang.load('grid.label.zip', '수취인 우편번호');
         common.lang.load('grid.label.addr1', '수취인 주소');
         common.lang.load('grid.label.addr2', '수취인 상세주소');
@@ -69,6 +69,10 @@ var devOrderManageOrderObj = {
         common.lang.load('change.cancel.apply.fail.alert', '배송 `전` 주문 건수만 신청 가능합니다.');
         common.lang.load('change.return.apply.fail.alert', '배송 `후` 주문 건수만 신청 가능합니다.');
 
+        common.lang.load('change.income.complete.naver.fail.alert', '네이버페이 주문입니다. 입금확인은 네이버페이센터에서 관리해주세요.');
+        common.lang.load('change.exchange.naver.fail.alert', '네이버페이 주문입니다. 교환요청 및 승인은 네이버페이센터에서 관리해주세요.');
+		common.lang.load('change.delivery.escrow.fail.alert', '에스크로 주문입니다. 전체 주문 건만 배송중으로 변경 가능합니다.');
+		
         common.lang.load('common.put.success.alert', '수정이 완료되었습니다.');
     },
     initForm: function () {
@@ -100,6 +104,12 @@ var devOrderManageOrderObj = {
 
         if ($('#devIncomCompleteForm').length > 0) {
             common.form.init($('#devIncomCompleteForm'), common.util.getControllerUrl('putIncomComplete', 'manageOrder', 'order'), function (formData, $form) {
+                //네이버페이 입금확인 알럿
+                if (self.getPaymentMethod() == '60') {
+                    common.noti.alert(common.lang.get('change.income.complete.naver.fail.alert'));
+                    return false;
+                }
+
                 formData.push(common.form.makeData('oid', self.getOid()));
                 return formData;
             }, function (response) {
@@ -116,6 +126,7 @@ var devOrderManageOrderObj = {
             common.validation.set($('#devChangeOrderStatusSelect'), {'required': true});
 
             common.form.init($('#devChangeOrderStatusForm'), common.util.getControllerUrl('putStatus', 'manageOrder', 'order'), function (formData, $form) {
+                var method = $('#devOrderMethod').val();
                 var status = $('#devChangeOrderStatusSelect').val();
                 if (!common.validation.check($form, 'alert', false)) {
                     return false;
@@ -127,10 +138,19 @@ var devOrderManageOrderObj = {
                     return false;
                 }
 
-                if (status == 'RA' || status == 'EA') {//반품,교환 요청
+                if (status == 'CA' || status == 'RA' || status == 'EA') {//취소,반품,교환 요청
                     var odeIxList = self.normalProductGrid.getList('selected', ['ode_ix']);
                     var odeIx = false;
                     var odeIxBool = true;
+
+                    //네이버페이 교환요청 알럿
+                    var selectCoOidList = self.normalProductGrid.getList('selected', ['co_oid']).filter(co_oid => co_oid != '');
+
+                    if (status == 'EA' && selectCoOidList.length > 0 && self.getPaymentMethod() == '60') {
+                        common.noti.alert(common.lang.get('change.exchange.naver.fail.alert'));
+                        return false;
+                    }
+
                     $.each(odeIxList, function () {
                         if (odeIx === false) {
                             odeIx = this;
@@ -173,6 +193,16 @@ var devOrderManageOrderObj = {
                 } else if(status == 'CA') {
                     location.href = common.util.getControllerUrl('applyClaimOrder', 'order') + '/' + status + '/' + self.getOid() + '/' + odIxList.join('/');
                 } else {
+                    if (status == 'DI' && (method == 16 || method == 17)) {
+                        // 이니시스 에스크로 주문건
+                        var orderList = self.normalProductGrid.getList(['od_ix']);
+
+                        if (odIxList.length != orderList.length) {
+                            common.noti.alert(common.lang.get('change.delivery.escrow.fail.alert'));
+                            return false;
+                        }
+                    }
+
                     formData.push(common.form.makeData('oid', self.getOid()));
                     formData.push(common.form.makeData('od_ix', odIxList));
                     formData.push(common.form.makeData('view', self.normalProductGrid.getList('selected', ['od_ix', 'status'])));
@@ -183,7 +213,11 @@ var devOrderManageOrderObj = {
                     common.noti.alert(common.lang.get('common.put.success.alert'));
                     self.productGridReload();
                 } else {
-                    devChangeOrderStatusResponseObj.noti(response);
+                    if (response.data.failMsg == false) {
+                        devChangeOrderStatusResponseObj.noti(response);
+                    } else {
+						common.noti.alert(response.data.failMsg);
+                    }
                 }
             });
         }
@@ -539,6 +573,9 @@ var devOrderManageOrderObj = {
     },
     getOid: function () {
         return $('#devOid').val();
+    },
+    getPaymentMethod: function () {
+        return $('#devPaymentMethod').val();
     },
     productGridReload: function () {
         var self = this;

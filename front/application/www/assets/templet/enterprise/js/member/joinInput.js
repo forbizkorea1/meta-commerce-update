@@ -9,6 +9,7 @@
 var devJoinInputObj = {    
     isUserIdRegExp: false, //아이디 정규식 규칙 플레그
     isUserIdDoubleCheck: false, //아이디 중복 체크 플레그
+    isPwdCheck: false, // 비밀번호 규칙 체크 플레그
     isEmailRegExp: false, //이메일 정규식 규칙 플레그
     isEmailDoubleCheck: false, //이메일 중복 체크 플레그
     isCompanyCertify: false, //담당자 휴대폰 인증 플레그
@@ -54,6 +55,11 @@ var devJoinInputObj = {
         //아이디 관련 체크
         if (self.isUserIdRegExp != true || self.isUserIdDoubleCheck != true) {
             common.noti.alert(common.lang.get('joinInput.common.validation.userId.doubleCheck'));
+            return false;
+        }
+        //비밀번호 관련 체크
+        if (self.isPwdCheck != true) {
+            common.noti.alert(common.lang.get('joinInput.common.validation.userPassword.fail'));
             return false;
         }
         //이메일 관련 체크
@@ -192,6 +198,8 @@ var devJoinInputObj = {
         $("#devUserBirthday").datepicker({
             monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
             dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            changeMonth: true,
+            changeYear: true,
             showMonthAfterYear: true,
             dateFormat: 'yy-mm-dd',
             buttonImageOnly: true,
@@ -261,6 +269,11 @@ var devJoinInputObj = {
         //아이디 입력시 정규식 체크
         $('#devUserId').on({
             'input': function (e) {
+                if (!(e.keyCode >=37 && e.keyCode<=40)) {
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[^a-z0-9]/gi, ''));
+                }
+
                 if (self.isUserIdDoubleCheck == true) {
                     $('#devUserIdDoubleCheckButton').attr('disabled', false);
                 }
@@ -284,6 +297,17 @@ var devJoinInputObj = {
         //비밀번호 체크
         $('#devUserPassword').on({
             'input': function (e) {
+                var re = /^.*(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+                var inputVal = $(this).val();
+
+                if (re.test(inputVal) == false)
+                {
+                    self.isPwdCheck = false;
+                    common.noti.tailMsg(this.id, common.lang.get('joinInput.common.validation.userPassword.fail'));
+                } else {
+                    self.isPwdCheck = true;
+                }
+
                 if (common.validation.check($(this))) {
                     common.noti.tailMsg(this.id, common.lang.get('joinInput.common.validation.userPassword.success'), 'success');
                 } else {

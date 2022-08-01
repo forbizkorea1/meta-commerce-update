@@ -62,14 +62,14 @@
                         <ul class="gender">
                             <li class="gender__list">
                                 <label>
-                                    <input type="radio" class="blind" id="male" name="sex" value="{=trans('남성')}">
+                                    <input type="radio" class="blind" id="male" name="sex" value="{=trans('남성')}" {? sex_div == 'M'} checked{/} disabled>
                                     <span>{=trans('남성')}</span>
                                 </label>
                             </li>
 
                             <li class="gender__list">
                                 <label>
-                                    <input type="radio" class="blind" id="female" name="sex" value="{=trans('여성')}" checked>
+                                    <input type="radio" class="blind" id="female" name="sex" value="{=trans('여성')}" {? sex_div != 'M'} checked{/} disabled>
                                     <span>{=trans('여성')}</span>
                                 </label>
                             </li>
@@ -233,31 +233,31 @@
                 <ul class="sns__box">
                     {? sns_simple_login_naver == 'Y'}
                         <li class="sns__list">
-                            <input type="hidden" id="devNaverId" name="devNaverId">
-                            <button type="button" data-href="{naver_login}" id="devNaverIdBtn" class="sns__list__connect sns__list__connect--naver devSnsJoin" {? snsInfo.naver}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                            <input type="hidden" id="devNaverId" name="devNaverId" {? naverId} value="{naverId}"{/}>
+                            <button type="button" data-href="{naver_login}" id="devNaverIdBtn" class="sns__list__connect sns__list__connect--naver devSnsJoin" {? snsInfo.naver}disabled {: naverId} disabled {/} {? !snsInfo.naver}style="width: 100%;"{/}>
                                 <span>{=trans('네이버 연동하기')}</span>
                             </button>
-                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devNaverBtn" data-type="naver" data-sns-id="devNaverId" {? !snsInfo.naver}style="display: none;"{/}>{=trans('연동해제')}</button>
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devNaverBtn" data-type="naver" data-sns-id="devNaverId" {? !snsInfo.naver : !naverId}style="display: none;"{/}>{=trans('연동해제')}</button>
                         </li>
                     {/}
 
                     {? sns_simple_login_kakao == 'Y'}
                         <li class="sns__list">
-                            <input type="hidden" id="devKakaoId" name="devKakaoId">
-                            <button type="button" data-href="{kakao_login}" id="devKakaoIdBtn" class="sns__list__connect sns__list__connect--kakao devSnsJoin" {? snsInfo.kakao}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                            <input type="hidden" id="devKakaoId" name="devKakaoId" {? kakaoId} value="{kakaoId}"{/}>
+                            <button type="button" data-href="{kakao_login}" id="devKakaoIdBtn" class="sns__list__connect sns__list__connect--kakao devSnsJoin" {? snsInfo.kakao}disabled {: kakaoId} disabled {/} {? !snsInfo.naver}style="width: 100%;"{/}>
                                 <span>{=trans('카카오 연동하기')}</span>
                             </button>
-                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devKakaoBtn" data-type="kakao" data-sns-id="devKakaoId" {? !snsInfo.kakao}style="display: none;"{/}>{=trans('연동해제')}</button>
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devKakaoBtn" data-type="kakao" data-sns-id="devKakaoId" {? !snsInfo.kakao : !kakaoId}style="display: none;"{/}>{=trans('연동해제')}</button>
                         </li>
                     {/}
 
                     {? sns_simple_login_facebook == 'Y'}
                         <li class="sns__list">
-                            <input type="hidden" id="devFacebookId" name="devFacebookId">
-                            <button type="button" data-href="{facebook_login}" id="devFBIdBtn" class="sns__list__connect sns__list__connect--facebook devSnsJoin" {? snsInfo.facebook}disabled{/} {? !snsInfo.naver}style="width: 100%;"{/}>
+                            <input type="hidden" id="devFacebookId" name="devFacebookId" {? fbId} value="{fbId}"{/}>
+                            <button type="button" data-href="{facebook_login}" id="devFBIdBtn" class="sns__list__connect sns__list__connect--facebook devSnsJoin" {? snsInfo.facebook}disabled {: fbId} disabled {/} {? !snsInfo.naver}style="width: 100%;"{/}>
                                 <span>{=trans('페이스북 연동하기')}</span>
                             </button>
-                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devFBBtn" data-type="facebook" data-sns-id="devFacebookId" {? !snsInfo.facebook}style="display: none;"{/}>{=trans('연동해제')}</button>
+                            <button class="sns__list__disconnect devSnsDisconnectBtn" id="devFBBtn" data-type="facebook" data-sns-id="devFacebookId" {? !snsInfo.facebook : !fbId}style="display: none;"{/}>{=trans('연동해제')}</button>
                         </li>
                     {/}
 

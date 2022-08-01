@@ -35,6 +35,19 @@ var devStoreManagePaymentGatewayObj = {
         //토스
         common.validation.set($('[name=toss_api_key]'), {'required': true});
 
+        //이니시스
+        $('#devInicisType').change(function () {
+            var payment_type = $(this).val();
+
+            if (payment_type == 'sin_escrow')
+            {
+                $('.typeEscrowService').hide();
+                $('.typeSinEscrowService').show();
+            } else {
+                $('.typeSinEscrowService').hide();
+                $('.typeEscrowService').show();
+            }
+        });
 
         common.form.init(
             $('#devForm'),

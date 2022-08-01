@@ -126,7 +126,6 @@ var devOrderDetailObj = {
             $('input[name=status]').val($(this).data('status'));
             common.noti.confirm(common.lang.get('mypage.updateDeliveryComplete.confirm', ''), function () {
                 //Form init
-                $('#devOrderHistoryContentForm').submit();
                 common.ajax(
                     common.util.getControllerUrl('updateDeliveryComplete', 'mypage'), {
                         oid: $('input[name=oid]').val(),
@@ -172,7 +171,6 @@ var devOrderDetailObj = {
             $('input[name=status]').val($(this).data('status'));
             common.noti.confirm(common.lang.get('mypage.updateBuyFinalized.confirm', ''), function () {
                 //Form init
-                $('#devOrderHistoryContentForm').submit();
                 common.ajax(
                     common.util.getControllerUrl('updateBuyFinalized', 'mypage'), {
                         oid: $('input[name=oid]').val(),

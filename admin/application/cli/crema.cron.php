@@ -38,14 +38,11 @@ require_once(__DIR__ . '/../../core/framework/ForbizScmCli.php');
         echo "-------사용법-------\n";
         echo "UserGrade: 회원등급 (createUserGrade: 회원등급 등록, updateUserGrade: 회원등급 업데이트)\n";
         echo "User: 회원 (createUser: 회원 등록)\n";
-        echo "Category (getCategoryList: 카테고리 리스트, createCategory: 카테고리 등록/수정)\n";
+        echo "Category (createCategory: 카테고리 등록/수정)\n";
         echo "Product: 상품 (createProduct: 상품 등록)\n";
         echo "Order: 주문 (createOrder: 주문 등록)\n";
-        echo "SubOrder: 주문상세\n";
-        //echo "UnpaidOrder: 등록된 미입금 무통장\n";
-        echo "Review: 리뷰 \n";
-        echo "Comment: 리뷰댓글 \n";
-        //echo "Mileage: 적립금을 지급\n";
+        echo "Review: 리뷰 (createReview: 리뷰 등록/수정)\n";
+        echo "Comment: 리뷰댓글 (createComment: 리뷰댓글 등록/수정)\n";
     }
 
     /**
@@ -123,14 +120,6 @@ require_once(__DIR__ . '/../../core/framework/ForbizScmCli.php');
     }
 
     /**
-     * 카테고리 리스트
-     */
-    public function getCategoryList()
-    {
-        $this->cremaModel->getCategoryDetail();
-    }
-
-    /**
      * 카테고리 등록/수정
      */
     public function createCategory()
@@ -196,15 +185,6 @@ require_once(__DIR__ . '/../../core/framework/ForbizScmCli.php');
 
             // AccessToken은 최초 한번 발급
             $this->cremaModel->setAuthCallFlag(false);
-
-            /*$addData = [
-                'code' => $value['id']  //상품코드
-                , 'sub_product_codes' => $value['pcode'] // 스타일코드 + 세트상품
-            ];
-
-            fb_sys_log('cremaAddProductData', $addData);
-
-            $this->cremaModel->putAddProduct($addData);*/
         }
     }
 
@@ -350,11 +330,6 @@ require_once(__DIR__ . '/../../core/framework/ForbizScmCli.php');
         }
     }
 
-    public function getReviewList()
-    {
-        $this->cremaModel->getReview();
-    }
-
     /**
      * 후기댓글 등록/수정
      */
@@ -376,123 +351,6 @@ require_once(__DIR__ . '/../../core/framework/ForbizScmCli.php');
                 ];
 
                 $this->cremaModel->putComment($commment);
-            }
-        }
-    }
-
-    public function deleteAllComment(){
-        $comments = $this->csModel->getAfterComentList();
-
-        if ($comments['total'] > 0) {
-            foreach ($comments['list'] as $value) {
-                $commment = [
-                    'review_code' => $value['bbs_ix'],
-                    'code' => $value['cmt_ix']
-                ];
-
-                $this->cremaModel->deleteComment($commment);
-            }
-        }
-    }
-
-    public function deleteAllReviews(){
-        $reviews = $this->csModel->getListAfter();
-
-        if (!empty($reviews)) {
-            foreach ($reviews['list'] as $value) {
-                $review = [
-                    'code' => $value['bbs_ix'],
-                ];
-                $this->cremaModel->deleteReview($review);
-            }
-        }
-    }
-
-    public function deleteAllSubOrders(){
-        $this->startDate = "2020-10-18 00:00:00";
-        $orderInfo = $this->orderListModel->getCremaCombineList(1, 100, ['startDate' => "startDate", 'endDate' => $this->endDate]);
-
-        if (!empty($orderInfo)) {
-            foreach ($orderInfo['list'] as $value) {
-                    $sub_order = [
-                        'order_code' => $value['oid'],
-                        'code' => $value['pid'],
-                    ];
-
-                // 주문상세 등록
-                $this->cremaModel->deleteSubOrder($sub_order);
-
-            }
-        }
-    }
-
-    public function deleteAllOrders(){
-        // get list of orders
-        $orders = $this->cremaModel->manageOrder('get');
-
-        if (!empty($orders)) {
-            foreach ($orders as $value) {
-                $order = [
-                    'code' => $value['code']
-                ];
-                $this->cremaModel->deleteOrder($order);
-            }
-        }
-    }
-
-    public function deleteAllProducts(){
-        // list of products
-        $products = $this->cremaModel->getProduct();
-
-        if (!empty($products)) {
-            foreach ($products as $value) {
-                $order = [
-                    'code' => $value['code']
-                ];
-                $this->cremaModel->deleteProduct($order);
-            }
-        }
-    }
-
-    public function deleteAllCategories(){
-        //get list of categories
-        $catgories = $this->cremaModel->getCategoryDetail();
-
-        if (!empty($catgories)) {
-            foreach ($catgories as $value) {
-                $category = [
-                    'code' => $value['code']
-                ];
-                $this->cremaModel->delCategory($category);
-            }
-        }
-    }
-
-    public function deleteAllUserGrades(){
-        // list of userGrade
-        $userGrades = $this->cremaModel->manageUserGrades('get');
-
-        if (!empty($userGrades)) {
-            foreach ($userGrades as $value) {
-                $userGrade = [
-                  'id' => $value['id']
-                ];
-                $this->cremaModel->manageUserGrades('delete', $userGrade);
-                $this->memberModel->updateCremaMemberGroupAfterDelete($value['id']);
-            }
-        }
-    }
-
-    public function deleteAllUsers(){
-        // list of users
-        $users = $this->cremaModel->manageUser('get');
-
-        if (!empty($users)) {
-            foreach ($users as $value) {
-                $user = [
-                    'id' => $value['id']
-                ];
-                $this->cremaModel->manageUser('delete', $user);
             }
         }
     }

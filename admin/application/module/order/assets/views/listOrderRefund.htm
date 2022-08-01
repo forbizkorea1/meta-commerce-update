@@ -1,0 +1,119 @@
+<section class="fb__menusubmit">
+    <fieldset class="fb__menusubmit--line">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#{c.ORDER_STATUS_REFUND_APPLY}" class="fb__tap__menu--active">
+                        환불요청
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#{c.ORDER_STATUS_REFUND_COMPLETE}">
+                        환불완료
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+    <section class="fb-filter">
+        <form id="devGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <input type="hidden" name="refund_status" value="{c.ORDER_STATUS_REFUND_APPLY}" id="devSearchStatus"/>
+            <fieldset>
+                <legend>
+                    환불 리스트
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    결제방법
+                                </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderPaymentMethodList}
+                                <label>
+                                    <input type="checkbox" name="payment_method[]" value="{.key_}">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="searchType" class="fb-filter__select">
+                                <option value="combi_name">주문자&수취인-명</option>
+                                <option value="combi_mobile">주문자&수취인-휴대폰 번호</option>
+                                <option value="oid">주문번호</option>
+                                <option value="invoice_no">송장번호</option>
+                                <option value="pname">상품명</option>
+                                <option value="option_text">옵션명</option>
+                                <option value="buserid">주문자ID</option>
+                                <option value="gid">품목코드</option>
+                                <option value="co_oid">제휴사주문번호</option>
+                            </select>
+                            <input name="searchText" type="text" class="fb-filter__text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    기간
+                                </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <select name="searchDateType" class="fb-filter__select" id="devSearchDateType">
+                                <option value="fa_date">환불요청일자</option>
+                                <option value="fc_date">환불완료일자</option>
+                            </select>
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day"
+                                       id="devBetweenDatePickerStart" name="startDate" value="{basicStartDate}"
+                                       readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day"
+                                   id="devBetweenDatePickerEnd" name="endDate" value="{basicEndDate}" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">주문목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count"
+                                                                                       id="devTotal">0</em>개)</span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>

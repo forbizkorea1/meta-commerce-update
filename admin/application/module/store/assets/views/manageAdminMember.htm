@@ -1,0 +1,326 @@
+<section class="fb__menusubmit">
+    <form id="devForm">
+        <input type="hidden" name="mem_code" value="{uri_mem_code}" />
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">관리자 추가/수정</h3>
+            <a href="#" class="fb__menusubmit-btn">
+                <span>닫기</span>
+                <span>열기</span>
+            </a>
+        </header>
+        <section class="fb-filter">
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            이름
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="name" title="이름"  value="{config.name}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사용자승인
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <select class="fb-filter__select" name="authorized" title="사용자승인" item="{config.authorized}">
+                                <option value="">승인 선택</option>
+                                <option value="N">승인대기</option>
+                                <option value="Y">승인</option>
+                                <option value="X">승인거부</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            아이디
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="hidden" id="beforeId" value="{config.id}">
+                            <input type="text" class="fb-filter__text fb-filter__text--50 floatNo" name="id" id="devUserId" title="아이디"  value="{config.id}" devmaxlength="20" >
+                            <button class="inputs__content__btn" type="button" id="devUserIdDoubleCheckButton" >아이디 중복 확인</button>
+                            <br /><br />
+                            <p class="inputs__content__guide"  devTailMsg="devUserId">영문, 숫자 조합하여 6~20자리로 입력해 주세요.</p>
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사용자권한
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">                        
+                            <select class="fb-filter__select" name="system_group_type_id" title="사용자권한" item="{config.system_group_type_id}">
+                                <option value="">권한 선택</option>
+                                {@ auth}
+                                <option value="{auth.system_group_type_id}" >{auth.group_name}</option>
+                                {/}
+                            </select>                        
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne changeNe">
+                            패스워드
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="password" class="fb-filter__text floatNo" name="pw" title="패스워드" value="">
+                            <br /><br />
+                            <p>* 영문 대소문자, 숫자, 특수문자 중 3개 이상을 조합하여 8자리 이상 입력해 주세요.</p>
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne changeNe">
+                            패스워드 확인
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="password" class="fb-filter__text" name="pw_re" title="패스워드 확인"  value="">
+                        </div>
+                    </td>
+                </tr>
+                {? false}
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사용자언어
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <select class="fb-filter__select" name="language_type" title="사용자언어" item="{config.language}">
+                                <option value="">랭귀지 선택</option>
+                                {? charger_id == 'forbize' }
+                                    {@ language}
+                                    <option value="{language.language_code}">{language.language_name}</option>
+                                    {/}
+                                {:}
+                                     <option value="korea">한국어</option>
+                                {/}
+                            </select>
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사용자승인
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <select class="fb-filter__select" name="authorized" title="사용자승인" item="{config.authorized}">
+                                <option value="N">승인대기</option>
+                                <option value="Y">승인</option>
+                                <option value="X">승인거부</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                {/}
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사용자 그룹
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <select class="fb-filter__select" name="gp_ix" title="사용자 그룹" item="{config.gp_ix}">
+                                {@memberGroup}
+                                <option value="{memberGroup.gp_ix}">{memberGroup.gp_name}</option>
+                                {/}
+                            </select>
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            회원구분
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <select class="fb-filter__select floatNo" name="mem_type" title="회원구분" item="">
+                                <option value="A">직원(관리자)</option>
+                            </select>
+                            <div class="fb-filter__radio dispIb">
+                                <label for="mem_div_md">
+                                    <input type="radio" name="mem_div" id="mem_div_md" value="MD" {? config.mem_div == 'MD' || !config.mem_div } checked {/} >
+                                           <span>MD</span>
+                                </label>
+                                <label for="mem_div_d">
+                                    <input type="radio" name="mem_div" id="mem_div_d" value="D" {? config.mem_div == 'D' || config.mem_div == 'S' } checked {/} >
+                                           <span>기타</span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            성별
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__radio">                            
+                            <label for="sex_div_m">
+                                <input type="radio" name="sex_div" id="sex_div_m" value="M" {? config.sex_div == 'M' || !config.sex_div } checked {/} >
+                                       <span>남성</span>
+                            </label>
+                            <label for="sex_div_w">
+                                <input type="radio" name="sex_div" id="sex_div_w" value="W" {? config.sex_div == 'W' } checked {/} >
+                                       <span>여성</span>
+                            </label>
+                            <label for="sex_div_d">
+                                <input type="radio" name="sex_div" id="sex_div_d" value="D" {? config.sex_div == 'D' } checked {/} >
+                                       <span>기타</span>
+                            </label>
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            생년월일
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" devnumber="true" name="birthday_1"  value="{config.birthday_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" devnumber="true" name="birthday_2"  value="{config.birthday_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" devnumber="true" name="birthday_3"  value="{config.birthday_3}">
+                        </div>
+                        <div class="fb-filter__radio" style="float: left; margin-top: 7px;">
+                            <label for="birthday_div_1">
+                                <input type="radio" name="birthday_div" id="birthday_div_1" value="1" {? config.birthday_div == '1' || !config.birthday_div } checked {/} >
+                                       <span>양력</span>
+                            </label>
+                            <label for="birthday_div_0">
+                                <input type="radio" name="birthday_div" id="birthday_div_0" value="0" {? config.birthday_div == '0' } checked {/} >
+                                       <span>음력</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            휴대폰 번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="pcs_1" devnumber="true" title="휴대폰 번호" value="{config.pcs_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="pcs_2" devnumber="true" title="휴대폰 번호" value="{config.pcs_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="pcs_3" devnumber="true" title="휴대폰 번호" value="{config.pcs_3}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            SMS수신여부
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__radio">
+                            <label for="sms_1">
+                                <input type="radio" name="sms" id="sms_1" value="1" {? config.sms == '1' || !config.sms } checked {/} >
+                                       <span>수신함</span>
+                            </label>
+                            <label for="sms_0">
+                                <input type="radio" name="sms" id="sms_0" value="0" {? config.sms == '0' } checked {/} >
+                                       <span>수신안함</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            이메일
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="mail" title="이메일"  value="{config.mail}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            정보수신
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__radio">
+                            <label for="info_1">
+                                <input type="radio" name="info" id="info_1" value="1" {? config.info == '1' || !config.info } checked {/} >
+                                       <span>수신함</span>
+                            </label>
+                            <label for="info_0">
+                                <input type="radio" name="info" id="info_0" value="0" {? config.info == '0' } checked {/} >
+                                       <span>수신안함</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            우편번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="zip"  value="{config.zip}"> <input type="button" class="fb-filter__search-icon" id="devSearchAddressPopup" value="검색">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            집전화
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" devnumber="true" name="tel_1"  value="{config.tel_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" devnumber="true" name="tel_2"  value="{config.tel_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" devnumber="true" name="tel_3"  value="{config.tel_3}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            주소
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="addr1"  value="{config.addr1}">
+                            <input type="text" class="fb-filter__text" name="addr2"  value="{config.addr2}">
+                        </div>
+                    </td>                
+                </tr>            
+            </table>
+            <div class="fb-filter__btn">
+                <input type="button" class="fb-filter__save" value="저장" />
+                <input type="button" class="fb-filter__reset" value="초기화" />
+            </div>
+        </section>
+    </form>
+</section>

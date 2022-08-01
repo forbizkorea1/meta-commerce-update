@@ -1,0 +1,241 @@
+<div class="fb__tapcontent">
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devCompanyInfo">
+        <form id="devCompanyInfoForm" method="POST">
+            <input type="hidden" name="tabType" value="company">
+            <input type="hidden" name="company_id" value="{company_id}">
+            <table>
+                <caption>거래처 등록</caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+
+                <tr> <!-- 라디오 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            사업자 유형
+                        </span>
+                    </th>
+                    <td colspan="3" >
+                        <div class="fb-filter__radio">
+                            <label for="com_div_R">
+                                <input type="radio" name="com_div" id="com_div_R" value="R" {? config.com_div == 'R' || !config.com_div } checked {/} >
+                                       <span>법인사업자</span>
+                            </label>
+                            <label for="com_div_P">
+                                <input type="radio" name="com_div" id="com_div_P" value="P" {? config.com_div == 'P' } checked {/} >
+                                       <span>개인사업자</span>
+                            </label>
+                            <label for="com_div_S">
+                                <input type="radio" name="com_div" id="com_div_S" value="S" {? config.com_div == 'S' } checked {/} >
+                                       <span>간이과세자</span>
+                            </label>
+                            <label for="com_div_E">
+                                <input type="radio" name="com_div" id="com_div_E" value="E" {? config.com_div == 'E' } checked {/} >
+                                       <span>면세사업자</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사업자명 (상호명)
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="com_name" title="사업자명 (상호명)"  value="{config.com_name}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            대표자명
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="com_ceo" title="대표자명"  value="{config.com_ceo}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사업자번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_number_1" title="사업자번호"  value="{config.com_number_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_number_2" title="사업자번호"  value="{config.com_number_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_number_3" title="사업자번호"  value="{config.com_number_3}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            법인번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="corporate_number_1"  value="{config.corporate_number_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="corporate_number_2"  value="{config.corporate_number_2}">                                
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            업태
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="com_business_status" title="업태"  value="{config.com_business_status}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            업종
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="com_business_category" title="업종"  value="{config.com_business_category}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            통신판매업 번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="online_business_number"  value="{config.online_business_number}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span>
+                            MD
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="md_name"  value="{config.md_name}" id="devMdName" readonly="true">
+                            <input type="hidden" name="md_code"  value="{config.md_code}" id="devMdCode" title="담당MD">
+                            <input type="button" class="fb-filter__search-icon" id="devSearchMdPopup" value="검색"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            전화번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_phone1" title="전화번호" value="{config.com_phone_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_phone2" title="전화번호"  value="{config.com_phone_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_phone3" title="전화번호"  value="{config.com_phone_3}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span>
+                            휴대폰 번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_mobile_1"  value="{config.com_mobile_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_mobile_2"  value="{config.com_mobile_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_mobile_3"  value="{config.com_mobile_3}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            이메일
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="com_email" title="이메일" value="{config.com_email}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span>
+                            팩스
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_fax_1"  value="{config.com_fax_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_fax_2"  value="{config.com_fax_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="com_fax_3"  value="{config.com_fax_3}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            주소
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="com_zip"  value="{config.com_zip}"><input type="button" class="fb-filter__search-icon" id="devSearchAddressPopupCompany" value="검색">
+                            <br/><br/><br/>
+                            <input type="text" class="fb-filter__text " name="com_addr1"  value="{config.com_addr1}"><br/><br/><br/>
+                            <input type="text" class="fb-filter__text " name="com_addr2"  value="{config.com_addr2}">
+                        </div>
+                    </td>                     
+                </tr>
+                <tr> <!-- 텍스트 타입 -->                       
+                    <th class="fb-filter__title">
+                        <span>
+                            기타사항
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <textarea class="fb-filter__textarea" name="seller_message">{config.seller_message}</textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 라디오 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            입점업체승인
+                        </span>
+                    </th>
+                    <td colspan="3" >
+                        <div class="fb-filter__radio">
+                            <label for="seller_auth_N">                                
+                                <input type="radio" name="seller_auth" id="seller_auth_N" value="N" {? config.seller_auth == 'N' || !config.seller_auth } checked {/} >
+                                       <span>승인대기</span>
+                            </label>
+                            <label for="seller_auth_Y">
+                                <input type="radio" name="seller_auth" id="seller_auth_Y" value="Y" {? config.seller_auth == 'Y' } checked {/} >
+                                       <span>승인</span>
+                            </label>
+                            <label for="seller_auth_X">
+                                <input type="radio" name="seller_auth" id="seller_auth_X" value="X" {? config.seller_auth == 'X' } checked {/} >
+                                       <span>승인거부</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="fb-filter__btn">
+                <input type="button" class="fb-filter__save devSave" value="저장" />
+            </div>
+        </form>
+    </section>
+</div>

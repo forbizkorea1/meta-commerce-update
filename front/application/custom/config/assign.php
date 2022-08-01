@@ -15,19 +15,20 @@ return (function () {
     $bodyId = $routeUri ? str_replace('/', '_', $routeUri) : 'main';
     $routeUri = '/' . $routeUri;
 
-    // 네이버 페이
-    $NPAY_USE = ForbizConfig::getMallConfig('add_sattle_module_naverpay_pg') == 'Y' ? 'Y' : 'N';
-    $NPAY_SERVICE_TYPE = ForbizConfig::getMallConfig('naverpay_pg_service_type') ?? 'test';
-    $NPAY_PRATNER_ID = ForbizConfig::getMallConfig('naverpay_pg_partner_id') ?? '';
-    $NPAY_CLIENT_ID = ForbizConfig::getMallConfig('naverpay_pg_client_id') ?? '';
-    $NPAY_CLIENT_SECRET = ForbizConfig::getMallConfig('naverpay_pg_client_secret') ?? '';
+    // 네이버 페이 직연동
+    $NPAY_PG_SERVICE_TYPE = (ForbizConfig::getMallConfig('naverpay_pg_service_type') == 'service' ? 'service' : 'test');
+    $NPAY_PRATNER_ID = ForbizConfig::getMallConfig('naverpay_pg_partner_id');
+    $NPAY_CLIENT_ID = ForbizConfig::getMallConfig('naverpay_pg_client_id');
+    $NPAY_CLIENT_SECRET = ForbizConfig::getMallConfig('naverpay_pg_client_secret');
 
-    define("NPAY_USE", $NPAY_USE);
-    define("NPAY_SHOP_ID", $NPAY_PRATNER_ID); // naverpay_pg_partner_id
-    define("NPAY_BUTTON_KEY", $NPAY_CLIENT_ID); // naverpay_pg_client_id
-    define("NAPY_CERTI_KEY", $NPAY_CLIENT_SECRET); // naverpay_pg_client_secret
+    // 네이버 페이 주문형
+    define("NPAY_USE", (ForbizConfig::getMallConfig('naverpay_other_pg_service_use') == 'Y' ? 'Y' : 'N'));
+    define("NPAY_SHOP_ID", ForbizConfig::getMallConfig('naverpay_other_pg_shop_id'));
+    define("NPAY_BUTTON_KEY", ForbizConfig::getMallConfig('naverpay_other_pg_button_key')); // naverpay_pg_client_id
+    define("NPAY_CERTI_KEY", ForbizConfig::getMallConfig('naverpay_other_pg_certi_key')); // naverpay_other_pg_certi_key
+    define("NPAY_COMMON_KEY", ForbizConfig::getMallConfig('naverpay_other_pg_common_key')); // naverpay_other_pg_common_key
 
-    if($NPAY_SERVICE_TYPE == 'service') {
+    if(ForbizConfig::getMallConfig('naverpay_other_pg_service_type') == 'service') {
         define("NPAY_REQ_HOST", "api.pay.naver.com");
         define("NPAY_ORDER_HOST", "order.pay.naver.com");
         define("NPAY_WISH_HOST", "pay.naver.com");

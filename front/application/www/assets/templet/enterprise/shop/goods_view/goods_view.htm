@@ -1,11 +1,9 @@
 <script src="{layoutCommon.templetSrc}/js/common/minicart.js?version={c.CLIENT_VERSION}" data-url="/controller/product/loadOptionDatas/{pid}" id="devMinicartScript"></script>
 <script src='//play.wecandeo.com/html/utils/iframeAPI.js'></script>
 
-{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}
-<!--{* 네이버 페이 시작 *}-->
-<script type="text/javascript" src="http://pay.naver.com/customer/js/naverPayButton.js" charset="UTF-8"></script>
-<!--{* 네이버 페이 끝 *}-->
-{/}
+<!--{* 네이버 페이 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
+<script type="text/javascript" src="//pay.naver.com/customer/js/naverPayButton.js" charset="UTF-8"></script>
+<!--{/}{* 네이버 페이 끝 *}-->
 
 <section class="fb__goodsView fb__goods-view">
     <h2 class="blind">{=trans('상품상세')}</h2>
@@ -281,17 +279,6 @@
                                     <!-- [E] 제주/도서산간 추가 배송비 hover layer -->
                                 </div>
                             {/}
-
-                            <!-- @TODO: 신규 #18899로 인한 삭제 -->
-                            {? false}
-                            <p>
-                                {delivery.deliveryComName}
-                                {? average_delivery_day || (deadline.average_delivery_day && deadline.deadlineUse == 'Y') || deadline.deadlineUse == 'Y'}
-                                ({/} {? deadline.average_delivery_day}평균배송일 {deadline.average_delivery_day}일{/}
-                                {? deadline.average_delivery_day && deadline.deadlineUse == 'Y'} / {/} {? deadline.deadlineUse == 'Y'}배송 마감시간 {deadline.deadlineHour} : {deadline.deadlineMinute} 분{/} {? average_delivery_day || (deadline.average_delivery_day && deadline.deadlineUse
-                                == 'Y') || deadline.deadlineUse == 'Y'}){/}
-                            </p>
-                            {/}
                         </div>
                     </li>
 
@@ -408,12 +395,12 @@
                             <button class="btn-lg btn-point devOrderDirect">{=trans('바로구매')}</button>
                         </div>
                         <!--{* 네이버 페이 구매 버튼 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
-                        <!-- <div class="Naver-pay-wrap">
+                        <div class="Naver-pay-wrap">
                             <script>
-                                dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn();
+                                dev_ext.npay.init('{c.NPAY_BUTTON_KEY}').showNpayBtn('product');
                             </script>
-                        </div> -->
-                        <!--{/}<!--{* 네이버 페이 구매 버튼 끝 *}-->
+                        </div>
+                        <!--{/}{* 네이버 페이 구매 버튼 끝 *}-->
                         {:}
                         <button class="btn-lg btn-soldout" disabled>{=trans('상품이 품절되었습니다.')}</button> {/}
                     </div>

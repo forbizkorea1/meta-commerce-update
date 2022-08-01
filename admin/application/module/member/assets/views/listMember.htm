@@ -1,0 +1,159 @@
+<form id="devGridForm" method="POST">
+    <input type="hidden" name="page" value="1" id="devPageNum"/>
+    <input type="hidden" name="max" value="50"/>
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">전체 회원 리스트</h3>                
+            </header>
+
+            <section class="fb-filter">
+                <table>
+                    <caption>전체 회원 리스트</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                조건검색
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div class="">
+                                <select class="fb-filter__select" name="searchType" item='{config.searchType}'>
+                                    <option value="pcs">휴대폰 번호</option>
+                                    <option value="name">고객명</option>
+                                    <option value="id">아이디</option>
+                                    <option value="tel">전화번호</option>
+                                    <option value="mail">이메일</option>
+                                    <option value="addr1">주소</option>
+                                </select> 
+                                <input type="text" class="fb-filter__text fb-filter__text--50" name="searchText"  value="{config.searchText}">
+                            </div>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원그룹
+                            </span>
+                        </th>
+                        <td colspan="" class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select" name="gp_ix" item='{config.gp_ix}'>
+                                    <option value=''>전체보기</option>
+                                    {@memberGroup}
+                                    <option value="{.gp_ix}">({.gp_level}){.gp_name}</option>
+                                    {/}
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원구분
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label for="mem_type">
+                                    <input type="radio" name="mem_type" id="mem_type" value="" {? !config.mem_type } checked {/} >
+                                           <span>전체</span>
+                                </label>
+                                <label for="mem_type_m">
+                                    <input type="radio" name="mem_type" id="mem_type_m" value="M" {? config.mem_type == 'M' } checked {/} >
+                                           <span>개인회원</span>
+                                </label>
+                                <label for="mem_type_c">
+                                    <input type="radio" name="mem_type" id="mem_type_c" value="C" {? config.mem_type == 'C' }  {/} >
+                                           <span>기업회원</span>
+                                </label>
+                                <label for="mem_type_a">
+                                    <input type="radio" name="mem_type" id="mem_type_a" value="A" {? config.mem_type == 'A' } checked {/} >
+                                           <span>직원(관리자)</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원타입
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__radio">
+                                <label for="mem_div">
+                                    <input type="radio" name="mem_div" id="mem_div" value="" {? !config.mem_div } checked {/} >
+                                           <span>전체</span>
+                                </label>
+                                <label for="mem_div_s">
+                                    <input type="radio" name="mem_div" id="mem_div_s" value="S" {? config.mem_div == 'S' } checked {/} >
+                                           <span>셀러</span>
+                                </label>
+                                <label for="mem_div_md">
+                                    <input type="radio" name="mem_div" id="mem_div_md" value="MD" {? config.mem_div == 'MD' } checked {/} >
+                                           <span>MD</span>
+                                </label>
+                                <label for="mem_div_d">
+                                    <input type="radio" name="mem_div" id="mem_div_d" value="D" {? config.mem_div == 'D' } checked {/} >
+                                           <span>기타</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>                    
+                    <tr> <!-- 셀렉트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                날짜
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="">
+                                <select class="fb-filter__select" name="selDateType">
+                                    <option value='' >날짜 선택</option>
+                                    <option value='R' >가입일자</option>
+                                    <option value='C' >최근방문일</option>                                    
+                                </select>
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerStart" name="betweenDatePickerStart" value="" readonly>
+                                <span class="fb-filter__day__line">~</span>
+                                <input type="text" class="fb-filter__text fb-filter__input__day--time" id="devBetweenDatePickerEnd" name="betweenDatePickerEnd" value="" readonly>
+                                <span id="devQuickBetweenDate"></span>
+                            </div>
+                        </td>
+                    </tr>                   
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__save devSubmit" value="검색" />
+                    <input type="button" class="fb-filter__reset devReset" value="초기화" />
+                </div>
+            </section>
+        </section>
+    </fieldset>
+</form>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>            
+            <button class="fb-filter__btn-excel" id="devExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<!--{#memberDetail}-->

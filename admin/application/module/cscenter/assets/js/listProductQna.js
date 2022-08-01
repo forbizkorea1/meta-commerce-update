@@ -18,6 +18,8 @@ var devCscenterListProductQnaObj = {
         common.lang.load('grid.label.bbs_re_cnt', '관리자답변여부');
 
         common.lang.load('grid.label.act', '사용관리');
+        common.lang.load('common.npay.fail.alert', '네이버페이 문의 댓글 수정 실패했습니다.');
+        common.lang.load('common.npay.delete.alert', '네이버페이 문의입니다. 댓글 삭제가 불가합니다.');
         common.lang.load('common.add.success.alert', '저장이 완료되었습니다.');
         common.lang.load('common.put.success.alert', '수정이 완료되었습니다.');
         common.lang.load('common.del.success.alert', '삭제가 완료되었습니다.');
@@ -199,6 +201,10 @@ var devCscenterListProductQnaObj = {
 
                     self.getAjaxComentList();
                     self.grid.reload();
+                } else if (response.result == 'npay fail') {
+                    common.noti.alert(common.lang.get('common.npay.fail.alert'));
+                } else if (response.result == 'delete fail') {
+                    common.noti.alert(common.lang.get('common.npay.delete.alert'));
                 } else {
                     common.noti.alert(common.lang.get('common.put.error.alert'));
                 }

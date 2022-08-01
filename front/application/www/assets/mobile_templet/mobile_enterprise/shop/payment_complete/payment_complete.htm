@@ -1,13 +1,14 @@
 <section class="fb__shopCommon fb__payComplete">
     <h2 class="fb__title--hidden">{=trans('주문완료')}</h2>
 
-     <!-- 주문완료 상단 -->
-     <section class="fb__shopCommon__section fb__payComplete__message">
+    <!-- 주문완료 상단 -->
+    <section class="fb__shopCommon__section fb__payComplete__message">
         <div class="message__inner">
             <span class="message__title">
                 {=trans('주문이 완료되었습니다.')}
             </span>
-            <p class="message__tip">{=trans('주문하신 내역은 마이페이지 <i class="fb__comm__arrow fb__comm__arrow--999"></i> 주문조회에서 확인하실 수 있습니다.')}</p>
+            <p class="message__tip">{=trans('주문하신 내역은 마이페이지 <i class="fb__comm__arrow fb__comm__arrow--999"></i> 주문조회에서
+                확인하실 수 있습니다.')}</p>
         </div>
 
         <dl class="message__oid">
@@ -26,7 +27,7 @@
             <!-- 결제금액 -->
             <li class="infoTable__list payment__price">
                 <span class="infoTable__title">
-                    {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK))} {=trans('결제 예정 금액')} {:}{=trans('결제금액')}{/}
+                    {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK,c.ORDER_METHOD_ESCROW_VBANK))} {=trans('결제 예정 금액')} {:}{=trans('결제금액')}{/}
                 </span>
                 <div class="infoTable__cont">
                     <span>
@@ -38,28 +39,28 @@
             <li class="infoTable__list">
                 <span class="infoTable__title">{=trans('결제수단')}</span>
                 <div class="infoTable__cont">
-                    {paymentData.method_text} {? in_array(paymentData.method,array(c.ORDER_METHOD_CARD)) && paymentData.memo} {paymentData.memo} {/}
+                    {paymentData.method_text} {? in_array(paymentData.method,array(c.ORDER_METHOD_CARD)) &&
+                    paymentData.memo} {paymentData.memo} {/}
                 </div>
             </li>
 
             <!-- 가상계좌 또는  -->
-            {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK,c.ORDER_METHOD_ASCROW,c.ORDER_METHOD_ICHE))}
-                <li class="infoTable__list">
-                    <span class="infoTable__title">{=trans('계좌정보')}</span>
-                    <div class="infoTable__cont">
+            {? in_array(paymentData.method,array(c.ORDER_METHOD_BANK,c.ORDER_METHOD_VBANK,c.ORDER_METHOD_ESCROW_VBANK,c.ORDER_METHOD_ASCROW))}
+            <li class="infoTable__list">
+                <span class="infoTable__title">{=trans('계좌정보')}</span>
+                <div class="infoTable__cont">
                         <span>
                             {paymentData.bank} {paymentData.bank_account_num} ({=trans('예금주')}: {paymentData.bank_input_name})
                         </span>
-                    </div>
-                </li>
-                {? paymentData.method != c.ORDER_METHOD_ICHE}
-                    <li class="infoTable__list">
-                        <span class="infoTable__title">{=trans('입금기한')}</span>
-                        <div class="infoTable__cont">
-                            {=trans('{paymentData.bank_input_date_yyyy}.{paymentData.bank_input_date_mm}.{paymentData.bank_input_date_dd} ({paymentData.bank_input_date_dw}) 까지')}
-                        </div>
-                    </li>
-                {/}
+                </div>
+            </li>
+            <li class="infoTable__list">
+                <span class="infoTable__title">{=trans('입금기한')}</span>
+                <div class="infoTable__cont">
+                    {=trans('{paymentData.bank_input_date_yyyy}.{paymentData.bank_input_date_mm}.{paymentData.bank_input_date_dd}
+                    ({paymentData.bank_input_date_dw}) 까지')}
+                </div>
+            </li>
             {/}
         </ul>
     </section>
@@ -90,17 +91,17 @@
                     <em>{deliveryInfo.rmobile}</em>
                 </div>
             </li>
-            
+
             <!-- 배송 요청사항 -->
             <li class="infoTable__list">
                 <span class="infoTable__title">{=trans('배송 요청사항')}</span>
                 <div class="infoTable__cont">
                     {@ deliveryInfo.msg}
-                        {? .msg}
-                        <span>
+                    {? .msg}
+                    <span>
                             {.msg} {.door_msg}
                         </span>
-                        {/}
+                    {/}
                     {/}
                 </div>
             </li>
@@ -119,7 +120,7 @@
 
 <!--{"<script>"}-->
 {? facebook.use_pixel_yn == 'Y'}
-    {? facebook.pixel_pay_end_yn == 'Y'}fbq('track', 'CompleteRegistration');{/}
+{? facebook.pixel_pay_end_yn == 'Y'}fbq('track', 'CompleteRegistration');{/}
 {/}
 
 {? biginsight.use_biginsight_yn == 'Y'}

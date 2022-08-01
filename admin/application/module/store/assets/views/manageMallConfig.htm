@@ -119,132 +119,10 @@
                                     <input type="radio" name="sattle_module" value="inicis" {? config.sattle_module== 'inicis' } checked {/} />
                                     <span>이니시스</span>
                                 </label>
-                                <!--<label>
-                                    <input type="radio" name="sattle_module" value="" {? config.sattle_module== '' } checked {/} >
-                                    <span>사용안함</span>
-                                </label>-->
-                            </div>
-                        </td>
-                    </tr>
-                    {? false}
-                    <tr>
-                        <th class="fb-filter__title">
-                            <span>
-                                추가 결제모듈 선택
-                            </span>
-                        </th>
-                        <td colspan="3">
-                            <div class="fb-filter__radio">
-                                {@ addSattleModuleList}
-                                <label>
-                                    <input type="checkbox" class="devAddSattleModule" data-pg="{.key_}" name="add_sattle_module_{.key_}" value="Y" {? config['add_sattle_module_' + .key_] == 'Y'  } checked {/}  />
-                                    <span>{.value_}</span>
-                                </label>
-                                {/}
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="devAddSattleModuleConfig" data-pg="naverpay_pg" {?config.add_sattle_module_naverpay_pg != 'Y'}style="display:none"{/}>
-                    <th class="fb-filter__title">
-                        <span>
-                            Npay ( PG형 ) - 서비스 타입
-                        </span>
-                    </th>
-                    <td colspan="3">
-                        <div class="fb-filter__radio">
-                            <label>
-                                <input type="radio" name="naverpay_pg_service_type" value="test" {? config.naverpay_pg_service_type == 'test'  } checked {/}  />
-                                <span>test</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="naverpay_pg_service_type" value="service" checked />
-                                <span>service</span>
-                            </label>
-                        </div>
-                    </td>
-                    </tr>
-                    <tr class="devAddSattleModuleConfig" data-pg="naverpay_pg" {?config.add_sattle_module_naverpay_pg != 'Y'}style="display:none"{/}>
-                        <th class="fb-filter__title">
-                            <span>
-                                Npay ( PG형 ) - Config
-                            </span>
-                        </th>
-                        <td colspan="3">
-                            <input type="text" class="fb-filter__text" name="naverpay_pg_partner_id" title="Npay ( PG형 ) 파트너 ID" placeholder="파트너 ID" value="{config.naverpay_pg_partner_id}">
-                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_id" title="Npay ( PG형 ) Client ID" placeholder="Client ID" value="{config.naverpay_pg_client_id}">
-                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_secret" title="Npay ( PG형 ) Client Secret" placeholder="Client Secret" value="{config.naverpay_pg_client_secret}">
-                        </td>
-                    </tr>
-                    <tr class="devAddSattleModuleConfig" data-pg="payco" {?config.add_sattle_module_payco !='Y'}style="display:none" {/}>
-                        <th class="fb-filter__title">
-                            <span>
-                                PAYCO - 서비스 타입
-                            </span>
-                        </th>
-                        <td colspan="3">
-                            <div class="fb-filter__radio">
-                                <label>
-                                    <input type="radio" name="payco_service_type" value="test" {?
-                                           config.payco_service_type== 'test' } checked {/} />
-                                    <span>test</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="payco_service_type" value="service" {?
-                                           config.payco_service_type== 'service' } checked {/} />
-                                    <span>service</span>
-                                </label>
                             </div>
                         </td>
                     </tr>
 
-                    <tr class="devAddSattleModuleConfig" data-pg="payco" {?config.add_sattle_module_payco !='Y'}style="display:none" {/}>
-                    <th class="fb-filter__title">
-                            <span>
-                                PAYCO - Config
-                            </span>
-                        </th>
-                        <td colspan="3">
-                            <input type="text" class="fb-filter__text" name="payco_seller_key" title="PAYCO sellerKey"
-                                   placeholder="sellerKey" value="{config.payco_seller_key}">
-                            <input type="text" class="fb-filter__text" name="payco_cp_id" title="PAYCO cpId"
-                                   placeholder="cpId" value="{config.payco_cp_id}">
-                            <input type="text" class="fb-filter__text" name="payco_product_id" title="PAYCO productId"
-                                   placeholder="productId" value="{config.payco_product_id}">
-                        </td>
-                    </tr>
-                    <tr class="devAddSattleModuleConfig" data-pg="toss" {?config.add_sattle_module_toss !='Y'}style="display:none" {/}>
-                    <th class="fb-filter__title">
-                            <span>
-                                토스 - 서비스 타입
-                            </span>
-                    </th>
-                    <td colspan="3">
-                        <div class="fb-filter__radio">
-                            <label>
-                                <input type="radio" name="toss_service_type" value="test" {?
-                                       config.toss_service_type== 'test' } checked {/} />
-                                <span>test</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="toss_service_type" value="service" {?
-                                       config.toss_service_type== 'service' } checked {/} />
-                                <span>service</span>
-                            </label>
-                        </div>
-                    </td>
-                    </tr>
-                    <tr class="devAddSattleModuleConfig" data-pg="toss" {?config.add_sattle_module_toss !='Y'}style="display:none" {/}>
-                    <th class="fb-filter__title">
-                            <span>
-                                토스 - Config
-                            </span>
-                    </th>
-                    <td colspan="3">
-                        <input type="text" class="fb-filter__text" name="toss_api_key" title="토스 apiKey"
-                               placeholder="apiKey" value="{config.toss_api_key}">
-                    </td>
-                    </tr>
-                    {/}
                     <tr> <!-- 라디오 타입 -->
                         <th class="fb-filter__title">
                             <span>
@@ -471,6 +349,45 @@
                                 </label>
                                 <label>
                                     <input type="radio" class="" name="sysUpdateUse" value="N" {? config.sysUpdateUse == 'N' }checked{/} />
+                                    <span>사용안함</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">Open API 설정</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <colgroup>
+                        <col width="20%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                Open API 사용 설정
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__checkbox">
+                                <label>
+                                    <input type="radio" class="" name="openApiUse" value="Y" {? config.openApiUse == 'Y' }checked{/} />
+                                    <span>사용</span>
+                                </label>
+                                <label>
+                                    <input type="radio" class="" name="openApiUse" value="N" {? config.openApiUse == 'N' || config.openApiUse == '' }checked{/} />
                                     <span>사용안함</span>
                                 </label>
                             </div>

@@ -9,6 +9,7 @@
 var devJoinInputObj = {
     isUserIdRegExp: false, //아이디 정규식 규칙 플레그
     isUserIdDoubleCheck: false, //아이디 중복 체크 플레그
+    isPwdCheck: false, // 비밀번호 규칙 체크 플레그
     isEmailRegExp: false, //이메일 정규식 규칙 플레그
     isEmailDoubleCheck: false, //이메일 중복 체크 플레그
     isCompanyCertify: false, //담당자 휴대폰 인증 플레그
@@ -51,9 +52,26 @@ var devJoinInputObj = {
     },
     beforeCallback: function ($form) {
         var self = devJoinInputObj;
+        //생년월일 체크
+        if ($('#devUserBirthday1').val().length != 4) {
+            common.noti.alert(common.lang.get('joinInput.common.validation.birthday01.length'));
+            return false;
+        } else if ($('#devUserBirthday2').val().length != 2) {
+            common.noti.alert(common.lang.get('joinInput.common.validation.birthday02.length'));
+            return false;
+        } else if ($('#devUserBirthday3').val().length != 2) {
+            common.noti.alert(common.lang.get('joinInput.common.validation.birthday03.length'));
+            return false;
+        }
+
         //아이디 관련 체크
         if (self.isUserIdRegExp != true || self.isUserIdDoubleCheck != true) {
             common.noti.alert(common.lang.get('joinInput.common.validation.userId.doubleCheck'));
+            return false;
+        }
+        //비밀번호 관련 체크
+        if (self.isPwdCheck != true) {
+            common.noti.alert(common.lang.get('joinInput.common.validation.userPassword.fail'));
             return false;
         }
         //이메일 관련 체크
@@ -194,6 +212,9 @@ var devJoinInputObj = {
         common.lang.load('joinInput.company.file.find', "파일찾기");
         common.lang.load('joinInput.company.file.change', "파일변경");
         common.lang.load('joinInput.company.file.confirm.delete', "파일을 삭제하시겠습니까?");
+        common.lang.load('joinInput.common.validation.birthday01.length', "생년 4자리 입력해 주세요.");
+        common.lang.load('joinInput.common.validation.birthday02.length', "생월 2자리 입력해 주세요.");
+        common.lang.load('joinInput.common.validation.birthday03.length', "생일 2자리 입력해 주세요.");
     },
     initFormat: function () {
         //-----set input format
@@ -205,7 +226,9 @@ var devJoinInputObj = {
         common.inputFormat.set($('#devComCeo,#devUserName'), {'maxLength': 20});
         common.inputFormat.set($('#devComPcs2,#devComPcs3'), {'number': true, 'maxLength': 4});
         common.inputFormat.set($('#devBusinessFile'), {'fileFormat': 'image', 'fileSize': 30});
-
+        common.inputFormat.set($('#devUserBirthday1'), {'number': true, 'maxLength': 4});
+        common.inputFormat.set($('#devUserBirthday2'), {'number': true, 'maxLength': 2});
+        common.inputFormat.set($('#devUserBirthday3'), {'number': true, 'maxLength': 2});
         $('#devEmailHost').val($('#devEmailHostSelect option:selected').val());
     },
     initValidation: function () {
@@ -238,6 +261,11 @@ var devJoinInputObj = {
         //아이디 입력시 정규식 체크
         $('#devUserId').on({
             'input': function (e) {
+                if (!(e.keyCode >=37 && e.keyCode<=40)) {
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[^a-z0-9]/gi, ''));
+                }
+
                 if (self.isUserIdDoubleCheck == true) {
                     $('#devUserIdDoubleCheckButton').attr('disabled', false);
                 }
@@ -261,6 +289,17 @@ var devJoinInputObj = {
         //비밀번호 체크
         $('#devUserPassword').on({
             'input': function (e) {
+                var re = /^.*(?=^.{8,}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+                var inputVal = $(this).val();
+
+                if (re.test(inputVal) == false)
+                {
+                    self.isPwdCheck = false;
+                    common.noti.tailMsg(this.id, common.lang.get('joinInput.common.validation.userPassword.fail'));
+                } else {
+                    self.isPwdCheck = true;
+                }
+
                 if (common.validation.check($(this))) {
                     common.noti.tailMsg(this.id, common.lang.get('joinInput.common.validation.userPassword.success'), 'success');
                 } else {

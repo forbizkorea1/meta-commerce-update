@@ -1,0 +1,31 @@
+<div class="fb__header-btn">
+    <nav class="fb__header__main-nav main-nav">
+        <ul class="main-nav__wrap">
+            <!--{@ headerMenu.menuData}{* 탑 메뉴 *}-->
+            <li>
+                <a href="javascript:void(0)" class="main-nav__1death">
+                    {.menu_name}
+                </a>
+                <!--{? .subMenu}{* 메인 메뉴 *}-->
+                <ul class="main-nav__box">
+                    <!--{@ .subMenu}-->
+                    <li>
+                        <a href="{..subMenu[0].link}" class="main-nav__2death">{..menu_name}</a>
+                        <!--{? ..subMenu}{* 서브 메뉴 *}-->
+                        <ul>
+                            <!--{@ ..subMenu}-->
+                            <li>
+                                <a href="{...link}" class="main-nav__3death">{...menu_name}</a>
+                            </li>
+                            <!--{/}-->
+                        </ul>
+                        <!--{/}-->
+                    </li>
+                    <!--{/}-->
+                </ul>
+                <!--{/}-->
+            </li>
+            <!--{/}-->
+        </ul>
+    </nav>
+</div>

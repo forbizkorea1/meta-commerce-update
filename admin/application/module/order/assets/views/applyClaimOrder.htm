@@ -1,0 +1,295 @@
+<form id="devClaimForm">
+    <input type="hidden" name="oid" value="{oid}" />
+    <fieldset>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">신청정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>신청정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">사유</span>
+                        </th>
+                        <td>
+                            <select class="fb-filter__select" name="reason" id="devReason" title="사유">
+                                <option value="">선택해주세요</option>
+                                {@ reason}
+                                <option value="{.key_}">{.title}</option>
+                                {/}
+                            </select>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">신청 상태</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                {@ applayStatus}
+                                <label>
+                                    <input type="radio" name="status" value="{.key_}" {? .index_ == 0}checked{/} />
+                                           <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">상세사유</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--90" name="reasonDetail" id="devReasonDetail" title="상세사유" />
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">상품정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <div id="devProductGrid"></div>
+            </section>
+        </section>
+        {? type == c.ORDER_STATUS_RETURN_APPLY || type == c.ORDER_STATUS_EXCHANGE_APPLY}
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">배송정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>배송정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr >
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">{typeTxt}상품 발송방법</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__radio">
+                            {@ returnSendType}
+                            <label>
+                                <input type="radio" name="send_type" class="devSendType" value="{.key_}" {?.index_ == 0}checked{/}/>
+                                <span>{.value_}</span>
+                            </label>
+                            {/}
+                        </td>
+                    </tr>
+                    <tr class="devSendOption" style="display:none;">
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">{typeTxt}상품 발송정보</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__radio">
+                            <select class="fb-filter__select" name="quick" title="배송업체">
+                                <option value="">배송업체선택</option>
+                                {@ quickList}
+                                <option value="{.key_}">{.name}</option>
+                                {/}
+                            </select>
+                            <input type="text" class="fb-filter__text" name="invoice_no" placeholder="송장번호" title="송장번호">
+                        </td>
+                    </tr>
+                    <tr class="devSendOption" style="display:none;">
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">{typeTxt}상품 배송비</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__radio">
+                            <label>
+                                <input type="radio" name="delivery_pay_type" class="devDeliveryPayType" value="1" checked/>
+                                <span>선불</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="delivery_pay_type" class="devDeliveryPayType" value="2"/>
+                                <span>착불(착불배송비가 배송비 배송비보다 높을경우 추가비용이 발생할수 있습니다)</span>
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section class="fb__menusubmit" id="devReturnAddressSection">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">{typeTxt}상품 수거주소</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>{typeTxt}배송정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">이름</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="cname" value="{deliveryInfo.rname}" title="{typeTxt}주소 이름"/>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">핸드폰</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="cmobile" value="{deliveryInfo.rmobile}" title="{typeTxt}주소 핸드폰"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">주소</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents fb-filter__zipcode">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="czip" value="{deliveryInfo.zip}" title="{typeTxt}주소" readonly/> 
+                            <input type="button" class="fb-filter__search-icon devSearchAddressPopup" data-type="C"/><br/>
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="caddr1" value="{deliveryInfo.addr1}" title="{typeTxt}주소" readonly/><br/>
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="caddr2" value="{deliveryInfo.addr2}" title="{typeTxt}상세주소"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>전달사항</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="cmsg" value="" title="{typeTxt}주소 전달사항"/>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        {? type == c.ORDER_STATUS_EXCHANGE_APPLY}
+        <section class="fb__menusubmit" id="devReAddressSection">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">재배송상품 주소</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>{typeTxt}배송정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">이름</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="rname" value="{deliveryInfo.rname}" title="재배송주소 이름"/>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">핸드폰</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="rmobile" value="{deliveryInfo.rmobile}" title="재배송주소 핸드폰"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">주소</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents fb-filter__zipcode">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="rzip" value="{deliveryInfo.zip}" title="재배송주소" readonly/> 
+                            <input type="button" class="fb-filter__search-icon devSearchAddressPopup"  data-type="R"/><br/>
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="raddr1" value="{deliveryInfo.addr1}" title="재배송주소" readonly/><br/>
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="raddr2" value="{deliveryInfo.addr2}" title="재배송상세주소"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>전달사항</span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="fb-filter__text fb-filter__text--100" name="rmsg" value="" title="{typeTxt}주소 전달사항"/>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        {/}
+        {/}
+        <section class="fb__menusubmit">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">환불정보</h3>
+                <a href="#" class="fb__menusubmit-btn">
+                    <span>닫기</span>
+                    <span>열기</span>
+                </a>
+            </header>
+            <section class="fb-filter">
+                <table>
+                    <caption>환불정보</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">환불 상품금액</span>
+                        </th>
+                        <td>
+                            <span id="devRefundProductPrice">0</span>
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">환불 배송비</span>
+                        </th>
+                        <td class="fb-filter__radio">
+                            <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number" id="defClaimDeliveryPrice" name="claimDeliveryPrice" value="0" value="환불 배송비"/>
+                            <br/>
+                            <label>
+                                <input type="checkbox" name="subtraction" id="devSubtraction" value="Y">
+                                <span>차감</span>
+                            </label>
+                            ( 환불 : <span id="devRefundDeliveryPrice">0</span> - 추가 비용 : <span id="devAddDeliveryPrice">0</span>)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">총환불금액</span>
+                        </th>
+                        <td colspan="3">
+                            <span id="devRefundTotalPrice">0</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+</form>
+<script>
+    var productData = { = json_encode(product)};
+    var paymentMethodData = { = json_encode(paymentMethod)};
+</script>

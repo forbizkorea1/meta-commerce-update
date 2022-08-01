@@ -26,7 +26,7 @@ if (strstr(FORBIZ_BASEURL, '.devs')) {
     define("FRONT_URL", str_replace('adminqa-', 'qa-', FORBIZ_BASEURL));
 } else {
     define('DB_CONNECTION_DIV', 'production');
-    define('PORTAL_API_URL', HTTP_PROTOCOL . 'meta-commerce.co.kr');
+    define('PORTAL_API_URL', 'https://meta-commerce.co.kr');
 }
 
 define('MALL_TEMPLATE', 'enterprise');

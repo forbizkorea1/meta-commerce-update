@@ -1,0 +1,209 @@
+<section class="fb__menusubmit">
+    <fieldset class="fb__menusubmit--line">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#{c.ORDER_STATUS_CANCEL_APPLY}" class="fb__tap__menu--active">
+                        취소요청
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#{c.ORDER_STATUS_CANCEL_COMPLETE}">
+                        취소완료
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+    <section class="fb-filter">
+        <form id="devGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum"/>
+            <input type="hidden" name="max" value="50"/>
+            <input type="hidden" name="status" value="{c.ORDER_STATUS_CANCEL_APPLY}" id="devSearchStatus"/>
+            <fieldset>
+                <legend>
+                    취소 리스트
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    {? manageLevel == 9}
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    판매처 선택
+                                </span>
+                        </th>
+                        <td colspan="3">
+                            <div class="fb-filter__radio">
+                                {@ orderFromList}
+                                <label>
+                                    <input type="checkbox" name="order_from[]" value="{.site_code}">
+                                    <span>{.site_name}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span>
+                                    판매자
+                                </span>
+                        </th>
+                        <td class="fb-filter__seller">
+                            <input type="hidden" name="company_id" id="devCompanyId" devReset>
+                            <input type="text" class="fb-filter__text" id="devCompanyText" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchCompanyPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchCompanyReset"/>
+                        </td>
+                        <th class="fb-filter__title">
+                                <span>
+                                    브랜드
+                                </span>
+                        </th>
+                        <td class="fb-filter__seller">
+                            <input type="hidden" name="b_ix" id="devBrandIx" devReset>
+                            <input type="text" class="fb-filter__text" id="devBrandText" readonly>
+                            <input type="button" class="fb-filter__search-icon" id="devSearchBrandPopup"/>
+                            <input type="button" class="fb-filter__delete-icon" id="devSearchBrandReset"/>
+                        </td>
+                    </tr>
+                    {/}
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="searchType" class="fb-filter__select">
+                                <option value="combi_name">주문자&수취인-명</option>
+                                <option value="combi_mobile">주문자&수취인-휴대폰 번호</option>
+                                <option value="oid">주문번호</option>
+                                <option value="invoice_no">송장번호</option>
+                                <option value="pname">상품명</option>
+                                <option value="option_text">옵션명</option>
+                                {? manageLevel == 9}
+                                <option value="buserid">주문자ID</option>
+                                <option value="gid">품목코드</option>
+                                <option value="co_oid">제휴사주문번호</option>
+                                {/}
+                            </select>
+                            <input name="searchText" type="text" class="fb-filter__text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                                <span class="fb-filter__title--ne">
+                                    기간
+                                </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <select name="searchDateType" class="fb-filter__select" id="devSearchDateType">
+                                <option value="ca_date">취소요청일자</option>
+                                <option value="cc_date">취소완료일자</option>
+                            </select>
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day"
+                                       id="devBetweenDatePickerStart" name="startDate" value="{basicStartDate}"
+                                       readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day"
+                                   id="devBetweenDatePickerEnd" name="endDate" value="{basicEndDate}" readonly>
+                            <span id="devQuickBetweenDate"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">주문목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count"
+                                                                                       id="devTotal">0</em>개)</span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<div class="fb__bottom" id="{c.ORDER_STATUS_CANCEL_APPLY}">
+    <article class="fb__bottom-fixemenu " id="fb_bottom-nav">
+        <section class="fb__fixemenu">
+            <header class="fb__fixemenu-header">
+                <h2 class="fb__fixemenu-title">일괄 변경</h2>
+                <p class="fb__fixemenu-summary">
+                    목록에서 선택한 항목 또는 검색 결과의 속성을 일괄 변경합니다.
+                </p>
+                <a href="#" class="fb__fixemenu-btn">
+                    <span>열기</span>
+                </a>
+            </header>
+
+            <div class="fb__fixemenu__contents">
+                <section class="fb-filter">
+                    <form method="post" id="devModifyForm">
+                        <fieldset>
+                            <legend>
+                                컨텐츠 필터 폼
+                            </legend>
+                            <table>
+                                <caption></caption>
+                                <colgroup>
+                                    <col width="14%">
+                                    <col width="35%">
+                                    <col width="14%">
+                                    <col width="*">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th class="fb-filter__title">
+                                            <span class="fb-filter__title--ne">
+                                                주문변경
+                                            </span>
+                                    </th>
+                                    <td colspan="3">
+                                        <div class="fb-filter__radio">
+                                            {@ cancelApplyChangeStatus}
+                                            <label>
+                                                <input type="radio" name="status" value="{.key_}" {? .index_==
+                                                       0}checked{/}/>
+                                                <span>{.value_}</span>
+                                            </label>
+                                            {/}
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="fb-filter__btn">
+                                <button type="submit" class="fb-filter__search" id="devModifyBtn">일괄변경</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </article>
+</div>
+
+<script>var manageLevel = {manageLevel};</script>

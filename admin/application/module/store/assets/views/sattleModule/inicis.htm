@@ -1,5 +1,42 @@
 <section class="fb__menusubmit">
     <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">결제모듈 유형</h3>
+    </header>
+
+    <section class="fb-filter">
+        <table>
+            <caption></caption>
+            <colgroup>
+                <col width="14%">
+                <col width="35%">
+                <col width="14%">
+                <col width="*">
+            </colgroup>
+
+            <input type="hidden" name="service_type" value="service"/>
+            <tr> <!-- 채크박스 타입 -->
+                <th class="fb-filter__title">
+                    <span class="fb-filter__title--ne">
+                        이니시스 MID 유형 선택
+                    </span>
+                </th>
+                <td colspan="3">
+                    <div class="fb-filter__radio">
+                        <select name="inicis_type" class="fb-filter__select" id="devInicisType">
+                            <option value="escrow" id="divEscrowType"
+                                    {? config.inicis_type !="sin_escrow"}selected{/}>구 이니시스 MID</option>
+                            <option value="sin_escrow" id="divSinEscrowType"
+                                    {? config.inicis_type=="sin_escrow"}selected{/}>신 이니시스 MID</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+</section>
+
+<section class="fb__menusubmit">
+    <header class="fb__menusubmit-header">
         <h3 class="fb__menusubmit-title">결제모듈 이니시스(Standard)</h3>
     </header>
 
@@ -13,7 +50,7 @@
                 <col width="*">
             </colgroup>
 
-            <input type="hidden" name="service_type" value="service" />
+            <input type="hidden" name="service_type" value="service"/>
             <tr> <!-- 채크박스 타입 -->
                 <th class="fb-filter__title">
                     <span class="fb-filter__title--ne">
@@ -42,12 +79,13 @@
                         추가결제모듈
                     </span>
                 </th>
-                <td colspan="3" >
+                <td colspan="3">
                     <div class="fb-filter__radio">
                         <input type="hidden" name="simplePayMethod" id="devSimplePayMethodTxt" value="">
                         {@ simplePayMethod}
                         <label for="simplePayMethod_{.key_}">
-                            <input type="checkbox" class="devSimplePayMethod" name="simplePayMethod[]" id="simplePayMethod_{.key_}" value="{.key_}"
+                            <input type="checkbox" class="devSimplePayMethod" name="simplePayMethod[]"
+                                   id="simplePayMethod_{.key_}" value="{.key_}"
                                    {? in_array(.key_ , simplePayMethodArray)}checked{/}
                             >
                             <span>{.value_}</span>
@@ -57,52 +95,11 @@
                 </td>
             </tr>
 
-            <!--<tbody class="typeTest" {? config.service_type==
-            'service' } style="display:none;" {/}>
-            <tr>
-                <th class="fb-filter__title">
-                        <span class="fb-filter__title--ne">
-                            가맹점 ID
-                        </span>
-                </th>
-                <td colspan="3" class="fb-filter__day-wrap">
-                    <div class="fb-filter__title-contents">
-                        <input type="text" class="fb-filter__text" name="test_mid" value="{config.test_mid}">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th class="fb-filter__title">
-                        <span class="fb-filter__title--ne">
-                            사인키
-                        </span>
-                </th>
-                <td colspan="3" class="fb-filter__day-wrap">
-                    <div class="fb-filter__title-contents">
-                        <input type="text" class="fb-filter__text" name="test_service_key"
-                               value="{config.test_service_key}">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th class="fb-filter__title">
-                        <span class="fb-filter__title--ne">
-                            취소 비밀번호
-                        </span>
-                </th>
-                <td colspan="3" class="fb-filter__day-wrap">
-                    <div class="fb-filter__title-contents">
-                        <input type="password" class="fb-filter__text" name="test_cancel_pwd"
-                               value="{config.test_cancel_pwd}">
-                    </div>
-                </td>
-            </tr>
-            </tbody>-->
-            <tbody class="typeService">
+
             <tr> <!-- 텍스트 타입 -->
                 <th class="fb-filter__title">
                         <span class="fb-filter__title--ne">
-                            가맹점 ID
+                            가맹점 MID
                         </span>
                 </th>
                 <td colspan="3" class="fb-filter__day-wrap">
@@ -111,6 +108,24 @@
                     </div>
                 </td>
             </tr>
+
+            <tbody class="typeEscrowService" {? config.inicis_type =="sin_escrow"}style="display: none"{/}>
+            <tr> <!-- 텍스트 타입 -->
+                <th class="fb-filter__title">
+                        <span>
+                            에스크로 MID  * 가상계좌, 실시간계좌이체에만 적용됩니다.
+                        </span>
+                </th>
+                <td colspan="3" class="fb-filter__day-wrap">
+                    <div class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text fb-filter__text--100" name="escrow_mid"
+                               value="{config.escrow_mid}">
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+
+            <tbody class="typeService">
             <tr> <!-- 텍스트 타입 -->
                 <th class="fb-filter__title">
                         <span class="fb-filter__title--ne">
@@ -121,6 +136,19 @@
                     <div class="fb-filter__title-contents">
                         <input type="text" class="fb-filter__text fb-filter__text--100" name="service_key"
                                value="{config.service_key}">
+                    </div>
+                </td>
+            </tr>
+            <tr> <!-- 텍스트 타입 -->
+                <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            INIAPI KEY
+                        </span>
+                </th>
+                <td colspan="3" class="fb-filter__day-wrap">
+                    <div class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text fb-filter__text--100" name="iniapi_key"
+                               value="{config.iniapi_key}">
                     </div>
                 </td>
             </tr>
@@ -138,6 +166,32 @@
                 </td>
             </tr>
             </tbody>
+
+            <tbody class="typeSinEscrowService" {? config.inicis_type !="sin_escrow"}style="display: none"{/}>
+            <tr> <!-- 라디오 타입 -->
+                <th class="fb-filter__title">
+                    <span class="fb-filter__title--ne">
+                        에스크로 사용여부
+                    </span>
+                </th>
+                <td colspan="3">
+                    <div class="fb-filter__radio">
+                        <label>
+                            <input type="radio" name="sin_sndEscrow" value="1" {?
+                                   config.sin_sndEscrow== '1' } checked {/} >
+                            <span>사용</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="sin_sndEscrow" value="0" {?
+                                   config.sin_sndEscrow== '0' || !config.sin_sndEscrow } checked {/} >
+                            <span>사용안함</span>
+                        </label>
+                        * 가상계좌, 실시간계좌이체에만 적용됩니다.
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+
         </table>
     </section>
 

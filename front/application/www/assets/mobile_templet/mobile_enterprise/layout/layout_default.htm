@@ -241,6 +241,18 @@
         <!-- bigin common code end -->
 
         {/}
+
+        {? c.NPAY_USE == 'Y'}
+        <script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
+        <script type="text/javascript">
+            if(!wcs_add) var wcs_add = {};
+            wcs_add["wa"] = "{c.NPAY_COMMON_KEY}";
+            wcs.inflow("{c.FORBIZ_HOST}");
+        </script>
+        <script type="text/javascript">
+            wcs_do();
+        </script>
+        {/}
     </head>
     <body id="{layoutCommon.bodyId}" class="fb">
         <div id="document" class="idx-type">

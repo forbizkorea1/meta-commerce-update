@@ -1,0 +1,83 @@
+<div class="fb__tapcontent">
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devMdInfo">
+        <form id="devMdInfoForm" method="POST">
+            <input type="hidden" name="tabType" value="md">
+            <input type="hidden" name="company_id" value="{company_id}">
+
+            <table>
+                <caption>회계담당자 정보</caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            회계 담당자 명
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="tax_person_name"  value="{config.tax_person_name}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            회계 전화번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="tax_person_phone_1"  value="{config.tax_person_phone_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="tax_person_phone_2"  value="{config.tax_person_phone_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="tax_person_phone_3"  value="{config.tax_person_phone_3}">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="">
+                            회계 휴대폰 번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="tax_person_mobile_1"  value="{config.tax_person_mobile_1}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="tax_person_mobile_2"  value="{config.tax_person_mobile_2}">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="tax_person_mobile_3"  value="{config.tax_person_mobile_3}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            이메일 (세금계산서)
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="tax_person_mail"  value="{config.tax_person_mail}">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="">
+                            기타사항
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <textarea class="fb-filter__textarea" name="tax_person_message">{config.tax_person_message}</textarea>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="fb-filter__btn">
+                <input type="button" class="fb-filter__save devSave" value="저장" />
+            </div>
+        </form>
+    </section>
+</div>

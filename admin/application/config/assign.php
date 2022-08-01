@@ -30,7 +30,8 @@ return (function() {
             'currendMenuId' => lcfirst($this->moduleGroup).'-'.lcfirst($this->moduleName) //메뉴ID
             , 'currentPage' => lcfirst($this->moduleName)
             , 'isLogin' => (($this->adminInfo->charger_id ?? false) ? 'true' : 'false') // 로그인 여부
-            ,'mem_div' => sess_val('admininfo','mem_div') // 회원타입
+            , 'mem_div' => sess_val('admininfo','mem_div') // 회원타입
+            , 'useApi' => \ForbizConfig::getUseOpenApi() // 오픈API 사용여부
         ]
         , 'layout' => [
             'jsonPopupList' => json_encode($popupDisplayModel->getPopupNotiList())
