@@ -211,7 +211,6 @@ var devStoreMainObj = {
             },
 
             function (response) {
-                console.log(response);
                 // 전송후 결과 확인
                 if (response.result == 'success') {
                     if(response.data.addService.length > 0) {
@@ -357,8 +356,11 @@ var devStoreMainObj = {
         }
         self.initNotice();
         self.initUpdateNotice();
-        self.getAccountReady();//정산예정
-        self.getRemittanceReady();//송금대기
+
+        if(devSellerPlugin) {
+            self.getAccountReady();//정산예정
+            self.getRemittanceReady();//송금대기
+        }
         self.getBannerList();//배너가져오기
         self.diskUnitChk();
     }

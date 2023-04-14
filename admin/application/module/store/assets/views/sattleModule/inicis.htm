@@ -108,6 +108,32 @@
                     </div>
                 </td>
             </tr>
+            <tr> <!-- 텍스트 타입 -->
+                <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            가맹점 INIAPI KEY
+                        </span>
+                </th>
+                <td colspan="3" class="fb-filter__day-wrap">
+                    <div class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text fb-filter__text--100" name="iniapi_key"
+                               value="{config.iniapi_key}">
+                    </div>
+                </td>
+            </tr>
+            <tr> <!-- 텍스트 타입 -->
+                <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            가맹점 INIAPI IV
+                        </span>
+                </th>
+                <td colspan="3" class="fb-filter__day-wrap">
+                    <div class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text fb-filter__text--100" name="iniapi_iv"
+                               value="{config.iniapi_iv}">
+                    </div>
+                </td>
+            </tr>
 
             <tbody class="typeEscrowService" {? config.inicis_type =="sin_escrow"}style="display: none"{/}>
             <tr> <!-- 텍스트 타입 -->
@@ -120,6 +146,32 @@
                     <div class="fb-filter__title-contents">
                         <input type="text" class="fb-filter__text fb-filter__text--100" name="escrow_mid"
                                value="{config.escrow_mid}">
+                    </div>
+                </td>
+            </tr>
+            <tr> <!-- 텍스트 타입 -->
+                <th class="fb-filter__title">
+                        <span>
+                            에스크로 INIAPI KEY
+                        </span>
+                </th>
+                <td colspan="3" class="fb-filter__day-wrap">
+                    <div class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text fb-filter__text--100" name="escrow_iniapi_key"
+                               value="{config.escrow_iniapi_key}">
+                    </div>
+                </td>
+            </tr>
+            <tr> <!-- 텍스트 타입 -->
+                <th class="fb-filter__title">
+                        <span>
+                            에스크로 INIAPI IV
+                        </span>
+                </th>
+                <td colspan="3" class="fb-filter__day-wrap">
+                    <div class="fb-filter__title-contents">
+                        <input type="text" class="fb-filter__text fb-filter__text--100" name="escrow_iniapi_iv"
+                               value="{config.escrow_iniapi_iv}">
                     </div>
                 </td>
             </tr>
@@ -136,32 +188,6 @@
                     <div class="fb-filter__title-contents">
                         <input type="text" class="fb-filter__text fb-filter__text--100" name="service_key"
                                value="{config.service_key}">
-                    </div>
-                </td>
-            </tr>
-            <tr> <!-- 텍스트 타입 -->
-                <th class="fb-filter__title">
-                        <span class="fb-filter__title--ne">
-                            INIAPI KEY
-                        </span>
-                </th>
-                <td colspan="3" class="fb-filter__day-wrap">
-                    <div class="fb-filter__title-contents">
-                        <input type="text" class="fb-filter__text fb-filter__text--100" name="iniapi_key"
-                               value="{config.iniapi_key}">
-                    </div>
-                </td>
-            </tr>
-            <tr> <!-- 텍스트 타입 -->
-                <th class="fb-filter__title">
-                        <span class="fb-filter__title--ne">
-                            취소 비밀번호
-                        </span>
-                </th>
-                <td colspan="3" class="fb-filter__day-wrap">
-                    <div class="fb-filter__title-contents">
-                        <input type="password" class="fb-filter__text fb-filter__text--100" name="cancel_pwd"
-                               value="{config.cancel_pwd}">
                     </div>
                 </td>
             </tr>

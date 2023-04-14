@@ -147,16 +147,20 @@ function is_html($string)
 function getRemoteAddr()
 {
     if (isset($_SERVER['HTTP_CLIENT_IP']) && $_SERVER['HTTP_CLIENT_IP']) {
-        return $_SERVER['HTTP_CLIENT_IP'];
+        $raddr = $_SERVER['HTTP_CLIENT_IP'];
     } else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR']) {
-        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        $raddr = $_SERVER['HTTP_X_FORWARDED_FOR'];
     } else if (isset($_SERVER['HTTP_X_FORWARDED']) && $_SERVER['HTTP_X_FORWARDED']) {
-        return $_SERVER['HTTP_X_FORWARDED'];
+        $raddr = $_SERVER['HTTP_X_FORWARDED'];
     } else if (isset($_SERVER['HTTP_FORWARDED_FOR']) && $_SERVER['HTTP_FORWARDED_FOR']) {
-        return $_SERVER['HTTP_FORWARDED_FOR'];
+        $raddr = $_SERVER['HTTP_FORWARDED_FOR'];
     } else if (isset($_SERVER['HTTP_FORWARDED']) && $_SERVER['HTTP_FORWARDED']) {
-        return $_SERVER['HTTP_FORWARDED'];
+        $raddr = $_SERVER['HTTP_FORWARDED'];
     } else {
-        return ($_SERVER['REMOTE_ADDR'] ?? '');
+        $raddr = ($_SERVER['REMOTE_ADDR'] ?? '');
     }
+
+    //서버 방화벽 설정에 따라 전달되는 IP 정보가 다중으로 넘어오는 현상을 처리 하기위해 수정
+    $remoteAddr = explode(",",$raddr);
+    return trim($remoteAddr[0]);
 }

@@ -55,7 +55,7 @@ var devObj = {
                         if (devAppType == 'iOS') {
                             //아이폰용
                             try {
-                                window.webkit.messageHandlers.loginSuccess.postMessage(response.data.userCode);
+                                window.webkit.messageHandlers.loginSuccess.postMessage(JSON.stringify({userCode: response.data.userCode}));
                             } catch (err) {
                                 console.log(err);
                             }

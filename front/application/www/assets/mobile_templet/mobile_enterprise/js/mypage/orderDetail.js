@@ -108,9 +108,10 @@ var orderDetail = {
         //배송지 변경 버튼
         $('#devDeliveryChangeBtn').on('click', function () {
             $(".fb__popup-layout").addClass("full-layer floating-btn deliveryPopup");
+            var oid = $(this).data('oid');
 
-            common.util.modal.open('ajax', '배송지 변경', '/mypage/addressbookSelect/' + $(this).data('oid'), '', function () {
-                devAddressBookPopObj.callbackSelect = function (deliveryIx,oid) {
+            common.util.modal.open('ajax', '배송지 변경', '/mypage/addressbookSelect/' + oid, '', function () {
+                devAddressBookPopObj.callbackSelect = function (deliveryIx) {
                     common.ajax(
                         // 주문정보에 배송지 변경 처리 후 리로딩
                         common.util.getControllerUrl('deliveryAddressChange', 'mypage'), {deliveryIx:deliveryIx, oId:oid}, function () {

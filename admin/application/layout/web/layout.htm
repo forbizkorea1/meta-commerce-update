@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="shortcut icon" href="{=layout_url('assets/img/favicon.png')}">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{layoutCommon.title}</title>
+        <!--{@ layoutCss}--><link rel="stylesheet" type="text/css" href="{.value_}" /><!--{/}-->
+        <link rel="stylesheet" type="text/css" href="{=layout_url('css/font.css')}">
+        <link rel="stylesheet" type="text/css" href="{=layout_url('assets/css/daterangepicker.css')}" />
+
+        <link rel="stylesheet" type="text/css" href="{=layout_url('assets/css/main.css')}">
+        <link rel="stylesheet" type="text/css" href="{=layout_url('assets/css/custom.css')}">
+
+        <!--{* 개발 공통 S *}-->
+
+        <script>var forbizCsrf = {name: "{ForbizCsrf.name}", hash: "{ForbizCsrf.hash}", isLogin: true};</script>
+        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <!--{* 개발 공통 E *}-->
+
+    </head>
+    <body id="layout" class="fb" data-id="{layoutCommon.currentPage}">
+        <section class="fb__wrap">
+
+            <header class="fb__header">
+                <!--{* 헤더 탑 *}-->
+                {#headerTop}
+                <!--{* 헤더 메뉴 *}-->
+                {#headerMenu}
+            </header>
+
+            <article id="content" class="fb__content">
+                <!--{* 좌측메뉴 *}-->
+                {#leftMenu}
+                <div class="fb__content-wrap">
+                    <!--{* 네비게이션 *}-->
+                    {#contentsAddNav}
+                    <!--{* 컨텐츠 메뉴 *}-->
+                    {#contentsAddMenu}
+                    <!--{* 컨텐츠 *}-->
+                    <div class="fb_contents">
+                        {FbContent}
+                    </div>
+                    <!--{* footer_menu *}-->
+                    {#footerMenu}
+                    <!--{* footer *}-->
+                    {#footerDesc}
+                </div>
+            </article>
+        </section>
+    </body>
+
+    <script src="{=layout_url('assets/js/vendor.js')}"></script>
+
+    <script src="{=layout_url('assets/js/main.js')}"></script>
+    <script src="/assets/js/web/dev_common.js?version=2.0"></script>
+    <script src="{=layout_url('assets/js/library.js')}"></script>
+    <!--{* 개발 공통 S *}-->
+    <!--{@ layoutJs}--><script src="{.value_}"></script><!--{/}-->
+    <script type="text/javascript" src="/assets/js/web/daterangepicker/moment.js"></script>
+    <script type="text/javascript" src="/assets/js/web/daterangepicker/daterangepicker.js"></script>
+    <script src="/assets/js/web/ckeditor/ckeditor.js"></script>
+    <script src="/data/scm_data/_language/korean.js?version=1.0"></script>
+    <script>
+        //load 된 언어 서버요청
+        $(function () {
+            common.lang.jsLanguageCollection();
+            let isPop = common.util.getCookie('popupToday');
+            if(isPop != 'Y'){
+                common.noti.popup.load({layout.jsonPopupList});
+            }
+        });
+    </script>
+    <!--{* 개발 공통 E *}-->
+
+    <div class="main_popupL" id="devNotiPopup"></div>
+</html>

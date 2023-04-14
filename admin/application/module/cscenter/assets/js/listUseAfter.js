@@ -21,6 +21,9 @@ var devCscenterListUseAfterObj = {
         common.lang.load('common.add.success.alert', '저장이 완료되었습니다.');
         common.lang.load('common.put.success.alert', '관리자 댓글이 등록되었습니다.');
         common.lang.load('common.del.success.alert', '삭제가 완료되었습니다.');
+        common.lang.load('common.comment.save.success.alert', '저장이 완료되었습니다.');
+        common.lang.load('common.comment.edit.success.alert', '수정이 완료되었습니다.');
+        common.lang.load('common.comment.delete.success.alert', '삭제가 완료되었습니다.');
         common.lang.load('common.del.confirm', '{title} 을/를 삭제하시겠습니까?');
         common.lang.load('after.form.error.emptyComment.alert', '댓글을 입력해주세요.');
 
@@ -144,19 +147,31 @@ var devCscenterListUseAfterObj = {
                 function (formData) {
                     var flag = true
                     $(formData).each(function (i, obj) {
-                        if(obj.name == 'cmt_contents') {
-                            if(obj.value == '') {
-                                common.noti.alert(common.lang.get('after.form.error.emptyComment.alert'));
-                                flag = false;
+                        if (obj.name == 'devHideMode') {
+                            if(obj.value == 'delete') {
+                                return false;
+                            }
+                        } else {
+                            if(obj.name == 'cmt_contents') {
+                                if(obj.value == '') {
+                                    common.noti.alert(common.lang.get('after.form.error.emptyComment.alert'));
+                                    flag = false;
+                                }
                             }
                         }
-
                     })
                     return flag;
                 },
                 function (response) {
                     if (response.result == 'success') {
-                        common.noti.alert(common.lang.get('common.put.success.alert'));
+                        if ($('#devHideMode').val() == 'delete') {
+                            common.noti.alert(common.lang.get('common.comment.delete.success.alert'));
+                        } else if ($('#devHideMode').val() == 'update') {
+                            common.noti.alert(common.lang.get('common.comment.edit.success.alert'));
+                        } else {
+                            common.noti.alert(common.lang.get('common.comment.save.success.alert'));
+                        }
+
                         $("#devReContent > .devReply ").remove();
                         var html = "";
                         response.data.list.forEach(function (element) {

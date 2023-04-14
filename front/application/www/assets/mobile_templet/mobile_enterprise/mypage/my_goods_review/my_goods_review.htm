@@ -102,17 +102,19 @@
                                 {/}
                             </div>
                         </div>
-                        
-                        {[#if cmt.cmt_ix]}
+
+                        {[#if cmt]}
+                        {[#each cmt]}
                         <ul class="goodsReview__admin">
                             <li class="goodsReview__admin__list">
                                 <div class="goodsReview__admin__top">
-                                    <span class="goodsReview__admin__badge">{[cmt/cmt_name]}</span>
-                                    <span class="goodsReview__admin__date">{[cmt.cmt_date]}</span>
+                                    <span class="goodsReview__admin__badge">{[cmt_name]}</span>
+                                    <span class="goodsReview__admin__date">{[cmt_date]}</span>
                                 </div>
-                                <div class="goodsReview__admin__txt">{[{\cmt.cmt_contents}]}</div>
+                                <div class="goodsReview__admin__txt">{[{\cmt_contents}]}</div>
                             </li>
                         </ul>
+                        {[/each]}
                         {[/if]}
                     </div>
                 </li>

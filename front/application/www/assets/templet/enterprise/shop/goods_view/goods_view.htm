@@ -703,17 +703,19 @@
                                         <div class="goodsReview__list__date">{[regdate]}</div>
                                     </div>
                                     {[#if isComments]}
+                                    {[#each cmt]}
                                     <div class="goodsReview__list__admin">
                                         <ul id="devReviewCmtContents" class="admin-reply">
-                                            <li id="devReviewCmtList" class="admin-reply__list" data-cmtIx="{[cmt/cmt_ix]}">
+                                            <li id="devReviewCmtList" class="admin-reply__list" data-cmtIx="{[cmt_ix]}">
                                                 <div class="admin-reply__list__top">
-                                                    <span class="admin-reply__list__badge">{[cmt/cmt_name]}</span>
-                                                    <span class="admin-reply__list__date">{[cmt/cmt_date]}</span>
+                                                    <span class="admin-reply__list__badge">{[cmt_name]}</span>
+                                                    <span class="admin-reply__list__date">{[cmt_date]}</span>
                                                 </div>
-                                                <div class="admin-reply__list__txt">{[{\cmt/cmt_contents}]}</div>
+                                                <div class="admin-reply__list__txt">{[{\cmt_contents}]}</div>
                                             </li>
                                         </ul>
                                     </div>
+                                    {[/each]}
                                     {[/if]}
                                 </li>
 

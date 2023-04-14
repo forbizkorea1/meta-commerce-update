@@ -360,6 +360,89 @@ var common = {
             }
             return text;
         },
+        getPieChart: function(form){
+            var chart = new Chart(form, {
+                type: 'pie',
+                data: [],
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: []
+                        },
+                    },
+                    aspectRatio: 6,
+                    tooltips: {
+                        callbacks: {
+                            label: function(t, d) {
+                                var title = d.datasets[t.datasetIndex].label[t.index];
+                                var data = d.datasets[t.datasetIndex].data[t.index];
+
+                                console.log(title)
+                                return title+' : '+common.util.numberFormat(data);
+                            }
+                        }
+                    },
+                    tooltipTemplate:function (item) {
+                        return item.value +"%";
+                    }
+                }
+            });
+            return chart;
+        },
+        getChart: function(form,chartType){
+            var chart = new Chart(form, {
+                type: chartType
+                , data: {
+                    labels: []
+                    , datasets: []
+                }
+                , options: {
+                    animation: {
+                        duration: 0 // 그래프 선 에니메니션 끔
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return common.util.numberFormat(tooltipItem.yLabel);
+                            }
+                        }
+                    },
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    callback: function (label) {
+                                        return common.util.numberFormat(label);
+                                    }
+                                }
+                            }
+                        ],
+                        xAxes: [{
+                            barThickness : 30,
+                            ticks: {
+                                callback: function(value) {
+                                    if (value.length > 10) {
+                                        return value.substr(0, 10) + '...'; // 10자 이상이면 10자까지만 표시하고 끝에 '...' 추가
+                                    } else {
+                                        return value;
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    aspectRatio: 6
+                }
+            });
+            return chart;
+        },
         getChartColor: function (index, opacity) {
             if (!opacity) {
                 opacity = 1;
@@ -1673,6 +1756,33 @@ var common = {
                 });
             });
         },
+        dateRangePicker: function($target, option){
+
+            $target.daterangepicker({
+                opens: 'left',
+                showDropdowns: true,
+                autoUpdateInput: true,
+                maxDate:(option.maxDate != true ? option.maxDate : ''),
+                startDate:(option.startDate != true ? option.startDate : ''),
+                endDate:(option.endDate != true ? option.endDate : ''),
+                "locale": {
+                    "format": "YYYY-MM-DD",
+                    "separator": " - ",
+                    "applyLabel": "적용",
+                    "cancelLabel": "취소",
+                    "fromLabel": "From",
+                    "toLabel": "To",
+                    "customRangeLabel": "Custom",
+                    "weekLabel": "W",
+                    "daysOfWeek": ["일","월","화","수","목","금","토"],
+                    "monthNames": ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+                    "firstDay": 0
+                }
+            }, function(start, end, label) {
+
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+        },
         datePicker: function ($target, option) {
             $.datetimepicker.setLocale('kr');
             if (!option) {
@@ -2335,6 +2445,33 @@ var common = {
                         , old_position: old_position
                         , data: data
                     };
+                },
+                excelDownAsync: function(url, addData){
+                    return this.downLoadAsync(url,addData);
+                },
+                downLoadAsync: function(url, addData){
+
+                    var data = [];
+
+                    data.push({name: forbizCsrf.name, value:common.util.getCookie('ForbizCsrfCookieName')});
+                    $.each(this.formObj.serializeArray(), function () {
+                        data.push({name: this.name, value: this.value});
+                    });
+
+                    if ($.isPlainObject(addData)) {
+                        $.each(addData, function (name, value) {
+                            data.push({name: name, value: value});
+                        });
+                    }
+                    $.post(url, data);
+                    // common.ajax(url,
+                    //     data,
+                    //     function () {
+                    //         // 전송전 데이타 검증
+                    //         return true;
+                    //     },
+                    //     true
+                    // );
                 },
                 excelDown: function (url, addData) {
                     return this.downLoad(url, addData);
@@ -3876,6 +4013,13 @@ var common = {
                 );
             }
         }
+    },
+    etcEvent: function(){
+
+        $('#devExcelDwnList').on('click',function(){
+            common.util.modal.open('ajax', '엑셀다운로드 항목', '/store/excelDownList', '',
+                '',{width: '900px', height: '540px'});
+        });
     }
 };
 
@@ -3914,4 +4058,7 @@ $(function () {
     common.bookmark.init();
     // 메뉴검색 이벤트
     common.menuSearch.init();
+
+    //기타 이벤트
+    common.etcEvent();
 });

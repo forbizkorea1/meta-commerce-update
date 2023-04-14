@@ -270,9 +270,9 @@ var devAddressBookPopObj = {
         });
 
         $('#devAddressBookSetBtn').on('click', function () {
-            var ix = $('.devOrderAddressRadio:checked').val();
+            var ix2 = $('.devOrderAddressRadio:checked').val();
 
-            opener.runCallback(ix);
+            opener.runCallback(ix2, ix);
 
             self.closeWindow();
         });
