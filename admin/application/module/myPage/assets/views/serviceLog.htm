@@ -1,0 +1,375 @@
+<section class="fb__menusubmit">
+    <section class="fb__infobox">
+        <p class="fb__info-line">데이터는 현재 월을 포함 한 직전 3개월까지 제공합니다.</p>
+    </section>
+</section>
+<section class="fb__menusubmit">
+    <fieldset class="fb-filter">
+        <div class="fb__tap ">
+            <ul class="fb__tap__inner" id="devTap">
+                <li class="fb__tap__menu">
+                    <a href="#devSmsLog" class="fb__tap__menu--active">
+                        문자 메시지
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devKakaoLog">
+                        알림톡
+                    </a>
+                </li>
+                <li class="fb__tap__menu">
+                    <a href="#devMailLog">
+                        대량 메일
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <section class="fb-filter fb__tapcontent__inner fb__tapcontent--show" id="devSmsLog">
+        <form id="devSmsLogListForm">
+            <input type="hidden" name="page" value="1" id="devSmsLogPageNum"/>
+            <input type="hidden" name="max" value="10"/>
+            <fieldset>
+                <legend>
+                    로그 목록
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="8%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>조건검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="search_type" class="fb-filter__select">
+                                <option value="" >선택해주세요</option>
+                                <option value="from" >발신번호</option>
+                                <option value="to" >수신번호</option>
+                            </select>
+                            <input type="text" class="fb-filter__text" name="search_text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>Type</span>
+                        </th>
+                        <td colspan="3">
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="type" value="" checked>
+                                        <span>전체</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="type" value="SMS">
+                                        <span>SMS</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="type" value="LMS">
+                                        <span>LMS</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                발송요청상태
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="statusName" value="" checked>
+                                        <span>전체</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="statusName" value="success" >
+                                        <span>성공</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="statusName" value="fail">
+                                        <span>실패</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                요청일시
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day" id="devSmsLogDatePickerStart" name="startDate" value="" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day" id="devSmsLogDatePickerEnd" name="endDate" value="" readonly>
+                            <span id="devQuickSmsLogDate"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devSmsLogFormSubmit" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devSmsLogFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="fb-filter fb__tapcontent__inner" id="devKakaoLog">
+        <form id="devKakaoLogListForm">
+            <input type="hidden" name="page" value="1" id="devKakaoLogPageNum"/>
+            <input type="hidden" name="max" value="10"/>
+            <fieldset>
+                <legend>
+                    로그 목록
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="8%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>조건검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="search_type" class="fb-filter__select">
+                                <option value="" >선택해주세요</option>
+                                <option value="template_code" >템플릿코드</option>
+                                <option value="to" >수신번호</option>
+                            </select>
+                            <input type="text" class="fb-filter__text" name="search_text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                발송요청상태
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="statusName" value="" checked>
+                                        <span>전체</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="statusName" value="success">
+                                        <span>성공</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="statusName" value="fail">
+                                        <span>실패</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>Failover 상태</span>
+                        </th>
+                        <td colspan="3">
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="failoverStatusName" value="" checked>
+                                        <span>전체</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="failoverStatusName" value="success">
+                                        <span>성공</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="failoverStatusName" value="fail">
+                                        <span>실패</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                요청일시
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day" id="devKakaoLogDatePickerStart" name="startDate" value="" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day" id="devKakaoLogDatePickerEnd" name="endDate" value="" readonly>
+                            <span id="devQuickKakaoLogDate"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devKakaoLogFormSubmit" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devKakaoLogFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="fb-filter fb__tapcontent__inner" id="devMailLog">
+        <form id="devMailLogListForm">
+            <input type="hidden" name="page" value="1" id="devMailLogPageNum"/>
+            <input type="hidden" name="max" value="10"/>
+            <fieldset>
+                <legend>
+                    로그 목록
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="8%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>조건검색</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <select name="search_type" class="fb-filter__select">
+                                <option value="" >선택해주세요</option>
+                                <option value="request_id" >요청 아이디</option>
+                                <option value="template_code" >템플릿코드</option>
+                                <option value="from" >발송자 주소</option>
+                                <option value="to" >수신자 주소</option>
+                            </select>
+                            <input type="text" class="fb-filter__text" name="search_text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                발송상태
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <div>
+                                <div class="fb-filter__radio">
+                                    <label>
+                                        <input type="radio" name="statusName" value="" checked>
+                                        <span>전체</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="statusName" value="success">
+                                        <span>성공</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="statusName" value="fail">
+                                        <span>실패</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>
+                                요청일시
+                            </span>
+                        </th>
+                        <td colspan="3" class="fb-filter__day-wrap">
+                            <div class="fb-filter__input__day-box">
+                                <input type="text" class="fb-filter__text fb-filter__input__day" id="devMailLogDatePickerStart" name="startDate" value="" readonly>
+                            </div>
+                            <input type="text" class="fb-filter__text fb-filter__input__day" id="devMailLogDatePickerEnd" name="endDate" value="" readonly>
+                            <span id="devQuickMailLogDate"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" id="devMailLogFormSubmit" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devMailLogFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter" id="devSmsGridSection">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">
+            (총 <em class="fb-maincontent-count" id="devSmsTotal">0</em>개)
+            (성공 <em class="fb-maincontent-count" id="devSmsSuccessTotal">0</em>개)
+            (실패 <em class="fb-maincontent-count" id="devSmsFailTotal">0</em>개)
+        </span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <button class="fb-filter__btn-excel" id="devSmsExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devSmsLogPagingGrid"></div>
+    <div id="devSmsLogPageWrap" class="fb__bbs__page"></div>
+</section>
+
+
+<section class="fb__menusubmit fb-filter" id="devKakaoGridSection" style="display: none;">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">
+            (총 <em class="fb-maincontent-count" id="devKakaoTotal">0</em>개)
+            (성공 <em class="fb-maincontent-count" id="devKakaoSuccessTotal">0</em>개)
+            (실패 <em class="fb-maincontent-count" id="devKakaoFailTotal">0</em>개)
+        </span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <button class="fb-filter__btn-excel" id="devKakaoExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devKakaoLogPagingGrid"></div>
+    <div id="devKakaoLogPageWrap" class="fb__bbs__page"></div>
+</section>
+
+
+<section class="fb__menusubmit fb-filter" id="devMailGridSection" style="display: none;">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">
+            (총 <em class="fb-maincontent-count" id="devMailTotal">0</em>개)
+            (성공 <em class="fb-maincontent-count" id="devMailSuccessTotal">0</em>개)
+            (실패 <em class="fb-maincontent-count" id="devMailFailTotal">0</em>개)
+        </span>
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <button class="fb-filter__btn-excel" id="devMailExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devMailLogPagingGrid"></div>
+    <div id="devMailLogPageWrap" class="fb__bbs__page"></div>
+</section>

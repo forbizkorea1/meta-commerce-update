@@ -1,0 +1,55 @@
+<!--{#devStatisticsTop}-->
+<section class="fb-filter devChartArea">
+    <canvas id="devChart"></canvas>
+</section>
+<section class="fb-filter">
+    <table class="fb-filter__table">
+        <caption>주문자 정보</caption>
+        <colgroup>
+        </colgroup>
+        <tr>
+            <th class="">
+                <span>총 주문건수</span>
+            </th>
+            <th class="">
+                <span>총 주문상세건수</span>
+            </th>
+            <th class="">
+                <span>총 결제금액</span>
+            </th>
+            <th class="">
+                <span>총 상품 금액</span>
+            </th>
+            <th class="">
+                <span>총 취소금액</span>
+            </th>
+            <th class="">
+                <span>총 매출액</span>
+            </th>
+        </tr>
+        <tr>
+            <th id="devTotalOrderCnt"></th>
+            <th id="devTotalOrderDetailCnt"></th>
+            <th id="devTotalPaymentPrice"></th>
+            <th id="devTotalProductPrice"></th>
+            <th id="devTotalCancelPrice"></th>
+            <th id="devTotalSalesPrice"></th>
+        </tr>
+    </table>
+
+</section>
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+
+        <div class="fb-maincontent-fliter">
+
+            <button class="fb-filter__btn-excel" id="devExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>

@@ -1,0 +1,55 @@
+<section class="fb__menusubmit">
+    <section class="fb-filter">
+        <form id="devGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum" />
+            <input type="hidden" name="max" value="50"/>
+            <input type="hidden" name="st_div" value="{stDiv}"/>
+            <input type="hidden" name="startDate" id="devStartDate" value="{startDate}"/>
+            <input type="hidden" name="endDate" id="devEndDate" value="{endDate}"/>
+            <input type="hidden" id="devLastDate" value="{basicDate}"/>
+
+            <fieldset>
+                <header class="fb-maincontent-header">
+                    {? layoutCommon.currentPage == 'salesStatistics'}
+                        {? stDiv == 'order'}
+                        <h3 class="fb-maincontent-title"> 주문별 매출 금액을 알아 볼 수 있습니다.</h3>
+                        {: stDiv == 'orderDetail'}
+                        <h3 class="fb-maincontent-title"> 주문 상세별 판매 통계 내역을 알아 볼 수 있습니다.</h3>
+                        {: stDiv == 'product'}
+                        <h3 class="fb-maincontent-title"> 상품별 판매 통계 내역을 알아 볼 수 있습니다.</h3>
+                        {/}
+
+                    {: layoutCommon.currentPage == 'refundStatistics' }
+                        {? stDiv == 'order'}
+                        <!-- 주문별 환불통계 -->
+                        <h3 class="fb-maincontent-title">주문별 취소/환불 금액을 알아 볼 수 있습니다.</h3>
+                        {:}
+                        <!-- 상품별 환불통계, 패키지상품 환불통계 -->
+                        <h3 class="fb-maincontent-title">주문 상세별 취소/환불 금액을 알아 볼 수 있습니다.</h3>
+                        {/}
+                    {: layoutCommon.currentPage == 'channelStatistics'}
+                        <h3 class="fb-maincontent-title">판매채널별 매출 금액을 알아 볼 수 있습니다.</h3>
+                    {: layoutCommon.currentPage == 'payMethodStatistics'}
+                        <h3 class="fb-maincontent-title">결제수단별 판매통계를 분석합니다.</h3>
+                    {: layoutCommon.currentPage == 'timeStatistics'}
+                        <h3 class="fb-maincontent-title">시간대별 매출 금액을 알아 볼 수 있습니다.</h3>
+                    {: layoutCommon.currentPage == 'memberStatistics'}
+                        <h3 class="fb-maincontent-title">회원 통계를 알아 볼 수 있습니다.</h3>
+                    {/}
+
+
+                    <div class="fb-maincontent-fliter">
+                        {? stDiv && stDiv != 'drop' && stDiv !='sleep'}
+                        <select class="fb-filter__select" name="type"  id="devTypeSelect">
+                            <!--{@ typeArr}-->
+                            <option value="{.key_}" >{.value_}</option>
+                            <!--{/}-->
+                        </select>
+                        {/}
+                        <input type="text" id="devDateRangePicker" class="fb-filter__text fb-filter__input__day--range" style="max-width: 150px;" readonly />
+                    </div>
+                </header>
+            </fieldset>
+        </form>
+    </section>
+</section>

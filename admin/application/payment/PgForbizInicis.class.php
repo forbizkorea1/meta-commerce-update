@@ -3,11 +3,16 @@
 /**
  * Description of PgForbizInicis
  *
- * @author Lee
- * INIpay Standard 버전
+ * @author Kim
+ * INIApi Standard 버전
  */
 class PgForbizInicis extends PgForbiz
 {
+    /**
+     * 이니시스 MID 유형
+     */
+    private $inicisType;
+
     /**
      * 가맹점 ID
      * @var type
@@ -25,6 +30,24 @@ class PgForbizInicis extends PgForbiz
      * @var type
      */
     private $iniapiKey;
+
+    /**
+     * 신 이니시스 INIAPI IV
+     * @var type
+     */
+    private $iniapiIv;
+
+    /**
+     * 신 이니시스 INIAPI IV
+     * @var type
+     */
+    private $escrowIniApiIv;
+
+    /**
+     * 구 이니시스 INIAPI KEY
+     * @var type
+     */
+    private $escrowIniApiKey;
 
     protected $api = false;
     protected $requestData = [];
@@ -52,6 +75,28 @@ class PgForbizInicis extends PgForbiz
      */
     private $homePath;
 
+    /**
+     * 환불 방식 맵핑 정보
+     * @var array
+     */
+    private $refundMethodMapping = [
+        ORDER_METHOD_CARD => 'Card'
+        , ORDER_METHOD_INAPP_PAYCO => 'Card'
+        , ORDER_METHOD_INAPP_KAKAOPAY => 'Card'
+        , ORDER_METHOD_INAPP_SSPAY => 'Card'
+        , ORDER_METHOD_INAPP_LPAY => 'Card'
+        , ORDER_METHOD_INAPP_SSGPAY => 'Card'
+        , ORDER_METHOD_INAPP_TOSS => 'Card'
+        , ORDER_METHOD_INAPP_NAVERPAY => 'Card'
+        , ORDER_METHOD_INAPP_KPAY => 'Card'
+        , ORDER_METHOD_INAPP_KBANKPAY => 'Card'
+        , ORDER_METHOD_ICHE => 'Acct'
+        , ORDER_METHOD_VBANK => 'Vacct'
+        , ORDER_METHOD_PHONE => 'HPP'
+        , ORDER_METHOD_ESCROW_ICHE => 'Acct'
+        , ORDER_METHOD_ESCROW_VBANK => 'Vacct'
+    ];
+
     public function __construct($agentType)
     {
         parent::__construct($agentType);
@@ -60,151 +105,99 @@ class PgForbizInicis extends PgForbiz
 
         if (ForbizConfig::getPaymentConfig('service_type', 'inicis') == 'service') {
             // 결제 유형
-            $inicis_type = ForbizConfig::getPaymentConfig('inicis_type', 'inicis');
+            $this->inicisType = ForbizConfig::getPaymentConfig('inicis_type', 'inicis');
             $this->iniapiKey = ForbizConfig::getPaymentConfig('iniapi_key', 'inicis');
+            $this->iniapiIv = ForbizConfig::getPaymentConfig('iniapi_iv', 'inicis');
 
-            if ($inicis_type == 'sin_escrow')  // 신에스크로
+            if ($this->inicisType == 'sin_escrow')  // 신에스크로
             {
                 $this->mid = ForbizConfig::getPaymentConfig('mid', 'inicis');
                 $this->escrowMid = $this->mid;
             } else { //구에스크로
                 $this->mid = ForbizConfig::getPaymentConfig('mid', 'inicis');
                 $this->escrowMid = ForbizConfig::getPaymentConfig('escrow_mid', 'inicis');
+
+                // 구이니시스 에스크로 iniApiKey
+                $this->escrowIniApiKey = ForbizConfig::getPaymentConfig('escrow_iniapi_key', 'inicis');
+                $this->escrowIniApiIv = ForbizConfig::getPaymentConfig('escrow_iniapi_iv', 'inicis');
             }
-            $this->cancelPassword = ForbizConfig::getPaymentConfig('cancel_pwd', 'inicis');
         }
     }
 
     public function doCancel(PgForbizCancelData $cancelData, PgForbizResponseData $responseData): PgForbizResponseData
     {
-        require_once __DIR__ . '/inicis/libs/INILib.php';
+        $payMethod = $this->getRefundPayMethod($cancelData->method);
 
-        $inipay = new INIpay50;
+        $mid = $this->mid;
 
-        /* * *******************
-         * 3. 취소 정보 설정 *
-         * ******************* */
-        $inipay->SetField("inipayhome", $this->homePath); // 이니페이 홈디렉터리(상점수정 필요)
-        $inipay->SetField("debug", "false");                             // 로그모드("true"로 설정하면 상세로그가 생성됨.)
-        $inipay->SetField("mid", $this->mid);                                 // 상점아이디
-
-        if ($cancelData->method == ORDER_METHOD_ESCROW_VBANK || $cancelData->method == ORDER_METHOD_ESCROW_ICHE)
-        {
-            $inipay->SetField("mid", $this->escrowMid);                                 // 에스크로 상점아이디
+        if (in_array($cancelData->method, [ORDER_METHOD_ESCROW_VBANK, ORDER_METHOD_ESCROW_ICHE])) { // 에스크로
+            // 구이니시스
+            if ($this->inicisType != 'sin_escrow') {
+                $this->iniapiKey = $this->escrowIniApiKey;
+                $this->iniapiIv = $this->escrowIniApiIv;
+            }
+            $mid = $this->escrowMid;
         }
+
+        // AES 암호화
+        $encAcctNum = base64_encode(openssl_encrypt($cancelData->bankNumber, 'aes-128-cbc', $this->iniapiKey, OPENSSL_RAW_DATA, $this->iniapiIv));
 
         if ($cancelData->isPartial) {//부분취소
-            if ($cancelData->method == ORDER_METHOD_VBANK || $cancelData->method == ORDER_METHOD_ESCROW_VBANK) {
-                $payMethod = "virtual-part";
+            $type = "PartialRefund";
+
+            if (in_array($cancelData->method, [ORDER_METHOD_VBANK, ORDER_METHOD_ESCROW_VBANK, ORDER_METHOD_PHONE])) { // 가상계자, 휴대폰 환붏
+                $hash = $this->iniapiKey . $type . $payMethod . date('YmdHis') . getRemoteAddr()
+                    . $mid . $cancelData->tid . $cancelData->amt . $cancelData->expectedRestAmt
+                    . $encAcctNum;
             } else {
-                $payMethod = "card-part";
+                $hash = $this->iniapiKey . $type . $payMethod . date('YmdHis') . getRemoteAddr()
+                    . $mid . $cancelData->tid . $cancelData->amt . $cancelData->expectedRestAmt;
             }
-        } else {//전체취소
-            if ($cancelData->method == ORDER_METHOD_VBANK || $cancelData->method == ORDER_METHOD_ESCROW_VBANK) {
-                $payMethod = "virtual-all";
+        } else {
+            $type = "Refund"; // 전체취소
+
+            if (in_array($cancelData->method, [ORDER_METHOD_VBANK, ORDER_METHOD_ESCROW_VBANK, ORDER_METHOD_PHONE])) { // 가상계자, 휴대폰 환붏
+                $hash = $this->iniapiKey . $type . $payMethod . date('YmdHis') . getRemoteAddr()
+                    . $mid . $cancelData->tid . $encAcctNum;
             } else {
-                $payMethod = "card-all";
+                $hash = $this->iniapiKey . $type . $payMethod . date('YmdHis') . getRemoteAddr()
+                    . $mid . $cancelData->tid;
             }
         }
 
-        $inipay->SetField("type", $payMethod);                            // 고정 (절대 수정 불가)
+        $requestData = [
+            'type' => $type // 고정
+            , 'paymethod' => $payMethod // 지불수단 코드
+            , 'timestamp' => date('YmdHis')
+            , 'clientIp' => getRemoteAddr()
+            , 'mid' => $mid
+            , 'tid' => $cancelData->tid
+            , 'msg' => $cancelData->message
+            , 'hashData' => hash("sha512", $hash)
+        ];
 
-        if (in_array($payMethod, ['virtual-all', 'virtual-part', 'card-part'])) {
-            $rbankCode = $this->getBankCodeByForbizBankCode($cancelData->bankCode);
-            $racctName = iconv("UTF-8", "EUC-KR", $cancelData->bankOwner);
+        if ($cancelData->isPartial) {
+            $requestData['price'] = $cancelData->amt; // 취소요청 금액
+            $requestData['confirmPrice'] = $cancelData->expectedRestAmt; // 부분취소 후 남은금액
         }
 
-        switch ($payMethod) {
-            case 'escrow' :
-                $inipay->SetField("tid", $cancelData->tid); // 거래아이디
-                //$inipay->SetField("mid", $this->mid); // 상점아이디
-                $inipay->SetField("type", "escrow");                                    // 고정 (절대 수정 불가)
-                $inipay->SetField("escrowtype", "dcnf");                                    // 고정 (절대 수정 불가)
-                $inipay->SetField("dcnf_name", 'system');
-                break;
-            case 'virtual-all' :
-                // Vcard ( or virtual ) - All Cancel
-                $inipay->SetField("type", "refund");
-                //$inipay->SetField("mid", $this->mid);
-                $inipay->SetField("tid", $cancelData->tid);
-                $inipay->SetField("racctnum", $cancelData->bankNumber);
-                $inipay->SetField("rbankcode", $rbankCode);
-                $inipay->SetField("racctname", $racctName);
-                break;
-            case 'virtual-part' :
-                // Vcard ( or virtual ) - Part Cancel
-                $inipay->SetField("type", "vacctrepay");
-                $inipay->SetField("pgid", "INIphpRPAY");
-                $inipay->SetField("subpgip", "203.238.3.10");
-                //$inipay->SetField("mid", $this->mid);
-                $inipay->SetField("oldtid", $cancelData->tid);
-                $inipay->SetField("currency", 'WON');
-                $inipay->SetField("price", $cancelData->amt);
-                $inipay->SetField("confirm_price", $cancelData->expectedRestAmt);
-                $inipay->SetField("buyeremail", $cancelData->buyerEmail);
-                $inipay->SetField("refundbankcode", $rbankCode);
-                $inipay->SetField("refundacctnum", $this->bankNumber);
-                $inipay->SetField("refundacctname", $racctName);
-                $inipay->SetField("refundflgremit", '0'); // 펌뱅킹 사용여부 ? || 가상계좌 부분환불 송금 처리 여부(1:송금환불사용) ?
-                break;
-            case 'card-all':
-                // Card - All Cancel
-                $inipay->SetField("type", "cancel");
-                //$inipay->SetField("mid", $this->mid);
-                $inipay->SetField("tid", $cancelData->tid);
-                break;
-            case 'card-part':
-                // Card - Part Cancel
-                $inipay->SetField("type", "repay");
-                $inipay->SetField("pgid", "INIphpRPAY");      // 고정 (절대 수정 불가)
-                $inipay->SetField("subpgip", "203.238.3.10");                // 고정
-                //$inipay->SetField("mid", $this->mid);
-                $inipay->SetField("oldtid", $cancelData->tid);
-                $inipay->SetField("currency", 'WON');
-                $inipay->SetField("price", $cancelData->amt);
-                $inipay->SetField("confirm_price", $cancelData->expectedRestAmt);
-                $inipay->SetField("buyeremail", $cancelData->buyerEmail);
-                if (in_array($rbankCode, ['04'])) {
-                    $inipay->SetField('no_acct', $this->bankNumber);
-                    $inipay->SetField('nm_acct', $racctName);
-                }
-                break;
-            default :
-                break;
+        if (in_array($cancelData->method, [ORDER_METHOD_VBANK, ORDER_METHOD_ESCROW_VBANK, ORDER_METHOD_PHONE])) { // 가상계자, 휴대폰 환붏
+            $requestData['refundAcctNum'] = $encAcctNum;
+            $requestData['refundBankCode'] = $this->getBankCodeByForbizBankCode($cancelData->bankCode);;
+            $requestData['refundAcctName'] = $cancelData->bankOwner;
         }
-        /* * ************************************************************************************************
-         * admin 은 키패스워드 변수명입니다. 수정하시면 안됩니다. 1111의 부분만 수정해서 사용하시기 바랍니다.
-         * 키패스워드는 상점관리자 페이지(https://iniweb.inicis.com)의 비밀번호가 아닙니다. 주의해 주시기 바랍니다.
-         * 키패스워드는 숫자 4자리로만 구성됩니다. 이 값은 키파일 발급시 결정됩니다.
-         * 키패스워드 값을 확인하시려면 상점측에 발급된 키파일 안의 readme.txt 파일을 참조해 주십시오.
-         * ************************************************************************************************ */
-        $inipay->SetField("admin", $this->cancelPassword);
-        $inipay->SetField("cancelmsg", $cancelData->message); // 취소사유
 
-        /* * **************
-         * 4. 취소 요청 *
-         * ************** */
-        $inipay->startAction();
+        $this->requestData = $requestData;
 
-        /* * **************************************************************
-         * 5. 취소 결과                                           	*
-         *                                                        	*
-         * 결과코드 : $inipay->getResult('ResultCode') ("00"이면 취소 성공)  	*
-         * 결과내용 : $inipay->getResult('ResultMsg') (취소결과에 대한 설명) 	*
-         * 취소날짜 : $inipay->getResult('CancelDate') (YYYYMMDD)          	*
-         * 취소시각 : $inipay->getResult('CancelTime') (HHMMSS)            	*
-         * 현금영수증 취소 승인번호 : $inipay->getResult('CSHR_CancelNum')    *
-         * (현금영수증 발급 취소시에만 리턴됨)                          *
-         * ************************************************************** */
-        if ($inipay->getResult('ResultCode') == '00') {
+        $result = $this->setApi('doRefund')->callApi();
+
+        if (isset($result["resultCode"]) && $result["resultCode"] == "00") {
             $responseData->result = true;
         } else {
             $responseData->result = false;
-            $responseData->message = trim(iconv('euc-kr', 'utf-8', $inipay->getResult('ResultMsg')));
+            $responseData->message = $result['resultMsg'];
         }
-
         return $responseData;
-
     }
 
     public function setApi($type)
@@ -249,6 +242,11 @@ class PgForbizInicis extends PgForbiz
      */
     public function doDelivery($data)
     {
+        // 구이니시스
+        if ($this->inicisType != 'sin_escrow') {
+            $this->iniapiKey = $this->escrowIniApiKey;
+        }
+
         $hash = $this->iniapiKey . 'Dlv' . date('YmdHis') . getRemoteAddr()
             . $this->escrowMid . $data['oid'] . $data['tid'] . $data['price'];
 
@@ -323,6 +321,8 @@ class PgForbizInicis extends PgForbiz
             , 'sl' => '64'
             , 'sk' => '45'
             , 'sj' => '50'
+            , 'kbk'=> '89'
+            , 'kko' => '90'
         ];
 
         return $BankCode[$code] ?? '';
@@ -350,5 +350,10 @@ class PgForbizInicis extends PgForbiz
         ];
 
         return $deliveryCode[$code] ?? '9999';
+    }
+
+    private function getRefundPayMethod($method)
+    {
+        return $this->refundMethodMapping[$method] ?? '';
     }
 }

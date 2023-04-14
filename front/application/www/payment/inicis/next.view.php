@@ -78,7 +78,7 @@ if ($applyResult['result']) {
             ORDER_METHOD_INAPP_KPAY,
             ORDER_METHOD_INAPP_NAVERPAY])) { //카드
         $status = ORDER_STATUS_INCOM_COMPLETE;
-        $payment['memo'] = $applyData['P_FN_NM'] . ($applyData['CARD_Quota'] ? "(" . $applyData['CARD_Quota'] . ")" : '');
+        $payment['memo'] = $applyData['P_FN_NM'] . ($applyData['P_RMESG2'] ? "(" . $applyData['P_RMESG2'] . ")" : '');
     } else {
         $status = '';
     }

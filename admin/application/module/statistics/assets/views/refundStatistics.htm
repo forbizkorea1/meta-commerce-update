@@ -1,0 +1,58 @@
+<!--{#devStatisticsTop}-->
+<section class="fb-filter devChartArea">
+    <canvas id="devChart"></canvas>
+</section>
+<section class="fb-filter">
+    <table class="fb-filter__table">
+        <caption>주문자 정보</caption>
+        <colgroup>
+        </colgroup>
+        <tr>
+            <th class="">
+                <span>취소완료/환불완료 건수</span>
+            </th>
+            <th class="">
+                <span>취소완료/환불완료 금액 합계</span>
+            </th>
+            <th class="">
+                <span>반품완료/환불완료 건수</span>
+            </th>
+            <th class="">
+                <span>반품완료/환불완료 금액 합계</span>
+            </th>
+            <th class="">
+                <span>환불금액 합계</span>
+            </th>
+        </tr>
+        <tr>
+            <th id="devTotalCancelCnt"></th>
+            <th id="devTotalCancelRefundPrice"></th>
+            <th id="devTotalReturnCnt"></th>
+            <th id="devTotalReturnRefundPrice"></th>
+            <th id="devTotalRefundPrice"></th>
+        </tr>
+    </table>
+
+</section>
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count"
+                                                                                     id="devTotal">0</em>개)</span>
+
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+            <button class="fb-filter__btn-excel" id="devExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devPagingGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>

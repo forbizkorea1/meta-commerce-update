@@ -1,0 +1,81 @@
+{? stDiv != 'product'}
+<section class="fb-filter">
+    <canvas id="devChartDetail"></canvas>
+</section>
+{/}
+<form id="devDetailGridForm">
+    <input type="hidden" name="type" value="{type}" />
+    <input type="hidden" name="startDate"  value="{startDate}"/>
+    <input type="hidden" name="endDate"  value="{endDate}"/>
+    <input type="hidden" name="type_value"  value="{type_value}"/>
+    <input type="hidden" name="st_div" id="" value="{stDiv}"/>
+
+    {? type == 'cid' && subCidData != ''}
+    <fieldset>
+        <section class="fb__menusubmit">
+            <section class="fb-filter">
+                <table>
+                    <caption>cascading</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="14%">
+                        <col width="14%">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>1D 카테고리명</span>
+                        </th>
+                        <th class="fb-filter__title">
+                             <span>2D 카테고리명</span>
+                        </th>
+                        <th class="fb-filter__title">
+                             <span>3D 카테고리명</span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="fb__table">
+                            <div class="fb-filter__title-contents">
+                                {cname}
+                            </div>
+                        </td>
+                        <td class="fb__table">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select" name="depth2" id="devSelectCategory">
+                                    <option value="" data-cascading=true>선택해주세요</option>
+                                    {@ subCidData}
+                                    <option value="{.cid}" data-cascading=true>{.cname}</option>
+                                    {/}
+                                </select>
+                            </div>
+                        </td>
+                        <td class="fb__table">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select" name="depth3" id="devSelectCategory1">
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+    </fieldset>
+    {/}
+</form>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count"
+                                                                                     id="devDetailTotal">0</em>개)</span>
+
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <button class="fb-filter__btn-excel" id="devDetailExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devDetailPagingGrid"></div>
+    <div id="devDetailPageWrap" class="fb__bbs__page"></div>
+</section>

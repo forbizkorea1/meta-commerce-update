@@ -1,0 +1,23 @@
+<form id="devDetailGridForm">
+    <input type="hidden" name="type" value="{type}" />
+    <input type="hidden" name="startDate"  value="{startDate}"/>
+    <input type="hidden" name="endDate"  value="{endDate}"/>
+    <input type="hidden" name="type_value"  value="{type_value}"/>
+</form>
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count"
+                                                                                     id="devDetailTotal">0</em>개)</span>
+
+        </h3>
+        <div class="fb-maincontent-fliter">
+            <button class="fb-filter__btn-excel" id="devDetailExcelDownload">
+                <span>
+                    엑셀 다운로드
+                </span>
+            </button>
+        </div>
+    </header>
+    <div id="devDetailPagingGrid"></div>
+    <div id="devDetailPageWrap" class="fb__bbs__page"></div>
+</section>
