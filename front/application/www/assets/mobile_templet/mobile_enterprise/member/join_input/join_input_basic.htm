@@ -44,9 +44,9 @@
 
             <!-- 이름 -->
             <dl>
-                <dt>{=trans('이름')} {? useCertify == 'N'}<em>*</em>{/}</dt>
+                <dt>{=trans('이름')} {? useCertify == 'N' && useSso == 'N'}<em>*</em>{/}</dt>
                 <dd>
-                    {? useCertify == 'N'}
+                    {? useCertify == 'N' && useSso == 'N'}
                     <input type="text" id="devUserName" name="name" title="{=trans('이름')}">
                     {:}
                     <input type="text" value="{userName}" disabled>
@@ -56,9 +56,9 @@
 
             <!-- 생년월일 -->
             <dl class="birth-area">
-                <dt>{=trans('생년월일')} {? useCertify == 'N'}<em>*</em>{/}</dt>
+                <dt>{=trans('생년월일')} {? useCertify == 'N' && useSso == 'N'}<em>*</em>{/}</dt>
                 <dd>
-                    {? useCertify == 'N'}
+                    {? useCertify == 'N' && useSso == 'N'}
                     <div class="sex">
                         <label class="sex__box">
                             <input type="radio" name="birthdayDiv" value="1" checked>
@@ -78,41 +78,32 @@
                         <input class="fb__input__phone--03 js__input--onlyNumber" type="text" name="birthday3" id="devUserBirthday3" title="{=trans('생년월일')}">
                     </div>
                     {:}
-                    <input type="text" class="birth-input" value="{changeFormatBirthday}" disabled>
-
-                    <div class="sex">
-                        <label class="sex__box">
-                            <input type="radio" id="male" name="sex" value="{=trans('남성')}" {? changeFormatSexDiv != "{=trans('여성')}"}checked{/}>
-                            <span>{=trans('남성')}</span>
-                        </label>
-
-                        <label class="sex__box">
-                            <input type="radio" id="female" name="sex" value="{=trans('여성')}" {? changeFormatSexDiv =="{=trans('여성')}"}checked{/}>
-                            <span>{=trans('여성')}</span>
-                        </label>
-                    </div>
+                    <input type="text"  value="{changeFormatBirthday}" disabled>
                     {/}
                 </dd>
             </dl>
 
-            {? useCertify == 'N'}
             <dl class="birth-area">
                 <dt>{=trans('성별')} <em>*</em></dt>
                 <dd>
                     <div class="sex">
                         <label class="sex__box">
-                            <input type="radio" id="male" name="sexDiv" value="M" checked>
+                            <input type="radio"  name="sexDiv" value="M" {? changeFormatSexDiv =="{=trans('남성')}"}checked{/}>
                             <span>{=trans('남성')}</span>
                         </label>
 
                         <label class="sex__box">
-                            <input type="radio" id="female" name="sexDiv" value="W">
+                            <input type="radio"  name="sexDiv" value="W" {? changeFormatSexDiv =="{=trans('여성')}"}checked{/}>
                             <span>{=trans('여성')}</span>
+                        </label>
+
+                        <label class="sex__box">
+                            <input type="radio"  name="sexDiv" value="D" {? changeFormatSexDiv ==""}checked{/}>
+                            <span>{=trans('기타')}</span>
                         </label>
                     </div>
                 </dd>
             </dl>
-            {/}
 
             <!-- 이메일 -->
             <dl class="email-area">

@@ -1764,9 +1764,20 @@
             &__option {
                 position: relative;
 
+                
+
                 label {
                     display: block;
                     cursor: pointer;
+                    
+                    &:focus { 
+                        input ~ span { 
+                            background: #f1f1f1;
+                        }
+                        input:disabled ~ span {
+                            background: none;
+                        }
+                    }
 
                     span {
                         display: block;

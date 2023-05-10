@@ -286,7 +286,7 @@
                         <td>{ list.index_ + 1 }</td>
                         <td>{ list.regdate }</td>
                         <td>{ list.nm_charger }</td>
-                        <td>{? list.status=="1" }성공{:}실패{/}</td>
+                        <td>{? list.status=="1" }성공{: list.status=="2"}취소{:}실패{/}</td>
                     </tr>
                     <!--{/}-->
                     {:}
@@ -299,6 +299,17 @@
             </section>
         </section>
         <!--    산해 개발 끝-->
+        <h5 class="fb__section-title">유의사항</h5>
+        <section class="fb__infobox">
+            <p class="">
+                - 본 서비스는 유료 부가서비스로 최초 가입비 외 매달 건당 이용 요금이 계산되어 과금되는 후불 결제 방식입니다. <br/>
+                - 인증서비스 제공사 심사기준에 따라 일부 업종은 이용이 불가할 수 있습니다.<br/>
+                - 가입비: (사이트당 최초 1회) 30,000원 발생<br/>
+                - 이용요금: 성공 건당 35원 (VAT 별도)
+            </p>
+
+        </section>
+
         <h5 class="fb__section-title">서비스 제공사</h5>
         <section class="fb__thumb-item">
             <div class="fb__thumb-item__list">
@@ -331,6 +342,9 @@
 <section class="fb__menusubmit ">
     <section class="fb-filter">
         <form method="post" id="devSsoForm">
+            <input type="hidden" name="sg_ix" value="{sg_ix}" />
+            <input type="hidden" name="sp_name" value="{sp_name}"/>
+            <input type="hidden" name="sp_price" value="{sp_price}"/>
             <div class="fb__popup__pay-wrap">
                 <h5 class="fb__section-title">통합인증 신청 정보</h5>
                 <div class="fb__table-row">
@@ -403,10 +417,15 @@
                         </tr>
                     </table>
                 </div>
-                <div style="padding: 20px 0;">
+                <div style="padding: 20px 0 0 10px;">
                     <h5 class="fb__section-title">정보 미입력 또는 변경이 필요한 경우 서비스 신청전에 수정하셔야 합니다.</h5>
                     <p class="fb__info-line">사업자 정보 : 상점관리 > 쇼핑몰 환경설정 > 사업자 정보(사업자정보 tap)</p>
                     <p class="fb__info-line">담당자 정보 : 상점관리 > 관리자 설정 > 관리자 리스트 > 신청자 정보 수정</p>
+                </div>
+                <div style="padding: 0 0 20px 10px;">
+                    <h5 class="fb__section-title">통합인증 서비스 이용요금</h5>
+                    <p class="fb__info-line">가입비 : 서비스 신청 시 30,000원(최초 1회)</p>
+                    <p class="fb__info-line">이용요금 : 건당 35원(VAT 별도)</p>
                 </div>
 
                 <div class="fb-filter__btn">

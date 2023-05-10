@@ -41,7 +41,6 @@ unset($_reqUrl_);
 defined('ANALYSIS_TAG_JS') OR define('ANALYSIS_TAG_JS', '/analysisTag.js');
 defined("IMAGE_SERVER_DOMAIN") OR define("IMAGE_SERVER_DOMAIN", HTTP_PROTOCOL . FORBIZ_BASEURL);
 
-define('DEFAULT_GPIX', 7); // 기본회원 등급
 define('NEW_PRODUCT_DAY', 7); // 상품NEW 뱃지 노출기간 정의(일단위)
 
 define('APP_SCHEME', 'php-vfix://');

@@ -72,7 +72,7 @@
                             <input type="radio" name="orderAddress" class="devOrderAddressRadio" data-ix="{[ix]}" value="{[index]}" style="display:none;" checked/>
                             <div class="delivery__list__name">
                                 <span class="name devName">{[recipient]}</span> <span class="sub-name devSubName">{[#if shipping_name]}({[shipping_name]}){[/if]}</span>
-                                {[#if isBasic]}<span class="default-delivery devBasic">{=trans('기본 배송지')}</span>{[/if]}
+                                <span class="default-delivery devBasic">{=trans('기본 배송지')}</span>
                             </div>
                             <div class="delivery__list__addr"><span class="devAddress1">{[address1]}</span> {[#if address2]}<br><span class="devAddress2">{[address2]}</span>{[/if]}</div>
                             <div class="delivery__list__tel devMobile">{[mobile]}</div>

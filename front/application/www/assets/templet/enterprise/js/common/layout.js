@@ -81,8 +81,9 @@ $(document).ready(function () {
         $(this).closest('[devDelkey]').remove();
 
         common.ajax(common.util.getControllerUrl('deleteRecentKeyword', 'product'), {searchText: delText}, "", function () {
-            if ($('.ul-recent-search').children().length == 0) {
-                $('#tab2').html("<div class='fb__empty devRecentEmpty'><p class='fb__empty__text'>최근 검색어가 없습니다.</p></div>")
+            if ($('.devRecentKeyword li').length == 0) {
+                $('.devRecentEmpty').show();
+                //$('#tab2').html("<div class='fb__empty devRecentEmpty'><p class='fb__empty__text'>최근 검색어가 없습니다.</p></div>")
             }
         });
 
@@ -92,7 +93,8 @@ $(document).ready(function () {
     //최근검색어 전체삭제시
     $('#devRecentKeyWordDeleteAll').on('click', function () {
         $('.ul-recent-search li').hide();
-
+        $('.devRecentKeyword').remove();
+        $('.devRecentEmpty').show();
         common.ajax(common.util.getControllerUrl('deleteAllRecentKeyword', 'product'), {}, "", function () {
             // $('.lately').html("<div class='fb__empty devRecentEmpty'><p class='fb__empty__text'>최근 검색어가 없습니다.</p></div>")
         });

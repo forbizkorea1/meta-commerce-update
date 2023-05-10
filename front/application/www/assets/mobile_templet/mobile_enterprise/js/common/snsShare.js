@@ -120,9 +120,14 @@ var snsShare = new function() {
 };
 
 document.addEventListener("DOMContentLoaded", function(){
-    document.querySelector('[devSnsShare]').onclick = function() {
-        var snsType = this.getAttribute('devSnsShare');
-        var appType = '';
-        snsShare.toSNS(snsType, appType);
-    };
+    const snsBtn = document.querySelectorAll('button[devSnsShare]');
+
+    for (var i = 0; i < snsBtn.length; i++) {
+        snsBtn[i].addEventListener('click', function (event) {
+            var snsType = this.getAttribute('devSnsShare');
+            var appType = '';
+
+            snsShare.toSNS(snsType, appType);
+        });
+    }
 });

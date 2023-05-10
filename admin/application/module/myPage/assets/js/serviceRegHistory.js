@@ -15,6 +15,7 @@ var devMyPageServiceRegHistoryObj = {
         common.lang.load('grid.label.service_price', '결제/취소 금액');
         common.lang.load('grid.label.service_date', '결제/취소 일자');
         common.lang.load('grid.label.act', '관리');
+        common.lang.load('grid.label.receipt', '영수증');
 
         common.lang.load('mypage.msg.refund.alert', '취소 및 환불은 메타커머스 고객센터에 문의해주세요.');
     },
@@ -44,27 +45,34 @@ var devMyPageServiceRegHistoryObj = {
             }
 
         });
+        $('[data-ax5grid-panel="body"]').on('click', '.devReciptBtn', function () {
+            var row = self.serviceHistoryGrid.getRow($(this).data('idx'));
+
+            if(row.receiptUrl){
+                common.util.popup(row.receiptUrl, 460, 830, 'receipt');
+            }
+
+        });
+
     },
     devTabData: {},
     devServiceTab: function(selected, code, type){
         var self = devMyPageServiceRegHistoryObj;
 
-        if (code == 'sso') {
-            self.hideAllGrid();
-        } else {
-            switch(selected) {
-                case '#devServiceLookup':
-                case '#devServiceAutoComplete':
-                case '#devServiceSms':
-                case '#devServiceAlimTalk':
-                case '#devServiceBulkMail':
-                    self.showPointGrid();
-                break;
-                default:
-                    self.showTermGrid();
-                break;
-            }
+
+        switch(selected) {
+            case '#devServiceLookup':
+            case '#devServiceAutoComplete':
+            case '#devServiceSms':
+            case '#devServiceAlimTalk':
+            case '#devServiceBulkMail':
+                self.showPointGrid();
+            break;
+            default:
+                self.showTermGrid();
+            break;
         }
+
 
         if (typeof self.devTabData[code] !== 'undefined') {
             self.serviceHistoryGrid.setContent(self.devTabData[code].data.historyList);
@@ -80,14 +88,28 @@ var devMyPageServiceRegHistoryObj = {
                     self.devTabData[code] = response;
 
                     if (type == 'use') {
+                        var statusBool = false;
+                        $.each( response.data.sso, function (i, val) {
+                            if(val.status == '1'){
+                                statusBool = true;
+                            }
+                        });
                         if (response.data.sso.length > 0) {
-                            $(selected+' .devRemainCount').text('신청');
+                            if(statusBool){
+                                $(selected+' .devRemainCount').text('신청');
+                            }else{
+                                $(selected+' .devRemainCount').text('신청안함');
+                            }
+
                         } else {
                             $(selected+' .devRemainCount').text('신청안함');
                         }
                     }
 
-                    // self.serviceHistoryGrid.setContent(self.devTabData[code].data.historyList);
+                    self.serviceHistoryGrid.setContent(self.devTabData[code].data.historyList);
+                    
+                    //결제 취소 불가에 따른 영역 제거
+                    self.serviceHistoryGrid.removeColumn()
                 }
             );
         } else {
@@ -225,6 +247,13 @@ var devMyPageServiceRegHistoryObj = {
                             return this.item.payment_date;
                         }
                     }},
+                {key: "receitpUrl", label: common.lang.get('grid.label.receipt'), width: 200, align: 'center', formatter: function () {
+                        var receiptUrl = '-';
+                        if(typeof this.item.receiptBool !== 'undefined' && this.item.receiptBool == true ){
+                            receiptUrl = '<input type="button" class="fb-filter__edit devReciptBtn" data-idx="' + this.item.__index + '" value="영수증" />';
+                        }
+                        return receiptUrl;
+                    }},
                 {
                     key: "act",
                     label: '',
@@ -233,7 +262,7 @@ var devMyPageServiceRegHistoryObj = {
                     formatter: function () {
                         if (this.item.status == 'CC') {
                             return "신청취소";
-                        } else if (this.item.service_code == 'seller' || this.item.service_code == 'market') {
+                        } else if (this.item.service_code == 'seller' || this.item.service_code == 'market' || this.item.service_code == 'FAT') {
                             return "-";
                         } else if (this.item.status_text == '취소/환불') {
                             return '<input type="button" class="fb-filter__edit devDivGridCancel" data-idx="' + this.item.__index + '" value="취소/환불" />';

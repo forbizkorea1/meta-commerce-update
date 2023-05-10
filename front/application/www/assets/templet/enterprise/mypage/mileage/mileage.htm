@@ -32,7 +32,7 @@
             <form id="devMileageForm">
                 <input type="hidden" name="page" value="1" id="devPage"/>
                 <input type="hidden" name="max" value="10" id="devMax"/>
-                <input type="hidden" name="state" value="" id="state"/>
+                <input type="hidden" name="state" value="" id="devState"/>
                 <input type="hidden" name="sDateDef" id="sDateDef" value="{sDate}" />
                 <input type="hidden" name="eDateDef" id="eDateDef" value="{eDate}" />
 
@@ -69,13 +69,13 @@
             <div class="mileage__detail-box type-third">
                 <!--tab-control-->
                 <ul class="fb__mypage__tab">
-                    <li devFilterState="" class="fb__mypage__tab-menu fb__mypage__tab-menu--active">
+                    <li class="devFilterState fb__mypage__tab-menu fb__mypage__tab-menu--active" data-index="">
                         <a href="#">{=trans('전체')}</a>
                     </li>
-                    <li devFilterState="1" class="fb__mypage__tab-menu">
+                    <li class="devFilterState fb__mypage__tab-menu" data-index="1">
                         <a href="#">{=trans('적립내역')}</a>
                     </li>
-                    <li devFilterState="2" class="fb__mypage__tab-menu">
+                    <li class="devFilterState fb__mypage__tab-menu" data-index="2">
                         <a href="#">{=trans('사용내역')}</a>
                     </li>
                 </ul>

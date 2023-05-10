@@ -53,13 +53,13 @@ var devJoinInputObj = {
     beforeCallback: function ($form) {
         var self = devJoinInputObj;
         //생년월일 체크
-        if ($('#devUserBirthday1').val().length != 4) {
+        if (typeof $('#devUserBirthday1').val() !== 'undefined' && $('#devUserBirthday1').val().length != 4) {
             common.noti.alert(common.lang.get('joinInput.common.validation.birthday01.length'));
             return false;
-        } else if ($('#devUserBirthday2').val().length != 2) {
+        } else if (typeof $('#devUserBirthday2').val() !== 'undefined' && $('#devUserBirthday2').val().length != 2) {
             common.noti.alert(common.lang.get('joinInput.common.validation.birthday02.length'));
             return false;
-        } else if ($('#devUserBirthday3').val().length != 2) {
+        } else if (typeof $('#devUserBirthday3').val() !== 'undefined' && $('#devUserBirthday3').val().length != 2) {
             common.noti.alert(common.lang.get('joinInput.common.validation.birthday03.length'));
             return false;
         }
@@ -118,8 +118,10 @@ var devJoinInputObj = {
             return location.href = '/member/joinEnd';
         } else if (response.result == "sessionIssue") { //세션 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.sessionIssue'));
+            return  location.href = '/';
         } else if (response.result == "authIssue") { //인증 데이터 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.authIssue', self.authIssueCallback));
+            return  location.href = '/';
         } else if (response.result == "doubleId") { //중복된 아이디
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.doubleId', self.doubleIdCallback));
         } else {
@@ -151,8 +153,10 @@ var devJoinInputObj = {
             return location.href = '/member/joinEnd';
         } else if (response.result == "sessionIssue") { //세션 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.sessionIssue'));
+            return  location.href = '/';
         } else if (response.result == "authIssue") { //인증 데이터 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.authIssue', self.companyAuthIssueCallback));
+            return  location.href = '/';
         } else if (response.result == "doubleId") { //중복된 아이디
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.doubleId', self.companyDoubleIdCallback));
         } else {

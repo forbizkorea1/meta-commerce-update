@@ -15692,6 +15692,7 @@ details[open] summary + * {
   top: 50%;
   right: 5.33333vw;
   width: auto;
+  max-width: 50%;
   height: 8vw;
   margin-top: -4vw;
   padding: 0 6.4vw 0 0;
@@ -15699,6 +15700,8 @@ details[open] summary + * {
   background: url(../../images/shop/ico_shop_divideArrow.png) no-repeat 100% 50%/2.93333vw 1.73333vw;
   font-size: 3.2vw;
   color: #111;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 
 .fb__goods-view .wrap-goods-view .tab-inquiry .inquery__write {
@@ -23702,21 +23705,20 @@ details[open] summary + * {
 
 .fb .userUpdate .wrap-input-form dl.birth-area .gender {
   display: inline-block;
-  width: 32vw;
-  margin-left: 2.4vw;
+  width: 50vw;
   font-size: 0;
   vertical-align: top;
 }
 
 .fb .userUpdate .wrap-input-form dl.birth-area .gender__list {
   display: inline-block;
-  width: calc(50% + 0.26667vw);
+  width: calc(33% + 0.26667vw);
   margin-left: -0.26667vw;
   vertical-align: top;
 }
 
 .fb .userUpdate .wrap-input-form dl.birth-area .gender__list:first-child {
-  width: 50%;
+  width: 33%;
   margin-left: 0;
 }
 

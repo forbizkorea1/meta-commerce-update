@@ -1,0 +1,74 @@
+<section class="fb__menusubmit">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">원산지 등록</h3>
+    </header>
+    <section class="fb-filter" id="devBrandList">
+        <form id="devManageForm">
+            <input type="hidden" name="og_ix" value="{manageOriginModify.og_ix}">
+            <fieldset>
+                <table>
+                    <caption>원산지 등록/수정</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">원산지명</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input name="origin_name" type="text" class="fb-filter__text"
+                                   value="{manageOriginModify.origin_name}" title="원산지명">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">사용여부</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <div class="fb-filter__radio">
+                                {@ dispList}
+                                <label>
+                                    <input type="radio" name='disp' id='disp_{.key_}' value='{.key_}' {?
+                                           manageOriginModify.disp== .key_}checked{/} title="사용여부">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>원산지 코드</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input name="origin_code" type="text" style="width:100px;" class="fb-filter__text"
+                                   value="{manageOriginModify.origin_code}">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>원산지 분류</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="od_ix" class="fb-filter__select">
+                                <option value="">선택해주세요</option>
+                                {@ divNameList}
+                                <option value="{.od_ix}" {? manageOriginModify.od_ix== .od_ix}selected{
+                                /}>{.div_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>간략설명</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input name="shotinfo" type="text" class="fb-filter__text fb-filter__text--100"
+                                   value="{manageOriginModify.shotinfo}">
+                        </td>
+                    </tr>
+                </table>
+                <fieldset>
+        </form>
+    </section>
+</section>

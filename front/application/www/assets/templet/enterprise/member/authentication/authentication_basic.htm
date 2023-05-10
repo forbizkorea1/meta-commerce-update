@@ -10,7 +10,7 @@
 
     <!-- 본인인증 -->
     <section class="sect">
-        <!--{? useCertify == 'Y'}-->
+        <!--{? useCertify == 'Y' || useSso == 'Y'}-->
         <h3 class="sect__title">{=trans('본인 인증')}</h3>
         <!--{/}-->
         <div class="sect__cont">
@@ -41,6 +41,7 @@
         <form id="devForm" class="agree-area js__details__accordian js__check__wrapper">
             <input type="hidden" name="devCerti" id="devCerti" value="">
             <input type="hidden" name="devUseCertify" id="devUseCertify" value="{useCertify}">
+            <input type="hidden" name="devUseSso" id="devUseSso" value="{useSso}">
 
             <div class="wrap-chk-all">
                 <label for="agree-all" class="fb__comm__checkbox">

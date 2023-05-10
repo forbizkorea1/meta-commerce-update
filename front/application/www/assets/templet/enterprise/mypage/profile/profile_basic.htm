@@ -52,7 +52,7 @@
                             <th scope="col">{=trans('성별')}</th>
 
                             <td>
-                                <input type="text" value="{? sex_div == 'M'}{=trans('남성')}{:}{=trans('여성')}{/}" id="devFormatSexDiv" style="width: 345px;" readonly>
+                                <input type="text" value="{? sex_div == 'M'}{=trans('남성')}{: sex_div == 'W'}{=trans('여성')}{:}{=trans('기타')}{/}" id="devFormatSexDiv" style="width: 345px;" readonly>
                             </td>
                         </tr>
 

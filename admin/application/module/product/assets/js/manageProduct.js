@@ -89,6 +89,10 @@ var devProductManageProductObj = {
                     var displayGridData = selfEtcInformation.displayGrid.getList();
                     if (displayGridData != '' && displayGridData != false) {
                         formData.push(common.form.makeData('displayGridData', displayGridData));
+                    }
+
+                    //삭제된 디스플레이 정보 넘기기
+                    if(selfEtcInformation.deleteDisplayGridList.length > 0){
                         formData.push(common.form.makeData('deleteDisplayGridList', selfEtcInformation.deleteDisplayGridList));
                     }
 

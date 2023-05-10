@@ -43,7 +43,7 @@
             <button type="button" class="btn-back" onclick="searchLayerClose();"></button>
 
             <div class="searchLayer__search__input">
-                <input type="search" class="header-input-search devAutoComplete js__headerSearch__input" id="devHeaderSearchText" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_title}{/}" autocomplete="off">
+                <input type="search" class="header-input-search devAutoComplete js__headerSearch__input" id="devHeaderSearchText" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag}#{.st_title}{/}" autocomplete="off">
                 <i class="search_close_btn" id="devSearchCloseBtn" style="display: none;"></i>
                 <button type="button" class="btn-search" id="devHeaderSearchButton">
                     <span class="blind">search</span>
@@ -74,9 +74,9 @@
                             {/}
                         </ul>
                     </div>
-                {:}
-                    <p class="searchLayer__noList">{=trans(최근 검색어가 없습니다.'')}</p>
                 {/}
+                <p class="searchLayer__noList devRecentEmpty" {? headerTop.recentKeyword} style="display:none;" {/}>{=trans('최근 검색어가 없습니다.')}</p>
+
             </div>
 
             <hr class="fb__layout-division">

@@ -37,14 +37,19 @@ $(document).ready(function() {
     //최근검색어 건별삭제시
     $('#devRecent #devRecentKeyWordDelete').on('click', function () {
         var delText = $(this).attr('devDelText');
-        $(this).closest('[devDelkey]').hide();
+        $(this).closest('[devDelkey]').remove();
         common.ajax(common.util.getControllerUrl('deleteRecentKeyword', 'product'), {searchText: delText}, "", function () {
+            console.log($('.devRecentKeyword li').length)
+            if ($('.devRecentKeyword li').length == 0) {
+                $('.devRecentEmpty').show();
+                $('#devRecentKeyWordDeleteAll').hide();
+            }
         });
     });
 
     //최근검색어 전체삭제시
     $('#devRecentKeyWordDeleteAll').on('click', function () {
-        $('#devRecent li').hide();
+        $('#devRecent li').remove();
         $('#devRecentKeyWordDeleteAll').hide();
         $('.devRecentEmpty').show();
         common.ajax(common.util.getControllerUrl('deleteAllRecentKeyword', 'product'));

@@ -53,10 +53,10 @@
                     <!-- 이름 -->
                     <li class="inputs">
                         <span class="inputs__title">
-                            <label {? useCertify == 'N'}for="devUserName" class="required"{/}>{=trans('이름')}</label>
+                            <label {? useCertify == 'N' && useSso == 'N'}for="devUserName" class="required"{/}>{=trans('이름')}</label>
                         </span>
                         <div class="inputs__content">
-                            {? useCertify == 'N'}
+                            {? useCertify == 'N' && useSso == 'N'}
                             <input type="text" id="devUserName" name="name" title="{=trans('이름')}" class="pub-input-text">
                             {:}
                             <input type="text" placeholder="{userName}" readonly disabled>
@@ -67,10 +67,10 @@
                     <!-- 생년월일 -->
                     <li class="inputs">
                         <span class="inputs__title">
-                            <label {? useCertify == 'N'}for="devUserBirthday" class="required"{/}>{=trans('생년월일')}</label>
+                            <label {? useCertify == 'N' && useSso == 'N'}for="devUserBirthday" class="required"{/}>{=trans('생년월일')}</label>
                         </span>
                         <div class="inputs__content">
-                            {? useCertify == 'N'}
+                            {? useCertify == 'N' && useSso == 'N'}
                             <span class="radio-area">
                                 <input type="radio" name="birthdayDiv" value="1" checked>
                                 <label>양력</label>
@@ -90,17 +90,21 @@
                     <!-- 성별 -->
                     <li class="inputs">
                         <span class="inputs__title">
-                            <label {? useCertify == 'N'}for="devUserSexDiv" class="required"{/}>{=trans('성별')}</label>
+                            <label {? useCertify == 'N' && useSso == 'N'}for="devUserSexDiv" class="required"{/}>{=trans('성별')}</label>
                         </span>
                         <div class="inputs__content">
-                            {? useCertify == 'N'}
+                            {? (useCertify == 'N' && useSso == 'N') || changeFormatSexDiv == ''}
                             <span class="radio-area">
-                                <input type="radio" name="sexDiv" value="M" checked>
-                                <label>남성</label>
+                                <input type="radio" name="sexDiv" value="M" {? changeFormatSexDiv =="{=trans('남성')}"}checked{/}>
+                                <label>{=trans('남성')}</label>
                             </span>
                             <span class="radio-area">
-                                <input type="radio" name="sexDiv" value="W">
-                                <label>여성</label>
+                                <input type="radio" name="sexDiv" value="W" {? changeFormatSexDiv =="{=trans('여성')}"}checked{/}>
+                                <label>{=trans('여성')}</label>
+                            </span>
+                            <span class="radio-area">
+                                <input type="radio" name="sexDiv" value="D" {? changeFormatSexDiv ==""}checked{/}>
+                                <label>{=trans('기타')}</label>
                             </span>
                             {:}
                             <input type="hidden" name="sex" id="devSexDiv">

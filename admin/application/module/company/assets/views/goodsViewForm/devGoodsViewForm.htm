@@ -1,0 +1,64 @@
+<!--{'<script id="devSerachTpl" type="text/x-handlebars-template">'}-->
+<div id="wrap_input">
+    <section class="fb__menusubmit">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">상품상세페이지 공지</h3>
+            <a href="#" class="fb__menusubmit-btn">
+                <span>닫기</span>
+                <span>열기</span>
+            </a>
+        </header>
+
+        <section class="fb-filter">
+            <table>
+                <caption>상품상세페이지 공지</caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 라디오 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사용유무 
+                        </span>
+                    </th>
+                    <td colspan="3" >
+                        <div class="fb-filter__radio">
+                            <label for="is_use_yn_1">
+                                <input type="radio" name="is_use" id="is_use_yn_1" value="1" {? config.is_use == '1' || config.is_use == '' } checked {/} >
+                                       <span>사용</span>
+                            </label>
+                            <label for="is_use_yn_0">
+                                <input type="radio" name="is_use" id="is_use_yn_0" value="0" {? config.is_use == '0' } checked {/} >
+                                       <span>미사용</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            공지사항명 
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="notice_title" title="공지사항명" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 단일 이미지 업로드 타입-->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">공지사항 이미지</span>
+                    </th>
+                    <td colspan="3">
+                        <div id="devSellerNoticeImg" data-img-src=""></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </section>
+</div>
+<!--{'</script>'}-->

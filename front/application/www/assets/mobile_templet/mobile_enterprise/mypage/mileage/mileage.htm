@@ -36,7 +36,7 @@
     <form id="devMileageForm" name="devMileageForm">
         <input type="hidden" name="page" value="1" id="devPage"/>
         <input type="hidden" name="max" value="20" id="devMax"/>
-        <input type="hidden" name="state" value="" id="state"/>
+        <input type="hidden" name="state" value="" id="devState"/>
         <input type="hidden" name="sDate" id="sDate" value="{sDate}"/>
         <input type="hidden" name="eDate" id="eDate" value="{eDate}"/>
 
@@ -53,9 +53,9 @@
             </div>
 
             <div class="jq-radio">
-                <a class="on" devFilterState="">{=trans('전체')}</a>
-                <a class="" devFilterState="1">{=trans('적립')}</a>
-                <a class="" devFilterState="2">{=trans('사용')}</a>
+                <a class="devFilterState on" data-index="">{=trans('전체')}</a>
+                <a class="devFilterState" data-index="1">{=trans('적립')}</a>
+                <a class="devFilterState" data-index="2">{=trans('사용')}</a>
             </div>
         </div> 
     </form>

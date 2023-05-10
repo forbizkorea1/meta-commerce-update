@@ -17,6 +17,7 @@ if (is_login()) {
 
     $memberRegRule = ForbizConfig::getSharedMemory("member_reg_rule");
     $view->assign('useCertify', $memberRegRule['mall_use_certify']);
+    $view->assign('useSso', $memberRegRule['mall_use_sso']);
 
     if($data == false && $memberRegRule['mall_use_certify'] == 'Y'){
         redirect('/member/login');

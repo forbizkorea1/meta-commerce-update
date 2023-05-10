@@ -57,35 +57,39 @@
                 <dl class="birth-area">
                     <dt>{=trans('생년월일')}</dt>
                     <dd>
-                        <input type="text" value="{birthday}" class="birth-input" disabled>
+                        <input type="text" value="{birthday}"  disabled>
+                    </dd>
+                </dl>
 
+
+                <dl class="birth-area">
+                    <dt>성별</dt>
+                    <dd>
                         <ul class="gender">
                             <li class="gender__list">
                                 <label>
-                                    <input type="radio" class="blind" id="male" name="sex" value="{=trans('남성')}" {? sex_div == 'M'} checked{/} disabled>
+                                    <input type="radio" class="blind" name="sex" value="{=trans('남성')}" {? sex_div == 'M'} checked{/} disabled>
                                     <span>{=trans('남성')}</span>
                                 </label>
                             </li>
 
                             <li class="gender__list">
                                 <label>
-                                    <input type="radio" class="blind" id="female" name="sex" value="{=trans('여성')}" {? sex_div != 'M'} checked{/} disabled>
+                                    <input type="radio" class="blind" name="sex" value="{=trans('여성')}" {? sex_div == 'W'} checked{/} disabled>
                                     <span>{=trans('여성')}</span>
+                                </label>
+                            </li>
+
+                            <li class="gender__list">
+                                <label>
+                                    <input type="radio" class="blind" name="sex" value="{=trans('기타')}" {? sex_div == 'D'} checked{/} disabled>
+                                    <span>{=trans('기타')}</span>
                                 </label>
                             </li>
                         </ul>
                     </dd>
                 </dl>
 
-                <!-- 성별 -->
-                 <!-- 
-                <dl>
-                    <dt>성별</dt>
-                    <dd>
-                        <input type="text" value="{? sex_div == 'M'}남성{:}여성{/}" disabled>
-                    </dd>
-                </dl>
-                -->
                 <!-- @todo. 프론트: 이메일 -->
                 <!-- 이메일 -->
                 <dl class="email-input">

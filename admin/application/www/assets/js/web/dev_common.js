@@ -3688,6 +3688,8 @@ var common = {
                             $('#devOffer').text(common.util.numberFormat(data['offer']) + '건');
                         }else if(data['type_day'] > 0) {
                             $('#devOffer').text(common.util.numberFormat(data['type_day']) + '일');
+                        }else if(data['offer_text']) {
+                            $('#devOffer').text(data['offer_text']);
                         }else {
                             $('#devOffer').text('-');
                         }

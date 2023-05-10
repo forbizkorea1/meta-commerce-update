@@ -1,0 +1,74 @@
+<section class="fb__menusubmit">
+    <header class="fb__menusubmit-header">
+        <h3 class="fb__menusubmit-title">브랜드설정</h3>
+    </header>
+    <section class="fb-filter" id="devBrandList">
+        <form id="devManageBrandForm">
+            <input type="hidden" name="b_ix" value="{manageBrandModify.b_ix}">
+            <fieldset>
+                <table>
+                    <caption>브랜드 리스트</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">브랜드명</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input name="brand_name" type="text" class="fb-filter__text"
+                                   value="{manageBrandModify.brand_name}" title="브랜드명">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">사용여부</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <div class="fb-filter__radio">
+                                {@ dispList}
+                                <label>
+                                    <input type="radio" name='disp' id='disp_{.key_}' value='{.key_}' {?
+                                           manageBrandModify.disp== .key_}checked{/} title="사용여부">
+                                    <span>{.value_}</span>
+                                </label>
+                                {/}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>브랜드 코드</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <input name="brand_code" type="text" style="width:100px;" class="fb-filter__text"
+                                   value="{manageBrandModify.brand_code}">
+                        </td>
+                        <th class="fb-filter__title">
+                            <span>브랜드 분류</span>
+                        </th>
+                        <td class="fb-filter__title-contents">
+                            <select name="bd_ix" class="fb-filter__select">
+                                <option value="">선택해주세요</option>
+                                {@ divNameList}
+                                <option value="{.bd_ix}" {? manageBrandModify.bd_ix== .bd_ix}selected{
+                                /}>{.div_name}</option>
+                                {/}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>브랜드 간략설명</span>
+                        </th>
+                        <td colspan="3" class="fb-filter__title-contents">
+                            <input name="shotinfo" type="text" class="fb-filter__text fb-filter__text--100"
+                                   value="{manageBrandModify.shotinfo}">
+                        </td>
+                    </tr>
+                </table>
+                <fieldset>
+        </form>
+    </section>
+</section>

@@ -9,6 +9,7 @@ var authenticationObj = {
     },
     certify: 'basic',
     useCertify: $('#devUseCertify').val(),
+    useSso: $('#devUseSso').val(),
     comform: $('#devCompanyForm'),
     form: $('#devForm'),
     getCompanyNumber: function () {
@@ -39,7 +40,7 @@ var authenticationObj = {
             'dataFormat': 'companyNumber',
             'getValueFunction': 'authenticationObj.getCompanyNumber'
         });
-        if(self.useCertify == 'Y'){
+        if(self.useCertify == 'Y' || self.useSso == 'Y'){
             common.validation.set($('#devCerti'), {
                 'required': true,
                 'requiredMessageTag': "authentication.certi.alert"
@@ -103,7 +104,7 @@ var authenticationObj = {
             function (response) {
                 var self = authenticationObj;
                 if (response.result == "success") {
-                    if(self.useCertify == 'Y'){
+                    if(self.useCertify == 'Y' || self.useSso == 'Y'){
                         common.noti.alert(common.lang.get('authentication.company.success'),
                             function () {
                                 document.location.href = '/member/joinInput';

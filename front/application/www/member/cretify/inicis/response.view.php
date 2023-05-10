@@ -71,8 +71,8 @@ if ($_REQUEST["resultCode"] === "0000") {
 
     $retData = [
         'name' =>  $response['userName']
-        , 'birthday' => $response['userBirthday']
-        , 'pcs' => $response['userPhone']
+        , 'birthday' => $birthdateFormat
+        , 'pcs' => $pcsFormat
         , 'ci' => $response['userCi']
     ];
     $memberModel->doCretifySuccess($retData);

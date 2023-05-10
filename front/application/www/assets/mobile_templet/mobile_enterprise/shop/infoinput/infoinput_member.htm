@@ -77,7 +77,7 @@
                             {[recipient]}
                             {[#if shipping_name]}<span class="sub-name">({[shipping_name]})</span>{[/if]}
                         </span>
-                        {[#if isBasic]}<span class="default-delivery">{=trans('기본 배송지')}</span>{[/if]}
+                        <span class="default-delivery devBasic">{=trans('기본 배송지')}</span>
                     </div>
                     <div class="delivery__list__addr">{[address1]} {[#if address2]}{[address2]}{[/if]}</div>
                     <div class="delivery__list__tel">{[mobile]} {[#if tel]}<br>{[tel]}{[/if]}</div>

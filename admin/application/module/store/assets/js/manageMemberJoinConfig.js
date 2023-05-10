@@ -10,6 +10,7 @@ var devStoreMallManageObj = {
         common.lang.load('common.put.success.alert', '수정이 완료되었습니다.');
         common.lang.load('common.fail.alert', '저장에 실패하였습니다.');
         common.lang.load('common.check.jointype', '회원형태를 1개이상 선택해주세요.');
+        common.lang.load('common.put.mid.error.alert', '유효한 key 값이 아닙니다. 키값의 확인이 필요한 경우 메타커머스 고객센터로 문의 부탁드립니다.');
     },
     initForm: function () {
         common.form.init(
@@ -22,7 +23,11 @@ var devStoreMallManageObj = {
                     if (response.result == 'success') {
                         common.noti.alert(common.lang.get('common.put.success.alert'));
                     } else {
-                        common.noti.alert(common.lang.get('common.fail.alert'));
+                        if (response.data.error == 'mid'){
+                            common.noti.alert(common.lang.get('common.put.mid.error.alert'));
+                        }else{
+                            common.noti.alert(common.lang.get('common.fail.alert'));
+                        }
                     }
                 }
         );

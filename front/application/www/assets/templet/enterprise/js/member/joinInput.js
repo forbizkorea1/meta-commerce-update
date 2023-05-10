@@ -106,8 +106,10 @@ var devJoinInputObj = {
             return location.href = '/member/joinEnd';
         } else if (response.result == "sessionIssue") { //세션 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.sessionIssue'));
+            return  location.href = '/';
         } else if (response.result == "authIssue") { //인증 데이터 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.authIssue', self.authIssueCallback));
+            return  location.href = '/';
         } else if (response.result == "doubleId") { //중복된 아이디
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.doubleId', self.doubleIdCallback));
         } else {
@@ -145,8 +147,10 @@ var devJoinInputObj = {
             return location.href = '/member/joinEnd';
         } else if (response.result == "sessionIssue") { //세션 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.sessionIssue'));
+            return  location.href = '/';
         } else if (response.result == "authIssue") { //인증 데이터 이슈
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.authIssue', self.companyAuthIssueCallback));
+            return  location.href = '/';
         } else if (response.result == "doubleId") { //중복된 아이디
             common.noti.alert(common.lang.get('joinInput.common.validation.member.css.doubleId', self.companyDoubleIdCallback));
         } else {

@@ -1,0 +1,600 @@
+.fb {
+    /* 회원정보 수정 */
+    .wrap-profile-intro {
+        padding: vw(40px 25px 0);
+        text-align: center;
+
+        h2 {
+            margin: vw(40px 0);
+            font: {
+                size: vw(38px);
+                weight: 600;
+            };
+            color: #111;
+        }
+
+        .desc {
+            font-size: vw(26px);
+            color: $textGrey;
+            line-height: vw(34px);
+            margin-bottom: vw(60px);
+        }
+
+        .wrap-btn-area {
+            margin-top: vw(60px);
+        }
+    }
+
+    .profile-detail {
+        .subtitle {
+            font-size: vw(26px);
+            color: #111;
+            font-weight: 600;
+            padding: vw(0 25px 10px);
+            line-height: vw(34px);
+        }
+
+        .layout-padding {
+            padding-bottom: vw(80px);
+        }
+
+        .layout-padding .desc {
+            font-size: vw(26px);
+            color: $textGrey2;
+            margin-top: vw(30px);
+        }
+
+    }
+
+    .term-title {
+        margin: vw(40px 30px);
+        padding: 0 !important;
+        font-size: vw(30px);
+    }
+
+    .number-input {
+        .wrap-multi-input {
+            display: flex;
+            flex-wrap: nowrap;
+            input {
+                width: 100%;
+                text-align: center;
+                &:first-of-type {
+                    border-right: none;
+                }
+                &:nth-of-type(2) {
+                    border-left: none;
+                }
+            }
+            select {
+                width: vw(215px);
+                flex-shrink: 0;
+            }
+            .hyphen {
+                width: vw(20px);
+                line-height: vw(76px);
+                flex-shrink: 0;
+                &:last-of-type {
+                    margin-top: 0;
+                    border-top: 1px solid #ccc;
+                    border-bottom: 1px solid #ccc;
+                }
+
+            }
+        }
+
+    }
+
+    .address-area {
+        .wrap-multi-input {
+            display: flex;
+            input {
+                width: calc(100% - #{vw(200px)});
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    .email-input {
+        .wrap-multi-input {
+            display: flex;
+            input {
+                flex-shrink: 0;
+                width: vw(320px);
+            }
+
+        }
+    }
+
+    .term-area {
+        margin: vw(0 30px);
+        border: 1px solid $white4;
+   }
+
+    .marketing-wrap .sub-txt {
+       font-size: vw(22px);
+    }
+
+    .wrap-input-form {
+        .txt-error:empty {
+            margin: 0;
+        }
+
+        .fb__button {
+            margin-top: vw(20px);
+
+            button {
+                height: vw(90px);
+                font-size: vw(26px);
+            }
+        }
+
+        .address-area {
+                input[readonly] {
+                    background-color: $white1;
+                }
+        }
+        
+        .birth-area {
+            dd {
+                @extend %clear;
+
+                .birth-input {
+                    width: vw(440px);
+                }
+                .sex {
+                    display: inline-block;
+                    float: right;
+                    @extend %clear;
+
+                    &__box {
+                        float: left;
+                        position: relative;
+                        width: vw(120px);
+                        height: vw(90px);
+
+                        &:last-child {
+                            margin-left: -1px;
+                            label {
+                                border-right-color: #ccc;
+                                border-left:1px solid #ccc;
+                            }
+                        }
+                        &:first-child{
+                            label {
+                                border-right-color: #ccc;
+                            }
+                        }
+                        label {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            z-index: 2;
+                            width: vw(120px);
+                            height: vw(90px);
+                            border: 1px solid #ccc;
+                            background: $white1;
+                            line-height: vw(90px);
+                            text-align: center;
+                        }
+
+                        input {
+                                display: none;
+                            &:checked {
+                                & + label {
+                                    z-index: 3;
+                                    border-color: $textGrey2;
+                                    color: $textGrey;
+                                    background: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+   }
+
+    // 비밀번호 변경
+    .wrap-change-password {
+        padding-bottom: 0;
+
+        .change-pw-title {
+            margin: vw(40px 0 10px);
+            font-size: vw(32px);
+        }
+
+        .txt-desc{
+            font-size: vw(24px);
+        }
+    }
+
+    // 공통
+    &__profile {
+        &__sec {
+            width: vw(690px);
+            margin: 0 auto;
+            padding: vw(40px 0) !important; // 기존에 있는 스타일 때문에 important 추가함
+        }
+
+        &__title {
+            padding-bottom: vw(20px);
+            border-bottom: vw(2px) solid #EEE;
+            font: {
+                size: vw(28px);
+                weight: 400;
+            };
+        }
+
+        &__cont {
+            margin-top: vw(40px);
+        }
+
+        &__terms {
+            width: vw(690px);
+            margin: 0 auto;
+            padding-top: vw(40px);
+
+            .terms {
+                &__title {
+                    margin-bottom: vw(10px);
+                    font: {
+                        size: vw(26px);
+                        weight: 600;
+                    };
+                }
+
+                &__cont {
+                    border: vw(2px) solid #EEE;
+                }
+
+                &__marketing {
+                    &__box {
+                        position: relative;
+                        padding: vw(30px);
+                    }
+
+                    &__accd {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: vw(100px);
+                        height: 100%;
+                        background: url(../images/mypage/ico_mypage_accd.png) no-repeat 50% 50% / vw(48px auto);
+
+                        &.on {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    &__cont {
+                        display: none;
+                        overflow: hidden;
+                        overflow-y: auto;
+                        max-height: vw(200px);
+                        padding: vw(30px);
+                        border-top: vw(2px) solid #EEE;
+                        background: #F8F8F8;
+                        font-size: vw(24px);
+                        color: #666;
+                        line-height: vw(34px);
+
+                        &.show {
+                            display: block;
+                        }
+
+                        * {
+                            width: 100% !important;
+                            font-family: $font_noto !important;
+                            font-size: vw(24px) !important;
+                        }
+                    }
+                }
+
+                &__details {
+                    padding: vw(30px);
+                    border-top: vw(2px) solid #EEE;
+                    background: #F8F8F8;
+
+                    &__check {
+                        .fb__comm__checkbox {
+                            margin-left: vw(50px);
+                            
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+
+                    &__desc {
+                        margin-top: vw(28px);
+
+                        li {
+                            position: relative;
+                            margin-top: vw(10px);
+                            padding-left: vw(15px);
+                            font-size: vw(24px);
+                            color: #999;
+                            line-height: vw(32px);
+                            
+                            &:before {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                top: vw(12px);
+                                left: 0;
+                                width: vw(4px);
+                                height: vw(4px);
+                                border-radius: 50%;
+                                background: #999;
+                            }
+
+                            &:First-child {
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__sns {
+            width: vw(690px);
+            margin: 0 auto;
+            padding-top: vw(40px);
+
+            .sns {
+                &__title {
+                    margin-bottom: vw(20px);
+                    font: {
+                        size: vw(26px);
+                        weight: 600;
+                    };
+                }
+
+                &__box {
+
+                }
+
+                &__list {
+                    position: relative;
+                    margin-top: vw(16px);
+                    font-size: 0;
+
+                    &__connect {
+                        display: inline-block;
+                        width: vw(470px);
+                        height: vw(90px);
+                        border: vw(2px) solid #E8E8E8;
+                        line-height: vw(86px);
+                        text-align: center;
+                        vertical-align: top;
+
+                        span {
+                            display: inline-block;
+                            position: relative;
+                            padding-left: vw(56px);
+                            font: {
+                                size: vw(24px);
+                                family: $font_noto;
+                            };
+                            color: #666;
+                            line-height: vw(48px);
+                            vertical-align: middle;
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: vw(48px);
+                                height: vw(48px);
+                            }
+                        }
+
+                        &:disabled {
+                            span {
+                                color: #CCC;
+
+                                &:before {
+                                    opacity: .5;
+                                }
+                            }
+                        }
+
+                        &--naver {
+                            span {
+                                &:before {
+                                    background: url(../images/mypage/ico_mypage_sns-naver.png) no-repeat 0 0 / vw(48px auto);
+                                }
+                            }
+                        }
+
+                        &--kakao {
+                            span {
+                                &:before {
+                                    background: url(../images/mypage/ico_mypage_sns-kakao.png) no-repeat 0 0 / vw(48px auto);
+                                }
+                            }
+                        }
+
+                        &--facebook {
+                            span {
+                                &:before {
+                                    background: url(../images/mypage/ico_mypage_sns-facebook.png) no-repeat 0 0 / vw(48px auto);
+                                }
+                            }
+                        }
+
+                        &--google {
+                            span {
+                                &:before {
+                                    background: url(../images/mypage/ico_mypage_sns-google.png) no-repeat 0 0 / vw(48px auto);
+                                }
+                            }
+
+                            & + .g-signin2 {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: vw(470px);
+                                height: vw(90px);
+                                opacity: 0;
+
+                                > div {
+                                    width: 100% !important;
+                                    height: 100% !important;
+                                }
+                            }
+                        }
+
+                        &--apple {
+                            span {
+                                &:before {
+                                    background: url(../images/mypage/ico_mypage_sns-apple.png) no-repeat 0 0 / vw(48px auto);
+                                }
+                            }
+                        }
+                    }
+
+                    &__disconnect {
+                        display: inline-block;
+                        width: vw(200px);
+                        height: vw(90px);
+                        margin-left: vw(20px);
+                        border: vw(2px) solid #999;
+                        font-size: vw(24px);
+                        color: #666;
+                        vertical-align: top;
+
+                        &:disabled {
+                            border: vw(2px) solid #DDD;
+                            color: #CCC;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__inquiry {
+            width: vw(690px);
+            margin: vw(40px auto 0);
+            font-size: vw(26px);
+            color: #666;
+            line-height: vw(36px);
+
+            em {
+                color: #111;
+            }
+        }
+
+        &__btn {
+            margin-top: vw(80px);
+            font-size: 0;
+            text-align: center;
+
+            button {
+                width: vw(335px);
+                height: vw(100px);
+                margin-left: vw(20px);
+                font-size: vw(30px);
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    // 일반회원 정부수정
+    .userUpdate {
+        .wrap-input-form {
+            padding-top: 0;
+
+            dl {
+                margin-top: vw(40px);
+
+                &:first-of-type {
+                    margin-top: 0;
+                }
+
+                &.birth-area {
+                    dd {
+                        font-size: 0;    
+                    }
+
+                    .birth-input {
+                        display: inline-block;
+                        width: vw(432px);
+                        height: vw(90px);
+                        vertical-align: top;
+                    }
+
+                    .gender {
+                        display: inline-block;
+                        width: vw(375px);
+                        font-size: 0;
+                        vertical-align: top;
+
+                        &__list {
+                            display: inline-block;
+                            width: calc(33% + #{vw(2px)});
+                            margin-left: vw(-2px);
+                            vertical-align: top;
+
+                            &:first-child {
+                                width: 33%;
+                                margin-left: 0;
+                            }
+
+                            input[type="radio"] {
+                                & + span {
+                                    display: block;
+                                    height: vw(90px);
+                                    border: vw(2px) solid #EEE;
+                                    background: #F8F8F8;
+                                    font-size: vw(26px);
+                                    color: #999;
+                                    line-height: vw(86px);
+                                    text-align: center;
+                                }
+
+                                &:checked + span {
+                                    position: relative;
+                                    border: vw(2px) solid #CCC;
+                                    background: #FFF;
+                                    color: #666;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }    
+    }
+
+    // 기업회원 정보수정
+    .companyUpdate {
+        .wrap-input-form {
+            padding-top: 0;
+
+            dl {
+                margin-top: vw(40px);
+
+                &:first-of-type {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .wrap-license-upload {
+            position: relative;
+        }
+
+        .upload-img-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}

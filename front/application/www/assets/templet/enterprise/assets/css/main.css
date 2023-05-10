@@ -8432,6 +8432,14 @@ td {
   cursor: pointer;
 }
 
+.fb .custom-select__view__option label:focus input ~ span {
+  background: #f1f1f1;
+}
+
+.fb .custom-select__view__option label:focus input:disabled ~ span {
+  background: none;
+}
+
 .fb .custom-select__view__option label span {
   display: block;
   padding: 10px;
@@ -19776,6 +19784,11 @@ input[type="file"].file-upload {
   font-size: 0;
 }
 
+.fb__goodsView__info .info__decided ul {
+  display: flex;
+  justify-content: space-between;
+}
+
 .fb__goodsView__info .info__decided button {
   outline: none;
 }
@@ -20655,6 +20668,7 @@ input[type="file"].file-upload {
   width: 100px;
   height: 32px;
   line-height: 32px;
+  text-overflow: ellipsis;
 }
 
 .fb__goodsView__detail .detail__cont .goodsInquiry__list__inner {
@@ -20993,6 +21007,11 @@ input[type="file"].file-upload {
   width: 100px;
   height: 30px;
   border: 1px solid #ccc;
+}
+
+.fb__goodsView__detail .detail__aside__option-btns ul {
+  display: flex;
+  justify-content: space-between;
 }
 
 .fb__goodsView__detail .detail__aside__option-btns li {

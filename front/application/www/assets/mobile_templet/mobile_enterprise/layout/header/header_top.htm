@@ -25,7 +25,7 @@
             <button type="button" class="btn-back" onclick="searchLayerClose();"></button>
 
             <div class="searchLayer__search__input">
-                <input type="search" class="header-input-search devAutoComplete js__headerSearch__input" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_title}{/}" autocomplete="off">
+                <input type="search" class="header-input-search devAutoComplete js__headerSearch__input" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag}#{.st_title}{/}" autocomplete="off">
                 <i class="search_close_btn" id="devSearchCloseBtn" style="display: none;"></i>
                 <button type="button" class="btn-search" id="devHeaderSearchButton">
                     <span class="blind">search</span>
@@ -45,7 +45,7 @@
 
                 {? headerTop.recentKeyword}
                     <div class="searchLayer__cont">
-                        <ul class="lately__box" id="devRecent">
+                        <ul class="lately__box devRecentKeyword" id="devRecent">
                             {@ headerTop.recentKeyword}
                             <li class="lately__list" devDelKey="{.key_}">
                                 <a href="/shop/search/?searchText={=rawurlencode(.value_)}">{.value_}</a>
@@ -56,9 +56,9 @@
                             {/}
                         </ul>
                     </div>
-                {:}
-                    <p class="searchLayer__noList">{=trans('최근 검색어가 없습니다.')}</p>
                 {/}
+                <p class="searchLayer__noList devRecentEmpty" {? headerTop.recentKeyword} style="display:none;" {/}>{=trans('최근 검색어가 없습니다.')}</p>
+
             </div>
 
             <hr class="fb__layout-division">
@@ -66,7 +66,7 @@
             <!-- 인기 검색어 -->
             <div class="searchLayer__box searchLayer__popularity">
                 <div class="searchLayer__header">
-                    <strong class="searchLayer__header__title">{=trans('인기 검색어')}</strong>
+                    <strong class="searchLayer__header__title">{=trans('추천 검색어')}</strong>
                 </div>
                 
                 {? headerTop.popularKeyword}
@@ -83,7 +83,7 @@
                         </ul>
                     </div>
                 {:}
-                    <p class="searchLayer__noList">{=trans('인기 검색어가 없습니다.')}</p>
+                    <p class="searchLayer__noList">{=trans('추천 검색어가 없습니다.')}</p>
                 {/}
             </div>
         </div>

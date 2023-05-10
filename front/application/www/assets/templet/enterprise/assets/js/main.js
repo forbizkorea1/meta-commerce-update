@@ -655,7 +655,7 @@ var front_common = function front_common() {
                 return $option.toArray().map(function (el) {
                     var $this = $(el);
                     var html = '';
-                    html += "\n                    <div class=\"custom-select__view__option\">\n                        <label>\n                            <input type=\"radio\" name=\"" + $select.attr('class') + "\" value=\"" + $this.val() + "\" " + ($option.attr('checked') ? 'checked' : '') + " " + ($this.data('disabled') ? 'disabled' : '') + ">\n                            <span>" + $this.text() + "</span>\n                    ";
+                    html += "\n                    <div class=\"custom-select__view__option\">\n                        <label tabindex=\"0\">\n                            <input type=\"radio\" tabindex=\"-1\" name=\"" + $select.attr('class') + "\" value=\"" + $this.val() + "\" " + ($option.attr('checked') ? 'checked' : '') + " " + ($this.data('disabled') ? 'disabled' : '') + ">\n                            <span>" + $this.text() + "</span>\n                    ";
                     /*if($this.data('disabled')) {
                         html += `
                             <button type="button" value="${$this.val()}">재입고알림</button>
@@ -727,7 +727,20 @@ var front_common = function front_common() {
                 //$(window).on('scroll.checkReverse')
                 // console.log("el:", $el);
                 // show list
+
+                // custom selectbox 포커스 이벤트
+                $el.$wrap.each(function (index, tag) {
+                    tag.addEventListener('focusin', function (event) {
+                        $(tag).addClass('active');
+                    }, { capture: true });
+                    tag.addEventListener('focusout', function (event) {
+                        $(tag).removeClass('active');
+                        $(tag).scrollTop(0);
+                    }, { capture: true });
+                });
+
                 $el.$wrap.off('click.selectActive').on('click.selectActive', '.custom-select__view__title', function (e) {
+                    console.log('title click');
                     e.stopPropagation();
 
                     //hl 커스텀 추가(상품상세 인포팝업 비노출처리)
@@ -745,6 +758,42 @@ var front_common = function front_common() {
                         // $(window).on('scroll.checkReverse resize.checkReverse', function() { manager._setReverse($el.$wrap); });
                     }
                 });
+                // custom selectbox 키보드 이벤트
+                $el.$wrap.on('keydown.changeLable', function (event) {
+                    var optionBox = $(event.target).closest('.custom-select__view__option');
+                    if (![9, 13].includes(event.keyCode)) event.preventDefault();
+
+                    if (event.keyCode === 13) {
+                        $(event.target).trigger('click');
+
+                        if ($(event.currentTarget).closest('.goods-option')) {
+                            setTimeout(function () {
+                                if ($(event.currentTarget).closest('.goods-option').find('input')) {
+                                    $(event.currentTarget).closest('.goods-option').find('input').last().focus();
+                                }
+                            }, 0);
+                        }
+                    }
+
+                    if ([39, 40].includes(event.keyCode)) {
+                        $(event.target).blur();
+
+                        if (optionBox.index() == $el.$option.length - 1) {
+                            optionBox.siblings().first().find('label').focus();
+                        } else {
+                            optionBox.next().find('label').focus();
+                        }
+                    } else if ([37, 38].includes(event.keyCode)) {
+                        $(event.target).blur();
+
+                        if (optionBox.index() == 0) {
+                            optionBox.siblings().last().find('label').focus();
+                        } else {
+                            optionBox.prev().find('label').focus();
+                        }
+                    }
+                });
+
                 // list change
                 $el.$wrap.off('change.selected').on('change.selected', 'input', function (e) {
                     e.stopPropagation();
@@ -752,6 +801,7 @@ var front_common = function front_common() {
                     var value = $(this).val();
                     $el.$wrap.find('.custom-select__view__title span').text(label);
                     $el.$wrap.removeClass('active');
+                    $el.$wrap.scrollTop(0);
                     $(window).off('scroll.checkReverse resize.checkReverse');
 
                     if (value) {
@@ -772,11 +822,14 @@ var front_common = function front_common() {
                 });
 
                 // hide list
-                $('body').on('click.hideSelectLayer', function (e) {
-                    if (!$(e.target).hasClass('custom-select__view__title')) {
-                        $el.$wrap.removeClass('active');
-                        $(window).off('scroll.checkReverse ');
-                    }
+                $('body').off('click.hideSelectLayer').on('click.hideSelectLayer', function (e) {
+                    $('.custom-select__wrap').removeClass('active');
+                    $('.custom-select__wrap').scrollTop(0);
+                    // $(window).off('scroll.checkReverse');
+                    // !$(e.target).hasClass('custom-select__view__title')
+                    // if(!$(e.target).hasClass('custom-select__view__title')) {
+                    //     $el.$wrap.removeClass('active');
+                    // }
                 });
             },
 

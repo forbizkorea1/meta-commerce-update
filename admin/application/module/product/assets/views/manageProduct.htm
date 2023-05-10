@@ -640,13 +640,13 @@
                     </tr>
                     <tr {? manageLevel !=9}style="display:none"{/}>
                         <th class="fb-filter__title">
-                            <span>개별 적립금 사용유무</span>
+                            <span>개별 마일리지 사용유무</span>
                         </th>
                         <td colspan="3">
                             <div class="fb-filter__radio">
                                 {@ reserveYn}
                                 <label>
-                                    <input type="radio" name="reserve_yn" value="{.key_}" title="개별 적립금 사용유무" {? (mode !='add' && product.reserve_yn== .key_) || (mode=='add' && .index_== 'N')}checked{/}>
+                                    <input type="radio" name="reserve_yn" value="{.key_}" title="개별 마일리지 사용유무" {? (mode !='add' && product.reserve_yn== .key_) || (mode=='add' && .index_== 'N')}checked{/}>
                                     <span>{.value_}</span>
                                 </label>
                                 {/}

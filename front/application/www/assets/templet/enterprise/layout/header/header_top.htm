@@ -21,7 +21,7 @@
                     </div>
 
                     {? headerTop.recentKeyword}
-                        <ul class="lately">
+                        <ul class="lately devRecentKeyword">
                             {@ headerTop.recentKeyword}
                             <li class="lately__list" devDelKey="{.key_}">
                                 <a href="/shop/search/?searchText={=rawurlencode(.value_)}">{.value_}</a>
@@ -29,16 +29,16 @@
                             </li>
                             {/}
                         </ul>
-                    {:}
-                        <p class="lately__noList devRecentEmpty">{=trans('최근 검색어가 없습니다.')}</p>
                     {/}
+                    <p class="lately__noList devRecentEmpty" {? headerTop.recentKeyword} style="display:none;" {/}>{=trans('최근 검색어가 없습니다.')}</p>
+
                 </div>
 
                 <div class="header-search__layer__sec">
                     <div class="header-search__layer__header">
                         <strong>{=trans('추천 검색어')}</strong>
                     </div>
-
+                    {? headerTop.popularKeyword}
                     <ul class="popularity">
                         {@ headerTop.popularKeyword}
                         {? .key_ < 10}
@@ -50,6 +50,9 @@
                         {/}
                         {/}
                     </ul>
+                    {:}
+                    <p class="lately__noList" {? headerTop.popularKeyword} style="display:none;" {/}>{=trans('추천 검색어가 없습니다.')}</p>
+                    {/}
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
     </div>
 
     <div class="layout-padding contents">
-        <!--{? useCertify == 'Y'}-->
+        <!--{? useCertify == 'Y' || useSso == 'Y'}-->
         <div class="cont">
             <!--{? useCertify == 'Y' || useSso == 'Y'}-->
             <h2 class="cont__title">{=trans('본인인증')}</h2>
@@ -36,6 +36,7 @@
             <form id="devForm" class="form-box js__details__accordian js__check__wrapper">
                 <input type="hidden" name="devCerti" id="devCerti" value="">
                 <input type="hidden" name="devUseCertify" id="devUseCertify" value="{useCertify}">
+                <input type="hidden" name="devUseSso" id="devUseSso" value="{useSso}">
 
                 <!-- 전체동의 -->
                 <div class="term-list all">
@@ -128,4 +129,5 @@
 </section>
 <script>
     var devUseCertify = '{useCertify}';
+    var devUseSso = '{useSso}';
 </script>

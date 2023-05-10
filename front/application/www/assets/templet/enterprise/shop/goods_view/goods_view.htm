@@ -1,6 +1,5 @@
 <script src="{layoutCommon.templetSrc}/js/common/minicart.js?version={c.CLIENT_VERSION}" data-url="/controller/product/loadOptionDatas/{pid}" id="devMinicartScript"></script>
 <script src='//play.wecandeo.com/html/utils/iframeAPI.js'></script>
-
 <!--{* 네이버 페이 시작 *}{? defined('NPAY_USE') && c.NPAY_USE == 'Y'}-->
 <script type="text/javascript" src="//pay.naver.com/customer/js/naverPayButton.js" charset="UTF-8"></script>
 <!--{/}{* 네이버 페이 끝 *}-->
@@ -874,54 +873,55 @@
             <div class="detail__aside__top">
                 <p class="detail__aside__title">{=pname}</p>
                 <p class="detail__aside__title devOptionHeadline">{=trans('옵션선택')}</p>
-
-                <!-- when has only 1 option -->
-                <div id="devSildeLonelyOption">
-                    <!--{'<script id="devSildeLonelyOptionName" type="text/x-handlebars-template">'}-->
-                    <span class="option__name">
-                        <p>{[option_name]}</p>
-                    </span>
-                    <!--{'</script>'}-->
-                </div>
-
-                <!-- option select -->
-                <div id="devSildeMinicartOptions"></div>
-
-                <!-- add option select -->
-                <div id="devSlideMinicartAddOption" class="hidden">
-                    <p class="detail__aside__title">{=trans('추가구성 상품')}</p>
-                </div>
-
-                <!-- choosed option -->
-                <div id="devSlideMinicartSelected">
-                    <!--{'<script id="devSlideOptionBox" type="text/x-handlebars-template">'}-->
-                    <div class="detail__aside__option-box devSlideOptionBox" devOptionKind="{[option_kind]}" devOptid="{[option_id]}" devUnit="{[option_dcprice]}" devStock="{[option_stock]}">
-                        <p class="detail__aside__option-tit detail__aside__title">{[option_prefix]}{[option_div]}</p>
-
-                        <div class="detail__aside__option-btns option-btn control">
-                            <ul class="devControlCntBox">
-                                <!-- option-up-down 클래스 삭제 -->
-                                <li class="devCntMinus detail__aside__option-btns--minus">
-                                    <button class="down">-</button>
-                                </li>
-
-                                <li class="detail__aside__option-btns--count">
-                                    <input type="text" value="{[allowBasicCnt]}" class="devMinicartPrdCnt">
-                                </li>
-
-                                <li class="devCntPlus detail__aside__option-btns--plus">
-                                    <button class="up">+</button>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="detail__aside__option-price price">
-                            <em class="devMinicartEachPrice">{[eachPrice]}</em>{=trans('원')}
-                        </div>
-
-                        <button class="detail__aside__option-del btn-option-del devMinicartDelete"></button>
+                <div class="goods-option">
+                    <!-- when has only 1 option -->
+                    <div id="devSildeLonelyOption">
+                        <!--{'<script id="devSildeLonelyOptionName" type="text/x-handlebars-template">'}-->
+                        <span class="option__name">
+                            <p>{[option_name]}</p>
+                        </span>
+                        <!--{'</script>'}-->
                     </div>
-                    <!--{'</script>'}-->
+    
+                    <!-- option select -->
+                    <div id="devSildeMinicartOptions"></div>
+    
+                    <!-- add option select -->
+                    <div id="devSlideMinicartAddOption" class="hidden">
+                        <p class="detail__aside__title">{=trans('추가구성 상품')}</p>
+                    </div>
+    
+                    <!-- choosed option -->
+                    <div id="devSlideMinicartSelected">
+                        <!--{'<script id="devSlideOptionBox" type="text/x-handlebars-template">'}-->
+                        <div class="detail__aside__option-box devSlideOptionBox" devOptionKind="{[option_kind]}" devOptid="{[option_id]}" devUnit="{[option_dcprice]}" devStock="{[option_stock]}">
+                            <p class="detail__aside__option-tit detail__aside__title">{[option_prefix]}{[option_div]}</p>
+    
+                            <div class="detail__aside__option-btns option-btn control">
+                                <ul class="devControlCntBox">
+                                    <!-- option-up-down 클래스 삭제 -->
+                                    <li class="devCntMinus detail__aside__option-btns--minus">
+                                        <button class="down">-</button>
+                                    </li>
+    
+                                    <li class="detail__aside__option-btns--count">
+                                        <input type="text" value="{[allowBasicCnt]}" class="devMinicartPrdCnt">
+                                    </li>
+    
+                                    <li class="devCntPlus detail__aside__option-btns--plus">
+                                        <button class="up">+</button>
+                                    </li>
+                                </ul>
+                            </div>
+    
+                            <div class="detail__aside__option-price price">
+                                <em class="devMinicartEachPrice">{[eachPrice]}</em>{=trans('원')}
+                            </div>
+    
+                            <button class="detail__aside__option-del btn-option-del devMinicartDelete"></button>
+                        </div>
+                        <!--{'</script>'}-->
+                    </div>
                 </div>
             </div>
 
