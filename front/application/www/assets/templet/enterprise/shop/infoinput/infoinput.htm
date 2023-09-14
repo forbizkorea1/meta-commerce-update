@@ -83,36 +83,82 @@
                             </label>
                         </li>
                         {/}
+
+                        <!-- 카카오페이 직연동-->
+                        {? kakaopay_service_use == 'Y'}
+                        <li class="payment__method__list kakao">
+                            <label for="pay-method-{c.ORDER_METHOD_KAKAOPAY}" class="fb__comm__radio">
+                                <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_KAKAOPAY}"
+                                       id="pay-method-{c.ORDER_METHOD_KAKAOPAY}">
+                                <span>{=trans('카카오페이')}</span>
+                            </label>
+                        </li>
+                        {/}
                     </ul>
 
                     <!-- 결제안내문구 -->
                     <ul class="payment__desc">
+                        {*<!-- [FE] 신용카드 결제  -->*}
                         <li class="payment__desc__list" devPaymentDescription="{c.ORDER_METHOD_CARD}">
                             <span class="payment__desc__name">
                                 {=trans('결제안내')}
                             </span>
                             <span class="payment__desc__cont">
-                                · {=trans('고객이 온라인 쇼핑몰에서 상품 및 서비스를 신용카드로 진행하는 결제 서비스입니다.')}<br>
-                                · {=trans('카드번호 유효기간 등의 신용정보는 안전하게 암호화되어 해당 신용카드사로 전달됩니다.')}
+                                <ul class="cont__list">
+                                    <li class="cont__item">{=trans('고객이 온라인 쇼핑몰에서 상품 및 서비스를 신용카드로 진행하는 결제 서비스입니다.')}</li>
+                                    <li class="cont__item">{=trans('카드번호 유효기간 등의 신용정보는 안전하게 암호화되어 해당 신용카드사로 전달됩니다.')}</li>
+                                </ul>
                             </span>
                         </li>
 
+                        {*<!-- [FE] 가상계좌 결제  -->*}
                         <li class="payment__desc__list" devPaymentDescription="{c.ORDER_METHOD_VBANK}">
                             <span class="payment__desc__name">
                                 {=trans('결제안내')}
                             </span>
                             <span class="payment__desc__cont">
-                                · {=trans('주문완료 후 {cancelAutoDay} 일 이내 입금완료 하셔야 상품이 발송됩니다.')}
+                                <ul class="cont__list">
+                                    <li class="cont__item">{=trans('주문완료 후 {cancelAutoDay} 일 이내 입금완료 하셔야 상품이 발송됩니다.')}</li>
+                                </ul>
                             </span>
                         </li>
 
+                        {*<!-- [FE] 실시간계좌이체  -->*}
                         <li class="payment__desc__list" devPaymentDescription="{c.ORDER_METHOD_ICHE}">
                             <span class="payment__desc__name">
                                 {=trans('결제안내')}
                             </span>
                             <span class="payment__desc__cont">
-                                · {=trans('상품 및 서비스 대금을 고객이 입력한 본인의 계좌통장에서 실시간으로 출금지불하는 결제 수단입니다.')}<br>
-                                · {=trans('[마이페이지 > 환불계좌관리] 혹은 환불신청 시 입력한 환불계좌로 입금됩니다.')}
+                                <ul class="cont__list">
+                                    <li class="cont__item">{=trans('상품 및 서비스 대금을 고객이 입력한 본인의 계좌통장에서 실시간으로 출금지불하는 결제 수단입니다.')}</li>
+                                    <li class="cont__item">{=trans('[마이페이지 > 환불계좌관리] 혹은 환불신청 시 입력한 환불계좌로 입금됩니다.')}</li>
+                                </ul>
+                            </span>
+                        </li>
+                        {*<!-- [FE] 네이버페이 - 인앱 -->*}
+                        <li class="payment__desc__list" devPaymentDescription="{c.ORDER_METHOD_INAPP_NAVERPAY}">
+                            <span class="payment__desc__name">
+                                {=trans('결제안내')}
+                            </span>
+                            <span class="payment__desc__cont">
+                                <ul class="cont__list">
+                                    <li class="cont__item">{=trans('네이버페이는 네이버ID로 신용카드 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.')}</li>
+                                    <li class="cont__item">{=trans('주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.')}</li>
+                                    <li class="cont__item">{=trans('지원 가능 결제수단 : 네이버페이 결제창 내 노출되는 모든 카드')}</li>
+                                </ul>
+                            </span>
+                        </li>
+                        {*<!-- [FE] 네이버페이 - 결제형  -->*}
+                        <li class="payment__desc__list" devPaymentDescription="{c.ORDER_METHOD_NPAY}">
+                            <span class="payment__desc__name">
+                                {=trans('결제안내')}
+                            </span>
+                            <span class="payment__desc__cont">
+                                <ul class="cont__list">
+                                    <li class="cont__item">{=trans('네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.')}</li>
+                                    <li class="cont__item">{=trans('주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.')}</li>
+                                    <li class="cont__item">{=trans('지원 가능 결제수단 : 네이버페이 결제창 내 노출되는 모든 카드/계좌')}</li>
+                                </ul>
                             </span>
                         </li>
                     </ul>

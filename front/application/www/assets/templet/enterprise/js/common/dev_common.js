@@ -241,7 +241,7 @@ var common = {
              * 모달 닫기
              */
             close: function () {
-                $('.js__modal__layer .close').trigger('click');
+                $('.js__modal__layer .close, .js__modal__close').trigger('click');
             },
             /**
              * @desc 모달 열기
@@ -545,7 +545,7 @@ var common = {
         log: function (message) {
             if (common.environment == 'development') {
                 if (!window.console) {
-                    var console = {log : function(){}} ;
+                    window.console = {log : function(){}} ;
                 }
                 console.log(message);
             }
@@ -1924,6 +1924,6 @@ common.lang.load('common.validation.juminNumber.fail', "유효한 주민등록 �
 common.lang.load('common.validation.email.fail', "이메일을 올바르게 입력해 주세요.");
 common.lang.load('common.inputFormat.fileFormat.fail', "파일 형식이 올바르지 않습니다.{common.lineBreak}다시 첨부해 주세요.");
 common.lang.load('common.inputFormat.fileSize.fail', "파일 용량이 최대 {size}MB를 초과했습니다.{common.lineBreak}다시 첨부해 주세요.");
-common.lang.load('common.validation.mobile.fail', "휴대전화번호를  올바르게 입력해 주세요.");
+common.lang.load('common.validation.mobile.fail', "휴대폰번호를  올바르게 입력해 주세요.");
 //inputFormat bind
 common.inputFormat.eventBind();

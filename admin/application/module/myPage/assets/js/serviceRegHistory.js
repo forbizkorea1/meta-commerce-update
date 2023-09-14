@@ -59,7 +59,6 @@ var devMyPageServiceRegHistoryObj = {
     devServiceTab: function(selected, code, type){
         var self = devMyPageServiceRegHistoryObj;
 
-
         switch(selected) {
             case '#devServiceLookup':
             case '#devServiceAutoComplete':
@@ -216,6 +215,10 @@ var devMyPageServiceRegHistoryObj = {
                     code = 'bigin'
                     type = 'day';
                     self.devServiceTab(selected, code, type);
+                    break;
+                case '#devServiceKakaopayPg':
+                    type = 'use';
+                    self.hideAllGrid();
                     break;
                 default:
                     console.log(selected);

@@ -52,7 +52,7 @@
                 <div class="addressPop__list__btn">
                     <button type="button" class="btn__addressUpdate devUpdateAddress" data-ix="{[ix]}">{=trans('수정')}</button>
                     {[#unless default_yn]}
-                    <button type="button" class="btn__addressDelete devAddressBookDelete" data-ix="{[ix]}">{=trans('삭제')}</button>
+                    <button type="button" class="btn__addressDelete devAddressBookDelete" data-ix="{[ix]}" {[#if isChecked]}style="display: none;"{[/if]}>{=trans('삭제')}</button>
                     {[/unless]}
                 </div>
             </li>

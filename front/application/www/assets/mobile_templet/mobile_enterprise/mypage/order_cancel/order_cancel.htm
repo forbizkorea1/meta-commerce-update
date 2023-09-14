@@ -273,6 +273,7 @@
                                 <input type="text" name="bankNumber" value="{refundInfo.ori_bank_number}" title="{=trans('계좌번호')}" id="devBankNumber" placeholder="{=trans('계좌번호를 입력해 주세요.')}">
                             </dd>
                             {/}
+                            <input type="hidden" id="devAlreadyRefundInfo" value="{alreadyRefundInfo}">
                         </dl>
 
                         {@paymentInfo.payment}

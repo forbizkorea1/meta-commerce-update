@@ -41,6 +41,25 @@ var devOrderApplyRefundOrderObj = {
     getClaimTotalRefundPrice: function (data) {
         return parseInt(data.refund_product_price) + parseInt(data.claim_delivery_price) + parseInt(data.refund_reserve_price);
     },
+    refundDeliveryFeeCellConfig: function () {
+        var refundDeliFeeColumn = {
+            key: "claim_delivery_price",
+            label: common.lang.get('grid.refund.claim.label.claim_delivery_price'),
+            width: 200,
+            align: 'right',
+            formatter: 'money',
+            editor: {type: "number", updateWith: ['total_refund_price']},
+            styleClass: 'fb__grid__edit--active'
+        };
+
+        if (npaypgUsed == true) {
+            delete refundDeliFeeColumn.editor;
+            delete refundDeliFeeColumn.styleClass;
+        }
+
+        return refundDeliFeeColumn;
+
+    },
     productGrid: false,
     claimGrid: false,
     refundGrid: false,
@@ -153,15 +172,7 @@ var devOrderApplyRefundOrderObj = {
                     formatter: 'money',
                     align: 'right'
                 },
-                {
-                    key: "claim_delivery_price",
-                    label: common.lang.get('grid.refund.claim.label.claim_delivery_price'),
-                    width: 200,
-                    align: 'right',
-                    formatter: 'money',
-                    editor: {type: "number", updateWith: ['total_refund_price']},
-                    styleClass: 'fb__grid__edit--active'
-                },
+                self.refundDeliveryFeeCellConfig(),
                 {
                     key: "total_refund_price",
                     label: common.lang.get('grid.refund.claim.label.total'),

@@ -1,0 +1,235 @@
+<!--{'<script id="devPgApplyKakaopayModalTpl" type="text/x-handlebars-template">'}-->
+<form id="devKakaoForm" method="POST">
+    <section class="fb__menusubmit">
+        <section class="fb-filter">
+            <table>
+                <caption>신청정보</caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            회사명
+                        </span>
+                    </th>
+                    <td>
+                        <input type="text" class="fb-filter__text" name="company_name" title="쇼핑몰명" value="">
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            사업자등록번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="biz_reg_no1" title="사업자등록번호" value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="biz_reg_no2" title="사업자등록번호" value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="biz_reg_no3" title="사업자등록번호" value="">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            회사유형
+                        </span>
+                    </th>
+                    <td>
+                        <div class="fb-filter__radio">
+                            <label for="com_div_R">
+                                <input type="radio" name="company_type" id="com_div_R" value="2" checked>
+                                <span>법인 사업자</span>
+                            </label>
+                            <label for="com_div_P">
+                                <input type="radio" name="company_type" id="com_div_P" value="1">
+                                <span>개인 사업자</span>
+                            </label>
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne" id="devCorpReg">
+                            법인등록번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="corp_reg_no1" title="법인등록번호" value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="corp_reg_no2" title="법인등록번호" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            상점명
+                        </span>
+                    </th>
+                    <td>
+                        <input type="text" class="fb-filter__text" name="partner_name" title="상점명" value="">
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            대표자명
+                        </span>
+                    </th>
+                    <td>
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="ceo_name" title="대표자명" placeholder="예) 홍길동" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            업태
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="biz_type" title="업태" placeholder="예) 도매 및 소매업" value="">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            업종
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="biz_item" title="업종" placeholder="예) 전자상거래 소매 중개업" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            주소
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--30" name="zipcode" id="devZipCode" title="우편번호" value=""> <input type="button" class="fb-filter__search-icon" id="devSearchAddressPopup2" value="검색"><br/><br/>
+                            <input type="text" class="fb-filter__text " name="addr1" id="devAddr1" title="주소" value=""><br/><br/><br/>
+                            <input type="text" class="fb-filter__text " name="addr2" id="devAddr2" title="주소" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            대표 전화번호
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="tel01" title="대표 전화번호" placeholder="예) 02" value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="tel02" title="대표 전화번호" placeholder="예) 1234" value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="tel03" title="대표 전화번호" placeholder="예) 45678" value="">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            대표 이메일
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="email" title="대표 이메일" placeholder="예) meta@commerce.co.kr" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            쇼핑몰 URL
+                        </span>
+                    </th>
+                    <td>
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="site_url" title="쇼핑몰 URL" placeholder="예) www.meta-commerce.co.kr" value="">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            판매상품
+                        </span>
+                    </th>
+                    <td>
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="products" title="판매상품" placeholder="예) 온라인 가맹점" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            담당자명
+                        </span>
+                    </th>
+                    <td class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="manager_name" title="계약자명" placeholder="예) 홍길동" value="">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            담당자 전화번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="manager_tel01" placeholder="예) 02" title="담당자 전화번호" value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="manager_tel02" placeholder="예) 1234" title="담당자 전화번호" value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="manager_tel03" placeholder="예) 5678" title="담당자 전화번호" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="fb-filter__title">
+                        <span class="fb-filter__title--ne">
+                            담당자 휴대폰번호
+                        </span>
+                    </th>
+                    <td colspan="" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="manager_cell_phone01" title="담당자 휴대폰번호" placeholder="예) 010"  value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="manager_cell_phone02" title="담당자 휴대폰번호" placeholder="예) 1234"  value="">
+                            <input type="text" class="fb-filter__text fb-filter__text--20" name="manager_cell_phone03" title="담당자 휴대폰번호" placeholder="예) 5678"  value="">
+                        </div>
+                    </td>
+                    <th class="fb-filter__title">
+                    <span class="fb-filter__title--ne">
+                        담당자 이메일
+                    </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap">
+                        <div class="fb-filter__title-contents">
+                            <input type="text" class="fb-filter__text" name="manager_email" title="담당자 이메일" placeholder="예) meta@commerce.co.kr" value="">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </section>
+
+
+    <section class="fb__menusubmit">
+        <section class="fb-filter">
+            <header class="fb__menusubmit-header">
+                <h3 class="fb__menusubmit-title">* 유의사항</h3>
+            </header>
+            <section class="fb__infobox">
+                <p class="fb__info-line">신청서 접수 후 카카오에서 담당자 휴대폰 또는 이메일로 전달되는 URL로 접속하셔서 구비서류를 업로드 하셔야 최종 접수가 완료 됩니다.</p>
+            </section>
+        </section>
+    </section>
+    <div class="fb-filter__btn">
+        <button type="button" class="fb-filter__save devPgRegSubmit" id="devKakaopaySubmit">신청하기</button>
+    </div>
+</form>
+<!--{'</script>'}-->

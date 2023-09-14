@@ -1074,18 +1074,20 @@
                 &__list {
                     display: inline-block;
                     position: relative;
+                    max-width: calc(100% - #{vw(8px)} * 2);
                     height: vw(64px);
                     margin: vw(8px);
                     padding: vw(0 76px 0 26px);
                     border: vw(2px) solid #DDD;
                     border-radius: vw(32px);
-                    vertical-align: top;
+                    vertical-align: top; 
 
                     a {
                         display: block;
                         font-size: vw(28px);
                         color: #999;
                         line-height: vw(60px);
+                        @include line();
                     }
 
                     button {
@@ -2624,12 +2626,14 @@
         text-align: center;
 
         &__txt {
+            padding: 0 vw(10px); 
             color: #666;
             font-size: vw(28px);
             line-height: vw(40px);
+            word-break: break-all;
 
             &:before {
-                content: '';
+                content: ''; 
                 display: block;
                 width: vw(120px);
                 height: vw(120px);
@@ -2820,6 +2824,7 @@
    
 
     .term-list {
+        position: relative;
         padding: vw(35px 25px);
         border-bottom: vw(2px) solid #EEE;
 
@@ -2839,18 +2844,28 @@
     }
 
     .accord-btn {
-        float: right;
-        width: vw(27px);
-        height: vw(15px);
-        margin-top: vw(10px);
-        background: url(../images/icon/m_sprite_icon.png) no-repeat vw(-945px -519px) / vw(1000px);
-    }
+        position: absolute;
+        top: 0;
+        right: 0;
+        width:vw(112px);
+        height: 100%;
 
-    .accord-btn.on {
-        float: right;
-        width: vw(27px);
-        height: vw(15px);
-        background: url(../images/icon/m_sprite_icon.png) no-repeat vw(-875px -519px) / vw(1000px);
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: vw(27px);
+            height: vw(15px);
+            margin: vw(-15px/2 -27px/2);
+            background: url(../images/icon/m_sprite_icon.png) no-repeat vw(-945px -519px) / vw(1000px);
+        }
+        
+        &.on {
+            &:before {
+                background: url(../images/icon/m_sprite_icon.png) no-repeat vw(-875px -519px) / vw(1000px);
+            }
+        }
     }
 
     .terms-content {

@@ -1,49 +1,5 @@
 "use strict";
 /*--------------------------------------------------------------*
- * 퍼블 *
- *--------------------------------------------------------------*/
-//약관 전체 동의 클릭시
-// $('#agree-all').click(function () {
-//     if ($(this).is(':checked')) {
-//         $('input[name^=policyIx]:not(:checked),#agree-term6,#agree-term7').prop('checked', true);
-//     } else {
-//         $('input[name^=policyIx]:checked,#agree-term6,#agree-term7').prop('checked', false);
-//     }
-// });
-
-// //각 항목 클릭시
-// $('input[name^=policyIx]').click(function () {
-//     if ($('input[name^=policyIx]').length == $('input[name^=policyIx]:checked').length) {
-//         $('#agree-all').prop('checked', true);
-//     } else {
-//         $('#agree-all').prop('checked', false);
-//     }
-// });
-
-
-
-//마케팅 활용 동의 선택
-// $('#agree-term5').click(function () {
-//     if ($(this).is(':checked')) {
-//         $('#agree-term6,#agree-term7').prop('checked', true);
-//     } else {
-//         $('#agree-term6,#agree-term7').prop('checked', false);
-//     }
-// });
-
-// //SMS,이메일 수신 클릭시 마케팅 활용 동의 체크수정
-// $('#agree-term6,#agree-term7').click(function () {
-//     if (!$('#agree-term6').is(':checked') && !$('#agree-term7').is(':checked')) {
-//         $('#agree-term5').prop('checked', false);
-//     } else if ($('#agree-term6').is(':checked') && $('#agree-term7').is(':checked')) {
-//         $('#agree-term5').prop('checked', true);
-//     }
-// });
-
-
-
-
-/*--------------------------------------------------------------*
  * 개발 *
  *--------------------------------------------------------------*/
 var authenticationObj = {
@@ -245,6 +201,23 @@ var authenticationObj = {
             self.form.submit();
         });
 
+        // [선택] 마케팅 활용 동의 - SMS수신, 이메일 수신 체크 박스 이벤트
+        $("#devAgreeterm6, #devAgreeterm7").on("change", function(){
+            if ($('#devAgreeterm6').is(':checked') || $('#devAgreeterm7').is(':checked')) {
+                $('#devAgreeTerm5').prop('checked', true);
+            } else {
+                $('#devAgreeTerm5').prop('checked', false);
+            }
+        });
+
+        // [선택] 마케팅 활용 동의 체크 박스 이벤트
+        $('#devAgreeTerm5').on("change", function () {
+            if ($(this).is(':checked')) {
+                $('#devAgreeterm6, #devAgreeterm7').prop('checked', true);
+            } else {
+                $('#devAgreeterm6, #devAgreeterm7').prop('checked', false);
+            }
+        });
     },
     initNonCertify: function () {
         if (devUseCertify == 'N' && devUseSso == 'N') {

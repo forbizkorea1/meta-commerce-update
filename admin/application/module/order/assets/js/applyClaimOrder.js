@@ -31,6 +31,8 @@ var devOrderApplyClaimOrderObj = {
         common.lang.load('common.apply.success.alert', '신청이 완료되었습니다.');
         common.lang.load('applyPcnt.many.alert', '신청 수량은 구매 수량보다 높을 수 없습니다.');
         common.lang.load('applyPcnt.zero.alert', '신청 수량 `0`보다 커야 합니다.');
+
+        common.lang.load('noRefund.alert', '환불 배송비가 환불상품금액을 초과하여 환불신청을 할 수 없습니다.');
     },
     productGrid: false,
     initGrid: function () {
@@ -116,6 +118,10 @@ var devOrderApplyClaimOrderObj = {
                 return false;
             }
 
+            if ($('#devSubtraction').is(':checked')) {
+                formData.push(common.form.makeData('subtraction', 'Y'));
+            }
+
             formData.push(common.form.makeData('productList', check.data));
 
             return formData;
@@ -146,6 +152,13 @@ var devOrderApplyClaimOrderObj = {
                 refundTotalPrice = parseInt(self.claimData.refundProductPrice) + parseInt($('#defClaimDeliveryPrice').val());
             }
             $('#devRefundTotalPrice').text(common.util.numberFormat(refundTotalPrice));
+
+            // 총환불금액이 마이너스일 경우 신청 불가능
+            if (Math.sign(refundTotalPrice) == -1) {
+                self.noRefund = true;
+            } else {
+                self.noRefund = false;
+            }
         }
 
         //환불 배송비 수정
@@ -161,7 +174,11 @@ var devOrderApplyClaimOrderObj = {
         //신청
         $('#devTopMenuApplyBtn').click(function (e) {
             e.preventDefault();
-            $('#devClaimForm').submit();
+            if (self.noRefund == false) {
+                $('#devClaimForm').submit();
+            } else {
+                common.noti.alert(common.lang.get('noRefund.alert'));
+            }
         });
 
         //반품상품 발송방법
@@ -233,6 +250,7 @@ var devOrderApplyClaimOrderObj = {
         return {result: result, data: data};
     },
     claimData: {},
+    noRefund: false,
     changeClaimApply: function () {
         var self = this;
         var reason = $('#devReason').val()
@@ -256,12 +274,28 @@ var devOrderApplyClaimOrderObj = {
                         $('#devRefundDeliveryPrice').text(common.util.numberFormat(response.data.refundDeliveryPrice));
                         $('#devAddDeliveryPrice').text(common.util.numberFormat(response.data.addDeliveryPrice));
                         $('#devRefundTotalPrice').text(common.util.numberFormat(response.data.refundTotalPrice));
+
                         if (response.data.claimDeliveryPrice < 0) {
                             $('#devSubtraction').prop('checked', true);
                             $('#defClaimDeliveryPrice').val(response.data.claimDeliveryPrice * -1);
-                        } else {
+                        } else if (response.data.claimDeliveryPrice == 0) {
+                            // 환불 배송비 0
                             $('#devSubtraction').prop('checked', false);
                             $('#defClaimDeliveryPrice').val(response.data.claimDeliveryPrice);
+                        } else {
+                            // 환불 배송비 존재 (무료 배송 조건 깨졌을 때)
+                            $('#devSubtraction').prop('checked', true);
+                            $('#defClaimDeliveryPrice').val(response.data.claimDeliveryPrice);
+                            // 총 환불금액 가격 변경
+                            var refundTotalPrice = parseInt(response.data.refundProductPrice) - parseInt(response.data.claimDeliveryPrice);
+                            $('#devRefundTotalPrice').text(common.util.numberFormat(refundTotalPrice));
+
+                            // 총환불금액이 마이너스일 경우 신청 불가능
+                            if (Math.sign(refundTotalPrice) == -1) {
+                                self.noRefund = true;
+                            } else {
+                                self.noRefund = false;
+                            }
                         }
                     }
                 });

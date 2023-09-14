@@ -100,6 +100,7 @@ var devProductListProductObj = {
 
         // 그리드 연동
         grid.setGrid($('#devPagingGrid'), gridConfig)
+        .setUseHash(false)
         .setForm('#devGridForm')
         .setPagination('#devPageWrap')
         .setPageNum('#devPageNum')
@@ -123,7 +124,7 @@ var devProductListProductObj = {
         //수정 버튼 이벤트
         $('[data-ax5grid-container="body"]').on('click', '.devDeliveryCompanyModify', function () {
             var row = grid.getRow($(this).data('idx'));
-            document.location.href = '/product/manageProduct/' + row.id;
+            window.open('/product/manageProduct/' + row.id);
         });
 
         $('#devFormSubmit').on('click',function () {

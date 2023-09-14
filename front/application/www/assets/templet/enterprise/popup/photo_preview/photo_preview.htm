@@ -1,0 +1,33 @@
+<!-- 이미지 보기 팝업 -->
+<div class="popupGoodsPerview swiper-container">
+    <ul id="devPopPhotoPReviewDetail" class="popupGoodsPerview__box swiper-wrapper">
+        <li class="popupGoodsPerview__list swiper-slide">
+            <figure class="popupGoodsPerview__list__img">
+                <img src="" alt="">
+            </figure>
+        </li>
+    </ul>
+
+    <div class="popupGoodsPerview__controller">
+        <div class="popupGoodsPerview__controller__paging"></div>
+        <button type="button" class="popupGoodsPerview__controller__btn popupGoodsPerview__controller__btn--prev">
+            <span class="blind">{=trans('이전')}</span>
+        </button>
+        <button type="button" class="popupGoodsPerview__controller__btn popupGoodsPerview__controller__btn--next">
+            <span class="blind">{=trans('다음')}</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    var bbs_ix = '{bbs_ix}';
+    var idx = '{idx}';
+</script>
+
+<!--{'<script id="devReviewImageTpl" type="text/x-handlebars-template">'}-->
+<li class="popupGoodsPerview__list swiper-slide">
+    <figure class="popupGoodsPerview__list__img">
+        <img src="{[img]}" alt="">
+    </figure>
+</li>
+<!--{'</script>'}-->

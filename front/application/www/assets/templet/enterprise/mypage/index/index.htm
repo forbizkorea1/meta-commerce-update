@@ -116,6 +116,10 @@
                                         <!-- 주문상태 -->
                                         <td class="orderTable__status">
                                             <span>{..status_text}</span>
+
+                                            {? ..refund_status_text}
+                                            <p>{..refund_status_text}</p>
+                                            {/}
                                             
                                             <!-- 배송중 || 배송완료일때 : 배송추적 -->
                                             {? ..status == c.ORDER_STATUS_DELIVERY_ING || ..status == c.ORDER_STATUS_DELIVERY_COMPLETE}
@@ -149,6 +153,7 @@
                                                         <a class="item-info__link" href="/shop/goodsView/{..pid}" target="_blank">
                                                             <figure class="item-info__thumb">
                                                                 <img data-src="{...pimg}" alt="{...pname}">
+                                                                <mark class="item-info__badge--exchange">{=trans('교환상품')}</mark>
                                                             </figure>
                                                             
                                                             <div class="item-info__info">

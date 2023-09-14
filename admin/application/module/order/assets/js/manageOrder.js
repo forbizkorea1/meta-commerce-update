@@ -697,8 +697,25 @@ var devOrderManageOrderObj = {
             height: '600px'
         });
     },
+    cashAmountTpl: false,
+    cashAmountModal: function () {
+        var self = this;
 
+        if (self.cashAmountTpl === false) {
+            self.cashAmountTpl = common.util.getHtml('#cashAmountTpl');
+        }
 
+        common.util.modal.open(
+            'html',
+            '네이버페이 현금영수증 금액조회',
+            self.cashAmountTpl,
+            '',
+            function(){
+
+            },
+            {width: '760px', height: '466px'}
+        );
+    },
     run: function () {
         this.initLang();
         this.initForm();

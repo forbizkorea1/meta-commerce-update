@@ -1,7 +1,7 @@
 <form id="devEasyDirectConfigForm" method="post" >
     <section class="fb__menusubmit">
         <header class="fb__menusubmit-header">
-            <h3 class="fb__menusubmit-title">간편결제 네이버페이 (직연동)</h3>
+            <h3 class="fb__menusubmit-title">간편결제 네이버페이 (결제형)</h3>
         </header>
         <section class="fb-filter">
             <table>
@@ -16,7 +16,7 @@
                 <tr>
                     <th class="fb-filter__title">
                     <span>
-                        네이버페이(직연동) 사용 여부
+                        네이버페이(결제형) 사용 여부
                     </span>
                     </th>
                     <td colspan="3">
@@ -35,7 +35,7 @@
                 <tr>
                     <th class="fb-filter__title">
                         <span>
-                            네이버페이(직연동) 서비스 타입
+                            네이버페이(결제형) 서비스 타입
                         </span>
                     </th>
                     <td colspan="3" >
@@ -54,14 +54,15 @@
                 <tr> <!-- 텍스트 타입 -->
                     <th class="fb-filter__title">
                         <span>
-                            상점 키(직연동)
+                            상점 키(결제형)
                         </span>
                     </th>
                     <td colspan="3" class="fb-filter__day-wrap">
                         <div class="fb-filter__title-contents devServiceUse">
-                            <input type="text" class="fb-filter__text" name="naverpay_pg_partner_id" title="Npay ( PG형 ) 파트너 ID" placeholder="파트너 ID" value="{payConfig.naverpay_pg_partner_id}">
-                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_id" title="Npay ( PG형 ) Client ID" placeholder="Client ID" value="{payConfig.naverpay_pg_client_id}">
-                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_secret" title="Npay ( PG형 ) Client Secret" placeholder="Client Secret" value="{payConfig.naverpay_pg_client_secret}">
+                            <input type="text" class="fb-filter__text" name="naverpay_pg_partner_id" title="Npay ( 결제형 ) 파트너 ID" placeholder="파트너 ID" value="{payConfig.naverpay_pg_partner_id}">
+                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_id" title="Npay ( 결제형 ) Client ID" placeholder="Client ID" value="{payConfig.naverpay_pg_client_id}">
+                            <input type="text" class="fb-filter__text" name="naverpay_pg_client_secret" title="Npay ( 결제형 ) Client Secret" placeholder="Client Secret" value="{payConfig.naverpay_pg_client_secret}">
+                            <input type="text" class="fb-filter__text" name="naverpay_pg_chain_id" title="Npay ( 결제형 ) Chain ID" placeholder="Chain ID" value="{payConfig.naverpay_pg_chain_id}">
                         </div>
                     </td>
                 </tr>
@@ -278,6 +279,58 @@
                         <div class="fb-filter__title-contents">
                             <input type="text" class="fb-filter__text" name="toss_api_key" title="토스 apiKey"
                                    placeholder="apiKey" value="{payConfig.toss_api_key}">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+    <section class="fb__menusubmit">
+        <header class="fb__menusubmit-header">
+            <h3 class="fb__menusubmit-title">간편결제 카카오페이 (직연동)</h3>
+        </header>
+        <section class="fb-filter">
+            <table>
+                <caption></caption>
+                <colgroup>
+                    <col width="14%">
+                    <col width="35%">
+                    <col width="14%">
+                    <col width="*">
+                </colgroup>
+                <tbody class="devServiceTable">
+                <tr>
+                    <th class="fb-filter__title">
+                    <span>
+                        카카오페이 사용 여부
+                    </span>
+                    </th>
+                    <td colspan="3">
+                        <div class="fb-filter__radio devServiceSelect">
+                            <label>
+                                <input type="radio" name="kakaopay_service_use" value="Y" {? payConfig.kakaopay_service_use =='Y'  } checked {/}  />
+                                <span>사용함</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="kakaopay_service_use" value="N" {? payConfig.kakaopay_service_use =='' || payConfig.kakaopay_service_use =='N'  } checked {/}  />
+                                <span>사용안함</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr> <!-- 텍스트 타입 -->
+                    <th class="fb-filter__title">
+                        <span>
+                            상점 키
+                        </span>
+                    </th>
+                    <td colspan="3" class="fb-filter__day-wrap devServiceUse">
+                        <div class="fb-filter__title-contents">
+                            <label>
+                                <input type="text" class="fb-filter__text" name="kakaopay_cid" title="카카오페이 CID"
+                                       placeholder="CID" value="{payConfig.kakaopay_cid}">
+                            </label>
                         </div>
                     </td>
                 </tr>

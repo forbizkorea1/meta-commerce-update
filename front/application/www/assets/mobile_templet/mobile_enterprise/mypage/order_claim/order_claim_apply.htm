@@ -44,7 +44,7 @@
                             <dl class="claimCommon__info">
                                 <dt class="claimCommon__info__name">{=trans('{claimTypeName}수량')}</dt>
                                 <dd class="claimCommon__info__count">
-                                    <select class="fb__select--small devClaimCntCls" id="devClaimCnt{..od_ix}" name="claim_cnt[{..od_ix}]">
+                                    <select class="fb__select--small devClaimCntCls" id="devClaimCnt{..od_ix}" name="claim_cnt[{..od_ix}]" pcnt="{..pcnt}">
                                         {@ range(..pcnt, 1, -1)}<option value="{...value_}">{...value_}</option>{/}
                                     </select>
                                 </dd>

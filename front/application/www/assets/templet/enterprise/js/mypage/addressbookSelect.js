@@ -29,6 +29,7 @@ $(".js__address__tab").on("click", function() {
 var devAddressBookPopObj = {
     updateMode: false,
     callbackSelect: false,
+    basicAddress: false,
     addressBookList: common.ajaxList(),
     closeWindow: function () {
         top.window.close();
@@ -48,7 +49,11 @@ var devAddressBookPopObj = {
                     row.isChecked = false;
                     if(ix == row.ix) {
                         row.isChecked = true;
+                    } else if (row.default_yn == "Y") {
+                        // 주문 이후 배송지 변경 팝업을 띄울 경우 디폴트 배송지를 체크하도록 함
+                        row.isChecked = true;
                     }
+
                     $(this.container).append(this.listTpl(row));
                 }
 
@@ -97,10 +102,23 @@ var devAddressBookPopObj = {
     },
     setAddress: function (data) {
         self.updateMode = true;
-        common.form.dataBind($('#devAddressBookAddForm'), data);
+        common.form.dataBind($('#devAddressBookAddForm'), data)
+
+        if (data.default_yn == "Y") {
+            self.basicAddress = true;
+        } else {
+            self.basicAddress = false;
+        }
+
+        $("#devDefaultYn").click(function(){
+            if (self.basicAddress == true) {
+                return false;
+            }
+        });
     },
     resetAddress: function () {
         self.updateMode = false;
+        self.basicAddress = false;
         common.form.dataBind($('#devAddressBookAddForm'), {
             "ix": "",
             "recipient": "",
@@ -124,6 +142,7 @@ var devAddressBookPopObj = {
         common.validation.set($('#devRecipient'), {'required': true});
         common.validation.set($('#devZip'), {'required': true});
         common.validation.set($('#devAddress1'), {'required': true});
+        common.validation.set($('#devAddress2'), {'required': true});
         common.validation.set($('#devPcs1, #devPcs2, #devPcs3'), {'required': true});
 
         common.inputFormat.set($('#devPcs2, #devPcs3'), {'maxLength': 4});
@@ -144,12 +163,21 @@ var devAddressBookPopObj = {
                 $('#devAddressBookAddForm'),
                 common.util.getControllerUrl('addressBookReplace', 'mypage'),
                 function (formObj) {
+                    var isBool = true;
                     // 전송전 데이타 검증
                     if (!common.validation.check(formObj, 'alert', false)) {
-                        return false;
+                        isBool = false;
+                    }
+                    if($('#devPcs2').val().length < 3) {
+                        common.noti.alert('휴대폰 번호 3자리 이상 입력해 주시기 바랍니다.');
+                        isBool = false;
+                    }
+                    if($('#devPcs3').val().length < 4) {
+                        common.noti.alert('휴대폰 번호 4자리 이상 입력해 주시기 바랍니다.');
+                        isBool = false;
                     }
 
-                    return true;
+                    return isBool;
                 },
                 function (response) {
                     // 전송후 결과 확인

@@ -1,0 +1,463 @@
+.fb {
+	/* 210521 개선 수정 */
+	&#shop_search {
+		#header {
+			height: vw(130px);
+		}
+	}
+
+	&__search {
+		$searchWrap: &;
+		&.hasSearch {
+			& #{$searchWrap} {
+				&__header {
+						display: flex;
+				}    
+		}
+		}
+		&__header {
+			display: none;
+			align-items: center;
+			position: relative;
+			height: vw(100px);
+			padding: vw(0 30px);
+			// border-bottom: vw(2px) solid #EEE;
+		}
+
+		&__total {
+			display: block;
+			font-size: vw(26px);
+
+			em {
+				color: #FF6600;
+			}
+		}
+
+		&__filter {
+			position: absolute;
+			top: 50%;
+			right: vw(22px);
+			transform: translateY(-50%);
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: vw(200px);
+				width: vw(2px);
+				height: vw(50px);
+				background: #DDD;
+			}
+
+			.sortFilter {
+				width: vw(175px);
+				height: vw(50px);
+				padding: vw(0 0 0 50px);
+				border: 0;
+				background: url(../images/search/ico_search_filter-sort.png) no-repeat 0 0 / vw(50px 50px);
+				vertical-align: middle;
+			}
+
+			.btn-search-detail {
+				width: vw(50px);
+				height: vw(50px);
+				margin-left: vw(48px);
+				padding: 0;
+				background: url(../images/search/ico_search_filter.png) no-repeat 50% 50% / 100% auto;
+				vertical-align: middle;
+			}
+		}
+
+		&__cont {
+			width: vw(690px);
+			margin: 0 auto;
+
+			.empty-content {
+				margin: vw(0 -30px);
+			}
+		}
+	}
+
+	// 필터
+	.searchFilter {
+		display: none;
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		width: 100%;
+		height: 100%;
+
+		&__dim {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, .7);
+			width: 100%;
+			height: 100%;
+		}
+
+		&__wrapper {
+			position: absolute;
+			z-index: 2;
+			right: 0;
+			width: vw(610px);
+			height: 100%;
+			background: #fff;
+			transform: translate3d(100%, 0, 0);
+		}
+
+		&__header {
+			display: flex;
+			align-items: center;
+			position: relative;
+			width: 100%;
+			height: vw(130px);
+			padding: vw(0 30px);
+			border-bottom: vw(2px) solid #DDD;
+
+			&__txt {
+				font-size: 0;
+
+				.title {
+					display: inline-block;
+					font: {
+						size: vw(32px);
+						weight: 400;
+					};
+					color: #111;
+					vertical-align: middle;
+				}
+
+				.count {
+					display: inline-block;
+					margin-left: vw(20px);
+					font-size: vw(26px);
+					color: #999;
+					vertical-align: middle;
+
+					em {
+						color: #FF6600;
+					}
+				}
+			}
+
+			&__btn {
+				display: flex;
+				align-items: center;
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				right: vw(18px);
+				margin-top: vw(-30px);
+
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: vw(2px);
+					height: vw(30px);
+					margin-top: vw(-15px);
+					background: #EEE;
+					transform: translateX(-50%);
+				}
+
+				.btn__searchFilter {
+					width: vw(60px);
+					height: vw(60px);
+
+					&--reset {
+						background: url(../images/search/ico_search_filter-reset.png) no-repeat 0 0 / 100% auto;
+					}
+	
+					&--close {
+						margin-left: vw(48px);
+						background: url(../images/search/ico_search_filter-close.png) no-repeat 0 0 / 100% auto;
+					}
+				}
+			}
+		}
+
+		&__cont {
+			overflow: hidden;
+			overflow-y: auto;
+			height: calc(100% - #{vw(130px)});
+
+			// 카테고리 필터
+			.depth {
+				&01 {
+					&__list {
+						margin-top: vw(30px);
+
+						&:first-child {
+							margin-top: 0;
+						}
+
+						> label {
+							input {
+								& + span {
+									display: block;
+									font-size: vw(28px);
+									color: #111;
+									line-height: vw(40px);
+								}
+
+								&:checked + span {
+									font-weight: bold;
+								}
+							}
+						}
+					}
+				}
+
+				&02 {
+					display: none;
+					margin-top: vw(30px);
+					padding: vw(30px 60px);
+					background: #f8f8f8;
+
+					&__list {	
+						margin-top: vw(24px);
+
+						&:first-child {
+							margin-top: 0;
+						}
+
+						> label {
+							input {
+								& + span {
+									display: block;
+									font-size: vw(26px);
+									color: #666;										
+									line-height: vw(36px);
+								}
+
+								&:checked + span {
+									color: #111;
+								}
+							}
+						}
+					}
+				}
+
+				&03 {
+					display: none;
+					margin-top: vw(26px);
+
+					&__list {
+						margin-top: vw(24px);
+
+						&:first-child {
+							margin-top: 0;
+						}
+						
+						> label {
+							input {
+								& + span {
+									display: block;
+									padding-left: vw(40px);
+									font-size: vw(24px);
+									color: #666;
+									line-height: vw(36px);
+								}
+
+								&:checked + span {
+									color: #ff6600;
+									background: url(../images/search/ico_search_filter-categoryChoice.png) no-repeat vw(350px 50%) / vw(40px auto);
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// 브랜드 필터
+			.filterBrand {
+				&__box {
+				}
+
+				&__list {
+					margin-top: vw(24px);
+
+					&:first-child {
+						margin-top: 0;
+					}
+
+					.fb__comm__checkbox {
+						max-width: 100%;
+
+						span {
+							font-size: vw(26px);
+							@include line();
+						}
+					}
+				}
+			}
+
+			// 검색 내 결과
+			.filterSearch {
+				position: relative;
+				padding: vw(30px);
+
+				&__title {
+					display: block;
+					margin-bottom: vw(20px);
+					font: {
+						size: vw(24px);
+						weight: 400;
+					};
+					color: #111;
+				}
+
+				&__box {
+					position: relative;
+					padding-right: vw(108px);
+					border: vw(2px) solid #111;
+
+					input[type="text"] {
+						width: 100%;
+						border: 0;
+						height: vw(86px);
+					}
+
+					button {
+						position: absolute;
+						top: 0;
+						right: 0;
+						width: vw(108px);
+						height: vw(86px);
+						background: url(../images/layout/btn_comm_search.png) no-repeat 50% 50% / vw(41px auto);
+					}
+				}
+			}
+
+			// 선택 옵션
+			.filterTotal {
+				position: relative;
+				padding: vw(30px);
+				border-top: vw(2px) solid #eee;
+
+				&__title {
+					display: block;
+					margin-bottom: vw(20px);
+					font: {
+						size: vw(24px);
+						weight: 400;
+					};
+					color: #111;
+				}
+
+				&__box {
+					margin: vw(-8px);
+					font-size: 0;
+
+					&:empty {
+						margin: 0;
+					}
+				}
+
+				&__list {
+					display: inline-block;
+					margin: vw(8px);
+					padding: vw(10px 14px);
+					border-radius: vw(26px);
+					border: vw(2px) solid #ddd;
+					font-size: 0;
+					vertical-align: top;
+
+					&__txt {
+						display: inline-block;
+						font-size: vw(28px);
+						color: #666;
+						vertical-align: middle;
+					}
+
+					.devRemoveSelected {
+						display: inline-block;
+						margin-left: vw(20px);
+						width: vw(21px);
+						height: vw(21px);
+						background: url(../images/search/ico_search_filter-delete.png) no-repeat 0 0 / 100% auto;
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+
+		&__list {
+			&__title {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: vw(102px);
+				padding: vw(0 90px 0 50px);
+				background: url(../images/search/ico_search_filter-accd-down.png) no-repeat vw(536px 50%) / vw(60px 60px)				;
+				
+				span {
+					display: block;
+					font: {
+						size: vw(32px);
+						weight: bold;
+					};
+					color: #111;
+				}
+
+				em {
+					font-size: vw(26px);
+					color: #FF6600;
+				}
+
+				&.js--open {
+					dt {
+						background-image: url(../images/search/ico_search_filter-accd-up.png);
+					}
+	
+					& + dd {
+						display: block;
+					}
+				}
+			}
+
+			&__cont {
+				display: none;
+				padding: vw(40px 50px 60px);
+				border-bottom: vw(2px) solid #eee;
+			}
+		}
+
+		&__hr {
+			display: block;
+			height: vw(20px);
+			background: #f9f9f9;
+		}
+	}
+
+	.slide-in {
+		animation: slide-in 0.3s ease forwards;
+		-webkit-animation: slide-in 0.3s ease forwards;
+	}
+
+	.slide-out {
+		animation: slide-out 0.3s ease forwards;
+		-webkit-animation: slide-out 0.3s ease forwards;
+	}
+
+	@keyframes slide-in {
+		100% {
+			transform: translateX(0%);
+		}
+	}
+	
+	@keyframes slide-out {
+		0% {
+			transform: translateX(0%);
+		}
+		100% {
+			transform: translateX(100%);
+		}
+	}
+
+}

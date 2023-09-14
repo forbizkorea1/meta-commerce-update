@@ -77,6 +77,7 @@
             common.langType = "{c.BASIC_LANGUAGE}";
             common.bcscale = {? defined('BCSCALE')}{c.BCSCALE}{:}0{/};
             dev_ext.npay.useNpay = '{c.NPAY_USE}';
+            var devAppType = '{=getAppType()}';
         </script>
 
         <!--구글 로그인-->

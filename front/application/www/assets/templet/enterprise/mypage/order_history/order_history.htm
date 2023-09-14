@@ -12,6 +12,8 @@
             <form id="devOrderHistoryForm">
                 <input type="hidden" name="page" value="1" id="devPage" />
                 <input type="hidden" name="max" value="10"/>
+                <input type="hidden" name="sDateDef" id="sDateDef" value="{? sDate}{sDate}{:}{oneMonth}{/}" />
+                <input type="hidden" name="eDateDef" id="eDateDef" value="{? eDate}{eDate}{:}{today}{/}" />
 
                 <div class="search"> <!--wrap-sort-->
                     <div class="search__row">
@@ -154,10 +156,7 @@
                                     <a class="item-info__link" href="/shop/goodsView/{[pid]}" target="_blank">
                                         <figure class="item-info__thumb">
                                             <img data-src="{[pimg]}">
-
-                                            {[#if isExchangeToggle]}
-                                            <mark class="orderTable__exchange__badge">{=trans('교환상품')}</mark>
-                                            {[/if]}
+                                            <mark class="item-info__badge--exchange">{=trans('교환상품')}</mark>
                                         </figure>
                                         
                                         <div class="item-info__info">
@@ -218,10 +217,6 @@
                             <a href="/shop/goodsView/{[pid]}" class="item-info__link">
                                 <figure class="item-info__thumb">
                                     <img data-src="{[pimg]}" alt="">
-    
-                                    {[#if isExchangeToggle]}
-                                    <mark class="item-info__badge--exchange">{=trans('교환상품')}</mark>
-                                    {[/if]}
                                 </figure>
     
                                 <div class="item-info__info">
@@ -235,6 +230,10 @@
                                     <span class="item-info__price item-info__price--text">
                                         <span>{[listprice]}</span>{=trans('원')}
                                     </span>
+
+                                    {[#if denyStatus]}
+                                        <span class="item-info__option" style="margin-top: 10px; font-size: 14px; color :#000;">{[y_status]} : {[y_status_message]}</span>
+                                    {[/if]}
                                 </div>
                             </a>
                         </td>
@@ -251,7 +250,7 @@
                             {[/if]}
                         </td>
     
-                        <td class="orderTable__action">
+                        <td class="orderTable__action" style="width: 160px;">
                             <input type="hidden" name="oid" value="{[oid]}"/>
                             <input type="hidden" name="odIx" value="{[od_ix]}"/>
                             <input type="hidden" name="status" value="{[status]}"/>
@@ -265,14 +264,28 @@
                                 {[#if isDeliveryIng]}
                                 <button class="orderTable__action__btn devOrderComplateBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('배송완료')}</button>
                                 {[/if]}
-    
+
                             {* 배송완료 *}
                                 {[#if isDeliveryComplate]}
-                                <button class="orderTable__action__btn devOrderExchangeBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('교환신청')}</button>
-                                <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('반품신청')}</button>
-                                <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</button>
+                                    {[#if denyStatus]}
+                                        {[#if denyStatus_em]}
+                                        <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('반품신청')}</button>
+                                        <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</button>
+                                        {[else if denyStatus_rm]}
+                                        <button class="orderTable__action__btn devOrderExchangeBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('교환신청')}</button>
+                                        <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</button>
+                                        {[else]}
+                                        <button class="orderTable__action__btn devOrderExchangeBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('교환신청')}</button>
+                                        <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('반품신청')}</button>
+                                        <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</button>
+                                        {[/if]}
+                                    {[else]}
+                                        <button class="orderTable__action__btn devOrderExchangeBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('교환신청')}</button>
+                                        <button class="orderTable__action__btn devOrderReturnBtn" data-oid="{[oid]}" data-odix="{[od_ix]}">{=trans('반품신청')}</button>
+                                        <button class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{[oid]}" data-odix="{[od_ix]}" data-status="{[status]}">{=trans('구매확정')}</button>
+                                     {[/if]}
                                 {[/if]}
-                            
+
                             {* 구매확정 *}
                             {? is_login()}
                                 {[#if isByFinalized]}

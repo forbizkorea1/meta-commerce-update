@@ -11,6 +11,8 @@
             <form id="devReturnHistoryForm">
                 <input type="hidden" name="page" value="1" id="devPage" />
                 <input type="hidden" name="max" value="10"/>
+                <input type="hidden" name="sDateDef" id="sDateDef" value="{? sDate}{sDate}{:}{oneMonth}{/}" />
+                <input type="hidden" name="eDateDef" id="eDateDef" value="{? eDate}{eDate}{:}{today}{/}" />
 
                 <div class="search">
                     <div class="search__row">
@@ -128,10 +130,6 @@
 
                         <figure class="item-info__thumb">
                             <img data-src="{[pimg]}" alt="">
-
-                            {[#if exchangePrd]}
-                            <mark class="item-info__badge--exchange">{=trans('교환상품')}</mark>
-                            {[/if]}
                         </figure>
 
                         <div class="item-info__info">

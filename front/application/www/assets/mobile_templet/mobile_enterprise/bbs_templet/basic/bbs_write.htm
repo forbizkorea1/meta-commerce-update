@@ -16,7 +16,7 @@
             <dl>
                 <dt>{=trans('분류')} <em>*</em></dt>
                 <dd>
-                    <select name="bbsDiv" id="devBbsDivSelect" title="{=trans('분류')}">
+                    <select name="bbsDiv" id="devBbsDiv" title="{=trans('분류')}">
                         <option value="">{=trans('선택')}</option>
                         <!--{@ bbsDiv}-->
                         <option value="{.div_ix}">{.div_name}</option>
@@ -152,6 +152,3 @@
         </div>
     </form>
 </div>
-<script>
-    var devAppType = '{layoutCommon.appType}';
-</script>

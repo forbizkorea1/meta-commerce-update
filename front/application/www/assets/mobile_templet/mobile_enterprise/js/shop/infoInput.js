@@ -57,6 +57,7 @@ common.lang.load('infoinput.paymentRequest.fail.littleBuyAmt', "주문 상품 �
 common.lang.load('infoinput.paymentRequest.fail.noFormatMileage', "{mileageName}는 {unit}원 단위로 입력해 주세요."); //Alert_118
 common.lang.load('infoinput.paymentRequest.fail.noProductStatusSale', "현재 구매하실 수 없는 상품이 포함되어 있습니다.{common.lineBreak}장바구니에서 다시 주문 바랍니다.");
 common.lang.load('infoinput.paymentRequest.noti.paymentFree', "총 결제금액이 0원이므로 무료결제로 자동 진행됩니다.");
+common.lang.load('infoinput.paymentRequest.fail.npayPG.lesspayment', "네이버페이의 경우 100원 미만 결제는 불가합니다.\n총 결제 금액을 재확인해 주세요.");
 
 //-----set input format
 //주문자 정보
@@ -483,6 +484,14 @@ var devInfoinputObj = {
             if (!common.validation.check($('#devPaymentContents'), 'alert', false)) {
                 return false;
             }
+            if($('.devRecipientMobile2').val().length < 3 || $('#devBuyerMobile2').val().length < 3) {
+                common.noti.alert('휴대폰 번호 3자리 이상 입력해 주시기 바랍니다.');
+                return false;
+            }
+            if($('.devRecipientMobile3').val().length < 4 || $('#devBuyerMobile3').val().length < 4) {
+                common.noti.alert('휴대폰 번호 4자리 이상 입력해 주시기 바랍니다.');
+                return false;
+            }
 
             var requestData = {};
             requestData.buyer = self.getBuyerData();
@@ -506,6 +515,9 @@ var devInfoinputObj = {
                                 });
                             } else if (response.data.payment.method == "0") { //무통장 입금
                                 self.paymentBank();
+                            } else if (response.data.payment.method == "53" && response.data.payment.payment_price < 100 && response.data.payment.payment_price > 0) { // 네이버페이 직연동
+                                self.paymentBool = false;
+                                common.noti.alert(common.lang.get('infoinput.paymentRequest.fail.npayPG.lesspayment'));
                             } else {
                                 self.paymentGateway(response.data);
                             }
@@ -632,6 +644,7 @@ var devInfoinputObj = {
                     $('[devRecipientTypeSelect=address]').prop('disabled', true);
                     $('#devAddAddressBookCheckBox').prop('checked', true);
                     $('#devBasicAddressBookCheckBox').prop('checked', true);
+                    $('#devBasicAddressBookCheckBox').prop('disabled', true);
                 }
             });
 

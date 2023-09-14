@@ -9756,6 +9756,10 @@ input[type="file"].file-upload {
   color: #fff;
 }
 
+.ui-datepicker .ui-datepicker-title select {
+  padding-right: 26px;
+}
+
 .fb__page-nav {
   padding: 15px 0;
   /* 상품 목록 page-nav */
@@ -16655,7 +16659,24 @@ input[type="file"].file-upload {
   margin: 45px auto 0;
 }
 
+.fb__search.hasSearch .fb__search__header {
+  display: block;
+}
+
+.fb__search.hasSearch .wrap-search-detail {
+  display: block;
+}
+
+.fb__search.hasSearch .item__header {
+  display: block;
+}
+
+.fb__search.hasSearch .item__content {
+  padding-top: 0;
+}
+
 .fb__search__header {
+  display: none;
   position: relative;
 }
 
@@ -16665,6 +16686,7 @@ input[type="file"].file-upload {
 }
 
 .fb__search .wrap-search-detail {
+  display: none;
   margin-top: 18px;
   border-top: 2px solid #111;
 }
@@ -16761,6 +16783,7 @@ input[type="file"].file-upload {
   display: inline-block;
   width: 25%;
   margin-top: 13px;
+  padding-right: 20px;
   vertical-align: top;
   cursor: pointer;
 }
@@ -16771,9 +16794,14 @@ input[type="file"].file-upload {
 
 .fb__search .wrap-search-detail dl .search-filter__list span {
   display: inline-block;
+  max-width: 100%;
   font-size: 14px;
   color: #666;
   line-height: 30px;
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fb__search .wrap-search-detail dl .search-filter__list.on span {
@@ -16906,6 +16934,7 @@ input[type="file"].file-upload {
 }
 
 .fb__search .item__header {
+  display: none;
   position: relative;
   margin-top: 35px;
 }
@@ -16938,6 +16967,7 @@ input[type="file"].file-upload {
 .fb__search .item__content {
   width: 100%;
   margin-top: 25px;
+  padding-top: 100px;
 }
 
 .fb__search .item__content .no-search {
@@ -18353,7 +18383,12 @@ input[type="file"].file-upload {
 }
 
 .fb__infoinput__delivery .delivery__request__write {
+  width: 100%;
   margin-top: 10px;
+}
+
+.fb__infoinput__delivery .delivery__request__write input {
+  width: 100%;
 }
 
 .fb__infoinput__delivery .delivery .btn__deliveryList {
@@ -18596,7 +18631,7 @@ input[type="file"].file-upload {
 }
 
 .fb__infoinput__payment .payment__method__list.npay span:after {
-  background: url(../../images/shop/ico_infoinput_pay-npay.png) no-repeat 0 0;
+  background: url(../../images/shop/ico_infoinput_pay-npay.png) no-repeat 0 0/auto 23px;
 }
 
 .fb__infoinput__payment .payment__method__list.kakao span:after {
@@ -18633,7 +18668,28 @@ input[type="file"].file-upload {
   border-top: 1px solid #e8e8e8;
   color: #666;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 24px;
+}
+
+.fb__infoinput__payment .payment__desc__cont .cont__item {
+  position: relative;
+  padding-left: 6px;
+  word-break: keep-all;
+}
+
+.fb__infoinput__payment .payment__desc__cont .cont__item:not(:first-child) {
+  margin-top: 4px;
+}
+
+.fb__infoinput__payment .payment__desc__cont .cont__item:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 100%;
+  background-color: #666;
 }
 
 .fb__infoinput__agree[open] .agree__all:after {
@@ -20763,6 +20819,13 @@ input[type="file"].file-upload {
 }
 
 .fb__goodsView__detail .detail__cont .goodsInquiry__list__row .type {
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb__goodsView__detail .detail__cont .goodsInquiry__list__row .type {
   width: 90px;
 }
 
@@ -20837,6 +20900,7 @@ input[type="file"].file-upload {
   padding: 30px 168px;
   border-top: 1px solid #e8e8e8;
   background: #f8f8f8;
+  word-break: break-all;
 }
 
 .fb__goodsView__detail .detail__cont .goodsInquiry__list__view__question, .fb__goodsView__detail .detail__cont .goodsInquiry__list__view__answer {
@@ -27956,12 +28020,14 @@ div[class*="wrap-order"] .wrap-btn-area * {
   font-size: 16px;
   font-weight: 400;
   color: #111;
+  word-break: break-all;
 }
 
 .fb__my-inquiry-detail .detail__content {
   margin-top: 20px;
   padding: 0 25px;
   border-bottom: 1px solid #ddd;
+  word-break: break-all;
 }
 
 .fb__my-inquiry-detail .detail__item {

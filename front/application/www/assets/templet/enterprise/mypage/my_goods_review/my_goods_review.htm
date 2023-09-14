@@ -5,8 +5,8 @@
         <form id="devMyReviewForm">
             <input type="hidden" name="page" value="1" id="devPage">
             <input type="hidden" name="max" value="10" id="devMax">
-            <input type="hidden" name="sDateDef" id="sDateDef" value="{sDate}">
-            <input type="hidden" name="eDateDef" id="eDateDef" value="{eDate}">
+            <input type="hidden" name="sDateDef" id="sDateDef" value="{? sDate}{sDate}{:}{oneMonth}{/}" />
+            <input type="hidden" name="eDateDef" id="eDateDef" value="{? eDate}{eDate}{:}{today}{/}" />
 
             <div class="search">
                 <div class="search__row">

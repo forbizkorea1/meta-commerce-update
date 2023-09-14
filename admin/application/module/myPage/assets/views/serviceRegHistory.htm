@@ -62,6 +62,11 @@
                         빅인사이트
                     </a>
                 </li>
+                <li class="fb__tap__menu">
+                    <a href="#devServiceKakaopayPg">
+                        카카오페이
+                    </a>
+                </li>
             </ul>
         </div>
     </fieldset>
@@ -328,6 +333,37 @@
             </div>
         </div>
     </section>
+
+    <section class="fb-filter fb__tapcontent__inner" id="devServiceKakaopayPg">
+        <div class="fb-filter__wrap">
+            <h5 class="fb__section-title">신청 현황</h5>
+            <div class="fb-filter">
+                <table class="fb-filter__table col">
+                    <colgroup>
+                        <col width="14%">
+                        <col width="*">
+                        <col width="200">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>카카오 간편결제</th>
+                        <td class="devRemainCount">{? kakaopayInfo[0]}신청 ({kakaopayInfo[1]}){:}신청안함{/}
+                        </td>
+                        <td class="center">
+                            {? kakaopayInfo[0]}
+                            {kakaopayInfo[2]}
+                            {:}
+                            <a href="/thirdParty/easyPayment/kakaopay"
+                               class="devHistoryCheck fb__button fb-filter__org">서비스 신청</a>
+                            {/}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
 </section>
 
 <section class="fb__menusubmit fb-filter" id="devHistoryListPointSection">

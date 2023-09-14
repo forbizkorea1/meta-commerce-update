@@ -19,7 +19,7 @@ if ($id != '') {
     $datas = $productModel->get($id);
 
     //할인정보 전체
-    $basicTypeList = ['IN', 'MG', 'GP', 'SP'];   //할인정보 전체 키
+    $basicTypeList = ['IN', 'MG', 'GP'];   //할인정보 전체 키
     $addedTypeList = array_column($datas['discountList'], 'type'); //할인된 내역
     $fullTypeList = array_unique(array_merge($basicTypeList, $addedTypeList)); //병합후 중복제거
     $rearrangement = [];

@@ -1,0 +1,71 @@
+<div class="fb__my-inquiry-detail">
+    <div class="detail">
+        <div class="detail__top">
+            <span class="detail__top__date">{=trans('작성일시')} <em class="font-rb">{regdate}</em></span>
+            {? status == '1'}
+            <span class="status--normal">{=trans('문의중')}</span>
+            {: status == '2'}
+            <span class="status--normal">{=trans('확인중')}</span>
+            {: status == '5'}
+            <span class="status--complete">{=trans('답변완료')}</span>
+            {/}
+        </div>
+
+        <div class="detail__title">
+            {bbs_subject}
+        </div>
+        <div class="detail__content wrap-question">
+            <!-- 주문번호 존재시 -->
+            {? bbs_etc4 != ''}
+            {@ oInfo }
+            {? .index_ == 0}
+            <div class="detail__item">
+                <div class="detail__item__thumb">
+                    <a href="/shop/goods_view.php?id={.pid}">
+                        <img src="{.pimg}" alt="img">
+                    </a>
+                </div>
+
+                <div class="detail__item__info">
+                    <p class="detail__item__info-num order-num">{=trans('주문번호')} <span>{.oid}</span></p>
+                    <p class="detail__item__info__brand">{? brandName}{brandName}{/}</p>
+                    <p class="detail__item__info-title">{productName}</p>
+                </div>
+            </div>
+            {/}
+            {/}
+            {:}
+            {/}
+
+            <div class="detail__question question">{=nl2br(bbs_contents)}</div>
+            {? org_file_name1 != ''}
+            <p class="detail__file file">
+                <a class="detail__file__name" href="/download/{bbs_file_1}" target='_blank'>{org_file_name1}</a>
+            </p><!--파일링크 추가 필요-->
+            {/}
+
+            {? org_file_name2 != ''}
+            <p class="detail__file file">
+                <a class="detail__file__name" href="/download/{bbs_file_2}" target='_blank'>{org_file_name2}</a>
+            </p><!--파일링크 추가 필요-->
+            {/}
+
+            {? org_file_name3 != ''}
+            <p class="detail__file file">
+                <a class="detail__file__name" href="/download/{bbs_file_3}" target='_blank'>{org_file_name3}</a>
+            </p><!--파일링크 추가 필요-->
+            {/}
+
+        </div>
+
+        {@ cInfo}
+        <div class="detail__answer ">
+            <div class="detail__answer__info">
+                <span class="detail__answer__info-name">{.cmt_name}</span>
+                <span class="detail__answer__info-date">{=trans('답변일시')}: <em>{.regdate}</em></span>
+            </div>
+            <div class="detail__answer__content answer">{.cmt_contents}</div>
+        </div>
+        {/}
+    </div>
+</div>

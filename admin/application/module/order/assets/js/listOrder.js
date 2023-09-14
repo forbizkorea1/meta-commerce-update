@@ -131,13 +131,14 @@ var devOrderListOrderObj = {
 
         // 그리드 연동
         grid.setGrid($('#devPagingGrid'), gridConfig)
+            .setUseHash(false)
             .setForm('#devGridForm')
             .setPagination('#devPageWrap')
             .setPageNum('#devPageNum')
             .setUrl(common.util.getControllerUrl('get', 'listOrder', 'order'))
             .on('click', function (e) {
                 if (e.column.key == 'oid') {
-                    location.href = common.util.getControllerUrl(e.item.oid, 'manageOrder', 'order');
+                    window.open(common.util.getControllerUrl(e.item.oid, 'manageOrder', 'order'));
                 }
             })
             .init(function (response) {

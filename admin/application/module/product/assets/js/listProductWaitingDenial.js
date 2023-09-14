@@ -114,7 +114,7 @@ var devProductListProductWaitingDenialObj = {
 
         // 수정
         $('#devPagingGrid [data-ax5grid-panel="body"]').on('click', '.devGridDataModify', function () {
-            location.href = common.util.getControllerUrl(grid.getRow($(this).data('idx')).id, 'manageProduct', 'product');
+            window.open(common.util.getControllerUrl(grid.getRow($(this).data('idx')).id, 'manageProduct', 'product'));
             return false;
         });
 

@@ -1442,6 +1442,9 @@ var common = {
                         self.response = currentState.response;
                         self.setHistoryState('response', null);
                         callback(self.response);
+                        // 뒤로가기로 내용 호출시 기본 load 시스템을 이용하지 않아서
+                        // 추가로 불러오도록 처리
+                        lazyload();
                     }
 
                     //스크롤 이벤트
@@ -1531,7 +1534,7 @@ common.lang.load('common.validation.companyNumber.fail', "유효한 사업자 �
 common.lang.load('common.validation.email.fail', "이메일을 올바르게 입력해 주세요.");
 common.lang.load('common.inputFormat.fileFormat.fail', "파일 형식이 올바르지 않습니다.{common.lineBreak}다시 첨부해 주세요.");
 common.lang.load('common.inputFormat.fileSize.fail', "파일 용량이 최대 {size}MB를 초과했습니다.{common.lineBreak}다시 첨부해 주세요.");
-common.lang.load('common.validation.mobile.fail', "휴대전화번호를  올바르게 입력해 주세요.");
+common.lang.load('common.validation.mobile.fail', "휴대폰번호를  올바르게 입력해 주세요.");
 
 //inputFormat bind
 common.inputFormat.eventBind();

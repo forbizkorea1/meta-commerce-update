@@ -45,8 +45,10 @@ common.lang.load('cart.select.delete.confirm', "선택한 상품을 삭제하시
 common.lang.load('cart.one.delete.confirm', "해당 상품을 삭제하시겠습니까?"); //Confirm_14
 common.lang.load('cart.delete.noSelect.alert', "삭제할 상품을 선택해 주세요."); //Alert_47
 common.lang.load('cart.update.count.failBasicCount.alert', "최소 구매 가능 수량은 {count}개입니다.  {count}개 이상 입력해 주세요."); //Alert_103
+common.lang.load('cart.update.count.failBasicCountCheck.alert', "구매 가능 수량을 확인해 주세요."); // 230628 수정
 common.lang.load('cart.update.count.noLogin.alert', "ID당 구매 가능한 수량이 제한되어있는 상품입니다. 로그인 후 구매해주세요.");
 common.lang.load('cart.update.count.failByOnePersonCount.alert', "해당 상품의 구매 가능한 수량은 최대 {count}개입니다."); //Alert_102
+common.lang.load('cart.update.count.failByOnePersonCountCheck.alert', "구매 가능 수량을 확인해 주세요."); // 230628 수정
 common.lang.load('cart.update.count.failStockLack.alert', "주문 가능한 재고수량은 최대 {count}개입니다."); //Alert_104
 common.lang.load('cart.update.count.failNoSale.alert', "해당 상품이 품절되었습니다."); //Alert_108
 common.lang.load('cart.paymentValidate.fail.alert', "상품정보가 변경된 상품이 있습니다. 일시품절 혹은 판매중지로 인한 상품은 구매불가하므로 삭제해 주세요."); //Alert_109
@@ -239,10 +241,10 @@ var devCartObj = {
             var $contents = $(this).closest('.devProductContents');
             var cartIx = $contents.find('.devCartIx').val();
             var totalCnt = 0;
-            var targetPid = $(this).data('pid');
+            var targetPid = $(this).val(); // 230628 수정
 
             $('.devCount').each(function (i, v) {
-                var pid = $(v).data('pid');
+                var pid = $(v).attr("pid");
 
                 if(targetPid == pid){
                     totalCnt += parseInt($(v).val());
@@ -261,11 +263,13 @@ var devCartObj = {
                 }
                 //기본 구매 수량 보다 낮은 수량 수정시
                 else if (result.result == 'failBasicCount') {
-                    common.noti.alert(common.lang.get('cart.update.count.failBasicCount.alert', {count: result.data}));
+                    common.noti.alert(common.lang.get('cart.update.count.failBasicCountCheck.alert', {count: result.data}));
+                    $contents.find('.devTailMsg').text(common.lang.get('cart.update.count.failBasicCount.alert', {count: result.data}));
+                    $contents.find('.devCount').val(result.data);
                 }
-                //ID별 구매수량 초가시
+                //ID별 구매수량 초과시
                 else if (result.result == 'failByOnePersonCount') {
-                    common.noti.alert(common.lang.get('cart.update.count.failByOnePersonCount.alert', {count: result.data}));
+                    common.noti.alert(common.lang.get('cart.update.count.failByOnePersonCountCheck.alert', {count: result.data}));
                     $contents.find('.devTailMsg').text(common.lang.get('cart.update.count.failByOnePersonCount.alert', {count: result.data}));
                     $contents.find('.devCount').val(result.data);
                 }

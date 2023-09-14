@@ -67,6 +67,22 @@
                                 <div class="item-info__info">
                                     <p class="item-info__name">{? ..brand_name}[{..brand_name}] {/}{..pname}</p>
                                     <p class="item-info__option">{..option_text}</p>
+
+                                    {? ..od_ix == order.y_status['od_ix']}
+                                        {? order.denyStatus == true}
+                                            <p class="item-info__option" style="margin-top: 10px; color :#000;">
+                                                {? order.y_status['status'] == 'EY'}
+                                                <span>{=trans('교환 거부')} : {order.y_status['status_message']}</span>
+                                                {: order.y_status['status'] == 'RY'}
+                                                <span>{=trans('반품 거부')} : {order.y_status['status_message']}</span>
+                                                {: order.y_status['status'] == 'EM'}
+                                                <span>{=trans('교환 불가')} : {order.y_status['status_message']}</span>
+                                                {: order.y_status['status'] == 'RM'}
+                                                <span>{=trans('반품 불가')} : {order.y_status['status_message']}</span>
+                                                {/}
+                                            </p>
+                                        {/}
+                                    {/}
                                 </div>
                             </a>
                         </td>
@@ -178,8 +194,12 @@
                             {/}
 
                             {? ..status == c.ORDER_STATUS_DELIVERY_COMPLETE}{* 배송완료 *}
-                                <button type="button" class="orderTable__action__btn devOrderExchangeBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('교환신청')}</button>
-                                <button type="button" class="orderTable__action__btn devOrderReturnBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
+                                {? order.y_status['status'] != 'EM'}
+                                    <button type="button" class="orderTable__action__btn devOrderExchangeBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('교환신청')}</button>
+                                {/}
+                                {? order.y_status['status'] != 'RM'}
+                                    <button type="button" class="orderTable__action__btn devOrderReturnBtn" data-oid="{order.oid}" data-odix="{..od_ix}">{=trans('반품신청')}</button>
+                                {/}
                                 <button type="button" class="orderTable__action__btn devBuyFinalizedBtn" data-oid="{order.oid}" data-odix="{..od_ix}" data-status="{..status}">{=trans('구매확정')}</button>
                             {/}
 
