@@ -1687,6 +1687,10 @@
                                     vertical-align: top;
                                 }
 
+                                .type {
+                                    @include line();
+                                }
+
                                 $cols: ("type": "90px", "status": "120px", "tit": "380px", "user": "140px", "date": "170px");
 
                                 @each $title, $size in $cols {
@@ -1751,6 +1755,7 @@
                                 padding: 30px 168px;
                                 border-top: 1px solid #e8e8e8;
                                 background: #f8f8f8;
+                                word-break: break-all;
 
                                 &__question,
                                 &__answer {

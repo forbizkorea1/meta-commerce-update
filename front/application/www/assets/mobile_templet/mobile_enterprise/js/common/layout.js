@@ -69,7 +69,6 @@ function searchLayerOpen() {
 	
     $('body').css('position', 'fixed');
 	$('.clearfix').css('display','none');
-	console.log("wrap-search-layer");
 }
 
 function searchLayerClose() {
@@ -215,7 +214,6 @@ function post_to_url(path, params, method) {
                     return true;
                 },
                 function (response) {
-                    console.log(response.data && response.data.length)
                     if (response.data && response.data.length) {
                         $(".header-search__layer").css("display", "none");
                     }

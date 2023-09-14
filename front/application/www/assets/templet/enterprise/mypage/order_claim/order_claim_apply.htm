@@ -74,7 +74,7 @@
 
                                 <!-- 교환/반품수량 -->
                                 <td>
-                                    <select class="devClaimCntCls" id="devClaimCnt{..od_ix}" name="claim_cnt[{..od_ix}]">
+                                    <select class="devClaimCntCls" id="devClaimCnt{..od_ix}" name="claim_cnt[{..od_ix}]" pcnt="{..pcnt}">
                                         {@ range(..pcnt, 1, -1)}<option value="{...value_}">{...value_}</option>{/}
                                     </select>
                                 </td>

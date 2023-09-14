@@ -184,6 +184,11 @@ jquery_datepicker_i18n_jquery_ui_datepicker_ko__WEBPACK_IMPORTED_MODULE_27___def
 
 
 
+// datepicker default 옵션세팅
+$.datepicker.setDefaults({
+    yearRange: "c-100:c+10"
+});
+
 
 window.Swiper = swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_30___default.a;
 

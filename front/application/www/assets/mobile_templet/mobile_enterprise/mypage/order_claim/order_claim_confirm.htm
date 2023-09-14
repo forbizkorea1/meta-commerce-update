@@ -188,7 +188,7 @@
 
                 <dl>
                     <dt>{=trans('{claimTypeName} 시 추가 배송비')}</dt>
-                    <dd class="point--color"><em>{=g_price(delivery.claim_delivery_price)}</em>{=trans('원')}</dd>
+                    <dd class="point--color"><em>{=g_price(view_claim_delivery_price)}</em>{=trans('원')}</dd>
                 </dl>
                 
                 <!-- <dl class="total">
@@ -374,6 +374,7 @@
                             <input type="text" name="bankNumber" value="{refundInfo.ori_bank_number}" title="{=trans('계좌번호')}" id="devBankNumber" placeholder="{=trans('계좌번호를 입력해 주세요.')}">
                         </dd>
                     {/}
+                    <input type="hidden" id="devAlreadyRefundInfo" value="{alreadyRefundInfo}">
                 </dl>
                 {/}
 

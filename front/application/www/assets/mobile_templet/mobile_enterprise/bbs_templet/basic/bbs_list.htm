@@ -1,0 +1,36 @@
+<!--{? bbsMethod}<script>var bbsMethod = '{bbsMethod}'</script>{/}-->
+<form id="devBbsForm">
+    <input type="hidden" name="page" value="1" id="devPage"/>
+    <input type="hidden" name="max" value="20" id="devMax"/>
+    <input type="hidden" name="bType" value="{=bType}" id="bType"/>
+    <input type='hidden' name='isList' value ='Y' id='isList'/>
+    <input type='hidden' name='isMobile' value ='Y' id='isMobile'/>
+</form>
+
+<div class="wrap-notice">
+    <div class="count">{=trans('총')} <em id="devTotal">0</em>{=trans('개')}</div>
+
+    <ul class="wrap-notice__box" id="devBbsContent">
+          <!--{'<script id="devBbsLoading" type="text/x-handlebars-template">'}-->
+        <li>
+            <p>Loading...</p>
+        </li>
+        <!--{'</script>'}-->
+
+        <!--{'<script id="devBbsEmpty" type="text/x-handlebars-template">'}-->
+        <li class="empty-content">
+            <p class="empty-content__txt">{=trans('등록된 공지사항이 없습니다.')}</p>
+        </li>
+        <!--{'</script>'}-->
+        
+        <!--{'<script id="devBbsList" type="text/x-handlebars-template">'}-->
+        <li class="wrap-notice__list">
+            {[#if is_notice]}<span class="tag">{=trans('공지')}</span>{[/if]}
+            <p class="title" devBbsIx="{[bbs_ix]}">[{[div_name]}] {[bbs_subject]}</p>
+            <span class="date">{[reg_date]}</span>
+        </li>
+        <!--{'</script>'}-->
+    </ul>
+
+    <div id="devPageWrap" class="wrap-btn-area more"></div>
+</div>

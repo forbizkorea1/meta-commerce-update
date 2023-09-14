@@ -122,6 +122,7 @@ if ($applyResult['result'] === true) {
         $cancelData->method = $method;
         $cancelData->message = $resultMsg;
         $cancelData->tid = $tid;
+        $cancelData->logPath = $paymentGatewayModel->getLogPath();
         $response = $paymentGatewayModel->requestCancel($cancelData);
         if ($response['result']) {
             $resultMsg .= "(PG 취소 완료)";

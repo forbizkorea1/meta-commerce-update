@@ -86,12 +86,12 @@
                                                                     <!-- 수량조절 -->
                                                                     <div class="count__spinner small">
                                                                         <button class="count__spinner__down devCountDownButton"> {=trans('마이너스')} </button>
-                                                                        <input type="text" value="{productList.pcount}" class="count__spinner__number devCount">
+                                                                        <input type="text" value="{productList.pcount}" class="count__spinner__number devCount" pid="{productList.id}">
                                                                         <button class="count__spinner__up devCountUpButton"> {=trans('플러스')} </button>
                                                                     </div>
     
                                                                     <!-- 변경버튼 -->
-                                                                    <button class="count__spinner__change devCountUpdateButton">{=trans('변경')}</button>
+                                                                    <button class="count__spinner__change devCountUpdateButton" value="{productList.id}">{=trans('변경')}</button>
                                                                     
                                                                     <!-- 바로구매 (일시품절인 경우 disabled) -->
                                                                     <button class="fb__cart__directBuy devDirectBuyButton" {? productList.status!='sale'}disabled{/}>{=trans('바로구매')}</button>

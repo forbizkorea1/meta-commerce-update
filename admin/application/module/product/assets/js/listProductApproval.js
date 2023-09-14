@@ -119,7 +119,7 @@ var devProductListProductApprovalObj = {
 
         // 수정
         $('#devPagingGrid [data-ax5grid-panel="body"]').on('click', '.devGridDataModify', function () {
-            location.href = common.util.getControllerUrl(self.pagingGrid.getRow($(this).data('idx')).id, 'manageProduct', 'product');
+            window.open(common.util.getControllerUrl(self.pagingGrid.getRow($(this).data('idx')).id, 'manageProduct', 'product'));
             return false;
         });
 

@@ -1,0 +1,212 @@
+<!--{'<script id="devDetailDiv" type="text/x-handlebars-template">'}-->
+<div class="fb__devide fb__devide--2" style="word-break: break-all;">
+    <form id="devCommentForm">
+        <input type="hidden" name="bbs_ix" value="{[bbs_ix]}"/>
+        <section class="fb__devide__box">
+            <div class="fb__devide__inner">
+                <div class="fb__devide__content">
+                    <section class="fb__menusubmit ">
+                        <section class="fb-filter fb-filter--noline">
+                            <table>
+                                <colgroup>
+                                    <col width="80"/>
+                                    <col width="220"/>
+                                    <col width="80"/>
+                                    <col width="220"/>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                제목
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap" colspan="3">
+                                            {[bbs_subject]}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                분류
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {[div_name]}
+                                        </td>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                처리상태
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {[statusName]}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                작성자
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {[bbs_name]}
+                                        </td>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                공개여부
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {[#if bbs_hidden]}비밀글{[else]}공개글{[/if]}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                등록일
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {[regdate]}
+                                        </td>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                조회수
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {[bbs_hit]}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                첨부파일
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {[#if bbs_file_1]}<a href="#" class="devFdown" data-fidx="{[bbs_file_1]}">첨부파일1</a>{[/if]}
+                                            {[#if bbs_file_2]}<a href="#" class="devFdown" data-fidx="{[bbs_file_2]}">첨부파일2</a>{[/if]}
+                                            {[#if bbs_file_3]}<a href="#" class="devFdown" data-fidx="{[bbs_file_3]}">첨부파일3</a>{[/if]}
+                                            &nbsp;
+                                        </td>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                주문번호
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            <a href="/order/manageOrder/{[bbs_etc4]}" target="_blank">{[bbs_etc4]}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td  class="fb-filter__title-contents" colspan="4">
+                                            <div style="overflow-y: auto; width: 100%; height: 400px;">
+                                                {[{\bbs_contents}]}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        {[#if notNotice]}
+        <section class="fb__devide__box">
+            <div class="fb__devide__inner">
+                <div class="fb__devide__content">
+                    <section class="fb-filter">
+                        <fieldset>
+                            <legend></legend>
+                            <table>
+                                <colgroup>
+                                    <col width="100"/>
+                                    <col width="200"/>
+                                    <col width="100"/>
+                                    <col width="200"/>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="fb-filter__title--ne">
+                                                처리상태
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            {? !empty(bbs_status)}
+                                            <select class="fb-filter__select" name="status" title="원본글 처리 상태">
+                                                <option value="">원본글 처리상태</option>
+                                                {@ bbs_status}
+                                                <option value="{.status_ix}">{.status_name}</option>
+                                                {/}
+                                            </select>
+                                            {/}
+                                        </td>
+                                        <th class="fb-filter__title">
+                                            <span class="fb-filter__title--ne">
+                                                이름
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                            <input type="text" name="cmt_name" class="fb-filter__text fb-filter__text--100" title="이름" value="{config.basic_comment_name}" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="fb-filter__title">
+                                            <span class="">
+                                                답변템플릿
+                                            </span>
+                                        </th>
+                                        <td  class="fb-filter__title-contents fb-filter__select-wrap" colspan="3">
+                                            <select class="fb-filter__select fb-filter__text--100" id="devResponse">
+                                                <option value=''>탬플릿을 선택해 주세요.</option>
+                                                {[#resTpl]}
+                                                <option value="{[templet_text]}">{[templet_name]}</option>
+                                                {[/resTpl]}
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <textarea id="devCmtEditor" name="cmt_contents" style="display:none;" title="답변"></textarea>
+                                            <div class="fb-filter__btn">
+                                                <button type="submit" class="fb-filter__search">등록</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div style="overflow-y: auto; width: 100%; height: 202px;">
+                                                <table>
+                                                    <colgroup>
+                                                        <col width="*"/>
+                                                    </colgroup>
+                                                    <tbody>
+                                                        {[#cmtList]}
+                                                        <tr>
+                                                            <td  class="fb-filter__title-contents fb-filter__select-wrap">
+                                                                {[cmt_name]}({[regdate]}) <button type="button" class="devCmtDel" data-cmt-ix="{[cmt_ix]}">삭제</button>
+                                                                <div>{[{\cmt_contents}]}</div>
+                                                            </td>
+                                                        </tr>
+                                                        {[/cmtList]}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </section>
+                </div>
+            </div>
+        </section>
+        {[/if]}
+    </form>
+</div>
+<!--{'</script>'}-->

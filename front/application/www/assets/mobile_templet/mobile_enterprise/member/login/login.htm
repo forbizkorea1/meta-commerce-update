@@ -12,7 +12,7 @@
             <form id="devLoginForm">
                 <input type="hidden" name="url" value="{url}"/>
 
-                <input type="text" placeholder="{=trans('아이디(이메일)')}" name="userId"
+                <input type="text" placeholder="{=trans('아이디')}" name="userId"
                        id="devUserId" title="{=trans('아이디')}" value="{userSaveLoginId}">
 
                 <p class="txt-error" devTailMsg="devUserId" ></p>
@@ -167,7 +167,3 @@ var use_biginsight_yn = true;
 var use_biginsight_yn = false;
 {/}
 <!--{"</script>"}-->
-
-<script>
-    var devAppType = '{layoutCommon.appType}';
-</script>

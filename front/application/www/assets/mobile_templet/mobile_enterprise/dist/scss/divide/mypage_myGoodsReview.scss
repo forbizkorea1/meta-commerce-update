@@ -1,0 +1,264 @@
+.fb {
+    &__myGoodsReview {
+        .goodsReview {
+            &__list {
+                padding: vw(40px 30px 60px);
+                border-bottom: vw(20px) solid #F8F8F8;
+            }
+
+            &__item {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                margin-bottom: vw(30px);
+                padding-bottom: vw(30px);
+                border-bottom: vw(2px) solid #EEE;
+                
+                &__img {
+                    width: vw(140px);
+                    height: vw(140px);
+                }
+
+                &__info {
+                    margin-left: vw(20px);
+                    width: calc(100% - #{vw(160px)});
+                }
+
+                &__name {
+                    display: block;
+                    font-size: vw(28px);
+                    @include line(2);
+                }
+
+                &__option {
+                    display: block;
+                    margin-top: vw(8px);
+                    font-size: vw(24px);
+                    color: #999;
+                    @include line(2);
+                }
+
+                &__date {
+                    display: block;
+                    margin-top: vw(10px);
+                    font-size: vw(24px);
+                    color: #999;
+                }
+            }
+
+            &__my {
+                &__score {
+                    font-size: 0;
+                }
+                
+                &__review {
+                    .review {
+                        &__img {
+                            overflow: hidden;
+                            overflow-x: auto;
+                            margin-top: vw(24px);
+                            white-space: nowrap;
+                            font-size: 0;
+    
+                            &::-webkit-scrollbar {
+                                display: none;
+                            }
+
+                            &:empty {
+                                margin-top: 0;
+                            }
+    
+                            &__list {
+                                display: inline-block;
+                                width: vw(180px);
+                                margin-left: vw(20px);
+                                vertical-align: top;
+                                white-space: normal;
+    
+                                &:first-child {
+                                    margin-left: 0;
+                                }
+    
+                                figure {
+                                    overflow: hidden;
+                                    position: relative;
+                                    height: vw(180px);
+    
+                                    img {
+                                        position: absolute;
+                                        top: 0;
+                                        right: 0;
+                                        bottom: 0;
+                                        left: 0;
+                                        max-width: 100%;
+                                        height: auto;
+                                        margin: auto;
+                                    }
+                                }
+                            }
+                        }
+
+                        &__txt {
+                            margin-top: vw(30px);
+                            font-size: vw(28px);
+                            line-height: vw(40px);
+                            word-break: break-all;
+                        }
+
+                        &__btn {
+                            margin-top: vw(20px);
+                            font-size: 0;
+                            text-align: right;
+
+                            button {
+                                width: vw(128px);
+                                height: vw(60px);
+                                margin-left: vw(10px);
+                                font-size: vw(24px);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__admin {
+                margin-top: vw(36px);
+
+                &__list {
+                    position: relative;
+                    margin-top: vw(36px);
+                    padding: vw(38px 30px 28px);
+                    border-radius: vw(20px);
+                    background: #F8F8F8;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: vw(-24px);
+                        left: vw(30px);
+                        width: vw(48px);
+                        height: vw(24px);
+                        border: {
+                            right: vw(24px) solid transparent;
+                            bottom: vw(24px) solid #F8F8F8;
+                            left: vw(24px) solid transparent;
+                        };
+                        box-sizing: border-box;
+                    }
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+
+                &__top {
+                    position: relative;
+                    font-size: 0;
+                }
+
+                &__badge {
+                    display: inline-block;
+                    position: relative;
+                    font-size: vw(26px);
+                    color: #666;
+                    vertical-align: middle;
+
+                    &:before {
+                        content: '댓글';
+                        display: inline-block;
+                        width: vw(70px);
+                        height: vw(34px);
+                        margin-right: vw(12px);
+                        border: vw(2px) solid #FF6600;
+                        border-radius: vw(4px);
+                        font-size: vw(22px);
+                        color: #FF6600;
+                        line-height: vw(30px);
+                        text-align: center;
+                        vertical-align: baseline;
+                        box-sizing: border-box;
+                    }
+                }
+
+                &__date {
+                    display: inline-block;
+                    margin-left: vw(18px);
+                    font-size: vw(24px);
+                    color: #666;
+                    line-height: 18px;
+                    vertical-align: middle;
+                }
+
+                &__txt {
+                    margin-top: vw(20px);
+                    font-size: vw(26px);
+                    color: #111;
+                    line-height: vw(36px);
+                    word-break: break-all;
+                }
+            }
+        }
+    }
+
+    //상품후기 레이어 팝업
+    .photo-layer {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #111;
+
+        &__slider {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            figure {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            .swiper-pagination-fraction {
+                bottom: 7%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                padding: vw(5px 25px);
+                border-radius: vw(50px);
+                background: #333;
+                color: #fff;
+                font-size: vw(28px);
+                line-height: vw(40px);
+            }
+        }
+
+        &__close {
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: vw(90px);
+            height: vw(90px);
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: vw(34px);
+                height: vw(34px);
+                transform: translate(-50%, -50%);
+                background: url("../images/version_fix/m_sprite_icon.png") no-repeat vw(-700px -300px);
+                background-size: vw(1000px);
+            }
+        }
+    }
+}

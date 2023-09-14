@@ -72,6 +72,8 @@ $contractionProductName = "";
 $productKindCount = 0;
 //장바구니 담긴 상품 정보
 $cartProductList = [];
+// 19금 상품 존재
+$productIsAdult = false;
 foreach ($cartData as $cart) {
     if ($cart['company_id'] != ForbizConfig::getCompanyInfo('company_id')) {
         $isThirdBool = true;
@@ -80,6 +82,11 @@ foreach ($cartData as $cart) {
     foreach ($cart['deliveryTemplateList'] as $deliveryTemplate) {
         foreach ($deliveryTemplate['productList'] as $product) {
             $cartProductList[] = ['cart_ix' => $product['cart_ix'], 'pname' => $product['pname'], 'options_text' => $product['options_text']];
+
+            if ($product['is_adult'] == '1')
+            {
+                $productIsAdult = true;
+            }
 
             if (empty($contractionProductName)) {
                 $contractionProductName = $product['pname'];
@@ -210,9 +217,17 @@ if (!empty(ForbizConfig::getPaymentConfig('simplePayMethod', $sattle_module))) {
 }
 
 //추가 결제 수단
-$view->assign('naverpay_pg_service_use', ForbizConfig::getMallConfig('naverpay_pg_service_use'));
+// 19금 상품 결제시, 네이버페이 직연동 미노출 처리
+$naverpayPgServiceUse = ForbizConfig::getMallConfig('naverpay_pg_service_use');
+if ($productIsAdult == true)
+{
+    $naverpayPgServiceUse = 'N';
+}
+
+$view->assign('naverpay_pg_service_use', $naverpayPgServiceUse);
 $view->assign('payco_service_use', ForbizConfig::getMallConfig('payco_service_use'));
 $view->assign('toss_service_use', ForbizConfig::getMallConfig('toss_service_use'));
+$view->assign('kakaopay_service_use', ForbizConfig::getMallConfig('kakaopay_service_use'));
 
 //결제 스크립트
 /* @var $paymentGatewayModel CustomMallPaymentGatewayModel */

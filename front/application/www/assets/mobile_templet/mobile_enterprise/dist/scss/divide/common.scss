@@ -40,7 +40,11 @@
                     background: $pcolor url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
                 }
 
-                &:disabled {
+                &:disabled { 
+                    background: #ddd url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
+                }
+                &:disabled + span:before{
+                    border: vw(2px) solid #ddd;
                     background: #ddd url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
                 }
             }

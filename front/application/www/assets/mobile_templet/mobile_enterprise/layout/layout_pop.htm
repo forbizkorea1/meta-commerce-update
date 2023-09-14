@@ -38,6 +38,7 @@
             common.templetSrc = '{layoutCommon.templetSrc}';
             common.environment = "{c.DB_CONNECTION_DIV}";
             dev_ext.npay.useNpay = '{c.NPAY_USE}';
+            var devAppType = '{=getAppType()}';
         </script>
         {? biginsight.use_biginsight_yn == 'Y'}
         <!-- bigin common code start -->

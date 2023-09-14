@@ -6229,6 +6229,7 @@ details[open] summary + * {
 .fb .searchLayer__lately .lately__list {
   display: inline-block;
   position: relative;
+  max-width: calc(100% - 1.06667vw * 2);
   height: 8.53333vw;
   margin: 1.06667vw;
   padding: 0 10.13333vw 0 3.46667vw;
@@ -6242,6 +6243,10 @@ details[open] summary + * {
   font-size: 3.73333vw;
   color: #999;
   line-height: 8vw;
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fb .searchLayer__lately .lately__list button {
@@ -7710,9 +7715,11 @@ details[open] summary + * {
 }
 
 .fb .empty-content__txt {
+  padding: 0 1.33333vw;
   color: #666;
   font-size: 3.73333vw;
   line-height: 5.33333vw;
+  word-break: break-all;
 }
 
 .fb .empty-content__txt:before {
@@ -7893,6 +7900,7 @@ details[open] summary + * {
 }
 
 .fb .term-list {
+  position: relative;
   padding: 4.66667vw 3.33333vw;
   border-bottom: 0.26667vw solid #EEE;
 }
@@ -7906,17 +7914,25 @@ details[open] summary + * {
 }
 
 .fb .accord-btn {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14.93333vw;
+  height: 100%;
+}
+
+.fb .accord-btn:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 3.6vw;
   height: 2vw;
-  margin-top: 1.33333vw;
+  margin: -1vw -1.8vw;
   background: url(../../images/icon/m_sprite_icon.png) no-repeat -126vw -69.2vw/133.33333vw;
 }
 
-.fb .accord-btn.on {
-  float: right;
-  width: 3.6vw;
-  height: 2vw;
+.fb .accord-btn.on:before {
   background: url(../../images/icon/m_sprite_icon.png) no-repeat -116.66667vw -69.2vw/133.33333vw;
 }
 
@@ -9739,6 +9755,11 @@ details[open] summary + * {
 }
 
 .fb__comm__checkbox input:disabled {
+  background: #ddd url(../../images/common/ico_comm_checkbox.png) no-repeat 50% 50%/5.33333vw auto;
+}
+
+.fb__comm__checkbox input:disabled + span:before {
+  border: 0.26667vw solid #ddd;
   background: #ddd url(../../images/common/ico_comm_checkbox.png) no-repeat 50% 50%/5.33333vw auto;
 }
 
@@ -13640,6 +13661,7 @@ details[open] summary + * {
   color: #999;
   font-size: 3.46667vw;
   line-height: 4vw;
+  word-break: break-all;
 }
 
 .fb__shopCommon__item .item-info__count {
@@ -13873,8 +13895,12 @@ details[open] summary + * {
   height: 17.33333vw;
 }
 
-.fb__search__header {
+.fb__search.hasSearch .fb__search__header {
   display: flex;
+}
+
+.fb__search__header {
+  display: none;
   align-items: center;
   position: relative;
   height: 13.33333vw;
@@ -14123,8 +14149,16 @@ details[open] summary + * {
   margin-top: 0;
 }
 
+.fb .searchFilter__cont .filterBrand__list .fb__comm__checkbox {
+  max-width: 100%;
+}
+
 .fb .searchFilter__cont .filterBrand__list .fb__comm__checkbox span {
   font-size: 3.46667vw;
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fb .searchFilter__cont .filterSearch {
@@ -15543,6 +15577,7 @@ details[open] summary + * {
   font-size: 3.2vw;
   color: #999;
   line-height: 4.8vw;
+  word-break: break-all;
 }
 
 .fb__goods-view .wrap-goods-view .goodsReview__list__user .info__txt {
@@ -15636,6 +15671,7 @@ details[open] summary + * {
   font-size: 3.46667vw;
   color: #111;
   line-height: 4.8vw;
+  word-break: break-all;
 }
 
 .fb__goods-view .wrap-goods-view .goodsReview__list.js--reviewOpen .goodsReview__list__user {
@@ -15675,6 +15711,7 @@ details[open] summary + * {
 
 .fb__goods-view .wrap-goods-view .goodsReview__list.js--reviewOpen .goodsReview__list__user .info__txt {
   display: block;
+  display: -webkit-box;
 }
 
 .fb__goods-view .wrap-goods-view .goodsReview__list.js--reviewOpen .goodsReview__list__admin {
@@ -15739,6 +15776,7 @@ details[open] summary + * {
   width: 83%;
   padding-right: 2.66667vw;
   font-size: 3.46667vw;
+  word-break: break-all;
 }
 
 .fb__goods-view .wrap-goods-view .tab-inquiry .inquery__list .qna-title .info__type {
@@ -15798,6 +15836,7 @@ details[open] summary + * {
   display: none;
   background: #f8f8f8;
   padding: 5.33333vw 4vw 6.66667vw;
+  word-break: break-all;
 }
 
 .fb__goods-view .wrap-goods-view .tab-inquiry .inquery__list .qna-q__cont {
@@ -18508,7 +18547,7 @@ details[open] summary + * {
 }
 
 .fb__infoinput .wrap-payment-mehtod .payment-mehtod__list a.nPay {
-  background: url(../../images/shop/ico_infoinput_pay-npay.png) no-repeat 50% 50%/13.6vw 5.33333vw;
+  background: url(../../images/shop/ico_infoinput_pay-npay.png) no-repeat 50% 50%/auto 5.6vw;
   font-size: 0;
 }
 
@@ -22301,6 +22340,16 @@ details[open] summary + * {
   margin-top: 1.06667vw;
   font-size: 3.2vw;
   color: #999;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
 }
 
 .fb__myGoodsReview .goodsReview__item__date {
@@ -22544,6 +22593,7 @@ details[open] summary + * {
   font-size: 3.73333vw;
   color: #111;
   line-height: 5.33333vw;
+  word-break: break-all;
 }
 
 .fb .inquiryDetail__header__cont .cont__date {
@@ -22614,6 +22664,7 @@ details[open] summary + * {
   font-size: 3.46667vw;
   color: #111;
   line-height: 4.8vw;
+  word-break: break-all;
 }
 
 .fb .inquiryDetail__main__order .order__item__info .info__num {
@@ -22666,6 +22717,7 @@ details[open] summary + * {
   font-size: 3.46667vw;
   color: #111;
   line-height: 5.33333vw;
+  word-break: break-all;
 }
 
 .fb .inquiryDetail__main__cont .cont__question__detail:before {
@@ -22719,6 +22771,7 @@ details[open] summary + * {
   font-size: 3.46667vw;
   color: #111;
   line-height: 5.33333vw;
+  word-break: break-all;
 }
 
 .fb .inquiryDetail__main__cont .cont__answer__detail:before {
@@ -22999,6 +23052,7 @@ details[open] summary + * {
 
 .fb .community-list.inquiry .head-area .title {
   font-size: 3.46667vw;
+  word-break: break-all;
 }
 
 .fb .community-list.inquiry .head-area .date {
@@ -23028,6 +23082,7 @@ details[open] summary + * {
   display: block;
   overflow: hidden;
   padding: 4vw 0;
+  word-break: break-all;
 }
 
 .fb .community-list dl.inquiry-content dd > p {

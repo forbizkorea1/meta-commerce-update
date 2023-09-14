@@ -86,19 +86,20 @@ var devOrderListOrderIncomCompleteObj = {
 
         // 그리드 연동
         self.grid.setGrid($('#devPagingGrid'), gridConfig)
-                .setForm('#devGridForm')
-                .setPagination('#devPageWrap')
-                .setPageNum('#devPageNum')
-                .setUrl(common.util.getControllerUrl('get', 'listOrderIncomComplete', 'order'))
-                .on('click', function (e) {
-                    if (e.column.key == 'oid') {
-                        location.href = common.util.getControllerUrl(e.item.oid, 'manageOrder', 'order');
-                    }
-                })
-                .init(function (response) {
-                    $('#devTotal').text(common.util.numberFormat(response.data.total));
-                    self.grid.setContent(response.data.list, response.data.paging);
-                });
+            .setUseHash(false)
+            .setForm('#devGridForm')
+            .setPagination('#devPageWrap')
+            .setPageNum('#devPageNum')
+            .setUrl(common.util.getControllerUrl('get', 'listOrderIncomComplete', 'order'))
+            .on('click', function (e) {
+                if (e.column.key == 'oid') {
+                    window.open(common.util.getControllerUrl(e.item.oid, 'manageOrder', 'order'));
+                }
+            })
+            .init(function (response) {
+                $('#devTotal').text(common.util.numberFormat(response.data.total));
+                self.grid.setContent(response.data.list, response.data.paging);
+            });
     },
     initForm: function () {
         var self = this;

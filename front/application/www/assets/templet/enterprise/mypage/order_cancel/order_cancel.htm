@@ -175,7 +175,10 @@
                     <div class="infoTable__cont fb__claimCommon__reason">
                         <!-- 사유선택 -->
                         <select name="ccReason" id="devCcReason">
-                            {@cancelReason}<option value="{.key_}">{.title}</option>{/}
+                            <option value="">{=trans('취소사유 선택')}</option>
+                            {@cancelReason}
+                            <option value="{.key_}">{.title}</option>
+                            {/}
                         </select>
     
                         <!-- 사유 입력 -->
@@ -286,6 +289,7 @@
                                     <input type="text" name="bankNumber" value="{refundInfo.ori_bank_number}" title="{=trans('계좌번호')}" id="devBankNumber" class="bank-num-input">
                                 </div>
                             </dd>
+                        <input type="hidden" id="devAlreadyRefundInfo" value="{alreadyRefundInfo}">
                     </dl>
 
                     {@paymentInfo.payment}

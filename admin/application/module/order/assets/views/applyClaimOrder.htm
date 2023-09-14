@@ -267,10 +267,11 @@
                             <span class="fb-filter__title--ne">환불 배송비</span>
                         </th>
                         <td class="fb-filter__radio">
-                            <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number" id="defClaimDeliveryPrice" name="claimDeliveryPrice" value="0" value="환불 배송비"/>
+                            <input type="text" class="fb-filter__text fb-filter__text--20 fb-filter__number" id="defClaimDeliveryPrice" name="claimDeliveryPrice" value="0" value="환불 배송비"
+                            {? type != c.ORDER_STATUS_EXCHANGE_APPLY && npaypgInclude} readonly {/}>
                             <br/>
                             <label>
-                                <input type="checkbox" name="subtraction" id="devSubtraction" value="Y">
+                                <input type="checkbox" name="subtraction" id="devSubtraction" value="Y" {? type != c.ORDER_STATUS_EXCHANGE_APPLY && npaypgInclude} disabled {/}>
                                 <span>차감</span>
                             </label>
                             ( 환불 : <span id="devRefundDeliveryPrice">0</span> - 추가 비용 : <span id="devAddDeliveryPrice">0</span>)

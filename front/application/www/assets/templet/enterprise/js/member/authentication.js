@@ -78,13 +78,13 @@ var authenticationObj = {
 
             var replaceObj = {'mallName': $('#devMallName').val(), 'date': date};
             if (!$('#seller-agree-term1').is(':checked') && !$('#seller-agree-term12').is(':checked')) {
-                if (!$('#agree-term6').is(':checked') && !$('#agree-term7').is(':checked')) {
+                if (!$('#devAgreeterm6').is(':checked') && !$('#devAgreeterm7').is(':checked')) {
                     replaceObj['serviceName'] = 'SMS/이메일';
                     common.noti.alert(common.lang.get('authentication.marketing.denial', replaceObj));
-                } else if (!$('#agree-term6').is(':checked')) {
+                } else if (!$('#devAgreeterm6').is(':checked')) {
                     replaceObj['serviceName'] = 'SMS';
                     common.noti.alert(common.lang.get('authentication.marketing.denial', replaceObj));
-                } else if (!$('#agree-term7').is(':checked')) {
+                } else if (!$('#devAgreeterm7').is(':checked')) {
                     replaceObj['serviceName'] = '이메일';
                     common.noti.alert(common.lang.get('authentication.marketing.denial', replaceObj));
                 } else {
@@ -201,6 +201,23 @@ var authenticationObj = {
             self.form.submit();
         });
 
+        // [선택] 마케팅 활용 동의 - SMS수신, 이메일 수신 체크 박스 이벤트
+        $("#devAgreeterm6, #devAgreeterm7").on("change", function(){
+            if ($('#devAgreeterm6').is(':checked') || $('#devAgreeterm7').is(':checked')) {
+                $('#devAgreeTerm5').prop('checked', true);
+            } else {
+                $('#devAgreeTerm5').prop('checked', false);
+            }
+        });
+
+        // [선택] 마케팅 활용 동의 체크 박스 이벤트
+        $('#devAgreeTerm5').on("change", function () {
+            if ($(this).is(':checked')) {
+                $('#devAgreeterm6, #devAgreeterm7').prop('checked', true);
+            } else {
+                $('#devAgreeterm6, #devAgreeterm7').prop('checked', false);
+            }
+        });
     },
     run: function () {
         var self = authenticationObj;

@@ -126,7 +126,7 @@
                     <a class="item-info__link" href="/shop/goodsView/{[pid]}">
                         <img data-src="{[pimg]}">
                         
-                        {[#if isExchangeToggle]}
+                        {[#if isExchangeDetail]}
                         <span class="item-info__badge--exchange">{=trans('교환상품')}</span>
                         {[/if]}
                     </a>
@@ -150,6 +150,10 @@
                             <em>{[listprice]}</em>{=trans('원')}
                         </p>
                     </div>
+
+                    {[#if denyStatus]}
+                    <span class="item-info__option" style="margin-top: 10px; font-size: 14px; color :#000;">{[y_status]} : {[y_status_message]}</span>
+                    {[/if]}
                 </div>
 
                 <!-- 교환상품인경우 fold 버튼 -->

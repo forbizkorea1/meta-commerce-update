@@ -20,7 +20,7 @@
     <div class="fb__cart__wrapper">
         {? cart}
         <!-- 01 장바구니 상품 있는 case -->
-            <mark class="fb__cart__noti">{=trans('장바구니에 담긴 상품을 {cartDeleteDay}일 동안 보관되며 {cartDeleteDay}일 이후에는 자동 삭제됩니다.')}</mark>
+            <mark class="fb__cart__noti">{=trans('장바구니에 담긴 상품은 {cartDeleteDay}일 동안 보관되며 {cartDeleteDay}일 이후에는 자동 삭제됩니다.')}</mark>
 
             <div class="fb__shopCommon__layout js__sticky__finish">
                 <!-- 좌측 -->
@@ -114,14 +114,14 @@
                                                                                     <button class="cart-item__control--minus devCountDownButton"> {=trans('마이너스')} </button>
                                                                                 </li>
                                                                                 <li>
-                                                                                    <input type="text" value="{productList.pcount}" class="devCount cart-item__control--count">
+                                                                                    <input type="text" value="{productList.pcount}" class="devCount cart-item__control--count" pid="{productList.id}">
                                                                                 </li>
                                                                                 <li>
                                                                                     <button class="cart-item__control--plus devCountUpButton"> {=trans('플러스')} </button>
                                                                                 </li>
                                                                             </ul>
 
-                                                                            <button class="btn-xs btn-white devCountUpdateButton">{=trans('변경')}</button>
+                                                                            <button class="btn-xs btn-white devCountUpdateButton" value="{productList.id}">{=trans('변경')}</button>
 
                                                                             <p class="txt-error devTailMsg"></p>
 

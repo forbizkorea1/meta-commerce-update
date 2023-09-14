@@ -158,13 +158,14 @@ var devOrderListOrderRefundObj = {
 
         // 그리드 연동
         self.grid.setGrid($('#devPagingGrid'), gridConfig)
+            .setUseHash(false)
             .setForm('#devGridForm')
             .setPagination('#devPageWrap')
             .setPageNum('#devPageNum')
             .setUrl(common.util.getControllerUrl('get', 'listOrderRefund', 'order'))
             .on('click', function (e) {
                 if (e.column.key == 'oid') {
-                    location.href = common.util.getControllerUrl(e.item.oid, 'manageOrder', 'order');
+                    window.open(common.util.getControllerUrl(e.item.oid, 'manageOrder', 'order'));
                 } else if (e.column.key == 'refundGroup') {
                     common.util.modal.open('ajax', '환불', common.util.getControllerUrl('applyRefundOrder', 'order'), {oid: e.item.oid}, function () {
                         devOrderApplyRefundOrderObj.callback = function () {

@@ -1,0 +1,145 @@
+<section class="fb__menusubmit">
+    <section class="fb-filter">
+        <form id="devBoardGridForm">
+            <input type="hidden" name="page" value="1" id="devPageNum" />
+            <input type="hidden" name="max"  value="50"/>
+            <input type="hidden" name="board" value="{board_ename}" />
+            <input type="hidden" name="bm_ix" value="{config.bm_ix}" />
+            <input type="hidden" name="board_style" value="{config.board_style}" />
+            <fieldset>
+                <legend>
+                    컨텐츠 필터 폼
+                </legend>
+                <table>
+                    <caption></caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <!--{? config.board_category_use_yn == 'Y'}-->
+                        <tr>
+                            <th class="fb-filter__title">
+                                <span>
+                                    분류
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__seller fb-filter__select-wrap">
+                                {? !empty(bbs_div)}
+                                <select class="fb-filter__select" name="bbs_div" id="devBbsDiv">
+                                    <option value="">분류선택</option>
+                                    <!--{@ bbs_div}-->
+                                    <option value="{.div_ix}">{.div_name}</option>
+                                    <!--{/}-->
+                                </select>
+                                {/}
+
+                                <select class="fb-filter__select" name="sub_bbs_div" id="devSubBbsDiv" style="display:none;">
+                                    <option value="">서브분류선택</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <!--{/}-->
+                        <!--{? config.board_style == 'bbs'}-->
+                        <!--{? config.board_qna_yn == 'Y'}-->
+                        <tr>
+                            <th class="fb-filter__title">
+                                <span>처리상태</span>
+                            </th>
+                            <td colspan="3" class="fb-filter__title-contents">
+                                {? !empty(bbs_status)}
+                                <div class="fb-filter__radio">
+                                    {@ bbs_status}
+                                    <label>
+                                        <input type="checkbox" name="status[]" value="{.status_ix}">
+                                        <span>{.status_name}</span>
+                                    </label>
+                                    {/}
+                                </div>
+                                {/}
+                            </td>
+                        </tr>
+                        <!--{/}-->
+                        <tr>
+                            <th class="fb-filter__title">
+                                <span>
+                                    작성일자
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__day-wrap">
+                                <div class="fb-filter__input__day-box">
+                                    <input type="text" class="fb-filter__text fb-filter__input__day" id="devBetweenDatePickerStart" name="sdate" value="" readonly>
+                                </div>
+                                <input type="text" class="fb-filter__text fb-filter__input__day" id="devBetweenDatePickerEnd" name="edate" value="" readonly>
+
+                                <span id="devQuickBetweenDate"></span>
+                            </td>
+                        </tr>
+                        <!--{/}-->
+                        <tr>
+                            <th class="fb-filter__title">
+                                <span>
+                                    조건검색
+                                </span>
+                            </th>
+                            <td colspan="3" class="fb-filter__seller">
+                                <!--{? config.board_style == 'bbs'}-->
+                                <select name="type" class="fb-filter__select">
+                                    <option value="esn">작성자</option>
+                                    <option value="ess">제목</option>
+                                    <option value="esc">내용</option>
+                                </select>
+                                <!--{:}-->
+                                <select name="type" class="fb-filter__select">
+                                    <option value="ess">제목</option>
+                                    <option value="esc">내용</option>
+                                </select>
+                                <!--{/}-->
+
+                                <input type="text" name="search_word" class="fb-filter__text" id="devSearchText" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="fb-filter__btn">
+                    <input type="submit" class="fb-filter__search" value="검색">
+                    <input type="button" class="fb-filter__reset" id="devFormReset" value="초기화">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</section>
+
+<section class="fb__menusubmit fb-filter">
+    <header class="fb-maincontent-header">
+        <h3 class="fb-maincontent-title">게시물 목록<span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotal">0</em>개)</span></h3>
+        <div class="fb-maincontent-fliter">
+            <select name="" class="fb-filter__select" style="display: none;">
+                <option value="">전체항목</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+            </select>
+            <select name="" class="fb-filter__select" id="devMax">
+                <option value="100">100</option>
+                <option value="50" selected>50</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </header>
+    <div id="devBoardGrid"></div>
+    <div id="devPageWrap" class="fb__bbs__page"></div>
+</section>
+
+<!--{? config.board_style == 'faq'}-->
+{#faqModal}
+<!--{:}-->
+{#bbsModal}
+{#detailModal}
+<!--{/}-->
+
+<!--{'<script>'}-->
+var bbsSubDiv = {? bbs_sub_div}{=json_encode(bbs_sub_div)}{:}[]{/};
+var bbsStatus = {? bbs_status}{=json_encode(bbs_status)}{:}[]{/};
+<!--{'</script>'}-->

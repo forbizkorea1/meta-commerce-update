@@ -76,6 +76,12 @@ class PgForbizInicis extends PgForbiz
     private $homePath;
 
     /**
+     * 로그 경로
+     * @var
+     */
+    private $logPath;
+
+    /**
      * 환불 방식 맵핑 정보
      * @var array
      */
@@ -188,8 +194,9 @@ class PgForbizInicis extends PgForbiz
         }
 
         $this->requestData = $requestData;
+        $this->logPath = $cancelData->logPath;
 
-        $result = $this->setApi('doRefund')->callApi();
+        $result = $this->setApi('doRefund')->callApi($mid, $cancelData->tid);
 
         if (isset($result["resultCode"]) && $result["resultCode"] == "00") {
             $responseData->result = true;
@@ -222,18 +229,6 @@ class PgForbizInicis extends PgForbiz
         }
 
         throw new \Exception('Not define api type!');
-    }
-
-    public function callApi()
-    {
-        $curl = new \Curl\Curl();
-        $curl->setHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-
-        $curl->post($this->api, $this->requestData);
-
-        $resData = json_decode($curl->response, true);
-
-        return (json_last_error() != 0 ? $curl->response : $resData);
     }
 
     /**
@@ -277,10 +272,17 @@ class PgForbizInicis extends PgForbiz
             , 'hashData' => hash("sha512", $hash)
         ];
 
-        $result = $this->setApi('doDelivery')->callApi();
+        $result = $this->setApi('doDelivery')->callApi($this->escrowMid, $data['tid']);
+
+        $this->logPath = getLogPath('payment', 'inicis', $this->input->server('SERVER_ADDR'));
 
         if (isset($result["resultCode"]) && $result["resultCode"] == "00") {
             return $result;
+        } else if (isset($result["resultCode"]) && $result["resultCode"] == "01") {
+            // 실패하면 배송수정으로 재발송 $data['report'] ='U'
+            $this->requestData['report'] = "U";
+            $this->requestData['exCode'] = '9999';
+            return $this->setApi('doDelivery')->callApi($this->escrowMid, $data['tid']);
         } else {
             return $result;
         }
@@ -331,8 +333,8 @@ class PgForbizInicis extends PgForbiz
     public function getDeliveryCode($code)
     {
         $deliveryCode = [
-            //'' => '9999'        //기타택배
-            '18' => 'korex'       //CJ대한통운
+            '40' => '9999'        //기타택배
+            , '18' => 'korex'       //CJ대한통운
             , '10' => 'kgbps'        //KGB택배
             //, '' => 'registpost'    //우편등기
             , '13' => 'hanjin'        //한진택배
@@ -355,5 +357,43 @@ class PgForbizInicis extends PgForbiz
     private function getRefundPayMethod($method)
     {
         return $this->refundMethodMapping[$method] ?? '';
+    }
+
+    public function callApi($mid, $tid)
+    {
+        $curl = new \Curl\Curl();
+
+        $this->writeLog("Call API $this->api MID : $mid TID: $tid");
+
+        try {
+            $curl->setHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8')
+                ->post($this->api, $this->requestData);
+
+            $this->writeLog("API Result $this->api Status : " . $curl->http_status_code);
+            $this->writeLog("API Result $this->api ResponseText : " . $curl->response);
+
+        } catch (RequestException $e) {
+            $this->writeLog("Call API Function Error : Number - " . $e->getRequest() . ", Description - " . $e->getResponse());
+        }
+
+        return (json_last_error() != 0 ? $curl->response : json_decode($curl->response, true));
+    }
+
+    public function writeLog($Input_String)
+    {
+        if (!empty($this->logPath)) {
+            $oTextStream = fopen($this->logPath . "/inicis_log_" . date("Ymd") . "_php.txt", "a");
+            $today = date("Y-m-d H:i:s");
+
+            //-----------------------------------------------------------------------------
+            // 내용 기록
+            //-----------------------------------------------------------------------------
+            fwrite($oTextStream, $today . " " . $Input_String . "\n");
+
+            //-----------------------------------------------------------------------------
+            // 리소스 해제
+            //-----------------------------------------------------------------------------
+            fclose($oTextStream);
+        }
     }
 }

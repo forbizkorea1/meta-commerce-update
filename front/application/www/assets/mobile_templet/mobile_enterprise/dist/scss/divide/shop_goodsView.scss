@@ -377,6 +377,7 @@
                                 font-size: vw(24px);
                                 color: #999;
                                 line-height: vw(36px);
+                                word-break: break-all;
                             }
 
                             &__txt {
@@ -464,6 +465,7 @@
                                     font-size: vw(26px);
                                     color: #111;
                                     line-height: vw(36px);
+                                    word-break: break-all;
                                 }
                             }
                         }
@@ -508,6 +510,7 @@
 
                                     &__txt {
                                         display: block;
+                                        display: -webkit-box;
                                     }
                                 }
                             }
@@ -581,6 +584,7 @@
                                 width: 83%;
                                 padding-right: vw(20px);
                                 font-size: vw(26px);
+                                word-break: break-all;
                                 
                                 &__type {
                                     display: block;
@@ -644,6 +648,7 @@
                             display: none;
                             background: #f8f8f8;
                             padding: vw(40px 30px 50px);
+                            word-break: break-all;
                         }
 
                         // Q.답변

@@ -1,0 +1,427 @@
+.fb {
+    &__shopCommon {
+        //section
+        &__section {
+            &:not(:last-of-type) {
+                &:after {
+                    display: block;
+                    width: 100%;
+                    height: 2.4vw;
+                    background: #f8f8f8;
+                    content: "";
+                }
+            }
+
+            &[open] {
+                .section__header {
+                    &:after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+        
+        .section {
+            &__header {
+                overflow: hidden;
+                position: relative;
+                padding: vw(35px 30px);
+              
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    right: vw(30px);
+                    width: vw(28px);
+                    height: 100%;
+                    background: url(../images/icon/icon-accor-arrow.png)no-repeat 0 center / 100% auto;
+                    content: "";
+                }
+
+                &.noAccordian {
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                &__right {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translate(0, -50%);
+                }
+            }
+
+            &__title {
+                color: #111;
+                font: {
+                    weight: bold;
+                    size: vw(34px);
+                };
+                line-height: vw(50px);
+            }
+
+            &__box {
+                padding: vw(40px 30px);
+            }
+
+            //1열 2행인 테이블형태
+            &__infoTable {
+                padding: vw(0 30px 40px);
+
+                .infoTable {
+                    &__list {
+                        display: flex;
+                        width: 100%;
+
+                        &:not(:last-child) {
+                            padding-bottom: vw(20px);
+                        }
+                    }
+
+                    &__title {
+                        flex: 0 0 vw(200px);
+                        color: #999;
+                        font-size: vw(26px);
+                        line-height: vw(38px);
+                    }
+
+                    &__cont {
+                        flex: 0 0 calc(100% -#{vw(200px)});
+                        color: #111;
+                        font-size: vw(26px);
+                        line-height: vw(38px);
+                    }
+                }
+            }
+        }
+
+        //기본 상품 형식 (장바구니, 주문결제, 마이페이지 주문관련)
+        &__item {
+            .item-info {
+                display: flex;
+                flex-wrap: nowrap;
+                padding: vw(30px 30px 40px 30px);
+                border-bottom: vw(2px) solid #eee;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                &__checkbox {
+                    width: vw(40px);
+                    margin-right: vw(20px);
+                    
+                    span {
+                        font-size: 0;
+                    }
+                }
+
+                &__wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    position: relative;
+                    width: 100%;
+                }
+
+                &__delete {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: vw(48px);
+                    height: vw(48px);
+                    background: url("../images/guide/ic-delete-gray-24-px-2@2x.png") no-repeat 0 0 / 100% auto;
+                    font-size: 0;
+                }
+
+                &__link {
+                    display: block;
+                }
+
+                &__thumb {
+                    position: relative;
+                    flex: 0 0 vw(140px);
+                    height: vw(140px);
+
+                    @include imageResize("width");
+                }
+
+                &__badge {
+                    &--soldout {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        padding: vw(8px 0);
+                        background: rgba(0, 0, 0, 0.5);
+                        color: #fff;
+                        font-size: vw(24px);
+                        text-align: center;
+                    }
+
+                    &--exchange {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        padding: vw(8px 0);
+                        background: $pcolor;
+                        color: #fff;
+                        font-size: vw(24px);
+                        text-align: center;
+                    }
+                }
+
+                &__info {
+                    flex: 0 0 calc(100% - #{vw(160px)});
+                }
+
+                &__name {
+                    width: 100%;
+                    color: #111;
+                    font-weight: normal;
+                    font-size: vw(28px);
+                    line-height: vw(40px);
+                    @include line(2);
+                }
+
+                &__option {
+                    display: block;
+                    margin-top: vw(10px);
+                    color: #999;
+                    font-size: vw(26px);
+                    line-height: vw(30px);
+                    word-break: break-all;
+                }
+
+                &__count {
+                    @include division(#ccc, vw(32px), vw(18px));
+
+                    em {
+                        font-family: $font_n;
+                    }
+                }
+
+                &__price {
+                    display: block;
+                    margin-top: vw(18px);
+
+                    em {
+                        font-family: $font_n;
+                    }
+
+                    &--strike {
+                        display: block;
+                        margin-bottom: vw(2px);
+                        color: #999;
+                        font-size: vw(24px);
+                        line-height: vw(34px);
+                        text-decoration: line-through;
+                    }
+
+                    &--current {
+                        display: flex;
+                        align-items: center;
+                        font-size: vw(26px);
+                        line-height: vw(38px);
+
+                        > em {
+                            font: {
+                                size: vw(32px);
+                                weight: bold;
+                                family: $font_n;
+                            };
+                            line-height: 1;
+                        }
+
+                        .orderTable__tooltip__layer {
+                            top: vw(48px);
+                            right: auto;
+                            left: vw(-97px);
+
+                            .fb__infolayer__cont {
+                                dl {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    margin-top: vw(10px);
+
+                                    dt {
+                                        font-size: vw(24px);
+                                        line-height: vw(36px);
+                                        color: #111;
+                                    }
+
+                                    dd {
+                                        font-size: vw(24px);
+                                        line-height: vw(36px);
+                                        color: #111;
+                                    }
+
+                                    &.total {
+                                        margin-top: vw(30px);
+                                        padding-top: vw(30px);
+                                        border-top: vw(2px) solid #111;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &--soldout {
+                        display: block;
+                        margin-top: vw(20px);
+                        color: #111;
+                        font-weight: bold;
+                        font-size: vw(28px);
+                    }
+                }
+
+                &__control {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    min-width: vw(470px);
+                    margin-top: vw(30px);
+                }
+            }
+
+            //추가구성상품
+            .additem-info {
+                position: relative;
+                width: 100%;
+                margin-top: vw(20px);
+                padding: vw(30px 32px 36px 40px);
+                border: vw(2px) solid #ddd;   
+
+                &:first-of-type {
+                    margin-top: vw(40px);
+                }
+
+                .item-info__delete {
+                    top: vw(20px);
+                    right: vw(20px);
+                }
+
+                &__title {
+                    display: block;
+                    color: #111;
+                    font-weight: 600;
+                    font-size: vw(24px);
+                    line-height: vw(36px);
+                    @include line(1);
+                }
+
+                &__option {
+                    display: block;
+                    margin-top: vw(6px);
+                    color: #999;
+                    font-size: vw(26px);
+                    line-height: vw(30px);
+                }
+
+                &__price {
+                    color: #111;
+                    font-size: vw(26px);
+                    line-height: vw(40px);
+
+                    em {
+                        font-family: $font_n;
+                        font-weight: bold;
+                        font-size: vw(34px);
+                    }
+
+                    &--soldout {
+                        display: block;
+                        margin-top: vw(30px);
+                        color: #111;
+                        font-weight: 600;
+                        font-size: vw(28px);
+                        text-align: right;
+                        line-height: vw(40px);
+                    }
+                }
+
+                &__cont {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin-top: vw(20px);
+                }
+
+                &__control {
+                    display: flex;
+
+                    .count__spinner__change {
+                        margin-left: vw(10px);
+                    }
+                }
+            }
+
+            .more {
+                display: none;
+            }
+        }
+
+        //하단 배송비영역
+        &__summary {
+            padding: vw(30px 30px 30px 0);
+            background: #f8f8f8;
+            text-align: right;
+        }
+
+        // 공통 툴팁
+        .summary {
+            &__text {
+                display: inline-block;
+                color: #111;
+                font-size: vw(26px);
+                line-height: vw(40px);
+                vertical-align: middle;
+                
+                em {
+                    font-family: $font_n;
+                    font-weight: bold;
+                    font-size: vw(32px);
+                }
+            }
+
+            &__tooltip {
+                display: inline-block;
+                position: relative;
+                vertical-align: middle;
+                
+                .tooltip {
+                    &__icon {
+                        display: block;
+                        margin-left: vw(8px);
+                        width: vw(28px);
+                        height: vw(28px);
+                        background: url("../images/guide/ic-open-layer-24-px@2x.png") no-repeat 0 0 / 100% auto;
+                        font-size: 0;
+                    }
+
+                    &__layer {
+                        top: vw(48px);
+                    }
+                }
+            }
+        }
+
+        &__form {
+            padding: vw(0 30px);
+        }
+
+        &__input {
+            dt {
+
+            }
+
+            dd {
+                
+            }
+        }
+    }
+}

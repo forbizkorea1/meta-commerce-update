@@ -179,7 +179,13 @@ jquery_datepicker_i18n_jquery_ui_datepicker_ko__WEBPACK_IMPORTED_MODULE_25___def
 
 
 
+
 window.$ = window.jquery = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+// datepicker default 옵션세팅
+$.datepicker.setDefaults({
+    yearRange: "c-100:c+10"
+});
 
 __webpack_require__(/*! jquery-lazy */ "./node_modules/jquery-lazy/jquery.lazy.js");
 __webpack_require__(/*! jquery.scrollbar */ "./node_modules/jquery.scrollbar/index.js");
@@ -1192,7 +1198,7 @@ __webpack_require__.r(__webpack_exports__);
             var _id = $this.attr('href').replace("#", "");
             var $content = $("#" + _id);
             var _contentOffset = Math.round($content.offset().top);
-            var _headerHeight = 80;
+            var _headerHeight = $('#navigation,.fb__header__nav').outerHeight();
 
             $this.closest("li").addClass("on").siblings().removeClass("on");
             stFlag = true;
@@ -1212,7 +1218,7 @@ __webpack_require__.r(__webpack_exports__);
             var $floatingList = $floating.find("li");
             var $box = $(".fb__event-detail__goodsbox");
             var $itemInner = $('.goodsbox__contents');
-            var _headerHeight = 80;
+            var _headerHeight = $('#navigation,.fb__header__nav').outerHeight();;
             var _fixedHeight = _headerHeight + $floating.outerHeight();
             var _st = $this.scrollTop();
 
@@ -6247,8 +6253,9 @@ var mypage_common = function mypage_common() {
                 if ($('#devEdate').val() != '' && $('#devEdate').val() < dateText) {
                     $('#devSdate').val($('#sDateDef').val());
                     $('#devEdate').val($('#eDateDef').val());
-                    common.noti.tailMsg('devEmailId', common.lang.get("joinInput.common.validation.email.doubleCheck"));
                     alert('시작일은 종료일 보다 이후일 수 없습니다.');
+                } else {
+                    $('#sDateDef').val($('#devSdate').val());
                 }
             }
         });
@@ -6264,8 +6271,9 @@ var mypage_common = function mypage_common() {
                 if ($('#devSdate').val() != '' && $('#devSdate').val() > dateText) {
                     $('#devSdate').val($('#sDateDef').val());
                     $('#devEdate').val($('#eDateDef').val());
-                    common.noti.tailMsg('devEmailId', common.lang.get("joinInput.common.validation.email.doubleCheck"));
                     alert('종료일은 시작일 보다 이전일 수 없습니다.');
+                } else {
+                    $('#eDateDef').val($('#devEdate').val());
                 }
             }
         });
@@ -6823,6 +6831,8 @@ __webpack_require__.r(__webpack_exports__);
         $document.on("click", ".info__question", function () {
             var $this = $(this);
             var $target = $this.parents(".info__wrap-popup").find(".info__popup");
+            var $allPopup = $('.info__question').parents(".info__wrap-popup").find(".info__popup");
+            $allPopup.removeClass("info__popup--show");
             $target.addClass("info__popup--show");
             close_popup();
         });
