@@ -44,7 +44,7 @@
             <input type="hidden" name="devUseSso" id="devUseSso" value="{useSso}">
 
             <div class="wrap-chk-all">
-                <label for="agree-all" class="fb__comm__checkbox">
+                <label for="agree-all" class="fb__checkbox">
                     <input type="checkbox" id="agree-all" class="js__check__all">
                     <span>{=trans('약관 전체 동의')}</span>
                 </label>
@@ -52,7 +52,7 @@
 
             <details class="wrap-terms accordion">
                 <summary class="wrap-terms-check wrap-terms__title">
-                    <label for="agree-term1" class="fb__comm__checkbox">
+                    <label for="agree-term1" class="fb__checkbox">
 						<input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="js__check__each devRequired">
 						<span>[{=trans('필수')}] {=trans('구매 이용 약관')}</span>
                     </label>
@@ -62,7 +62,7 @@
 
             <details class="wrap-terms accordion">
                 <summary class="wrap-terms-check wrap-terms__title">
-					<label for="agree-term2" class="fb__comm__checkbox">
+					<label for="agree-term2" class="fb__checkbox">
 						<input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" value="Y" class="js__check__each devRequired">
 						<span>[{=trans('필수')}] {=trans('개인정보 수집 및 이용에 대한 안내')}</span>
 					</label>
@@ -72,7 +72,7 @@
 
             <details class="wrap-terms accordion">
                 <summary class="wrap-terms-check wrap-terms__title">
-					<label for="agree-term3" class="fb__comm__checkbox">
+					<label for="agree-term3" class="fb__checkbox">
 						<input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" value="Y" class="js__check__each devRequired">
 						<span>[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</span>
 					</label>
@@ -83,7 +83,7 @@
 
             <details class="wrap-terms accordion">
                 <summary class="wrap-terms-check wrap-terms__title">
-					<label for="agree-term4" class="fb__comm__checkbox">
+					<label for="agree-term4" class="fb__checkbox">
 						<input type="checkbox" id="agree-term4" name="policyIx[{policyData['third']['ix']}]" value="Y" class="js__check__each">
 						<span>[{=trans('선택')}] {=trans('제 3자 정보 제공 동의')}</span>
 					</label>
@@ -94,17 +94,17 @@
 
             <details class="wrap-terms accordion marketing js__another__wrapper">
                 <summary class="wrap-terms-check wrap-terms__title">
-					<label for="devAgreeTerm5" class="fb__comm__checkbox">
+					<label for="devAgreeTerm5" class="fb__checkbox">
 						<input type="checkbox" id="devAgreeTerm5" name="policyIx[{policyData['marketing']['ix']}]" value="Y" class="js__check__each">
 						<span>[{=trans('선택')}] {=trans('마케팅 활용 동의')}</span>
 					</label>
                     (&nbsp;
-                    <label for="devAgreeterm6" class="fb__comm__checkbox">
+                    <label for="devAgreeterm6" class="fb__checkbox">
 						<input type="checkbox" id="devAgreeterm6" name="sms" value="1" data-another-target="true" class="js__check__each">
 						<span>{=trans('SMS 수신')}</span>
 					</label>
 
-					<label for="devAgreeterm7" class="fb__comm__checkbox mal10">
+					<label for="devAgreeterm7" class="fb__checkbox mal10">
 						<input type="checkbox" id="devAgreeterm7" name="email" value="1" data-another-target="true" class="js__check__each">
 						<span>{=trans('이메일 수신')}</span>
 					</label>

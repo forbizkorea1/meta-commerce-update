@@ -48,15 +48,17 @@ var devOrderListOrderReturnObj = {
         var self = this;
         common.ui.tap($('#devTap'), function (selector) {
             var status = selector.replace('#', '');
-
-            $(selector).css("display", "").addClass("fb__fixemenu__contents--show");
             $('#devSearchStatus').val(status);
-
             if (status == 'RC') {
-                $('#devModifySection').hide();
+                $('#devModifySection').css("display", "none");
             } else {
-                $('#devModifySection').show();
+                $('#devModifySection').css("display", "");
             }
+
+            if($("#devFixMenuBtn").hasClass("fb__fixemenu-btn--active")) {
+                $("#devFixMenuBtn").trigger("click");
+            }
+
             $(document).scroll(); //일괄변경 스크롤 이벤트 줘야지 노출됨
             self.grid.formObj.submit();
         });

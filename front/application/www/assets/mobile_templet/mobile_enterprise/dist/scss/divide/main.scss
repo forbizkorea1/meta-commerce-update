@@ -1,0 +1,412 @@
+.fb {
+    // 메인 페이지
+    &__main {
+        .main {
+            // 메뉴 공통요소
+            &__menu {
+                display: inline-block;
+                margin-left: vw(-4px);
+                padding: vw(30px 36px);
+                color: $grey800;
+                font-size: vw(28px);
+        
+                &__wrapper {
+                    overflow-x: auto;
+                    white-space: nowrap;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    nav {
+                        padding-left: vw(12px);
+                    }
+                }
+                &.active {
+                    color: $black;
+                    font-weight: 600;
+                }
+            }
+
+            // 메인 공통요소
+            &__content {
+                &__header {
+                    &.quick {
+                        margin: vw(0 0 20px -30px);
+                        font-size: 0;
+                        text-align: center;
+
+                        .main__content__title {
+                            display: inline-block;
+                            margin: vw(0 14px 0 0);
+                            color: $black;
+                            font-weight: lighter;
+                            font-size: vw(48px);
+                            line-height: vw(64px);
+                            vertical-align: middle;
+                        }
+                        
+                    }
+                    .quick__button {
+                        display: inline-block;
+                        width: vw(48px);
+                        height: vw(48px);
+                        background: url(../images/common/icon-comm-select-small.png) no-repeat center center/ vw(40px 40px);
+                        border: vw(2px) solid $grey400;
+                        border-radius: 50%;
+                        font-size: 0;
+                        vertical-align: middle;
+                        transform: rotate(270deg);
+                    }
+                }
+
+                &__title {
+                    margin: vw(0 0 20px -30px);
+                    text-align: center;
+                    color: $black;
+                    font-weight: lighter;
+                    font-size: vw(48px);
+                    line-height: vw(64px);
+                }
+
+                &__nav {
+                    overflow: hidden;
+                    margin-bottom: vw(40px);
+                    border-bottom: none;
+
+                    .inner {
+                        overflow: hidden;
+                        overflow-x: scroll;
+                        min-height: vw(40px);
+                        white-space: nowrap;
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                        
+                        a {
+                            position: relative;
+                            display: inline-block;
+                            margin-right: vw(50px);
+                            font-size: vw(26px);
+                            color: $grey800;
+    
+                            &.active {
+                                color: $black;
+                                font-weight: bold;
+    
+                                &:after {
+                                    content: '';
+                                    position: absolute;
+                                    left: 0;
+                                    bottom: vw(-8px);
+                                    width: 100%;
+                                    height: vw(4px);
+                                    background: $black;
+                                }
+                            }
+
+                            &.on {
+                                color: $black;
+                                font-weight: bold;
+    
+                                &:after {
+                                    content: '';
+                                    position: absolute;
+                                    left: 0;
+                                    bottom: vw(-8px);
+                                    width: 100%;
+                                    height: vw(4px);
+                                    background: $black;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__wrap {
+                    height: 0;
+                    overflow: hidden;
+
+                    &.show {
+                        height: auto;
+                        overflow: visible;
+                        padding-bottom: vw(65px);
+                    }
+                }
+            }
+
+            // 탭 콘텐츠 공통요소
+            .js__mainCont__wrap {
+                display: none;
+
+                &.show {
+                    display: block;
+                }
+            }
+    
+            // 메인 슬라이더
+            &__slider {
+
+                &__wrapper {
+                    position: relative;
+                }
+                
+                &__image {
+                    width: vw(750px);
+                    height: vw(984px);
+                    @include imageResize();
+                }
+
+                &__pagination {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: auto;
+                    z-index: 2;
+                    width: auto;
+                    padding: vw(12px 30px);
+                    background: rgba(0, 0, 0, .3);
+                    font-size: 0;
+                    
+                    span {
+                        color: $white;
+                        font-size: vw(24px);
+                        line-height: vw(32px);
+                    }
+
+                    em {
+                        color: $white;
+                        font-size: vw(24px);
+                        line-height: vw(32px);
+                    }
+
+                    .swiper-pagination-current:after {
+                        display: inline-block;
+                        font-size: vw(24px);
+                        content: "/";
+                    }
+                }
+            }
+
+            // 신상품 
+            &__new {
+                overflow: hidden;
+                position: relative;
+                margin: vw(100px 0 0 30px);
+
+                &__wrapper {
+
+                    .item__box {
+                        width: vw(260px);
+                        margin-right: vw(20px);
+                    }
+
+                    .item__thumb {
+                        width: vw(260px);
+                        height: vw(260px);
+                    }
+                }
+            }
+
+            // 기획전 
+            &__promotion {
+                margin: vw(100px 0 0 30px);
+
+                .promotion {
+                    &__wrapper {
+                        .fb__event__box {
+                            overflow: hidden;
+                            overflow-x: scroll;
+                            white-space: nowrap;
+
+                            &::-webkit-scrollbar {
+                                display: none;
+                            }
+                        }
+
+                        .fb__event__list {
+                            display: inline-block;
+                            width: vw(640px);
+                            margin-top: 0;
+                            margin-right: vw(20px);
+                            vertical-align: top;
+                            white-space: normal;
+                        }
+
+                        .fb__event__image {
+                            width: vw(640px);
+                            height: vw(640px);
+                        }
+
+                        .fb__event__info {
+                            padding: vw(40px 0 30px);
+                        }
+
+                        .fb__items {
+                            overflow: hidden;
+                            height: vw(440px);
+                        }
+                    }
+
+                    &__summary {
+                        // max-width: vw(620px);
+                        min-height: vw(128px);
+                        margin-top: vw(8px);
+                        color: #666666;
+                        font-size: vw(28px);
+                        line-height: vw(42.6px);
+                        white-space: normal;
+                        @include line(3);
+                    }
+                }
+            }
+
+             // 스타일
+            &__style {
+                position: relative;
+                overflow: hidden;
+                margin: vw(120px 0 0 30px);
+
+                &__nav {
+                    margin-bottom: vw(30px);
+                    font-size: 0;
+        
+                    a {
+                        display: inline-block;
+                        height: vw(66px);
+                        margin: vw(7px);
+                        padding: vw(20px 30px);
+                        background: #f5f5f5;
+                        border-radius: vw(100px);
+                        color: $grey600;
+                        font-size: vw(28px);
+                        line-height: 1;
+
+                        &.active {
+                            background: $black !important;
+                            color: $white !important;
+                        }
+                    }
+        
+                }
+        
+                &__wrapper {
+                    
+                    .item__box {
+                        width: vw(260px);
+                        margin-right: vw(20px);
+                    }
+
+                    .item__thumb {
+                        width: vw(260px);
+                        height: vw(260px);
+                    }
+                }
+            }
+
+            // 배너
+            &__banner {
+                margin-top: vw(120px);
+
+                &__link {
+                    display: block;
+                }
+
+                &__image {
+                    width: vw(750px);
+                    height: vw(160px);
+                    @include imageResize();
+                }
+            }
+          
+            // 베스트
+            &__seller {
+                margin: vw(100px 0 0 30px);
+                overflow: hidden;
+                position: relative;
+
+                .item__box {
+                    width: vw(340px);
+                    margin: vw(60px 0 0 10px);
+
+                    &:nth-child(-n + 2) {
+                        margin-top: 0;
+                    }
+
+                    &:nth-child(odd) {
+                        margin-left: 0;
+                    }
+                }
+
+                .item__thumb {
+                    width: vw(340px);
+                    height: vw(340px);
+                }
+            }
+
+            // 이벤트
+            &__event {
+                padding: vw(100px 0 10px 30px);
+                overflow: hidden;
+                position: relative;
+
+                &__wrapper {
+                    margin-right: vw(30px);
+
+                    .fb__event__list {
+                        box-shadow: vw(0 2px 8px 0) rgba(0, 0, 0, 0.12);
+                    }
+                    
+                    .fb__event__image {
+                        width: vw(690px);
+                        height: vw(372px);
+                    }
+            
+                    .fb__event__name {
+                        font-size: vw(44px);
+                        line-height: vw(72px);
+
+                    }
+                }
+            }
+        }
+
+        // 더보기 버튼
+        &__view-more {
+            width: 100%;
+            text-align: center;
+
+            button {
+                width: vw(300px);
+                height: vw(90px);
+                border: 1px solid $black;
+                font-size: vw(24px);
+                color: $black;
+                letter-spacing: vw(5px);
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    // 전체 페이지 공통요소
+    .main {
+        &__title {
+            &--hidden {
+                font-size: 0;
+                line-height: 0;
+            }
+        }
+    }
+    
+    &__margin {
+        margin-top: vw(40px);
+        background: $white;
+        border: 0;
+    }
+
+    &__n {
+        font-family: $font_n;
+    }
+}

@@ -41,59 +41,7 @@
             <!--{'</script>'}-->
 
             <!--{'<script id="devListDetail" type="text/x-handlebars-template">'}-->
-            <li class="item__box">
-                <a href="/shop/goodsView/{[id]}" class="item__link">
-                    <figure class="item__thumb">
-                        <!-- 상품이미지 -->
-                        <img data-src="{[image_src]}" alt="{[pname]}" onError="this.src='{layoutCommon.templetSrc}/images/common/noimg.gif'">
-
-                        <!-- 찜버튼 -->
-                        <button class="item__wish {[#if alreadyWish]}on{[/if]}" data-devWishBtn="{[id]}">
-                            {=trans('찜 버튼')}
-                        </button>
-                    </figure>
-
-                    <div class="item__info">
-                        <!-- 브랜드 -->
-                        {[#if brand_name]}
-                        <span class="item__brand">{[brand_name]}</span>
-                        {[/if]}
-
-                        <!-- 상품명 -->
-                        <strong class="item__name">{[pname]}</strong>
-
-                        <!-- 상품가격 -->
-                        <div class="item__price">
-                            {[#if status_soldout]}
-                                <p class="item__price--soldout">{=trans('일시품절')}</p>
-                            {[else]}
-
-                                {[#if isDiscount]}
-                                    <!-- 할인율 -->
-                                    <span class="item__price--perc"><em>{[discount_rate]}</em>%</span>
-                                    <!-- 원가 -->
-                                    <del class="item__price--strike"><em>{[listprice]}</em>{=trans('원')}</del>
-                                {[/if]}
-                            
-                                <!-- 판매가 -->
-                                <p class="item__price--current"><em>{[dcprice]}</em>{=trans('원')}</p>
-                            {[/if]}
-                        </div>
-
-                        {[#if icons]}
-                        <div class="item__badge">
-                            {[#each icons as |icon|]}
-                                {[#if this.isText]}
-                                    <span>{{[this.content]}}</span>
-                                {[else]}
-                                    {{[this.content]}}
-                                {[/if]}
-                            {[/each]}
-                        </div>
-                        {[/if]}
-                    </div>
-                </a>
-            </li>
+            {= fb_widget('listItem/listItem')}
             <!--{'</script>'}-->
 
             <!--{'<script id="devListEmpty" type="text/x-handlebars-template">'}-->

@@ -1,0 +1,164 @@
+.fb {
+    /* 최근 본 상품 */
+    .list-top-area {
+        overflow: hidden;
+        padding: vw(20px 30px);
+        // border-bottom: 1px solid $white2;
+    }
+
+    .wrap-item-list.recent-list,
+    .wrap-item-list.wish-list {
+        .fb__mypage__empty {
+            padding: vw(185px 0);
+            border-bottom: none;
+        }
+    
+        li {
+            &:not(.empty-content) {
+                overflow: hidden;
+                position: relative;
+                padding: vw(40px 30px);
+                border-bottom: vw(2px) solid $white2;
+                background: $white;
+            }
+    
+            .check-area {
+                float: left;
+                margin-right: vw(20px);
+    
+                .fb__checkbox {
+                    span {
+                        padding-left: vw(40px);
+                    }
+                }
+            }
+    
+            .item {
+                overflow: hidden;
+                position: relative;
+    
+                .thumb {
+                    float: left;
+                    width: vw(170px);
+                    height: vw(170px);
+                    margin-right: vw(20px);
+                }
+    
+                .info {
+                    float: left;
+                    width: calc(100% - #{vw(190px)});
+
+                    .title {
+                        font-size: vw(26px);
+                        color: $black;
+                        line-height: vw(36px);
+                    }
+    
+                    .wrap-price-area {
+                        margin-top: vw(30px);
+    
+                        .strike {
+                            margin-bottom: vw(10px);
+                            font-size: vw(24px);
+                            color: $grey600;
+    
+                            strong {
+                                font: {
+                                    size: vw(26px);
+                                    family: $font_n;
+                                };
+                            }
+                        }
+                    }
+    
+                    .price {
+                        font-size: vw(26px);
+                        color: $black;
+    
+                        strong {
+                            font: {
+                                size: vw(34px);
+                                weight: 600;
+                                family: $font_n;
+                            };
+                        }
+    
+                        em {
+                            font: {
+                                size: vw(34px);
+                                weight: 600;
+                                family: $font_n;
+                            }
+                            color: #202020;
+                        }
+    
+                        &-area {
+                            margin-top: vw(30px);
+    
+                            .rate {
+                                color: $pcolor;
+                                margin-right: vw(6px);
+                                font-size: vw(26px);
+                                font-weight: 600;
+                            }
+    
+                            .strike {
+                                display: inline-block;
+                                margin-bottom: vw(10px);
+                                font-size: vw(24px);
+                                font-weight: 400;
+    
+                                em {
+                                    font-size: vw(26px);
+                                    font-family: $font_n;
+                                }
+                            }
+                        }
+    
+                        &.discount {
+                            display: block;
+                            margin-top: vw(5px);
+                            font-size: vw(26px);
+    
+                            em {
+                                color: #202020;
+                                font-size: vw(34px);
+                                font-family: $font_n;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+    
+                    .price.soldout {
+                        margin-top: vw(30px);
+                        font-size: vw(26px);
+                        color: $grey600;
+                        font-weight: 400;
+                    }
+                }
+            }
+    
+            .wish {
+                display: block;
+                position: absolute;
+                right: vw(25px);
+                bottom: vw(30px);
+                width: vw(60px);
+                height: vw(60px);
+                background: url(../images/common/ico_comm_wish01.png) no-repeat 0 0 / 100% auto;
+                font-size: 0;
+            }
+    
+            .wish.on {
+                background-image: url(../images/common/ico_comm_wish01-on.png);
+            }
+        }
+    }
+
+    .recentView {
+        .wrap-btn-area {
+            width: vw(690px);
+            margin: vw(60px auto 0);
+        }
+    }
+}

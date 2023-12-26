@@ -1,0 +1,367 @@
+.fb {
+    &__conversion {
+        .sect {
+            & + .sect {
+                margin-top: 50px;
+            }
+
+            &__title {
+                padding-bottom: 15px;
+                font-size: 20px;
+                color: $black;
+
+                &.border {
+                    border-bottom: 1px solid $black;
+                }
+            }
+
+            &__inner {
+                border-top: 1px solid $black;
+            }
+
+            &.success {
+                margin-top: 0;
+                padding: 45px 0 40px;
+                border: 3px solid $grey100;
+                text-align: center;
+
+                &:before {
+                    content:'';
+                    display: block;
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto 30px;
+                    background: url(../images/common/sprite_common.png) no-repeat 0 -492px;
+                }
+
+                .tit {
+                    font-size: 30px;
+                    color: $black;
+
+                    .color-point {
+                        color: $pcolor;
+                    }
+                }
+
+                .txt {
+                    margin-top: 30px;
+                    font-size: 15px;
+                    color: $grey800;
+                    line-height: 20px;
+                }
+            }
+
+            // 가입절차
+            .step {
+                padding: 30px 0 25px;
+                background-color: $bg_grey50;
+                font-size: 0;
+                text-align: center;
+                box-sizing: border-box;
+
+                &__list {
+                    display: inline-block;
+                    position: relative;
+                    min-width: 160px;
+                    vertical-align: top;
+
+                    &__tit {
+                        display: block;
+                        color: $black;
+                        font-weight: 600;
+                        font-size: 16px;
+                    }
+
+                    &__desc {
+                        display: block;
+                        margin-top: 10px;
+                        font-size: 13px;
+                        color: $grey800;
+                        line-height: normal;
+                    }
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 110px;
+                        height: 110px;
+                        margin: 0 auto 10px;
+                        background: $white url('../images/mypage/icon-conversion.png') no-repeat;
+                        border-radius: 100%;
+                    }
+
+                    &:not(:first-child) {
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            position: absolute;                            
+                            top: 50%;
+                            left: -70px;
+                            margin-top: -20px;
+                            width: 17px;
+	                        height: 31px;
+                            background: url('../images/mypage/icon-conversion.png') no-repeat 0 -141px;
+                        }
+                    }
+
+                    &.input {
+                        &:before {
+                            background-position: -33px 6px;
+                        }
+                    }
+
+                    &.apply {
+                        &:before {
+                            background-position: -292px 3px;
+                        }
+                    }
+
+                    &.check {
+                        &:before {
+                            background-position: -550px 5px;
+                        }
+                    }
+
+                    &.done {
+                        &:before {
+                            background-position: -809px 4px;
+                        }
+                    }
+                    
+                    &__num {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 30px;
+                        width: 26px;
+                        height: 26px;
+                        line-height: 26px;
+                        background-color: #666666;
+                        font-size: 13px;
+                        color: $white;
+                        border-radius: 100%;
+                    }
+
+                    & + .step__list {
+                        margin-left: 100px;
+                    }
+                }
+            }
+
+            .inputInfo {
+                padding: 25px 0;
+
+                .box {
+                    font-size: 15px;
+                    color: $black;
+
+                    &__title {
+                        display: inline-block;
+                        width: 200px;
+                        padding-left: 30px;
+                        box-sizing: border-box;   
+                        vertical-align: middle;   
+                        
+                        em {
+                            color: $pcolor;
+                        }
+                    }
+
+                    &__cont {
+                        display: inline-block;
+                        vertical-align: middle;
+
+                        input[type=text] {
+                            width: 300px;
+                        }
+
+                        select {
+                            width: 300px;
+                        }
+                    }
+
+                    .business-type {
+                        @extend %clear;
+                        
+                        .fb__radio {
+                            float: left;
+                            display: inline-block;
+
+                            &__text {
+                                margin-left: 5px;
+                            }
+
+                            & + .fb__radio {
+                                margin-left: 50px;
+                            }
+                        }
+                    }
+
+                    & + .box {
+                        margin-top: 20px;
+                    }
+
+                    .desc {
+                        margin-top: 10px;
+
+                        &__list {
+                            position: relative;
+                            padding-left: 10px;
+                            font-size: 13px;
+                            color: $grey800;
+                            line-height: 24px;
+
+                            &:before {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                top: 10px;
+                                left: 0;
+                                width: 3px;
+                                height: 3px;
+                                background: $grey800;
+                            }
+                        }
+                    }
+
+                    &.license-info {
+                        .box__title {
+                            padding-top: 10px;
+                            vertical-align: top;
+                        }
+                        
+                        input, button {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+
+            .required-mark {
+                color: $pcolor;
+            }
+
+            .form-box {
+                padding: 30px 0;
+                border-bottom: 1px solid $grey100;
+
+                .box {
+                    display: flex;
+
+                    &__title {
+                        display: inline-block;
+                        width: 210px;
+                        padding-left: 30px;
+                        box-sizing: border-box;
+                        color: $black;
+                        padding-top: 64px;
+
+                        em {
+                            color: $pcolor;
+                        }
+                    }
+
+                    &__cont {
+                        vertical-align: middle;
+
+                        .terms-content {  
+                            width: 820px;
+                            display: inline-block;
+                            overflow-y: auto;
+                            min-height: 150px;
+                            border: 1px solid $grey200;                 
+                        }
+
+                        .fb__checkbox {
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+
+            .state {
+                &__row {
+                    display: flex;
+                    line-height: 24px;
+
+                    & + .state__row {
+                        border-top: 1px solid $grey100;
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid $grey100;
+                    }
+                }
+
+                &__title {
+                    display: inline-block;
+                    width: 180px;
+                    padding: 20px 0 20px 30px;
+                    background-color: $bg_grey50;
+                    font-size: 14px;
+                    color: $black;
+                    box-sizing: border-box;
+                }
+
+                &__cont {
+                    display: inline-block;
+                    padding: 20px 0 20px 30px;
+                    font-size: 14px;
+                }
+            }
+                
+            .state-desc {
+                margin-top: 15px;
+
+                &__list {
+                    position: relative;
+                    padding-left: 10px;
+                    line-height: 24px;
+                    font-size: 13px;
+                    color: $grey600;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 10px;
+                        left: 0;
+                        width: 3px;
+                        height: 3px;
+                        background: $grey600;
+                    }
+
+                    em {
+                        color: $pcolor;
+                    }
+                }
+            }
+        }
+
+        .fb__button {
+            padding-top: 50px;
+            border-top: 1px solid $grey100;
+
+            button {
+                width: 188px;
+            }
+        }
+
+        .color-point {
+            color: $pcolor;
+        }
+
+        .required-mark {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            margin-left: 11px;
+            background: $pcolor;
+            border-radius: 50%;
+            color: #ff6600;
+            vertical-align: top;
+        }
+
+    }
+}

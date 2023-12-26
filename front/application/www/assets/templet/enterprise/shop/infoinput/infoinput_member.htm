@@ -45,7 +45,7 @@
     <header class="section__header">
         <h2 class="section__title">{=trans('배송지 정보')}</h2>
 
-        <label id="devSameBuyer" class="section__header__right fb__comm__checkbox">
+        <label id="devSameBuyer" class="section__header__right fb__checkbox">
             <input type="checkbox" class="devSameBuyerInfo" >
             <span>{=trans('주문자 정보와 동일')}</span>
         </label>
@@ -71,8 +71,11 @@
                         <li class="delivery__list devOrderAddress">
                             <input type="radio" name="orderAddress" class="devOrderAddressRadio" data-ix="{[ix]}" value="{[index]}" style="display:none;" checked/>
                             <div class="delivery__list__name">
-                                <span class="name devName">{[recipient]}</span> <span class="sub-name devSubName">{[#if shipping_name]}({[shipping_name]}){[/if]}</span>
-                                <span class="default-delivery devBasic">{=trans('기본 배송지')}</span>
+                                <span class="name">
+                                    <span class="devName">{[recipient]}</span>
+                                    <span class="sub-name devSubName">{[#if shipping_name]}({[shipping_name]}){[/if]}</span>
+                                    <span class="default-delivery devBasic">{=trans('기본 배송지')}</span>
+                                </span> 
                             </div>
                             <div class="delivery__list__addr"><span class="devAddress1">{[address1]}</span> {[#if address2]}<br><span class="devAddress2">{[address2]}</span>{[/if]}</div>
                             <div class="delivery__list__tel devMobile">{[mobile]}</div>
@@ -173,7 +176,7 @@
     </div>
 
     <div id="devDefaultDeliveryTemplate" class="default-choice">
-        <label for="devBasicAddressBookCheckBox" class="fb__comm__checkbox">
+        <label for="devBasicAddressBookCheckBox" class="fb__checkbox">
             <input type="checkbox" id="devBasicAddressBookCheckBox" class="blind">
             <span>{=trans('기본 배송지로 선택')}</span>
         </label>

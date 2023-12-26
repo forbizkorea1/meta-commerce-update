@@ -1,0 +1,363 @@
+.fb {
+    &__event-detail {
+        &__header {
+            position: relative;
+            width: 100%;
+            padding: vw(60px 30px);
+
+            .btn-sns-share {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: vw(33px);
+	            height: vw(36px);
+                padding: 0;
+                background: url(../images/event/btn-share.png) no-repeat center center / vw(33px 36px); 
+                font-size: 0;
+                text-align: right;
+                vertical-align: middle;
+            }
+        }
+
+        &__title {
+            color: $black;
+            font-size: vw(40px);
+            line-height: vw(56px);  
+            font-weight: 600;
+        }
+
+        &__subtitle {
+            display: inline-block;
+            margin-top: vw(8px);
+            color: $grey800;
+            font-size: vw(26px);
+            line-height: vw(36px);
+        }
+
+        &__option {
+            position: relative;
+            margin-top: vw(30px);
+            padding-right: vw(33px);
+            font-size: 0;
+        }
+
+        &__dDay {
+            display: inline-block;
+            margin-right: vw(16px);
+            padding: vw(4px 24px);
+            background: $black;
+            color: $white;
+            font-size: vw(24px);
+            line-height: vw(32px);
+            vertical-align: middle;
+        }
+
+        &__date {
+            display: inline-block;
+            color: $grey800;
+            font-size: vw(26px);
+            line-height: vw(36px);
+            vertical-align: middle;
+
+            &.ing {
+                color: $pcolor;
+            }
+
+            &:not(:first-child) {
+                margin-left: vw(12px);
+                padding-left: vw(14px);
+
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 40%;
+                    width: vw(2px);
+                    height: vw(20px);
+                    margin-top: vw(-10px);
+                    background: $grey200;
+                }
+            }
+            
+        }
+
+        &__banner {
+            &__title {
+                text-indent: vw(-9999px);
+            }
+
+            &__thumb {
+                width: $width;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        &__goodsbox {
+            margin-top: vw(30px);
+           
+            .select-wrap {
+                position: -webkit-sticky;
+                position: sticky;
+                z-index: 10;
+                top: vw(100px);
+                padding: vw(30px);
+                background: $white;
+
+                select {
+                    color: $grey800;
+                }
+            }
+
+            .goodsbox-contents {
+                margin: vw(76px auto 0);
+                padding: vw(0 30px);
+
+                &__title {
+                    position: relative;
+                    padding-bottom: vw(40px);
+                    color: $black;
+                    font-size: vw(40px);
+                    text-align: center;
+                    line-height: vw(52px);
+                }
+
+                .item__wish {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    width: vw(52px);
+                    height: vw(52px);
+                    padding: 0;
+                    background: url(../images/common/icon-item-wish.png) no-repeat 0 0 / vw(52px 52px);
+                    font: 0/0 a;
+
+                    &.on {
+                        background: url(../images/common/icon-item-wish-on.png) no-repeat 0 0 / vw(52px 52px);
+                    }
+                } 
+            }
+        }
+
+        &__reviews {
+            padding: vw(40px 30px 0);
+
+            h3 {
+                height: 0;
+                text-indent: vw(-9999px);
+            }
+
+            .reviews-write {
+                position: relative;
+                font-size: 0;
+                    
+                &__area {
+                    width: 100%;
+                    height: vw(190px);
+                    padding: vw(30px);
+                    color: $black;
+                    font-size: vw(24px);
+                    border: none;
+                    border: vw(2px) solid $grey200;
+                    border-bottom: none;
+                    background: none;
+                    line-height: vw(36px);
+                    box-sizing: border-box;
+
+                    &::placeholder {
+                        color: $grey600;
+                        line-height: 1;
+                    }
+                }
+
+                &__login {
+                    display: none;
+                    position: absolute;
+                    top: vw(30px);
+                    right: vw(252px);
+                    font-weight: 600;
+                    font-size: vw(24px);
+                    color: $grey600;
+                    text-decoration: underline;
+
+                    a {
+                        display: block;
+                    }
+                }
+
+                &__byte {
+                    display: inline-block;
+                    margin-left: vw(37px);
+                    color: $grey600;
+                    font-size: vw(24px);
+                    line-height: vw(38px);
+
+                    em {
+                        &.on {
+                            color: $textBlack;
+                        }
+                    }
+                }
+
+                &__inner {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: -1px;
+                    border: vw(2px) solid $grey200;
+                }
+                
+                &__btn {
+                    width: vw(150px);
+                    height: vw(80px);
+                    font-size: vw(26px);
+                    color: $white;
+                    background: $grey400;
+
+                    &.cancel {
+                        color: $grey800;
+                        background-color: $white;
+                        border-left: vw(2px) solid $grey200;
+                    }
+
+                    &.on {
+                        background: $grey800;
+                    }
+                }
+            }
+
+            .reviews-view {
+                margin-top: vw(35px);
+
+                &__total {
+                    margin-bottom: vw(15px);
+                    color: $grey800;
+                    font-size: vw(24px);
+                    font-weight: 600;
+
+                    em {
+                        color: $pcolor;
+                        font-size: vw(26px);
+                        font-weight: 500;
+                    }
+                }
+
+                &__viewbox {
+                    padding: vw(40px 0);
+                    border-top: 1px solid #eee;
+
+                    &:last-child {
+                        border-bottom: 1px solid #eee;
+                    }
+                }
+
+                .viewbox {
+                    &__list {
+                        position: relative;
+
+                        &__infoBox {
+                            margin-top: vw(30px);
+                            color: $black;
+                            font-size: vw(26px);
+                        }
+
+                        &__info {
+                            display: inline-block;
+                            position : relative;
+                            color: $grey800;
+                            font-size: vw(24px);
+                            
+                            &:not(:first-child) {
+                                margin-left: vw(25px);
+
+                                &:before{
+                                    display : block;
+                                    position : absolute;
+                                    top : 50%;
+                                    left : vw(-14px);
+                                    transform : translateY(-50%);
+                                    width : 1px;
+                                    height : vw(20px);
+                                    background-color : $grey400;
+                                    content : "";
+                                }
+                            }
+                        }
+
+                        &__cont {
+                            color: $textBlack;
+                            font-size: vw(26px);
+                            line-height: vw(34px);
+                            word-break: break-all;
+                        }
+
+                        &__edit-btn {
+                            width: vw(120px);
+                            height: vw(60px);
+                            margin-top: vw(32px);
+                            border: 1px solid $grey400;
+                            color: $grey800;
+                            font-size: vw(24px);
+                            text-align: center;
+                            line-height: vw(40px);
+                        }
+
+                        &__edit-area {
+                            display: none;
+                            position: relative;
+                            margin-top: vw(40px);
+
+                            &__textarea {
+                                width: 100%;
+                                height: vw(45px);
+                                margin: vw(10px) 0 vw(34px) 0;
+                                padding: vw(15px);
+                                font-size: vw(14px);
+                                border: none;
+                            }
+
+                            &__btns {
+                                height: vw(40px);
+
+                                &--cancel {
+                                    width: vw(70px);
+                                    height: vw(45px);
+                                    color: $grey800;
+                                    font-size: vw(14px);
+                                    border-left: 1px solid $grey200;
+                                    background-color: #ffffff;
+                                    text-align: center;
+                                    line-height: vw(40px);
+                                }
+
+                                &--submit {
+                                    width: vw(70px);
+                                    height: vw(45px);
+                                    color: #ffffff;
+                                    font-size: vw(14px);
+                                    background-color: $grey800;
+                                    text-align: center;
+                                    line-height: vw(40px);
+                                }
+                            }
+
+                            &.show {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+
+                .no-review {
+                    margin: vw(30px) 0;
+                    border-top: 1px solid #eee;
+                    border-bottom: 1px solid #eee;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

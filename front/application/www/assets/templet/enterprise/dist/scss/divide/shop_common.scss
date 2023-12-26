@@ -1,0 +1,686 @@
+.fb {
+    //SHOP 공통 CSS (전체 접어서 확인하세요)
+    &__shopCommon {
+        padding: 40px 0 100px;
+
+        //헤더 (여기에 step 포함)
+        &__header {
+            overflow: hidden;
+            padding-bottom: 30px;
+            border-bottom: 1px solid $grey200;
+        }
+        
+        //타이틀
+        &__title {
+            float: left;
+            color: $black;
+            font: {
+                size: 40px;
+                weight: 600;
+            }
+        }
+
+        //카트, 주문결제, 주문완료 상단 STEP
+        &__step {
+            float: left;
+            color: $grey600;
+            font-size: 16px;
+
+            &-area {
+                float: right;
+                margin-top: 10px;
+            }
+
+            &:not(:last-child):after {
+                display: inline-block;
+                width: 26px;
+                height: 18px;
+                margin-left: 2px;
+                background: url(../images/shop/sprite_shop.png) no-repeat -1px 0;
+                vertical-align: middle;
+                content: '';
+            }
+
+            em {
+                font-family: $font_n;
+            }
+
+            &--on {
+                color: $pcolor;
+                font-weight: 600;
+                &:not(:last-child):after {
+                    background-position: -100px 0px;
+                }
+            }
+        }
+
+        //장바구니, 주문결제 레이아웃
+        &__layout {
+            position: relative;
+            @extend %clear;
+
+            .layout {
+                &__left {
+                    float: left;
+                    width: 820px;
+                }
+
+                &__right {
+                    float: right;
+                    width: 320px;
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        //우측 플로팅메뉴(요약)
+        &__summary {
+            width: 320px;
+            
+            .summary {
+                &__wrapper {
+                    padding-top: 44px;
+                }
+
+                &__section {
+                    margin-bottom: 10px;
+                    background: $white;
+                    border: 1px solid $grey100;
+
+                    &:first-child {
+                        border-top-color:$black;
+                    }
+                }
+
+                &__inner {
+                    padding: 0 20px;
+                }
+
+                &__title {
+                    padding: 16px 20px;
+                    border-bottom: 1px solid $grey100;
+                    color: $black;
+                    font-size: 22px;
+                    line-height: 33px;
+                }
+
+                &__list {
+                    padding: 15px 0 0;
+                    color: $black;
+                    font-size: 0;
+                    @extend %clear;
+
+                    &:last-of-type {
+                        .summary__list__detail {
+                            border-bottom: none;
+                        }
+                    }
+
+                    &.division {
+                        padding-bottom: 15px;
+                        border-bottom: 1px solid $grey200;
+                    }
+
+                    &__title {
+                        display: inline-block;
+                        width: 50%;
+                        font-size: 14px;
+                        vertical-align: middle;
+                    }
+
+                    &__price {
+                        display: inline-block;
+                        width: 50%;
+                        font-size: 14px;
+                        text-align: right;
+                        vertical-align: middle;
+
+                        em {
+                            font-family: $font_n;
+                            font-weight: 600;
+                            font-size: 16px;
+                        }
+                    }
+
+                    //할인, 배송비 하위 상세정보
+                    &__detail {
+                        clear: both;
+                        margin-top: 15px;
+                        padding: 10px 0;
+                        border: {
+                            top: 1px dotted $grey200;
+                            bottom: 1px solid $grey200;
+                        }
+
+                        .detail {
+                            &__list {
+                                padding: 10px 0;
+                                color: $grey800;
+                                font-size: 13px;
+
+                                &__title {
+                                    display: inline-block;
+                                    position: relative;
+                                    padding-left: 15px;
+
+                                    &:before {
+                                        content: '';
+                                        position: absolute;
+                                        left: 0;
+                                        width: 15px;
+                                        height: 15px;
+                                        background: url(../images/mypage/sprite_mypage.png) no-repeat -700px 0;
+                                    }
+                                } 
+            
+                                &__price {
+                                    float: right;
+                                    em {
+                                        font-weight: 400;
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__total {
+                    display: block;
+                    padding: 15px 20px;
+                    border-top: 1px solid $grey100;
+                    
+                    &__title {
+                        display: block;
+                        margin-bottom: 5px;
+                        color: $black;
+                        font-size: 16px;
+                    } 
+
+                    &__price {
+                        color: $pcolor;
+                        font: {
+                            size: 20px;
+                            weight: 600;
+                            family: $font_n;
+                        }
+                        text-align: right;
+
+                        em {
+                            font-size: 30px;
+                        }
+                    }
+                }
+
+                &__footer {
+
+                    button {
+                        width: 100%;
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                        text-align: center;
+                        line-height: 52px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+                &__pay {
+                    background: $pcolor;
+                    color: $white;
+                }
+
+                &__cancel {
+                    background: $white;
+                    border: 1px solid $grey600;
+                    color: $grey800;
+                }
+            }
+        }
+
+        //주문 공통 테이블(장바구니, 주문결제, 주문완료, 마이페이지)
+        &__table {
+            padding: 0 0 30px 30px;
+
+            // 기본 설정값
+            td {
+                position: relative;
+                padding: 30px 0 0;
+                color: $black;
+                font-size: 14px;
+                text-align: center;
+                vertical-align: middle;
+
+                em {
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-family: $font_n;
+                }
+            }
+
+            //상품정보
+            .item-info {
+                padding: 30px 0 0;
+                font-size: 0 !important;
+                text-align: left !important;
+
+                &__link {
+                    display: block;
+                }
+
+                &__thumb {
+                    display: inline-block;
+                    position: relative;
+                    width: 90px;
+                    height: 90px;
+                    margin-right: 20px;
+                    @include imageResize("width");
+                }
+
+                &__badge {
+                    &--soldout {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 28px;
+                        padding: 8px 0;
+                        background: rgba(0, 0, 0, 0.5);
+                        color: $white;
+                        font-size: 13px;
+                        text-align: center;
+                    }
+
+                    &--exchange {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 28px;
+                        padding: 8px 0;
+                        background: rgba(255, 96, 1, 0.9);
+                        color: $white;
+                        font-size: 13px;
+                        text-align: center;
+                    }
+                }
+
+                &__info {
+                    display: inline-block;
+                    max-width: calc(100% - 110px);
+                    vertical-align: top;
+                }
+                
+                &__name {
+                    display: block;
+                    color: $black;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 20px;
+                    @include line(2);
+                }
+
+                &__option {
+                    display: block;
+                    margin-top: 5px;
+                    color: $grey600;
+                    font-family: $font_n;
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+
+                &__count {
+                    @include division();
+
+                    em {
+                        font-weight: normal!important;
+                        font-size: 14px !important;
+                    }
+                }
+
+                &__price {
+                    line-height: 18px;
+
+                    &--text {
+                        display: block;
+                        margin-top: 10px;
+                        color: $grey800;
+                        font-size: 14px;
+
+                        em, 
+                        span {
+                            font: {
+                                size: 14px;
+                                weight: 600;
+                            };
+                        }
+                    }
+                    
+                    em {
+                        font-family: $font_n;
+                    }
+
+                    &--strike {
+                        display: block;
+                        margin-bottom: 1px;
+                        color: $grey600;
+                        font-size: 13px;
+                        line-height: 20px;
+                        text-decoration: line-through;
+
+                        em {
+                            font: {
+                                size: 13px;
+                                weight: 400;
+                            };
+                        }
+                    }
+
+                    &--current {
+                        color: $black;
+                        font-size: 14px;
+                        line-height: 22px;
+
+                        em {
+                            font-family: $font_n;
+                            font-weight: 600;
+                            font-size: 16px;
+                        }
+                    }
+
+                    &--soldout {
+                        display: block;
+                        color: $black;
+                        font-size: 15px;
+                        line-height: 22px;
+                    }
+                }
+            }
+
+            //추가구성상품
+            .additem-info {
+                position: relative;
+
+                & > td {
+                    padding-top: 15px;
+                    border: none;
+                }
+
+                &__wrapper {
+                    position: relative;
+                    padding: 20px;
+                    border: 1px solid $grey100;
+                    font-size: 0;
+
+                    &:before {
+                        position: absolute;
+                        bottom: 100%;
+                        left: 40px;
+                        z-index: 1;
+                        width: 14px;
+                        height: 7px;
+                        background: url(../images/common/sprite_common.png) no-repeat -50px -293px / 1000px;
+                        content: "";
+                    }
+                }
+
+                &__item {
+                    display: inline-block;
+                    width: calc(100% - 220px);
+                    text-align: left;
+                    vertical-align: middle;
+                }
+
+                &__title {
+                    color: $black;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+
+                &__option {
+                    margin-top: 5px;
+                    color: $grey600;
+                    font-size: 14px;
+                    line-height: 19px;
+                }
+
+                &__price {
+                    display: inline-block;
+                    width: 200px;
+                    color: $black;
+                    font-size: 14px;
+                    text-align: center;
+                    vertical-align: middle;
+
+                    em {
+                        font-family: $font_n;
+                        font-weight: 600;
+                        font-size: 16px;
+                    }
+
+                    &--soldout {
+                        font-size: 15px;
+                    }
+                }
+
+                &__delete {
+                    display: inline-block;
+                    text-align: right;
+                    vertical-align: middle;
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        border: 0;
+                        background: url("../images/guide/ic-delete-black-20-px.png") no-repeat center center;
+                        font-size: 0;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            //여기서부터 확인필요
+            .order-table + .delivery-area {
+                padding: 15px 40px;
+                background: #f9f9f9;
+                border-bottom: 1px solid $grey200;
+                font-size: 14px;
+                text-align: right;
+            }
+
+            .order-table + .delivery-area em:first-child {
+                margin: 0 5px;
+                color: $black;
+                font-family: $font_n;
+            }
+
+            .order-table + .delivery-area span:before {
+                display: inline-block;
+                margin: 0 10px 2px 2px;
+                width: 22px;
+                height: 22px;
+                background: url(../images/common/sprite_common.png) no-repeat -600px -100px;
+                vertical-align: middle;
+                content: '';
+            }
+
+            .order-table + .delivery-area + .order-table {
+                margin-top: 40px;
+            }
+        }
+
+        //하단 배송비영역
+        &__shipping {
+            width: 100%;
+            padding: 16px 20px 14px;
+            background: $bg_grey50;
+            border-bottom: 1px solid $grey100;
+            text-align: right;
+
+            em {
+                font-family: $font_n;
+            }
+
+            .shipping {
+                &__price {
+                    display: inline-block;
+                    vertical-align: middle;
+                    color: $black;
+                    font-size: 14px;
+                    vertical-align: middle;
+                    
+                    em {
+                        margin-left: 4px;
+                    }
+
+                    &:before {
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                        background: url("../images/guide/ic-plus-20-px.png") no-repeat 0 0;
+                        vertical-align: middle;
+                        content: "";
+                    }
+                }
+
+                &__detail {
+                    display: inline-block;
+                    margin-left: 4px;
+                    color: $grey800;
+                    font-size: 14px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        //section
+        &__section {
+            margin-bottom: 50px;
+
+            .section {
+                &__header {
+                    position: relative;
+                    margin-bottom: 10px;
+
+                    &__right {
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        transform: translate(0, -50%);
+                    }
+                }
+
+                &__title {
+                    color: $black;
+                    font-size: 22px;
+                    line-height: 33px;
+                }
+                
+                &__box {
+                    padding: 30px 0;
+                    border: {
+                        top: 1px solid $black;
+                        bottom: 1px solid $grey100;
+                    }
+                }
+
+                //1열 2행인 테이블형태
+                &__infoTable {
+                    border-top: 1px solid $black;
+
+                    .color {
+                        &--111 {
+                            color: $black;
+                        }
+
+                        &--666 {
+                            color: $grey800;
+                        }
+                    }
+
+                    .infoTable {
+                        &__list {
+                            display: table;
+                            table-layout: fixed;
+                            width: 100%;
+                            border-bottom: 1px solid $grey100;
+                        }
+
+                        &__title {
+                            display: table-cell;
+                            width: 180px;
+                            padding: 15px 0 15px 30px;
+                            background: $bg_grey50;
+                            color: $black;
+                            font-size: 14px;
+                            line-height: 20px;
+                            vertical-align: middle;
+                        }
+
+                        &__cont {
+                            display: table-cell;
+                            padding: 15px 0 15px 20px;
+                            color: $grey800;
+                            font-size: 14px;
+                            line-height: 24px;
+                        }
+
+                        //한 row에 여러개 row가 필요할때 order_claim_detail.htm 참고 (예: 기존에 th가 rowspan=2 인 경우)
+                        &__div {
+                            display: table-cell;
+                            padding: 0;
+                            color: $grey800;
+                            font-size: 14px;
+                            line-height: 24px;
+
+                            &__row {
+                                padding: 15px 0 15px 20px;
+                                border-bottom: 1px solid $grey100;
+                                font-size: 0;
+    
+                                &:last-of-type {
+                                    border-bottom: 0;
+                                }
+
+                                //안에서 또 테이블 생기는 경우
+                                .row {
+                                    &__name {
+                                        display: inline-block;
+                                        width: 130px;
+                                        color: $black;
+                                        font-size: 14px;
+                                        line-height: 20px;
+                                        vertical-align: middle;
+
+                                        &.middle {
+                                            margin-top: 10px;
+                                        }
+                                    }
+
+                                    &__cont {
+                                        display: inline-block;
+                                        width: calc(100% - 130px);
+                                        line-height: 20px;
+                                        font-size: 14px;
+                                        vertical-align: middle;
+                                    }
+
+                                    &__txt {
+                                        display: block;
+                                        font-size: 14px;
+                                        color: $grey800;
+                                        line-height: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

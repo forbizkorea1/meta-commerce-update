@@ -97,6 +97,8 @@ var devStoreManageMallConfigObj = {
         common.validation.set($('[name=cart_delete_day]'), {'required': true});
         common.validation.set($('[name=cancel_auto_day]'), {'required': true});
         common.validation.set($('[name=check_order_day]'), {'required': true});
+        common.validation.set($('[name=mall_name]'), {'required': true});
+
         common.form.init(
                 $('#devManagerConfigForm'),
                 common.util.getControllerUrl('put', 'manageMallConfig', 'store'),

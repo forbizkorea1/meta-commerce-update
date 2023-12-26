@@ -1,0 +1,277 @@
+.fb {
+	// 휴면 계정 해제
+	&__sleep {
+		width: vw(690px);
+		margin: 0 auto;
+		padding-top: vw(120px);
+
+		&.step {
+			padding-top: vw(30px);
+		}
+
+		&__title {
+			font: {
+				size: vw(36px);
+				weight: 600;
+			};
+			line-height: vw(54px);
+			text-align: center;
+
+			span {
+				color: $pcolor;
+			}
+
+			&.icon {
+				&:before {
+					content: '';
+					display: block;
+					width: vw(100px);
+					height: vw(100px);
+					margin: 0 auto vw(35px);
+					background: url("../images/icon/m_sprite_icon.png") no-repeat vw(0 -816px);
+					background-size: vw(1000px);
+				}
+			}
+		}
+
+		&__desc {
+			margin-top: vw(60px);
+			font-size: vw(26px);
+			color: $grey800;
+			line-height: 40px;
+
+			&.center {
+				text-align: center;
+			}
+
+			&--point {
+				color: $pcolor;
+			}
+		}
+
+		&__btn {
+			margin-top: vw(60px);
+			font-size: 0;
+
+			&.half {
+				button {
+					width: vw(335px);
+					margin-left: vw(20px);
+
+					&:first-child {
+						margin-left: 0;
+					}
+				}	
+			}
+
+			button {
+				height: vw(100px);
+				font-size: vw(30px);
+				line-height: vw(96px);
+				text-align: center;
+			}
+		}
+			
+		.cont {
+			&__title {
+				margin-bottom: vw(20px);
+				font: {
+					size: vw(28px);
+					weight: 600;
+				};
+				line-height: vw(40px);
+			}
+
+			.auth-phone {
+				.box {
+					width: 100% !important;
+					height: vw(160px);
+					margin-bottom: vw(20px);
+					border: 1px solid $grey600;
+					text-align: center;
+	
+					&__text {
+						font-size: vw(26px);
+						color: $textBlack;
+	
+						&:before {
+							content: '';
+							display: inline-block;
+							width: vw(42px);
+							height: vw(72px);
+							margin-right: vw(20px);
+							background: url("../images/icon/m_sprite_icon.png") no-repeat vw(-270px -693px);
+							background-size: vw(1000px);
+							vertical-align: middle;
+						}
+					}
+
+					&:disabled {
+						background-color: $bg_grey50;
+					}
+				}
+	
+				.sub-txt {
+					position: relative;
+					padding-left: vw(14px);
+					color: $grey600;
+					font-size: vw(22px);
+					line-height: vw(36px);
+		
+					&:before {
+						content: '';
+						display: block;
+						position: absolute;
+						top: vw(15px);
+						left: 0;
+						width: vw(4px);
+						height: vw(4px);
+						border-radius: 50%;
+						background: $grey600;
+					}
+		
+					& + .sub-txt {
+						margin-top: vw(10px);
+					}
+				}
+
+			}
+
+			&.agree-area {
+				margin-top: vw(60px);
+
+				.form-box {
+					border: vw(2px) solid #eee;
+				}
+
+				.term-list {
+					&.bdbx {
+						border-bottom: 0;
+					}
+
+					input[type="checkbox"] + label {
+						font-size: vw(28px);
+					}
+				}
+			}
+		}
+
+		.sleep-subtit {
+			margin-top: vw(60px);
+			font-size: vw(30px);
+			text-align: center;
+		}
+	}
+
+
+	.wrap-sleep-guide {
+		width: vw(690px);
+		margin: 0 auto;
+		padding-top: vw(120px);
+	}
+	
+	
+
+	&#member_sleepAccountRelease {
+		.wrap-join-end {
+			.join-title {
+				font-weight : bold;
+				
+				&:before {
+					content: '';
+					display: block;
+					width: vw(100px);
+					height: vw(100px);
+					background: url("../images/icon/m_sprite_icon.png") no-repeat vw(0 -816px);
+					background-size: vw(1000px);
+					margin: 0 auto vw(35px);
+				}
+			}
+		}
+
+        .wrap-agree-sec {
+            margin-top: vw(20px);
+            font-size: vw(22px);
+        }
+        .join-agree-desc {
+            font-size: vw(22px);
+            color: $grey800;
+            line-height: vw(36px);
+        }
+
+        .wrap-btn-area.agree {
+            padding-bottom: vw(80px);
+        }
+
+        .sect-title {
+            margin: vw(40px 26px 30px);
+            font-size: vw(30px);
+            color: $textBlack;
+        }
+
+        .authentication {
+            width: 100%;
+            margin-bottom: vw(50px);
+			padding: vw(0 30px);
+			
+
+            .box {
+                width: 100% !important;
+                height: vw(160px);
+                margin: vw(20px 0);
+                border: 1px solid $grey600;
+                text-align: center;
+
+                &__text {
+                    margin-top: vw(40px);
+                    font-size: vw(26px);
+                    color: $textBlack;
+
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        width: vw(42px);
+                        height: vw(72px);
+                        margin-right: vw(20px);
+                        background: url("../images/icon/m_sprite_icon.png") no-repeat vw(-270px -693px);
+                        background-size: vw(1000px);
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            .sub-txt {
+                position: relative;
+                padding-left: vw(20px);
+                color: $grey800;
+                font-size: vw(22px);
+                line-height: vw(32px);
+    
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    top: vw(10px);
+                    left: 0;
+                    width: vw(4px);
+                    height: vw(4px);
+                    background: $grey600;
+                    border-radius: 100%;
+                }
+    
+                & + .sub-txt {
+                    margin-top: vw(10px);
+                }
+            }
+        }
+
+        .term-list {
+
+            input[type="checkbox"] + label {
+                font-size: vw(28px);
+            }
+		}
+		
+	}
+	
+}

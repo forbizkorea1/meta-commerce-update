@@ -1,0 +1,85 @@
+.fb {
+
+	h1.join-title {
+		font-size: vw(38px);
+		color: $black;
+		text-align: center;
+		line-height: vw(46px);
+		font-weight: bold;
+		+ {
+			.desc {
+				margin-top: vw(40px);
+				text-align: center;
+				font-size: vw(26px);
+				color: $grey800;
+				line-height: vw(36px);
+				margin-bottom: vw(60px);
+				span {
+					color: $pcolor;
+				}
+			}
+		}
+		span {
+			color: $pcolor;
+		}
+	}
+
+	.wrap-join-select {
+		padding-top: vw(60px);
+		padding-bottom: vw(80px);
+		ul {
+			width: 100%;
+			@extend %clear;
+
+			li {
+				float: left;
+				width: calc((100% - #{vw(20px)}) / 2 );
+				height: vw(320px);
+				border: 1px solid $grey400;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				>div {
+					padding-top: vw(50px);
+					text-align: center;
+
+					&:before {
+						content: '';
+						display: block;
+						width: vw(90px);
+						height: vw(90px);
+						margin: 0 auto vw(40px);
+						background: url("../images/icon/m_sprite_icon.png") no-repeat;
+						background-size: vw(1000px);
+					}
+					p {
+						margin-bottom: vw(15px);
+						font-size: vw(28px);
+						font-weight: 600;
+						color: $black;
+					}
+					span {
+						line-height: vw(32px);
+						font-size: vw(26px);
+						color: $grey600;
+					}
+				}
+				>div.basic {
+					&:before {
+						background-position: vw(0 -686px);
+					}
+				}
+				>div.company {
+					&:before {
+						background-position: vw(-129px -686px);
+					}
+				}
+				+ {
+					li {
+						margin-left: vw(20px);
+					}
+				}
+			}
+		}
+	}	
+}

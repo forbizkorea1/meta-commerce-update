@@ -1,0 +1,84 @@
+.fb {
+  &__mypage-addressAdd {
+
+    .popup-content {
+      padding-top: 0;
+    }
+
+    &__table {
+
+      .table {
+
+        th {
+          padding: vw(26px 10px 24px 25px);
+          border-bottom: 1px solid $white2;
+          color: $black;
+          font-size: vw(14px);
+          text-align: left;
+          vertical-align: top;
+        }
+
+        td {
+          padding: vw(15px) 0;
+          border-bottom: 1px solid $white2;
+          vertical-align: middle;
+
+          input:read-only.dim {
+            background: $bg_grey50;
+          }
+        }
+
+        label {
+          display: inline-block;
+          position: relative;
+          width: vw(160px);
+          margin: vw(10px) vw(10px) vw(10px) 0;
+          line-height: vw(20px);
+        }
+
+        &__input {
+
+          &--long {
+            width: vw(330px);
+          }
+
+          &--short {
+            width: vw(100px);
+          }
+        }
+
+        &__btn {
+
+          &--find {
+            display: inline-block;
+            height: vw(40px);
+            padding: 0 vw(30px);
+            background: $grey800;
+            border: 0;
+            color: $white;
+            font-size: vw(14px);
+            line-height: vw(38px);
+            box-sizing: border-box;
+            cursor: pointer;
+            vertical-align: middle;
+          }
+        }
+
+      }
+
+
+      &--must {
+        display: inline-block;
+        margin: vw(4px) vw(8px) 0 vw(-15px);
+        color: $pcolor;
+        font-size: vw(16px);
+        vertical-align: top;
+      }
+    }
+
+    .btn-point {
+      color: $white;
+      background: $pcolor;
+    }
+  }
+}

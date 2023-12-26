@@ -27,7 +27,7 @@
 
             <!--{'<script id="devAddressBooKList" type="text/x-handlebars-template">'}-->
             <li class="addressPop__list">
-                <label class="fb__comm__radio addressPop__list__radio">
+                <label class="fb__radio addressPop__list__radio">
                     <input type="radio" class="blind devOrderAddressRadio" name="address-list" value="{[ix]}" {[#if isChecked]}checked{[/if]}>
                     <span>
                         <div class="addressPop__list__name">
@@ -161,7 +161,7 @@
                 </table>
 
                 <div class="default-choice">
-                    <label class="fb__comm__checkbox">
+                    <label class="fb__checkbox">
                         <input type="checkbox" name="default_yn" value="Y" class="blind" id="devDefaultYn" {? default_yn =='Y'}checked{/} title="{=trans('기본 배송지로설정')}">
                         <span>{=trans('기본 배송지로 설정')}</span>
                     </label>

@@ -16,7 +16,7 @@
                         display: block;
                         margin-bottom: vw(20px);
                         font-size: vw(28px);
-                        color: #111;
+                        color: $black;
                         line-height: vw(40px);
                         word-break: break-all;
                     }
@@ -24,7 +24,7 @@
                     &__date {
                         display: block;
                         font-size: vw(24px);
-                        color: #666;
+                        color: $grey800;
                     }
                 }
             }
@@ -36,7 +36,7 @@
                 right: vw(30px);
                 width: vw(90px);
                 height: vw(90px);
-                border: vw(2px) solid #999;
+                border: vw(2px) solid $grey600;
                 border-radius: 50%;
                 font-size: 0;
                 text-align: center;
@@ -45,7 +45,7 @@
                 em {
                     display: inline-block;
                     font-size: vw(22px);
-                    color: #999;
+                    color: $grey600;
                     line-height: vw(26px);
                     vertical-align: middle;
                 }
@@ -59,10 +59,10 @@
                 }
 
                 &.complete {
-                    border: vw(2px) solid #ff6600;
+                    border: vw(2px) solid $pcolor;
 
                     em {
-                        color: #ff6600;
+                        color: $pcolor;
                     }
                 }
             }
@@ -90,7 +90,7 @@
     
                         &__info {
                             font-size: vw(26px);
-                            color: #111;
+                            color: $black;
                             line-height: vw(36px);
                             word-break: break-all;
                             
@@ -98,7 +98,7 @@
                                 &__num {
                                     margin-bottom: vw(10px);
                                     font-size: vw(26px);
-                                    color: #999;
+                                    color: $grey600;
                                     line-height: normal;
 
                                     .bar {
@@ -113,7 +113,7 @@
                                             left: 0;
                                             width: vw(2px);
                                             height: vw(18px);
-                                            background: #ddd;
+                                            background: $grey200;
                                             transform: translate3d(0, -50%, 0);
                                         }
                                     }
@@ -123,7 +123,7 @@
                                 display: block;
                                 width: 100%;
                                 font-size: vw(22px);
-                                color: $textGrey;
+                                color: $grey800;
                                 @include line(1);
                             }
                         }
@@ -142,7 +142,7 @@
                             position: relative;
                             padding: vw(5px 0 0 75px);
                             font-size: vw(26px);
-                            color: #111;
+                            color: $black;
                             line-height: vw(40px);
                             word-break: break-all;
 
@@ -172,7 +172,7 @@
 
                             a {
                                 font-size: vw(24px);
-                                color: #999;
+                                color: $grey600;
                                 line-height: vw(40px);
                                 text-decoration: underline;
                             }
@@ -181,8 +181,8 @@
 
                     &__answer {
                         padding: vw(50px 30px 60px);
-                        background: #f8f8f8;
-                        border-top: 1px dashed #CCC;
+                        background: $bg_grey50;
+                        border-top: 1px dashed $grey400;
 
                         &:first-of-type {
                             border-top: 0;
@@ -193,7 +193,7 @@
                             margin-bottom: vw(60px);
                             padding: vw(5px 0 0 75px);
                             font-size: vw(26px);
-                            color: #111;
+                            color: $black;
                             line-height: vw(40px);
                             word-break: break-all;
 
@@ -213,7 +213,7 @@
                         &__info {
                             padding-left: vw(75px);
                             font-size: 0;
-                            color: #999;
+                            color: $grey600;
                             line-height: normal;
 
                             .info {
@@ -234,7 +234,7 @@
                                         left: 0;
                                         width: vw(2px);
                                         height: vw(18px);
-                                        background: #999;
+                                        background: $grey600;
                                         transform: translate3d(0, -50%, 0);
                                     }
                                 }
@@ -280,13 +280,13 @@
                 .info {
                     padding-left: vw(170px);
                     font-size: vw(26px);
-                    color: #111;
+                    color: $black;
                     line-height: vw(36px);
 
                     .order-num {
                         margin-bottom: vw(10px);
                         font-size: vw(24px);
-                        color: $textGrey2;
+                        color: $grey600;
 
                         span {
                             margin-top: 0;
@@ -298,7 +298,7 @@
                                 width: vw(2px);
                                 margin: vw(0 10px);
                                 height: vw(20px);
-                                background: $white5;
+                                background: $grey400;
                             }
                         }
                     }
@@ -339,7 +339,7 @@
      .community-list {
         &.review {
          .title-count {
-             color: #111;
+             color: $black;
              border-bottom: vw(2px) solid #eee;
          }
             .cont {
@@ -352,7 +352,7 @@
 
         .title-count {
             font-size: vw(26px);
-            color: #111;
+            color: $black;
             padding: vw(26px 30px);
             //border-bottom: 1px solid $white2;
             em {
@@ -373,7 +373,7 @@
                 vertical-align: middle;
                 padding-right: vw(20px);
                 font-size: vw(26px);
-                color: #111;
+                color: $black;
                 line-height: vw(32px);
                 strong {
                     display: block;
@@ -386,7 +386,7 @@
                 span {
                     display: inline-block;
                     font-size: vw(24px);
-                    color: $textGrey2;
+                    color: $grey600;
                     font-family: "Rb";
                     line-height: vw(28px);
                     margin-top: vw(20px);
@@ -400,10 +400,10 @@
                     display: inline-block;
                     width: vw(90px);
                     height: vw(90px);
-                    background: #fff;
-                    border: vw(2px) solid #999;
+                    background: $white;
+                    border: vw(2px) solid $grey600;
                     border-radius: 50%;
-                    color: #999;
+                    color: $grey600;
                     font-size: vw(22px);
                     text-align: center;
                     line-height: vw(90px);
@@ -423,9 +423,9 @@
                 &--type2 {
                     > span {
                         height: vw(38px);
-                        background: #fff;
-                        color: #999;
-                        border: 1px solid #ccc;
+                        background: $white;
+                        color: $grey600;
+                        border: 1px solid $grey400;
                         border-radius: 0;
                         line-height: vw(36px);
                         box-sizing: border-box;
@@ -476,7 +476,7 @@
             border-bottom: 0;
 
             &:first-child {
-                border-bottom: 1px solid $white4;
+                border-bottom: 1px solid $grey200;
             }
         }
 
@@ -506,7 +506,7 @@
     
     .community-list {
         dl.inquiry-content {
-            // border-bottom: 1px solid $white5;
+            // border-bottom: 1px solid $grey400;
             position: relative;
             padding-bottom: 0;
             dt {
@@ -529,7 +529,7 @@
                 > p {
                     position: relative;
                     font-size: vw(26px);
-                    color: #111;
+                    color: $black;
                     line-height: vw(40px);
                     padding-left: vw(70px);
                     padding-top: vw(5px);
@@ -538,8 +538,8 @@
         }
         dl {
             dd.wrap-answer {
-                //border-top: 1px dashed $white5;
-                background: #f8f8f8;
+                //border-top: 1px dashed $grey400;
+                background: $bg_grey50;
                 margin: 0 vw(-25px);
                 padding: vw(50px) vw(30px) vw(50px);
                 .top-area {
@@ -547,7 +547,7 @@
                     margin-top: vw(50px);
                     overflow: hidden;
                     font-size: vw(24px);
-                    color: $textGrey2;
+                    color: $grey600;
 
                     em + em {
                         &:before {

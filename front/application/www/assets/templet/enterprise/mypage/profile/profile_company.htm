@@ -323,19 +323,19 @@
                         
                                         <div class="terms__details">
                                             <div class="terms__details__check">
-                                                <label class="terms__details__check--main fb__comm__checkbox">
+                                                <label class="terms__details__check--main fb__checkbox">
                                                     <input type="checkbox" class="blind" id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/}>
                                                     <span>{=trans('동의')}</span>
                                                 </label>
     
                                                 <div class="terms__details__check--sub">
                                                     (
-                                                    <label class="fb__comm__checkbox">
+                                                    <label class="fb__checkbox">
                                                         <input type="checkbox" class="blind" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/}>
                                                         <span>{=trans('SMS 수신')}</span>
                                                     </label>
                                 
-                                                    <label class="fb__comm__checkbox">
+                                                    <label class="fb__checkbox">
                                                         <input type="checkbox" class="blind" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40">
                                                         <span>{=trans('이메일 수신')}</span>
                                                     </label>

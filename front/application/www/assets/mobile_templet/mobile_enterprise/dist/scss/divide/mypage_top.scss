@@ -1,0 +1,89 @@
+.fb {
+  &__mypage-top {
+    height: vw(200px);
+    margin-bottom: vw(50px);
+    padding: vw(30px) 0;
+    border: vw(2px) solid $white2;
+    overflow: hidden;
+    @extend %clear;
+
+    &__grade {
+      float: left;
+      width: calc(100% - vw(570px));
+      padding: vw(5px) vw(70px) vw(10px) vw(40px);
+      color: $black;
+      line-height: vw(26px);
+
+      &-text {
+        display: block;
+        font-size: vw(20px);
+        line-height: vw(26px);
+      }
+
+      &--em {
+        color: $black;
+        font-weight: bold;
+      }
+
+      &--color {
+        color: $pcolor;
+        font-weight: bold;
+      }
+
+      &-benefit {
+        float: left;
+        width: vw(98px);
+        height: vw(26px);
+        margin-top: vw(20px);
+        border: 1px solid $grey400;
+        border-radius: vw(13px);
+        color: $grey800;
+        font-size: vw(12px);
+        text-align: center;
+        line-height: vw(28px);
+      }
+
+    }
+
+    &__section {
+      float: left;
+      width: vw(190px);
+      height: 100%;
+      padding: vw(5px 0 10px);
+      border-left: 1px dotted $grey400;
+
+      text-align: center;
+    }
+
+    &__title {
+      color: $black;
+      font-size: vw(14px);
+
+      $list: delivery, mileage, coupon;
+      @for $i from 1 through length($list) {
+
+        &-#{nth($list, $i)}:before {
+          display: block;
+          width: vw(47px);
+          height: vw(38px);
+          margin: 0 auto;
+          padding-bottom: vw(15px);
+          // background: url(../img/bg/sprite_mypage.png) no-repeat -#{($i - 1) * 100}vw(px) 0;
+          content: '';
+        }
+      }
+    }
+
+    &__detail {
+      margin-top: vw(15px);
+      cursor: pointer;
+    }
+
+    &__num {
+      font-family: $font_n;
+      font-size: vw(24px);
+      font-weight: bold;
+      color: $pcolor;
+    }
+  }
+}

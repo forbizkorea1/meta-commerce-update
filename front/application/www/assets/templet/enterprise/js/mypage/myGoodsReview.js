@@ -76,7 +76,7 @@ var devMypageMyGoodsReview = {
             myReviewList.getPage(1);
         });
 
-        $('#devBtnSearch').on('click', function () {
+        $('#devSearchBtn').on('click', function () {
             var endDate = common.util.dates.convert($('#devEdate').val());
             var startDate = common.util.dates.convert($('#devSdate').val());
             var maxDate = common.util.dates.convert((startDate.getFullYear() + 5) + '-' + (startDate.getMonth() + 1) + '-' + startDate.getDate());
@@ -95,24 +95,10 @@ var devMypageMyGoodsReview = {
             }
         });
 
-        $('#devBtnReset').on('click', function () {
-            $("#devSdate").val($("#sDateDef").val());
-            $("#devEdate").val($("#eDateDef").val());
-            $(".jq-radio a").removeClass("on");
-            $("#devDateDefault").addClass("on");
-        });
-
         $('#devPageWrap').on('click', '.devPageBtnCls', function () {
             var pageNum = $(this).data('page');
             myReviewList.getPage(pageNum);
         });
-
-        // 검색일 설정
-        $('.devDateBtn').on('click', function () {
-            $('#devSdate').val($(this).data('sdate'));
-            $('#devEdate').val($(this).data('edate'));
-        });
-
 
         // 후기 수정
         $('#devMyReviewContent').on('click', '.devReviewModifyBtnCls', function () {

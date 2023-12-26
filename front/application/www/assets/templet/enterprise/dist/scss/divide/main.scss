@@ -1,0 +1,270 @@
+#main {
+    .fb__layout__nomenu-type {
+        width: 100%;
+    }
+}
+
+.fb {
+    // 공통
+    &__title {
+        color: $black;
+        font: {
+            size: 34px;
+            weight: 600;
+        }
+        text-align: center;
+
+        &--hidden {
+            font-size: 0;
+            line-height: 0;
+        }
+
+        span {
+            color: $pcolor;
+        } 
+    }
+
+    // 메인페이지
+    &__main {
+        .fb__title {
+            margin-bottom: 20px;
+            font-family: $font_n;
+            font-weight: lighter;
+            font-size: 38px;
+            line-height: 56px;
+            vertical-align: middle;
+
+            &.quick__title {
+                margin: 0;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        .quick__button {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            margin-left: 8px;
+            background: url(../images/common/btn-viewtv-arrow-right.png) no-repeat center center/6px 12px;
+            border: 1px solid $grey400;
+            border-radius: 50%;
+            font-size: 0;
+            vertical-align: middle;
+        }
+           
+        &__header {
+            margin-bottom: 30px;
+            font-size: 0;
+            text-align: center;
+        }
+
+        &__nav {
+            margin-top: -10px;
+            text-align: center;
+            
+            a {
+                display: inline-block;
+                position: relative;
+                margin: 10px 20px 0;
+                padding: 0 2px;
+                color: $grey800;
+                font-weight: lighter;
+                font-size: 16px;
+                vertical-align: top;
+
+                &.active {
+                    color: $black !important;
+                    font-weight: bold;
+                    
+                    &:after {
+                        display: block;
+                        position: absolute;
+                        bottom: -2px;
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                        background: $black;
+                        content: "";
+                    }
+                }
+            }
+        }
+
+        &__inner {
+            overflow: hidden;
+        }
+
+        // keyvisual
+        &__visual {
+            overflow: hidden;
+
+            .visual {
+                &__slider {
+                    overflow: visible;
+                    position: relative;
+                    width: 1280px;
+                    text-align: center;
+                    font-size: 0;
+                }
+
+                &__item {
+                    display: inline-block;
+                    width: 1280px;
+                    margin: 0 10px;
+                }
+
+                &__link {
+                    display: block;
+                }
+
+                &__image {
+                    width: 100%;
+                    height: 600px;
+
+                    @include imageResize();
+                }
+
+                &__controler {
+                    .controler {
+                        &__btn {
+                            button {
+                                position: absolute;
+                                z-index: 1;
+                                top: 50%;
+                                width: 36px;
+                                height: 66px;
+                                margin-top: -33px;
+                                padding: 0;
+                            }
+    
+                            &--prev {
+                                left: -92px;
+                                background: url(../images/common/btn-mainvideo-arrow-left.png)no-repeat center center;
+                            }
+    
+                            &--next {
+                                right: -92px;
+                                background: url(../images/common/btn-mainvideo-arrow-right.png)no-repeat center center;
+                            }
+                        }
+    
+                        &__pagination {
+                            display: inline-block;
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            left: auto;
+                            z-index: 2;
+                            width: auto;
+                            padding: 6px 20px;
+                            background: rgba(0, 0, 0, .3);
+                            color: $white;
+                            font-size: 0;
+
+                            .swiper-pagination-current:after {
+                                display: inline-block;
+                                font-size: 12px;
+                                content: "/";
+                            }
+
+                            span {
+                                font-size: 12px;
+                                line-height: 16px;
+                            }
+                            
+                            em {
+                                font-size: 12px;
+                                line-height: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 신상
+        &__new {
+            width: 1280px;
+            margin: 100px auto 0; 
+
+            .fb__goods__list {
+                width: 232px !important;
+                height : 420px;
+
+                .fb__goods__img {
+                    height: 232px;
+                }
+            }
+        }
+
+        // 기획전
+        &__promotion {
+            width: 1280px;
+            margin: 100px auto 0;
+        }
+
+        // 스타일
+        &__style {
+            width: 1280px;
+            margin: 100px auto 0; 
+
+            .style {
+                &__nav {
+                    margin-top: -10px;
+                    text-align: center;
+                    
+                    a {
+                        display: inline-block;
+                        margin: 10px 5px 0;
+                        padding: 6px 30px;
+                        background: #f5f5f5;
+                        border-radius: 100px;
+                        color: $grey600;
+                        font-size: 16px;
+                        line-height: 24px;
+                    
+                        &.active {
+                            background: $black;
+                            color: $white;
+                        }
+                    }
+                }
+
+                .fb__main__goods {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        // 베스트셀러
+        &__best {
+            width: 1280px;
+            margin: 100px auto 0; 
+        }
+
+        // 배너
+        &__banner {
+            margin-top: 100px;
+            text-align: center;
+
+            .baaner {
+                &__link {
+                    display: block;
+                }
+
+                &__image {
+                    background: $grey400;
+                    @include imageResize();
+                }
+            }
+        }
+
+        // 이벤트
+        &__event {
+            width: 1280px;
+            margin: 100px auto 0; 
+        }
+    }
+}
+

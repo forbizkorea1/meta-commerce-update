@@ -58,6 +58,7 @@ common.lang.load('infoinput.paymentRequest.fail.noFormatMileage', "{mileageName}
 common.lang.load('infoinput.paymentRequest.fail.noProductStatusSale', "현재 구매하실 수 없는 상품이 포함되어 있습니다.{common.lineBreak}장바구니에서 다시 주문 바랍니다.");
 common.lang.load('infoinput.paymentRequest.noti.paymentFree', "총 결제금액이 0원이므로 무료결제로 자동 진행됩니다.");
 common.lang.load('infoinput.paymentRequest.fail.npayPG.lesspayment', "네이버페이의 경우 100원 미만 결제는 불가합니다.\n총 결제 금액을 재확인해 주세요.");
+common.lang.load('infoinput.paymentRequest.fail.coupon.notUsable', "쿠폰 정보가 변경되었습니다. 다시 확인해주세요.");
 
 //-----set input format
 //주문자 정보
@@ -66,7 +67,7 @@ common.inputFormat.set($('#devOrderPassword,#devOrderPasswordCompare'), { 'maxLe
 common.inputFormat.set($('#devBuyerMobile2,#devBuyerMobile3'), { 'number': true, 'maxLength': 4 });
 common.inputFormat.set($('.devDeliveryMessage'), { 'maxLength': 30 });
 //배송지 정보
-common.inputFormat.set($('.devRecipientName'), { 'maxLength': 20 });
+common.inputFormat.set($('.devRecipientName'), { 'maxLength': 50 });
 common.inputFormat.set($('.devRecipientMobile2,.devRecipientMobile3'), { 'number': true, 'maxLength': 4 });
 common.inputFormat.set($('.devRecipientTel2,.devRecipientTel3'), { 'number': true, 'maxLength': 4 });
 //마일리지
@@ -543,6 +544,8 @@ var devInfoinputObj = {
                             common.noti.alert(common.lang.get('infoinput.paymentRequest.fail.noProductStatusSale'), function() {
                                 location.href = '/shop/cart';
                             });
+                        } else if(response.result == 'couponNotUsable') {
+                            common.noti.alert(common.lang.get('infoinput.paymentRequest.fail.coupon.notUsable'));
                         } else {
                             common.noti.alert('error');
                         }

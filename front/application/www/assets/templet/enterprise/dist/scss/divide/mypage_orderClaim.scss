@@ -1,0 +1,508 @@
+.fb {
+    &__order-claim {
+        //배송비영역 삭제로 css 추가
+        .orderDetailTable {
+            padding-bottom: 30px;
+            border-bottom: 1px solid $grey100;
+        }
+
+        &__top {
+            margin-bottom: 16px;
+
+            // .fb__mypage__title {
+            //     padding-bottom: 10px;
+            //     border-bottom: 2px solid $black;
+            // }
+        }
+
+        &__step {
+            display: block;
+            margin-bottom: 8px;
+            text-align: right;
+
+            .step {
+                &__menu {
+                    display: inline-block;
+                    color: $grey800;
+                    font-size: 16px;
+
+                    &:not(:last-child) {
+                        &:after {
+                            content: "";
+                            display: inline-block;
+                            width: 18px;
+                            height: 13px;
+                            background: url("../images/common/sprite_common.png") no-repeat -800px -100px;
+                            margin-left: 2px;
+                        }
+                    }
+
+                    &.on {
+                        color: $pcolor;
+                        &:not(:last-child) {
+                            &:after {
+                                background-position: -900px -100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__tip {
+            color: $grey800;
+            font-size: 13px;
+            line-height: 20px;
+        
+            p {
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    width: 3px;
+                    height: 3px;
+                    background: $grey800;
+                    border-radius: 100%;
+                    vertical-align: middle;
+                    margin: 0 5px 3px 0;
+                }
+            }
+        }
+
+        &__complete {
+            // border-top: 2px solid $black;
+        }
+
+        &__addpay {
+            margin-top: 50px;
+            // 상품 교환신청 완료 페이지 수정
+            .section {
+                &__title {
+                    font-size: 20px;
+                }
+
+                &__infoTable {
+                    .infoTable {
+                        &__cont {
+                            span {
+                                color: #ff6600;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //교환반품신청 - 입력단계
+        &__apply {
+            .apply {
+                //방법
+                &__method {
+                    .infoTable__div__row {
+                        border: none;
+                    }
+                }
+            }
+
+            //교환/반품 발송방법
+            .my-info {
+                &__list {
+                    &:not(:first-child) {
+                        margin-top: 20px;
+                    }
+
+                    &-name {
+                        input[type="text"] {
+                            width: 250px;
+                        }
+                    }
+
+                    &-address {
+                        .zipcode {
+                            width: 230px !important;
+                            background-color: $bg_grey50;
+                        }
+
+                        .address-text {
+                            width: 488px;
+                        }
+
+                        input:read-only{
+                            background-color : $bg_grey50;
+                        }
+
+                    }
+
+                    &-mobile {
+                        select {
+                            width: 100px;
+                        }
+
+                        input[type="number"] {
+                            width: 100px;
+                            text-align : center;
+                        }
+                    }
+
+                    &-tel {
+                        select {
+                            width: 100px;
+                        }
+
+                        input[type="number"] {
+                            width: 100px;
+                            text-align : center;
+                        }
+                    }
+
+                    &-ask {
+                        input[type="text"] {
+                            width: 488px;
+                        }
+                    }
+                }
+
+                &__title {
+                    display: table-cell;
+                    width: 110px;
+                    color: $black;
+                    font-size: 14px;
+                    font-weight: 600;
+                    padding-left: 10px;
+                    vertical-align: middle;
+
+                    &--required {
+                        position: relative;
+
+                        &:before {
+                            display: none;
+                            position: absolute;
+                            left: 0;
+                            padding-top: 3px;
+                            color: $pcolor;
+                            content: "*";
+                        }
+                    }
+                }
+
+                &__cont {
+                    display: table-cell;
+
+                    .search-btn {
+                        margin-left: 10px;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+
+        .exchange-method {
+            &__cont {
+                display: table-cell;
+                padding: 15px 20px;
+
+                &-list {
+                    display: block;
+                    font-size: 14px;
+
+                    &:not(:first-child) {
+                        color: $black;
+                        margin-top: 10px;
+                    }
+
+                    select {
+                        width: 320px;
+                        margin-right: 10px;
+                    }
+
+                    input[type="text"] {
+                        width: 320px;
+                        margin-right: 15px;
+                    }
+
+                    .radio-area {
+                        margin-right: 20px;
+                    }
+                }
+
+                &-annc {
+                    margin-top: 10px;
+                    font-size: 13px;
+                    color: $grey600;
+                    position: relative;
+
+                    &:before{
+                        content : '*';
+                        margin-right:2px;
+                        display: inline-block;
+                    }
+                }
+
+                &-desc {
+                    font-size: 12px;
+                    line-height: 14px;
+                }
+            }
+
+            &__annc {
+                font-size: 13px;
+                line-height: 22px;
+                margin: 10px 0 30px;
+            }
+        }
+
+        // .refund-area {
+        //     &__inner {
+        //         border: {
+        //             top: 1px solid $black;
+        //             bottom: 1px solid $grey200;
+        //         }
+        //         overflow: hidden;
+        //     }
+
+        //     .pay-info {
+        //         &__box {
+        //             width: calc(100% / 3);
+        //             float: left;
+        //             height: 328px;
+
+        //             &:not(:first-child) {
+        //                 border-left: 1px dotted $grey200;
+        //             }
+
+        //             &-delivery {
+        //                 position: relative;
+
+        //                 &:before {
+        //                     display: inline-block;
+        //                     position: absolute;
+        //                     top: 60px;
+        //                     left: -16px;
+        //                     width: 32px;
+        //                     height: 32px;
+        //                     background: url(../images/mypage/sprite_mypage.png)
+        //                         no-repeat -300px -300px;
+        //                     -webkit-transform: translateY(-50%);
+        //                     -moz-transform: translateY(-50%);
+        //                     -ms-transform: translateY(-50%);
+        //                     -o-transform: translateY(-50%);
+        //                     transform: translateY(-50%);
+        //                     content: "";
+        //                 }
+        //             }
+
+        //             &-sum {
+        //                 position: relative;
+
+        //                 &:before {
+        //                     display: inline-block;
+        //                     position: absolute;
+        //                     width: 32px;
+        //                     height: 32px;
+        //                     top: 60px;
+        //                     left: -16px;
+        //                     background: url(../images/mypage/sprite_mypage.png)
+        //                         no-repeat -400px -300px;
+        //                     -webkit-transform: translateY(-50%);
+        //                     -moz-transform: translateY(-50%);
+        //                     -ms-transform: translateY(-50%);
+        //                     -o-transform: translateY(-50%);
+        //                     transform: translateY(-50%);
+        //                     content: "";
+        //                 }
+        //             }
+
+        //             dl {
+        //                 overflow: hidden;
+        //                 dt {
+        //                     float: left;
+        //                 }
+        //                 dd {
+        //                     float: right;
+        //                     em {
+        //                         font-family: $font_n;
+        //                     }
+        //                 }
+
+        //                 & + dl {
+        //                     margin-top: 10px;
+        //                 }
+
+        //                 &:not(.disc-list) dd em {
+        //                     font-weight: 600;
+        //                     font-size: 16px;
+        //                 }
+
+        //                 &.disc-list {
+        //                     font-size: 13px;
+        //                     color: $grey800;
+        //                 }
+        //                 &.disc-list.first {
+        //                     margin-top: 15px;
+        //                 }
+        //                 &.disc-list dt {
+        //                     position: relative;
+        //                     padding-left: 17px;
+        //                 }
+        //                 &.disc-list dt:before {
+        //                     display: inline-block;
+        //                     position: absolute;
+        //                     left: 0;
+        //                     width: 15px;
+        //                     height: 15px;
+        //                     background: url(../images/mypage/sprite_mypage.png)
+        //                     no-repeat -700px 0;
+        //                     content: "";
+        //                 }
+        //             }
+        //         }
+
+        //         &__top {
+        //             position: relative;
+        //             height: 121px;
+        //             padding-top: 30px;
+        //             border-bottom: 1px dotted $grey200;
+        //             text-align: center;
+
+        //             &__tit {
+        //                 margin-bottom: 10px;
+        //                 color: $black;
+        //                 font-size: 16px;
+        //                 font-weight: 600;
+        //             }
+
+        //             &__price {
+        //                 font-size: 16px;
+        //                 color: $black;
+
+        //                 em {
+        //                     font: {
+        //                         weight: 600;
+        //                         size: 30px;
+        //                         family: $font_n;
+        //                     }
+        //                 }
+        //             }
+        //         }
+
+        //         &__bottom {
+        //             padding: 20px 40px;
+        //             color: $black;
+        //             font-size: 14px;
+
+        //             dl {
+        //                 overflow: hidden;
+        //                 dt {
+        //                     float: left;
+        //                 }
+        //                 dd {
+        //                     float: right;
+        //                     em {
+        //                         font-family: $font_n;
+        //                     }
+        //                 }
+
+        //                 & + dl {
+        //                     margin-top: 10px;
+        //                 }
+
+        //                 &:not(.disc-list) dd em {
+        //                     font-weight: 600;
+        //                     font-size: 16px;
+        //                 }
+
+        //                 .disc-list {
+        //                     font-size: 13px;
+        //                     color: $grey800;
+        //                 }
+        //                 .disc-list.first {
+        //                     margin-top: 15px;
+        //                 }
+        //                 .disc-list dt {
+        //                     position: relative;
+        //                     padding-left: 17px;
+        //                 }
+        //                 .disc-list dt:before {
+        //                     display: inline-block;
+        //                     position: absolute;
+        //                     left: 0;
+        //                     width: 15px;
+        //                     height: 15px;
+        //                     background: url(../images/mypage/sprite_mypage.png)
+        //                         no-repeat -700px 0;
+        //                     content: "";
+        //                 }
+        //             }
+        //         }
+
+        //         &__bottom__text {
+        //             padding: 20px 0px 20px 10px;
+        //         }
+        //     }
+
+        //     .refund-info {
+        //         overflow: hidden;
+        //         width: 100%;
+        //         padding: 30px 15px;
+        //         border-top: 1px solid $grey200;
+        //         font-size: 14px;
+
+        //         &-account {
+        //             display: none;
+        //         }
+
+        //         &__box {
+        //             float: left;
+        //             min-width: 280px;
+
+        //             dt {
+        //                 margin-bottom: 10px;
+        //                 color: $black;
+        //             }
+
+        //             &-account {
+        //                 dt {
+        //                     margin-bottom: 20px;
+        //                 }
+        //             }
+        //         }
+
+        //         &__input-area {
+        //             label {
+        //                 display: inline-block;
+        //                 min-width: 60px;
+        //                 color: $black;
+        //                 margin-right:10px;
+
+        //                 &:nth-of-type(2) {
+        //                     margin-left:36px;
+        //                     //margin-left: 23px;
+        //                 }
+        //             }
+
+        //             &__account {
+        //                 margin-top: 10px;
+
+        //                 input {
+        //                     width: 413px !important;
+        //                 }
+        //             }
+
+        //             select {
+        //                 width: 150px;
+        //             }
+
+        //             input {
+        //                 width: 150px;
+        //             }
+        //         }
+        //     }
+
+        //     &__annc {
+        //         padding: 10px 15px;
+        //         font-size: 13px;
+        //         line-height: 20px;
+        //     }
+        // }
+    }
+}

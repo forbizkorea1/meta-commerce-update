@@ -1,0 +1,176 @@
+.fb {
+  &__goodsReview-read {
+    width: 700px;
+    padding: 40px;
+    @extend %clear;
+
+    .item {
+
+      &__help {
+        position: absolute;
+        right: 0;
+        bottom: 17px;
+
+        .help-btns {
+          position: static;
+          display: inline-block;
+
+        }
+      }
+
+      &__date {
+        display: inline-block;
+        color: $grey600;
+        font-size: 13px;
+
+        &:before {
+          display: inline-block;
+          width: 20px;
+          color: $grey200;
+          font-size: 12px;
+          text-align: center;
+          line-height:16px;
+          content: '|';
+        }
+      }
+    }
+
+    .bp-popup__content__video {
+
+      iframe,video {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    &__admin-co {
+      margin-top: 30px;
+    }
+
+    &__user-co {
+      margin-top: 30px;
+    }
+
+
+    .review-detail__user-comment {
+
+      .list {
+        border-bottom: 1px solid $grey200;
+
+        &__edit-btn {
+
+          &--disable {
+           background-color: $grey400;
+          }
+        }
+
+        &__edit-area {
+          display: none;
+          padding:20px 20px 40px 20px;
+
+          textarea {
+            width: 100%;
+          }
+
+          &--show {
+            display: inline-block;
+          }
+        }
+
+      }
+
+    }
+  }
+
+  &__mypage {
+    &.myGoodsReview {
+
+      .myGoodsReview {
+        &__title {
+          padding-bottom: 10px;
+          border-bottom: 2px solid $black;
+          color: 111;
+          font-size: 20px;
+          line-height: 29px;
+        }
+      }
+
+      .has-comment {
+        
+        th, td {
+          border-bottom: none;
+        }
+
+        & + .has-comment {
+          border-top: 1px solid $grey200;
+          
+        }
+      }
+
+      // 공통 마이페이지 검색 영역 커스텀
+      .fb__mypage__search {
+        margin-bottom: 70px;
+      }
+
+      .day-radio__btn {
+        color: $grey600;
+
+        &.day-radio--active {
+            background: $white;
+            border: 1px solid $black;
+            color: $black;
+        }
+      }
+
+      // 공통 마이페이지 타이틀 영역 커스텀
+      .fb__mypage__title {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .fb__mypage__title--detail {
+        display: inline-block;
+        color: $grey800;
+        font-size: 14px;
+        vertical-align: middle;
+
+        .detail__amount {
+          color: #ff6600;
+          font-weight: bold;
+        }
+      }
+
+      // 공통 버튼 영역 커스텀
+      .fb__button {
+        margin-top: 20px;
+
+        .button__reset {
+            padding: 10px 40px;
+        }
+
+        .button__search {
+            padding: 10px 45px;
+        }
+      }
+
+      // 공통 table-default 영억 커스텀
+      .table-default th {
+        font-weight: 500 !important;
+      }
+
+      .table-default td {
+        color: $grey600;
+      }
+
+      .product-review-area .wrap-review {
+        margin-top: 5px;
+      }
+
+      .product-review-area .wrap-review .txt-area .content {
+        color: $black;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}

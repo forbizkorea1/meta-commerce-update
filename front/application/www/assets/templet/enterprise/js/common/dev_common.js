@@ -270,6 +270,9 @@ var common = {
                     $modalContent.empty();
 
                     if (type == 'html') {
+                        $modalContent.attr("data-visible", !!target)
+                        if (!!target) $modalContent.attr("data-target", target)
+
                         $modalContent.append(parameter1.clone(true));
                         common.util.modal._show();
 
@@ -299,6 +302,165 @@ var common = {
                         }), 'html');
                     }
                 }
+            }
+        },
+        /**
+         * @desc 다중 모달
+         */
+        multiModal: {
+            // 모든 모달의 wrapper
+            $modal: '',
+            modalList: [],
+            /**
+             * open 메서드 진행중 상태 bool
+             * @type Boolean
+             */
+            isOpening: false,
+            /**
+             * @returns 사용중인 모달 개수 리턴
+             */
+            getModalListLength: function () {
+                const self = this;
+                return self.modalList.length;
+            },
+            /**
+             * 모달 고정 넓이 설정
+             * @param {string} width // 단위포함
+             */
+            setModalWidth: function ($modal, width) {
+                const $modalContent = $modal.find('.devMultiModalContent');
+                $modalContent.css("width", width);
+            },
+            /**
+             * 모달 사용 상태에 따른
+             * 1. wrapper show/hide 처리
+             * 2. body scrollLock 처리
+             */
+            checkModalUsage: function () {
+                const self = this;
+                // 모달 show/hide 처리
+                self.$modal.toggleClass('active', self.getModalListLength() != 0);
+
+                // scrollLock 처리
+                $('body').toggleClass('scroll--lock', self.getModalListLength() != 0);
+                self.isOpening = false;
+
+            },
+            onContentLoaded: function ($newModal, completeFunction) {
+                const self = this;
+                
+                self.$modal.append($newModal);
+                self.modalList.push($newModal);
+                self.checkModalUsage();
+
+                if (typeof completeFunction === "function") {
+                    completeFunction();
+                }
+            },
+            /**
+             * 모달 open 메서드
+             * @param {string} type 
+             * @param {string} title 
+             * @param {} parameter1 
+             * @param {*} parameter2 
+             * @param {function} completeFunction 
+             * @param {object} options 
+             * isFullLayer 
+             * additionalClass 
+             * maxHeight 
+             * @returns 
+             */
+            open: function (type, title, parameter1, parameter2, completeFunction, options) {
+                const self = this;
+
+                // 이미 open 실행중이면 return
+                if (self.isOpening) return;
+                self.isOpening = true;
+
+                if (!self.$modal) {
+                    self.$modal = $('#devMultiModal');
+                }
+
+                // 새로운 모달 생성
+                const modalTemplate = $('#devMultiModalTemplate').text();
+                const $newModal = $(modalTemplate);
+                
+                // 모달 title 입력
+                $newModal.find('.devMultiModalTitle').text(title);
+
+                parameter2 = common.util.isNull(parameter2) ? '' : parameter2;
+                const $newModalContent = $newModal.find('.devMultiModalContentWrapper');
+
+                // common.util.modal.open과 동일 process
+                if (type == 'html') {
+                    if (typeof parameter1 == "object") {
+                        $newModalContent.append(parameter1.first().clone());
+                    }
+                    else {
+                        $newModalContent.append(parameter1);
+                    }
+
+                    self.onContentLoaded($newModal, completeFunction);
+
+                } else if (type == 'handlebars') {
+                    $newModalContent.append(parameter1);
+                    self.onContentLoaded($newModal, completeFunction);
+
+                } else {
+                    common.ajax(
+                        parameter1, 
+                        parameter2, 
+                        '',
+                        (response) => {
+                            $newModalContent.append(response);
+                            self.onContentLoaded($newModal, completeFunction);
+                        },
+                        'html'
+                        );
+                }
+
+                return $newModal;
+            },
+            /**
+             * 최상단 모달을 닫는다
+             */
+            close: function () {
+                const self = this;
+   
+                let $lastModal = self.modalList.pop();
+                if (!$lastModal) return;
+                $lastModal.remove();
+                
+                self.checkModalUsage();
+            },
+            /**
+             * 모달 전체를 닫는다
+             */
+            closeAll: function () {
+                const self = this;
+
+                let cnt = self.getModalListLength();
+
+                for (let i = 0; i < cnt; i++) {
+                    let $lastModal = self.modalList.pop();
+                    if (!$lastModal) break;
+                    $lastModal.remove();
+                }
+                
+                self.checkModalUsage();
+            },
+            /**
+             * 멀티모달을 사용하기 위해 필요한 이벤트 바인딩
+             */
+            initEvent: function () {
+                const self = this;
+                let $document = $(document);
+
+                $document.on('click', '.devMultiModalClose', event => {
+                    if (!event.target) return;
+
+                    self.close();
+                });
             }
         },
         /**
@@ -1927,3 +2089,4 @@ common.lang.load('common.inputFormat.fileSize.fail', "파일 용량이 최대 {s
 common.lang.load('common.validation.mobile.fail', "휴대폰번호를  올바르게 입력해 주세요.");
 //inputFormat bind
 common.inputFormat.eventBind();
+common.util.multiModal.initEvent();

@@ -9,7 +9,7 @@
 common.lang.load('mypage.cancel.confirm', "취소 신청을 취소하시겠습니까?");
 common.lang.load('mypage.apply.confirm', "취소 신청하시겠습니까?");
 common.lang.load('mypage.cancel.reson', "취소사유를 입력해 주세요.");
-common.lang.load('mypage.cancel.noCk', "상품을 선택해주세요.");
+common.lang.load('mypage.cancel.noCk', "상품을 선택해 주세요.");
 common.lang.load('mypage.refund.reson.alert', "환불정보를 입력해 주세요.");
 common.lang.load('mypage.cancel.complete', "취소 신청 완료 되었습니다.");
 common.lang.load('mypage.cancel.select', "취소 사유를 선택하세요.");
@@ -147,8 +147,20 @@ var devOrderCancel = {
 
         // 취소신청
         $('#devClaimApply').on('click', function (e) {
+            var checkedCnt = 0;
+
+            $(".devOdIxCls").each(function () {
+                var od_ix = $(this).val();
+                // 신청시 선택 안된 상품이면 갯수 0으로 변경
+                if ($(this).is(':checked') === false) {
+                    $('#devClaimCnt' + od_ix).val(0);
+                } else {
+                    checkedCnt++;
+                }
+            });
+
             // 선택된 상품이 없을 경우
-            if (self.odIxCk == false) {
+            if (checkedCnt == 0) {
                 common.noti.alert(common.lang.get('mypage.cancel.noCk'));
                 return false;
             }

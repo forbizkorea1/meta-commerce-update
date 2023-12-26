@@ -1,0 +1,138 @@
+/* rem-baseline 재선언(브라우저에서 확인 쉽게 처리 ex. rem(48px) => 2.4rem으로 노출처리 ) */
+/* rem 사용시 html에 있는 font-size: 100% 제거 필요 */
+$rem-baseline: 20px;
+
+// #region Primary Color
+$pcolor: #ff6600;
+$pcolor2: #111;
+// #endregion
+// #region Font
+$black: #111;
+$grey800: #666;
+$grey600: #999;
+$grey500: #aaa;
+// #endregion
+// #region Line
+$grey400: #ccc;
+$grey200: #ddd;
+$grey100: #e8e8e8;
+$grey80: #f2f2f2;
+// #endregion
+// #region Background
+$bg_pcolor_25: rgba($pcolor, 0.05);
+$bg_grey50: #f8f8f8;
+$white: #fff;
+// #endregion
+// #region Sub Color
+$red: #ff0000;
+$blue: #3f8ef7;
+// #endregion
+
+// #region 제플린 기준 변수명 사용 이전 Color
+$textBlack: #121212;
+$white2: #eee;
+$white3: #e5e5e5;
+// #endregion
+
+$width: vw(750px);
+
+$font_noto: 'Notosans', sans-serif;
+$font_n: "Rb", $font_noto;
+
+//sprite image background-size
+$sprite:vw(1000px 1000px);
+
+%defaultInputStyle {
+    width: 100%;
+    height: vw(90px);
+    padding: vw(0 30px);
+    border: vw(2px) solid $grey200;
+    border-radius: 0;
+    font-size: vw(26px);
+    color: #111;
+    line-height: vw(86px);
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: #bcbcbc;
+        opacity: 1;
+    }
+
+    &:focus {
+        color: #111;
+    }
+
+    &:disabled {
+        background-color: #f8f8f8 !important;
+        border-color: #eee !important; // 공통 케이스 추가 #18592
+        color: #999 !important;
+        // 210705 아래 소스 IOS disabled 상태인 경우 값을 reset 시키기 위해 추가함
+        opacity: 1;
+        -webkit-text-fill-color: inherit;
+    }
+
+    &:read-only {
+        background-color: #f8f8f8 !important;
+        border-color: #eee !important; // 공통 케이스 추가 #18592
+        color: #999 !important;
+        opacity: 1;
+        -webkit-text-fill-color: inherit;
+    }
+}
+
+%clear {
+    &:after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+%vertical {
+    text-align: center;
+    white-space: nowrap;
+
+    figure {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        white-space: nowrap;
+
+        &:after {
+            display: inline-block;
+            position: relative;
+            width: 1px;
+            height: 100%;
+            margin-left: -1px;
+            vertical-align: middle;
+            content: "";
+        }
+    }
+
+    img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &:after {
+        display: inline-block;
+        position: relative;
+        width: 1px;
+        height: 100%;
+        margin-left: -1px;
+        vertical-align: middle;
+        content: "";
+    }
+}
+
+%wrapSect {
+    &:after {
+        display: block;
+        width: 100%;
+        height: 2.4vw;
+        background: #f8f8f8;
+        content: "";
+    }
+}

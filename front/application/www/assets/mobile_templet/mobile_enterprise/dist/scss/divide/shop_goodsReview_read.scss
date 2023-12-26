@@ -1,0 +1,136 @@
+.fb {
+    /* 나의 상품 후기 */
+    .community-list.review {
+        dl {
+            border-bottom: 1px solid $grey400;
+            padding-bottom: 0;
+            display: block;
+            dt {
+                overflow: hidden;
+                border-bottom: 1px solid $white2;
+                padding-bottom: vw(30px);
+                .info {
+                    .option {
+                        color: $grey600;
+                        font-size: vw(22px);
+                    }
+                    .date {
+                        font-size: vw(20px);
+                        color: $grey600;
+                        margin-top: vw(7px);
+                        line-height: vw(24px);
+                        span {
+                            font-size: vw(20px);
+                        }
+                    }
+                }
+            }
+            dd {
+                padding-top: vw(30px);
+                .date {
+                    font-size: vw(20px);
+                    font-family: "Rb";
+                    color: $grey600;
+                    vertical-align: middle;
+                    display: inline-block;
+                    margin-bottom: vw(3px);
+                    &:before {
+                        content: "";
+                        display: inline-block;
+                        width: vw(2px);
+                        height: vw(16px);
+                        background: $grey400;
+                        margin: 0 vw(10px) 0 vw(5px);
+                    }
+                }
+                .wrap-score {
+                    margin: vw(20px) 0 vw(30px);
+                    font-size: vw(20px);
+                    color: $black;
+                    span {
+                        display: inline-block;
+                        margin-right: vw(30px);
+                    }
+                }
+                .content {
+                    font-size: vw(22px);
+                    color: $black;
+                    line-height: vw(32px);
+                    .tit {
+                        font-weight: 600;
+                        margin-bottom: vw(10px);
+                    }
+                }
+                .wrap-review-btn-area {
+                    text-align: right;
+                    margin: vw(60px) 0 vw(40px);
+                }
+            }
+            dd.review-comment-area {
+                border-top: 1px dashed $grey400;
+                background: #f7f7f9;
+                margin: 0 vw(-25px);
+                padding: vw(30px) vw(25px) vw(50px);
+                p {
+                    font-size: vw(20px);
+                    color: $grey600;
+                    margin-bottom: vw(20px);
+                    em {
+                        color: $pcolor;
+                        font-size: vw(18px);
+                        border: 1px solid $pcolor;
+                        border-radius: vw(18px);
+                        padding: vw(4px) vw(13px);
+                        margin-right: vw(8px);
+                    }
+                    span {
+                        font-family: "Rb";
+                        &:before {
+                            content: "";
+                            display: inline-block;
+                            width: vw(2px);
+                            height: vw(16px);
+                            background: $grey400;
+                            margin: 0 vw(15px);
+                        }
+                    }
+                }
+                .comment-content {
+                    font-size: vw(22px);
+                    line-height: vw(36px);
+                    color: $black;
+                    position: relative;
+                    padding-left: vw(30px);
+                    &:before {
+                        content: "";
+                        display: inline-block;
+                        width: vw(28px);
+                        height: vw(28px);
+                        background: url("../images/icon/m_sprite_icon.png") no-repeat vw(-800px) vw(-200px);
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        dt {
+            display: block;
+        }
+        dd {
+            display: block;
+        }
+    }
+
+    &#mypage_myGoodsReview {
+        // swiper slider 오류 해결
+        // 에러 메세지: Ignored attempt to cancel a touchmove event with cancelable=false, for example because scrolling is in progress and cannot be interrupted.
+        // touch-action: none;
+
+        .review-img-area {
+            .item {
+                width: 24vw !important;
+            }
+        }
+
+    }
+}

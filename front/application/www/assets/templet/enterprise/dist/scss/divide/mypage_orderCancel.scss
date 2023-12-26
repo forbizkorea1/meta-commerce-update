@@ -1,0 +1,223 @@
+.fb {
+    &__mypage {
+        &__order-cancel {
+            .cancel-area {
+                .reason-box {
+                    display: table;
+                    table-layout: fixed;
+                    margin-top: 50px;
+                    border: {
+                        top: 1px solid $black;
+                        bottom: 1px solid $grey100;
+                    };
+
+                    &__title {
+                        display: table-cell;
+                        position: relative;
+                        width: 180px;
+                        padding-left: 40px;
+                        background: $bg_grey50;
+                        font-size: 14px;
+                        vertical-align: middle;
+
+                        //&:before {
+                        //  position: absolute;
+                        //  left: 28px;
+                        //  padding-top: 3px;
+                        //  color: $pcolor;
+                        //  content: "*";
+                        //}
+
+                        em {
+                            display: inline-block;
+                            margin: 3px 4px 0 -10px;
+                            vertical-align: top;
+                        }
+                    }
+
+                    &__cont {
+                        display: table-cell;
+                        padding: 20px 10px 10px 30px;
+                        font-size: 14px;
+
+                        select {
+                            width: 260px;
+                        }
+                        textarea {
+                            width: 830px;
+                            height: 80px;
+                            padding: 10px;
+                            margin-top: 10px;
+                        }
+                        .counting {
+                            width: 830px;
+                            text-align: right;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+
+            // .refund-area {
+            //     &__inner {
+            //         border: {
+            //             top: 1px solid $black;
+            //             bottom: 1px solid $grey200;
+            //         }
+            //         overflow: hidden;
+            //     }
+
+            //     // .pay-info {
+
+            //     //     &__box {
+            //     //         width: calc(100% / 3);
+            //     //         float: left;
+            //     //         height: 328px;
+
+            //     //         &:not(:first-child) {
+            //     //             border-left: 1px dotted $grey200;
+            //     //         }
+
+            //     //         &-delivery {
+            //     //             position: relative;
+
+            //     //             &:before {
+            //     //                 display: inline-block;
+            //     //                 position: absolute;
+            //     //                 top: 60px;
+            //     //                 left: -16px;
+            //     //                 width: 32px;
+            //     //                 height: 32px;
+            //     //                 background: url("../images/mypage/sprite_mypage.png") no-repeat -300px -300px;
+            //     //                 -webkit-transform: translateY(-50%);
+            //     //                 -moz-transform: translateY(-50%);
+            //     //                 -ms-transform: translateY(-50%);
+            //     //                 -o-transform: translateY(-50%);
+            //     //                 transform: translateY(-50%);
+            //     //                 content: '';
+            //     //             }
+            //     //         }
+
+            //     //         &-sum {
+            //     //             position: relative;
+
+            //     //             &:before {
+            //     //                 display: inline-block;
+            //     //                 position: absolute;
+            //     //                 width: 32px;
+            //     //                 height: 32px;
+            //     //                 top: 60px;
+            //     //                 left: -16px;
+            //     //                 background: url("../images/mypage/sprite_mypage.png") no-repeat -400px -300px;
+            //     //                 -webkit-transform: translateY(-50%);
+            //     //                 -moz-transform: translateY(-50%);
+            //     //                 -ms-transform: translateY(-50%);
+            //     //                 -o-transform: translateY(-50%);
+            //     //                 transform: translateY(-50%);
+            //     //                 content: '';
+            //     //             }
+            //     //         }
+
+            //     //     }
+
+            //     //     &__top {
+            //     //         position: relative;
+            //     //         height: 121px;
+            //     //         padding-top: 30px;
+            //     //         border-bottom: 1px dotted $grey200;
+            //     //         text-align: center;
+
+            //     //         &__tit {
+            //     //             margin-bottom: 10px;
+            //     //             color: $black;
+            //     //             font-size: 16px;
+            //     //             font-weight: 600;
+            //     //         }
+
+            //     //         &__price {
+            //     //             font-size: 16px;
+            //     //             color: $black;
+
+            //     //             em {
+            //     //                 font: {
+            //     //                     weight: 600;
+            //     //                     size: 30px;
+            //     //                     family: $font_n;
+            //     //                 }
+
+            //     //             }
+            //     //         }
+
+            //     //     }
+
+            //     //     &__bottom {
+            //     //         padding: 20px 40px;
+            //     //         color: $black;
+            //     //         font-size: 14px;
+
+            //     //         dl {
+            //     //             overflow: hidden;
+            //     //             dt {
+            //     //                 float: left;
+            //     //                 font: {
+            //     //                     //weight: 600;
+            //     //                 }
+            //     //             }
+            //     //             dd {
+            //     //                 float: right;
+            //     //                 em {
+            //     //                     font-family: $font_n;
+            //     //                 }
+            //     //             }
+
+            //     //             & + dl {
+            //     //                 margin-top: 10px;
+            //     //             }
+
+            //     //             &:not(.disc-list) dd em {
+            //     //                 font-weight: 600;
+            //     //                 font-size: 16px;
+            //     //             }
+
+            //     //             &.disc-list {
+            //     //                 font-size: 13px;
+            //     //                 color: $grey800;
+            //     //             }
+            //     //             &.disc-list.first {
+            //     //                 margin-top: 15px;
+            //     //             }
+            //     //             &.disc-list dt {
+            //     //                 position: relative;
+            //     //                 padding-left: 17px;
+            //     //             }
+            //     //             &.disc-list dt:before {
+            //     //                 display: inline-block;
+            //     //                 position: absolute;
+            //     //                 left: 0;
+            //     //                 width: 15px;
+            //     //                 height: 15px;
+            //     //                 background: url("../images/mypage/sprite_mypage.png") no-repeat -700px 0;
+            //     //                 content: '';
+            //     //             }
+
+            //     //         }
+
+            //     //     }
+
+            //     //     &__bottom__text {
+            //     //         padding: 20px 0 20px 10px;
+            //     //     }
+
+            //     // }
+
+                
+
+            //     &__annc {
+            //         padding: 10px 15px;
+            //         font-size: 13px;
+            //         line-height: 20px;
+            //     }
+            // }
+        }
+    }
+}

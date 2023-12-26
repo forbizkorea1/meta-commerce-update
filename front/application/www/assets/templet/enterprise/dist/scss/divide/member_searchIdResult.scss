@@ -1,0 +1,59 @@
+.fb {
+    &__search-id-result {
+        margin-top: 90px;
+
+        &__title {
+            margin-bottom: 15px;
+            font-size: 40px;
+            color: $black;
+            text-align: center;
+        }
+
+        &__summary {
+            margin-bottom: 40px;
+            color: $grey800;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .search-result {
+            width: 560px;
+            margin: 0 auto;
+            padding: 60px 0;
+            border: {
+                top: 1px solid $black;
+                bottom: 1px solid $grey100;
+            };
+            text-align: center;
+
+            &__tit {
+                font-size: 26px;
+                color: $grey800;
+                margin-bottom: 15px;
+            }
+
+            &__date {
+                font-size: 16px;
+                color: $grey800;
+                line-height: 24px;
+                font-family: $font_n;
+            }
+        }
+
+        .fb__button {
+            margin-top: 50px;
+
+            a {
+                width: 188px;
+                height: 54px;
+                margin-left: 10px;
+                font-size: 18px;
+                line-height: 50px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

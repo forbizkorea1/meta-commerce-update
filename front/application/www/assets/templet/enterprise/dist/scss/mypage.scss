@@ -1,0 +1,31 @@
+/* 공통 */
+@import "./divide/common/variable";
+@import "./divide/common/mixins";
+
+/* mypage */
+@import "./divide/mypage_common";
+@import "./divide/mypage_top";
+
+@import "./divide/mypage_index";
+@import "./divide/mypage_orderDetail";
+@import "./divide/mypage_orderCancel";
+@import "./divide/mypage_orderClaim";
+
+@import "./divide/mypage_coupon";
+@import "./divide/mypage_mileage";
+
+@import "./divide/mypage_recentView";
+@import "./divide/mypage_deliverymsg";
+
+/* mypage - 나의 커뮤니티 */
+@import "./divide/mypage_community";
+
+@import "./divide/mypage_profile";
+@import "./divide/mypage_addressbook";
+@import "./divide/mypage_refundAccount";
+@import "./divide/mypage_passReconfirm";
+@import "./divide/mypage_secede";
+@import "./divide/mypage_conversion";
+
+/* shop 공통 폼 사용 */
+@import "./divide/shop_common";

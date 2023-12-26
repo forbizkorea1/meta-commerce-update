@@ -1,0 +1,148 @@
+.fb {
+    // 마이페이지 > 수정
+    &__reviewWrite {
+        &__score {
+            .score {
+                &__list {
+                    &__title {
+                        font: {
+                            size: vw(32px);
+                            weight: 600;
+                        };
+                        line-height: vw(48px);
+                        text-align: center;
+                    }
+
+                    &__cont {
+                        position: relative;
+                        margin-top: vw(20px);
+                        text-align: center;
+
+                        .star-links {
+                            display: block;
+                            height: vw(72px);
+                            font-size: 0;
+
+                            a {
+                                display: inline-block;
+                                width: vw(72px);
+                                height: 100%;
+                                margin-left: vw(16px);
+                                font-size: 0;
+
+                                &:first-child {
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+
+                        .rating-img {
+                            position: absolute;
+                            z-index: -1;
+                            top: 0;
+                            left: 50%;
+                            width: vw(424px);
+                            transform: translate3d(-50%, 0, 0);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__text {
+            position: relative;
+            margin-top: vw(60px);
+            padding: vw(28px 28px 68px);
+            border: vw(2px) solid $grey200;
+
+            textarea {
+                width: vw(630px);
+                height: vw(220px);
+                padding: 0;
+                border: 0;
+                line-height: vw(36px);
+            }
+
+            .review__text__count {
+                position: absolute;
+                bottom: vw(28px);
+                right: vw(28px);
+                font-size: vw(24px);
+                color: $grey600;
+            }
+        }
+
+        .wrap-file-area {
+            margin-top: vw(60px);
+            font-size: 0;
+
+            .img-area {
+                display: inline-block;
+                position: relative;
+                width: vw(130px);
+                height: vw(130px);
+                margin-left: vw(10px);
+                border: vw(2px) solid $grey400;
+                vertical-align: top;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                .upload-img-area {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .file-upload {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+
+                    &-btn {
+                        width: vw(130px);
+                        height: vw(130px);
+                        border: 0;
+                        background: url(../images/icon/m_file_bg.png) no-repeat 0 0 / vw(130px auto);
+                    }
+                }
+            }
+        }
+
+        &__desc {
+            margin-top: vw(20px);
+            font-size: vw(26px);
+            color: $grey800;
+            line-height: vw(36px);
+
+            &.other {
+                margin-top: vw(40px);
+                border-top: vw(2px) solid #EEE;
+                padding-top: vw(20px);
+
+                em {
+                    color: $pcolor;
+                }
+            }
+        }
+
+        &__btn {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            font-size: 0;
+            text-align: center;
+
+            button {
+                width: 100%;
+                height: vw(112px);
+                font-size: vw(36px);
+                color: $white;
+            }
+        }
+    }
+}

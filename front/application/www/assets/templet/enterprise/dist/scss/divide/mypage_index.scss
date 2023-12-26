@@ -1,0 +1,187 @@
+.fb {
+    //마이페이지 메인
+    &__mymain {
+        //나의 주문 현황
+        &__overview {
+            display: table;
+            width: 100%;
+            border: {
+                top: 1px solid $black;
+                bottom: 1px solid #eee;
+            }
+
+            .overview {
+                &__box {
+                    display: table-cell;
+                    width: calc(100% - 240px);
+                    padding: 0 50px;
+                    font-size: 0;
+                    vertical-align: middle;
+                }
+
+                //주문현황 리스트
+                &__list {
+                    position: relative;
+                    display: inline-block;
+                    width: 20%;
+                    text-align: center;
+                    vertical-align: top;
+                    cursor: pointer;
+
+                    &:not(:last-child):after {
+                        content: "";
+                        display: inline-block;
+                        position: absolute;
+                        top: 16px;
+                        right: -16px;
+                        width: 30px;
+                        height: 30px;
+                        background: url(../images/mypage/icon-mypage-sprite.png) no-repeat 0 0 / 100% auto;
+                    }
+                }
+
+                //주문현황 동그라미
+                &__circle {
+                    display: block;
+                    width: 64px;
+                    height: 64px;
+                    margin: 0 auto;
+                    background: #eee;
+                    border-radius: 50%;
+                    color: $grey600;
+                    font: {
+                        size: 27px;
+                        weight: 600;
+                        family: $font_n;
+                    };
+                    text-align: center;
+                    line-height: 64px;
+
+                    &.active {
+                        color: $black;
+                    }
+                }
+
+                //주문현황 타이틀
+                &__tit {
+                    margin-top: 10px;
+                    font: {
+                        size: 14px;
+                        weight: 400;
+                    };
+                    color: $black;
+                    line-height: 17px;
+                }
+            }
+
+            //주문현황 오른쪽 리스트
+            .order-status {
+                display: table-cell;
+                width: 240px;
+                padding-right: 44px;
+                vertical-align: middle;
+
+                &__list {
+                    overflow: hidden;
+                    height: 50px;
+                    padding: 0 10px;
+                    border-bottom: 1px dotted $grey400;
+                    cursor: pointer;
+
+                    &:last-child {
+                        border: 0;
+                    }
+
+                    &__tit {
+                        float: left;
+                        color: $grey800;
+                        font-size: 14px;
+                        line-height: 49px;
+                    }
+                    &__num {
+                        float: right;
+                        color: $black;
+                        font: {
+                            size: 16px;
+                            weight : 600;
+                        };
+                        line-height: 49px;
+                    }
+                }
+            }
+        }
+
+        .mymain {
+            &__section {
+                margin-top: 50px;
+            }
+
+            //관심상품
+            &__wish {
+                margin-top: 50px;
+
+                &__items {
+                    padding: 0 30px;
+                    
+                    .fb {
+                        &__comm__checkbox {
+                            width: 30px;
+                            vertical-align: top;
+                        }
+    
+                        &__items {
+                            margin: 0 -16px;
+                        }
+                    }
+    
+                    .item {
+                        &__box {
+                            width: calc(25% - 32px);
+                            margin: 0 16px;
+                        }
+    
+                        &__link {
+                            display: inline-block;
+                            width: calc(100% - 30px);
+                            vertical-align: top;
+                        }
+                    }
+                }
+
+                //선택삭제
+                &__bottom {
+                    margin-top: 30px;
+                    padding-top: 42px;
+                    border-top: 1px solid $grey200;
+                    text-align: right;
+                }
+
+                &__remove {
+                    display: inline-block;
+                    height: 40px;
+                    padding: 0 20px;
+                    border: 1px solid $grey400;
+                    color: $grey800;
+                    font-size: 14px;
+                    line-height: 40px;
+                    outline: none;
+                }
+            }
+        }
+
+        //회원등급혜택
+        &__membership {
+            width: 928px;
+            height: 578px;
+
+            .membership {
+
+                &__img {
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

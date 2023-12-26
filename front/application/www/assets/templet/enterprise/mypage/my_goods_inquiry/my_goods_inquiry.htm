@@ -9,73 +9,7 @@
             <input type="hidden" name="sDateDef" id="sDateDef" value="{? sDate}{sDate}{:}{oneMonth}{/}" />
             <input type="hidden" name="eDateDef" id="eDateDef" value="{? eDate}{eDate}{:}{today}{/}" />
 
-            <div class="search">
-                <div class="search__row">
-                    <div class="search__col">
-                        <span class="search__col-title">{=trans('조회기간')}</span>
-                        <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick" title="{=trans('조회시작기간')}"> ~
-                        <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick"  title="{=trans('조회종료기간')}">
-                    </div>
-
-                    <div class="search__col__day">
-                        <div class="day-radio">
-                            <a href="#" class="day-radio__btn today devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}">{=trans('<em>1</em>주일')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault">{=trans('<em>1</em>개월')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}">{=trans('<em>6</em>개월')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}">{=trans('<em>1</em>년')}</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="search__row">
-                    <div class="search__col">
-                        <label class="search__col-title" for="devDivInfo">{=trans('분류')}</label>
-                        <select class="search__select" name="bbsDiv" id="devDivInfo">
-                            <option value="">{=trans('전체')}</option>
-                            {@ divsInfo}
-                            <option value="{.ix}">{.div_name}</option>
-                            {/}
-                        </select>
-                    </div>
-
-                    <!--<div class="search__col wrap-checkbox">-->
-                        <!--<span class="search__col-title">{=trans('처리상태')}</span>-->
-                        <!--<label>-->
-                            <!--<input type="radio" name="resYn" value="all" checked>-->
-                            <!--<span class="check-area">{=trans('전체')}</span>-->
-                        <!--</label>-->
-                        <!--<label>-->
-                            <!--<input type="radio" name="resYn" value="N">-->
-                            <!--<span class="check-area">{=trans('답변대기')}</span>-->
-                        <!--</label>-->
-                        <!--<label>-->
-                            <!--<input type="radio" name="resYn" value="Y">-->
-                            <!--<span class="check-area">{=trans('답변완료')}</span>-->
-                        <!--</label>-->
-                    <!--</div>-->
-                    <div class="fb__mypage__checkbox search__col wrap-checkbox inquiry-checkbox">
-                        <span class="search__col-title">{=trans('처리상태')}</span>
-                        <!--<label>-->
-                            <!--<input type="checkbox" name="resYn" value="all" checked>-->
-                            <!--<span class="check-area">{=trans('전체')}</span>-->
-                        <!--</label>-->
-                        <label>
-                            <input type="checkbox" class="devResYn" name="resN" value="N" checked>
-                            <span class="check-area">{=trans('답변대기')}</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" class="devResYn" name="resY" value="Y" checked>
-                            <span class="check-area">{=trans('답변완료')}</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="search__btn ">
-                <a href="#" id="devBtnReset" class="search__btn--cancel">{=trans('초기화')}</a>
-                <button type="button" id="devBtnSearch" class="search__btn--search">{=trans('검색')}</button>
-            </div>
+            {= fb_widget('mypage/filter')}
         </form>
     </section>
 

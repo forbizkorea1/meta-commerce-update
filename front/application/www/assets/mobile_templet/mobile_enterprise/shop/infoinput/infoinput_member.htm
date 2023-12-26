@@ -76,8 +76,8 @@
                         <span class="name">
                             {[recipient]}
                             {[#if shipping_name]}<span class="sub-name">({[shipping_name]})</span>{[/if]}
+                            <span class="default-delivery devBasic">{=trans('기본 배송지')}</span>
                         </span>
-                        <span class="default-delivery devBasic">{=trans('기본 배송지')}</span>
                     </div>
                     <div class="delivery__list__addr">{[address1]} {[#if address2]}{[address2]}{[/if]}</div>
                     <div class="delivery__list__tel">{[mobile]} {[#if tel]}<br>{[tel]}{[/if]}</div>
@@ -98,7 +98,7 @@
 
         <div id="devAddDeliveryTemplate" class="wrap-input-form devRecipientContents" devRecipientTypeSelect="input" style="display: none;">
             <div class="order-same">
-                <label class="fb__comm__checkbox" for="sam-buyer-checkbox">
+                <label class="fb__checkbox" for="sam-buyer-checkbox">
                     <input type="checkbox" class="blind devSameBuyerInfo" id="sam-buyer-checkbox">
                     <span>{=trans('주문자 정보와 동일')}</span>
                 </label>
@@ -182,7 +182,7 @@
             </dl>
 
             <div class="default-choice">
-                <label class="fb__comm__checkbox">
+                <label class="fb__checkbox">
                     <input type="checkbox" id="devBasicAddressBookCheckBox" class="blind">
                     <span>{=trans('기본 배송지로 선택')}</span>
                 </label>

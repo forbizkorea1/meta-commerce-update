@@ -1,0 +1,39 @@
+/* node_modules */
+@import '../node_modules/sass-rem/rem';
+@import "./lib/vw";
+
+/* 공통 */
+@import "./divide/common/variable";
+@import "./divide/common/mixins";
+
+/* mypage */
+@import "./divide/mypage_common";
+@import "./divide/mypage_top";
+
+@import "./divide/mypage_index";
+@import "./divide/mypage_orderHistory";
+@import "./divide/mypage_orderDetail.scss";
+@import "./divide/mypage_orderClaim";
+@import "./divide/mypage_orderCancel";
+@import "./divide/mypage_receiptPrint.scss";
+@import "./divide/mypage_deliverymsg.scss";
+
+@import "./divide/mypage_mileage";
+@import "./divide/mypage_coupon";
+
+@import "./divide/mypage_recentView.scss";
+@import "./divide/mypage_myGoodsReview.scss";
+@import "./divide/mypage_inquiry_detail";
+@import "./divide/mypage_myGoodsInquiry";
+
+@import "./divide/mypage_profile";
+@import "./divide/mypage_passReconfirm";
+@import "./divide/mypage_refundAccount";
+@import "./divide/mypage_conversion";
+@import "./divide/mypage_addressbook";
+@import "./divide/mypage_addressbookManage";
+@import "./divide/mypage_secede";
+
+/* shop 공통 폼 사용 */
+@import "./divide/shop_common";
+@import "./divide/shop_goodsReview_write";

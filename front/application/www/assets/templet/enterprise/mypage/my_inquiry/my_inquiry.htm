@@ -10,52 +10,7 @@
             <input type="hidden" name="sDateDef" id="sDateDef" value="{oneMonth}">
             <input type="hidden" name="eDateDef" id="eDateDef" value="{today}">
 
-            <div class="search">
-                <div class="search__row">
-                    <div class="search__col">
-                        <span class="search__col-title">{=trans('조회기간')}</span>
-                        <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick" title="{=trans('조회시작기간')}"> ~
-                        <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick"  title="{=trans('조회종료기간')}">
-                    </div>
-
-                    <div class="search__col__day">
-                        <div class="day-radio">
-                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}"><em>1</em>{=trans('주일')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault"><em>1</em>{=trans('개월')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}"><em>6</em>{=trans('개월')}</a>
-                            <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}"><em>1</em>{=trans('년')}</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="search__row">
-                    <div class="search__col">
-                        <span class="search__col-title">{=trans('분류')}</span>
-                        <select class="search__select" name="bbsDiv" id="devBbsDiv">
-                            <option value="">{=trans('전체')}</option>
-                            {@ bbsDiv}
-                            <option value="{.div_ix}">{.div_name}</option>
-                            {/}
-                        </select>
-                    </div>
-
-                    <div class="fb__mypage__checkbox search__col wrap-checkbox">
-                        <span class="search__col-title">{=trans('처리상태')}</span>
-                        {@ bbsStatus}
-                        <label>
-                            <input type="checkbox" name="s{.index_ + 1}" class="devStatus" value="{.status_ix}" checked="true">
-                            <span class="check-area">{.status_name}</span>
-                        </label>
-                        {/}
-                    </div>
-                </div>
-            </div>
-
-            <div class="search__btn">
-                <a href="#" id="devBtnReset" class="search__btn--cancel">{=trans('초기화')}</a>
-                <button type="button" id="devBtnSearch" class="search__btn--search">{=trans('검색')}</button>
-            </div>
+            {= fb_widget('mypage/filter')}
         </form>
     </section>
 

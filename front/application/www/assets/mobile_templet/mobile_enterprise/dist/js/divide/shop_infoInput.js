@@ -6,31 +6,6 @@ const shop_infoInput = () => {
     const $window = $(window);
     const $document = $(document);
 
-    const coupon_popup_select = () => {
-        $document
-            .on("change", '[devcouponselect]', function() {
-                const $this = $(this);
-
-                const currentVal = $this.val();
-
-                if (currentVal) {
-
-                    if(currentVal === '' || currentVal === '쿠폰선택'){
-                        $this.css('color','#999999');
-                    }else{
-                        $this.css('color','#111111');
-                    }
-
-                    $this.parents("tr").find(".coupon-box__choice-cancel")
-                        .addClass('coupon-box__choice-cancel--active');
-                } else {
-                    $this.css('color','#999999');
-                    $this.parents("tr").find(".coupon-box__choice-cancel")
-                        .removeClass('coupon-box__choice-cancel--active');
-                }
-            })
-    };
-
     const coupon_popup_cancel = () => {
         $document
             .on("click", '.coupon-box__choice-cancel a', function() {
@@ -141,7 +116,6 @@ const shop_infoInput = () => {
     };
 
     const infoInput_init = () => {
-        // coupon_popup_select();
         coupon_popup_cancel();
         delivery_tab();
 

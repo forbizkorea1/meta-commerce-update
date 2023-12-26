@@ -707,9 +707,11 @@ var common = {
                             // 전송후 결과 확인
                             if (response.result == 'success') {
                                 if(response.data[0] == true ){
+                                    $('[name="'+ inputName +'"]').val('');
                                     target.siblings('.devFileDeleteOrg').trigger('click');
                                     return this;
                                 }else if(response.data[0] == 'notUploadFile'){
+                                    $('[name="'+ inputName +'"]').val('');
                                     target.siblings('.devFileDeleteOrg').trigger('click');
                                     return this;
                                 }else{
@@ -3528,6 +3530,8 @@ var common = {
                 return {title: '개인별 SMS 발송 팝업', width: '375px', height: '530px'};
             } else if (className == 'changeService') {
                 return {title: '서비스 신청 팝업', width: '1100px', height: '650px'};
+            } else if (className == 'excelDown') {
+                return {title: '엑셀다운로드', width: '750px', height: '350px'};
             }
         },
         open: function (className, callback, data) {

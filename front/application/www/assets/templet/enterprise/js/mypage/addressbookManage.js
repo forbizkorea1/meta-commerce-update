@@ -18,7 +18,7 @@ var devAddressBookAddPopObj = {
         var self = this;
 
         //-----set input format
-        common.inputFormat.set($('#devRecipient,#devShippingName'), {'maxLength': 20});
+        common.inputFormat.set($('#devRecipient,#devShippingName,#devAddress2'), {'maxLength': 50});
         common.inputFormat.set($('#devPcs2,#devPcs3'), {'number': true, 'maxLength': 4});
         common.inputFormat.set($('#devTel2,#devTel3'), {'number': true, 'maxLength': 4});
 

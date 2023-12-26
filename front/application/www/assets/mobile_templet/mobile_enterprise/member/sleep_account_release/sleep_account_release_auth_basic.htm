@@ -27,7 +27,7 @@
 
             <!-- 전체동의 -->
             <div class="term-list">
-                <label for="agree-all" class="fb__comm__checkbox">
+                <label for="agree-all" class="fb__checkbox">
                     <input type="checkbox" id="agree-all" class="agree-all blind">
                     <span class="bold">{=trans('약관 전체동의')}</span>
                 </label>
@@ -35,7 +35,7 @@
 
             <!-- 구매 이용약관 -->
             <div class="term-list">
-                <label for="agree-term1" class="fb__comm__checkbox">
+                <label for="agree-term1" class="fb__checkbox">
                     <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired blind">
                     <span>[{=trans('필수')}] {=trans('구매 이용약관')}</span>
                 </label>
@@ -45,7 +45,7 @@
 
             <!-- 개인정보 수집 및 이용약관 -->
             <div class="term-list">
-                <label for="agree-term2" class="fb__comm__checkbox">
+                <label for="agree-term2" class="fb__checkbox">
                     <input type="checkbox" id="agree-term2" name="policyIx[{policyData['collection']['ix']}]" class="devRequired blind">
                     <span>[{=trans('필수')}] {=trans('개인정보 수집 및 이용약관')}</span>
                 </label>
@@ -55,7 +55,7 @@
 
             <!-- 개인정보 취급 위탁 -->
             <div class="term-list bdbx">
-                <label for="agree-term3" class="fb__comm__checkbox">
+                <label for="agree-term3" class="fb__checkbox">
                     <input type="checkbox" id="agree-term3" name="policyIx[{policyData['consign']['ix']}]" class="devRequired blind">
                     <span>[{=trans('필수')}] {=trans('개인정보 취급 위탁')}</span>
                 </label>

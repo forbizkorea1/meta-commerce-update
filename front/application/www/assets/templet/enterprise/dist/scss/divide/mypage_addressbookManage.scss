@@ -1,0 +1,99 @@
+// .fb {
+//     &__mypage-addressAdd {
+//         max-width: 580px;
+//         margin: 0 auto;
+
+//         .fb__modal__content {
+//             padding-top: 0;
+//         }
+
+//         &__table {
+//             .table {
+//                 th {
+//                     padding: 26px 10px 24px 25px;
+//                     border-bottom: 1px solid $grey100;
+//                     color: $black;
+//                     font-size: 14px;
+//                     font-weight: normal;
+//                     text-align: left;
+//                     vertical-align: top;
+//                 }
+
+//                 td {
+//                     padding: 15px 0;
+//                     border-bottom: 1px solid $grey100;
+//                     vertical-align: middle;
+
+//                     input:read-only.dim {
+//                         background: $bg_grey50;
+//                     }
+
+//                     input[name="zip"] {
+//                         width:120px;
+//                     }
+
+//                     .form-info-wrap{
+//                         display: flex;
+//                         flex-direction:column;
+//                     }
+//                 }
+
+//                 label {
+//                     display: inline-block;
+//                     position: relative;
+//                     width: 160px;
+//                     margin: 10px 10px 0 0;
+//                     line-height: 20px;
+//                 }
+
+//                 &__input {
+//                     &--long {
+//                         width: 330px;
+//                     }
+
+//                     &--short {
+//                         width: 100px;
+//                         color: $grey800;
+//                     }
+//                 }
+
+//                 &__btn {
+//                     &--find {
+//                         display: inline-block;
+//                         height: 40px;
+//                         margin-left: 7px;
+//                         padding: 0 30px;
+//                         background: $grey800;
+//                         border: 0;
+//                         color: $white;
+//                         font-size: 14px;
+//                         line-height: 38px;
+//                         vertical-align: middle;
+//                         box-sizing: border-box;
+//                         cursor: pointer;
+//                     }
+//                 }
+
+//                 .form-info-wrap {
+//                     span {
+//                         color: $grey800;
+//                         font-size: 13px;
+//                     }
+//                 }
+//             }
+
+//             &--must {
+//                 display: inline-block;
+//                 margin: 4px 8px 0 -15px;
+//                 font-size: 16px;
+//                 color: $pcolor;
+//                 vertical-align: top;
+//             }
+//         }
+
+//         .btn-point {
+//             background: $pcolor;
+//             color: $white;
+//         }
+//     }
+// }

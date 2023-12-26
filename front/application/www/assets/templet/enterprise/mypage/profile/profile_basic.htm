@@ -80,24 +80,27 @@
                             </th>
 
                             <td>
-                                <!--
-                                    @TODO: 해당영역 커스텀 영역으로 쓰인데서 아래 조건 빼놓음. 추후 사용 시 select/input에 추가 필요
-                                    {? useCertify == 'Y'}readonly{/}
-                                -->
-                                <div class="fb__input__phone">
-                                    <select class="fb__input__phone--01" name="pcs1" id="devPcs1">
-                                        <option value="010" {? pcs[0]=="010"}selected{/}>010</option>
-                                        <option value="011" {? pcs[0]=="011"}selected{/}>011</option>
-                                        <option value="016" {? pcs[0]=="016"}selected{/}>016</option>
-                                        <option value="017" {? pcs[0]=="017"}selected{/}>017</option>
-                                        <option value="018" {? pcs[0]=="018"}selected{/}>018</option>
-                                        <option value="019" {? pcs[0]=="019"}selected{/}>019</option>
-                                    </select>
-                                    <span class="dash">-</span>
-                                    <input type="text" name="pcs2" id="devPcs2" value="{pcs[1]}" title="{=trans('휴대폰번호')}" class="fb__input__phone--02">
-                                    <span class="dash">-</span>
-                                    <input type="text" name="pcs3" id="devPcs3" value="{pcs[2]}" title="{=trans('휴대폰번호')}" class="fb__input__phone--03">
+                                <div class="phone-area__container">
+                                    <div class="fb__input__phone">
+                                        <select class="fb__input__phone--01" id="devPcs1" {? useCertify == 'Y'}disabled{:}name="pcs1"{/}>
+                                            <option value="010" {? pcs[0]=="010"}selected{/}>010</option>
+                                            <option value="011" {? pcs[0]=="011"}selected{/}>011</option>
+                                            <option value="016" {? pcs[0]=="016"}selected{/}>016</option>
+                                            <option value="017" {? pcs[0]=="017"}selected{/}>017</option>
+                                            <option value="018" {? pcs[0]=="018"}selected{/}>018</option>
+                                            <option value="019" {? pcs[0]=="019"}selected{/}>019</option>
+                                        </select>
+                                        <span class="dash">-</span>
+                                        <input type="text" id="devPcs2" value="{pcs[1]}" title="{=trans('휴대폰번호')}" class="fb__input__phone--02" {? useCertify == 'Y'}readonly{:}name="pcs2"{/}>
+                                        <span class="dash">-</span>
+                                        <input type="text" id="devPcs3" value="{pcs[2]}" title="{=trans('휴대폰번호')}" class="fb__input__phone--03" {? useCertify == 'Y'}readonly{:}name="pcs3"{/}>
+                                    </div>
+                                    <div class="fb__button">
+                                        <button type="button" class="bg--666 size--full" id="devCertifyButton">{=trans('변경')}</button>
+                                    </div>
                                 </div>
+
+                                <p class="fb__profile__inquiry">{=trans('휴대폰 번호 변경을 원할 경우 변경 버튼을 선택하여 본인인증을 해 주세요.')}</p>
                             </td>
                         </tr>
 
@@ -180,19 +183,21 @@
                     
                                     <div class="terms__details">
                                         <div class="terms__details__check">
-                                            <label class="terms__details__check--main fb__comm__checkbox">
+                                            <label class="terms__details__check--main fb__checkbox">
                                                 <input type="checkbox" class="blind" id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/}>
                                                 <span>{=trans('동의')}</span>
                                             </label>
 
                                             <div class="terms__details__check--sub">
                                                 (
-                                                <label class="fb__comm__checkbox">
+                                                <label class="fb__checkbox">
+                                                    <input type="hidden" id="devBeforeSmsValue" value="{sms}" />
                                                     <input type="checkbox" class="blind" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/}>
                                                     <span>{=trans('SMS 수신')}</span>
                                                 </label>
                             
-                                                <label class="fb__comm__checkbox">
+                                                <label class="fb__checkbox">
+                                                    <input type="hidden" id="devBeforeInfoValue" value="{info}" />
                                                     <input type="checkbox" class="blind" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40">
                                                     <span>{=trans('이메일 수신')}</span>
                                                 </label>

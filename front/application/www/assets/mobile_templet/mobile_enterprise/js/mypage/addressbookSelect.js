@@ -179,6 +179,7 @@ var devAddressBookPopObj = {
         common.validation.set($('#devAddress2'), {'required': true});
         common.validation.set($('#devPcs1, #devPcs2, #devPcs3'), {'required': true});
 
+        common.inputFormat.set($('#devRecipient,#devShippingName,#devAddress2'), {'maxLength': 50});
         common.inputFormat.set($('#devPcs2, #devPcs3'), {'maxLength': 4});
     },
     initEvent: function () {

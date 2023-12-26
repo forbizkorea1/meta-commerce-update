@@ -1,0 +1,53 @@
+.fb {
+    &__page-nav {
+        padding: vw(15px) 0;
+        &__inner {
+            @extend %clear;
+        }
+
+        &__home,
+        &__select {
+            float: left;
+            position: relative;
+            margin-left: vw(12px);
+            padding-left: vw(10px);
+
+            &:after {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: #a0a0a0;
+                font-size: vw(10px);
+                line-height: vw(30px);
+                transform: scale(1, 2);
+                content: ">";
+            }
+
+            &:first-child {
+                margin-left: 0;
+                padding-left: 0;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            &.fb__page-nav__home {
+                color: $grey800;
+                font-size: vw(14px);
+                line-height: vw(30px);
+            }
+
+            &.fb__page-nav__select select {
+                height: vw(30px);
+                padding-right: vw(15px);
+                color: $grey800;
+                font-size: vw(14px);
+                border: 0;
+                background-image: url(../images/common/icon-select-arrow.png);
+                background-position: right vw(15px);
+            }
+        }
+    }
+}

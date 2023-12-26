@@ -1,0 +1,96 @@
+//페이지 최소크기
+$minWide: 1150px;
+//페이지 최대크기
+$maxWide: 1370px;
+$width: 1280px;
+
+// #region Primary Color
+$pcolor: #ff6600;
+$pcolor2: #111;
+// #endregion
+
+// #region Font
+$black: #111;
+$grey800: #666;
+$grey600: #999;
+$grey500: #aaa;
+// #endregion
+
+// #region Line
+$grey400: #ccc;
+$grey200: #ddd;
+$grey100: #e8e8e8;
+// #endregion
+
+// #region Background
+$bg_pcolor_25: rgba($pcolor, 0.05);
+$bg_grey50: #f8f8f8;
+$white: #fff;
+// #endregion
+
+// #region Sub Color
+$red: #ff0000;
+$blue: #3f8ef7;
+// #endregion
+
+$noto: "Notosans", sans-serif;
+$font_n: "Rb", $noto;
+$font_e: "Rb", $noto;
+
+%clear {
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+%joinStar {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 5px;
+  background: $pcolor;
+  font-size: 0;
+  border-radius: 50%;
+  vertical-align: top;
+}
+
+%vertical {
+  text-align: center;
+  white-space: nowrap;
+
+  figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+
+    &:after {
+      display: inline-block;
+      position: relative;
+      width: 1px;
+      height: 100%;
+      margin-left: -1px;
+      vertical-align: middle;
+      content: "";
+    }
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:after {
+    display: inline-block;
+    position: relative;
+    width: 1px;
+    height: 100%;
+    margin-left: -1px;
+    vertical-align: middle;
+    content: "";
+  }
+}

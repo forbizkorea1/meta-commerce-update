@@ -27,7 +27,7 @@
                 <td>{=g_number_format(.cupon_sale_value)} {? .cupon_sale_type == '1'}%{:}{=trans('원')}{/}</td>
                 <td>
                     {? .use_date_type == '9'}
-                        {=trans('무기한')}
+                        {=trans('제한 없음')}
                     {: .use_date_type == '1'}
                         {.regdate}<br/>~ {.publish_limit_date}
                     {: .use_date_type == '2'}

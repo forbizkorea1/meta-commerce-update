@@ -29,7 +29,7 @@
 
                     <!-- 전체선택 -->
                     <header class="fb__cart__top">
-                        <label for="cart_all_check" class="fb__comm__checkbox">
+                        <label for="cart_all_check" class="fb__checkbox">
                             <input type="checkbox" id="cart_all_check" class="devChangePriceEvent" checked>
                             <span>{=trans('전체선택')}</span>
                         </label>
@@ -48,7 +48,7 @@
 
                                 <!-- 셀러별: 01 셀러정보 -->
                                 <dt class="package__seller__info">
-                                    <label for="{cart.company_id}" class="fb__comm__checkbox">
+                                    <label for="{cart.company_id}" class="fb__checkbox">
                                         <input type="checkbox" class="cart_company_check devChangePriceEvent" id="{cart.company_id}" checked/>
                                         <span class="seller-name">{cart.com_name}</span>
                                     </label>
@@ -99,7 +99,7 @@
 
                                                                 <!-- 상품정보 -->
                                                                 <div class="item-info__info">
-                                                                    <strong class="item-info__name c-pointer">
+                                                                    <strong class="item-info__name">
                                                                         <a href="/shop/goodsView/{productList.id}">
                                                                             {? productList.brand_name}[{productList.brand_name}] {/}{productList.pname}
                                                                         </a>

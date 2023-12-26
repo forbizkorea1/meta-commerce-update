@@ -1,11 +1,276 @@
 .fb {
+    // scroll-lock
+    &.scroll--lock {
+        overflow: hidden;
+    }
+
+    // #region 기본 레이아웃
+    #document {
+        position: relative;
+        width: vw(750px);
+    }
+    
+    #container {
+        position: relative;
+        padding-bottom: vw(160px);
+    }
+
+    #content {
+        padding-bottom: 0;
+    }
+
+    #content.main {
+        margin-top: 0;
+    }
+
     // 컨텐츠 wrapper
     .panel {
         position: relative;
         left: 0;
     }
 
-    //상품 공통타입
+    .layout-padding {
+        width: 100%;
+        padding: vw(0 30px);
+        box-sizing: border-box;
+    }
+
+    .layout-full {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    // 페이지별 레이아웃 수정
+    &#shop_cart,
+    &#shop_infoInput,
+    &#shop_paymentComplete {
+        padding-bottom: vw(112px);
+        
+        .dockbar {
+            display: none;
+        }
+    }
+
+    &#shop_goodsQnaWrite {
+        div#document{
+            padding-top : 0px;
+        }
+    }
+    // #endregion
+
+    // #region 배송지 관리 팝업(주문배송조회도 같이 사용)
+    .deliveryPopup {
+        .addressPop {
+            &__tab {
+                display: flex;                
+
+                &__list {
+                    width: calc(50% + 2px);
+                    border: vw(2px) solid $grey200;
+                    margin-left: vw(-2px);
+
+                    &:first-child {
+                        width: 50%;
+                        margin-left: 0;
+                    }
+
+                    a {
+                        display: block;
+                        height: vw(86px);
+                        font-size: vw(28px);
+                        text-align: center;
+                        line-height: vw(86px);
+                    }
+
+                    &.on {
+                        position: relative;
+                        border: vw(2px) solid $pcolor;
+
+                        a {
+                            color: $pcolor;
+                        }
+                    }
+                }
+            }
+
+            &__cont {
+                display: none;
+
+                &.show {
+                    display: block;
+                }
+
+                .wrap-input-form {
+                    padding-top: vw(40px);
+                }
+            }
+
+            &__list {
+                position: relative;
+                padding: vw(40px 0);
+                border-bottom: vw(2px) solid #EEE;
+
+                &__radio {
+                    display: block;
+                }
+
+                &__name {
+
+                    .name {
+                        display: inline-block;
+                        vertical-align: middle;
+                        font: {
+                            size: vw(32px);
+                            weight: 600;
+                        };
+                        line-height: vw(48px);
+                    }
+
+                    .default-delivery {
+                        display: inline-block;
+                        width: vw(116px);
+                        height: vw(36px);
+                        margin-left: vw(12px);
+                        border: vw(2px) solid $blue;
+                        border-radius: vw(18px);
+                        font-size: vw(20px);
+                        color: $blue;
+                        line-height: vw(32px);
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                }
+
+                &__addr {
+                    margin-top: vw(26px);
+                    font-size: vw(28px);
+                    line-height: vw(40px);
+                }
+
+                &__tel {
+                    margin-top: vw(20px);
+                    font-size: vw(28px);
+                    color: $grey800;
+                    line-height: vw(34px);
+                }
+
+                &__btn {
+                    position: absolute;
+                    z-index: 1;
+                    bottom: vw(40px);
+                    right: 0;
+
+                    button {
+                        position: relative;
+                        margin-left: vw(10px);
+                        padding-left: vw(12px);
+                        border: 0;
+                        background: none;
+                        font-size: vw(26px);
+                        line-height: vw(34px);
+                        color: $grey600;
+
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            width: vw(2px);
+                            height: vw(24px);
+                            margin-top: vw(-12px);
+                            background: $grey200;
+                        }
+
+                        &:first-child {
+                            margin-left: 0;
+                            padding-left: 0;
+
+                            &:before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .wrap-input-form {
+                .address-box {
+                    display: flex;
+                    justify-content: space-between;
+
+                    input[type="text"] {
+                        width: vw(470px);
+                    }
+
+                    button {
+                        width: vw(200px);
+                        height: vw(90px);
+                        margin-left: vw(20px);
+                        background: $grey800;
+                        font-size: vw(26px);
+                        color: $white;
+                    }
+                }
+
+                .default-choice {
+                    margin-top: vw(40px);
+                    padding-top: vw(28px);
+                    border-top: vw(2px) solid $grey200;
+                }
+            }
+
+            .phone-num {
+                display: flex;
+                height: vw(90px);
+    
+                &__select {
+                    flex: 1 1;
+                    max-width: vw(220px);
+                    height: 100%;
+                    margin-right : vw(25px);
+                }
+    
+                &__detail {
+                    flex: 1 1;
+                    display: flex;
+                    justify-content: space-between;
+                    height: 100%;
+                    border: vw(2px) solid $grey200;
+    
+                    input{
+                        border: none;
+                        height: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+
+            &__paging {
+                margin-top: vw(50px);
+            }
+
+            &__btn {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    padding: 0;
+                    height: vw(112px);
+                    font: {
+                        size: vw(36px);
+                        weight: 600;
+                    };
+                }
+            }
+        }
+    }
+    // #endregion
+
+    // #region 상품 공통타입
     &__items {
         font-size: 0;
 
@@ -151,7 +416,7 @@
                     width: vw(40px);
                     height: vw(52px);
                     background: url(../images/shop/ico-best-number.png) no-repeat 0 0 / 100% auto;
-                    color: #fff;
+                    color: $white;
                     font-size: vw(30px);
                     text-align: center;
                     line-height: vw(52px);
@@ -180,7 +445,7 @@
             &__brand {
                 display: block;
                 margin-bottom: vw(4px);
-                color: #111;
+                color: $black;
                 font-weight: 600;
                 font-size: vw(24px);
                 line-height: vw(32px);
@@ -192,7 +457,7 @@
                 display: block;
                 max-width: vw(300px);
                 max-height: vw(72px);
-                color: #666;
+                color: $grey800;
                 font: {
                     size: vw(26px);
                     weight: normal;
@@ -207,12 +472,12 @@
                 position: relative;
                 height: vw(74px);
                 margin-top: vw(10px);
-                color: #111;
+                color: $black;
                 font-size: 0;
 
                 &--soldout {
                     font-size: vw(24px);
-                    color: #999;
+                    color: $grey600;
                     line-height: vw(32px);
                 }
 
@@ -227,7 +492,7 @@
 
                 &--strike {
                     display: inline-block;
-                    color: #999;
+                    color: $grey600;
                     font-size: vw(22px);
                     line-height: vw(40px);
                     text-decoration: line-through;
@@ -239,7 +504,7 @@
 
                 &--current {
                     display: block;
-                    color: #111;
+                    color: $black;
                     font-size: vw(24px);
                     line-height: vw(32px);
 
@@ -270,8 +535,8 @@
                     height: vw(40px);
                     margin-right: vw(4px);
                     padding: vw(0 6px);
-                    border: vw(2px) solid #ddd;
-                    color: #666;
+                    border: vw(2px) solid $grey200;
+                    color: $grey800;
                     font-weight: normal;
                     font-size: vw(20px);
                     text-align: center;
@@ -281,8 +546,9 @@
             }
         }
     }
+    // #endregion
 
-    //버튼 공통 디자인가이드
+    // #region 버튼 공통 디자인가이드
     &__button {
         &.type {
             &--full {
@@ -346,66 +612,66 @@
         
         .border {
             &--ccc {
-                background: #fff;
-                border: vw(2px) solid #ccc;   
-                color: #666;
+                background: $white;
+                border: vw(2px) solid $grey400;   
+                color: $grey800;
             }
 
             &--ddd {
-                background: #fff;
-                border: vw(2px) solid #ddd;   
-                color: #111;
+                background: $white;
+                border: vw(2px) solid $grey200;   
+                color: $black;
             }
 
             &--999 {
-                background: #fff;
-                border: vw(2px) solid #999;   
-                color: #666;
+                background: $white;
+                border: vw(2px) solid $grey600;   
+                color: $grey800;
             }
             
             &--point {
-                background: #fff;
+                background: $white;
                 border: vw(2px) solid $pcolor; 
                 color: $pcolor;
             }
 
             &--pointTop {
-                background: #fff;
+                background: $white;
                 border-top: vw(2px) solid $pcolor; 
                 color: $pcolor;
             }
 
             &--cccTop {
-                background: #fff;
-                border-top: vw(2px) solid #ccc;
-                color: #666;
+                background: $white;
+                border-top: vw(2px) solid $grey400;
+                color: $grey800;
             }
         }
 
         .bg {
             &--666 {
-                background: #666;
-                border: vw(2px) solid #666; 
-                color: #fff;
+                background: $grey800;
+                border: vw(2px) solid $grey800; 
+                color: $white;
             }
 
             &--999 {
-                background: #999;
-                border: vw(2px) solid #999; 
-                color: #fff;
+                background: $grey600;
+                border: vw(2px) solid $grey600; 
+                color: $white;
             }
 
             &--point {
                 background: $pcolor;
                 border: vw(2px) solid $pcolor; 
-                color: #fff;
+                color: $white;
             }
 
             //disabled 케이스
             &--eee {
                 background: #eee;
-                border: vw(2px) solid #ccc;
-                color: #999;
+                border: vw(2px) solid $grey400;
+                color: $grey600;
             }
         }
 
@@ -419,8 +685,8 @@
                 flex-wrap: nowrap;
                 align-items: center;
                 height: $spinnerButton;
-                background: #fff;
-                border: vw(2px) solid #ddd;
+                background: $white;
+                border: vw(2px) solid $grey200;
 
                 button {
                     width: $spinnerButton;
@@ -450,7 +716,7 @@
                     width: vw(110px);
                     height: 100%;
                     padding: 0;
-                    border: vw(2px) solid #ddd;
+                    border: vw(2px) solid $grey200;
                     border-width: vw(0 2px);
                     font-family: $font_n;
                     font-size: vw(24px);
@@ -465,9 +731,9 @@
                 &__change {
                     height: vw(52px);
                     padding: vw(0 28px);
-                    background: #fff;
-                    border: vw(2px) solid #ddd;   
-                    color: #999;
+                    background: $white;
+                    border: vw(2px) solid $grey200;   
+                    color: $grey600;
                     font-size: vw(24px);
                     letter-spacing: vw(-1.2px);
     
@@ -479,8 +745,9 @@
 
         }
     }
+    // #endregion
 
-    //인포 윈도우
+    // #region 인포 윈도우
     &__infolayer {
         display: none;
         position: absolute;
@@ -488,8 +755,8 @@
         right: 0;
         z-index: 1;
         width: vw(440px);
-        background: #fff;
-        border: vw(2px) solid #111;
+        background: $white;
+        border: vw(2px) solid $black;
 
         &.show {
             display: block;
@@ -501,11 +768,11 @@
             justify-content: space-between;
             align-items: center;
             padding: vw(20px 20px 20px 30px);
-            border-bottom: vw(2px) solid #ddd;
+            border-bottom: vw(2px) solid $grey200;
         }
 
         &__title {
-            color: #111;
+            color: $black;
             font: {
                 size: vw(24px);
                 weight: 400;
@@ -522,12 +789,13 @@
 
         &__cont {
             padding: vw(20px 30px);
-            color: #666;
+            color: $grey800;
             font-size: vw(24px);
             text-align: left;
             line-height: vw(40px);
         }
     }
+    // #endregion
 
     //lazyload 로딩중 이미지
     img[src*="loading"]{
@@ -543,13 +811,7 @@
         max-width: 100% !important;
         max-height: 100% !important;
     }
-
-    /***** 버픽 필요코드 *****/
-    #document {
-        position: relative;
-        width: vw(750px);
-    }
-
+    // #region 헤더
     .header {
         position: -webkit-sticky;
         position: sticky;
@@ -557,7 +819,7 @@
         top: 0;
         height: vw(100px);
         border-bottom: vw(2px) solid #eee;
-        background: #FFF;
+        background: $white;
         font: {
             size: vw(36px);
             weight: 500;
@@ -601,7 +863,7 @@
                     size: vw(36px);
                     weight: 600;
                 };
-                color: #111;
+                color: $black;
                 transform: translate(-50%, -50%);
 
                 &:after {
@@ -630,7 +892,7 @@
                     size: vw(36px);
                     weight: 600;
                 };
-                color: #111; 
+                color: $black; 
                 line-height: vw(98px);
                 text-align: center;
             }
@@ -692,11 +954,11 @@
                     width: vw(30px);
                     height: vw(30px);
                     border-radius: 50%;
-                    background: #FF6600;
+                    background: $pcolor;
                     font-size: vw(20px);
                     line-height: vw(30px);
                     text-align: center;
-                    color: #FFF;
+                    color: $white;
                 }
             }
         }
@@ -712,7 +974,7 @@
             width: 100%;
             padding: vw(0 30px);
             height: calc(100% - 100px);
-            background: #FFF;
+            background: $white;
 
             &--open {
                 display: block;
@@ -800,12 +1062,12 @@
                     &__link {
                         display: block;
                         font-size: vw(26px);
-                        color: #666;
+                        color: $grey800;
                         line-height: vw(36px);
 
                         &.active {
                             span {
-                                border-bottom: vw(2px) solid #666;
+                                border-bottom: vw(2px) solid $grey800;
                             }
                         }
                     }
@@ -824,7 +1086,7 @@
                 width: 100%;
                 height: 100%;
                 padding: vw(25px) vw(30px);
-                background: #fff;
+                background: $white;
 
                 &--open {
                     display: block;
@@ -855,8 +1117,8 @@
                         justify-content: space-between;
                         align-items: center;
                         padding-bottom: vw(40px);
-                        border-bottom: vw(2px) solid #ddd;
-                        color: #111;
+                        border-bottom: vw(2px) solid $grey200;
+                        color: $black;
                         font-size: vw(34px);
 
                         &::-webkit-details-marker {
@@ -870,7 +1132,7 @@
 
                     &__item {
                         margin-top: vw(60px);
-                        color: #111;
+                        color: $black;
                         font-size: vw(26px);
                         text-align: left;
 
@@ -904,7 +1166,7 @@
                             &__item {
                                 margin-top: vw(50px);
                                 margin-left: vw(20px);
-                                color: #666;
+                                color: $grey800;
                                 font-size: vw(24px);
 
                                 &:first-of-type {
@@ -917,8 +1179,8 @@
                             span {
                                 display: inline-block;
                                 padding-bottom: vw(3px);
-                                color: #111;
-                                border-bottom: vw(2px) solid #111;
+                                color: $black;
+                                border-bottom: vw(2px) solid $black;
                             }
                         }
                     }
@@ -936,8 +1198,9 @@
             }
         }
     }
+    // #endregion
 
-    // 검색 레이어 창
+    // #region 검색 레이어 창
     .wrap-search-layer {
         position: fixed;
         z-index: 10;
@@ -945,7 +1208,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: #FFF;
+        background: $white;
     }
 
     .searchLayer {
@@ -965,8 +1228,8 @@
             width: 100%;
             padding: vw(25px 30px 25px 80px);
             height: vw(130px);
-            background: #FFF;
-            border-bottom: vw(2px) solid #DDD;
+            background: $white;
+            border-bottom: vw(2px) solid $grey200;
             
             .btn-back {
                 display: block;
@@ -984,7 +1247,7 @@
             &__input {
                 position: relative;
                 padding-right: vw(100px);
-                background: #F8F8F8;
+                background: $bg_grey50;
 
                 &:before {
                     content: '';
@@ -995,7 +1258,7 @@
                     width: vw(2px);
                     height: vw(32px);
                     margin-top: vw(-16px);
-                    background: #DDD;
+                    background: $grey200;
                 }
 
                 .header-input-search {
@@ -1006,11 +1269,11 @@
                     font: {
                         size: vw(26px);
                     }
-                    color: #111;
+                    color: $black;
                     line-height: vw(80px);
 
                     &::placeholder {
-                        color: #999;
+                        color: $grey600;
                     }
                 }
 
@@ -1042,7 +1305,7 @@
                     weight: 400;
                 };
                 line-height: vw(48px);
-                color: #111;
+                color: $black;
             }
         }
 
@@ -1056,7 +1319,7 @@
                 right: 0;
                 padding: 0;
                 font-size: vw(24px);
-                color: #999;
+                color: $grey600;
                 transform: translate(0, -50%);
             }
 
@@ -1078,14 +1341,14 @@
                     height: vw(64px);
                     margin: vw(8px);
                     padding: vw(0 76px 0 26px);
-                    border: vw(2px) solid #DDD;
+                    border: vw(2px) solid $grey200;
                     border-radius: vw(32px);
                     vertical-align: top; 
 
                     a {
                         display: block;
                         font-size: vw(28px);
-                        color: #999;
+                        color: $grey600;
                         line-height: vw(60px);
                         @include line();
                     }
@@ -1141,7 +1404,7 @@
                         .rank {
                             width: vw(30px);
                             font-size: vw(28px);
-                            color: #FF6600;
+                            color: $pcolor;
                             text-align: left;
                         }
 
@@ -1161,12 +1424,11 @@
         &__noList {
             padding: vw(60px 0 68px);
             font-size: vw(28px);
-            color: #999;
+            color: $grey600;
             text-align: center;
         }
     }
-
-    // 라인 구분
+    // 검색 섹션 구분
     &__layout-division {
         width: 100%;
         height: vw(20px);
@@ -1174,8 +1436,9 @@
         border: 0;
         background: #F9F9F9;
     }
+    // #endregion
 
-    // 독바
+    // #region 독바
     .dockbar {
         display: flex;
         justify-content: space-between;
@@ -1187,8 +1450,8 @@
         height: vw(120px);
         padding-bottom: calc(constant(safe-area-inset-bottom));
         padding-bottom: calc(env(safe-area-inset-bottom));
-        border-top: vw(2px) solid #DDD;
-        background: #FFF;
+        border-top: vw(2px) solid $grey200;
+        background: $white;
         box-sizing: content-box;
 
         &--active {
@@ -1201,7 +1464,7 @@
             width: vw(134px);
             padding-top: vw(80px);
             font-size: vw(20px);
-            color: #999;
+            color: $grey600;
             text-align: center;
 
             &--caterogy {
@@ -1221,8 +1484,9 @@
             }
         }
     }
+    // #endregion
 
-    // 드로어 메뉴
+    // #region 드로어메뉴(내비게이션)
     #navigation {
         position: fixed;
         top: 0;
@@ -1231,7 +1495,7 @@
         width: 100%;
         height: 100%;
         padding: vw(200px 0 100px);
-        background: #fff;
+        background: $white;
         transition: left .2s ease;
     
         .menu-close {
@@ -1252,13 +1516,13 @@
                 left: 0;
                 padding: vw(16px 30px 60px);
                 width: 100%;
-                background: #f8f8f8;
+                background: $bg_grey50;
             
                 &__join {
                     .user-grade {
                         display: inline-block;
                         margin-right: vw(12px);
-                        color: #666;
+                        color: $grey800;
                         font: {
                             size: vw(22px);
                             weight: 400;
@@ -1272,9 +1536,9 @@
                         display: inline-block;
                         position: relative;
                         padding: vw(0 28px 0 16px);
-                        border: vw(2px) solid #ccc;
+                        border: vw(2px) solid $grey400;
                         border-radius: vw(8px);
-                        color: #666;
+                        color: $grey800;
                         font-size: vw(20px);
                         line-height: vw(40px);
                         vertical-align: middle;
@@ -1297,12 +1561,12 @@
                     margin-top: vw(24px);
             
                     span {
-                        color: #111;
+                        color: $black;
                         font-size: vw(48px);
                         line-height: vw(60px);
             
                         em {
-                            color: #111;
+                            color: $black;
                             font: {
                                 size: vw(48px);
                                 weight: bold;
@@ -1315,7 +1579,7 @@
                         display: inline-block;
                         position: relative;
                         padding-right: vw(24px);
-                        color: #111;
+                        color: $black;
                         font-size: vw(48px);
                         line-height: vw(60px);
 
@@ -1400,7 +1664,7 @@
                                     size: vw(28px);
                                     weight: 600;
                                 };
-                                color: #111;
+                                color: $black;
                                 line-height: vw(100px);
                             }
 
@@ -1442,7 +1706,7 @@
                         &__list {
                             &__link {
                                 font-size: vw(26px);
-                                color: #666;
+                                color: $grey800;
                                 line-height: vw(80px);
                             }
                         }
@@ -1475,7 +1739,7 @@
                                 size: vw(32px);
                                 weight: 600;
                             };
-                            color: #111;
+                            color: $black;
                             
                             &.dots {
                                 position: relative;
@@ -1489,14 +1753,14 @@
                                     width: vw(8px);
                                     height: vw(8px);
                                     border-radius: 50%;
-                                    background: #ff6600;
+                                    background: $pcolor;
                                 }
                             }
                         }
 
                         span {
                             font-size: vw(24px);
-                            color: #999;
+                            color: $grey600;
                         }
                     }
                 }
@@ -1524,7 +1788,7 @@
                         .swiper-pagination-bullet {
                             margin-top: vw(16px);
                             &-active {
-                                background: #111;
+                                background: $black;
                             }
                         }
                     }
@@ -1541,7 +1805,7 @@
                 bottom: 0;
                 width: 100%;
                 height: vw(100px);
-                background: #f8f8f8;
+                background: $bg_grey50;
 
                 &__list {
                     position: relative;
@@ -1555,7 +1819,7 @@
                         left: 0;
                         width: vw(2px);
                         height: vw(24px);
-                        background: #DDD;
+                        background: $grey200;
                         transform: translateY(-50%);
                         content: "";
                     }
@@ -1572,7 +1836,7 @@
                     a {
                         display: block;
                         font-size: vw(28px);
-                        color: #111;
+                        color: $black;
                     }
                 }
             }
@@ -1589,7 +1853,23 @@
         }
     }
 
-    // sns 공통화
+    // 메뉴 오픈시
+    .menu-open {
+        overflow: hidden;
+
+        #navigation {
+            left: 0;
+        }
+    
+        .panel {
+            left: 100%;
+            background: rgba(0, 0, 0, .5);
+            transition: left .2s ease;
+        }
+    }
+    // #endregion
+
+    // #region SNS
     &__sns {
         &__wrapper {
             display: none;
@@ -1643,7 +1923,7 @@
 
         &__btn {
             padding: 0;
-            color: #FFF;
+            color: $white;
             font-size: vw(24px);
             line-height: vw(36px);
 
@@ -1674,25 +1954,24 @@
             }
         }
     }
+    // #endregion
 
-    // 푸터
+    // #region 푸터
     #footer {
-        margin-top: vw(160px);
-        padding: vw(60px 0 120px);
-        background: #f8f8f8;
+        background: $bg_grey50;
 
         .footer {
             &__inner {
                 width: vw(750px);
-                padding: vw(0 30px);
+                padding: vw(60px 30px 120px);
                 font-size: vw(20px);
-                color: #666;
+                color: $grey800;
             }
 
             // (탑)사업자정보
             &__info {
                 padding-bottom: vw(30px);
-                border-bottom: vw(2px) solid #ddd;
+                border-bottom: vw(2px) solid $grey200;
 
                 &[open] {
                     .footer__info__btn {
@@ -1706,7 +1985,7 @@
 
                 &__btn {
                     display: block;
-                    color: #666;
+                    color: $grey800;
                     font-size: vw(28px);
                     text-align: left;
                     line-height: vw(40px);
@@ -1744,7 +2023,7 @@
 
                     p {
                         margin-top: vw(8px);
-                        color: #999;
+                        color: $grey600;
                         font: {
                             size: vw(24px);
                             weight: 400;
@@ -1757,7 +2036,7 @@
     
                         span {
                             margin-left: vw(5px);
-                            color: #666;
+                            color: $grey800;
                             font: {
                                 size: vw(24px);
                                 weight: 400;
@@ -1799,7 +2078,7 @@
                         left: 0;
                         width: vw(2px);
                         height: vw(16px);
-                        background: #ddd;
+                        background: $grey200;
                         transform: translateY(-50%);
                     }
     
@@ -1819,7 +2098,7 @@
                 margin-top: vw(40px);
     
                 &__txt {
-                    color: #666;
+                    color: $grey800;
                     font: {
                         size: vw(24px);
                         weight: 400;
@@ -1832,7 +2111,7 @@
 
                     em {
                         margin-left: vw(12px);
-                        color: #666;
+                        color: $grey800;
                         font: {
                             size: vw(38px);
                             weight: 600;
@@ -1876,7 +2155,7 @@
             &__copyright {
                 margin-top: vw(40px);
                 font-size: vw(22px);
-                color: #999;
+                color: $grey600;
                 text-align: left;
                 line-height: vw(24px);
                 letter-spacing: 0 !important;
@@ -1884,7 +2163,6 @@
         }
     }
 
-    // 푸터 : 로그인 회사소개 공지사항 고객센터 
     .menu-footer {
         // 모바일 푸터 시안에 없어서 일단 none 시킴
         display: none;
@@ -1893,14 +2171,15 @@
         text-align: center;
 
         a {
-            color: #111;
+            color: $black;
             font-size: vw(26px);
             font-weight: bold;
             margin: 0 vw(25px);
         }
     }
+    // #endregion
 
-    // 톡
+    // #region 톡 관련
     #HappytalkIframe {
         bottom: 52px !important;
         right: 0 !important;
@@ -1927,18 +2206,18 @@
             display: none;
         }
     }
+    // #endregion
     // 장바구니/주문서 작성/주문완료 공통
     &#shop_cart,
     &#shop_infoInput,
     &#shop_paymentComplete {
-        padding-bottom: vw(112px);
         
         .dockbar {
             display: none;
         }
     }
 
-    // form 태그 공통
+    // #region 폼 태그 공통
     .wrap-input-form {
         padding-top: vw(30px);
 
@@ -1956,7 +2235,7 @@
                 size: vw(26px);
                 weight: 600;
             };
-            color: #111;
+            color: $black;
 
             em {
                 display: inline-block;
@@ -1982,7 +2261,7 @@
         input[type="checkbox"] {
             + {
                 label {
-                    color: $textGrey;
+                    color: $grey800;
                 }
             }
         }
@@ -2005,20 +2284,21 @@
             padding: vw(26px 30px 40px 30px);
         }
     }
+    // #endregion
 
-    // [더보기] 버튼
+    // #region 더보기버튼
     .btn-more-view {
         display: block;
         width: 100%;
-        border: vw(2px) solid #ccc;
-        background: #fff;
+        border: vw(2px) solid $grey400;
+        background: $white;
         padding: vw(20px 0);
         font-size: vw(28px);
         line-height: vw(48px);
         text-align: center;
 
         span {
-            color: #111;
+            color: $black;
         }
         
         &:after {
@@ -2031,8 +2311,9 @@
             content: "";
         }
     }
+    // #endregion
 
-    // 공지 팝업
+    // #region 공지 팝업
     &__notice-pop {
         display: none;
         position: fixed;
@@ -2056,7 +2337,7 @@
             z-index: 101;
             min-width: vw(580px);
             max-width: 80%;
-            background: #FFF;
+            background: $white;
         }
         
         &__inner {
@@ -2092,12 +2373,12 @@
             display: inline-block;
             width: 50%;
             height: vw(70px);
-            background: #111;
+            background: $black;
             font: {
                 size: vw(22px);
                 family: $font_noto;
             };
-            color: #FFF;
+            color: $white;
             line-height: vw(70px);
             vertical-align: top;
         }
@@ -2106,8 +2387,8 @@
             display: inline-block;
             width: 50%;
             height: vw(70px);
-            border-top: vw(2px) solid #111;
-            background: #FFF;
+            border-top: vw(2px) solid $black;
+            background: $white;
             font: {
                 size: vw(22px);
                 family: $font_noto;
@@ -2116,24 +2397,9 @@
             vertical-align: top;
         }
     }
-
-    // 메뉴 오픈
-    .menu-open {
-        overflow: hidden;
-
-        #navigation {
-            left: 0;
-        }
+    // #endregion
     
-        .panel {
-            left: 100%;
-            background: rgba(0, 0, 0, .5);
-            transition: left .2s ease;
-        }
-    }
-    
-    
-    // 자동완성
+    // #region 자동완성
     .ui-menu {
         display: block;
         position: fixed;
@@ -2148,7 +2414,7 @@
         &-item {
             margin-top: vw(40px);
             font-size: vw(28px);
-            color: #111;
+            color: $black;
             letter-spacing: -0.025rem;
             @include line();
             
@@ -2157,121 +2423,22 @@
             }
 
             span {
-                color: #FF6600 !important;
+                color: $pcolor !important;
             }
         }
     }
+    // #endregion
 
-    /***** 버픽 필요코드 *****/
-
- 
-
-    &#shop_goodsQnaWrite {
-        div#document{
-            padding-top : 0px;
-        }
-    }
-   
-    .footer-information .btn-cscenter {
-        display: inline-block;
-        margin-left: vw(4px);
-        padding: 0 vw(18px);
-        border: vw(2px) solid $white5;
-        background: #eee;
-        color: $textGrey;
-        font-size: vw(18px);
-        line-height: vw(44px);
-    }
-
-    /* sns */
-    .footer-information .flogo {
-        display: block;
-        width: vw(182px);
-        height: vw(740px);
-        margin: vw(36px) auto 0;
-        background: url("../images/version_fix/sprite.png") no-repeat vw(-376px -57px);
-        background-size: vw(2000px);
-        font: 0/0 a;
-    }
-
-    /* sns */
-    .sns-area {
-        margin-top: vw(18px);
-        text-align: center;
-
-        a {
-            display: inline-block;
-            width: vw(44px);
-            height: vw(39px);
-            margin: 0 vw(16px);
-            background: url("../images/version_fix/sprite.png") no-repeat;
-            background-size: vw(2000px);
-            font: 0/0 a;
-
-            &.facebook {
-                width: vw(26px);
-                background-position: vw(-165px) 0;
-            }
-
-            &.instagram {
-                width: vw(39px);
-                background-position: vw(-201px) 0;
-            }
-        }
-    }
-
-    .wrap-search-result {
-        margin-top: vw(30px);
-    }
-
-    .component-wraper {
-        margin: 0 auto;
-        width: vw(750px);
-        height: 100%;
-        background: $white1;
-    }
-
-    .ui-section {
-        padding: vw(25px);
-        height: auto;
-        border: 1px solid #eee;
-        box-sizing: border-box;
-    }
-
-    .show {
-        display: block;
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    .clearfix {
-        &:after {
-            content: '';
-            display: block;
-            clear: both;
-        }
-    }
-
-    .strike {
-        color: $textGrey2;
-        text-decoration: line-through;
-    }
-
-    .point-color {
-        color: $pcolor;
-    }
-
+    // #region 페이지 타이틀
     .wrap-title {
         position: relative;
         height: vw(100px);
-        border-bottom: 1px solid #DDD;
+        border-bottom: 1px solid $grey200;
         font: {
             size: vw(36px);
             weight: 600;
         };
-        color: #111;
+        color: $black;
         line-height: vw(100px);
         text-align: center;
         box-sizing: border-box;
@@ -2310,18 +2477,9 @@
             }
         }
     }
-    
-    .layout-padding {
-        width: 100%;
-        padding: vw(0 30px);
-        box-sizing: border-box;
-    }
+    // #endregion
 
-    .layout-full {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
+    // #region margin custom
     .mat10 {
         margin-top: vw(10px) !important;
     }
@@ -2332,6 +2490,7 @@
 
     .mat30 {
         margin-top: vw(30px) !important;
+        margin-bottom: vw(15px);
     }
 
     .mat40 {
@@ -2357,21 +2516,29 @@
     .mab10 {
         margin-left: vw(10px) !important;
     }
+    
+    .ml0 {
+        margin-left: 0 !important;
+    }
+    // #endregion
 
+    // #region 섹션 구분
     .wrap-sect {
         height: vw(18px);
         width: 100%;
-        background: #f8f8f8;
+        background: $bg_grey50;
 
         &.w {
-            background: #fff;
+            background: $white;
         }
 
         &.e {
             background: #EEE;
         }
     }
+    // #endregion
 
+    // #region float 관련
     .float-l {
         float: left;
     }
@@ -2384,6 +2551,16 @@
         float: none;
     }
 
+    .clearfix {
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    // #endregion
+
+    // #region 버튼
     [class^='btn'] {
         border-radius: 0;
         text-align: center;
@@ -2428,21 +2605,21 @@
     }
 
     .btn-dark {
-        color: #fff;
-        background: $textGrey;
+        color: $white;
+        background: $grey800;
         border: 0;
     }
 
     .btn-dark-line {
-        color: $textGrey;
-        background: #fff;
-        border: vw(2px) solid $textGrey2;
+        color: $grey800;
+        background: $white;
+        border: vw(2px) solid $grey600;
     }
 
     .btn-ccc-line {
-        color: #666;
-        background: #fff;
-        border: vw(2px) solid #ccc;
+        color: $grey800;
+        background: $white;
+        border: vw(2px) solid $grey400;
     }
 
     .btn-point-line {
@@ -2450,20 +2627,20 @@
     }
 
     .btn-white {
-        color: $textGrey;
-        background: #fff;
-        border: vw(2px) solid $white5;
+        color: $grey800;
+        background: $white;
+        border: vw(2px) solid $grey400;
     }
 
     .btn-point {
-        color: #fff;
+        color: $white;
         background: $pcolor;
     }
 
     .btn-point-line {
         color: $pcolor;
         border: vw(2px) solid $pcolor;
-        background: #fff;
+        background: $white;
     }
 
     .btn-top {
@@ -2511,10 +2688,12 @@
             }
         }
     }
+    // #endregion
 
+    // #region 가이드 텍스트
     .txt-guide {
         font-size: vw(24px);
-        color: $textGrey2;
+        color: $grey600;
     }
 
     .txt-error {
@@ -2533,7 +2712,7 @@
 
     .txt-desc {
         font-size: vw(24px);
-        color: $textGrey;
+        color: $grey800;
         line-height: vw(32px);
     }
 
@@ -2591,11 +2770,13 @@
             }
         }
     }
+    // #endregion
 
+    // #region hyphen
     .hyphen {
         display: inline-block;
         font-size: vw(26px);
-        color: #111;
+        color: $black;
         width: vw(30px);
         text-align: center;
         margin-top: vw(25px);
@@ -2608,7 +2789,7 @@
             size: vw(24px);
             weight: 600;
         };
-        color: #111;
+        color: $black;
     }
 
     .input-comnum {
@@ -2616,18 +2797,27 @@
             width: vw(25px);
         }
     }
+    // #endregion
+
+    // #region text, font 관련
+    .strike {
+        color: $grey600;
+        text-decoration: line-through;
+    }
 
     .font-rb {
         font-family: $font_n;
     }
+    // #endregion
 
+    // #region empty
     .empty-content {
         padding: vw(120px 0);
         text-align: center;
 
         &__txt {
             padding: 0 vw(10px); 
-            color: #666;
+            color: $grey800;
             font-size: vw(28px);
             line-height: vw(40px);
             word-break: break-all;
@@ -2642,11 +2832,11 @@
             }
 
             em {
-                color: #FF6600;
+                color: $pcolor;
             }
 
             strong {
-                color: #FF6600;
+                color: $pcolor;
                 font-weight: 400;
             }
         }
@@ -2655,7 +2845,7 @@
             max-width: vw(506px);
             margin: vw(20px auto 0);
             font-size: vw(26px);
-            color: #999;
+            color: $grey600;
             line-height: vw(36px);
             text-align: left;
         }
@@ -2665,11 +2855,13 @@
         }
 
         &.borderTopBottom {
-            border-top: vw(2px) solid #111;
+            border-top: vw(2px) solid $black;
             border-bottom: vw(2px) solid #EEE;
         }
     }
+    // #endregion
 
+    // #region 썸네일
     .thumb {
         img {
             width: 100%;
@@ -2677,7 +2869,9 @@
             object-fit: cover;
         }
     }
-    
+    // #endregion
+
+    // #region pagination
     .wrap-pagination {
         margin: vw(30px auto 80px);
         font: {
@@ -2687,7 +2881,7 @@
         text-align: center;
 
         a {
-            color: $textGrey;
+            color: $grey800;
             padding: vw(8px 15px);
         }
 
@@ -2725,20 +2919,22 @@
             background-position: vw(-500px -200px);
         }
     }
+    // #endregion
 
+    // #region 별점
     .set-star {
 
         display: inline-block;
         position: relative;
         width: vw(140px);
         height: vw(24px);
-        background: #fff url(../images/icon/m_score_color.png) repeat-x 0 0 / vw(28px 48px);
+        background: $white url(../images/icon/m_score_color.png) repeat-x 0 0 / vw(28px 48px);
         text-align: left;
 
         .score {
             display: inline-block;
             height: vw(24px);
-            background: #fff url(../images/icon/m_score_color.png) repeat-x vw(0 -24px) / vw(28px 48px);
+            background: $white url(../images/icon/m_score_color.png) repeat-x vw(0 -24px) / vw(28px 48px);
         }
     }
 
@@ -2765,7 +2961,9 @@
             background: url(../images/icon/m_score_b.png) repeat-x vw(0 -44px) / vw(50px 88px);
         }
     }
+    // #endregion
 
+    // #region valuation
     .valuation {
         position: relative;
 
@@ -2797,7 +2995,9 @@
             }
         }
     }
+    // #endregion
 
+    // #region 멀티 인풋
     .wrap-multi-input {
         &:after {
             content: '';
@@ -2820,9 +3020,9 @@
             padding: 0 vw(40px);
         }
     }
+    // #endregion
 
-   
-
+    // #region 약관 관련
     .term-list {
         position: relative;
         padding: vw(35px 25px);
@@ -2875,9 +3075,9 @@
         max-height: vw(200px);
         padding: vw(30px 25px);
         border-bottom: vw(2px) solid #EEE;
-        background: #f8f8f8;
+        background: $bg_grey50;
         font-size: vw(24px);
-        color: $textGrey;
+        color: $grey800;
         line-height: vw(34px);
         box-sizing: border-box;
 
@@ -2889,11 +3089,11 @@
     }
 
     .marketing-wrap {
-        background: $white1;
+        background: $bg_grey50;
         padding: vw(30px);
 
         .tit {
-            color: #111;
+            color: $black;
             font-size: vw(24px);
             font-weight: 600;
             margin-bottom: vw(20px);
@@ -2902,7 +3102,7 @@
         .sub-txt {
             position: relative;
             padding-left: vw(20px);
-            color: #999;
+            color: $grey600;
             font-size: vw(22px);
             line-height: vw(32px);
 
@@ -2914,7 +3114,7 @@
                 left: 0;
                 width: vw(4px);
                 height: vw(4px);
-                background: $textGrey2;
+                background: $grey600;
                 border-radius: 100%;
             }
 
@@ -2929,7 +3129,7 @@
         margin-bottom: vw(20px);
         padding: vw(30px 0 30px 25px);
         border-bottom: 1px solid #eee;
-        color: #111;
+        color: $black;
     }
 
     .wrap-phone-auth {
@@ -2940,7 +3140,7 @@
                 size: vw(25px);
                 family: $font_n;
             };
-            color: #111;
+            color: $black;
         }
 
         .certify-complete {
@@ -2966,7 +3166,7 @@
             margin-top: vw(15px);
             font-size: vw(24px);
             line-height: vw(30px);
-            color: $textGrey;
+            color: $grey800;
             letter-spacing: vw(-1.3px);
             clear: both;
         }
@@ -2987,13 +3187,15 @@
             }
         }
     }
+    // #endregion
     
+    // #region 파일 업로드 관련
     button.file-upload-btn {
         position: relative;
         float: left;
         width: vw(130px);
         height: vw(130px);
-        border: 1px solid #ddd;
+        border: 1px solid $grey200;
         cursor: pointer;
 
         &:after {
@@ -3029,34 +3231,34 @@
         height: vw(40px);
         background: url(../images/customer/ico_customer_uploadClose.png) no-repeat 0 0 / 100% auto;
     }
+    // #endregion
 
-    .wrap-btn-area.input-cpn {
-        padding: vw(30px 25px 80px 25px);
-    }
-
+    // #region 테이블
     .table-default {
         width: 100%;
         font-size: vw(22px);
         text-align: left;
-        border-top: 1px solid $white5;
+        border-top: 1px solid $grey400;
 
         th {
             padding: vw(29px 20px);
-            border-bottom: 1px solid $white5;
+            border-bottom: 1px solid $grey400;
             background: #f7f7f9;
-            color: #111;
+            color: $black;
         }
 
         td {
             padding: vw(29px 20px);
-            border-bottom: 1px solid $white5;
+            border-bottom: 1px solid $grey400;
         }
     }
+    // #endregion
 
+    // #region 팝업 이미지 보기
     .popup-img-view {
         width: 100%;
         height: 100vh;
-        background: #111;
+        background: $black;
 
         .back {
             position: absolute;
@@ -3069,7 +3271,9 @@
             z-index: 100;
         }
     }
+    // #endregion
 
+    // #region 리뷰 이미지
     .review-detail-img {
         height: calc(100% - #{vw(100px)});
         position: relative;
@@ -3083,7 +3287,7 @@
             transform: translateX(-50%);
             font-size: vw(26px);
             font-family: 'Rb';
-            color: #fff;
+            color: $white;
             border-radius: vw(40px);
             padding: vw(15px 30px);
         }
@@ -3109,12 +3313,25 @@
             align-items: center;
         }
     }
+    .review-img-area {
+        margin-top: vw(40px);
 
+        .swiper-slide {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    // #endregion
+
+    // #region step 공통
     .wrap-step {
         overflow: hidden;
         margin: vw(0 30px);
         padding: vw(60px 0 20px);
-        border-bottom: vw(2px) solid #111;
+        border-bottom: vw(2px) solid $black;
         
         &__title {
             float: left;
@@ -3122,7 +3339,7 @@
                 size: vw(36px);
                 weight: 600;
             };
-            color: #111;
+            color: $black;
         }
 
         .step {
@@ -3136,12 +3353,12 @@
                 height: vw(10px);
                 margin: vw(0 5px);
                 border-radius: 50%;
-                background: $white4;
+                background: $grey200;
                 font: {
                     size: 0;
                     family: 'rb';
                 };
-                color: #fff;
+                color: $white;
                 line-height: vw(36px);
                 text-align: center;
                 vertical-align: middle;
@@ -3152,181 +3369,14 @@
                 width: vw(36px);
                 height: vw(36px);
                 background: $pcolor;
-                color: #fff;
+                color: $white;
                 font-size: vw(24px);
             }
         }
     }
+    // #endregion
 
-    .radio-tab {
-        overflow: hidden;
-        span {
-            display: inline-block;
-            float: left;
-            width: 50%;
-            padding: vw(22px 0);
-            border: 1px solid $white5;
-            font-size: vw(24px);
-            color: $textGrey;
-            text-align: center;
-
-            &:first-child {
-                border-right-color: $pcolor;
-            }
-
-            + {
-                span {
-                    border-left: 0;
-                }
-            }
-        }
-
-        span.on {
-            border-color: $pcolor;
-            color: $pcolor;
-            background: #fff;
-        }
-    }
-
-    .review-img-area {
-        margin-top: vw(40px);
-
-        .swiper-slide {
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-
-    .pub-btn-indicator {
-        width: 100%;
-        height: vw(40px);
-        border-bottom: vw(2px) solid $pcolor;
-        box-sizing: border-box;
-    }
-
-    .pub-indicator-arrw {
-        display: block;
-        position: relative;
-        top: vw(2px);
-        width: vw(110px);
-        height: vw(38px);
-        margin: 0 auto;
-        cursor: pointer;        
-    }
-
-    .pub-list-wrap {
-        background: #fff;
-        padding: vw(20px);
-        display: inline-block;
-        margin-bottom: vw(10px);
-    }
-
-    .pub-option-top {
-        display: inline-block;
-    }
-
-    .pub-option-bottom {
-        margin-top: vw(14px);
-    }
-
-    .pub-option-wrap {
-        width: auto;
-        padding: vw(25px 25px 15px);
-        background: #f3f3f3;
-    }
-
-    .pub-prd-tit {
-        font-size: vw(24px);
-        float: left;
-        width: 92%;
-        margin-top: vw(-5px);
-        color: #111;
-        line-height: 1.3em;
-    }
-
-    .pub-btn-option-close {
-        float: right;
-        width: vw(20px);
-        height: vw(20px);
-        cursor: pointer;
-    }
-
-    .pub-prd-price {
-        float: right;
-        padding-top: vw(16px);
-        font: {
-            size: vw(20px);
-            weight: 600;
-        };
-        color: #111;
-
-        .rbt {
-            font: {
-                size: vw(30px);
-                weight: 900;
-            };
-        }
-    }
-
-    .pub-total-price-wrap {
-        display: inline-table;
-        width: -webkit-fill-available;
-        padding: vw(25px);
-        background: #fff;
-        font: {
-            size: vw(26px);
-            weight: 600;
-        };
-        color: #111;
-    }
-
-    .pub-total-price-tit {
-        float: left;
-        line-height: vw(36px);
-    }
-
-    .pub-total-price-value {
-        float: right;
-        text-align: right;
-
-        span {
-            font: {
-                size: vw(36px);
-                weight: 600;
-            }
-        }
-    }
-
-    .pub-form-search {
-        background: #fff;
-        border: 1px solid $pcolor;
-        position: relative;
-
-        input {
-            display: inline-block;
-            width: 70%;
-            padding: vw(24px 20px);
-            border: 0;
-            font-size: vw(24px);
-
-            &:focus {
-                outline: none;
-            }
-        }
-
-        span {
-            display: inline-block;
-            position: absolute;
-            right: 0;
-            width: vw(30px);
-            height: vw(30px);
-            margin: vw(24px 20px 0 0);
-        }
-    }
-
+    // #region 탭메뉴 관련
     .wrap-tab-cont {
         display: block;
         width: 100%;
@@ -3338,7 +3388,6 @@
             }
         }
     }
-
     .tab {
         overflow: hidden;
         width: 100%;
@@ -3347,11 +3396,11 @@
             position: relative;
             width: 50%;
             height: vw(90px);
-            border-bottom: 1px solid $white4;
+            border-bottom: 1px solid $grey200;
             box-sizing: border-box;
             line-height: vw(90px);
             text-align: center;
-            color: $textGrey;
+            color: $grey800;
             &:first-child {
                 // border-right: 1px solid $pcolor;
             }
@@ -3370,7 +3419,7 @@
             // border-top: 1px solid $pcolor;
             // border-bottom: none;
             border-bottom: vw(3px) solid $pcolor;
-            color: #111;
+            color: $black;
             color: $pcolor;
             font-weight: 600;
         }
@@ -3406,7 +3455,7 @@
             }
         }
         li.on {
-            color: #111;
+            color: $black;
             a {
                 &:after {
                     content: "";
@@ -3416,7 +3465,7 @@
                     left: 0;
                     width: 100%;
                     height: vw(4px);
-                    background: #111;
+                    background: $black;
                 }
             }
         }
@@ -3429,18 +3478,9 @@
     .tab-con.on {
         display: block;
     }
-    .popup-mask {
-         position: fixed;
-         width: 100%;
-         height: 100%;
-         left: 0;
-         top: 0;
-         z-index: 9998;
-         background-color: #111;
-         display: none;
-    }
+    // #endregion
 
-    // 공통 레이어 팝업
+    // #region 공통 레이어 팝업
     &__popup-layout {
         display: none;
         position: fixed;
@@ -3450,7 +3490,7 @@
         width: vw(650px);
         height: auto;
         max-height: 90%;
-        background: #fff;
+        background: $white;
         transform: translate3d(-50%, -50%, 0);
 
         &.layout-none {
@@ -3493,7 +3533,7 @@
         }
 
         &.popup-img {
-            background: #111;
+            background: $black;
 
             .btn-close-bottom {
                 display: none !important;
@@ -3551,9 +3591,9 @@
             .btn-close-bottom {
                 height: vw(100px);
                 border-top: 0;
-                background: #f8f8f8 !important;
+                background: $bg_grey50 !important;
                 font-size: vw(28px);
-                color: #111 !important;
+                color: $black !important;
             }
         }
 
@@ -3566,7 +3606,7 @@
 
                 &-title {
                     margin: vw(0 30px);
-                    border-bottom: 1px solid #111;
+                    border-bottom: 1px solid $black;
                     text-align-last: left;
 
                     .close {
@@ -3577,6 +3617,16 @@
         }
     }
 
+    .popup-mask {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 9998;
+        background-color: $black;
+        display: none;
+    }
     .popup-layout {
         position: relative;
         z-index: 9999;
@@ -3584,11 +3634,11 @@
         left: 0;
         right: 0;
         height: 100%;
-        background: #FFF;
+        background: $white;
         text-align: left;
 
         &.popup-img-view {
-            background: #111;
+            background: $black;
 
             .popup-content {
                 padding: 0;
@@ -3614,7 +3664,7 @@
 
         .pop-cont-detail {
             p,span {
-                color: #999 !important;
+                color: $grey600 !important;
                 font-size: vw(26px) !important;
                 font-family: $font_n !important;
                 line-height: vw(40px);
@@ -3628,7 +3678,7 @@
         height: vw(100px);
         font-size: vw(32px);
         font-weight: 600;
-        border-bottom: vw(2px) solid #ddd;
+        border-bottom: vw(2px) solid $grey200;
         line-height: vw(98px);
         text-align: center;
 
@@ -3658,13 +3708,13 @@
         height: vw(100px);
         color : #ffffff;
         font-size: vw(32px);
-        border-top: 1px solid #ccc;
+        border-top: 1px solid $grey400;
         background: $pcolor;
     }
 
     .popup-frame-layout {
         display: none;
-        background: #fff;
+        background: $white;
         width: 100%;
         height: 100%;
         z-index: 99999;
@@ -3675,7 +3725,7 @@
             max-height: vw(100px);
             font-size: vw(32px);
             font-weight: 600;
-            border-bottom: vw(2px) solid #ddd;
+            border-bottom: vw(2px) solid $grey200;
             line-height: vw(98px);
             text-align: center;
 
@@ -3734,12 +3784,13 @@
                 position: absolute;
                 left: -4vw;
                 top: vw(-20px);
-                background-color: #f8f8f8;
+                background-color: $bg_grey50;
             }
         }
     }
-    // 공통팝업
+    // #endregion
 
+    // #region up-down 옵션
     .option-up-down {
         display: inline-block;
         overflow: hidden;
@@ -3748,13 +3799,13 @@
         li {
             float: left;
             font-size: vw(24px);
-            color: #111;
-            background: #fff;
+            color: $black;
+            background: $white;
 
             button {
                 width: vw(60px);
                 height: vw(60px);
-                border: vw(2px) solid #CCC;
+                border: vw(2px) solid $grey400;
                 background: url(../images/icon/m_sprite_icon.png) no-repeat;
                 background-size: vw(1000px);
 
@@ -3772,28 +3823,20 @@
                 height: vw(60px);
                 border: 0;
                 border: {
-                    top: vw(2px) solid #CCC;
-                    bottom: vw(2px) solid #CCC;
+                    top: vw(2px) solid $grey400;
+                    bottom: vw(2px) solid $grey400;
                 };
-                color: #111;
+                color: $black;
                 text-align: center;
                 line-height: vw(60px);
             }
         }
     }
+    // #endregion
 
-    .pub-sns {
-        width: vw(80px);
-        height: vw(80px);
-        border-radius: 100%;
-        float: left;
-        margin: vw(10px) vw(5px);
-        cursor: pointer;
-        border: 0;
-    }
-
+    // #region 쿠폰
     .wrap-coupon-title {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid $grey200;
     }
 
     .wrap-coupon-list {
@@ -3803,587 +3846,158 @@
             }
         }
     }
+    // #endregion
 
-	.pub-sns {
-		width: vw(80px);
-		height: vw(80px);
-		border-radius: 100%;
-		float: left;
-		margin: vw(10px) vw(5px);
-		cursor: pointer;
-		border: 0;
-	}
-}
+    // #region 멀티 모달
+    &__multiModal {
+        $dimBackground: rgba($black, 0.6);
 
-.pub-sns.kkot {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat 0 0;
-}
-
-.pub-sns.kkos {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-83px) 0;
-}
-
-.pub-sns.line {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-166px) 0;
-}
-
-.pub-sns.face {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat 0 vw(-83px);
-}
-
-.pub-sns.twit {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-83px) vw(-83px);
-}
-
-.pub-sns.link {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-166px) vw(-83px);
-}
-
-.pub-sns.kkot2 {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat 0 vw(-167px);
-}
-
-.pub-sns.kkos2 {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-83px) vw(-167px);
-}
-
-.pub-sns.line2 {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-166px) vw(-167px);
-}
-
-.pub-sns.face2 {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat 0 vw(-250px);
-}
-
-.pub-sns.twit2 {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-83px) vw(-250px);
-}
-
-.pub-sns.link2 {
-    // background: url(../images/btn/pub-sns-icon.png) no-repeat vw(-166px) vw(-250px);
-}
-
-.pub-acnt-share {
-    width: 100%;
-    height: vw(80px);
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    margin-bottom: vw(5px);
-}
-
-.pub-acnt-share.naver {
-    // background: url(../images/btn/pub-acnt-icon.png) no-repeat 0 0;
-}
-
-.pub-acnt-share.kakao {
-    // background: url(../images/btn/pub-acnt-icon.png) no-repeat 0 vw(-86px);
-}
-
-.pub-acnt-share.face {
-    // background: url(../images/btn/pub-acnt-icon.png) no-repeat 0 vw(-172px);
-}
-
-.pub-acnt-share.payco {
-    // background: url(../images/btn/pub-acnt-icon.png) no-repeat 0 vw(-257px);
-}
-
-.pub-acnt-share.twit {
-    // background: url(../images/btn/pub-acnt-icon.png) no-repeat 0 vw(-343px);
-}
-
-.pub-acnt-share.google {
-    // background: url(../images/btn/pub-acnt-icon.png) no-repeat 0 vw(-429px);
-}
-
-.wrap-header-search {
-    display: none;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: vw(92px);
-    padding: vw(20px) vw(30px) 0 vw(80px);
-    background: #fff;
-    input[type="text"] {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 200;
         width: 100%;
-        height: vw(50px);
-        border-bottom: vw(4px) solid #111;
-        vertical-align: top;
-    }
-    input[type="image"] {
-        position: absolute;
-        top: vw(26px);
-        right: vw(50px);
-        width: vw(34px);
-        height: vw(34px);
-    }
-    .back {
-        display: block;
-        position: absolute;
-        top: vw(30px);
-        left: vw(28px);
-        width: vw(35px);
-        height: vw(29px);
-        background: url('../images/version_fix/sprite.png') no-repeat vw(-296px) 0;
-        background-size: vw(2000px);
-        font: 0/0 a;
-    }
-}
+        height: 100%;
 
-#navigation.after-login {
-    padding-top: vw(244px);
-}
-
-.menu-mypage {
-    width: 100%;
-    border: 1px solid #eee;
-    background: #fff;
-
-    a {
-		display: block;
-		float: left;
-		position: relative;
-        width: 25%;
-        color: #333;
-        line-height: 1;
-		text-align: center;
-		
-        + {
-            a  {
-				border-left: 1px solid #eee;
-				
-				span {
-					&:before {
-						width: vw(50px);
-						background-position: vw(-846px) -7.6em;
-					}
-				}
-               
-                & + a {
-						span {
-							&:before {
-								width: vw(49px);
-								background-position: vw(-930px -152px);
-							}
-						}
-					& + a {
-						span {
-							&:before {
-								width: vw(49px);
-								background-position: vw(-1012px -152px);
-							}
-						}
-					}   
-                }
-            }
-        }
-        
-		
-		&:after {
-			display: block;
-			padding-bottom: 90%;
-			content: "";
-		}
-
-		span {
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-            padding-top: vw(30px);
-            font-size: vw(24px);
-
-			&:before {
-				content: '';
-				display: block;
-                width: vw(48px);
-                height: vw(48px);
-				margin: 0 auto vw(20px);
-				background: url('../images/icon/m_sprite_icon.png') no-repeat vw(-404px) vw(-709px);
-				background-size: vw(1000px);
-            }
-            
-            &.checkOrder {
-                &:before {
-                    background-position: vw(-506px) vw(-716px);
-                }
-            }
-            
-            &.coupon {
-                &:before {
-                    background-position: vw(-616px) vw(-716px);
-                }
-            }
-            
-            &.point {
-                &:before {
-                    background-position: vw(-721px) vw(-710px);
-                }
-            }
-		}
-	}
-	
-	&:after {
-		display: block;
-		clear: both;
-		content: "";
-	}
-}
-
-.tit-item {
-    display: block;
-    padding-left: vw(30px);
-    border-bottom: 1px solid $white4;
-    font-size: vw(26px);
-    font-weight: bold;
-    line-height: vw(80px);
-}
-
-.notice-area {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-top: vw(2px) solid $white4;
-    background: $white1;
-    line-height: vw(80px);
-    a {
-        padding-left: vw(50px);
-    }
-}
-
-.wrap-navigation {
-    h3 {
-        margin-top: vw(48px);
-        color: #111;
-        font-size: vw(30px);
-        line-height: 1;
-    }
-    .sub-menu {
-        margin-top: vw(20px);
-        padding-top: vw(10px);
-        border-top: 1px solid #111;
-        li {
-            border-bottom: 1px solid #e1e1e1;
-            a {
-                display: block;
-                position: relative;
-                height: vw(70px);
-                color: $textGrey;
-                font-size: vw(26px);
-                line-height: vw(70px);
-                &:after {
-                    content: "";
-                    position: absolute;
-                    top: vw(16px);
-                    right: 0;
-                    width: vw(36px);
-                    height: vw(36px);
-                    background: url('../images/sprite_new.png') no-repeat vw(-942px) 0;
-                    background-size: vw(1000px);
-                }
-            }
-        }
-    }
-}
-
-.utill-area {
-    position: relative;
-    .utill-wrap {
-        height: vw(78px);
-        padding: 0 vw(26px) 0 vw(30px);
-        zoom: 1;
-        &:after {
-            content: "";
+        &.active {
             display: block;
-            clear: both;
         }
-    }
-    .nav-title {
-        color: #fff;
-        font-size: vw(26px);
-        line-height: vw(78px);
-        &:after {
-            content: "";
-            display: inline-block;
-            width: vw(12px);
-            height: vw(19px);
-            margin-left: vw(17px);
-            background: url('../images/sprite_new.png') no-repeat 0 vw(-60px);
-            background-size: vw(1000px);
-            vertical-align: middle;
+
+        &__dim {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background: $dimBackground;
         }
-    }
-    .menu-utill {
-        float: right;
-        line-height: vw(78px);
-        a {
-            display: inline-block;
-            vertical-align: middle;
-            width: vw(130px);
-            height: vw(45px);
-            background: #494949;
-            border: vw(2px) solid #7a7a7a;
-            font-size: vw(22px);
-            color: #fff;
-            font-weight: 400;
-            text-align: center;
-            line-height: vw(45px);
-            + {
-                a {
-                    margin-left: vw(30px);
-                    &:before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        top: vw(4px);
-                        left: 0;
-                        width: vw(2px);
-                        height: vw(26px);
-                        background: #fff;
-                        opacity: 0.5;
+
+        &__content {
+            overflow: hidden;
+            width: calc(100% - #{vw(96px)});
+            background: $white;
+
+            &.fullLayer {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+
+                .content {
+                    &__header {
+                        padding: vw(28px 72px);
+                        text-align: center;
+                    }
+
+                    &__wrapper {
+                        overflow: auto;
+                        height: 100%;
+                        max-height: calc(100% - #{vw(96px)});
+                        padding: vw(40px 32px);
+                    }
+                }
+
+                &.zipcode {
+                    .content__wrapper {
+                        padding: 0;
                     }
                 }
             }
-        }
-    }
-    .after-login {
-        color: #fff;
-        font-size: vw(30px);
-        font-weight: 400;
-        em {
-            font-size: vw(24px);
-            font-weight: 200;
-        }
-        .set-btn-logout {
-            position: absolute;
-            top: vw(20px);
-            right: vw(34px);
-        }
-    }
-}
 
-.layout-sub {
-    .utill-area {
-        height: vw(78px);
-        padding: 0 vw(26px) 0 vw(30px);
-    }
-}
-
-.menu-major {
-    background: #e1e1e1;
-    font-size: 0;
-    height: vw(76px);
-    a {
-        display: inline-block;
-        width: 50%;
-        height: vw(76px);
-        font-size: vw(26px);
-        color: $textGrey2;
-        line-height: vw(76px);
-        text-align: center;
-        + {
-            a.active {
-                background: #fff;
-                &:before {
-                    background-position: vw(-902px) 0;
+            &.floatingButton {
+                .content {
+                    &__wrapper {
+                        padding-bottom: vw(112px);
+                    }
                 }
             }
-            a {
-                &:before {
-                    width: vw(32px);
-                    background-position: vw(-822px) 0;
-                }
-            }
-        }
-        &:before {
-            content: '';
-            display: inline-block;
-            display: inline-block;
-            width: vw(28px);
-            height: vw(30px);
-            margin: vw(22px) vw(16px) 0 0;
-            background: url('../images/sprite_new.png') no-repeat vw(-786px) 0;
-            background-size: vw(1000px);
-            vertical-align: top;
-        }
-    }
-    a.active {
-        background: #fff;
-        box-shadow: none;
-        -webkit-box-shadow: none;
-        color: #111;
-        &:before {
-            background-position: vw(-864px) 0;
-        }
-    }
-}
 
-.menu-sex {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    a {
-        display: table-cell;
-        height: vw(72px);
-        border: 1px solid $white5;
-        color: $textGrey2;
-        font-size: vw(26px);
-        text-align: center;
-        vertical-align: middle;
-    }
-    a.active {
-        border-color: #333;
-        background: #333;
-        color: #fff;
-        font-weight: bold;
-    }
-}
+            .content {
+                &__header {
+                    position: relative;
+                    width: 100%;
+                    padding: vw(28px 74px);
+                    text-align: center;
+                    border-bottom: 1px solid $grey100;
 
-.navigation-inner {
-    .btn-area {
-        display: block;
-        margin-top: vw(46px);
-        text-align: center;
-        a {
-            display: inline-block;
-            width: vw(498px);
-            border: vw(2px) solid $white5;
-            color: #333;
-            font-size: vw(34px);
-            line-height: vw(78px);
-            &:before {
-                content: '';
-                display: inline-block;
-                width: vw(48px);
-                height: vw(38px);
-                margin: vw(20px) vw(180px) 0 0;
-                background: url('../images/sprite.png') no-repeat vw(-356px) 0;
-                background-size: vw(1000px);
-                vertical-align: top;
-            }
-        }
-    }
-}
-
-.navigation-menu {
-    margin-top: vw(46px);
-    border: vw(2px) solid #e1e1e1;
-    border-width: vw(2px) 0;
-    >li {
-        padding: 0 vw(30px);
-        + {
-            li {
-                border-top: vw(2px) solid #e1e1e1;
-            }
-        }
-        .link {
-            font-size: vw(36px);
-            font-weight: 400;
-            line-height: vw(96px);
-        }
-    }
-    .sub-menu {
-        padding: vw(12px) 0;
-        margin-bottom: vw(20px);
-        background: #f6f6f6;
-        font-size: 0;
-        a {
-            display: inline-block;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            width: 50%;
-            padding-left:vw(20px);
-            color: $textGrey;
-            font-size: vw(30px);
-            line-height: vw(64px);
-            letter-spacing: vw(-2px);
-        }
-    }
-}
-
-.menu-customer {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    height: vw(84px);
-    margin-top: vw(36px);
-    background: #555;
-    font-size: 0;
-    text-align: center;
-    a {
-        display: table-cell;
-        width: 33%;
-        position: relative;
-        color: #fff;
-        font-size: vw(30px);
-        line-height: vw(84px);
-        + {
-            a {
-                width: 34%;
-                &:before {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    top: vw(30px);
-                    left: vw(-12px);
-                    width: vw(2px);
-                    height: vw(26px);
-                    background: #aaa;
-                }
-                + {
-                    a {
-                        width: 33%;
-                        &:before {
-                            left: vw(12px);
+                    &__title {
+                        font-size: vw(32px);
+                        font-weight: 600;
+                        &.ellipsis {
+                            display: inline-block;
+                            max-width: 100%;
+                            @include line();
                         }
                     }
                 }
+
+                &__btn-close {
+                    position: absolute;
+                    top: vw(34px);
+                    right: vw(30px);
+                    width: vw(36px);
+                    height: vw(36px);
+                    background: url(../images/icon/m_sprite_icon.png) no-repeat vw(0 -300px);
+                    background-size: vw(1000px);
+                    font-size: 0;
+
+                    // position: absolute;
+                    // top: vw(36px);
+                    // right: vw(32px);
+                    // width: vw(32px);
+                    // height: vw(32px);
+                    // font-size: 0;
+                    // cursor: pointer;
+                    // // @include icSvgX(16);
+                    // background: url(../images/icon/m_sprite_icon.png) no-repeat vw(0 -300px);
+                    // background-size: vw(1000px);
+                }
+
+                &__wrapper {
+                    width: 100%;
+                    max-height: calc(100vh - #{vw(300px)});
+                    padding: vw(32px);
+                }
+            }
+
+        // 주소찾기 css 수정
+            .fb__zipcodePop {
+                height: 100%;
+                max-height: none;
             }
         }
     }
-    .new {
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: vw(50px);
-            height: vw(28px);
-            background: url('../images/sprite.png') no-repeat vw(-414px) 0;
-            background-size: vw(1000px);
+    // #endregion
+
+    // #region 배송요청사항 입력 간격
+    &__deliveryRequest {
+        $inputGap: rem(20px);
+        display: flex;
+        flex-direction: column;
+        gap: $inputGap;
+
+        .deliveryRequest {
+            &__write {
+                display: flex;
+                flex-direction: column;
+                gap: $inputGap;
+            }
         }
     }
+    // #endregion
 }
 
-#container {
-    position: relative;
-}
-
-#container.bg-color {
-    background: #fff;
-}
-
-#content {
-    padding-bottom: 0;
-}
-
-#content.main {
-    margin-top: 0;
-}
-
+// #region 레이아웃 관련
 .devForbizTpl {
     display: none;
 }
 
 .wrap-search-header {
-    background: #fff;
+    background: $white;
     position: relative;
     width: 100%;
     padding: vw(20px 30px 20px 0);
@@ -4429,7 +4043,7 @@
         float: right;
         width: vw(640px);
         height: vw(80px);
-        background: $white1;
+        background: $bg_grey50;
         border-radius: 10px;
 
         .btn-search {
@@ -4440,7 +4054,7 @@
             width: vw(102px);
             height: vw(80px);
             padding: 0;
-            background: $white1 url(../images/icon/m_sprite_icon.png) no-repeat vw(-180px -595px) / vw(1000px);
+            background: $bg_grey50 url(../images/icon/m_sprite_icon.png) no-repeat vw(-180px -595px) / vw(1000px);
             font-size: 0;
             outline: none;
 
@@ -4452,7 +4066,7 @@
                 left: 0;
                 width: vw(1px);
                 height: vw(30px);
-                background: #DDD;
+                background: $grey200;
                 transform: translate3d(0, -50%, 0);
             }
         }
@@ -4461,7 +4075,7 @@
             height: 100%;
             width: 100%;
             padding: vw(0 120px 0 20px);
-            background: $white1;
+            background: $bg_grey50;
             color: $textBlack;            
         }
     }
@@ -4527,7 +4141,7 @@
                 padding: vw(30px 20px 30px 90px);
                 word-break: break-all;
                 font-size: vw(26px);
-                color: $textGrey;
+                color: $grey800;
                 @include line();
 
                 em {
@@ -4538,7 +4152,7 @@
                         size: vw(26px);
                         family: $font_n;
                     };
-                    color: #111;
+                    color: $black;
                 }
             }
 
@@ -4549,7 +4163,7 @@
             }
 
             &:nth-child(n+11) {
-                /*border-left: 1px solid $white5;*/
+                /*border-left: 1px solid $grey400;*/
             }
         }
     }
@@ -4560,9 +4174,9 @@
         .btn-del-all {
             width: 100%;
             height: vw(100px);
-            background: $white1;
+            background: $bg_grey50;
             font-size: vw(28px);
-            color: $textGrey;
+            color: $grey800;
             position: fixed;
             bottom: 0;
         }
@@ -4578,7 +4192,7 @@
             padding-top: vw(60px);
             position: relative;
             font-size: vw(26px);
-            color: $textGrey;
+            color: $grey800;
             padding-right: vw(80px);
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -4610,7 +4224,7 @@
                     position: absolute;
                     bottom: 0;
                     width: 100%;
-                    color: #fff;
+                    color: $white;
                     padding: vw(16px 0);
                     font-size: vw(24px);
                     background: rgba(0,0,0,.3);
@@ -4620,16 +4234,16 @@
         }
     }
 }
+// #endregion
 
-
-/*상품문의작성*/
+// #region 상품문의작성
 .wrap-goods-qna {
     padding-bottom: vw(50px);
     padding-top: vw(5px);
 
     input {
         &::-webkit-input-placeholder{
-            color: #999;
+            color: $grey600;
         }
     }
 
@@ -4640,7 +4254,7 @@
                 size: vw(24px);
                 weight: 400;
             }
-            color: #666;
+            color: $grey800;
 
             &:before {
                 content: '';
@@ -4656,7 +4270,7 @@
         .list {
             position: relative;
             font-size: vw(24px);
-            color: #666;
+            color: $grey800;
             line-height: vw(32px);
             padding-left: vw(10px);
 
@@ -4667,7 +4281,7 @@
                 width: vw(3px);
                 height: vw(3px);
                 border-radius: vw(3px);
-                background: $textGrey;
+                background: $grey800;
                 left: 0;
                 top: vw(12px);
             }
@@ -4681,7 +4295,7 @@
     .wrap-desc {
         margin: 0 vw(30px);
         padding: vw(30px);
-        background: $white1;
+        background: $bg_grey50;
 
         h2 {
             font-size: vw(26px);
@@ -4696,13 +4310,13 @@
         margin: vw(30px 0);
         padding-left: vw(30px);
 
-        .fb__comm__checkbox {
+        .fb__checkbox {
             span {
                 font: {
                     size: vw(26px);
                     weight: 400;
                 }
-                color: #666;
+                color: $grey800;
                 line-height: vw(40px);
             }
         }
@@ -4726,7 +4340,7 @@
 
     .qna {
         &__desc {
-            color: #999;
+            color: $grey600;
             font-size: vw(24px);
             font-weight: 400;
         }
@@ -4738,7 +4352,7 @@
                 height: vw(320px);
                 margin: vw(20px 0 80px 0);
                 padding: vw(28px 28px 68px);                
-                border: vw(2px) solid #ddd;
+                border: vw(2px) solid $grey200;
 
                 textarea {
                     width: 100%;
@@ -4747,7 +4361,7 @@
                     border: 0;
             
                     &::-webkit-input-placeholder{
-                        color: #999;
+                        color: $grey600;
                     }
                 }
             }
@@ -4757,17 +4371,10 @@
                 right: vw(28px);
                 bottom: vw(28px);
                 font-size: vw(24px);
-                color: #999;
+                color: $grey600;
                 line-height: vw(32px);
             }
         }
     }
 }
-
-.ml0 {
-    margin-left: 0 !important;
-}
-
-.mat30 {
-    margin-bottom: vw(15px);
-}
+// #endregion

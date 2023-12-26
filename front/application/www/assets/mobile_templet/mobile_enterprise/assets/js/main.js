@@ -95,47 +95,38 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _divide_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./divide/common */ "./js/divide/common.js");
+/* WEBPACK VAR INJECTION */(function($, jQuery) {/* harmony import */ var _divide_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./divide/common */ "./js/divide/common.js");
 /* harmony import */ var _divide_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./divide/layout */ "./js/divide/layout.js");
 /* harmony import */ var _divide_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./divide/main */ "./js/divide/main.js");
 /* harmony import */ var _divide_customer_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./divide/customer_common */ "./js/divide/customer_common.js");
 /* harmony import */ var _divide_shop_goodsList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./divide/shop_goodsList */ "./js/divide/shop_goodsList.js");
 /* harmony import */ var _divide_shop_goodsView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./divide/shop_goodsView */ "./js/divide/shop_goodsView.js");
 /* harmony import */ var _divide_shop_goodsReview__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./divide/shop_goodsReview */ "./js/divide/shop_goodsReview.js");
-/* harmony import */ var _divide_shop_cart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./divide/shop_cart */ "./js/divide/shop_cart.js");
-/* harmony import */ var _divide_shop_infoInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./divide/shop_infoInput */ "./js/divide/shop_infoInput.js");
-/* harmony import */ var _divide_shop_search__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./divide/shop_search */ "./js/divide/shop_search.js");
-/* harmony import */ var _divide_event_eventList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./divide/event_eventList */ "./js/divide/event_eventList.js");
-/* harmony import */ var _divide_event_detail__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./divide/event_detail */ "./js/divide/event_detail.js");
-/* harmony import */ var _divide_exhibition_exhibitionDetail__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./divide/exhibition_exhibitionDetail */ "./js/divide/exhibition_exhibitionDetail.js");
-/* harmony import */ var _divide_member_searchId__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./divide/member_searchId */ "./js/divide/member_searchId.js");
-/* harmony import */ var _divide_member_searchPw__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./divide/member_searchPw */ "./js/divide/member_searchPw.js");
-/* harmony import */ var _divide_member_login__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./divide/member_login */ "./js/divide/member_login.js");
-/* harmony import */ var _divide_member_joinInput__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./divide/member_joinInput */ "./js/divide/member_joinInput.js");
-/* harmony import */ var _divide_mypage_common__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./divide/mypage_common */ "./js/divide/mypage_common.js");
-/* harmony import */ var _divide_mypage_mileage__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./divide/mypage_mileage */ "./js/divide/mypage_mileage.js");
-/* harmony import */ var _divide_mypage_coupon__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./divide/mypage_coupon */ "./js/divide/mypage_coupon.js");
-/* harmony import */ var _divide_mypage_receiptPrint__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./divide/mypage_receiptPrint */ "./js/divide/mypage_receiptPrint.js");
-/* harmony import */ var _divide_mypage_myGoodsReview__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./divide/mypage_myGoodsReview */ "./js/divide/mypage_myGoodsReview.js");
-/* harmony import */ var _divide_mypage_orderHistory__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./divide/mypage_orderHistory */ "./js/divide/mypage_orderHistory.js");
-/* harmony import */ var jquery_form__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! jquery-form */ "./node_modules/jquery-form/dist/jquery.form.min.js");
-/* harmony import */ var jquery_form__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(jquery_form__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! jquery-ui */ "./node_modules/jquery-ui/ui/widget.js");
-/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(jquery_ui__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var jquery_datetimepicker__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! jquery-datetimepicker */ "./node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js");
-/* harmony import */ var jquery_datetimepicker__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(jquery_datetimepicker__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var jquery_datepicker__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! jquery-datepicker */ "./node_modules/jquery-datepicker/jquery-datepicker.js");
-/* harmony import */ var jquery_datepicker__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(jquery_datepicker__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var jquery_datepicker_i18n_jquery_ui_datepicker_ko__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! jquery-datepicker/i18n/jquery.ui.datepicker-ko */ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ko.js");
-/* harmony import */ var jquery_datepicker_i18n_jquery_ui_datepicker_ko__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(jquery_datepicker_i18n_jquery_ui_datepicker_ko__WEBPACK_IMPORTED_MODULE_27__);
-/* harmony import */ var jstree__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! jstree */ "./node_modules/jstree/dist/jstree.js");
-/* harmony import */ var jstree__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(jstree__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var jquery_ui_ui_widgets_autocomplete__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! jquery-ui/ui/widgets/autocomplete */ "./node_modules/jquery-ui/ui/widgets/autocomplete.js");
-/* harmony import */ var jquery_ui_ui_widgets_autocomplete__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_autocomplete__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! swiper/dist/js/swiper */ "./node_modules/swiper/dist/js/swiper.js");
-/* harmony import */ var swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_30__);
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _divide_shop_infoInput__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./divide/shop_infoInput */ "./js/divide/shop_infoInput.js");
+/* harmony import */ var _divide_shop_search__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./divide/shop_search */ "./js/divide/shop_search.js");
+/* harmony import */ var _divide_event_detail__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./divide/event_detail */ "./js/divide/event_detail.js");
+/* harmony import */ var _divide_member_searchId__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./divide/member_searchId */ "./js/divide/member_searchId.js");
+/* harmony import */ var _divide_member_searchPw__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./divide/member_searchPw */ "./js/divide/member_searchPw.js");
+/* harmony import */ var _divide_mypage_common__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./divide/mypage_common */ "./js/divide/mypage_common.js");
+/* harmony import */ var _divide_mypage_mileage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./divide/mypage_mileage */ "./js/divide/mypage_mileage.js");
+/* harmony import */ var _divide_mypage_receiptPrint__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./divide/mypage_receiptPrint */ "./js/divide/mypage_receiptPrint.js");
+/* harmony import */ var _divide_mypage_myGoodsReview__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./divide/mypage_myGoodsReview */ "./js/divide/mypage_myGoodsReview.js");
+/* harmony import */ var jquery_form__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! jquery-form */ "./node_modules/jquery-form/dist/jquery.form.min.js");
+/* harmony import */ var jquery_form__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(jquery_form__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! jquery-ui */ "./node_modules/jquery-ui/ui/widget.js");
+/* harmony import */ var jquery_ui__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(jquery_ui__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var jquery_datetimepicker__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! jquery-datetimepicker */ "./node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js");
+/* harmony import */ var jquery_datetimepicker__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(jquery_datetimepicker__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var jquery_datepicker__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! jquery-datepicker */ "./node_modules/jquery-datepicker/jquery-datepicker.js");
+/* harmony import */ var jquery_datepicker__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(jquery_datepicker__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var jstree__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! jstree */ "./node_modules/jstree/dist/jstree.js");
+/* harmony import */ var jstree__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(jstree__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var jquery_ui_ui_widgets_autocomplete__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! jquery-ui/ui/widgets/autocomplete */ "./node_modules/jquery-ui/ui/widgets/autocomplete.js");
+/* harmony import */ var jquery_ui_ui_widgets_autocomplete__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_autocomplete__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! swiper/dist/js/swiper */ "./node_modules/swiper/dist/js/swiper.js");
+/* harmony import */ var swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_23__);
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 /**
@@ -164,21 +155,36 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 
 
+window.$ = window.jquery = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 
 
 
 
+jquery_datepicker__WEBPACK_IMPORTED_MODULE_19___default()($);
 
+/** 
+ * jquery-datepicker 언어팩 설정 ( html 태그 lang 기준 )
+ */
+var htmlLang = $('html').attr('lang');
+var datepickerJAFactory = void 0;
+var lang = $.datepicker.regional[htmlLang];
 
-
-
-
-
-
-
-jquery_datepicker__WEBPACK_IMPORTED_MODULE_26___default()($);
-jquery_datepicker_i18n_jquery_ui_datepicker_ko__WEBPACK_IMPORTED_MODULE_27___default()($);
+if (!lang || htmlLang !== 'en') {
+    try {
+        datepickerJAFactory = __webpack_require__("./node_modules/jquery-datepicker/i18n sync recursive ^\\.\\/jquery\\.ui\\.datepicker\\-.*$")("./jquery.ui.datepicker-" + htmlLang);
+    } catch (e) {
+        console.error(e);
+        datepickerJAFactory = function datepickerJAFactory() {
+            $.datepicker.setDefaults($.datepicker.regional['']);
+        };
+    }
+} else {
+    datepickerJAFactory = function datepickerJAFactory() {
+        $.datepicker.setDefaults($.datepicker.regional['en']);
+    };
+}
+datepickerJAFactory(jQuery);
 
 
 
@@ -190,16 +196,15 @@ $.datepicker.setDefaults({
 });
 
 
-window.Swiper = swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_30___default.a;
+window.Swiper = swiper_dist_js_swiper__WEBPACK_IMPORTED_MODULE_22___default.a;
 
-window.$ = window.jquery = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 __webpack_require__(/*! jquery-lazy */ "./node_modules/jquery-lazy/jquery.lazy.js");
 
 window.CryptoJS = __webpack_require__(/*! crypto-js */ "./node_modules/crypto-js/index.js");
 window.Handlebars = __webpack_require__(/*! handlebars/dist/handlebars.js */ "./node_modules/handlebars/dist/handlebars.js");
 
 
-window.html2canvas = html2canvas__WEBPACK_IMPORTED_MODULE_31___default.a;
+window.html2canvas = html2canvas__WEBPACK_IMPORTED_MODULE_23___default.a;
 
 var appMethods = {
     layout: _divide_layout__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -208,29 +213,22 @@ var appMethods = {
     shop_goodsReview: _divide_shop_goodsReview__WEBPACK_IMPORTED_MODULE_6__["default"],
     shop_goodsList: _divide_shop_goodsList__WEBPACK_IMPORTED_MODULE_4__["default"],
     shop_goodsView: _divide_shop_goodsView__WEBPACK_IMPORTED_MODULE_5__["default"],
-    shop_cart: _divide_shop_cart__WEBPACK_IMPORTED_MODULE_7__["default"],
-    shop_infoInput: _divide_shop_infoInput__WEBPACK_IMPORTED_MODULE_8__["default"],
-    shop_search: _divide_shop_search__WEBPACK_IMPORTED_MODULE_9__["default"],
+    shop_infoInput: _divide_shop_infoInput__WEBPACK_IMPORTED_MODULE_7__["default"],
+    shop_search: _divide_shop_search__WEBPACK_IMPORTED_MODULE_8__["default"],
 
-    event_eventList: _divide_event_eventList__WEBPACK_IMPORTED_MODULE_10__["default"],
-    event_eventDetail: _divide_event_detail__WEBPACK_IMPORTED_MODULE_11__["default"],
-    exhibition_exhibitionDetail: _divide_exhibition_exhibitionDetail__WEBPACK_IMPORTED_MODULE_12__["default"],
+    event_eventDetail: _divide_event_detail__WEBPACK_IMPORTED_MODULE_9__["default"],
 
-    member_login: _divide_member_login__WEBPACK_IMPORTED_MODULE_15__["default"],
-    member_joinInput: _divide_member_joinInput__WEBPACK_IMPORTED_MODULE_16__["default"],
-    member_searchId: _divide_member_searchId__WEBPACK_IMPORTED_MODULE_13__["default"],
-    member_searchPw: _divide_member_searchPw__WEBPACK_IMPORTED_MODULE_14__["default"],
+    member_searchId: _divide_member_searchId__WEBPACK_IMPORTED_MODULE_10__["default"],
+    member_searchPw: _divide_member_searchPw__WEBPACK_IMPORTED_MODULE_11__["default"],
 
-    mypage_mileage: _divide_mypage_mileage__WEBPACK_IMPORTED_MODULE_18__["default"],
-    mypage_coupon: _divide_mypage_coupon__WEBPACK_IMPORTED_MODULE_19__["default"],
-    mypage_receiptPrint: _divide_mypage_receiptPrint__WEBPACK_IMPORTED_MODULE_20__["default"],
-    mypage_myGoodsReview: _divide_mypage_myGoodsReview__WEBPACK_IMPORTED_MODULE_21__["default"],
-    mypage_orderHistory: _divide_mypage_orderHistory__WEBPACK_IMPORTED_MODULE_22__["default"]
+    mypage_mileage: _divide_mypage_mileage__WEBPACK_IMPORTED_MODULE_13__["default"],
+    mypage_receiptPrint: _divide_mypage_receiptPrint__WEBPACK_IMPORTED_MODULE_14__["default"],
+    mypage_myGoodsReview: _divide_mypage_myGoodsReview__WEBPACK_IMPORTED_MODULE_15__["default"]
 };
 
 //페이지별 공통
 var pageCommonMethod = {
-    "mypage": _divide_mypage_common__WEBPACK_IMPORTED_MODULE_17__["default"],
+    "mypage": _divide_mypage_common__WEBPACK_IMPORTED_MODULE_12__["default"],
     "customer": _divide_customer_common__WEBPACK_IMPORTED_MODULE_3__["default"]
 };
 
@@ -278,7 +276,7 @@ var appInit = function appInit() {
 document.addEventListener('DOMContentLoaded', function () {
     appInit();
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
@@ -474,12 +472,6 @@ var front_common = function front_common() {
         }
     };
 
-    var topBtn = function topBtn() {
-        $document.on("click", ".js__floating__top", function () {
-            isScrollDown("up");
-        });
-    };
-
     /**
       * 카드번호 유효성 검사
       * 카드번호는 꼭 String으로 넘어와야합니다.
@@ -649,7 +641,7 @@ var front_common = function front_common() {
         })
 
         //summary 안에 체크박스, 라디오 안먹는 경우가 있어서 추가
-        .on("click", "summary [class^=fb__comm]", function (e) {
+        .on("click", "summary .fb__checkbox", function (e) {
             e.stopPropagation();
         });
     };
@@ -818,7 +810,6 @@ var front_common = function front_common() {
     var common_init = function common_init() {
         //기존
         list_h();
-        topBtn();
         agree_accord();
         initDockbar();
 
@@ -1019,75 +1010,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./js/divide/event_eventList.js":
-/*!**************************************!*\
-  !*** ./js/divide/event_eventList.js ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var event_list = function event_list() {};
-
-/* harmony default export */ __webpack_exports__["default"] = (event_list);
-
-/***/ }),
-
-/***/ "./js/divide/exhibition_exhibitionDetail.js":
-/*!**************************************************!*\
-  !*** ./js/divide/exhibition_exhibitionDetail.js ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
-/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_0__);
-
-/*--------------------------------------------------------------*
- * 퍼블 *
- *--------------------------------------------------------------*/
-
-
-var exhibition_exhibitionDetail = function exhibition_exhibitionDetail() {
-    var $document = $(document);
-
-    var exhibitionDetail_stickyMenu = function exhibitionDetail_stickyMenu() {
-
-        window.onscroll = function () {
-            fixedTab();
-        };
-
-        var $tabMenu = document.getElementById("stickytab");
-        var $tabMenuClass = $(".goodsbox-tab");
-        //const $tabMenu = document.getElementsByClassName("goodsbox-tab");
-        //const $tabMenu = $(".sj__event-detail .sj__event-detail__goodsbox .goodsbox-tab");
-
-        var $sticky = $tabMenu.offsetTop;
-
-        function fixedTab() {
-            if (window.pageYOffset >= $sticky) {
-                $tabMenu.classList.add("goodsbox-tab--sticky");
-            } else {
-                $tabMenu.classList.remove("goodsbox-tab--sticky");
-            }
-        }
-    };
-
-    var exhibitionDetail_init = function exhibitionDetail_init() {
-        exhibitionDetail_stickyMenu();
-    };
-
-    exhibitionDetail_init();
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (exhibition_exhibitionDetail);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
 /***/ "./js/divide/layout.js":
 /*!*****************************!*\
   !*** ./js/divide/layout.js ***!
@@ -1110,22 +1032,19 @@ var layout = function layout() {
         /*
          * {layoutCommon.templetSrc}/images/common/loading.gif 로딩 이미지 샘플
          * attribute : data-src
+         * + 모달의 컨텐츠 스크롤 영역에 lazyLoadPopup 클래스 추가
          * */
         var $target = $('img[data-src]');
         $target.attr("src", common.templetSrc + "/images/common/loading.gif");
 
+        var $wrapper = $('.lazyLoadPopup').add(window);
+
         $target.Lazy({
             threshold: 50,
+            appendScroll: $wrapper,
             onError: function onError(obj) {
                 $(obj).attr("src", common.templetSrc + "/images/common/noimg.gif");
             }
-        });
-    };
-
-    var header_topbanner = function header_topbanner() {
-        $document.on("click", ".fb__header__topbanner-close", function () {
-            $(".fb__header__topbanner").toggleClass("fb__header__topbanner--hidden");
-            return false;
         });
     };
 
@@ -1161,43 +1080,6 @@ var layout = function layout() {
             }
             return triggerDefault;
         });
-    };
-
-    var search = function search() {
-
-        // const searchlayer = (type) => {
-        //     if(type == "focusin") {
-        //         $(".wrap-search-layer").show();
-        //     } else {
-        //         $(".wrap-search-layer").hide();
-        //     }
-        // }
-
-        // $document
-        //     .on("focusin ", ".search-area__text", function(e){
-        //         if(e.type == "focusin") {
-        //             searchlayer(e.type);
-        //         } else {
-        //             searchlayer(e.type);
-        //         }
-        //     })
-        //     .on("focusin ", ".nav__all-btn", function(e){
-        // 		searchlayer("blur");
-        //     })
-        //     .on("click", function(e) {
-        //        if(!($(e.target).hasClass("wrap-search-layer") || $(e.target).parents(".wrap-search-layer").hasClass("wrap-search-layer") || $(e.target).hasClass("search-area__text"))) {
-        // 		   searchlayer("blur");
-        //        }
-        // 	})
-        //     .on("keyup", ".search-area__text", function(){
-        //         const $this = $(this);
-        //         const $close_btn = $('.search_close_btn')
-        //         if($this.val().length > 0){
-        //             $close_btn.addClass('search-area__close-btn')
-        //         } else {
-        //             $close_btn.removeClass('search-area__close-btn')
-        //         }
-        //     })
     };
 
     var gnbNavgation = function gnbNavgation() {
@@ -1274,78 +1156,6 @@ var layout = function layout() {
             } else {
                 $btnTop.stop().fadeOut();
             }
-        });
-    };
-
-    var floatingMenu = function floatingMenu() {
-        var $target = $('.fb__flt-menu-wrap .flt-menu-slider');
-        if ($target.children().length > 3) {
-            $(".fb__flt-menu-wrap .fb__flt-menu__nav").addClass("fb__flt-menu__nav--show");
-            $(".fb__flt-menu__latest").addClass("fb__flt-menu__latest--active");
-            $(".fb__flt-menu__paging").addClass("fb__flt-menu__paging--show");
-            $(".fb__flt-menu__paging--all").text("/ " + $target.children().length + " ");
-
-            $target.slick({
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                vertical: true,
-                prevArrow: $(".fb__flt-menu__nav--left"),
-                nextArrow: $(".fb__flt-menu__nav--right"),
-                lazyLoad: 'ondemand'
-            });
-            $target.on('afterChange', function (event, slick, currentSlide) {
-                $(".fb__flt-menu__paging--now").html(currentSlide + 1);
-            });
-        } else {
-            $(".fb__flt-menu__nav").addClass("fb__flt-menu__nav--hidden");
-        }
-
-        $(window).scroll(function () {
-            var $height = $window.scrollTop();
-            var $fullBanner = $('.full-banner');
-            var $fb = $('.fb');
-            var $header = $('.fb__header');
-            var $container = $('#container');
-            var $floating = $('.fb__flt-menu__inner');
-            if ($fullBanner.length > 0) {
-                // 배너 width 1920일때
-                console.log($height >= $fullBanner.outerHeight() + $('.fb__flt-top').offset().top - $fullBanner.outerHeight() - $header.outerHeight() + $header.height());
-                if ($height >= $fullBanner.outerHeight() + $('.fb__flt-top').offset().top - $fullBanner.outerHeight() - $header.outerHeight() + $header.height()) {
-                    $floating.css({
-                        "position": "fixed",
-                        "top": 0
-                    }).addClass('fb__flt-menu__inner--show');
-                } else {
-                    $floating.css({
-                        "position": "absolute",
-                        "top": $fullBanner.height() + ($('.fb__flt-top').offset().top - $fullBanner.outerHeight() - $header.outerHeight())
-                    }).addClass('fb__flt-menu__inner--show');
-                }
-            } else {
-                // 배너 width 1920 미만이거나 배너 없을때
-                if ($height >= $header.outerHeight()) {
-                    $floating.css({
-                        "position": "fixed",
-                        "top": 0
-                    });
-                } else {
-                    if (!!$('.fb__flt-top').length) {
-                        $floating.css({
-                            "position": "absolute",
-                            "top": $('.fb__flt-top').position().top
-                        }).addClass('fb__flt-menu__inner--show');
-                    }
-                }
-            }
-        }).trigger('scroll');
-    };
-
-    var header_banner = function header_banner() {
-        var $target = $(".header__slider");
-        $target.slick({
-            vertical: true,
-            verticalSwiping: true
         });
     };
 
@@ -1472,15 +1282,11 @@ var layout = function layout() {
         window.isShowNoticePopup = isShowNoticePopup;
         window.fbModalEvents = fbModalEvents;
 
-        header_topbanner();
         header_back();
         header_fav();
         gnbNavgation();
-        search();
         topBtn();
         lazyload();
-        floatingMenu();
-        header_banner();
         closeNotiPopup();
         drawerBanner();
         membershipLayerOpen();
@@ -1701,86 +1507,6 @@ var main = function main() {
 
 /***/ }),
 
-/***/ "./js/divide/member_joinInput.js":
-/*!***************************************!*\
-  !*** ./js/divide/member_joinInput.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/**
- * Created by forbiz on 2019-05-21.
- */
-var member_joinInput = function member_joinInput() {
-
-    var $document = $(document);
-
-    var file_btn = function file_btn() {
-
-        $document.on("change", "input[type=file]", function () {
-            var $this = $(this);
-            var _files = $this[0].files[0];
-
-            if (!_files) return; // accept 된 파일이 아닌경우 값이 없음
-
-            var _acceptType = $this.attr('accept');
-            var _imgType = _files.type.replace('image/', '');
-
-            if (_acceptType.indexOf(_imgType) == -1 || _imgType == "") {
-                // accept된 파일 확장자가 아닌 경우
-                $this.val('');
-                $this.closest('.inputs__content').find('[type=text]').val('');
-                $this.closest('.inputs__content').find('.btn-dark').text('파일삭제');
-                $this.closest('.inputs__content').find('.btn-dark-line').attr('disabled', true);
-
-                // dev_common alert
-                common.noti.alert(common.lang.get('common.inputFormat.fileFormat.fail'));
-            }
-        });
-    };
-
-    var joininput_init = function joininput_init() {
-        //file_btn();
-    };
-
-    joininput_init();
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (member_joinInput);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
-/***/ "./js/divide/member_login.js":
-/*!***********************************!*\
-  !*** ./js/divide/member_login.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/**
- * Created by forbiz on 2019-04-01.
- */
-var member_login = function member_login() {
-    var $document = $(document);
-    // $document.on("click", ".js__nomemeber__button", function() {
-    //     const $login_cont = $(".fb__login__member");
-    //     const $nonmember_cont = $(".fb__login__nomember");
-
-    //     $login_cont.hide();
-    //     $nonmember_cont.addClass("show");
-    // });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (member_login);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
 /***/ "./js/divide/member_searchId.js":
 /*!**************************************!*\
   !*** ./js/divide/member_searchId.js ***!
@@ -1795,14 +1521,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 var member_searchId = function member_searchId() {
     var $document = $(document);
-    // $document.on("click", ".fb__tab-link", function() {
-    //     const $this = $(this);
-    //     $(".fb__tab-link").removeClass("fb__tab-link--active");
-    //     $this.addClass("fb__tab-link--active");
-    //     $(".search__content").removeClass("search__content--show");
-    //     $($this.attr("href")).addClass("search__content--show");
-    //     return false;
-    // })
 
     $document.on("change", "input[name=memType]", function () {
         var cont_normal = $('#tab01');
@@ -1839,15 +1557,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 var member_searchPw = function member_searchPw() {
     var $document = $(document);
-    // $document.on("click", ".fb__tab-link", function() {
-    //     const $this = $(this);
-    //     $(".fb__tab-link").removeClass("fb__tab-link--active");
-    //     $this.addClass("fb__tab-link--active");
-    //     $(".search__content").removeClass("search__content--show");
-    //     $($this.attr("href")).addClass("search__content--show");
-    //     return false;
-    // })
-
 
     $document.on("change", "input[name=memType]", function () {
         var cont_normal = $('#tab01');
@@ -1918,12 +1627,14 @@ var mypage_common = function mypage_common() {
     };
 
     var mypage_datepicker = function mypage_datepicker() {
+        var dateFormat = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'yy.mm.dd';
+
 
         $("#devSdate").datepicker({
-            monthNames: ['년 1월', '년 2월', '년 3월', '년 4월', '년 5월', '년 6월', '년 7월', '년 8월', '년 9월', '년 10월', '년 11월', '년 12월'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            // monthNames: ['년 1월', '년 2월', '년 3월', '년 4월', '년 5월', '년 6월', '년 7월', '년 8월', '년 9월', '년 10월', '년 11월', '년 12월'],
+            // dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
             showMonthAfterYear: true,
-            dateFormat: 'yy-mm-dd',
+            dateFormat: dateFormat,
             buttonImageOnly: true,
             buttonText: '달력',
             onSelect: function onSelect(dateText) {
@@ -1937,10 +1648,10 @@ var mypage_common = function mypage_common() {
         });
 
         $('#devEdate').datepicker({
-            monthNames: ['년 1월', '년 2월', '년 3월', '년 4월', '년 5월', '년 6월', '년 7월', '년 8월', '년 9월', '년 10월', '년 11월', '년 12월'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            // monthNames: ['년 1월', '년 2월', '년 3월', '년 4월', '년 5월', '년 6월', '년 7월', '년 8월', '년 9월', '년 10월', '년 11월', '년 12월'],
+            // dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
             showMonthAfterYear: true,
-            dateFormat: 'yy-mm-dd',
+            dateFormat: dateFormat,
             buttonImageOnly: true,
             buttonText: '달력',
             onSelect: function onSelect(dateText) {
@@ -2022,44 +1733,6 @@ var mypage_common = function mypage_common() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (mypage_common);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
-/***/ "./js/divide/mypage_coupon.js":
-/*!************************************!*\
-  !*** ./js/divide/mypage_coupon.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/**
- * Created by forbiz on 2019-02-11.
- */
-
-var mypage_coupon = function mypage_coupon() {
-    var $document = $(document);
-
-    var coupon_tab = function coupon_tab() {
-        var $target = $(".mypage-coupon__tab-menu");
-
-        $document.on("click", ".mypage-coupon__tab-menu", function () {
-            var $this = $(this);
-            $this.addClass("mypage-coupon__tab-menu--active").siblings().removeClass("mypage-coupon__tab-menu--active");
-            return false;
-        });
-    };
-
-    var coupon_init = function coupon_init() {
-        // coupon_tab();
-    };
-
-    coupon_init();
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (mypage_coupon);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
@@ -2160,30 +1833,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (mypage_myGoodsReview);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
-/***/ "./js/divide/mypage_orderHistory.js":
-/*!******************************************!*\
-  !*** ./js/divide/mypage_orderHistory.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/**
- * Created by frontend on 2020-09-14.
- */
-
-var mypage_orderHistory = function mypage_orderHistory() {
-
-    var init = function init() {};
-
-    init();
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (mypage_orderHistory);
 
 /***/ }),
 
@@ -2310,32 +1959,6 @@ var mypage_receiptPrint = function mypage_receiptPrint() {
 
 /***/ }),
 
-/***/ "./js/divide/shop_cart.js":
-/*!********************************!*\
-  !*** ./js/divide/shop_cart.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/*
- * Created by Forbiz on 2019-05-31.
- */
-
-var shop_cart = function shop_cart() {
-    var $document = $(document);
-
-    var init = function init() {};
-
-    init();
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (shop_cart);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
-
-/***/ }),
-
 /***/ "./js/divide/shop_goodsList.js":
 /*!*************************************!*\
   !*** ./js/divide/shop_goodsList.js ***!
@@ -2413,22 +2036,6 @@ var shop_goodsReview = function shop_goodsReview() {
         });
     };
 
-    var video_tab = function video_tab() {
-        $document.on("click", ".write__video__type .fb__wrap-radio__label", function () {
-            var $this = $(this);
-            var $tab_youtube = $(".tab-youtube");
-            var $tab_myVideo = $(".tab-myVideo");
-
-            if ($this.hasClass("youtube")) {
-                $tab_youtube.addClass("write__video__tab--show");
-                $tab_myVideo.removeClass("write__video__tab--show");
-            } else {
-                $tab_youtube.removeClass("write__video__tab--show");
-                $tab_myVideo.addClass("write__video__tab--show");
-            }
-        });
-    };
-
     var edit_comment = function edit_comment() {
         $document.on("click", ".fb__goodsReview-read .list__edit-btn", function () {
             var $this = $(this);
@@ -2501,7 +2108,6 @@ var shop_goodsReview = function shop_goodsReview() {
 
     var write_init = function write_init() {
         review_tab();
-        video_tab();
         file_upload();
         file_del();
         cancel_click();
@@ -2714,7 +2320,6 @@ var shop_goodsView = function shop_goodsView() {
         ifLogin();
         lazyload();
         goodsView_slider();
-        // goodsViewThumb_slider();
         goodsNotiToggle();
 
         goodsReview();
@@ -2744,28 +2349,6 @@ __webpack_require__.r(__webpack_exports__);
 var shop_infoInput = function shop_infoInput() {
     var $window = $(window);
     var $document = $(document);
-
-    var coupon_popup_select = function coupon_popup_select() {
-        $document.on("change", '[devcouponselect]', function () {
-            var $this = $(this);
-
-            var currentVal = $this.val();
-
-            if (currentVal) {
-
-                if (currentVal === '' || currentVal === '쿠폰선택') {
-                    $this.css('color', '#999999');
-                } else {
-                    $this.css('color', '#111111');
-                }
-
-                $this.parents("tr").find(".coupon-box__choice-cancel").addClass('coupon-box__choice-cancel--active');
-            } else {
-                $this.css('color', '#999999');
-                $this.parents("tr").find(".coupon-box__choice-cancel").removeClass('coupon-box__choice-cancel--active');
-            }
-        });
-    };
 
     var coupon_popup_cancel = function coupon_popup_cancel() {
         $document.on("click", '.coupon-box__choice-cancel a', function () {
@@ -2872,7 +2455,6 @@ var shop_infoInput = function shop_infoInput() {
     };
 
     var infoInput_init = function infoInput_init() {
-        // coupon_popup_select();
         coupon_popup_cancel();
         delivery_tab();
 
@@ -22980,6 +22562,2179 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 
+/***/ "./node_modules/jquery-datepicker/i18n sync recursive ^\\.\\/jquery\\.ui\\.datepicker\\-.*$":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n sync ^\.\/jquery\.ui\.datepicker\-.*$ ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./jquery.ui.datepicker-af": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-af.js",
+	"./jquery.ui.datepicker-af.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-af.js",
+	"./jquery.ui.datepicker-ar": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar.js",
+	"./jquery.ui.datepicker-ar-DZ": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar-DZ.js",
+	"./jquery.ui.datepicker-ar-DZ.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar-DZ.js",
+	"./jquery.ui.datepicker-ar.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar.js",
+	"./jquery.ui.datepicker-az": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-az.js",
+	"./jquery.ui.datepicker-az.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-az.js",
+	"./jquery.ui.datepicker-be": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-be.js",
+	"./jquery.ui.datepicker-be.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-be.js",
+	"./jquery.ui.datepicker-bg": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bg.js",
+	"./jquery.ui.datepicker-bg.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bg.js",
+	"./jquery.ui.datepicker-bs": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bs.js",
+	"./jquery.ui.datepicker-bs.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bs.js",
+	"./jquery.ui.datepicker-ca": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ca.js",
+	"./jquery.ui.datepicker-ca.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ca.js",
+	"./jquery.ui.datepicker-cs": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cs.js",
+	"./jquery.ui.datepicker-cs.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cs.js",
+	"./jquery.ui.datepicker-cy-GB": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cy-GB.js",
+	"./jquery.ui.datepicker-cy-GB.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cy-GB.js",
+	"./jquery.ui.datepicker-da": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-da.js",
+	"./jquery.ui.datepicker-da.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-da.js",
+	"./jquery.ui.datepicker-de": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-de.js",
+	"./jquery.ui.datepicker-de.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-de.js",
+	"./jquery.ui.datepicker-el": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-el.js",
+	"./jquery.ui.datepicker-el.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-el.js",
+	"./jquery.ui.datepicker-en-AU": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-AU.js",
+	"./jquery.ui.datepicker-en-AU.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-AU.js",
+	"./jquery.ui.datepicker-en-GB": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-GB.js",
+	"./jquery.ui.datepicker-en-GB.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-GB.js",
+	"./jquery.ui.datepicker-en-NZ": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-NZ.js",
+	"./jquery.ui.datepicker-en-NZ.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-NZ.js",
+	"./jquery.ui.datepicker-eo": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eo.js",
+	"./jquery.ui.datepicker-eo.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eo.js",
+	"./jquery.ui.datepicker-es": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-es.js",
+	"./jquery.ui.datepicker-es.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-es.js",
+	"./jquery.ui.datepicker-et": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-et.js",
+	"./jquery.ui.datepicker-et.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-et.js",
+	"./jquery.ui.datepicker-eu": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eu.js",
+	"./jquery.ui.datepicker-eu.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eu.js",
+	"./jquery.ui.datepicker-fa": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fa.js",
+	"./jquery.ui.datepicker-fa.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fa.js",
+	"./jquery.ui.datepicker-fi": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fi.js",
+	"./jquery.ui.datepicker-fi.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fi.js",
+	"./jquery.ui.datepicker-fo": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fo.js",
+	"./jquery.ui.datepicker-fo.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fo.js",
+	"./jquery.ui.datepicker-fr": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr.js",
+	"./jquery.ui.datepicker-fr-CA": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CA.js",
+	"./jquery.ui.datepicker-fr-CA.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CA.js",
+	"./jquery.ui.datepicker-fr-CH": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CH.js",
+	"./jquery.ui.datepicker-fr-CH.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CH.js",
+	"./jquery.ui.datepicker-fr.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr.js",
+	"./jquery.ui.datepicker-gl": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-gl.js",
+	"./jquery.ui.datepicker-gl.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-gl.js",
+	"./jquery.ui.datepicker-he": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-he.js",
+	"./jquery.ui.datepicker-he.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-he.js",
+	"./jquery.ui.datepicker-hi": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hi.js",
+	"./jquery.ui.datepicker-hi.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hi.js",
+	"./jquery.ui.datepicker-hr": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hr.js",
+	"./jquery.ui.datepicker-hr.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hr.js",
+	"./jquery.ui.datepicker-hu": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hu.js",
+	"./jquery.ui.datepicker-hu.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hu.js",
+	"./jquery.ui.datepicker-hy": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hy.js",
+	"./jquery.ui.datepicker-hy.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hy.js",
+	"./jquery.ui.datepicker-id": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-id.js",
+	"./jquery.ui.datepicker-id.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-id.js",
+	"./jquery.ui.datepicker-is": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-is.js",
+	"./jquery.ui.datepicker-is.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-is.js",
+	"./jquery.ui.datepicker-it": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-it.js",
+	"./jquery.ui.datepicker-it.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-it.js",
+	"./jquery.ui.datepicker-ja": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ja.js",
+	"./jquery.ui.datepicker-ja.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ja.js",
+	"./jquery.ui.datepicker-ka": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ka.js",
+	"./jquery.ui.datepicker-ka.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ka.js",
+	"./jquery.ui.datepicker-kk": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-kk.js",
+	"./jquery.ui.datepicker-kk.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-kk.js",
+	"./jquery.ui.datepicker-km": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-km.js",
+	"./jquery.ui.datepicker-km.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-km.js",
+	"./jquery.ui.datepicker-ko": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ko.js",
+	"./jquery.ui.datepicker-ko.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ko.js",
+	"./jquery.ui.datepicker-ky": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ky.js",
+	"./jquery.ui.datepicker-ky.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ky.js",
+	"./jquery.ui.datepicker-lb": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lb.js",
+	"./jquery.ui.datepicker-lb.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lb.js",
+	"./jquery.ui.datepicker-lt": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lt.js",
+	"./jquery.ui.datepicker-lt.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lt.js",
+	"./jquery.ui.datepicker-lv": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lv.js",
+	"./jquery.ui.datepicker-lv.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lv.js",
+	"./jquery.ui.datepicker-mk": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-mk.js",
+	"./jquery.ui.datepicker-mk.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-mk.js",
+	"./jquery.ui.datepicker-ml": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ml.js",
+	"./jquery.ui.datepicker-ml.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ml.js",
+	"./jquery.ui.datepicker-ms": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ms.js",
+	"./jquery.ui.datepicker-ms.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ms.js",
+	"./jquery.ui.datepicker-nb": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nb.js",
+	"./jquery.ui.datepicker-nb.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nb.js",
+	"./jquery.ui.datepicker-nl": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl.js",
+	"./jquery.ui.datepicker-nl-BE": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl-BE.js",
+	"./jquery.ui.datepicker-nl-BE.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl-BE.js",
+	"./jquery.ui.datepicker-nl.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl.js",
+	"./jquery.ui.datepicker-nn": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nn.js",
+	"./jquery.ui.datepicker-nn.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nn.js",
+	"./jquery.ui.datepicker-no": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-no.js",
+	"./jquery.ui.datepicker-no.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-no.js",
+	"./jquery.ui.datepicker-pl": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pl.js",
+	"./jquery.ui.datepicker-pl.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pl.js",
+	"./jquery.ui.datepicker-pt": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt.js",
+	"./jquery.ui.datepicker-pt-BR": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt-BR.js",
+	"./jquery.ui.datepicker-pt-BR.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt-BR.js",
+	"./jquery.ui.datepicker-pt.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt.js",
+	"./jquery.ui.datepicker-rm": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-rm.js",
+	"./jquery.ui.datepicker-rm.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-rm.js",
+	"./jquery.ui.datepicker-ro": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ro.js",
+	"./jquery.ui.datepicker-ro.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ro.js",
+	"./jquery.ui.datepicker-ru": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ru.js",
+	"./jquery.ui.datepicker-ru.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ru.js",
+	"./jquery.ui.datepicker-sk": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sk.js",
+	"./jquery.ui.datepicker-sk.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sk.js",
+	"./jquery.ui.datepicker-sl": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sl.js",
+	"./jquery.ui.datepicker-sl.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sl.js",
+	"./jquery.ui.datepicker-sq": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sq.js",
+	"./jquery.ui.datepicker-sq.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sq.js",
+	"./jquery.ui.datepicker-sr": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr.js",
+	"./jquery.ui.datepicker-sr-SR": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr-SR.js",
+	"./jquery.ui.datepicker-sr-SR.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr-SR.js",
+	"./jquery.ui.datepicker-sr.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr.js",
+	"./jquery.ui.datepicker-sv": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sv.js",
+	"./jquery.ui.datepicker-sv.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sv.js",
+	"./jquery.ui.datepicker-ta": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ta.js",
+	"./jquery.ui.datepicker-ta.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ta.js",
+	"./jquery.ui.datepicker-th": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-th.js",
+	"./jquery.ui.datepicker-th.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-th.js",
+	"./jquery.ui.datepicker-tj": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tj.js",
+	"./jquery.ui.datepicker-tj.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tj.js",
+	"./jquery.ui.datepicker-tr": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tr.js",
+	"./jquery.ui.datepicker-tr.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tr.js",
+	"./jquery.ui.datepicker-uk": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-uk.js",
+	"./jquery.ui.datepicker-uk.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-uk.js",
+	"./jquery.ui.datepicker-vi": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-vi.js",
+	"./jquery.ui.datepicker-vi.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-vi.js",
+	"./jquery.ui.datepicker-zh-CN": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-CN.js",
+	"./jquery.ui.datepicker-zh-CN.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-CN.js",
+	"./jquery.ui.datepicker-zh-HK": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-HK.js",
+	"./jquery.ui.datepicker-zh-HK.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-HK.js",
+	"./jquery.ui.datepicker-zh-TW": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-TW.js",
+	"./jquery.ui.datepicker-zh-TW.js": "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-TW.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/jquery-datepicker/i18n sync recursive ^\\.\\/jquery\\.ui\\.datepicker\\-.*$";
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-af.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-af.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Afrikaans initialisation for the jQuery UI date picker plugin. */
+		/* Written by Renier Pretorius. */
+		jQuery(function ($) {
+			$.datepicker.regional['af'] = {
+				closeText: 'Selekteer',
+				prevText: 'Vorige',
+				nextText: 'Volgende',
+				currentText: 'Vandag',
+				monthNames: ['Januarie', 'Februarie', 'Maart', 'April', 'Mei', 'Junie', 'Julie', 'Augustus', 'September', 'Oktober', 'November', 'Desember'],
+				monthNamesShort: ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
+				dayNames: ['Sondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrydag', 'Saterdag'],
+				dayNamesShort: ['Son', 'Maa', 'Din', 'Woe', 'Don', 'Vry', 'Sat'],
+				dayNamesMin: ['So', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Sa'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['af']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar-DZ.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar-DZ.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Algerian Arabic Translation for jQuery UI date picker plugin. (can be used for Tunisia)*/
+		/* Mohamed Cherif BOUCHELAGHEM -- cherifbouchelaghem@yahoo.fr */
+
+		jQuery(function ($) {
+			$.datepicker.regional['ar-DZ'] = {
+				closeText: 'إغلاق',
+				prevText: '&#x3C;السابق',
+				nextText: 'التالي&#x3E;',
+				currentText: 'اليوم',
+				monthNames: ['جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان', 'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+				monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+				dayNames: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+				dayNamesShort: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+				dayNamesMin: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+				weekHeader: 'أسبوع',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 6,
+				isRTL: true,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ar-DZ']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ar.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Arabic Translation for jQuery UI date picker plugin. */
+		/* Khaled Alhourani -- me@khaledalhourani.com */
+		/* NOTE: monthNames are the original months names and they are the Arabic names, not the new months name فبراير - يناير and there isn't any Arabic roots for these months */
+		jQuery(function ($) {
+			$.datepicker.regional['ar'] = {
+				closeText: 'إغلاق',
+				prevText: '&#x3C;السابق',
+				nextText: 'التالي&#x3E;',
+				currentText: 'اليوم',
+				monthNames: ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'مايو', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الأول', 'تشرين الثاني', 'كانون الأول'],
+				monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+				dayNames: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+				dayNamesShort: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+				dayNamesMin: ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+				weekHeader: 'أسبوع',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 6,
+				isRTL: true,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ar']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-az.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-az.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Azerbaijani (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Jamil Najafov (necefov33@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['az'] = {
+				closeText: 'Bağla',
+				prevText: '&#x3C;Geri',
+				nextText: 'İrəli&#x3E;',
+				currentText: 'Bugün',
+				monthNames: ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun', 'İyul', 'Avqust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr'],
+				monthNamesShort: ['Yan', 'Fev', 'Mar', 'Apr', 'May', 'İyun', 'İyul', 'Avq', 'Sen', 'Okt', 'Noy', 'Dek'],
+				dayNames: ['Bazar', 'Bazar ertəsi', 'Çərşənbə axşamı', 'Çərşənbə', 'Cümə axşamı', 'Cümə', 'Şənbə'],
+				dayNamesShort: ['B', 'Be', 'Ça', 'Ç', 'Ca', 'C', 'Ş'],
+				dayNamesMin: ['B', 'B', 'Ç', 'С', 'Ç', 'C', 'Ş'],
+				weekHeader: 'Hf',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['az']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-be.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-be.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Belarusian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Pavel Selitskas <p.selitskas@gmail.com> */
+		jQuery(function ($) {
+			$.datepicker.regional['be'] = {
+				closeText: 'Зачыніць',
+				prevText: '&larr;Папяр.',
+				nextText: 'Наст.&rarr;',
+				currentText: 'Сёньня',
+				monthNames: ['Студзень', 'Люты', 'Сакавік', 'Красавік', 'Травень', 'Чэрвень', 'Ліпень', 'Жнівень', 'Верасень', 'Кастрычнік', 'Лістапад', 'Сьнежань'],
+				monthNamesShort: ['Сту', 'Лют', 'Сак', 'Кра', 'Тра', 'Чэр', 'Ліп', 'Жні', 'Вер', 'Кас', 'Ліс', 'Сьн'],
+				dayNames: ['нядзеля', 'панядзелак', 'аўторак', 'серада', 'чацьвер', 'пятніца', 'субота'],
+				dayNamesShort: ['ндз', 'пнд', 'аўт', 'срд', 'чцв', 'птн', 'сбт'],
+				dayNamesMin: ['Нд', 'Пн', 'Аў', 'Ср', 'Чц', 'Пт', 'Сб'],
+				weekHeader: 'Тд',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['be']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bg.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bg.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Bulgarian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Stoyan Kyosev (http://svest.org). */
+		jQuery(function ($) {
+			$.datepicker.regional['bg'] = {
+				closeText: 'затвори',
+				prevText: '&#x3C;назад',
+				nextText: 'напред&#x3E;',
+				nextBigText: '&#x3E;&#x3E;',
+				currentText: 'днес',
+				monthNames: ['Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'],
+				monthNamesShort: ['Яну', 'Фев', 'Мар', 'Апр', 'Май', 'Юни', 'Юли', 'Авг', 'Сеп', 'Окт', 'Нов', 'Дек'],
+				dayNames: ['Неделя', 'Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота'],
+				dayNamesShort: ['Нед', 'Пон', 'Вто', 'Сря', 'Чет', 'Пет', 'Съб'],
+				dayNamesMin: ['Не', 'По', 'Вт', 'Ср', 'Че', 'Пе', 'Съ'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['bg']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bs.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-bs.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Bosnian i18n for the jQuery UI date picker plugin. */
+		/* Written by Kenan Konjo. */
+		jQuery(function ($) {
+			$.datepicker.regional['bs'] = {
+				closeText: 'Zatvori',
+				prevText: '&#x3C;',
+				nextText: '&#x3E;',
+				currentText: 'Danas',
+				monthNames: ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['Nedelja', 'Ponedeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak', 'Subota'],
+				dayNamesShort: ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'],
+				dayNamesMin: ['Ne', 'Po', 'Ut', 'Sr', 'Če', 'Pe', 'Su'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['bs']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ca.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ca.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Inicialització en català per a l'extensió 'UI date picker' per jQuery. */
+		/* Writers: (joan.leon@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['ca'] = {
+				closeText: 'Tanca',
+				prevText: 'Anterior',
+				nextText: 'Següent',
+				currentText: 'Avui',
+				monthNames: ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'],
+				monthNamesShort: ['gen', 'feb', 'març', 'abr', 'maig', 'juny', 'jul', 'ag', 'set', 'oct', 'nov', 'des'],
+				dayNames: ['diumenge', 'dilluns', 'dimarts', 'dimecres', 'dijous', 'divendres', 'dissabte'],
+				dayNamesShort: ['dg', 'dl', 'dt', 'dc', 'dj', 'dv', 'ds'],
+				dayNamesMin: ['dg', 'dl', 'dt', 'dc', 'dj', 'dv', 'ds'],
+				weekHeader: 'Set',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ca']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cs.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cs.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Czech initialisation for the jQuery UI date picker plugin. */
+		/* Written by Tomas Muller (tomas@tomas-muller.net). */
+		jQuery(function ($) {
+			$.datepicker.regional['cs'] = {
+				closeText: 'Zavřít',
+				prevText: '&#x3C;Dříve',
+				nextText: 'Později&#x3E;',
+				currentText: 'Nyní',
+				monthNames: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+				monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+				dayNames: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+				dayNamesShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+				dayNamesMin: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+				weekHeader: 'Týd',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['cs']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cy-GB.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-cy-GB.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Welsh/UK initialisation for the jQuery UI date picker plugin. */
+		/* Written by William Griffiths. */
+		jQuery(function ($) {
+			$.datepicker.regional['cy-GB'] = {
+				closeText: 'Done',
+				prevText: 'Prev',
+				nextText: 'Next',
+				currentText: 'Today',
+				monthNames: ['Ionawr', 'Chwefror', 'Mawrth', 'Ebrill', 'Mai', 'Mehefin', 'Gorffennaf', 'Awst', 'Medi', 'Hydref', 'Tachwedd', 'Rhagfyr'],
+				monthNamesShort: ['Ion', 'Chw', 'Maw', 'Ebr', 'Mai', 'Meh', 'Gor', 'Aws', 'Med', 'Hyd', 'Tac', 'Rha'],
+				dayNames: ['Dydd Sul', 'Dydd Llun', 'Dydd Mawrth', 'Dydd Mercher', 'Dydd Iau', 'Dydd Gwener', 'Dydd Sadwrn'],
+				dayNamesShort: ['Sul', 'Llu', 'Maw', 'Mer', 'Iau', 'Gwe', 'Sad'],
+				dayNamesMin: ['Su', 'Ll', 'Ma', 'Me', 'Ia', 'Gw', 'Sa'],
+				weekHeader: 'Wy',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['cy-GB']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-da.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-da.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Danish initialisation for the jQuery UI date picker plugin. */
+		/* Written by Jan Christensen ( deletestuff@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['da'] = {
+				closeText: 'Luk',
+				prevText: '&#x3C;Forrige',
+				nextText: 'Næste&#x3E;',
+				currentText: 'Idag',
+				monthNames: ['Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'December'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
+				dayNamesShort: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
+				dayNamesMin: ['Sø', 'Ma', 'Ti', 'On', 'To', 'Fr', 'Lø'],
+				weekHeader: 'Uge',
+				dateFormat: 'dd-mm-yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['da']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-de.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-de.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* German initialisation for the jQuery UI date picker plugin. */
+		/* Written by Milian Wolff (mail@milianw.de). */
+		jQuery(function ($) {
+			$.datepicker.regional['de'] = {
+				closeText: 'Schließen',
+				prevText: '&#x3C;Zurück',
+				nextText: 'Vor&#x3E;',
+				currentText: 'Heute',
+				monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+				monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+				dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+				dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+				dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+				weekHeader: 'KW',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['de']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-el.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-el.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Greek (el) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Alex Cicovic (http://www.alexcicovic.com) */
+		jQuery(function ($) {
+			$.datepicker.regional['el'] = {
+				closeText: 'Κλείσιμο',
+				prevText: 'Προηγούμενος',
+				nextText: 'Επόμενος',
+				currentText: 'Τρέχων Μήνας',
+				monthNames: ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος'],
+				monthNamesShort: ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μαι', 'Ιουν', 'Ιουλ', 'Αυγ', 'Σεπ', 'Οκτ', 'Νοε', 'Δεκ'],
+				dayNames: ['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο'],
+				dayNamesShort: ['Κυρ', 'Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ'],
+				dayNamesMin: ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'],
+				weekHeader: 'Εβδ',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['el']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-AU.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-AU.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* English/Australia initialisation for the jQuery UI date picker plugin. */
+		/* Based on the en-GB initialisation. */
+		jQuery(function ($) {
+			$.datepicker.regional['en-AU'] = {
+				closeText: 'Done',
+				prevText: 'Prev',
+				nextText: 'Next',
+				currentText: 'Today',
+				monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+				dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['en-AU']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-GB.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-GB.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* English/UK initialisation for the jQuery UI date picker plugin. */
+		/* Written by Stuart. */
+		jQuery(function ($) {
+			$.datepicker.regional['en-GB'] = {
+				closeText: 'Done',
+				prevText: 'Prev',
+				nextText: 'Next',
+				currentText: 'Today',
+				monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+				dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['en-GB']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-NZ.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-en-NZ.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* English/New Zealand initialisation for the jQuery UI date picker plugin. */
+		/* Based on the en-GB initialisation. */
+		jQuery(function ($) {
+			$.datepicker.regional['en-NZ'] = {
+				closeText: 'Done',
+				prevText: 'Prev',
+				nextText: 'Next',
+				currentText: 'Today',
+				monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+				dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['en-NZ']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eo.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eo.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Esperanto initialisation for the jQuery UI date picker plugin. */
+		/* Written by Olivier M. (olivierweb@ifrance.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['eo'] = {
+				closeText: 'Fermi',
+				prevText: '&#x3C;Anta',
+				nextText: 'Sekv&#x3E;',
+				currentText: 'Nuna',
+				monthNames: ['Januaro', 'Februaro', 'Marto', 'Aprilo', 'Majo', 'Junio', 'Julio', 'Aŭgusto', 'Septembro', 'Oktobro', 'Novembro', 'Decembro'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aŭg', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['Dimanĉo', 'Lundo', 'Mardo', 'Merkredo', 'Ĵaŭdo', 'Vendredo', 'Sabato'],
+				dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Ĵaŭ', 'Ven', 'Sab'],
+				dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Ĵa', 'Ve', 'Sa'],
+				weekHeader: 'Sb',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['eo']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-es.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-es.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Inicialización en español para la extensión 'UI date picker' para jQuery. */
+		/* Traducido por Vester (xvester@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['es'] = {
+				closeText: 'Cerrar',
+				prevText: '&#x3C;Ant',
+				nextText: 'Sig&#x3E;',
+				currentText: 'Hoy',
+				monthNames: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+				monthNamesShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ogo', 'sep', 'oct', 'nov', 'dic'],
+				dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+				dayNamesShort: ['dom', 'lun', 'mar', 'mié', 'juv', 'vie', 'sáb'],
+				dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['es']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-et.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-et.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Estonian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Mart Sõmermaa (mrts.pydev at gmail com). */
+		jQuery(function ($) {
+			$.datepicker.regional['et'] = {
+				closeText: 'Sulge',
+				prevText: 'Eelnev',
+				nextText: 'Järgnev',
+				currentText: 'Täna',
+				monthNames: ['Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni', 'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember'],
+				monthNamesShort: ['Jaan', 'Veebr', 'Märts', 'Apr', 'Mai', 'Juuni', 'Juuli', 'Aug', 'Sept', 'Okt', 'Nov', 'Dets'],
+				dayNames: ['Pühapäev', 'Esmaspäev', 'Teisipäev', 'Kolmapäev', 'Neljapäev', 'Reede', 'Laupäev'],
+				dayNamesShort: ['Pühap', 'Esmasp', 'Teisip', 'Kolmap', 'Neljap', 'Reede', 'Laup'],
+				dayNamesMin: ['P', 'E', 'T', 'K', 'N', 'R', 'L'],
+				weekHeader: 'näd',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['et']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eu.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-eu.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Euskarako oinarria 'UI date picker' jquery-ko extentsioarentzat */
+		/* Karrikas-ek itzulia (karrikas@karrikas.com) */
+		jQuery(function ($) {
+			$.datepicker.regional['eu'] = {
+				closeText: 'Egina',
+				prevText: '&#x3C;Aur',
+				nextText: 'Hur&#x3E;',
+				currentText: 'Gaur',
+				monthNames: ['urtarrila', 'otsaila', 'martxoa', 'apirila', 'maiatza', 'ekaina', 'uztaila', 'abuztua', 'iraila', 'urria', 'azaroa', 'abendua'],
+				monthNamesShort: ['urt.', 'ots.', 'mar.', 'api.', 'mai.', 'eka.', 'uzt.', 'abu.', 'ira.', 'urr.', 'aza.', 'abe.'],
+				dayNames: ['igandea', 'astelehena', 'asteartea', 'asteazkena', 'osteguna', 'ostirala', 'larunbata'],
+				dayNamesShort: ['ig.', 'al.', 'ar.', 'az.', 'og.', 'ol.', 'lr.'],
+				dayNamesMin: ['ig', 'al', 'ar', 'az', 'og', 'ol', 'lr'],
+				weekHeader: 'As',
+				dateFormat: 'yy-mm-dd',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['eu']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fa.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fa.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Persian (Farsi) Translation for the jQuery UI date picker plugin. */
+		/* Javad Mowlanezhad -- jmowla@gmail.com */
+		/* Jalali calendar should supported soon! (Its implemented but I have to test it) */
+		jQuery(function ($) {
+			$.datepicker.regional['fa'] = {
+				closeText: 'بستن',
+				prevText: '&#x3C;قبلی',
+				nextText: 'بعدی&#x3E;',
+				currentText: 'امروز',
+				monthNames: ['فروردين', 'ارديبهشت', 'خرداد', 'تير', 'مرداد', 'شهريور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'],
+				monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+				dayNames: ['يکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'],
+				dayNamesShort: ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'],
+				dayNamesMin: ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'],
+				weekHeader: 'هف',
+				dateFormat: 'yy/mm/dd',
+				firstDay: 6,
+				isRTL: true,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['fa']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fi.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fi.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Finnish initialisation for the jQuery UI date picker plugin. */
+		/* Written by Harri Kilpiö (harrikilpio@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['fi'] = {
+				closeText: 'Sulje',
+				prevText: '&#xAB;Edellinen',
+				nextText: 'Seuraava&#xBB;',
+				currentText: 'Tänään',
+				monthNames: ['Tammikuu', 'Helmikuu', 'Maaliskuu', 'Huhtikuu', 'Toukokuu', 'Kesäkuu', 'Heinäkuu', 'Elokuu', 'Syyskuu', 'Lokakuu', 'Marraskuu', 'Joulukuu'],
+				monthNamesShort: ['Tammi', 'Helmi', 'Maalis', 'Huhti', 'Touko', 'Kesä', 'Heinä', 'Elo', 'Syys', 'Loka', 'Marras', 'Joulu'],
+				dayNamesShort: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
+				dayNames: ['Sunnuntai', 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai'],
+				dayNamesMin: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
+				weekHeader: 'Vk',
+				dateFormat: 'd.m.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['fi']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fo.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fo.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Faroese initialisation for the jQuery UI date picker plugin */
+		/* Written by Sverri Mohr Olsen, sverrimo@gmail.com */
+		jQuery(function ($) {
+			$.datepicker.regional['fo'] = {
+				closeText: 'Lat aftur',
+				prevText: '&#x3C;Fyrra',
+				nextText: 'Næsta&#x3E;',
+				currentText: 'Í dag',
+				monthNames: ['Januar', 'Februar', 'Mars', 'Apríl', 'Mei', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
+				dayNames: ['Sunnudagur', 'Mánadagur', 'Týsdagur', 'Mikudagur', 'Hósdagur', 'Fríggjadagur', 'Leyardagur'],
+				dayNamesShort: ['Sun', 'Mán', 'Týs', 'Mik', 'Hós', 'Frí', 'Ley'],
+				dayNamesMin: ['Su', 'Má', 'Tý', 'Mi', 'Hó', 'Fr', 'Le'],
+				weekHeader: 'Vk',
+				dateFormat: 'dd-mm-yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['fo']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CA.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CA.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Canadian-French initialisation for the jQuery UI date picker plugin. */
+		jQuery(function ($) {
+			$.datepicker.regional['fr-CA'] = {
+				closeText: 'Fermer',
+				prevText: 'Précédent',
+				nextText: 'Suivant',
+				currentText: 'Aujourd\'hui',
+				monthNames: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+				monthNamesShort: ['janv.', 'févr.', 'mars', 'avril', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
+				dayNames: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+				dayNamesShort: ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'],
+				dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+				weekHeader: 'Sem.',
+				dateFormat: 'yy-mm-dd',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};
+			$.datepicker.setDefaults($.datepicker.regional['fr-CA']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CH.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr-CH.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Swiss-French initialisation for the jQuery UI date picker plugin. */
+		/* Written Martin Voelkle (martin.voelkle@e-tc.ch). */
+		jQuery(function ($) {
+			$.datepicker.regional['fr-CH'] = {
+				closeText: 'Fermer',
+				prevText: '&#x3C;Préc',
+				nextText: 'Suiv&#x3E;',
+				currentText: 'Courant',
+				monthNames: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+				monthNamesShort: ['janv.', 'févr.', 'mars', 'avril', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
+				dayNames: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+				dayNamesShort: ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'],
+				dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['fr-CH']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-fr.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* French initialisation for the jQuery UI date picker plugin. */
+		/* Written by Keith Wood (kbwood{at}iinet.com.au),
+  			  Stéphane Nahmani (sholby@sholby.net),
+  			  Stéphane Raimbault <stephane.raimbault@gmail.com> */
+		jQuery(function ($) {
+			$.datepicker.regional['fr'] = {
+				closeText: 'Fermer',
+				prevText: 'Précédent',
+				nextText: 'Suivant',
+				currentText: 'Aujourd\'hui',
+				monthNames: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+				monthNamesShort: ['janv.', 'févr.', 'mars', 'avril', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
+				dayNames: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+				dayNamesShort: ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'],
+				dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+				weekHeader: 'Sem.',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['fr']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-gl.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-gl.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Galician localization for 'UI date picker' jQuery extension. */
+		/* Translated by Jorge Barreiro <yortx.barry@gmail.com>. */
+		jQuery(function ($) {
+			$.datepicker.regional['gl'] = {
+				closeText: 'Pechar',
+				prevText: '&#x3C;Ant',
+				nextText: 'Seg&#x3E;',
+				currentText: 'Hoxe',
+				monthNames: ['Xaneiro', 'Febreiro', 'Marzo', 'Abril', 'Maio', 'Xuño', 'Xullo', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Decembro'],
+				monthNamesShort: ['Xan', 'Feb', 'Mar', 'Abr', 'Mai', 'Xuñ', 'Xul', 'Ago', 'Set', 'Out', 'Nov', 'Dec'],
+				dayNames: ['Domingo', 'Luns', 'Martes', 'Mércores', 'Xoves', 'Venres', 'Sábado'],
+				dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mér', 'Xov', 'Ven', 'Sáb'],
+				dayNamesMin: ['Do', 'Lu', 'Ma', 'Mé', 'Xo', 'Ve', 'Sá'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['gl']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-he.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-he.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Hebrew initialisation for the UI Datepicker extension. */
+		/* Written by Amir Hardon (ahardon at gmail dot com). */
+		jQuery(function ($) {
+			$.datepicker.regional['he'] = {
+				closeText: 'סגור',
+				prevText: '&#x3C;הקודם',
+				nextText: 'הבא&#x3E;',
+				currentText: 'היום',
+				monthNames: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+				monthNamesShort: ['ינו', 'פבר', 'מרץ', 'אפר', 'מאי', 'יוני', 'יולי', 'אוג', 'ספט', 'אוק', 'נוב', 'דצמ'],
+				dayNames: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'],
+				dayNamesShort: ['א\'', 'ב\'', 'ג\'', 'ד\'', 'ה\'', 'ו\'', 'שבת'],
+				dayNamesMin: ['א\'', 'ב\'', 'ג\'', 'ד\'', 'ה\'', 'ו\'', 'שבת'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: true,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['he']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hi.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hi.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Hindi initialisation for the jQuery UI date picker plugin. */
+		/* Written by Michael Dawart. */
+		jQuery(function ($) {
+			$.datepicker.regional['hi'] = {
+				closeText: 'बंद',
+				prevText: 'पिछला',
+				nextText: 'अगला',
+				currentText: 'आज',
+				monthNames: ['जनवरी ', 'फरवरी', 'मार्च', 'अप्रेल', 'मई', 'जून', 'जूलाई', 'अगस्त ', 'सितम्बर', 'अक्टूबर', 'नवम्बर', 'दिसम्बर'],
+				monthNamesShort: ['जन', 'फर', 'मार्च', 'अप्रेल', 'मई', 'जून', 'जूलाई', 'अग', 'सित', 'अक्ट', 'नव', 'दि'],
+				dayNames: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
+				dayNamesShort: ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'],
+				dayNamesMin: ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'],
+				weekHeader: 'हफ्ता',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['hi']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hr.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hr.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Croatian i18n for the jQuery UI date picker plugin. */
+		/* Written by Vjekoslav Nesek. */
+		jQuery(function ($) {
+			$.datepicker.regional['hr'] = {
+				closeText: 'Zatvori',
+				prevText: '&#x3C;',
+				nextText: '&#x3E;',
+				currentText: 'Danas',
+				monthNames: ['Siječanj', 'Veljača', 'Ožujak', 'Travanj', 'Svibanj', 'Lipanj', 'Srpanj', 'Kolovoz', 'Rujan', 'Listopad', 'Studeni', 'Prosinac'],
+				monthNamesShort: ['Sij', 'Velj', 'Ožu', 'Tra', 'Svi', 'Lip', 'Srp', 'Kol', 'Ruj', 'Lis', 'Stu', 'Pro'],
+				dayNames: ['Nedjelja', 'Ponedjeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak', 'Subota'],
+				dayNamesShort: ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'],
+				dayNamesMin: ['Ne', 'Po', 'Ut', 'Sr', 'Če', 'Pe', 'Su'],
+				weekHeader: 'Tje',
+				dateFormat: 'dd.mm.yy.',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['hr']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hu.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hu.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Hungarian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Istvan Karaszi (jquery@spam.raszi.hu). */
+		jQuery(function ($) {
+			$.datepicker.regional['hu'] = {
+				closeText: 'bezár',
+				prevText: 'vissza',
+				nextText: 'előre',
+				currentText: 'ma',
+				monthNames: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
+				monthNamesShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
+				dayNamesShort: ['Vas', 'Hét', 'Ked', 'Sze', 'Csü', 'Pén', 'Szo'],
+				dayNamesMin: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
+				weekHeader: 'Hét',
+				dateFormat: 'yy.mm.dd.',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: true,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['hu']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hy.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-hy.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Armenian(UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Levon Zakaryan (levon.zakaryan@gmail.com)*/
+		jQuery(function ($) {
+			$.datepicker.regional['hy'] = {
+				closeText: 'Փակել',
+				prevText: '&#x3C;Նախ.',
+				nextText: 'Հաջ.&#x3E;',
+				currentText: 'Այսօր',
+				monthNames: ['Հունվար', 'Փետրվար', 'Մարտ', 'Ապրիլ', 'Մայիս', 'Հունիս', 'Հուլիս', 'Օգոստոս', 'Սեպտեմբեր', 'Հոկտեմբեր', 'Նոյեմբեր', 'Դեկտեմբեր'],
+				monthNamesShort: ['Հունվ', 'Փետր', 'Մարտ', 'Ապր', 'Մայիս', 'Հունիս', 'Հուլ', 'Օգս', 'Սեպ', 'Հոկ', 'Նոյ', 'Դեկ'],
+				dayNames: ['կիրակի', 'եկուշաբթի', 'երեքշաբթի', 'չորեքշաբթի', 'հինգշաբթի', 'ուրբաթ', 'շաբաթ'],
+				dayNamesShort: ['կիր', 'երկ', 'երք', 'չրք', 'հնգ', 'ուրբ', 'շբթ'],
+				dayNamesMin: ['կիր', 'երկ', 'երք', 'չրք', 'հնգ', 'ուրբ', 'շբթ'],
+				weekHeader: 'ՇԲՏ',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['hy']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-id.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-id.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Indonesian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Deden Fathurahman (dedenf@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['id'] = {
+				closeText: 'Tutup',
+				prevText: '&#x3C;mundur',
+				nextText: 'maju&#x3E;',
+				currentText: 'hari ini',
+				monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'Nopember', 'Desember'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agus', 'Sep', 'Okt', 'Nop', 'Des'],
+				dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+				dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'kam', 'Jum', 'Sab'],
+				dayNamesMin: ['Mg', 'Sn', 'Sl', 'Rb', 'Km', 'jm', 'Sb'],
+				weekHeader: 'Mg',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['id']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-is.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-is.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Icelandic initialisation for the jQuery UI date picker plugin. */
+		/* Written by Haukur H. Thorsson (haukur@eskill.is). */
+		jQuery(function ($) {
+			$.datepicker.regional['is'] = {
+				closeText: 'Loka',
+				prevText: '&#x3C; Fyrri',
+				nextText: 'Næsti &#x3E;',
+				currentText: 'Í dag',
+				monthNames: ['Janúar', 'Febrúar', 'Mars', 'Apríl', 'Maí', 'Júní', 'Júlí', 'Ágúst', 'September', 'Október', 'Nóvember', 'Desember'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maí', 'Jún', 'Júl', 'Ágú', 'Sep', 'Okt', 'Nóv', 'Des'],
+				dayNames: ['Sunnudagur', 'Mánudagur', 'Þriðjudagur', 'Miðvikudagur', 'Fimmtudagur', 'Föstudagur', 'Laugardagur'],
+				dayNamesShort: ['Sun', 'Mán', 'Þri', 'Mið', 'Fim', 'Fös', 'Lau'],
+				dayNamesMin: ['Su', 'Má', 'Þr', 'Mi', 'Fi', 'Fö', 'La'],
+				weekHeader: 'Vika',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['is']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-it.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-it.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Italian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Antonello Pasella (antonello.pasella@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['it'] = {
+				closeText: 'Chiudi',
+				prevText: '&#x3C;Prec',
+				nextText: 'Succ&#x3E;',
+				currentText: 'Oggi',
+				monthNames: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+				monthNamesShort: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+				dayNames: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+				dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
+				dayNamesMin: ['Do', 'Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['it']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ja.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ja.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Japanese initialisation for the jQuery UI date picker plugin. */
+		/* Written by Kentaro SATO (kentaro@ranvis.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['ja'] = {
+				closeText: '閉じる',
+				prevText: '&#x3C;前',
+				nextText: '次&#x3E;',
+				currentText: '今日',
+				monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+				monthNamesShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+				dayNames: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+				dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+				dayNamesMin: ['日', '月', '火', '水', '木', '金', '土'],
+				weekHeader: '週',
+				dateFormat: 'yy/mm/dd',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: true,
+				yearSuffix: '年' };
+			$.datepicker.setDefaults($.datepicker.regional['ja']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ka.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ka.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Georgian (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Lado Lomidze (lado.lomidze@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['ka'] = {
+				closeText: 'დახურვა',
+				prevText: '&#x3c; წინა',
+				nextText: 'შემდეგი &#x3e;',
+				currentText: 'დღეს',
+				monthNames: ['იანვარი', 'თებერვალი', 'მარტი', 'აპრილი', 'მაისი', 'ივნისი', 'ივლისი', 'აგვისტო', 'სექტემბერი', 'ოქტომბერი', 'ნოემბერი', 'დეკემბერი'],
+				monthNamesShort: ['იან', 'თებ', 'მარ', 'აპრ', 'მაი', 'ივნ', 'ივლ', 'აგვ', 'სექ', 'ოქტ', 'ნოე', 'დეკ'],
+				dayNames: ['კვირა', 'ორშაბათი', 'სამშაბათი', 'ოთხშაბათი', 'ხუთშაბათი', 'პარასკევი', 'შაბათი'],
+				dayNamesShort: ['კვ', 'ორშ', 'სამ', 'ოთხ', 'ხუთ', 'პარ', 'შაბ'],
+				dayNamesMin: ['კვ', 'ორშ', 'სამ', 'ოთხ', 'ხუთ', 'პარ', 'შაბ'],
+				weekHeader: 'კვირა',
+				dateFormat: 'dd-mm-yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ka']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-kk.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-kk.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Kazakh (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Dmitriy Karasyov (dmitriy.karasyov@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['kk'] = {
+				closeText: 'Жабу',
+				prevText: '&#x3C;Алдыңғы',
+				nextText: 'Келесі&#x3E;',
+				currentText: 'Бүгін',
+				monthNames: ['Қаңтар', 'Ақпан', 'Наурыз', 'Сәуір', 'Мамыр', 'Маусым', 'Шілде', 'Тамыз', 'Қыркүйек', 'Қазан', 'Қараша', 'Желтоқсан'],
+				monthNamesShort: ['Қаң', 'Ақп', 'Нау', 'Сәу', 'Мам', 'Мау', 'Шіл', 'Там', 'Қыр', 'Қаз', 'Қар', 'Жел'],
+				dayNames: ['Жексенбі', 'Дүйсенбі', 'Сейсенбі', 'Сәрсенбі', 'Бейсенбі', 'Жұма', 'Сенбі'],
+				dayNamesShort: ['жкс', 'дсн', 'ссн', 'срс', 'бсн', 'жма', 'снб'],
+				dayNamesMin: ['Жк', 'Дс', 'Сс', 'Ср', 'Бс', 'Жм', 'Сн'],
+				weekHeader: 'Не',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['kk']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-km.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-km.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Khmer initialisation for the jQuery calendar extension. */
+		/* Written by Chandara Om (chandara.teacher@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['km'] = {
+				closeText: 'ធ្វើ​រួច',
+				prevText: 'មុន',
+				nextText: 'បន្ទាប់',
+				currentText: 'ថ្ងៃ​នេះ',
+				monthNames: ['មករា', 'កុម្ភៈ', 'មីនា', 'មេសា', 'ឧសភា', 'មិថុនា', 'កក្កដា', 'សីហា', 'កញ្ញា', 'តុលា', 'វិច្ឆិកា', 'ធ្នូ'],
+				monthNamesShort: ['មករា', 'កុម្ភៈ', 'មីនា', 'មេសា', 'ឧសភា', 'មិថុនា', 'កក្កដា', 'សីហា', 'កញ្ញា', 'តុលា', 'វិច្ឆិកា', 'ធ្នូ'],
+				dayNames: ['អាទិត្យ', 'ចន្ទ', 'អង្គារ', 'ពុធ', 'ព្រហស្បតិ៍', 'សុក្រ', 'សៅរ៍'],
+				dayNamesShort: ['អា', 'ច', 'អ', 'ពុ', 'ព្រហ', 'សុ', 'សៅ'],
+				dayNamesMin: ['អា', 'ច', 'អ', 'ពុ', 'ព្រហ', 'សុ', 'សៅ'],
+				weekHeader: 'សប្ដាហ៍',
+				dateFormat: 'dd-mm-yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['km']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
 /***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ko.js":
 /*!************************************************************************!*\
   !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ko.js ***!
@@ -23022,6 +24777,1698 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 				showMonthAfterYear: true,
 				yearSuffix: '년' };
 			$.datepicker.setDefaults($.datepicker.regional['ko']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ky.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ky.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Kyrgyz (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Sergey Kartashov (ebishkek@yandex.ru). */
+		jQuery(function ($) {
+			$.datepicker.regional['ky'] = {
+				closeText: 'Жабуу',
+				prevText: '&#x3c;Мур',
+				nextText: 'Кий&#x3e;',
+				currentText: 'Бүгүн',
+				monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+				monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+				dayNames: ['жекшемби', 'дүйшөмбү', 'шейшемби', 'шаршемби', 'бейшемби', 'жума', 'ишемби'],
+				dayNamesShort: ['жек', 'дүй', 'шей', 'шар', 'бей', 'жум', 'ише'],
+				dayNamesMin: ['Жк', 'Дш', 'Шш', 'Шр', 'Бш', 'Жм', 'Иш'],
+				weekHeader: 'Жум',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};
+			$.datepicker.setDefaults($.datepicker.regional['ky']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lb.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lb.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Luxembourgish initialisation for the jQuery UI date picker plugin. */
+		/* Written by Michel Weimerskirch <michel@weimerskirch.net> */
+		jQuery(function ($) {
+			$.datepicker.regional['lb'] = {
+				closeText: 'Fäerdeg',
+				prevText: 'Zréck',
+				nextText: 'Weider',
+				currentText: 'Haut',
+				monthNames: ['Januar', 'Februar', 'Mäerz', 'Abrëll', 'Mee', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+				monthNamesShort: ['Jan', 'Feb', 'Mäe', 'Abr', 'Mee', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+				dayNames: ['Sonndeg', 'Méindeg', 'Dënschdeg', 'Mëttwoch', 'Donneschdeg', 'Freideg', 'Samschdeg'],
+				dayNamesShort: ['Son', 'Méi', 'Dën', 'Mët', 'Don', 'Fre', 'Sam'],
+				dayNamesMin: ['So', 'Mé', 'Dë', 'Më', 'Do', 'Fr', 'Sa'],
+				weekHeader: 'W',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['lb']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lt.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lt.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Lithuanian (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* @author Arturas Paleicikas <arturas@avalon.lt> */
+		jQuery(function ($) {
+			$.datepicker.regional['lt'] = {
+				closeText: 'Uždaryti',
+				prevText: '&#x3C;Atgal',
+				nextText: 'Pirmyn&#x3E;',
+				currentText: 'Šiandien',
+				monthNames: ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'],
+				monthNamesShort: ['Sau', 'Vas', 'Kov', 'Bal', 'Geg', 'Bir', 'Lie', 'Rugp', 'Rugs', 'Spa', 'Lap', 'Gru'],
+				dayNames: ['sekmadienis', 'pirmadienis', 'antradienis', 'trečiadienis', 'ketvirtadienis', 'penktadienis', 'šeštadienis'],
+				dayNamesShort: ['sek', 'pir', 'ant', 'tre', 'ket', 'pen', 'šeš'],
+				dayNamesMin: ['Se', 'Pr', 'An', 'Tr', 'Ke', 'Pe', 'Še'],
+				weekHeader: 'SAV',
+				dateFormat: 'yy-mm-dd',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: true,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['lt']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lv.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-lv.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Latvian (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* @author Arturas Paleicikas <arturas.paleicikas@metasite.net> */
+		jQuery(function ($) {
+			$.datepicker.regional['lv'] = {
+				closeText: 'Aizvērt',
+				prevText: 'Iepr.',
+				nextText: 'Nāk.',
+				currentText: 'Šodien',
+				monthNames: ['Janvāris', 'Februāris', 'Marts', 'Aprīlis', 'Maijs', 'Jūnijs', 'Jūlijs', 'Augusts', 'Septembris', 'Oktobris', 'Novembris', 'Decembris'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jūn', 'Jūl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['svētdiena', 'pirmdiena', 'otrdiena', 'trešdiena', 'ceturtdiena', 'piektdiena', 'sestdiena'],
+				dayNamesShort: ['svt', 'prm', 'otr', 'tre', 'ctr', 'pkt', 'sst'],
+				dayNamesMin: ['Sv', 'Pr', 'Ot', 'Tr', 'Ct', 'Pk', 'Ss'],
+				weekHeader: 'Ned.',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['lv']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-mk.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-mk.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Macedonian i18n for the jQuery UI date picker plugin. */
+		/* Written by Stojce Slavkovski. */
+		jQuery(function ($) {
+			$.datepicker.regional['mk'] = {
+				closeText: 'Затвори',
+				prevText: '&#x3C;',
+				nextText: '&#x3E;',
+				currentText: 'Денес',
+				monthNames: ['Јануари', 'Февруари', 'Март', 'Април', 'Мај', 'Јуни', 'Јули', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'],
+				monthNamesShort: ['Јан', 'Фев', 'Мар', 'Апр', 'Мај', 'Јун', 'Јул', 'Авг', 'Сеп', 'Окт', 'Ное', 'Дек'],
+				dayNames: ['Недела', 'Понеделник', 'Вторник', 'Среда', 'Четврток', 'Петок', 'Сабота'],
+				dayNamesShort: ['Нед', 'Пон', 'Вто', 'Сре', 'Чет', 'Пет', 'Саб'],
+				dayNamesMin: ['Не', 'По', 'Вт', 'Ср', 'Че', 'Пе', 'Са'],
+				weekHeader: 'Сед',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['mk']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ml.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ml.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Malayalam (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Saji Nediyanchath (saji89@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['ml'] = {
+				closeText: 'ശരി',
+				prevText: 'മുന്നത്തെ',
+				nextText: 'അടുത്തത് ',
+				currentText: 'ഇന്ന്',
+				monthNames: ['ജനുവരി', 'ഫെബ്രുവരി', 'മാര്‍ച്ച്', 'ഏപ്രില്‍', 'മേയ്', 'ജൂണ്‍', 'ജൂലൈ', 'ആഗസ്റ്റ്', 'സെപ്റ്റംബര്‍', 'ഒക്ടോബര്‍', 'നവംബര്‍', 'ഡിസംബര്‍'],
+				monthNamesShort: ['ജനു', 'ഫെബ്', 'മാര്‍', 'ഏപ്രി', 'മേയ്', 'ജൂണ്‍', 'ജൂലാ', 'ആഗ', 'സെപ്', 'ഒക്ടോ', 'നവം', 'ഡിസ'],
+				dayNames: ['ഞായര്‍', 'തിങ്കള്‍', 'ചൊവ്വ', 'ബുധന്‍', 'വ്യാഴം', 'വെള്ളി', 'ശനി'],
+				dayNamesShort: ['ഞായ', 'തിങ്ക', 'ചൊവ്വ', 'ബുധ', 'വ്യാഴം', 'വെള്ളി', 'ശനി'],
+				dayNamesMin: ['ഞാ', 'തി', 'ചൊ', 'ബു', 'വ്യാ', 'വെ', 'ശ'],
+				weekHeader: 'ആ',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ml']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ms.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ms.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Malaysian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Mohd Nawawi Mohamad Jamili (nawawi@ronggeng.net). */
+		jQuery(function ($) {
+			$.datepicker.regional['ms'] = {
+				closeText: 'Tutup',
+				prevText: '&#x3C;Sebelum',
+				nextText: 'Selepas&#x3E;',
+				currentText: 'hari ini',
+				monthNames: ['Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'],
+				monthNamesShort: ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogo', 'Sep', 'Okt', 'Nov', 'Dis'],
+				dayNames: ['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'],
+				dayNamesShort: ['Aha', 'Isn', 'Sel', 'Rab', 'kha', 'Jum', 'Sab'],
+				dayNamesMin: ['Ah', 'Is', 'Se', 'Ra', 'Kh', 'Ju', 'Sa'],
+				weekHeader: 'Mg',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ms']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nb.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nb.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Norwegian Bokmål initialisation for the jQuery UI date picker plugin. */
+		/* Written by Bjørn Johansen (post@bjornjohansen.no). */
+		jQuery(function ($) {
+			$.datepicker.regional['nb'] = {
+				closeText: 'Lukk',
+				prevText: '&#xAB;Forrige',
+				nextText: 'Neste&#xBB;',
+				currentText: 'I dag',
+				monthNames: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
+				monthNamesShort: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],
+				dayNamesShort: ['søn', 'man', 'tir', 'ons', 'tor', 'fre', 'lør'],
+				dayNames: ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'],
+				dayNamesMin: ['sø', 'ma', 'ti', 'on', 'to', 'fr', 'lø'],
+				weekHeader: 'Uke',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};
+			$.datepicker.setDefaults($.datepicker.regional['nb']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl-BE.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl-BE.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Dutch (Belgium) initialisation for the jQuery UI date picker plugin. */
+		/* David De Sloovere @DavidDeSloovere */
+		jQuery(function ($) {
+			$.datepicker.regional['nl-BE'] = {
+				closeText: 'Sluiten',
+				prevText: '←',
+				nextText: '→',
+				currentText: 'Vandaag',
+				monthNames: ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
+				monthNamesShort: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+				dayNames: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+				dayNamesShort: ['zon', 'maa', 'din', 'woe', 'don', 'vri', 'zat'],
+				dayNamesMin: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['nl-BE']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nl.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Dutch (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Mathias Bynens <http://mathiasbynens.be/> */
+		jQuery(function ($) {
+			$.datepicker.regional.nl = {
+				closeText: 'Sluiten',
+				prevText: '←',
+				nextText: '→',
+				currentText: 'Vandaag',
+				monthNames: ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
+				monthNamesShort: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+				dayNames: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+				dayNamesShort: ['zon', 'maa', 'din', 'woe', 'don', 'vri', 'zat'],
+				dayNamesMin: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd-mm-yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional.nl);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nn.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-nn.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Norwegian Nynorsk initialisation for the jQuery UI date picker plugin. */
+		/* Written by Bjørn Johansen (post@bjornjohansen.no). */
+		jQuery(function ($) {
+			$.datepicker.regional['nn'] = {
+				closeText: 'Lukk',
+				prevText: '&#xAB;Førre',
+				nextText: 'Neste&#xBB;',
+				currentText: 'I dag',
+				monthNames: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
+				monthNamesShort: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],
+				dayNamesShort: ['sun', 'mån', 'tys', 'ons', 'tor', 'fre', 'lau'],
+				dayNames: ['sundag', 'måndag', 'tysdag', 'onsdag', 'torsdag', 'fredag', 'laurdag'],
+				dayNamesMin: ['su', 'må', 'ty', 'on', 'to', 'fr', 'la'],
+				weekHeader: 'Veke',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};
+			$.datepicker.setDefaults($.datepicker.regional['nn']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-no.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-no.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Norwegian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Naimdjon Takhirov (naimdjon@gmail.com). */
+
+		jQuery(function ($) {
+			$.datepicker.regional['no'] = {
+				closeText: 'Lukk',
+				prevText: '&#xAB;Forrige',
+				nextText: 'Neste&#xBB;',
+				currentText: 'I dag',
+				monthNames: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
+				monthNamesShort: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],
+				dayNamesShort: ['søn', 'man', 'tir', 'ons', 'tor', 'fre', 'lør'],
+				dayNames: ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'],
+				dayNamesMin: ['sø', 'ma', 'ti', 'on', 'to', 'fr', 'lø'],
+				weekHeader: 'Uke',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};
+			$.datepicker.setDefaults($.datepicker.regional['no']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pl.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pl.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Polish initialisation for the jQuery UI date picker plugin. */
+		/* Written by Jacek Wysocki (jacek.wysocki@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['pl'] = {
+				closeText: 'Zamknij',
+				prevText: '&#x3C;Poprzedni',
+				nextText: 'Następny&#x3E;',
+				currentText: 'Dziś',
+				monthNames: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'],
+				monthNamesShort: ['Sty', 'Lu', 'Mar', 'Kw', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Pa', 'Lis', 'Gru'],
+				dayNames: ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'],
+				dayNamesShort: ['Nie', 'Pn', 'Wt', 'Śr', 'Czw', 'Pt', 'So'],
+				dayNamesMin: ['N', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'],
+				weekHeader: 'Tydz',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['pl']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt-BR.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt-BR.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Brazilian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Leonildo Costa Silva (leocsilva@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['pt-BR'] = {
+				closeText: 'Fechar',
+				prevText: '&#x3C;Anterior',
+				nextText: 'Próximo&#x3E;',
+				currentText: 'Hoje',
+				monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+				monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+				dayNames: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'],
+				dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+				dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-pt.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Portuguese initialisation for the jQuery UI date picker plugin. */
+		jQuery(function ($) {
+			$.datepicker.regional['pt'] = {
+				closeText: 'Fechar',
+				prevText: 'Anterior',
+				nextText: 'Seguinte',
+				currentText: 'Hoje',
+				monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+				monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+				dayNames: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'],
+				dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+				dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+				weekHeader: 'Sem',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['pt']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-rm.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-rm.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Romansh initialisation for the jQuery UI date picker plugin. */
+		/* Written by Yvonne Gienal (yvonne.gienal@educa.ch). */
+		jQuery(function ($) {
+			$.datepicker.regional['rm'] = {
+				closeText: 'Serrar',
+				prevText: '&#x3C;Suandant',
+				nextText: 'Precedent&#x3E;',
+				currentText: 'Actual',
+				monthNames: ['Schaner', 'Favrer', 'Mars', 'Avrigl', 'Matg', 'Zercladur', 'Fanadur', 'Avust', 'Settember', 'October', 'November', 'December'],
+				monthNamesShort: ['Scha', 'Fev', 'Mar', 'Avr', 'Matg', 'Zer', 'Fan', 'Avu', 'Sett', 'Oct', 'Nov', 'Dec'],
+				dayNames: ['Dumengia', 'Glindesdi', 'Mardi', 'Mesemna', 'Gievgia', 'Venderdi', 'Sonda'],
+				dayNamesShort: ['Dum', 'Gli', 'Mar', 'Mes', 'Gie', 'Ven', 'Som'],
+				dayNamesMin: ['Du', 'Gl', 'Ma', 'Me', 'Gi', 'Ve', 'So'],
+				weekHeader: 'emna',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['rm']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ro.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ro.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Romanian initialisation for the jQuery UI date picker plugin.
+   *
+   * Written by Edmond L. (ll_edmond@walla.com)
+   * and Ionut G. Stan (ionut.g.stan@gmail.com)
+   */
+		jQuery(function ($) {
+			$.datepicker.regional['ro'] = {
+				closeText: 'Închide',
+				prevText: '&#xAB; Luna precedentă',
+				nextText: 'Luna următoare &#xBB;',
+				currentText: 'Azi',
+				monthNames: ['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie'],
+				monthNamesShort: ['Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun', 'Iul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				dayNames: ['Duminică', 'Luni', 'Marţi', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă'],
+				dayNamesShort: ['Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sâm'],
+				dayNamesMin: ['Du', 'Lu', 'Ma', 'Mi', 'Jo', 'Vi', 'Sâ'],
+				weekHeader: 'Săpt',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ro']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ru.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ru.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Russian (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Andrew Stromnov (stromnov@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['ru'] = {
+				closeText: 'Закрыть',
+				prevText: '&#x3C;Пред',
+				nextText: 'След&#x3E;',
+				currentText: 'Сегодня',
+				monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+				monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+				dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+				dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+				dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+				weekHeader: 'Нед',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ru']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sk.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sk.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Slovak initialisation for the jQuery UI date picker plugin. */
+		/* Written by Vojtech Rinik (vojto@hmm.sk). */
+		jQuery(function ($) {
+			$.datepicker.regional['sk'] = {
+				closeText: 'Zavrieť',
+				prevText: '&#x3C;Predchádzajúci',
+				nextText: 'Nasledujúci&#x3E;',
+				currentText: 'Dnes',
+				monthNames: ['január', 'február', 'marec', 'apríl', 'máj', 'jún', 'júl', 'august', 'september', 'október', 'november', 'december'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['nedeľa', 'pondelok', 'utorok', 'streda', 'štvrtok', 'piatok', 'sobota'],
+				dayNamesShort: ['Ned', 'Pon', 'Uto', 'Str', 'Štv', 'Pia', 'Sob'],
+				dayNamesMin: ['Ne', 'Po', 'Ut', 'St', 'Št', 'Pia', 'So'],
+				weekHeader: 'Ty',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['sk']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sl.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sl.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Slovenian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Jaka Jancar (jaka@kubje.org). */
+		/* c = č, s = š z = ž C = Č S = Š Z = Ž */
+		jQuery(function ($) {
+			$.datepicker.regional['sl'] = {
+				closeText: 'Zapri',
+				prevText: '&#x3C;Prejšnji',
+				nextText: 'Naslednji&#x3E;',
+				currentText: 'Trenutni',
+				monthNames: ['Januar', 'Februar', 'Marec', 'April', 'Maj', 'Junij', 'Julij', 'Avgust', 'September', 'Oktober', 'November', 'December'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['Nedelja', 'Ponedeljek', 'Torek', 'Sreda', 'Četrtek', 'Petek', 'Sobota'],
+				dayNamesShort: ['Ned', 'Pon', 'Tor', 'Sre', 'Čet', 'Pet', 'Sob'],
+				dayNamesMin: ['Ne', 'Po', 'To', 'Sr', 'Če', 'Pe', 'So'],
+				weekHeader: 'Teden',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['sl']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sq.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sq.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Albanian initialisation for the jQuery UI date picker plugin. */
+		/* Written by Flakron Bytyqi (flakron@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['sq'] = {
+				closeText: 'mbylle',
+				prevText: '&#x3C;mbrapa',
+				nextText: 'Përpara&#x3E;',
+				currentText: 'sot',
+				monthNames: ['Janar', 'Shkurt', 'Mars', 'Prill', 'Maj', 'Qershor', 'Korrik', 'Gusht', 'Shtator', 'Tetor', 'Nëntor', 'Dhjetor'],
+				monthNamesShort: ['Jan', 'Shk', 'Mar', 'Pri', 'Maj', 'Qer', 'Kor', 'Gus', 'Sht', 'Tet', 'Nën', 'Dhj'],
+				dayNames: ['E Diel', 'E Hënë', 'E Martë', 'E Mërkurë', 'E Enjte', 'E Premte', 'E Shtune'],
+				dayNamesShort: ['Di', 'Hë', 'Ma', 'Më', 'En', 'Pr', 'Sh'],
+				dayNamesMin: ['Di', 'Hë', 'Ma', 'Më', 'En', 'Pr', 'Sh'],
+				weekHeader: 'Ja',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['sq']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr-SR.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr-SR.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Serbian i18n for the jQuery UI date picker plugin. */
+		/* Written by Dejan Dimić. */
+		jQuery(function ($) {
+			$.datepicker.regional['sr-SR'] = {
+				closeText: 'Zatvori',
+				prevText: '&#x3C;',
+				nextText: '&#x3E;',
+				currentText: 'Danas',
+				monthNames: ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Jun', 'Jul', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNames: ['Nedelja', 'Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota'],
+				dayNamesShort: ['Ned', 'Pon', 'Uto', 'Sre', 'Čet', 'Pet', 'Sub'],
+				dayNamesMin: ['Ne', 'Po', 'Ut', 'Sr', 'Če', 'Pe', 'Su'],
+				weekHeader: 'Sed',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['sr-SR']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sr.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Serbian i18n for the jQuery UI date picker plugin. */
+		/* Written by Dejan Dimić. */
+		jQuery(function ($) {
+			$.datepicker.regional['sr'] = {
+				closeText: 'Затвори',
+				prevText: '&#x3C;',
+				nextText: '&#x3E;',
+				currentText: 'Данас',
+				monthNames: ['Јануар', 'Фебруар', 'Март', 'Април', 'Мај', 'Јун', 'Јул', 'Август', 'Септембар', 'Октобар', 'Новембар', 'Децембар'],
+				monthNamesShort: ['Јан', 'Феб', 'Мар', 'Апр', 'Мај', 'Јун', 'Јул', 'Авг', 'Сеп', 'Окт', 'Нов', 'Дец'],
+				dayNames: ['Недеља', 'Понедељак', 'Уторак', 'Среда', 'Четвртак', 'Петак', 'Субота'],
+				dayNamesShort: ['Нед', 'Пон', 'Уто', 'Сре', 'Чет', 'Пет', 'Суб'],
+				dayNamesMin: ['Не', 'По', 'Ут', 'Ср', 'Че', 'Пе', 'Су'],
+				weekHeader: 'Сед',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['sr']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sv.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-sv.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Swedish initialisation for the jQuery UI date picker plugin. */
+		/* Written by Anders Ekdahl ( anders@nomadiz.se). */
+		jQuery(function ($) {
+			$.datepicker.regional['sv'] = {
+				closeText: 'Stäng',
+				prevText: '&#xAB;Förra',
+				nextText: 'Nästa&#xBB;',
+				currentText: 'Idag',
+				monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
+				monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+				dayNamesShort: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
+				dayNames: ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'],
+				dayNamesMin: ['Sö', 'Må', 'Ti', 'On', 'To', 'Fr', 'Lö'],
+				weekHeader: 'Ve',
+				dateFormat: 'yy-mm-dd',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['sv']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ta.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-ta.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Tamil (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by S A Sureshkumar (saskumar@live.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['ta'] = {
+				closeText: 'மூடு',
+				prevText: 'முன்னையது',
+				nextText: 'அடுத்தது',
+				currentText: 'இன்று',
+				monthNames: ['தை', 'மாசி', 'பங்குனி', 'சித்திரை', 'வைகாசி', 'ஆனி', 'ஆடி', 'ஆவணி', 'புரட்டாசி', 'ஐப்பசி', 'கார்த்திகை', 'மார்கழி'],
+				monthNamesShort: ['தை', 'மாசி', 'பங்', 'சித்', 'வைகா', 'ஆனி', 'ஆடி', 'ஆவ', 'புர', 'ஐப்', 'கார்', 'மார்'],
+				dayNames: ['ஞாயிற்றுக்கிழமை', 'திங்கட்கிழமை', 'செவ்வாய்க்கிழமை', 'புதன்கிழமை', 'வியாழக்கிழமை', 'வெள்ளிக்கிழமை', 'சனிக்கிழமை'],
+				dayNamesShort: ['ஞாயிறு', 'திங்கள்', 'செவ்வாய்', 'புதன்', 'வியாழன்', 'வெள்ளி', 'சனி'],
+				dayNamesMin: ['ஞா', 'தி', 'செ', 'பு', 'வி', 'வெ', 'ச'],
+				weekHeader: 'Не',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['ta']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-th.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-th.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Thai initialisation for the jQuery UI date picker plugin. */
+		/* Written by pipo (pipo@sixhead.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['th'] = {
+				closeText: 'ปิด',
+				prevText: '&#xAB;&#xA0;ย้อน',
+				nextText: 'ถัดไป&#xA0;&#xBB;',
+				currentText: 'วันนี้',
+				monthNames: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+				monthNamesShort: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
+				dayNames: ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'],
+				dayNamesShort: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'],
+				dayNamesMin: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'],
+				weekHeader: 'Wk',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['th']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tj.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tj.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Tajiki (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Abdurahmon Saidov (saidovab@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['tj'] = {
+				closeText: 'Идома',
+				prevText: '&#x3c;Қафо',
+				nextText: 'Пеш&#x3e;',
+				currentText: 'Имрӯз',
+				monthNames: ['Январ', 'Феврал', 'Март', 'Апрел', 'Май', 'Июн', 'Июл', 'Август', 'Сентябр', 'Октябр', 'Ноябр', 'Декабр'],
+				monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+				dayNames: ['якшанбе', 'душанбе', 'сешанбе', 'чоршанбе', 'панҷшанбе', 'ҷумъа', 'шанбе'],
+				dayNamesShort: ['якш', 'душ', 'сеш', 'чор', 'пан', 'ҷум', 'шан'],
+				dayNamesMin: ['Як', 'Дш', 'Сш', 'Чш', 'Пш', 'Ҷм', 'Шн'],
+				weekHeader: 'Хф',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['tj']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tr.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-tr.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Turkish initialisation for the jQuery UI date picker plugin. */
+		/* Written by Izzet Emre Erkan (kara@karalamalar.net). */
+		jQuery(function ($) {
+			$.datepicker.regional['tr'] = {
+				closeText: 'kapat',
+				prevText: '&#x3C;geri',
+				nextText: 'ileri&#x3e',
+				currentText: 'bugün',
+				monthNames: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+				monthNamesShort: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
+				dayNames: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
+				dayNamesShort: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
+				dayNamesMin: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
+				weekHeader: 'Hf',
+				dateFormat: 'dd.mm.yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['tr']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-uk.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-uk.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Ukrainian (UTF-8) initialisation for the jQuery UI date picker plugin. */
+		/* Written by Maxim Drogobitskiy (maxdao@gmail.com). */
+		/* Corrected by Igor Milla (igor.fsp.milla@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['uk'] = {
+				closeText: 'Закрити',
+				prevText: '&#x3C;',
+				nextText: '&#x3E;',
+				currentText: 'Сьогодні',
+				monthNames: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+				monthNamesShort: ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру'],
+				dayNames: ['неділя', 'понеділок', 'вівторок', 'середа', 'четвер', 'п’ятниця', 'субота'],
+				dayNamesShort: ['нед', 'пнд', 'вів', 'срд', 'чтв', 'птн', 'сбт'],
+				dayNamesMin: ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+				weekHeader: 'Тиж',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['uk']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-vi.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-vi.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Vietnamese initialisation for the jQuery UI date picker plugin. */
+		/* Translated by Le Thanh Huy (lthanhhuy@cit.ctu.edu.vn). */
+		jQuery(function ($) {
+			$.datepicker.regional['vi'] = {
+				closeText: 'Đóng',
+				prevText: '&#x3C;Trước',
+				nextText: 'Tiếp&#x3E;',
+				currentText: 'Hôm nay',
+				monthNames: ['Tháng Một', 'Tháng Hai', 'Tháng Ba', 'Tháng Tư', 'Tháng Năm', 'Tháng Sáu', 'Tháng Bảy', 'Tháng Tám', 'Tháng Chín', 'Tháng Mười', 'Tháng Mười Một', 'Tháng Mười Hai'],
+				monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+				dayNames: ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'],
+				dayNamesShort: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+				dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+				weekHeader: 'Tu',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: '' };
+			$.datepicker.setDefaults($.datepicker.regional['vi']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-CN.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-CN.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Chinese initialisation for the jQuery UI date picker plugin. */
+		/* Written by Cloudream (cloudream@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['zh-CN'] = {
+				closeText: '关闭',
+				prevText: '&#x3C;上月',
+				nextText: '下月&#x3E;',
+				currentText: '今天',
+				monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+				monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+				dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+				dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+				dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
+				weekHeader: '周',
+				dateFormat: 'yy-mm-dd',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: true,
+				yearSuffix: '年' };
+			$.datepicker.setDefaults($.datepicker.regional['zh-CN']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-HK.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-HK.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Chinese initialisation for the jQuery UI date picker plugin. */
+		/* Written by SCCY (samuelcychan@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['zh-HK'] = {
+				closeText: '關閉',
+				prevText: '&#x3C;上月',
+				nextText: '下月&#x3E;',
+				currentText: '今天',
+				monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+				monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+				dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+				dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+				dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
+				weekHeader: '周',
+				dateFormat: 'dd-mm-yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: true,
+				yearSuffix: '年' };
+			$.datepicker.setDefaults($.datepicker.regional['zh-HK']);
+		});
+	};
+
+	;
+	module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-TW.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/jquery-datepicker/i18n/jquery.ui.datepicker-zh-TW.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else { var mod; }
+})(this, function (module, exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function (jQuery) {
+		/* Chinese initialisation for the jQuery UI date picker plugin. */
+		/* Written by Ressol (ressol@gmail.com). */
+		jQuery(function ($) {
+			$.datepicker.regional['zh-TW'] = {
+				closeText: '關閉',
+				prevText: '&#x3C;上月',
+				nextText: '下月&#x3E;',
+				currentText: '今天',
+				monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+				monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+				dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+				dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+				dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
+				weekHeader: '周',
+				dateFormat: 'yy/mm/dd',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: true,
+				yearSuffix: '年' };
+			$.datepicker.setDefaults($.datepicker.regional['zh-TW']);
 		});
 	};
 
@@ -48114,3027 +51561,6 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./node_modules/slick-carousel/slick/slick.js":
-/*!****************************************************!*\
-  !*** ./node_modules/slick-carousel/slick/slick.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
-     _ _      _       _
- ___| (_) ___| | __  (_)___
-/ __| | |/ __| |/ /  | / __|
-\__ \ | | (__|   < _ | \__ \
-|___/_|_|\___|_|\_(_)/ |___/
-                   |__/
-
- Version: 1.8.1
-  Author: Ken Wheeler
- Website: http://kenwheeler.github.io
-    Docs: http://kenwheeler.github.io/slick
-    Repo: http://github.com/kenwheeler/slick
-  Issues: http://github.com/kenwheeler/slick/issues
-
- */
-/* global window, document, define, jQuery, setInterval, clearInterval */
-;(function(factory) {
-    'use strict';
-    if (true) {
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-    } else {}
-
-}(function($) {
-    'use strict';
-    var Slick = window.Slick || {};
-
-    Slick = (function() {
-
-        var instanceUid = 0;
-
-        function Slick(element, settings) {
-
-            var _ = this, dataSettings;
-
-            _.defaults = {
-                accessibility: true,
-                adaptiveHeight: false,
-                appendArrows: $(element),
-                appendDots: $(element),
-                arrows: true,
-                asNavFor: null,
-                prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
-                nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>',
-                autoplay: false,
-                autoplaySpeed: 3000,
-                centerMode: false,
-                centerPadding: '50px',
-                cssEase: 'ease',
-                customPaging: function(slider, i) {
-                    return $('<button type="button" />').text(i + 1);
-                },
-                dots: false,
-                dotsClass: 'slick-dots',
-                draggable: true,
-                easing: 'linear',
-                edgeFriction: 0.35,
-                fade: false,
-                focusOnSelect: false,
-                focusOnChange: false,
-                infinite: true,
-                initialSlide: 0,
-                lazyLoad: 'ondemand',
-                mobileFirst: false,
-                pauseOnHover: true,
-                pauseOnFocus: true,
-                pauseOnDotsHover: false,
-                respondTo: 'window',
-                responsive: null,
-                rows: 1,
-                rtl: false,
-                slide: '',
-                slidesPerRow: 1,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                speed: 500,
-                swipe: true,
-                swipeToSlide: false,
-                touchMove: true,
-                touchThreshold: 5,
-                useCSS: true,
-                useTransform: true,
-                variableWidth: false,
-                vertical: false,
-                verticalSwiping: false,
-                waitForAnimate: true,
-                zIndex: 1000
-            };
-
-            _.initials = {
-                animating: false,
-                dragging: false,
-                autoPlayTimer: null,
-                currentDirection: 0,
-                currentLeft: null,
-                currentSlide: 0,
-                direction: 1,
-                $dots: null,
-                listWidth: null,
-                listHeight: null,
-                loadIndex: 0,
-                $nextArrow: null,
-                $prevArrow: null,
-                scrolling: false,
-                slideCount: null,
-                slideWidth: null,
-                $slideTrack: null,
-                $slides: null,
-                sliding: false,
-                slideOffset: 0,
-                swipeLeft: null,
-                swiping: false,
-                $list: null,
-                touchObject: {},
-                transformsEnabled: false,
-                unslicked: false
-            };
-
-            $.extend(_, _.initials);
-
-            _.activeBreakpoint = null;
-            _.animType = null;
-            _.animProp = null;
-            _.breakpoints = [];
-            _.breakpointSettings = [];
-            _.cssTransitions = false;
-            _.focussed = false;
-            _.interrupted = false;
-            _.hidden = 'hidden';
-            _.paused = true;
-            _.positionProp = null;
-            _.respondTo = null;
-            _.rowCount = 1;
-            _.shouldClick = true;
-            _.$slider = $(element);
-            _.$slidesCache = null;
-            _.transformType = null;
-            _.transitionType = null;
-            _.visibilityChange = 'visibilitychange';
-            _.windowWidth = 0;
-            _.windowTimer = null;
-
-            dataSettings = $(element).data('slick') || {};
-
-            _.options = $.extend({}, _.defaults, settings, dataSettings);
-
-            _.currentSlide = _.options.initialSlide;
-
-            _.originalSettings = _.options;
-
-            if (typeof document.mozHidden !== 'undefined') {
-                _.hidden = 'mozHidden';
-                _.visibilityChange = 'mozvisibilitychange';
-            } else if (typeof document.webkitHidden !== 'undefined') {
-                _.hidden = 'webkitHidden';
-                _.visibilityChange = 'webkitvisibilitychange';
-            }
-
-            _.autoPlay = $.proxy(_.autoPlay, _);
-            _.autoPlayClear = $.proxy(_.autoPlayClear, _);
-            _.autoPlayIterator = $.proxy(_.autoPlayIterator, _);
-            _.changeSlide = $.proxy(_.changeSlide, _);
-            _.clickHandler = $.proxy(_.clickHandler, _);
-            _.selectHandler = $.proxy(_.selectHandler, _);
-            _.setPosition = $.proxy(_.setPosition, _);
-            _.swipeHandler = $.proxy(_.swipeHandler, _);
-            _.dragHandler = $.proxy(_.dragHandler, _);
-            _.keyHandler = $.proxy(_.keyHandler, _);
-
-            _.instanceUid = instanceUid++;
-
-            // A simple way to check for HTML strings
-            // Strict HTML recognition (must start with <)
-            // Extracted from jQuery v1.11 source
-            _.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/;
-
-
-            _.registerBreakpoints();
-            _.init(true);
-
-        }
-
-        return Slick;
-
-    }());
-
-    Slick.prototype.activateADA = function() {
-        var _ = this;
-
-        _.$slideTrack.find('.slick-active').attr({
-            'aria-hidden': 'false'
-        }).find('a, input, button, select').attr({
-            'tabindex': '0'
-        });
-
-    };
-
-    Slick.prototype.addSlide = Slick.prototype.slickAdd = function(markup, index, addBefore) {
-
-        var _ = this;
-
-        if (typeof(index) === 'boolean') {
-            addBefore = index;
-            index = null;
-        } else if (index < 0 || (index >= _.slideCount)) {
-            return false;
-        }
-
-        _.unload();
-
-        if (typeof(index) === 'number') {
-            if (index === 0 && _.$slides.length === 0) {
-                $(markup).appendTo(_.$slideTrack);
-            } else if (addBefore) {
-                $(markup).insertBefore(_.$slides.eq(index));
-            } else {
-                $(markup).insertAfter(_.$slides.eq(index));
-            }
-        } else {
-            if (addBefore === true) {
-                $(markup).prependTo(_.$slideTrack);
-            } else {
-                $(markup).appendTo(_.$slideTrack);
-            }
-        }
-
-        _.$slides = _.$slideTrack.children(this.options.slide);
-
-        _.$slideTrack.children(this.options.slide).detach();
-
-        _.$slideTrack.append(_.$slides);
-
-        _.$slides.each(function(index, element) {
-            $(element).attr('data-slick-index', index);
-        });
-
-        _.$slidesCache = _.$slides;
-
-        _.reinit();
-
-    };
-
-    Slick.prototype.animateHeight = function() {
-        var _ = this;
-        if (_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
-            var targetHeight = _.$slides.eq(_.currentSlide).outerHeight(true);
-            _.$list.animate({
-                height: targetHeight
-            }, _.options.speed);
-        }
-    };
-
-    Slick.prototype.animateSlide = function(targetLeft, callback) {
-
-        var animProps = {},
-            _ = this;
-
-        _.animateHeight();
-
-        if (_.options.rtl === true && _.options.vertical === false) {
-            targetLeft = -targetLeft;
-        }
-        if (_.transformsEnabled === false) {
-            if (_.options.vertical === false) {
-                _.$slideTrack.animate({
-                    left: targetLeft
-                }, _.options.speed, _.options.easing, callback);
-            } else {
-                _.$slideTrack.animate({
-                    top: targetLeft
-                }, _.options.speed, _.options.easing, callback);
-            }
-
-        } else {
-
-            if (_.cssTransitions === false) {
-                if (_.options.rtl === true) {
-                    _.currentLeft = -(_.currentLeft);
-                }
-                $({
-                    animStart: _.currentLeft
-                }).animate({
-                    animStart: targetLeft
-                }, {
-                    duration: _.options.speed,
-                    easing: _.options.easing,
-                    step: function(now) {
-                        now = Math.ceil(now);
-                        if (_.options.vertical === false) {
-                            animProps[_.animType] = 'translate(' +
-                                now + 'px, 0px)';
-                            _.$slideTrack.css(animProps);
-                        } else {
-                            animProps[_.animType] = 'translate(0px,' +
-                                now + 'px)';
-                            _.$slideTrack.css(animProps);
-                        }
-                    },
-                    complete: function() {
-                        if (callback) {
-                            callback.call();
-                        }
-                    }
-                });
-
-            } else {
-
-                _.applyTransition();
-                targetLeft = Math.ceil(targetLeft);
-
-                if (_.options.vertical === false) {
-                    animProps[_.animType] = 'translate3d(' + targetLeft + 'px, 0px, 0px)';
-                } else {
-                    animProps[_.animType] = 'translate3d(0px,' + targetLeft + 'px, 0px)';
-                }
-                _.$slideTrack.css(animProps);
-
-                if (callback) {
-                    setTimeout(function() {
-
-                        _.disableTransition();
-
-                        callback.call();
-                    }, _.options.speed);
-                }
-
-            }
-
-        }
-
-    };
-
-    Slick.prototype.getNavTarget = function() {
-
-        var _ = this,
-            asNavFor = _.options.asNavFor;
-
-        if ( asNavFor && asNavFor !== null ) {
-            asNavFor = $(asNavFor).not(_.$slider);
-        }
-
-        return asNavFor;
-
-    };
-
-    Slick.prototype.asNavFor = function(index) {
-
-        var _ = this,
-            asNavFor = _.getNavTarget();
-
-        if ( asNavFor !== null && typeof asNavFor === 'object' ) {
-            asNavFor.each(function() {
-                var target = $(this).slick('getSlick');
-                if(!target.unslicked) {
-                    target.slideHandler(index, true);
-                }
-            });
-        }
-
-    };
-
-    Slick.prototype.applyTransition = function(slide) {
-
-        var _ = this,
-            transition = {};
-
-        if (_.options.fade === false) {
-            transition[_.transitionType] = _.transformType + ' ' + _.options.speed + 'ms ' + _.options.cssEase;
-        } else {
-            transition[_.transitionType] = 'opacity ' + _.options.speed + 'ms ' + _.options.cssEase;
-        }
-
-        if (_.options.fade === false) {
-            _.$slideTrack.css(transition);
-        } else {
-            _.$slides.eq(slide).css(transition);
-        }
-
-    };
-
-    Slick.prototype.autoPlay = function() {
-
-        var _ = this;
-
-        _.autoPlayClear();
-
-        if ( _.slideCount > _.options.slidesToShow ) {
-            _.autoPlayTimer = setInterval( _.autoPlayIterator, _.options.autoplaySpeed );
-        }
-
-    };
-
-    Slick.prototype.autoPlayClear = function() {
-
-        var _ = this;
-
-        if (_.autoPlayTimer) {
-            clearInterval(_.autoPlayTimer);
-        }
-
-    };
-
-    Slick.prototype.autoPlayIterator = function() {
-
-        var _ = this,
-            slideTo = _.currentSlide + _.options.slidesToScroll;
-
-        if ( !_.paused && !_.interrupted && !_.focussed ) {
-
-            if ( _.options.infinite === false ) {
-
-                if ( _.direction === 1 && ( _.currentSlide + 1 ) === ( _.slideCount - 1 )) {
-                    _.direction = 0;
-                }
-
-                else if ( _.direction === 0 ) {
-
-                    slideTo = _.currentSlide - _.options.slidesToScroll;
-
-                    if ( _.currentSlide - 1 === 0 ) {
-                        _.direction = 1;
-                    }
-
-                }
-
-            }
-
-            _.slideHandler( slideTo );
-
-        }
-
-    };
-
-    Slick.prototype.buildArrows = function() {
-
-        var _ = this;
-
-        if (_.options.arrows === true ) {
-
-            _.$prevArrow = $(_.options.prevArrow).addClass('slick-arrow');
-            _.$nextArrow = $(_.options.nextArrow).addClass('slick-arrow');
-
-            if( _.slideCount > _.options.slidesToShow ) {
-
-                _.$prevArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
-                _.$nextArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
-
-                if (_.htmlExpr.test(_.options.prevArrow)) {
-                    _.$prevArrow.prependTo(_.options.appendArrows);
-                }
-
-                if (_.htmlExpr.test(_.options.nextArrow)) {
-                    _.$nextArrow.appendTo(_.options.appendArrows);
-                }
-
-                if (_.options.infinite !== true) {
-                    _.$prevArrow
-                        .addClass('slick-disabled')
-                        .attr('aria-disabled', 'true');
-                }
-
-            } else {
-
-                _.$prevArrow.add( _.$nextArrow )
-
-                    .addClass('slick-hidden')
-                    .attr({
-                        'aria-disabled': 'true',
-                        'tabindex': '-1'
-                    });
-
-            }
-
-        }
-
-    };
-
-    Slick.prototype.buildDots = function() {
-
-        var _ = this,
-            i, dot;
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$slider.addClass('slick-dotted');
-
-            dot = $('<ul />').addClass(_.options.dotsClass);
-
-            for (i = 0; i <= _.getDotCount(); i += 1) {
-                dot.append($('<li />').append(_.options.customPaging.call(this, _, i)));
-            }
-
-            _.$dots = dot.appendTo(_.options.appendDots);
-
-            _.$dots.find('li').first().addClass('slick-active');
-
-        }
-
-    };
-
-    Slick.prototype.buildOut = function() {
-
-        var _ = this;
-
-        _.$slides =
-            _.$slider
-                .children( _.options.slide + ':not(.slick-cloned)')
-                .addClass('slick-slide');
-
-        _.slideCount = _.$slides.length;
-
-        _.$slides.each(function(index, element) {
-            $(element)
-                .attr('data-slick-index', index)
-                .data('originalStyling', $(element).attr('style') || '');
-        });
-
-        _.$slider.addClass('slick-slider');
-
-        _.$slideTrack = (_.slideCount === 0) ?
-            $('<div class="slick-track"/>').appendTo(_.$slider) :
-            _.$slides.wrapAll('<div class="slick-track"/>').parent();
-
-        _.$list = _.$slideTrack.wrap(
-            '<div class="slick-list"/>').parent();
-        _.$slideTrack.css('opacity', 0);
-
-        if (_.options.centerMode === true || _.options.swipeToSlide === true) {
-            _.options.slidesToScroll = 1;
-        }
-
-        $('img[data-lazy]', _.$slider).not('[src]').addClass('slick-loading');
-
-        _.setupInfinite();
-
-        _.buildArrows();
-
-        _.buildDots();
-
-        _.updateDots();
-
-
-        _.setSlideClasses(typeof _.currentSlide === 'number' ? _.currentSlide : 0);
-
-        if (_.options.draggable === true) {
-            _.$list.addClass('draggable');
-        }
-
-    };
-
-    Slick.prototype.buildRows = function() {
-
-        var _ = this, a, b, c, newSlides, numOfSlides, originalSlides,slidesPerSection;
-
-        newSlides = document.createDocumentFragment();
-        originalSlides = _.$slider.children();
-
-        if(_.options.rows > 0) {
-
-            slidesPerSection = _.options.slidesPerRow * _.options.rows;
-            numOfSlides = Math.ceil(
-                originalSlides.length / slidesPerSection
-            );
-
-            for(a = 0; a < numOfSlides; a++){
-                var slide = document.createElement('div');
-                for(b = 0; b < _.options.rows; b++) {
-                    var row = document.createElement('div');
-                    for(c = 0; c < _.options.slidesPerRow; c++) {
-                        var target = (a * slidesPerSection + ((b * _.options.slidesPerRow) + c));
-                        if (originalSlides.get(target)) {
-                            row.appendChild(originalSlides.get(target));
-                        }
-                    }
-                    slide.appendChild(row);
-                }
-                newSlides.appendChild(slide);
-            }
-
-            _.$slider.empty().append(newSlides);
-            _.$slider.children().children().children()
-                .css({
-                    'width':(100 / _.options.slidesPerRow) + '%',
-                    'display': 'inline-block'
-                });
-
-        }
-
-    };
-
-    Slick.prototype.checkResponsive = function(initial, forceUpdate) {
-
-        var _ = this,
-            breakpoint, targetBreakpoint, respondToWidth, triggerBreakpoint = false;
-        var sliderWidth = _.$slider.width();
-        var windowWidth = window.innerWidth || $(window).width();
-
-        if (_.respondTo === 'window') {
-            respondToWidth = windowWidth;
-        } else if (_.respondTo === 'slider') {
-            respondToWidth = sliderWidth;
-        } else if (_.respondTo === 'min') {
-            respondToWidth = Math.min(windowWidth, sliderWidth);
-        }
-
-        if ( _.options.responsive &&
-            _.options.responsive.length &&
-            _.options.responsive !== null) {
-
-            targetBreakpoint = null;
-
-            for (breakpoint in _.breakpoints) {
-                if (_.breakpoints.hasOwnProperty(breakpoint)) {
-                    if (_.originalSettings.mobileFirst === false) {
-                        if (respondToWidth < _.breakpoints[breakpoint]) {
-                            targetBreakpoint = _.breakpoints[breakpoint];
-                        }
-                    } else {
-                        if (respondToWidth > _.breakpoints[breakpoint]) {
-                            targetBreakpoint = _.breakpoints[breakpoint];
-                        }
-                    }
-                }
-            }
-
-            if (targetBreakpoint !== null) {
-                if (_.activeBreakpoint !== null) {
-                    if (targetBreakpoint !== _.activeBreakpoint || forceUpdate) {
-                        _.activeBreakpoint =
-                            targetBreakpoint;
-                        if (_.breakpointSettings[targetBreakpoint] === 'unslick') {
-                            _.unslick(targetBreakpoint);
-                        } else {
-                            _.options = $.extend({}, _.originalSettings,
-                                _.breakpointSettings[
-                                    targetBreakpoint]);
-                            if (initial === true) {
-                                _.currentSlide = _.options.initialSlide;
-                            }
-                            _.refresh(initial);
-                        }
-                        triggerBreakpoint = targetBreakpoint;
-                    }
-                } else {
-                    _.activeBreakpoint = targetBreakpoint;
-                    if (_.breakpointSettings[targetBreakpoint] === 'unslick') {
-                        _.unslick(targetBreakpoint);
-                    } else {
-                        _.options = $.extend({}, _.originalSettings,
-                            _.breakpointSettings[
-                                targetBreakpoint]);
-                        if (initial === true) {
-                            _.currentSlide = _.options.initialSlide;
-                        }
-                        _.refresh(initial);
-                    }
-                    triggerBreakpoint = targetBreakpoint;
-                }
-            } else {
-                if (_.activeBreakpoint !== null) {
-                    _.activeBreakpoint = null;
-                    _.options = _.originalSettings;
-                    if (initial === true) {
-                        _.currentSlide = _.options.initialSlide;
-                    }
-                    _.refresh(initial);
-                    triggerBreakpoint = targetBreakpoint;
-                }
-            }
-
-            // only trigger breakpoints during an actual break. not on initialize.
-            if( !initial && triggerBreakpoint !== false ) {
-                _.$slider.trigger('breakpoint', [_, triggerBreakpoint]);
-            }
-        }
-
-    };
-
-    Slick.prototype.changeSlide = function(event, dontAnimate) {
-
-        var _ = this,
-            $target = $(event.currentTarget),
-            indexOffset, slideOffset, unevenOffset;
-
-        // If target is a link, prevent default action.
-        if($target.is('a')) {
-            event.preventDefault();
-        }
-
-        // If target is not the <li> element (ie: a child), find the <li>.
-        if(!$target.is('li')) {
-            $target = $target.closest('li');
-        }
-
-        unevenOffset = (_.slideCount % _.options.slidesToScroll !== 0);
-        indexOffset = unevenOffset ? 0 : (_.slideCount - _.currentSlide) % _.options.slidesToScroll;
-
-        switch (event.data.message) {
-
-            case 'previous':
-                slideOffset = indexOffset === 0 ? _.options.slidesToScroll : _.options.slidesToShow - indexOffset;
-                if (_.slideCount > _.options.slidesToShow) {
-                    _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
-                }
-                break;
-
-            case 'next':
-                slideOffset = indexOffset === 0 ? _.options.slidesToScroll : indexOffset;
-                if (_.slideCount > _.options.slidesToShow) {
-                    _.slideHandler(_.currentSlide + slideOffset, false, dontAnimate);
-                }
-                break;
-
-            case 'index':
-                var index = event.data.index === 0 ? 0 :
-                    event.data.index || $target.index() * _.options.slidesToScroll;
-
-                _.slideHandler(_.checkNavigable(index), false, dontAnimate);
-                $target.children().trigger('focus');
-                break;
-
-            default:
-                return;
-        }
-
-    };
-
-    Slick.prototype.checkNavigable = function(index) {
-
-        var _ = this,
-            navigables, prevNavigable;
-
-        navigables = _.getNavigableIndexes();
-        prevNavigable = 0;
-        if (index > navigables[navigables.length - 1]) {
-            index = navigables[navigables.length - 1];
-        } else {
-            for (var n in navigables) {
-                if (index < navigables[n]) {
-                    index = prevNavigable;
-                    break;
-                }
-                prevNavigable = navigables[n];
-            }
-        }
-
-        return index;
-    };
-
-    Slick.prototype.cleanUpEvents = function() {
-
-        var _ = this;
-
-        if (_.options.dots && _.$dots !== null) {
-
-            $('li', _.$dots)
-                .off('click.slick', _.changeSlide)
-                .off('mouseenter.slick', $.proxy(_.interrupt, _, true))
-                .off('mouseleave.slick', $.proxy(_.interrupt, _, false));
-
-            if (_.options.accessibility === true) {
-                _.$dots.off('keydown.slick', _.keyHandler);
-            }
-        }
-
-        _.$slider.off('focus.slick blur.slick');
-
-        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
-            _.$prevArrow && _.$prevArrow.off('click.slick', _.changeSlide);
-            _.$nextArrow && _.$nextArrow.off('click.slick', _.changeSlide);
-
-            if (_.options.accessibility === true) {
-                _.$prevArrow && _.$prevArrow.off('keydown.slick', _.keyHandler);
-                _.$nextArrow && _.$nextArrow.off('keydown.slick', _.keyHandler);
-            }
-        }
-
-        _.$list.off('touchstart.slick mousedown.slick', _.swipeHandler);
-        _.$list.off('touchmove.slick mousemove.slick', _.swipeHandler);
-        _.$list.off('touchend.slick mouseup.slick', _.swipeHandler);
-        _.$list.off('touchcancel.slick mouseleave.slick', _.swipeHandler);
-
-        _.$list.off('click.slick', _.clickHandler);
-
-        $(document).off(_.visibilityChange, _.visibility);
-
-        _.cleanUpSlideEvents();
-
-        if (_.options.accessibility === true) {
-            _.$list.off('keydown.slick', _.keyHandler);
-        }
-
-        if (_.options.focusOnSelect === true) {
-            $(_.$slideTrack).children().off('click.slick', _.selectHandler);
-        }
-
-        $(window).off('orientationchange.slick.slick-' + _.instanceUid, _.orientationChange);
-
-        $(window).off('resize.slick.slick-' + _.instanceUid, _.resize);
-
-        $('[draggable!=true]', _.$slideTrack).off('dragstart', _.preventDefault);
-
-        $(window).off('load.slick.slick-' + _.instanceUid, _.setPosition);
-
-    };
-
-    Slick.prototype.cleanUpSlideEvents = function() {
-
-        var _ = this;
-
-        _.$list.off('mouseenter.slick', $.proxy(_.interrupt, _, true));
-        _.$list.off('mouseleave.slick', $.proxy(_.interrupt, _, false));
-
-    };
-
-    Slick.prototype.cleanUpRows = function() {
-
-        var _ = this, originalSlides;
-
-        if(_.options.rows > 0) {
-            originalSlides = _.$slides.children().children();
-            originalSlides.removeAttr('style');
-            _.$slider.empty().append(originalSlides);
-        }
-
-    };
-
-    Slick.prototype.clickHandler = function(event) {
-
-        var _ = this;
-
-        if (_.shouldClick === false) {
-            event.stopImmediatePropagation();
-            event.stopPropagation();
-            event.preventDefault();
-        }
-
-    };
-
-    Slick.prototype.destroy = function(refresh) {
-
-        var _ = this;
-
-        _.autoPlayClear();
-
-        _.touchObject = {};
-
-        _.cleanUpEvents();
-
-        $('.slick-cloned', _.$slider).detach();
-
-        if (_.$dots) {
-            _.$dots.remove();
-        }
-
-        if ( _.$prevArrow && _.$prevArrow.length ) {
-
-            _.$prevArrow
-                .removeClass('slick-disabled slick-arrow slick-hidden')
-                .removeAttr('aria-hidden aria-disabled tabindex')
-                .css('display','');
-
-            if ( _.htmlExpr.test( _.options.prevArrow )) {
-                _.$prevArrow.remove();
-            }
-        }
-
-        if ( _.$nextArrow && _.$nextArrow.length ) {
-
-            _.$nextArrow
-                .removeClass('slick-disabled slick-arrow slick-hidden')
-                .removeAttr('aria-hidden aria-disabled tabindex')
-                .css('display','');
-
-            if ( _.htmlExpr.test( _.options.nextArrow )) {
-                _.$nextArrow.remove();
-            }
-        }
-
-
-        if (_.$slides) {
-
-            _.$slides
-                .removeClass('slick-slide slick-active slick-center slick-visible slick-current')
-                .removeAttr('aria-hidden')
-                .removeAttr('data-slick-index')
-                .each(function(){
-                    $(this).attr('style', $(this).data('originalStyling'));
-                });
-
-            _.$slideTrack.children(this.options.slide).detach();
-
-            _.$slideTrack.detach();
-
-            _.$list.detach();
-
-            _.$slider.append(_.$slides);
-        }
-
-        _.cleanUpRows();
-
-        _.$slider.removeClass('slick-slider');
-        _.$slider.removeClass('slick-initialized');
-        _.$slider.removeClass('slick-dotted');
-
-        _.unslicked = true;
-
-        if(!refresh) {
-            _.$slider.trigger('destroy', [_]);
-        }
-
-    };
-
-    Slick.prototype.disableTransition = function(slide) {
-
-        var _ = this,
-            transition = {};
-
-        transition[_.transitionType] = '';
-
-        if (_.options.fade === false) {
-            _.$slideTrack.css(transition);
-        } else {
-            _.$slides.eq(slide).css(transition);
-        }
-
-    };
-
-    Slick.prototype.fadeSlide = function(slideIndex, callback) {
-
-        var _ = this;
-
-        if (_.cssTransitions === false) {
-
-            _.$slides.eq(slideIndex).css({
-                zIndex: _.options.zIndex
-            });
-
-            _.$slides.eq(slideIndex).animate({
-                opacity: 1
-            }, _.options.speed, _.options.easing, callback);
-
-        } else {
-
-            _.applyTransition(slideIndex);
-
-            _.$slides.eq(slideIndex).css({
-                opacity: 1,
-                zIndex: _.options.zIndex
-            });
-
-            if (callback) {
-                setTimeout(function() {
-
-                    _.disableTransition(slideIndex);
-
-                    callback.call();
-                }, _.options.speed);
-            }
-
-        }
-
-    };
-
-    Slick.prototype.fadeSlideOut = function(slideIndex) {
-
-        var _ = this;
-
-        if (_.cssTransitions === false) {
-
-            _.$slides.eq(slideIndex).animate({
-                opacity: 0,
-                zIndex: _.options.zIndex - 2
-            }, _.options.speed, _.options.easing);
-
-        } else {
-
-            _.applyTransition(slideIndex);
-
-            _.$slides.eq(slideIndex).css({
-                opacity: 0,
-                zIndex: _.options.zIndex - 2
-            });
-
-        }
-
-    };
-
-    Slick.prototype.filterSlides = Slick.prototype.slickFilter = function(filter) {
-
-        var _ = this;
-
-        if (filter !== null) {
-
-            _.$slidesCache = _.$slides;
-
-            _.unload();
-
-            _.$slideTrack.children(this.options.slide).detach();
-
-            _.$slidesCache.filter(filter).appendTo(_.$slideTrack);
-
-            _.reinit();
-
-        }
-
-    };
-
-    Slick.prototype.focusHandler = function() {
-
-        var _ = this;
-
-        _.$slider
-            .off('focus.slick blur.slick')
-            .on('focus.slick blur.slick', '*', function(event) {
-
-            event.stopImmediatePropagation();
-            var $sf = $(this);
-
-            setTimeout(function() {
-
-                if( _.options.pauseOnFocus ) {
-                    _.focussed = $sf.is(':focus');
-                    _.autoPlay();
-                }
-
-            }, 0);
-
-        });
-    };
-
-    Slick.prototype.getCurrent = Slick.prototype.slickCurrentSlide = function() {
-
-        var _ = this;
-        return _.currentSlide;
-
-    };
-
-    Slick.prototype.getDotCount = function() {
-
-        var _ = this;
-
-        var breakPoint = 0;
-        var counter = 0;
-        var pagerQty = 0;
-
-        if (_.options.infinite === true) {
-            if (_.slideCount <= _.options.slidesToShow) {
-                 ++pagerQty;
-            } else {
-                while (breakPoint < _.slideCount) {
-                    ++pagerQty;
-                    breakPoint = counter + _.options.slidesToScroll;
-                    counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
-                }
-            }
-        } else if (_.options.centerMode === true) {
-            pagerQty = _.slideCount;
-        } else if(!_.options.asNavFor) {
-            pagerQty = 1 + Math.ceil((_.slideCount - _.options.slidesToShow) / _.options.slidesToScroll);
-        }else {
-            while (breakPoint < _.slideCount) {
-                ++pagerQty;
-                breakPoint = counter + _.options.slidesToScroll;
-                counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
-            }
-        }
-
-        return pagerQty - 1;
-
-    };
-
-    Slick.prototype.getLeft = function(slideIndex) {
-
-        var _ = this,
-            targetLeft,
-            verticalHeight,
-            verticalOffset = 0,
-            targetSlide,
-            coef;
-
-        _.slideOffset = 0;
-        verticalHeight = _.$slides.first().outerHeight(true);
-
-        if (_.options.infinite === true) {
-            if (_.slideCount > _.options.slidesToShow) {
-                _.slideOffset = (_.slideWidth * _.options.slidesToShow) * -1;
-                coef = -1
-
-                if (_.options.vertical === true && _.options.centerMode === true) {
-                    if (_.options.slidesToShow === 2) {
-                        coef = -1.5;
-                    } else if (_.options.slidesToShow === 1) {
-                        coef = -2
-                    }
-                }
-                verticalOffset = (verticalHeight * _.options.slidesToShow) * coef;
-            }
-            if (_.slideCount % _.options.slidesToScroll !== 0) {
-                if (slideIndex + _.options.slidesToScroll > _.slideCount && _.slideCount > _.options.slidesToShow) {
-                    if (slideIndex > _.slideCount) {
-                        _.slideOffset = ((_.options.slidesToShow - (slideIndex - _.slideCount)) * _.slideWidth) * -1;
-                        verticalOffset = ((_.options.slidesToShow - (slideIndex - _.slideCount)) * verticalHeight) * -1;
-                    } else {
-                        _.slideOffset = ((_.slideCount % _.options.slidesToScroll) * _.slideWidth) * -1;
-                        verticalOffset = ((_.slideCount % _.options.slidesToScroll) * verticalHeight) * -1;
-                    }
-                }
-            }
-        } else {
-            if (slideIndex + _.options.slidesToShow > _.slideCount) {
-                _.slideOffset = ((slideIndex + _.options.slidesToShow) - _.slideCount) * _.slideWidth;
-                verticalOffset = ((slideIndex + _.options.slidesToShow) - _.slideCount) * verticalHeight;
-            }
-        }
-
-        if (_.slideCount <= _.options.slidesToShow) {
-            _.slideOffset = 0;
-            verticalOffset = 0;
-        }
-
-        if (_.options.centerMode === true && _.slideCount <= _.options.slidesToShow) {
-            _.slideOffset = ((_.slideWidth * Math.floor(_.options.slidesToShow)) / 2) - ((_.slideWidth * _.slideCount) / 2);
-        } else if (_.options.centerMode === true && _.options.infinite === true) {
-            _.slideOffset += _.slideWidth * Math.floor(_.options.slidesToShow / 2) - _.slideWidth;
-        } else if (_.options.centerMode === true) {
-            _.slideOffset = 0;
-            _.slideOffset += _.slideWidth * Math.floor(_.options.slidesToShow / 2);
-        }
-
-        if (_.options.vertical === false) {
-            targetLeft = ((slideIndex * _.slideWidth) * -1) + _.slideOffset;
-        } else {
-            targetLeft = ((slideIndex * verticalHeight) * -1) + verticalOffset;
-        }
-
-        if (_.options.variableWidth === true) {
-
-            if (_.slideCount <= _.options.slidesToShow || _.options.infinite === false) {
-                targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex);
-            } else {
-                targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex + _.options.slidesToShow);
-            }
-
-            if (_.options.rtl === true) {
-                if (targetSlide[0]) {
-                    targetLeft = (_.$slideTrack.width() - targetSlide[0].offsetLeft - targetSlide.width()) * -1;
-                } else {
-                    targetLeft =  0;
-                }
-            } else {
-                targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
-            }
-
-            if (_.options.centerMode === true) {
-                if (_.slideCount <= _.options.slidesToShow || _.options.infinite === false) {
-                    targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex);
-                } else {
-                    targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex + _.options.slidesToShow + 1);
-                }
-
-                if (_.options.rtl === true) {
-                    if (targetSlide[0]) {
-                        targetLeft = (_.$slideTrack.width() - targetSlide[0].offsetLeft - targetSlide.width()) * -1;
-                    } else {
-                        targetLeft =  0;
-                    }
-                } else {
-                    targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
-                }
-
-                targetLeft += (_.$list.width() - targetSlide.outerWidth()) / 2;
-            }
-        }
-
-        return targetLeft;
-
-    };
-
-    Slick.prototype.getOption = Slick.prototype.slickGetOption = function(option) {
-
-        var _ = this;
-
-        return _.options[option];
-
-    };
-
-    Slick.prototype.getNavigableIndexes = function() {
-
-        var _ = this,
-            breakPoint = 0,
-            counter = 0,
-            indexes = [],
-            max;
-
-        if (_.options.infinite === false) {
-            max = _.slideCount;
-        } else {
-            breakPoint = _.options.slidesToScroll * -1;
-            counter = _.options.slidesToScroll * -1;
-            max = _.slideCount * 2;
-        }
-
-        while (breakPoint < max) {
-            indexes.push(breakPoint);
-            breakPoint = counter + _.options.slidesToScroll;
-            counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
-        }
-
-        return indexes;
-
-    };
-
-    Slick.prototype.getSlick = function() {
-
-        return this;
-
-    };
-
-    Slick.prototype.getSlideCount = function() {
-
-        var _ = this,
-            slidesTraversed, swipedSlide, centerOffset;
-
-        centerOffset = _.options.centerMode === true ? _.slideWidth * Math.floor(_.options.slidesToShow / 2) : 0;
-
-        if (_.options.swipeToSlide === true) {
-            _.$slideTrack.find('.slick-slide').each(function(index, slide) {
-                if (slide.offsetLeft - centerOffset + ($(slide).outerWidth() / 2) > (_.swipeLeft * -1)) {
-                    swipedSlide = slide;
-                    return false;
-                }
-            });
-
-            slidesTraversed = Math.abs($(swipedSlide).attr('data-slick-index') - _.currentSlide) || 1;
-
-            return slidesTraversed;
-
-        } else {
-            return _.options.slidesToScroll;
-        }
-
-    };
-
-    Slick.prototype.goTo = Slick.prototype.slickGoTo = function(slide, dontAnimate) {
-
-        var _ = this;
-
-        _.changeSlide({
-            data: {
-                message: 'index',
-                index: parseInt(slide)
-            }
-        }, dontAnimate);
-
-    };
-
-    Slick.prototype.init = function(creation) {
-
-        var _ = this;
-
-        if (!$(_.$slider).hasClass('slick-initialized')) {
-
-            $(_.$slider).addClass('slick-initialized');
-
-            _.buildRows();
-            _.buildOut();
-            _.setProps();
-            _.startLoad();
-            _.loadSlider();
-            _.initializeEvents();
-            _.updateArrows();
-            _.updateDots();
-            _.checkResponsive(true);
-            _.focusHandler();
-
-        }
-
-        if (creation) {
-            _.$slider.trigger('init', [_]);
-        }
-
-        if (_.options.accessibility === true) {
-            _.initADA();
-        }
-
-        if ( _.options.autoplay ) {
-
-            _.paused = false;
-            _.autoPlay();
-
-        }
-
-    };
-
-    Slick.prototype.initADA = function() {
-        var _ = this,
-                numDotGroups = Math.ceil(_.slideCount / _.options.slidesToShow),
-                tabControlIndexes = _.getNavigableIndexes().filter(function(val) {
-                    return (val >= 0) && (val < _.slideCount);
-                });
-
-        _.$slides.add(_.$slideTrack.find('.slick-cloned')).attr({
-            'aria-hidden': 'true',
-            'tabindex': '-1'
-        }).find('a, input, button, select').attr({
-            'tabindex': '-1'
-        });
-
-        if (_.$dots !== null) {
-            _.$slides.not(_.$slideTrack.find('.slick-cloned')).each(function(i) {
-                var slideControlIndex = tabControlIndexes.indexOf(i);
-
-                $(this).attr({
-                    'role': 'tabpanel',
-                    'id': 'slick-slide' + _.instanceUid + i,
-                    'tabindex': -1
-                });
-
-                if (slideControlIndex !== -1) {
-                   var ariaButtonControl = 'slick-slide-control' + _.instanceUid + slideControlIndex
-                   if ($('#' + ariaButtonControl).length) {
-                     $(this).attr({
-                         'aria-describedby': ariaButtonControl
-                     });
-                   }
-                }
-            });
-
-            _.$dots.attr('role', 'tablist').find('li').each(function(i) {
-                var mappedSlideIndex = tabControlIndexes[i];
-
-                $(this).attr({
-                    'role': 'presentation'
-                });
-
-                $(this).find('button').first().attr({
-                    'role': 'tab',
-                    'id': 'slick-slide-control' + _.instanceUid + i,
-                    'aria-controls': 'slick-slide' + _.instanceUid + mappedSlideIndex,
-                    'aria-label': (i + 1) + ' of ' + numDotGroups,
-                    'aria-selected': null,
-                    'tabindex': '-1'
-                });
-
-            }).eq(_.currentSlide).find('button').attr({
-                'aria-selected': 'true',
-                'tabindex': '0'
-            }).end();
-        }
-
-        for (var i=_.currentSlide, max=i+_.options.slidesToShow; i < max; i++) {
-          if (_.options.focusOnChange) {
-            _.$slides.eq(i).attr({'tabindex': '0'});
-          } else {
-            _.$slides.eq(i).removeAttr('tabindex');
-          }
-        }
-
-        _.activateADA();
-
-    };
-
-    Slick.prototype.initArrowEvents = function() {
-
-        var _ = this;
-
-        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
-            _.$prevArrow
-               .off('click.slick')
-               .on('click.slick', {
-                    message: 'previous'
-               }, _.changeSlide);
-            _.$nextArrow
-               .off('click.slick')
-               .on('click.slick', {
-                    message: 'next'
-               }, _.changeSlide);
-
-            if (_.options.accessibility === true) {
-                _.$prevArrow.on('keydown.slick', _.keyHandler);
-                _.$nextArrow.on('keydown.slick', _.keyHandler);
-            }
-        }
-
-    };
-
-    Slick.prototype.initDotEvents = function() {
-
-        var _ = this;
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-            $('li', _.$dots).on('click.slick', {
-                message: 'index'
-            }, _.changeSlide);
-
-            if (_.options.accessibility === true) {
-                _.$dots.on('keydown.slick', _.keyHandler);
-            }
-        }
-
-        if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.slideCount > _.options.slidesToShow) {
-
-            $('li', _.$dots)
-                .on('mouseenter.slick', $.proxy(_.interrupt, _, true))
-                .on('mouseleave.slick', $.proxy(_.interrupt, _, false));
-
-        }
-
-    };
-
-    Slick.prototype.initSlideEvents = function() {
-
-        var _ = this;
-
-        if ( _.options.pauseOnHover ) {
-
-            _.$list.on('mouseenter.slick', $.proxy(_.interrupt, _, true));
-            _.$list.on('mouseleave.slick', $.proxy(_.interrupt, _, false));
-
-        }
-
-    };
-
-    Slick.prototype.initializeEvents = function() {
-
-        var _ = this;
-
-        _.initArrowEvents();
-
-        _.initDotEvents();
-        _.initSlideEvents();
-
-        _.$list.on('touchstart.slick mousedown.slick', {
-            action: 'start'
-        }, _.swipeHandler);
-        _.$list.on('touchmove.slick mousemove.slick', {
-            action: 'move'
-        }, _.swipeHandler);
-        _.$list.on('touchend.slick mouseup.slick', {
-            action: 'end'
-        }, _.swipeHandler);
-        _.$list.on('touchcancel.slick mouseleave.slick', {
-            action: 'end'
-        }, _.swipeHandler);
-
-        _.$list.on('click.slick', _.clickHandler);
-
-        $(document).on(_.visibilityChange, $.proxy(_.visibility, _));
-
-        if (_.options.accessibility === true) {
-            _.$list.on('keydown.slick', _.keyHandler);
-        }
-
-        if (_.options.focusOnSelect === true) {
-            $(_.$slideTrack).children().on('click.slick', _.selectHandler);
-        }
-
-        $(window).on('orientationchange.slick.slick-' + _.instanceUid, $.proxy(_.orientationChange, _));
-
-        $(window).on('resize.slick.slick-' + _.instanceUid, $.proxy(_.resize, _));
-
-        $('[draggable!=true]', _.$slideTrack).on('dragstart', _.preventDefault);
-
-        $(window).on('load.slick.slick-' + _.instanceUid, _.setPosition);
-        $(_.setPosition);
-
-    };
-
-    Slick.prototype.initUI = function() {
-
-        var _ = this;
-
-        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$prevArrow.show();
-            _.$nextArrow.show();
-
-        }
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$dots.show();
-
-        }
-
-    };
-
-    Slick.prototype.keyHandler = function(event) {
-
-        var _ = this;
-         //Dont slide if the cursor is inside the form fields and arrow keys are pressed
-        if(!event.target.tagName.match('TEXTAREA|INPUT|SELECT')) {
-            if (event.keyCode === 37 && _.options.accessibility === true) {
-                _.changeSlide({
-                    data: {
-                        message: _.options.rtl === true ? 'next' :  'previous'
-                    }
-                });
-            } else if (event.keyCode === 39 && _.options.accessibility === true) {
-                _.changeSlide({
-                    data: {
-                        message: _.options.rtl === true ? 'previous' : 'next'
-                    }
-                });
-            }
-        }
-
-    };
-
-    Slick.prototype.lazyLoad = function() {
-
-        var _ = this,
-            loadRange, cloneRange, rangeStart, rangeEnd;
-
-        function loadImages(imagesScope) {
-
-            $('img[data-lazy]', imagesScope).each(function() {
-
-                var image = $(this),
-                    imageSource = $(this).attr('data-lazy'),
-                    imageSrcSet = $(this).attr('data-srcset'),
-                    imageSizes  = $(this).attr('data-sizes') || _.$slider.attr('data-sizes'),
-                    imageToLoad = document.createElement('img');
-
-                imageToLoad.onload = function() {
-
-                    image
-                        .animate({ opacity: 0 }, 100, function() {
-
-                            if (imageSrcSet) {
-                                image
-                                    .attr('srcset', imageSrcSet );
-
-                                if (imageSizes) {
-                                    image
-                                        .attr('sizes', imageSizes );
-                                }
-                            }
-
-                            image
-                                .attr('src', imageSource)
-                                .animate({ opacity: 1 }, 200, function() {
-                                    image
-                                        .removeAttr('data-lazy data-srcset data-sizes')
-                                        .removeClass('slick-loading');
-                                });
-                            _.$slider.trigger('lazyLoaded', [_, image, imageSource]);
-                        });
-
-                };
-
-                imageToLoad.onerror = function() {
-
-                    image
-                        .removeAttr( 'data-lazy' )
-                        .removeClass( 'slick-loading' )
-                        .addClass( 'slick-lazyload-error' );
-
-                    _.$slider.trigger('lazyLoadError', [ _, image, imageSource ]);
-
-                };
-
-                imageToLoad.src = imageSource;
-
-            });
-
-        }
-
-        if (_.options.centerMode === true) {
-            if (_.options.infinite === true) {
-                rangeStart = _.currentSlide + (_.options.slidesToShow / 2 + 1);
-                rangeEnd = rangeStart + _.options.slidesToShow + 2;
-            } else {
-                rangeStart = Math.max(0, _.currentSlide - (_.options.slidesToShow / 2 + 1));
-                rangeEnd = 2 + (_.options.slidesToShow / 2 + 1) + _.currentSlide;
-            }
-        } else {
-            rangeStart = _.options.infinite ? _.options.slidesToShow + _.currentSlide : _.currentSlide;
-            rangeEnd = Math.ceil(rangeStart + _.options.slidesToShow);
-            if (_.options.fade === true) {
-                if (rangeStart > 0) rangeStart--;
-                if (rangeEnd <= _.slideCount) rangeEnd++;
-            }
-        }
-
-        loadRange = _.$slider.find('.slick-slide').slice(rangeStart, rangeEnd);
-
-        if (_.options.lazyLoad === 'anticipated') {
-            var prevSlide = rangeStart - 1,
-                nextSlide = rangeEnd,
-                $slides = _.$slider.find('.slick-slide');
-
-            for (var i = 0; i < _.options.slidesToScroll; i++) {
-                if (prevSlide < 0) prevSlide = _.slideCount - 1;
-                loadRange = loadRange.add($slides.eq(prevSlide));
-                loadRange = loadRange.add($slides.eq(nextSlide));
-                prevSlide--;
-                nextSlide++;
-            }
-        }
-
-        loadImages(loadRange);
-
-        if (_.slideCount <= _.options.slidesToShow) {
-            cloneRange = _.$slider.find('.slick-slide');
-            loadImages(cloneRange);
-        } else
-        if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
-            cloneRange = _.$slider.find('.slick-cloned').slice(0, _.options.slidesToShow);
-            loadImages(cloneRange);
-        } else if (_.currentSlide === 0) {
-            cloneRange = _.$slider.find('.slick-cloned').slice(_.options.slidesToShow * -1);
-            loadImages(cloneRange);
-        }
-
-    };
-
-    Slick.prototype.loadSlider = function() {
-
-        var _ = this;
-
-        _.setPosition();
-
-        _.$slideTrack.css({
-            opacity: 1
-        });
-
-        _.$slider.removeClass('slick-loading');
-
-        _.initUI();
-
-        if (_.options.lazyLoad === 'progressive') {
-            _.progressiveLazyLoad();
-        }
-
-    };
-
-    Slick.prototype.next = Slick.prototype.slickNext = function() {
-
-        var _ = this;
-
-        _.changeSlide({
-            data: {
-                message: 'next'
-            }
-        });
-
-    };
-
-    Slick.prototype.orientationChange = function() {
-
-        var _ = this;
-
-        _.checkResponsive();
-        _.setPosition();
-
-    };
-
-    Slick.prototype.pause = Slick.prototype.slickPause = function() {
-
-        var _ = this;
-
-        _.autoPlayClear();
-        _.paused = true;
-
-    };
-
-    Slick.prototype.play = Slick.prototype.slickPlay = function() {
-
-        var _ = this;
-
-        _.autoPlay();
-        _.options.autoplay = true;
-        _.paused = false;
-        _.focussed = false;
-        _.interrupted = false;
-
-    };
-
-    Slick.prototype.postSlide = function(index) {
-
-        var _ = this;
-
-        if( !_.unslicked ) {
-
-            _.$slider.trigger('afterChange', [_, index]);
-
-            _.animating = false;
-
-            if (_.slideCount > _.options.slidesToShow) {
-                _.setPosition();
-            }
-
-            _.swipeLeft = null;
-
-            if ( _.options.autoplay ) {
-                _.autoPlay();
-            }
-
-            if (_.options.accessibility === true) {
-                _.initADA();
-
-                if (_.options.focusOnChange) {
-                    var $currentSlide = $(_.$slides.get(_.currentSlide));
-                    $currentSlide.attr('tabindex', 0).focus();
-                }
-            }
-
-        }
-
-    };
-
-    Slick.prototype.prev = Slick.prototype.slickPrev = function() {
-
-        var _ = this;
-
-        _.changeSlide({
-            data: {
-                message: 'previous'
-            }
-        });
-
-    };
-
-    Slick.prototype.preventDefault = function(event) {
-
-        event.preventDefault();
-
-    };
-
-    Slick.prototype.progressiveLazyLoad = function( tryCount ) {
-
-        tryCount = tryCount || 1;
-
-        var _ = this,
-            $imgsToLoad = $( 'img[data-lazy]', _.$slider ),
-            image,
-            imageSource,
-            imageSrcSet,
-            imageSizes,
-            imageToLoad;
-
-        if ( $imgsToLoad.length ) {
-
-            image = $imgsToLoad.first();
-            imageSource = image.attr('data-lazy');
-            imageSrcSet = image.attr('data-srcset');
-            imageSizes  = image.attr('data-sizes') || _.$slider.attr('data-sizes');
-            imageToLoad = document.createElement('img');
-
-            imageToLoad.onload = function() {
-
-                if (imageSrcSet) {
-                    image
-                        .attr('srcset', imageSrcSet );
-
-                    if (imageSizes) {
-                        image
-                            .attr('sizes', imageSizes );
-                    }
-                }
-
-                image
-                    .attr( 'src', imageSource )
-                    .removeAttr('data-lazy data-srcset data-sizes')
-                    .removeClass('slick-loading');
-
-                if ( _.options.adaptiveHeight === true ) {
-                    _.setPosition();
-                }
-
-                _.$slider.trigger('lazyLoaded', [ _, image, imageSource ]);
-                _.progressiveLazyLoad();
-
-            };
-
-            imageToLoad.onerror = function() {
-
-                if ( tryCount < 3 ) {
-
-                    /**
-                     * try to load the image 3 times,
-                     * leave a slight delay so we don't get
-                     * servers blocking the request.
-                     */
-                    setTimeout( function() {
-                        _.progressiveLazyLoad( tryCount + 1 );
-                    }, 500 );
-
-                } else {
-
-                    image
-                        .removeAttr( 'data-lazy' )
-                        .removeClass( 'slick-loading' )
-                        .addClass( 'slick-lazyload-error' );
-
-                    _.$slider.trigger('lazyLoadError', [ _, image, imageSource ]);
-
-                    _.progressiveLazyLoad();
-
-                }
-
-            };
-
-            imageToLoad.src = imageSource;
-
-        } else {
-
-            _.$slider.trigger('allImagesLoaded', [ _ ]);
-
-        }
-
-    };
-
-    Slick.prototype.refresh = function( initializing ) {
-
-        var _ = this, currentSlide, lastVisibleIndex;
-
-        lastVisibleIndex = _.slideCount - _.options.slidesToShow;
-
-        // in non-infinite sliders, we don't want to go past the
-        // last visible index.
-        if( !_.options.infinite && ( _.currentSlide > lastVisibleIndex )) {
-            _.currentSlide = lastVisibleIndex;
-        }
-
-        // if less slides than to show, go to start.
-        if ( _.slideCount <= _.options.slidesToShow ) {
-            _.currentSlide = 0;
-
-        }
-
-        currentSlide = _.currentSlide;
-
-        _.destroy(true);
-
-        $.extend(_, _.initials, { currentSlide: currentSlide });
-
-        _.init();
-
-        if( !initializing ) {
-
-            _.changeSlide({
-                data: {
-                    message: 'index',
-                    index: currentSlide
-                }
-            }, false);
-
-        }
-
-    };
-
-    Slick.prototype.registerBreakpoints = function() {
-
-        var _ = this, breakpoint, currentBreakpoint, l,
-            responsiveSettings = _.options.responsive || null;
-
-        if ( $.type(responsiveSettings) === 'array' && responsiveSettings.length ) {
-
-            _.respondTo = _.options.respondTo || 'window';
-
-            for ( breakpoint in responsiveSettings ) {
-
-                l = _.breakpoints.length-1;
-
-                if (responsiveSettings.hasOwnProperty(breakpoint)) {
-                    currentBreakpoint = responsiveSettings[breakpoint].breakpoint;
-
-                    // loop through the breakpoints and cut out any existing
-                    // ones with the same breakpoint number, we don't want dupes.
-                    while( l >= 0 ) {
-                        if( _.breakpoints[l] && _.breakpoints[l] === currentBreakpoint ) {
-                            _.breakpoints.splice(l,1);
-                        }
-                        l--;
-                    }
-
-                    _.breakpoints.push(currentBreakpoint);
-                    _.breakpointSettings[currentBreakpoint] = responsiveSettings[breakpoint].settings;
-
-                }
-
-            }
-
-            _.breakpoints.sort(function(a, b) {
-                return ( _.options.mobileFirst ) ? a-b : b-a;
-            });
-
-        }
-
-    };
-
-    Slick.prototype.reinit = function() {
-
-        var _ = this;
-
-        _.$slides =
-            _.$slideTrack
-                .children(_.options.slide)
-                .addClass('slick-slide');
-
-        _.slideCount = _.$slides.length;
-
-        if (_.currentSlide >= _.slideCount && _.currentSlide !== 0) {
-            _.currentSlide = _.currentSlide - _.options.slidesToScroll;
-        }
-
-        if (_.slideCount <= _.options.slidesToShow) {
-            _.currentSlide = 0;
-        }
-
-        _.registerBreakpoints();
-
-        _.setProps();
-        _.setupInfinite();
-        _.buildArrows();
-        _.updateArrows();
-        _.initArrowEvents();
-        _.buildDots();
-        _.updateDots();
-        _.initDotEvents();
-        _.cleanUpSlideEvents();
-        _.initSlideEvents();
-
-        _.checkResponsive(false, true);
-
-        if (_.options.focusOnSelect === true) {
-            $(_.$slideTrack).children().on('click.slick', _.selectHandler);
-        }
-
-        _.setSlideClasses(typeof _.currentSlide === 'number' ? _.currentSlide : 0);
-
-        _.setPosition();
-        _.focusHandler();
-
-        _.paused = !_.options.autoplay;
-        _.autoPlay();
-
-        _.$slider.trigger('reInit', [_]);
-
-    };
-
-    Slick.prototype.resize = function() {
-
-        var _ = this;
-
-        if ($(window).width() !== _.windowWidth) {
-            clearTimeout(_.windowDelay);
-            _.windowDelay = window.setTimeout(function() {
-                _.windowWidth = $(window).width();
-                _.checkResponsive();
-                if( !_.unslicked ) { _.setPosition(); }
-            }, 50);
-        }
-    };
-
-    Slick.prototype.removeSlide = Slick.prototype.slickRemove = function(index, removeBefore, removeAll) {
-
-        var _ = this;
-
-        if (typeof(index) === 'boolean') {
-            removeBefore = index;
-            index = removeBefore === true ? 0 : _.slideCount - 1;
-        } else {
-            index = removeBefore === true ? --index : index;
-        }
-
-        if (_.slideCount < 1 || index < 0 || index > _.slideCount - 1) {
-            return false;
-        }
-
-        _.unload();
-
-        if (removeAll === true) {
-            _.$slideTrack.children().remove();
-        } else {
-            _.$slideTrack.children(this.options.slide).eq(index).remove();
-        }
-
-        _.$slides = _.$slideTrack.children(this.options.slide);
-
-        _.$slideTrack.children(this.options.slide).detach();
-
-        _.$slideTrack.append(_.$slides);
-
-        _.$slidesCache = _.$slides;
-
-        _.reinit();
-
-    };
-
-    Slick.prototype.setCSS = function(position) {
-
-        var _ = this,
-            positionProps = {},
-            x, y;
-
-        if (_.options.rtl === true) {
-            position = -position;
-        }
-        x = _.positionProp == 'left' ? Math.ceil(position) + 'px' : '0px';
-        y = _.positionProp == 'top' ? Math.ceil(position) + 'px' : '0px';
-
-        positionProps[_.positionProp] = position;
-
-        if (_.transformsEnabled === false) {
-            _.$slideTrack.css(positionProps);
-        } else {
-            positionProps = {};
-            if (_.cssTransitions === false) {
-                positionProps[_.animType] = 'translate(' + x + ', ' + y + ')';
-                _.$slideTrack.css(positionProps);
-            } else {
-                positionProps[_.animType] = 'translate3d(' + x + ', ' + y + ', 0px)';
-                _.$slideTrack.css(positionProps);
-            }
-        }
-
-    };
-
-    Slick.prototype.setDimensions = function() {
-
-        var _ = this;
-
-        if (_.options.vertical === false) {
-            if (_.options.centerMode === true) {
-                _.$list.css({
-                    padding: ('0px ' + _.options.centerPadding)
-                });
-            }
-        } else {
-            _.$list.height(_.$slides.first().outerHeight(true) * _.options.slidesToShow);
-            if (_.options.centerMode === true) {
-                _.$list.css({
-                    padding: (_.options.centerPadding + ' 0px')
-                });
-            }
-        }
-
-        _.listWidth = _.$list.width();
-        _.listHeight = _.$list.height();
-
-
-        if (_.options.vertical === false && _.options.variableWidth === false) {
-            _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
-            _.$slideTrack.width(Math.ceil((_.slideWidth * _.$slideTrack.children('.slick-slide').length)));
-
-        } else if (_.options.variableWidth === true) {
-            _.$slideTrack.width(5000 * _.slideCount);
-        } else {
-            _.slideWidth = Math.ceil(_.listWidth);
-            _.$slideTrack.height(Math.ceil((_.$slides.first().outerHeight(true) * _.$slideTrack.children('.slick-slide').length)));
-        }
-
-        var offset = _.$slides.first().outerWidth(true) - _.$slides.first().width();
-        if (_.options.variableWidth === false) _.$slideTrack.children('.slick-slide').width(_.slideWidth - offset);
-
-    };
-
-    Slick.prototype.setFade = function() {
-
-        var _ = this,
-            targetLeft;
-
-        _.$slides.each(function(index, element) {
-            targetLeft = (_.slideWidth * index) * -1;
-            if (_.options.rtl === true) {
-                $(element).css({
-                    position: 'relative',
-                    right: targetLeft,
-                    top: 0,
-                    zIndex: _.options.zIndex - 2,
-                    opacity: 0
-                });
-            } else {
-                $(element).css({
-                    position: 'relative',
-                    left: targetLeft,
-                    top: 0,
-                    zIndex: _.options.zIndex - 2,
-                    opacity: 0
-                });
-            }
-        });
-
-        _.$slides.eq(_.currentSlide).css({
-            zIndex: _.options.zIndex - 1,
-            opacity: 1
-        });
-
-    };
-
-    Slick.prototype.setHeight = function() {
-
-        var _ = this;
-
-        if (_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
-            var targetHeight = _.$slides.eq(_.currentSlide).outerHeight(true);
-            _.$list.css('height', targetHeight);
-        }
-
-    };
-
-    Slick.prototype.setOption =
-    Slick.prototype.slickSetOption = function() {
-
-        /**
-         * accepts arguments in format of:
-         *
-         *  - for changing a single option's value:
-         *     .slick("setOption", option, value, refresh )
-         *
-         *  - for changing a set of responsive options:
-         *     .slick("setOption", 'responsive', [{}, ...], refresh )
-         *
-         *  - for updating multiple values at once (not responsive)
-         *     .slick("setOption", { 'option': value, ... }, refresh )
-         */
-
-        var _ = this, l, item, option, value, refresh = false, type;
-
-        if( $.type( arguments[0] ) === 'object' ) {
-
-            option =  arguments[0];
-            refresh = arguments[1];
-            type = 'multiple';
-
-        } else if ( $.type( arguments[0] ) === 'string' ) {
-
-            option =  arguments[0];
-            value = arguments[1];
-            refresh = arguments[2];
-
-            if ( arguments[0] === 'responsive' && $.type( arguments[1] ) === 'array' ) {
-
-                type = 'responsive';
-
-            } else if ( typeof arguments[1] !== 'undefined' ) {
-
-                type = 'single';
-
-            }
-
-        }
-
-        if ( type === 'single' ) {
-
-            _.options[option] = value;
-
-
-        } else if ( type === 'multiple' ) {
-
-            $.each( option , function( opt, val ) {
-
-                _.options[opt] = val;
-
-            });
-
-
-        } else if ( type === 'responsive' ) {
-
-            for ( item in value ) {
-
-                if( $.type( _.options.responsive ) !== 'array' ) {
-
-                    _.options.responsive = [ value[item] ];
-
-                } else {
-
-                    l = _.options.responsive.length-1;
-
-                    // loop through the responsive object and splice out duplicates.
-                    while( l >= 0 ) {
-
-                        if( _.options.responsive[l].breakpoint === value[item].breakpoint ) {
-
-                            _.options.responsive.splice(l,1);
-
-                        }
-
-                        l--;
-
-                    }
-
-                    _.options.responsive.push( value[item] );
-
-                }
-
-            }
-
-        }
-
-        if ( refresh ) {
-
-            _.unload();
-            _.reinit();
-
-        }
-
-    };
-
-    Slick.prototype.setPosition = function() {
-
-        var _ = this;
-
-        _.setDimensions();
-
-        _.setHeight();
-
-        if (_.options.fade === false) {
-            _.setCSS(_.getLeft(_.currentSlide));
-        } else {
-            _.setFade();
-        }
-
-        _.$slider.trigger('setPosition', [_]);
-
-    };
-
-    Slick.prototype.setProps = function() {
-
-        var _ = this,
-            bodyStyle = document.body.style;
-
-        _.positionProp = _.options.vertical === true ? 'top' : 'left';
-
-        if (_.positionProp === 'top') {
-            _.$slider.addClass('slick-vertical');
-        } else {
-            _.$slider.removeClass('slick-vertical');
-        }
-
-        if (bodyStyle.WebkitTransition !== undefined ||
-            bodyStyle.MozTransition !== undefined ||
-            bodyStyle.msTransition !== undefined) {
-            if (_.options.useCSS === true) {
-                _.cssTransitions = true;
-            }
-        }
-
-        if ( _.options.fade ) {
-            if ( typeof _.options.zIndex === 'number' ) {
-                if( _.options.zIndex < 3 ) {
-                    _.options.zIndex = 3;
-                }
-            } else {
-                _.options.zIndex = _.defaults.zIndex;
-            }
-        }
-
-        if (bodyStyle.OTransform !== undefined) {
-            _.animType = 'OTransform';
-            _.transformType = '-o-transform';
-            _.transitionType = 'OTransition';
-            if (bodyStyle.perspectiveProperty === undefined && bodyStyle.webkitPerspective === undefined) _.animType = false;
-        }
-        if (bodyStyle.MozTransform !== undefined) {
-            _.animType = 'MozTransform';
-            _.transformType = '-moz-transform';
-            _.transitionType = 'MozTransition';
-            if (bodyStyle.perspectiveProperty === undefined && bodyStyle.MozPerspective === undefined) _.animType = false;
-        }
-        if (bodyStyle.webkitTransform !== undefined) {
-            _.animType = 'webkitTransform';
-            _.transformType = '-webkit-transform';
-            _.transitionType = 'webkitTransition';
-            if (bodyStyle.perspectiveProperty === undefined && bodyStyle.webkitPerspective === undefined) _.animType = false;
-        }
-        if (bodyStyle.msTransform !== undefined) {
-            _.animType = 'msTransform';
-            _.transformType = '-ms-transform';
-            _.transitionType = 'msTransition';
-            if (bodyStyle.msTransform === undefined) _.animType = false;
-        }
-        if (bodyStyle.transform !== undefined && _.animType !== false) {
-            _.animType = 'transform';
-            _.transformType = 'transform';
-            _.transitionType = 'transition';
-        }
-        _.transformsEnabled = _.options.useTransform && (_.animType !== null && _.animType !== false);
-    };
-
-
-    Slick.prototype.setSlideClasses = function(index) {
-
-        var _ = this,
-            centerOffset, allSlides, indexOffset, remainder;
-
-        allSlides = _.$slider
-            .find('.slick-slide')
-            .removeClass('slick-active slick-center slick-current')
-            .attr('aria-hidden', 'true');
-
-        _.$slides
-            .eq(index)
-            .addClass('slick-current');
-
-        if (_.options.centerMode === true) {
-
-            var evenCoef = _.options.slidesToShow % 2 === 0 ? 1 : 0;
-
-            centerOffset = Math.floor(_.options.slidesToShow / 2);
-
-            if (_.options.infinite === true) {
-
-                if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
-                    _.$slides
-                        .slice(index - centerOffset + evenCoef, index + centerOffset + 1)
-                        .addClass('slick-active')
-                        .attr('aria-hidden', 'false');
-
-                } else {
-
-                    indexOffset = _.options.slidesToShow + index;
-                    allSlides
-                        .slice(indexOffset - centerOffset + 1 + evenCoef, indexOffset + centerOffset + 2)
-                        .addClass('slick-active')
-                        .attr('aria-hidden', 'false');
-
-                }
-
-                if (index === 0) {
-
-                    allSlides
-                        .eq(allSlides.length - 1 - _.options.slidesToShow)
-                        .addClass('slick-center');
-
-                } else if (index === _.slideCount - 1) {
-
-                    allSlides
-                        .eq(_.options.slidesToShow)
-                        .addClass('slick-center');
-
-                }
-
-            }
-
-            _.$slides
-                .eq(index)
-                .addClass('slick-center');
-
-        } else {
-
-            if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
-
-                _.$slides
-                    .slice(index, index + _.options.slidesToShow)
-                    .addClass('slick-active')
-                    .attr('aria-hidden', 'false');
-
-            } else if (allSlides.length <= _.options.slidesToShow) {
-
-                allSlides
-                    .addClass('slick-active')
-                    .attr('aria-hidden', 'false');
-
-            } else {
-
-                remainder = _.slideCount % _.options.slidesToShow;
-                indexOffset = _.options.infinite === true ? _.options.slidesToShow + index : index;
-
-                if (_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
-
-                    allSlides
-                        .slice(indexOffset - (_.options.slidesToShow - remainder), indexOffset + remainder)
-                        .addClass('slick-active')
-                        .attr('aria-hidden', 'false');
-
-                } else {
-
-                    allSlides
-                        .slice(indexOffset, indexOffset + _.options.slidesToShow)
-                        .addClass('slick-active')
-                        .attr('aria-hidden', 'false');
-
-                }
-
-            }
-
-        }
-
-        if (_.options.lazyLoad === 'ondemand' || _.options.lazyLoad === 'anticipated') {
-            _.lazyLoad();
-        }
-    };
-
-    Slick.prototype.setupInfinite = function() {
-
-        var _ = this,
-            i, slideIndex, infiniteCount;
-
-        if (_.options.fade === true) {
-            _.options.centerMode = false;
-        }
-
-        if (_.options.infinite === true && _.options.fade === false) {
-
-            slideIndex = null;
-
-            if (_.slideCount > _.options.slidesToShow) {
-
-                if (_.options.centerMode === true) {
-                    infiniteCount = _.options.slidesToShow + 1;
-                } else {
-                    infiniteCount = _.options.slidesToShow;
-                }
-
-                for (i = _.slideCount; i > (_.slideCount -
-                        infiniteCount); i -= 1) {
-                    slideIndex = i - 1;
-                    $(_.$slides[slideIndex]).clone(true).attr('id', '')
-                        .attr('data-slick-index', slideIndex - _.slideCount)
-                        .prependTo(_.$slideTrack).addClass('slick-cloned');
-                }
-                for (i = 0; i < infiniteCount  + _.slideCount; i += 1) {
-                    slideIndex = i;
-                    $(_.$slides[slideIndex]).clone(true).attr('id', '')
-                        .attr('data-slick-index', slideIndex + _.slideCount)
-                        .appendTo(_.$slideTrack).addClass('slick-cloned');
-                }
-                _.$slideTrack.find('.slick-cloned').find('[id]').each(function() {
-                    $(this).attr('id', '');
-                });
-
-            }
-
-        }
-
-    };
-
-    Slick.prototype.interrupt = function( toggle ) {
-
-        var _ = this;
-
-        if( !toggle ) {
-            _.autoPlay();
-        }
-        _.interrupted = toggle;
-
-    };
-
-    Slick.prototype.selectHandler = function(event) {
-
-        var _ = this;
-
-        var targetElement =
-            $(event.target).is('.slick-slide') ?
-                $(event.target) :
-                $(event.target).parents('.slick-slide');
-
-        var index = parseInt(targetElement.attr('data-slick-index'));
-
-        if (!index) index = 0;
-
-        if (_.slideCount <= _.options.slidesToShow) {
-
-            _.slideHandler(index, false, true);
-            return;
-
-        }
-
-        _.slideHandler(index);
-
-    };
-
-    Slick.prototype.slideHandler = function(index, sync, dontAnimate) {
-
-        var targetSlide, animSlide, oldSlide, slideLeft, targetLeft = null,
-            _ = this, navTarget;
-
-        sync = sync || false;
-
-        if (_.animating === true && _.options.waitForAnimate === true) {
-            return;
-        }
-
-        if (_.options.fade === true && _.currentSlide === index) {
-            return;
-        }
-
-        if (sync === false) {
-            _.asNavFor(index);
-        }
-
-        targetSlide = index;
-        targetLeft = _.getLeft(targetSlide);
-        slideLeft = _.getLeft(_.currentSlide);
-
-        _.currentLeft = _.swipeLeft === null ? slideLeft : _.swipeLeft;
-
-        if (_.options.infinite === false && _.options.centerMode === false && (index < 0 || index > _.getDotCount() * _.options.slidesToScroll)) {
-            if (_.options.fade === false) {
-                targetSlide = _.currentSlide;
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
-                    _.animateSlide(slideLeft, function() {
-                        _.postSlide(targetSlide);
-                    });
-                } else {
-                    _.postSlide(targetSlide);
-                }
-            }
-            return;
-        } else if (_.options.infinite === false && _.options.centerMode === true && (index < 0 || index > (_.slideCount - _.options.slidesToScroll))) {
-            if (_.options.fade === false) {
-                targetSlide = _.currentSlide;
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
-                    _.animateSlide(slideLeft, function() {
-                        _.postSlide(targetSlide);
-                    });
-                } else {
-                    _.postSlide(targetSlide);
-                }
-            }
-            return;
-        }
-
-        if ( _.options.autoplay ) {
-            clearInterval(_.autoPlayTimer);
-        }
-
-        if (targetSlide < 0) {
-            if (_.slideCount % _.options.slidesToScroll !== 0) {
-                animSlide = _.slideCount - (_.slideCount % _.options.slidesToScroll);
-            } else {
-                animSlide = _.slideCount + targetSlide;
-            }
-        } else if (targetSlide >= _.slideCount) {
-            if (_.slideCount % _.options.slidesToScroll !== 0) {
-                animSlide = 0;
-            } else {
-                animSlide = targetSlide - _.slideCount;
-            }
-        } else {
-            animSlide = targetSlide;
-        }
-
-        _.animating = true;
-
-        _.$slider.trigger('beforeChange', [_, _.currentSlide, animSlide]);
-
-        oldSlide = _.currentSlide;
-        _.currentSlide = animSlide;
-
-        _.setSlideClasses(_.currentSlide);
-
-        if ( _.options.asNavFor ) {
-
-            navTarget = _.getNavTarget();
-            navTarget = navTarget.slick('getSlick');
-
-            if ( navTarget.slideCount <= navTarget.options.slidesToShow ) {
-                navTarget.setSlideClasses(_.currentSlide);
-            }
-
-        }
-
-        _.updateDots();
-        _.updateArrows();
-
-        if (_.options.fade === true) {
-            if (dontAnimate !== true) {
-
-                _.fadeSlideOut(oldSlide);
-
-                _.fadeSlide(animSlide, function() {
-                    _.postSlide(animSlide);
-                });
-
-            } else {
-                _.postSlide(animSlide);
-            }
-            _.animateHeight();
-            return;
-        }
-
-        if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
-            _.animateSlide(targetLeft, function() {
-                _.postSlide(animSlide);
-            });
-        } else {
-            _.postSlide(animSlide);
-        }
-
-    };
-
-    Slick.prototype.startLoad = function() {
-
-        var _ = this;
-
-        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$prevArrow.hide();
-            _.$nextArrow.hide();
-
-        }
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$dots.hide();
-
-        }
-
-        _.$slider.addClass('slick-loading');
-
-    };
-
-    Slick.prototype.swipeDirection = function() {
-
-        var xDist, yDist, r, swipeAngle, _ = this;
-
-        xDist = _.touchObject.startX - _.touchObject.curX;
-        yDist = _.touchObject.startY - _.touchObject.curY;
-        r = Math.atan2(yDist, xDist);
-
-        swipeAngle = Math.round(r * 180 / Math.PI);
-        if (swipeAngle < 0) {
-            swipeAngle = 360 - Math.abs(swipeAngle);
-        }
-
-        if ((swipeAngle <= 45) && (swipeAngle >= 0)) {
-            return (_.options.rtl === false ? 'left' : 'right');
-        }
-        if ((swipeAngle <= 360) && (swipeAngle >= 315)) {
-            return (_.options.rtl === false ? 'left' : 'right');
-        }
-        if ((swipeAngle >= 135) && (swipeAngle <= 225)) {
-            return (_.options.rtl === false ? 'right' : 'left');
-        }
-        if (_.options.verticalSwiping === true) {
-            if ((swipeAngle >= 35) && (swipeAngle <= 135)) {
-                return 'down';
-            } else {
-                return 'up';
-            }
-        }
-
-        return 'vertical';
-
-    };
-
-    Slick.prototype.swipeEnd = function(event) {
-
-        var _ = this,
-            slideCount,
-            direction;
-
-        _.dragging = false;
-        _.swiping = false;
-
-        if (_.scrolling) {
-            _.scrolling = false;
-            return false;
-        }
-
-        _.interrupted = false;
-        _.shouldClick = ( _.touchObject.swipeLength > 10 ) ? false : true;
-
-        if ( _.touchObject.curX === undefined ) {
-            return false;
-        }
-
-        if ( _.touchObject.edgeHit === true ) {
-            _.$slider.trigger('edge', [_, _.swipeDirection() ]);
-        }
-
-        if ( _.touchObject.swipeLength >= _.touchObject.minSwipe ) {
-
-            direction = _.swipeDirection();
-
-            switch ( direction ) {
-
-                case 'left':
-                case 'down':
-
-                    slideCount =
-                        _.options.swipeToSlide ?
-                            _.checkNavigable( _.currentSlide + _.getSlideCount() ) :
-                            _.currentSlide + _.getSlideCount();
-
-                    _.currentDirection = 0;
-
-                    break;
-
-                case 'right':
-                case 'up':
-
-                    slideCount =
-                        _.options.swipeToSlide ?
-                            _.checkNavigable( _.currentSlide - _.getSlideCount() ) :
-                            _.currentSlide - _.getSlideCount();
-
-                    _.currentDirection = 1;
-
-                    break;
-
-                default:
-
-
-            }
-
-            if( direction != 'vertical' ) {
-
-                _.slideHandler( slideCount );
-                _.touchObject = {};
-                _.$slider.trigger('swipe', [_, direction ]);
-
-            }
-
-        } else {
-
-            if ( _.touchObject.startX !== _.touchObject.curX ) {
-
-                _.slideHandler( _.currentSlide );
-                _.touchObject = {};
-
-            }
-
-        }
-
-    };
-
-    Slick.prototype.swipeHandler = function(event) {
-
-        var _ = this;
-
-        if ((_.options.swipe === false) || ('ontouchend' in document && _.options.swipe === false)) {
-            return;
-        } else if (_.options.draggable === false && event.type.indexOf('mouse') !== -1) {
-            return;
-        }
-
-        _.touchObject.fingerCount = event.originalEvent && event.originalEvent.touches !== undefined ?
-            event.originalEvent.touches.length : 1;
-
-        _.touchObject.minSwipe = _.listWidth / _.options
-            .touchThreshold;
-
-        if (_.options.verticalSwiping === true) {
-            _.touchObject.minSwipe = _.listHeight / _.options
-                .touchThreshold;
-        }
-
-        switch (event.data.action) {
-
-            case 'start':
-                _.swipeStart(event);
-                break;
-
-            case 'move':
-                _.swipeMove(event);
-                break;
-
-            case 'end':
-                _.swipeEnd(event);
-                break;
-
-        }
-
-    };
-
-    Slick.prototype.swipeMove = function(event) {
-
-        var _ = this,
-            edgeWasHit = false,
-            curLeft, swipeDirection, swipeLength, positionOffset, touches, verticalSwipeLength;
-
-        touches = event.originalEvent !== undefined ? event.originalEvent.touches : null;
-
-        if (!_.dragging || _.scrolling || touches && touches.length !== 1) {
-            return false;
-        }
-
-        curLeft = _.getLeft(_.currentSlide);
-
-        _.touchObject.curX = touches !== undefined ? touches[0].pageX : event.clientX;
-        _.touchObject.curY = touches !== undefined ? touches[0].pageY : event.clientY;
-
-        _.touchObject.swipeLength = Math.round(Math.sqrt(
-            Math.pow(_.touchObject.curX - _.touchObject.startX, 2)));
-
-        verticalSwipeLength = Math.round(Math.sqrt(
-            Math.pow(_.touchObject.curY - _.touchObject.startY, 2)));
-
-        if (!_.options.verticalSwiping && !_.swiping && verticalSwipeLength > 4) {
-            _.scrolling = true;
-            return false;
-        }
-
-        if (_.options.verticalSwiping === true) {
-            _.touchObject.swipeLength = verticalSwipeLength;
-        }
-
-        swipeDirection = _.swipeDirection();
-
-        if (event.originalEvent !== undefined && _.touchObject.swipeLength > 4) {
-            _.swiping = true;
-            event.preventDefault();
-        }
-
-        positionOffset = (_.options.rtl === false ? 1 : -1) * (_.touchObject.curX > _.touchObject.startX ? 1 : -1);
-        if (_.options.verticalSwiping === true) {
-            positionOffset = _.touchObject.curY > _.touchObject.startY ? 1 : -1;
-        }
-
-
-        swipeLength = _.touchObject.swipeLength;
-
-        _.touchObject.edgeHit = false;
-
-        if (_.options.infinite === false) {
-            if ((_.currentSlide === 0 && swipeDirection === 'right') || (_.currentSlide >= _.getDotCount() && swipeDirection === 'left')) {
-                swipeLength = _.touchObject.swipeLength * _.options.edgeFriction;
-                _.touchObject.edgeHit = true;
-            }
-        }
-
-        if (_.options.vertical === false) {
-            _.swipeLeft = curLeft + swipeLength * positionOffset;
-        } else {
-            _.swipeLeft = curLeft + (swipeLength * (_.$list.height() / _.listWidth)) * positionOffset;
-        }
-        if (_.options.verticalSwiping === true) {
-            _.swipeLeft = curLeft + swipeLength * positionOffset;
-        }
-
-        if (_.options.fade === true || _.options.touchMove === false) {
-            return false;
-        }
-
-        if (_.animating === true) {
-            _.swipeLeft = null;
-            return false;
-        }
-
-        _.setCSS(_.swipeLeft);
-
-    };
-
-    Slick.prototype.swipeStart = function(event) {
-
-        var _ = this,
-            touches;
-
-        _.interrupted = true;
-
-        if (_.touchObject.fingerCount !== 1 || _.slideCount <= _.options.slidesToShow) {
-            _.touchObject = {};
-            return false;
-        }
-
-        if (event.originalEvent !== undefined && event.originalEvent.touches !== undefined) {
-            touches = event.originalEvent.touches[0];
-        }
-
-        _.touchObject.startX = _.touchObject.curX = touches !== undefined ? touches.pageX : event.clientX;
-        _.touchObject.startY = _.touchObject.curY = touches !== undefined ? touches.pageY : event.clientY;
-
-        _.dragging = true;
-
-    };
-
-    Slick.prototype.unfilterSlides = Slick.prototype.slickUnfilter = function() {
-
-        var _ = this;
-
-        if (_.$slidesCache !== null) {
-
-            _.unload();
-
-            _.$slideTrack.children(this.options.slide).detach();
-
-            _.$slidesCache.appendTo(_.$slideTrack);
-
-            _.reinit();
-
-        }
-
-    };
-
-    Slick.prototype.unload = function() {
-
-        var _ = this;
-
-        $('.slick-cloned', _.$slider).remove();
-
-        if (_.$dots) {
-            _.$dots.remove();
-        }
-
-        if (_.$prevArrow && _.htmlExpr.test(_.options.prevArrow)) {
-            _.$prevArrow.remove();
-        }
-
-        if (_.$nextArrow && _.htmlExpr.test(_.options.nextArrow)) {
-            _.$nextArrow.remove();
-        }
-
-        _.$slides
-            .removeClass('slick-slide slick-active slick-visible slick-current')
-            .attr('aria-hidden', 'true')
-            .css('width', '');
-
-    };
-
-    Slick.prototype.unslick = function(fromBreakpoint) {
-
-        var _ = this;
-        _.$slider.trigger('unslick', [_, fromBreakpoint]);
-        _.destroy();
-
-    };
-
-    Slick.prototype.updateArrows = function() {
-
-        var _ = this,
-            centerOffset;
-
-        centerOffset = Math.floor(_.options.slidesToShow / 2);
-
-        if ( _.options.arrows === true &&
-            _.slideCount > _.options.slidesToShow &&
-            !_.options.infinite ) {
-
-            _.$prevArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
-            _.$nextArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
-
-            if (_.currentSlide === 0) {
-
-                _.$prevArrow.addClass('slick-disabled').attr('aria-disabled', 'true');
-                _.$nextArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
-
-            } else if (_.currentSlide >= _.slideCount - _.options.slidesToShow && _.options.centerMode === false) {
-
-                _.$nextArrow.addClass('slick-disabled').attr('aria-disabled', 'true');
-                _.$prevArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
-
-            } else if (_.currentSlide >= _.slideCount - 1 && _.options.centerMode === true) {
-
-                _.$nextArrow.addClass('slick-disabled').attr('aria-disabled', 'true');
-                _.$prevArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
-
-            }
-
-        }
-
-    };
-
-    Slick.prototype.updateDots = function() {
-
-        var _ = this;
-
-        if (_.$dots !== null) {
-
-            _.$dots
-                .find('li')
-                    .removeClass('slick-active')
-                    .end();
-
-            _.$dots
-                .find('li')
-                .eq(Math.floor(_.currentSlide / _.options.slidesToScroll))
-                .addClass('slick-active');
-
-        }
-
-    };
-
-    Slick.prototype.visibility = function() {
-
-        var _ = this;
-
-        if ( _.options.autoplay ) {
-
-            if ( document[_.hidden] ) {
-
-                _.interrupted = true;
-
-            } else {
-
-                _.interrupted = false;
-
-            }
-
-        }
-
-    };
-
-    $.fn.slick = function() {
-        var _ = this,
-            opt = arguments[0],
-            args = Array.prototype.slice.call(arguments, 1),
-            l = _.length,
-            i,
-            ret;
-        for (i = 0; i < l; i++) {
-            if (typeof opt == 'object' || typeof opt == 'undefined')
-                _[i].slick = new Slick(_[i], opt);
-            else
-                ret = _[i].slick[opt].apply(_[i].slick, args);
-            if (typeof ret != 'undefined') return ret;
-        }
-        return _;
-    };
-
-}));
-
-
-/***/ }),
-
 /***/ "./node_modules/ssr-window/dist/ssr-window.esm.js":
 /*!********************************************************!*\
   !*** ./node_modules/ssr-window/dist/ssr-window.esm.js ***!
@@ -66524,10 +66950,10 @@ Swiper.use(components);
 
 /***/ }),
 
-/***/ "./scss/app.scss":
-/*!***********************!*\
-  !*** ./scss/app.scss ***!
-  \***********************/
+/***/ "./scss/main.scss":
+/*!************************!*\
+  !*** ./scss/main.scss ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -66536,14 +66962,14 @@ Swiper.use(components);
 /***/ }),
 
 /***/ 1:
-/*!**************************************!*\
-  !*** multi ./js/app ./scss/app.scss ***!
-  \**************************************/
+/*!***************************************!*\
+  !*** multi ./js/app ./scss/main.scss ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./js/app */"./js/app.js");
-module.exports = __webpack_require__(/*! ./scss/app.scss */"./scss/app.scss");
+module.exports = __webpack_require__(/*! ./scss/main.scss */"./scss/main.scss");
 
 
 /***/ })

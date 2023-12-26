@@ -1,0 +1,8 @@
+/* 공통 */
+@import "./divide/common/variable";
+@import "./divide/common/mixins";
+
+/* main */
+@import "./divide/main";
+@import "./divide/promotion";
+@import "./divide/event_eventList";

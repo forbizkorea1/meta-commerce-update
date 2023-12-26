@@ -1,0 +1,107 @@
+// #region rem설정
+
+// 폰트 디바이스 width별 설정
+@function remove-unit($value) {
+    @return ($value / ($value * 0 + 1));
+}
+  
+/* 디바이스 별 최소 너비 */
+$min-device-width: 320px, 360px, 375px, 412px, 414px, 640px, 720px;
+
+/* 디자인 시안 너비 */
+$designWidth: 360px;
+
+/* 최소 사이즈보다 작아졌을때 Case */
+@media screen and (min-device-width: 0px) {
+    html {
+        font-size: #{remove-unit($rem-baseline / 16 / 2 * 320px / $designWidth) * 100%};
+    }
+}
+
+/* 계산법: 변환하고싶은 px기준 / 기본폰트px * 바꾸고싶은 너비 / 디자인 너비 * 100% */
+@each $verDeviceWidth in $min-device-width {
+    @media screen and (min-device-width: $verDeviceWidth) {
+        html {
+            font-size: #{remove-unit($rem-baseline / 16 / 2 * $verDeviceWidth / $designWidth) * 100%};
+        }
+    }
+}
+
+  // 반응형 x, 고정 시
+html {
+    // font-size: 10px !important;
+}
+
+//  #endregion 
+
+@font-face {
+    font-family:'Notosans';
+    font-style:normal;
+    font-weight:200;
+    src:local('NotoSansLight'), local('NotoSansLight'), url(../font/NotoSansKR-Light.eot);
+    src:url(../font/NotoSansKR-Light.eot?#iefix) format('embedded-opentype'),
+    url(../font/NotoSansKR-Light.woff2) format('woff2'),
+    url(../font/NotoSansKR-Light.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Notosans';
+    font-style:normal;
+    font-weight:400;
+    src:local('NotoSansRegular'), local('NotoSansRegular'), url(../font/NotoSansKR-Regular.eot);
+    src:url(../font/NotoSansKR-Regular.eot?#iefix) format('embedded-opentype'),
+    url(../font/NotoSansKR-Regular.woff2) format('woff2'),
+    url(../font/NotoSansKR-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Notosans';
+    font-style:normal;
+    font-weight:600;
+    src:local('NotoSansMedium'), local('NotoSansMedium'), url(../font/NotoSansKR-Medium.eot);
+    src:url(../font/NotoSansKR-Medium.eot?#iefix) format('embedded-opentype'),
+    url(../font/NotoSansKR-Medium.woff2) format('woff2'),
+    url(../font/NotoSansKR-Medium.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Notosans';
+    font-style:normal;
+    font-weight:800;
+    src:local('NotoSansBold'), local('NotoSansBold'), url(../font/NotoSansKR-Bold.eot);
+    src:url(../font/NotoSansKR-Bold.eot?#iefix) format('embedded-opentype'),
+    url(../font/NotoSansKR-Bold.woff2) format('woff2'),
+    url(../font/NotoSansKR-Bold.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Rb';
+    font-style:normal;
+    font-weight:200;
+    src:url(../font/Roboto-Light.eot) format('eot');
+    src:url(../font/Roboto-Light.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Rb';
+    font-style:normal;
+    font-weight:400;
+    src:url(../font/Roboto-Regular.eot) format('eot');
+    src:url(../font/Roboto-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family:'Rb';
+    font-style:normal;
+    font-weight: 600;
+    src:url(../font/Roboto-Medium.eot) format('eot');
+    src:url(../font/Roboto-Medium.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Rb';
+    font-style: normal;
+    font-weight: 800;
+    src:url(../font/Roboto-bold.eot) format('eot');
+    src:url(../font/Roboto-bold.woff) format('woff');
+}

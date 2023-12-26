@@ -1,0 +1,275 @@
+.fb {
+    
+    &__conversion {
+
+        .business-type {
+            font-size: 0;
+
+            .fb__radio {
+                display: inline-block;
+                width: 50%;
+                margin: vw(0 0 20px 0);
+                vertical-align: top;
+            }
+        }
+
+        .sect {
+            padding: vw(35px 30px);
+
+            &__title {
+                margin-bottom: vw(35px);
+                font-size: vw(30px);
+                color: $textBlack;
+            }
+
+            &.success {
+                margin: vw(55px 0 20px);
+                text-align: center;
+
+                .tit {
+                    font-size: vw(36px);
+                    color: $textBlack;
+                }
+
+                .txt {
+                    margin-top: vw(50px);
+                    font-size: vw(26px);
+                    color: $grey800;
+                    line-height: vw(38px);
+                }
+            }
+
+            .step {
+                display: flex;
+
+                &__list {
+                    display: inline-block;
+                    min-width: vw(140px);
+                    font-size: vw(26px);
+                    line-height: vw(34px);
+                    color: $textBlack;
+                    text-align: center;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: vw(140px);
+                        height: vw(140px);
+                        margin-bottom: vw(25px);
+                        background: url('../images/mypage/icon-conversion.png') no-repeat;
+                        background-size: vw(750px 400px);
+                    }
+
+                    &:not(:first-child) {
+                        position: relative;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: vw(52px);
+                            left: vw(-26px);
+                            width: vw(16px);
+                            height: vw(29px);
+                            background: url('../images/mypage/icon-conversion.png') no-repeat vw(0 -213px);
+                            background-size: vw(750px 400px);
+                        }
+                    }
+
+                    &.input {
+                        &:before {
+                            background-position: 0 0;
+                        }
+                    }
+
+                    &.apply {
+                        &:before {
+                            background-position: vw(-183px 0);
+                        }
+                    }
+
+                    &.check {
+                        &:before {
+                            background-position: vw(-367px 0);
+                        }
+                    }
+
+                    &.done {
+                        &:before {
+                            background-position: vw(-550px 0);
+                        }
+                    }
+                    
+                    &__num {
+                        display: block;
+                        margin-bottom: vw(2px);
+                        font-size: vw(24px);
+                        color: $pcolor;
+                    }
+
+                    & + .step__list {
+                        margin-left: vw(40px);
+                    }
+                }
+            }
+
+            .inputInfo {
+
+                .box {
+                    font-size: vw(26px);
+                    color: $textBlack;
+
+                    &__title {
+                        margin-bottom: vw(20px);
+                    }
+
+                    .business-type {
+                        @extend %clear;
+                        
+                        .fb__radio {
+                            float: left;
+                            display: inline-block;
+                            width: 50%;
+
+                            &:nth-child(n + 3) {
+                                margin-top: vw(40px);
+                            }
+
+                            &__text {
+                                margin-left: vw(20px);
+                            }
+                        }
+                    }
+
+                    & + .box {
+                        margin-top: vw(45px);
+                    }
+
+                    .desc {
+                        margin-top: vw(40px);
+
+                        &__list {
+                            position: relative;
+                            padding-left: vw(10px);
+                            line-height: vw(34px);
+                            font-size: vw(24px);
+
+                            &:before {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                top: 10px;
+                                left: 0;
+                                width: vw(3px);
+                                height: vw(3px);
+                                background: $grey800;
+                            }
+
+                            & + .desc__list {
+                                margin-top: vw(10px);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .required-mark {
+                color: $pcolor;
+            }
+
+            .form-box {
+                border: 1px solid $grey200;
+
+                .terms-content {
+                    background: $bg_grey50;
+                }
+            }
+
+            .inputInfo {
+                padding-top: vw(40px);
+                border-top: 1px solid $grey200;
+            }
+
+            .state {
+                padding: vw(45px 30px);
+                background: $bg_grey50;
+                border-radius: vw(5px);
+                font-size: vw(26px);
+
+                &__row {
+                    display: table;
+                    table-layout: fixed;
+                    line-height: vw(34px);
+
+                    & + .state__row {
+                        margin-top: vw(45px);
+                    }
+                }
+
+                &__title {
+                    display: table-cell;
+                    width: vw(190px);
+                    font-size: vw(26px);
+                    color: $textBlack;
+                }
+
+                &__cont {
+                    display: table-cell;
+                    font-size: vw(26px);
+                    color: $grey600;
+                }
+            }
+                
+            .state-desc {
+                margin-top: vw(40px);
+
+                &__list {
+                    position: relative;
+                    padding-left: vw(10px);
+                    line-height: vw(34px);
+                    font-size: vw(24px);
+                    color: $grey600;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 10px;
+                        left: 0;
+                        width: vw(3px);
+                        height: vw(3px);
+                        background: $grey800;
+                    }
+
+                    & + .state-desc__list {
+                        margin-top: vw(10px);
+                    }
+
+                    em {
+                        color: $textBlack;
+                    }
+                }
+            }
+        }
+        
+        .step-area {
+                
+            & + .state-area {
+                border-top: vw(20px) solid $bg_grey50;
+            }
+        }
+
+        .wrap-btn-area {
+            padding: vw(30px 30px 100px);
+        }
+
+        .btn-dark-line {
+            border-color: $grey400;
+        }
+
+        .color-point {
+            color: $pcolor;
+        }
+
+    }
+}

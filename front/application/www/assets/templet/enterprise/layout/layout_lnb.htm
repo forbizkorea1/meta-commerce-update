@@ -58,7 +58,11 @@
     <!--{/}-->
     <!-- js library -->
     <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}};</script>
-    <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/assets/css/main.css?version={c.CLIENT_VERSION}">
+    
+    <!-- FE 공통 CSS -->
+    <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/assets/css/common.css?version={c.CLIENT_VERSION}">
+    <link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}">
+
     <script src="{layoutCommon.templetSrc}/assets/js/vendor.js?version={c.CLIENT_VERSION}"></script>
     <script src="{layoutCommon.templetSrc}/assets/js/main.js?version={c.CLIENT_VERSION}"></script>
 
@@ -240,7 +244,7 @@
         </div>
     </header>
 
-    <section id="container" class="layout-main-lnb fb__layout__leftmenu-type">
+    <section id="container" class="fb__layout__leftmenu-type">
         <nav class="layout-lnb">
             {#leftMenu}
         </nav>
@@ -258,16 +262,21 @@
         </div>
     </footer>
 
-    <!-- modal -->
-    <div class="fb__modal__mask js__modal__mask"></div>
-    <article class="fb__modal__layer js__modal__layer">
-        <header class="popup-title fb__modal__header">
-            <h3 id="devModalTitle" class="fb__modal__title">{=trans('제목')}</h3>
-            <span class="fb__modal__close js__modal__close">{=trans('팝업닫기')}</span>
-        </header>
+    <!-- multi modal -->
+    {= fb_widget('multiModal/multiModal')}
 
-        <main id='devModalContent' class="fb__modal__content js__modal__content">{=trans('내용')}</main>
-    </article>
+    <!-- modal -->
+    <div class="fb__modal js__modal">
+        <div class="fb__modal__mask js__modal__mask"></div>
+        <article class="fb__modal__layer js__modal__layer">
+            <header class="fb__modal__header">
+                <h3 id="devModalTitle" class="fb__modal__title">{=trans('제목')}</h3>
+                <span class="fb__modal__close js__modal__close">{=trans('팝업닫기')}</span>
+            </header>
+
+            <main id="devModalContent" class="fb__modal__content js__modal__content">{=trans('내용')}</main>
+        </article>
+    </div>
 
     <!-- <div class="popup-mask"></div>
     <div class="popup-layout">

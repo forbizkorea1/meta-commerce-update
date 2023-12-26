@@ -1,0 +1,55 @@
+.fb {
+    &__pass-reconfirm {
+        padding: 45px 0 50px;
+        border: {
+            top: 1px solid $black;
+            bottom: 1px solid $grey200;
+        };
+        text-align: center;
+
+        &__tit {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: $black;
+
+            &:before {
+                content: "";
+                display: block;
+                width: 42px;
+                height: 52px;
+                margin: 0 auto 25px;
+                background: url(../images/mypage/sprite_mypage.png) no-repeat -900px 0;
+            }
+        }
+
+        &__subtit {
+            font-size: 15px;
+            color: $grey800;
+        }
+
+        .password-area {
+            margin-top: 25px;
+            font-size: 0;
+            color: $black;
+
+            &__tit {
+                display: inline-block;
+                margin-right: 20px;
+                font: {
+                    size: 15px;
+                    weight: 600;
+                };
+                vertical-align: middle;
+            }
+
+            &__input-area {
+                display: inline-block;
+
+                input {
+                    width: 300px;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

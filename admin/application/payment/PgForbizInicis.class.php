@@ -325,6 +325,7 @@ class PgForbizInicis extends PgForbiz
             , 'sj' => '50'
             , 'kbk'=> '89'
             , 'kko' => '90'
+            , 'tossb' => '92'
         ];
 
         return $BankCode[$code] ?? '';

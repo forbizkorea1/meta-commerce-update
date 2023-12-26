@@ -21,13 +21,13 @@
 
             &__title {
                 margin-bottom: 20px;
-                color: #111;
+                color: $black;
                 font-size: 40px;
             }
 
             &__summary {
                 font-size: 16px;
-                color: $darkGray;
+                color: $grey800;
                 line-height: 22px;
             }
 
@@ -46,7 +46,7 @@
                         size: 24px;
                         weight: 600;
                     };
-                    color: #111;
+                    color: $black;
                     text-align: center;
 
                     &:before {
@@ -62,7 +62,7 @@
                 &-summary {
                     margin: 10px 0 25px 0;
                     font-size: 15px;
-                    color: #999;
+                    color: $grey600;
                     text-align: center;
                 }
 
@@ -75,10 +75,10 @@
                         height: 110px;
                         margin: 0 5px;
                         padding-top: 33px;
-                        border: 1px solid #DDD;
-                        background: #FFF;
+                        border: 1px solid $grey200;
+                        background: $white;
                         font-size: 18px;
-                        color: #111;
+                        color: $black;
                         text-align: center;
                         vertical-align: top;
                         &:before {
@@ -116,7 +116,7 @@
                         size: 15px;
                         weight: 400;
                     };
-                    color: $darkGray;
+                    color: $grey800;
                     line-height: 22px;
                     text-align: center;
 
@@ -135,7 +135,7 @@
 
             &__other-link {
                 padding-top: 40px;
-                border-top: 1px solid #ddd;
+                border-top: 1px solid $grey200;
                 text-align: center;
                 font-size: 0;
 
@@ -148,7 +148,7 @@
                         size: 15px;
                         weight: 400;
                     };
-                    color: $darkGray;
+                    color: $grey800;
                     text-decoration: none;
 
                     &:before {
@@ -159,7 +159,7 @@
                         left: 0;
                         width: 1px;
                         height: 10px;
-                        background: $darkGray;
+                        background: $grey800;
                         transform: translate3d(0, -50%, 0);
                     }
 
@@ -223,8 +223,8 @@
                                 height: 40px;
                                 padding: 0;
                                 border: {
-                                    top: 1px solid #CCC;
-                                    bottom: 1px solid #CCC;
+                                    top: 1px solid $grey400;
+                                    bottom: 1px solid $grey400;
                                 };
                                 line-height: 40px;
 
@@ -233,7 +233,7 @@
                                 }
                             }
                             input[readonly] + .hyphen {
-                                background: #f8f8f8;
+                                background: $bg_grey50;
                             }
                         }
                     }
@@ -256,7 +256,7 @@
 
                     .txt-error {
                         margin: 0;
-                        color: #ff0000;
+                        color: $red;
                     }
                 }
 
@@ -265,7 +265,7 @@
                     top: 0;
                     left: 0;
                     font-size: 15px;
-                    color: #111;
+                    color: $black;
                     line-height: 40px;
                 }
 
@@ -278,7 +278,7 @@
                 //     margin-top: 20px;
                 //     padding-bottom: 30px;
                 //     font-size: 15px;
-                //     color: $darkGray;
+                //     color: $grey800;
                 //     line-height: 22px;
 
                 //     span {
@@ -304,9 +304,9 @@
             float: left;
             width: 50%;
             margin-left: -1px;
-            border: 1px solid #ddd;
+            border: 1px solid $grey200;
             font-size: 14px;
-            color: #999;
+            color: $grey600;
             line-height: 52px;
             text-align: center;
             box-sizing: border-box;
@@ -328,7 +328,7 @@
                 color: $pcolor;
 
                 &:after {
-                    background: #fff;
+                    background: $white;
                 }
             }
         }

@@ -1,0 +1,328 @@
+.fb {
+    // 신규
+    &__addressBook {
+        &__sec {
+            max-width: vw(690px);
+            margin: 0 auto;
+        }
+
+        .addressBook {
+            &__list {
+                position: relative;
+                padding: vw(40px 0);
+                border-bottom: vw(2px) solid #EEE;
+
+                &:first-child {
+                    border-top: 0;
+                }
+    
+                &__info {
+                    .info {
+                        &__name {
+                            .name {
+                                display: inline-block;
+                                vertical-align: middle;
+                                font: {
+                                    size: vw(30px);
+                                    weight: bold;
+                                };
+                            }
+    
+                            .default {
+                                display: inline-block;
+                                vertical-align: middle;
+                                height: vw(36px);
+                                margin-left: vw(10px);
+                                padding: vw(0 12px);
+                                border: vw(2px) solid $blue;
+                                border-radius: vw(18px);
+                                font-size: vw(20px);
+                                color: $blue;
+                                line-height: vw(32px);
+                            }
+                        }
+    
+                        &__addr {
+                            display: block;
+                            width: vw(580px);
+                            margin-top: vw(16px);
+                            font-size: vw(28px);
+                            line-height: vw(40px);
+                        }
+    
+                        &__num {
+                            display: block;
+                            margin-top: vw(16px);
+                            font-size: vw(28px);
+                            color: $grey800;
+                            line-height: vw(34px);
+                        }
+                    }
+                }
+    
+                &__btn {
+                    position: absolute;
+                    right: 0;
+                    bottom: vw(40px);
+    
+                    a {
+                        display: inline-block;
+                        position: relative;
+                        margin-left: vw(20px);
+                        padding-left: vw(22px);
+                        font-size: vw(26px);
+                        color: $grey600;
+                        vertical-align: top;
+    
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            z-index: 1;
+                            top: 50%;
+                            left: 0;
+                            width: vw(2px);
+                            height: vw(20px);
+                            margin-top: vw(-10px);
+                            background: $grey200;
+                        }
+    
+                        &:first-child {
+                            margin-left: 0;
+                            padding-left: 0;
+    
+                            &:before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .addDelivery__btn {
+            margin-top: vw(30px);
+
+            a {
+                display: block;
+                height: vw(100px);
+                font-size: vw(30px);
+                line-height: vw(96px);
+                text-align: center;
+            }
+        }
+    }
+
+    /*배송지관리*/
+    &#mypage_addressBook {
+        .wrap-btn-area {
+            width: auto;
+            margin: vw(60px 30px 100px);
+        }
+    }
+
+    .wrap-address-list {
+        li {
+            padding: vw(40px 30px);
+            border-bottom: 1px solid $white2;
+
+            div {
+                font-size: 0;
+
+                button {
+                    margin-left: vw(10px);
+                }
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+
+                &.address-btn-area {
+                    text-align: right;
+                }
+            }
+
+            .address {
+                .tit {
+                    color: $black;
+                    line-height: vw(30px);
+                    margin-bottom: vw(30px);
+                    font-size: vw(30px);
+                    font-weight: 600;
+
+                    em {
+                        display: inline-block;
+                        margin-left: vw(10px);
+                        height: vw(36px);
+                        padding: vw(0 10px);
+                        border: vw(2px) solid $pcolor;
+                        border-radius: vw(18px);
+                        font-size: vw(22px);
+                        line-height: vw(32px);
+                        color: $pcolor;
+                        vertical-align: top;
+                    }
+                }
+
+                .sub {
+                    color: $grey800;
+                    font-size: vw(26px);
+                    line-height: vw(34px);
+
+                    &:last-child {
+                        margin-top: vw(15px);
+                    }
+                }
+            }
+        }
+    }
+
+    .wrap-address-add {
+        width: vw(690px);
+        margin: 0 auto;
+        padding-top: vw(40px);
+
+        .wrap-input-form {
+            padding-top: 0;
+        }
+
+        input {
+            &:not([type="radio"])
+            :not([type="checkbox"]) {
+                height: vw(90px);
+
+                &:disabled, &:read-only {
+                    background: $bg_grey50;
+                }
+            }
+        }
+
+        dl {
+            margin-top: vw(45px);
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+
+            > dt {
+                color: $black;
+                font-size: vw(26px);
+                font-weight: 600;
+            }
+        }
+
+        .address {
+            &__btn {
+                &__find {
+                    width: vw(220px);
+                    height: vw(90px);
+                    margin-left: vw(20px);
+                    padding: 0;
+                    border: 1px solid $grey600;
+                    color: $grey800;
+                    font-size: vw(26px);
+                    flex-shrink: 1;
+                }
+            }
+
+            &__zip-code {
+                width: 100%;
+
+                &__area {
+                    display: flex;
+                }
+            }
+
+            &__1, &__2 {
+                margin-top: vw(20px);
+            }
+
+            &__phone {
+                &__area {
+                    display: flex;
+                }
+
+                &__0 {
+                    width: vw(215px);
+                    margin-right: vw(20px);
+                    flex-shrink: 0;
+                }
+
+                &__1 {
+                    border-right: none;
+                    padding-right: vw(4px);
+                    text-align: center;
+                }
+
+                &__hyphen {
+                    position: relative;
+                    border-top: 1px solid $grey400;
+                    border-bottom: 1px solid $grey400;
+                    width: vw(8px);
+                    height: vw(90px);
+
+                    &:after {
+                        display: block;
+                        position: absolute;
+                        top: vw(45px);
+                        width: vw(8px);
+                        border-top: 1px solid $grey600;
+                        content: "";
+                    }
+                }
+
+                &__2 {
+                    border-left: none;
+                    text-align: center;
+                }
+            }
+
+            &__nickname {
+                &__default {
+                    margin-top: vw(45px);
+
+                    label {
+                        color: $black !important;
+                        font-size: vw(26px);
+                    }
+                }
+            }
+
+            &__btn {
+                &__cancel {
+                    height: vw(100px);
+                    border: 1px solid $pcolor;
+                    color: $pcolor;
+                    font-size: vw(30px);
+                    font-weight: 600;
+                    line-height: vw(100px);
+                }
+
+                &__save {
+                    height: vw(100px);
+                    background: $pcolor;
+                    color: $white;
+                    font-size: vw(30px);
+                    font-weight: 600;
+                    line-height: vw(100px);
+                }
+            }
+        }
+
+        .fb__button {
+            margin-top: vw(60px);
+            font-size: 0;
+
+            button {
+                width: vw(335px);
+                height: vw(100px);
+                margin-left: vw(20px);
+                font-size: vw(36px);
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

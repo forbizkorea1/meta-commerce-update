@@ -63,7 +63,7 @@
                                 left: 0;
                                 width: 100%;
                                 height: 100%;
-                                border: 1px solid #111;
+                                border: 1px solid $black;
                                 box-sizing: border-box;
                                 content: "";
                             }
@@ -139,8 +139,8 @@
                     position: absolute;
                     z-index: 999;
                     overflow: hidden;
-                    border: 1px solid #111;
-                    background: #fff;
+                    border: 1px solid $black;
+                    background: $white;
                 }
 
                 &-cursor {
@@ -166,7 +166,7 @@
                 &__header {
                     position: relative;
                     padding-bottom: 20px;
-                    border-bottom: 1px solid #111;
+                    border-bottom: 1px solid $black;
                 }
     
                 &__brand {
@@ -177,7 +177,7 @@
                         display: inline-block;
                         position: relative;
                         padding-right: 19px;
-                        color: #111;
+                        color: $black;
                         font-weight: 600;
                         font-size: 16px;
                         line-height: 21px;
@@ -201,7 +201,7 @@
                 }
 
                 &__name {
-                    color: #111;
+                    color: $black;
                     font: {
                         weight: 600;
                         size: 26px;
@@ -213,7 +213,7 @@
                 &__shotinfo {
                     display: block;
                     margin-top: 10px;
-                    color: #999;
+                    color: $grey600;
                     font-size: 14px;
                     line-height: 20px;
 
@@ -280,7 +280,7 @@
                     vertical-align: bottom;
 
                     &--now {
-                        color: #111;
+                        color: $black;
                         font-size: 24px;
                         line-height: 30px;
 
@@ -296,7 +296,7 @@
                     &--ori {
                         position: relative;
                         margin-left: 9px;
-                        color: #999;
+                        color: $grey600;
                         
                         font: {
                             size: 20px;
@@ -311,7 +311,7 @@
                             left: 0;
                             width: 100%;
                             height: 1px;
-                            background: #999;
+                            background: $grey600;
                             transform: translate(0, -50%);
                         }
                     }
@@ -384,7 +384,7 @@
                     .seller-item {
                         margin-left: 5px;
                         font-size: 12px;
-                        color: #999;
+                        color: $grey600;
     
                         &:after {
                             content: '';
@@ -420,7 +420,7 @@
                     position: relative;
                     width: calc(100% - 140px);
                     font-size: 14px;
-                    color: #666;
+                    color: $grey800;
                     line-height: 20px;
                     vertical-align: top;
 
@@ -471,8 +471,8 @@
                     position: absolute;
                     top: 28px;
                     left: 0;
-                    background: #fff;
-                    border: 1px solid #111;
+                    background: $white;
+                    border: 1px solid $black;
                     z-index: 10;
     
                     &--show {
@@ -516,7 +516,7 @@
 
                             &__total {
                                 padding-top: 10px;
-                                border-top: 1px solid #111;
+                                border-top: 1px solid $black;
                                 @extend %clear;
 
                                 dt {
@@ -539,11 +539,11 @@
                             &__desc {
                                 margin-top: 15px;
                                 padding: 10px;
-                                background: #f8f8f8;
+                                background: $bg_grey50;
 
                                 &__list {
                                     padding-left: 9px;
-                                    color: #666;
+                                    color: $grey800;
                                     font-weight: 400;
                                     font-size: 13px;
                                     line-height: 18px;
@@ -564,7 +564,7 @@
                         }
 
                         // dl {
-                        //     color: #111;
+                        //     color: $black;
                         //     font-size: 14px;
                         //     @extend %clear;
                         // }
@@ -599,8 +599,8 @@
                         width: 100%;
                         height: 50px;
                         padding: 0 20px;
-                        border-bottom: 1px solid #ddd;
-                        color: #111;
+                        border-bottom: 1px solid $grey200;
+                        color: $black;
                         font-size: 14px;
                         line-height: 50px;
                     }
@@ -627,14 +627,14 @@
                     
                     &__detail {
                         padding: 20px;
-                        color: #666;
+                        color: $grey800;
                         font-size: 13px;
                     }
     
                     &__text {
                         &--black {
                             margin-top: 15px;
-                            color: #111;
+                            color: $black;
                             line-height: 15px;
                         }
                     }
@@ -642,8 +642,8 @@
                     &__bottom {
                         margin-top: 20px;
                         padding: 20px 18px;
-                        background: #f8f8f8;
-                        color: #666;
+                        background: $bg_grey50;
+                        color: $grey800;
                         font-size: 0;
                         text-align: center;
                         
@@ -669,7 +669,7 @@
                     &--light {
                         display: inline-block;
                         position: relative;
-                        color: #999;
+                        color: $grey600;
                         font-size: 14px;
                     }
                 }
@@ -680,7 +680,7 @@
                     width: 100%;
                     margin-top: 20px;
                     padding: 20px;
-                    background: #f8f8f8;
+                    background: $bg_grey50;
                     font-size: 0;
                     @extend %clear;
 
@@ -698,7 +698,7 @@
                         margin-bottom: 12px;
                         width: 470px;
                         max-height: 38px;
-                        color: #666;
+                        color: $grey800;
                         font-size: 14px;
                         line-height: 19px;
                         @include line(2);
@@ -709,7 +709,7 @@
                         width: 110px;
                         height: 30px;
                         border: 1px solid #cccccc;
-                        background-color: #fff;
+                        background-color: $white;
     
                         &--minus {
                             float: left;
@@ -718,7 +718,7 @@
                             text-align: center;
                             line-height: 28px;
                             border: 0;
-                            border-right: 1px solid #ccc;
+                            border-right: 1px solid $grey400;
                             background: url("../images/shop/btn-minus.png") no-repeat center 0;
                             cursor: pointer;
                         }
@@ -752,7 +752,7 @@
                             text-align: center;
                             line-height: 28px;
                             border: 0;
-                            border-left: 1px solid #ccc;
+                            border-left: 1px solid $grey400;
                             background: url("../images/shop/btn-plus.png") no-repeat center 0;
                             cursor: pointer;
                         }
@@ -761,7 +761,7 @@
                     &-price {
                         float: right;
                         font-size: 14px;
-                        color: #111;
+                        color: $black;
                         line-height: 28px;
                         
                         em {
@@ -795,7 +795,7 @@
                             size: 16px;
                             weight: 600;
                         };
-                        color: #111;
+                        color: $black;
                     }
     
                     &--price {
@@ -814,7 +814,7 @@
 
                 #devIncommingBtn {
                     padding: 0;
-                    color: #666;
+                    color: $grey800;
                 }
     
                 // 관련기획전
@@ -823,8 +823,8 @@
                     margin-top: 50px;
                     padding: 20px;
                     border: {
-                        top: 1px solid #ddd;
-                        bottom: 1px solid #ddd;
+                        top: 1px solid $grey200;
+                        bottom: 1px solid $grey200;
                     }
                     
                     &__scroll {
@@ -840,7 +840,7 @@
                     
                     &__title {
                         float: left;
-                        color: #111;
+                        color: $black;
                         font-weight: bold;
                         font-size: 16px;
                         line-height: 24px;
@@ -883,7 +883,7 @@
     
                     &__name {
                         display: block;
-                        color: #111;
+                        color: $black;
                         font-weight: 600;
                         font-size: 16px;
                         line-height: 24px;
@@ -892,7 +892,7 @@
     
                     &__summary {
                         margin-top: 2px;
-                        color: #666;
+                        color: $grey800;
                         font-size: 12px;
                         line-height: 16px;
                         @include line();
@@ -916,6 +916,11 @@
 
                 &__tab {
                     margin-bottom: 60px;
+                    position: sticky;
+                    z-index: 1;
+                    top: 80px;
+                    left: 0;
+                    background: $white;
 
                     &__box {
                         font-size: 0;
@@ -930,7 +935,7 @@
                         a {
                             display: block;
                             height: 62px;
-                            border-bottom: 1px solid #e8e8e8;
+                            border-bottom: 1px solid $grey100;
                         }
 
                         &.active {
@@ -950,14 +955,14 @@
                     }
 
                     &__title {
-                        color: #111;
+                        color: $black;
                         font-size: 18px;
                         line-height: 62px;
                     }
                
                     &__count {
                         margin-left: 8px;
-                        color: #999;
+                        color: $grey600;
                         font-size: 16px;
                         line-height: 62px;
                     }
@@ -974,7 +979,7 @@
 
                     &__title {
                         margin-bottom: 20px;
-                        color: #111;
+                        color: $black;
                         font-weight: 600;
                         font-size: 24px;
                     }
@@ -998,17 +1003,17 @@
                             margin-top: 100px;
 
                             &__table {
-                                border-top: 1px solid #111;
+                                border-top: 1px solid $black;
 
                                 th {
                                     padding: 20px;
-                                    border-bottom: 1px solid #ddd;
-                                    background: #f8f8f8;
+                                    border-bottom: 1px solid $grey200;
+                                    background: $bg_grey50;
                                     font: {
                                         size: 13px;
                                         weight: 600;
                                     };
-                                    color: #111;
+                                    color: $black;
                                     line-height: 16px;
                                     text-align: left;
                                     vertical-align: top;
@@ -1016,9 +1021,9 @@
 
                                 td {
                                     padding: 20px 30px;
-                                    border-bottom: 1px solid #ddd;
+                                    border-bottom: 1px solid $grey200;
                                     font-size: 13px;
-                                    color: #666;
+                                    color: $grey800;
                                     line-height: 16px;
                                     vertical-align: top;
                                 }
@@ -1031,7 +1036,7 @@
                         &__total {
                             position: relative;
                             padding: 44px 0;
-                            border: 1px solid #e8e8e8;
+                            border: 1px solid $grey100;
                             font-size: 0;
                             text-align: center;
 
@@ -1056,7 +1061,7 @@
                                     &__top {
                                         display: block;
                                         font-size: 20px;
-                                        color: #111;
+                                        color: $black;
                                         line-height: 28px;
                                     }
 
@@ -1065,7 +1070,7 @@
                                         margin-top: 2px;
                                         font-size: 14px;
                                         line-height: 20px;
-                                        color: #999;
+                                        color: $grey600;
                                     }
                                 }
     
@@ -1085,10 +1090,10 @@
                                         font-size: 30px;
                                         line-height: 38px;
                                         vertical-align: middle;
-                                        color: #999;
+                                        color: $grey600;
     
                                         em {
-                                            color: #111;
+                                            color: $black;
                                         }
                                     }
                                 }
@@ -1145,7 +1150,7 @@
                                                 padding-top: 22px;
                                                 background: url(../images/shop/ico_goods_review-more.png) no-repeat 50% 0;
                                                 font-size: 13px;
-                                                color: #FFF;
+                                                color: $white;
                                                 text-align: center;
                                                 transform: translateY(-50%);
                                             }
@@ -1184,7 +1189,7 @@
                                         height: 24px;
                                         background: rgba(0, 0, 0, .4);
                                         font-size: 14px;
-                                        color: #FFF;
+                                        color: $white;
                                         line-height: 24px;
                                         text-align: center;
                                     }
@@ -1216,7 +1221,7 @@
                                     width: 1px;
                                     height: 12px;
                                     margin-top: -6px;
-                                    background: #ddd;
+                                    background: $grey200;
                                 }
 
                                 &:first-child {
@@ -1233,14 +1238,14 @@
                                         & + span {
                                             display: block;
                                             font-size: 14px;
-                                            color: #999;
+                                            color: $grey600;
                                             line-height: 20px;
                                             cursor: pointer;
                                         }
 
                                         &:checked + span {
                                             font-weight: 600;
-                                            color: #111;
+                                            color: $black;
                                         }
                                     }
                                 }
@@ -1248,7 +1253,7 @@
                         }
 
                         &__box {
-                            border-top: 1px solid #111;
+                            border-top: 1px solid $black;
                             font-size: 0;
                         }
 
@@ -1320,7 +1325,7 @@
                                             height: 20px;
                                             background: rgba(0, 0, 0, .4);
                                             font-size: 12px;
-                                            color: #FFF;
+                                            color: $white;
                                             line-height: 20px;
                                             text-align: center;
                                         }
@@ -1335,7 +1340,7 @@
                                     &__option {
                                         display: block;
                                         font-size: 13px;
-                                        color: #999;
+                                        color: $grey600;
                                         line-height: 24px;
                                     }
 
@@ -1357,7 +1362,7 @@
                                 display: inline-block;
                                 width: 80px;
                                 font-size: 13px;
-                                color: #999;
+                                color: $grey600;
                                 text-align: center;
                                 vertical-align: middle;
                             }
@@ -1366,7 +1371,7 @@
                                 display: inline-block;
                                 width: 140px;
                                 font-size: 14px;
-                                color: #999;
+                                color: $grey600;
                                 text-align: center;
                                 vertical-align: middle;
                             }
@@ -1376,7 +1381,7 @@
 
                                 .admin-reply {
                                     &__list {
-                                        border-top: 1px solid #E8E8E8;
+                                        border-top: 1px solid $grey100;
                                         padding: 19px 238px 20px 144px;
     
                                         &__top {
@@ -1385,7 +1390,7 @@
                                             span {
                                                 display: inline-block;
                                                 font-size: 14px;
-                                                color: #999;
+                                                color: $grey600;
                                                 vertical-align: middle;
                                             }
                                         }
@@ -1424,7 +1429,7 @@
                                                 left: 0;
                                                 width: 1px;
                                                 height: 10px;
-                                                background: #999;
+                                                background: $grey600;
                                             }
                                         }
     
@@ -1444,8 +1449,8 @@
                                                 width: 9px;
                                                 height: 9px;
                                                 border: {
-                                                    bottom: 1px solid #ccc;
-                                                    left: 1px solid #ccc;
+                                                    bottom: 1px solid $grey400;
+                                                    left: 1px solid $grey400;
                                                 };
                                                 box-sizing: border-box;
                                             }
@@ -1455,7 +1460,7 @@
                             }
 
                             &.js--reviewOpen {
-                                background: #f8f8f8;
+                                background: $bg_grey50;
 
                                 .photo {
                                     &__box {
@@ -1497,12 +1502,12 @@
                             position: relative;
                             margin-bottom: 40px;
                             padding: 30px 150px 30px 30px;
-                            border: 1px solid #e8e8e8;
+                            border: 1px solid $grey100;
 
                             &__txt {
                                 display: block;
                                 font-size: 20px;
-                                color: #111;
+                                color: $black;
                                 line-height: 28px;
                             }
 
@@ -1511,7 +1516,7 @@
                                 margin-top: 2px;
                                 font-size: 14px;
                                 line-height: 20px;
-                                color: #999;
+                                color: $grey600;
                             }
                         }
 
@@ -1522,8 +1527,8 @@
                             width: 120px;
                             height: 40px;
                             padding: 10px 20px;
-                            background: #666;
-                            color: #FFF;
+                            background: $grey800;
+                            color: $white;
                             font-size: 14px;
                             line-height: 20px;
                             transform: translate(0, -50%);
@@ -1546,7 +1551,7 @@
                                     margin-left: 10px;
                                     padding-left: 11px;
                                     font-size: 14px;
-                                    color: #999;
+                                    color: $grey600;
                                     line-height: 20px;
                                     vertical-align: top;
 
@@ -1559,7 +1564,7 @@
                                         width: 1px;
                                         height: 12px;
                                         margin-top: -6px;
-                                        background: #ddd;
+                                        background: $grey200;
                                     }
 
                                     &:first-child {
@@ -1572,7 +1577,7 @@
                                     }
 
                                     &.active {
-                                        color: #111;
+                                        color: $black;
                                     }
                                 }
                             }
@@ -1588,10 +1593,10 @@
 
                         &__list {
                             &__inner {
-                                border-top: 1px solid #111;
+                                border-top: 1px solid $black;
 
                                 li {
-                                    border-bottom: 1px solid #e8e8e8;
+                                    border-bottom: 1px solid $grey100;
 
                                     .inquiry {
 
@@ -1600,7 +1605,7 @@
                                             vertical-align: middle;
                                             padding: 20px 10px;
                                             text-align: center;
-                                            color: #999;
+                                            color: $grey600;
 
                                             &:not(.tit) {
                                                 width: 100px;
@@ -1614,15 +1619,15 @@
 
                                         &.title {
                                             .col {
-                                                color: #111;
+                                                color: $black;
                                             }
                                         }
                                     }
 
                                     .inquiry-detail {
                                         display: none;
-                                        background: #f8f8f8;
-                                        border-top: 1px solid #e8e8e8;
+                                        background: $bg_grey50;
+                                        border-top: 1px solid $grey100;
                                         padding: 30px 30px 100px 170px;
 
                                         .question {
@@ -1665,7 +1670,7 @@
                                                 padding-left: 40px;
                                                 margin-top: 30px;
                                                 font-size: 13px;
-                                                color: #999;
+                                                color: $grey600;
                                             }
                                         }
                                     }
@@ -1709,7 +1714,7 @@
                             &__preview {
                                 .type,
                                 .status {
-                                    color: #666;
+                                    color: $grey800;
 
                                     .complete {
                                         color: $pcolor;
@@ -1718,7 +1723,7 @@
 
                                 .user,
                                 .date {
-                                    color: #999;
+                                    color: $grey600;
                                 }
 
                                 .tit {
@@ -1727,7 +1732,7 @@
                                     p {
                                         position: relative;
                                         font-family: $noto;
-                                        color: #111;
+                                        color: $black;
                                         text-align: left;
                                         @include line();
 
@@ -1753,8 +1758,8 @@
                             &__view {
                                 display: none;
                                 padding: 30px 168px;
-                                border-top: 1px solid #e8e8e8;
-                                background: #f8f8f8;
+                                border-top: 1px solid $grey100;
+                                background: $bg_grey50;
                                 word-break: break-all;
 
                                 &__question,
@@ -1762,7 +1767,7 @@
                                     position: relative;
                                     padding-left: 42px;
                                     font-size: 14px;
-                                    color: #666;
+                                    color: $grey800;
                                     line-height: 22px;
                                 }
 
@@ -1776,9 +1781,9 @@
                                         width: 32px;
                                         height: 32px;
                                         border-radius: 50%;
-                                        background: #999;
+                                        background: $grey600;
                                         font-size: 18px;
-                                        color: #FFF;
+                                        color: $white;
                                         line-height: 32px;
                                         text-align: center;
                                     }
@@ -1798,20 +1803,20 @@
                                         border-radius: 50%;
                                         background: #FF6600;
                                         font-size: 18px;
-                                        color: #FFF;
+                                        color: $white;
                                         line-height: 32px;
                                         text-align: center;
                                     }
 
                                     .answer {
-                                        color: #666;
+                                        color: $grey800;
                                         font-size: 14px;
                                         line-height: 22px;
                                     }
 
                                     .info {
                                         margin-top: 24px;
-                                        color: #999;
+                                        color: $grey600;
                                         font-size: 13px;
                                         line-height: 18px;
 
@@ -1831,7 +1836,7 @@
                                                 width: 1px;
                                                 height: 10px;
                                                 margin-top: -5px;
-                                                background: #ccc;
+                                                background: $grey400;
                                             }
                                         }
                                     }
@@ -1840,8 +1845,8 @@
 
                             // 공통요소 빈 콘텐츠 커스텀
                             .fb__empty {
-                                border-bottom: 1px solid #e8e8e8;
-                                border-top: 1px solid #111;
+                                border-bottom: 1px solid $grey100;
+                                border-top: 1px solid $black;
                             }
                         }
                     }
@@ -1873,7 +1878,7 @@
                     position: relative;
                     z-index: 1;
                     width: 320px;
-                    background: #fff;
+                    background: $white;
 
                     &__top {
                         overflow: auto;
@@ -1881,7 +1886,7 @@
                         min-height: 300px;
                         max-height: calc(100vh - 450px);
                         padding: 20px 15px;
-                        border: 1px solid #e8e8e8;
+                        border: 1px solid $grey100;
 
                         select {
                             width: 100%;
@@ -1896,7 +1901,7 @@
 
                     &__title {
                         font-size: 16px;
-                        color: #111;
+                        color: $black;
                         line-height: 22px;
                         margin-bottom: 15px;
                     }
@@ -1908,7 +1913,7 @@
                         width: 100%;
                         padding: 15px;
                         margin-top: 10px;
-                        background-color: #f8f8f8;
+                        background-color: $bg_grey50;
                     }
 
                     &__option-tit {
@@ -1917,7 +1922,7 @@
                         width: 90%;
                         height: 36px;
                         font-size: 14px;
-                        color: #111;
+                        color: $black;
                         text-align: left;
                         line-height: 18px;
                         @include  line(2);
@@ -1927,7 +1932,7 @@
                         float: left;
                         width: 100px;
                         height: 30px;
-                        border: 1px solid #ccc;
+                        border: 1px solid $grey400;
                         @extend %clear;
 
                         ul {
@@ -1950,8 +1955,8 @@
                         &--minus {
                             width: 29px;
                             height: 28px;
-                            border-right: 1px solid #ccc;
-                            background: #fff url("../images/shop/btn-minus.png") no-repeat center 0;
+                            border-right: 1px solid $grey400;
+                            background: $white url("../images/shop/btn-minus.png") no-repeat center 0;
                         }
                         &--count {
                             width: 40px;
@@ -1969,8 +1974,8 @@
                         &--plus {
                             width: 29px;
                             height: 28px;
-                            background: #fff url("../images/shop/btn-plus.png") no-repeat center 0;
-                            border-left: 1px solid #ccc;
+                            background: $white url("../images/shop/btn-plus.png") no-repeat center 0;
+                            border-left: 1px solid $grey400;
                             text-align: center;
                             line-height: 28px;
                         }
@@ -1980,7 +1985,7 @@
                         display: inline-block;
                         float: right;
                         height: 30px;
-                        color: #111;
+                        color: $black;
                         font-size: 14px;
                         line-height: 30px;
                         em {
@@ -2029,7 +2034,7 @@
                             &__txt {
                                 display: inline-block;
                                 font-size: 16px;
-                                color: #111;
+                                color: $black;
                                 line-height: 24px;
                                 vertical-align: bottom;
                             }
@@ -2071,15 +2076,15 @@
 
                         &--cart {
                             border: 1px solid $pcolor;
-                            background: #fff;
+                            background: $white;
                             color: $pcolor;
                         }
 
                         &--soldout {
-                            border: 1px solid #999;
-                            background: #999;
+                            border: 1px solid $grey600;
+                            background: $grey600;
                             font-size: 16px;
-                            color: #fff;
+                            color: $white;
                         }
                     }
                 }
@@ -2093,7 +2098,7 @@
 
                &-tit {
                    margin: 20px 0 10px;
-                   color: #111;
+                   color: $black;
                     font: {
                         weight: 600;
                         size: 14px;
@@ -2129,14 +2134,14 @@
         /* lshop.css에서 가져온 부분 */
         [class^='layer-'] {
             position: absolute;
-            background: #fff;
+            background: $white;
             z-index: 1;
-            border: 1px solid #111;
+            border: 1px solid $black;
             margin-top: 10px;
             .title-area {
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid $grey200;
                 font-size: 14px;
-                color: #111;
+                color: $black;
                 padding: 17px 20px;
                 position: relative;
                 button {
@@ -2165,9 +2170,9 @@
                 margin: 0 20px 20px;
                 padding: 15px;
                 text-align: center;
-                background: #f8f8f8;
+                background: $bg_grey50;
                 font-size: 13px;
-                color: #666;
+                color: $grey800;
 
                 a {
                     font-size: 13px;
@@ -2214,7 +2219,7 @@
                 width: 24px;
                 height: 32px;
                 background: url(../images/common/icon-goodsView-bookmark.png) no-repeat center center / 24px 32px;
-                color: #fff;
+                color: $white;
                 text-align: center;
                 font-size: 18px;
                 line-height: 28px;
@@ -2228,17 +2233,17 @@
             &__title {
                 margin-bottom: 25px;
                 padding-bottom: 20px;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid $grey200;
                 font: {
                     size: 24px;
                     weight: 600;
                 };
-                color: #111;
+                color: $black;
 
                 span {
                     display: inline-block;
                     margin-left: 10px;
-                    color: #666;
+                    color: $grey800;
                     font-size: 18px;
                     line-height: 26px;
                 }
@@ -2273,7 +2278,7 @@
                     width: 29px;
                     height: 29px;
                     padding: 0;
-                    border: 1px solid #e8e8e8;
+                    border: 1px solid $grey100;
                     font-size: 0;
                     vertical-align: middle;
 
@@ -2311,7 +2316,7 @@
                     display: inline-block;
                     width: auto;
                     padding: 0 10px;
-                    color: #666;
+                    color: $grey800;
                     font-size: 0;
                     vertical-align: middle;
 
@@ -2326,7 +2331,7 @@
                                 content: '/';
                                 display: inline-block;
                                 font-sizE: 16px;
-                                color: #999;
+                                color: $grey600;
                                 vertical-align: baseline;
                             }
                         }
@@ -2387,7 +2392,7 @@
                 height: 27px;
                 background: rgba(0, 0, 0, .7);
                 border-radius: 13px;
-                color: #fff;
+                color: $white;
                 font-size: 16px;                    
                 line-height: 27px;
                 text-align: center;
@@ -2420,7 +2425,6 @@
         margin: 0 !important;
         width: 960px;
         height: 795px;
-        transform: translate(-50%, -50%);
 
         .fb__modal__header {
             display: none;
@@ -2440,7 +2444,7 @@
             position: relative;
             margin-bottom: 40px;
             padding-bottom: 13px;
-            border-bottom: 1px solid #111;
+            border-bottom: 1px solid $black;
             
             &__back {
                 position: absolute;
@@ -2450,11 +2454,11 @@
                 width: 100px;
                 height: 34px;
                 padding: 0 0 0 39px;
-                border: 1px solid #666;
+                border: 1px solid $grey800;
                 border-radius: 17px;
                 background: url(../images/shop/ico_goodsview_review-all.png) no-repeat 14px 50%;
                 font-size: 13px;
-                color: #666;
+                color: $grey800;
                 text-align: left;
             }
 
@@ -2464,7 +2468,7 @@
                     size: 24px;
                     weight: 400;
                 };
-                color: #111;
+                color: $black;
                 line-height: 34px;
                 text-align: center;
             }
@@ -2521,7 +2525,7 @@
                         width: 30px;
                         height: 30px;
                         background: rgba(0, 0, 0, .4);
-                        color: #FFF;
+                        color: $white;
                         font: {
                             size: 16px;
                             weight: 600;
@@ -2547,7 +2551,7 @@
                         position: relative;
                         width: 520px;
                         height: 520px;
-                        background: #111;
+                        background: $black;
                         font-size: 0;
 
                         img {
@@ -2635,7 +2639,7 @@
                             top: 0;
                             right: 0;
                             font-size: 13px;
-                            color: #999;
+                            color: $grey600;
                             line-height: 18px;
 
                             span {
@@ -2654,7 +2658,7 @@
                                     width: 1px;
                                     height: 10px;
                                     margin-top: -5px;
-                                    background: #ccc;
+                                    background: $grey400;
                                 }
                             }
                         }
@@ -2662,7 +2666,7 @@
                         &__option {
                             margin-top: 6px;
                             font-size: 13px;
-                            color: #999;
+                            color: $grey600;
                         }
                     }
 
@@ -2682,7 +2686,7 @@
                         &__list {
                             padding: 20px;
                             border-top: 1px dashed #EEE;
-                            background: #f8f8f8;
+                            background: $bg_grey50;
 
                             &:first-child {
                                 border-top: 0;
@@ -2696,7 +2700,7 @@
                                         display: block;
                                         position: relative;
                                         font-size: 14px;
-                                        color: #999;
+                                        color: $grey600;
                                         line-height: 20px;
 
                                         &:before {
@@ -2724,7 +2728,7 @@
                                         top: 0;
                                         right: 0;
                                         font-size: 13px;
-                                        color: #999;
+                                        color: $grey600;
                                         line-height: 18px;
                                     }
                                 }
@@ -2745,8 +2749,8 @@
                                         width: 9px;
                                         height: 9px;
                                         border: {
-                                            bottom: 1px solid #CCC;
-                                            left: 1px solid #CCC;
+                                            bottom: 1px solid $grey400;
+                                            left: 1px solid $grey400;
                                         };
                                         box-sizing: border-box;
                                     }
@@ -2771,7 +2775,7 @@
                     margin-top: 10px;
                     font-size: 13px;
                     line-height: 18px;
-                    color: #999;
+                    color: $grey600;
                 }
             }
 
@@ -2781,7 +2785,7 @@
                     &__list {
                         position: relative;
                         padding-left: 10px;
-                        color: #666;
+                        color: $grey800;
                         font-size: 14px;
                         line-height: 18px;
 
@@ -2792,7 +2796,7 @@
                             width: 2px;
                             height: 2px;
                             line-height: 18px;
-                            background: #666;
+                            background: $grey800;
                             border-radius: 50%;
                             text-indent: -7px;
                             content: "";
@@ -2817,23 +2821,23 @@
         
         .desc {
             position: relative;
-            color: #666;
+            color: $grey800;
             font-size: 14px;
             line-height: 18px;
         }
 
         table {
             margin-top: 20px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid $grey200;
 
             th {
                 text-align: left;
                 padding: 15px 0;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid $grey200;
                 vertical-align: top;
 
                 p {
-                    color: #111;
+                    color: $black;
                     position: relative;
                     padding-left: 30px;
                     line-height: 40px;
@@ -2850,7 +2854,7 @@
                 position: relative;
                 text-align: left;
                 padding: 15px 0;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid $grey200;
                 vertical-align: middle;
 
                 .radio-area {
@@ -2876,7 +2880,7 @@
 
                 .wrap-multi-input + p {
                     font-size: 13px;
-                    color: #999;
+                    color: $grey600;
                 }
             }
         }
@@ -2886,7 +2890,7 @@
             font-size: 16px;
             padding: 20px 0;
             font-weight: 600;
-            color: #111;
+            color: $black;
         }
     }
 
@@ -2901,7 +2905,7 @@
                 padding: 15px 0;
                 border-top: 0;
                 border-bottom: 0;
-                color: #111;
+                color: $black;
                 font-weight: normal;
                 font-size: 13px;
             }
@@ -2919,13 +2923,13 @@
 
         .tit {
             font-size: 14px;
-            color: #111;
+            color: $black;
             margin: 0 0 15px;
         }
         
         .desc {
             font-size: 14px;
-            color: #666;
+            color: $grey800;
             margin-top: 10px;
             a {
                 color: $pcolor;
@@ -2965,8 +2969,8 @@
 
                 &:disabled {
                     background: #eee;
-                    border: 1px solid #ccc;
-                    color: #999;
+                    border: 1px solid $grey400;
+                    color: $grey600;
                     cursor: auto !important;
                     
                     &:after {
@@ -2978,8 +2982,8 @@
 
                 &.complete {
                     background: #eee;
-                    border: 1px solid #ccc;
-                    color: #999;
+                    border: 1px solid $grey400;
+                    color: $grey600;
                     cursor: auto !important;
                     
                     &:after {
@@ -3025,12 +3029,12 @@
                             img {
                                 width: 100%;
                                 height: 100%;
-                                border: 1px solid #ddd;
+                                border: 1px solid $grey200;
                             }
                         }
                         li.flex-active-slide {
                             img {
-                                border-color: #111;
+                                border-color: $black;
                             }
                         }
                         li+li {
@@ -3098,12 +3102,12 @@
             }
             .wrap-rel-exhi {
                 padding: 13px 13px 13px 20px;
-                border-top: 1px solid #111;
-                border-bottom: 1px solid #ddd;
+                border-top: 1px solid $black;
+                border-bottom: 1px solid $grey200;
                 margin-top: 20px;
                 span {
                     font-size: 14px;
-                    color: #111;
+                    color: $black;
                     line-height: 40px;
                     margin-right: 25px;
                 }
@@ -3118,14 +3122,14 @@
             position: relative;
             .top {
                 overflow: hidden;
-                border-bottom: 1px solid #111;
+                border-bottom: 1px solid $black;
                 padding-bottom: 5px;
                 margin-bottom: 15px;
                 .brand-shop {
                     border: 0;
                     background: 0;
                     font-size: 20px;
-                    color: #111;
+                    color: $black;
                     padding: 0;
                     &:after {
                         content: '';
@@ -3140,11 +3144,11 @@
                 span {
                     float: right;
                     font-size: 13px;
-                    color: #999;
+                    color: $grey600;
                     line-height: 28px;
                     button {
                         font-size: 12px;
-                        color: #999;
+                        color: $grey600;
                         height: 22px;
                         line-height: 22px;
                         padding: 0 10px;
@@ -3156,11 +3160,11 @@
                 .goods-tit {
                     font-size: 30px;
                     line-height: 38px;
-                    color: #111;
+                    color: $black;
                 }
                 .goods-sub {
                     font-size: 14px;
-                    color: #999;
+                    color: $grey600;
                     margin-top: 15px;
                 }
             }
@@ -3193,7 +3197,7 @@
                     }
                     .price {
                         font-size: 20px;
-                        color: #111;
+                        color: $black;
                         margin-top: 5px;
                         em {
                             font-size: 30px;
@@ -3213,7 +3217,7 @@
                     vertical-align: top;
                     font-size: 14px;
                     position: relative;
-                    color: #111;
+                    color: $black;
                 }
                 td {
                     text-align: left;
@@ -3221,7 +3225,7 @@
                     vertical-align: top;
                     font-size: 14px;
                     position: relative;
-                    color: #666;
+                    color: $grey800;
                     i {
                         display: inline-block;
                         width: 18px;
@@ -3234,7 +3238,7 @@
                     }
                     em.more {
                         font-size: 12px;
-                        color: #999;
+                        color: $grey600;
                         cursor: pointer;
                         margin-left: 5px;
                     }
@@ -3255,7 +3259,7 @@
                     p {
                         line-height: 20px;
                         span {
-                            color: #999;
+                            color: $grey600;
                         }
                     }
                 }
@@ -3296,8 +3300,8 @@
         button.btn-soldout {
             width: 100%;
             font-size: 16px;
-            color: #fff;
-            background: #999;
+            color: $white;
+            background: $grey600;
             padding: 0;
         }
         &__inner {
@@ -3317,7 +3321,7 @@
             }
             h1 {
                 font-size: 20px;
-                color: #111;
+                color: $black;
                 margin-bottom: 30px;
             }
             div[class^='goods-list'] {
@@ -3395,7 +3399,7 @@
                     font-family: "Roboto", sans-serif;
                     font-weight: 600;
                     .price {
-                        color: #111;
+                        color: $black;
                         em {
                             font-size: 22px;
                         }
@@ -3407,8 +3411,8 @@
 
     .goods-view-main-area {
         width: 100%;
-        border-top: 1px solid #ddd;
-        border-right: 1px solid #ddd;
+        border-top: 1px solid $grey200;
+        border-right: 1px solid $grey200;
         &:after {
             content: '';
             display: block;
@@ -3419,23 +3423,23 @@
         }
         .wrap-tab-area {
             width: 870px;
-            border-right: 1px solid #ddd;
+            border-right: 1px solid $grey200;
             .goods-view-tab+.wrap-tab-cont {
                 padding: 40px 40px 100px 0;
             }
         }
         .option-area {
             width: 269px;
-            background: #fff;
+            background: $white;
             margin-top: 0;
             border-top: 0;
-            border-left: 1px solid #ddd;
+            border-left: 1px solid $grey200;
             margin-left: -1px;
             .option {
                 padding: 30px 15px;
                 .pro-tit {
                     font-size: 16px;
-                    color: #111;
+                    color: $black;
                     line-height: 22px;
                     margin-bottom: 15px;
                 }
@@ -3444,7 +3448,7 @@
                     position: relative;
                     margin-bottom: 10px;
                     .tit {
-                        color: #111;
+                        color: $black;
                     }
                     .btn-option-del {
                         right: 15px;
@@ -3457,7 +3461,7 @@
                 }
             }
             .option-bottom-area {
-                border-top: 1px solid #ddd;
+                border-top: 1px solid $grey200;
                 padding: 20px 15px;
             }
             .total-price {
@@ -3486,7 +3490,7 @@
         }
         .wrap-tab-cont {
             .table-default {
-                border-top: 1px solid #111;
+                border-top: 1px solid $black;
                 th {
                     text-align: left;
                     padding: 17px 0;
@@ -3506,7 +3510,7 @@
             }
             .tab-review {
                 .top-area {
-                    border: 1px solid #e8e8e8;
+                    border: 1px solid $grey100;
                     padding: 20px;
                     overflow: hidden;
                     margin-bottom: 50px;
@@ -3515,7 +3519,7 @@
                         width: 50%;
                         text-align: center;
                         overflow: hidden;
-                        color: #111;
+                        color: $black;
                         height: 95px;
                         padding-top: 33px;
                         >* {
@@ -3537,7 +3541,7 @@
                         }
                         .title {
                             font-size: 20px;
-                            color: #111;
+                            color: $black;
                             line-height: 32px;
                             margin-right: 10px;
                         }
@@ -3551,7 +3555,7 @@
                         }
                     }
                     .total-score.type2 {
-                        border-left: 1px dotted #ccc;
+                        border-left: 1px dotted $grey400;
                         padding-left: 20px;
                         padding-top: 25px;
                         width: calc(50% - 20px);
@@ -3567,14 +3571,14 @@
                             float: left;
                             margin-top: 10px;
                             a {
-                                color: #999;
+                                color: $grey600;
                                 em {
                                     font-family: 'Rb';
                                     margin-left: 3px;
                                 }
                             }
                             a.active {
-                                color: #111;
+                                color: $black;
                             }
                             a+a {
                                 &:before {
@@ -3582,7 +3586,7 @@
                                     display: inline-block;
                                     width: 1px;
                                     height: 12px;
-                                    background: #ddd;
+                                    background: $grey200;
                                     margin: 0 10px;
                                     vertical-align: middle;
                                 }
@@ -3596,10 +3600,10 @@
                     }
                     .review-list {
                         ul {
-                            border-top: 1px solid #111;
+                            border-top: 1px solid $black;
                             font-size: 14px;
                             li {
-                                border-bottom: 1px solid #e8e8e8;
+                                border-bottom: 1px solid $grey100;
                                 .review {
                                     display: table;
                                     width: 100%;
@@ -3609,13 +3613,13 @@
                                         vertical-align: middle;
                                         padding: 25px 20px;
                                         text-align: center;
-                                        color: #999;
+                                        color: $grey600;
                                         .option {
                                             font-size: 13px;
                                             margin-bottom: 7px;
                                         }
                                         .tit {
-                                            color: #111;
+                                            color: $black;
                                         }
                                     }
                                     .star {
@@ -3642,11 +3646,11 @@
                                 }
                                 .review-detail {
                                     display: none;
-                                    border-top: 1px solid #e8e8e8;
-                                    background: #f8f8f8;
+                                    border-top: 1px solid $grey100;
+                                    background: $bg_grey50;
                                     padding: 20px 20px 50px 145px;
                                     .wrap-score {
-                                        color: #999;
+                                        color: $grey600;
                                         font-size: 13px;
                                         margin-bottom: 25px;
                                         span.star {
@@ -3656,7 +3660,7 @@
                                         }
                                     }
                                     .content {
-                                        color: #666;
+                                        color: $grey800;
                                         line-height: 22px;
                                     }
                                     .review-img-area {
@@ -3694,7 +3698,7 @@
                         margin-top: 10px;
                         font-size: 14px;
                         a {
-                            color: #999;
+                            color: $grey600;
                             cursor: pointer;
                             em {
                                 font-family: 'Rb';
@@ -3702,7 +3706,7 @@
                             }
                         }
                         a.active {
-                            color: #111;
+                            color: $black;
                         }
                         a+a {
                             &:before {
@@ -3710,7 +3714,7 @@
                                 display: inline-block;
                                 width: 1px;
                                 height: 12px;
-                                background: #ddd;
+                                background: $grey200;
                                 margin: 0 10px;
                                 vertical-align: middle;
                             }
@@ -3729,16 +3733,16 @@
                     margin-top: 0;
                 }
                 table {
-                    border-top: 1px solid #111;
+                    border-top: 1px solid $black;
                     th {
                         text-align: left;
                         padding: 17px 0;
                         font-size: 13px;
                         padding-left: 15px;
                         padding-right: 15px;
-                        color: #111;
-                        border-top: 1px solid #111;
-                        border-bottom: 1px solid #ddd;
+                        color: $black;
+                        border-top: 1px solid $black;
+                        border-bottom: 1px solid $grey200;
                         background: #f9f9f9;
                     }
                     td {
@@ -3746,7 +3750,7 @@
                         padding: 17px 0;
                         font-size: 13px;
                         padding-left: 30px;
-                        border-bottom: 1px solid #ddd;
+                        border-bottom: 1px solid $grey200;
                     }
                 }
             }
@@ -3756,16 +3760,16 @@
     .goods-view-tab {
         overflow: hidden;
         width: 100%;
-        background: #fff;
+        background: $white;
         a {
             display: inline-block;
             float: left;
             width: 25%;
             text-align: center;
             font-size: 18px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid $grey200;
             padding: 21px 0;
-            color: #666;
+            color: $grey800;
             height: 61px;
             em {
                 font-family: 'Rb';
@@ -3784,7 +3788,7 @@
         position: fixed;
         top: 0;
         width: 870px;
-        border-right: 1px solid #ddd;
+        border-right: 1px solid $grey200;
         z-index: 1;
     }
 

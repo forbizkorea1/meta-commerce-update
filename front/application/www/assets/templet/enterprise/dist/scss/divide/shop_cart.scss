@@ -1,0 +1,496 @@
+.fb {
+    &__cart {
+        .layout__left {
+			width: 940px;
+		}
+
+        .summary {
+            &__wrapper {
+                padding-top: 46px;
+            }
+
+            &__list:last-of-type {
+                padding-bottom: 20px;
+            }
+        }
+        
+        //안내문구
+        &__noti {
+            display: block;
+            margin: 26px 0 36px;
+            color: $grey800;
+            font-size: 14px;
+        }
+
+        //상단 전체선택
+        &__top {
+            position: relative;
+            margin-bottom: 12px;
+            padding: 7px 0;
+
+            .fb__checkbox {
+                span {
+                    font-size: 15px;
+                    color: $grey800;
+                }
+            }
+        }
+
+        //상단 공통 선택삭제
+        &__delete {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        //장바구니 상품
+        &__package {
+            .fb__shopCommon__table {
+                padding: 0 20px 30px;
+            }
+            
+            //상품 묶음
+            .package {
+                //셀러별 묶음
+                &__seller {
+                    border: 1px solid $grey100;
+
+                    &:not(:first-of-type) {
+                        margin-top: 50px;
+                    }
+
+                    //셀러정보
+                    &__info {
+                        margin: 0 20px;
+                        padding: 20px 0;
+                        border-bottom: 1px solid $black;
+            
+                        label {
+                            color: $black;
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+
+                        .seller-name {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                //배송비별 묶음
+                &__shipping {
+                    &__items {
+                        // padding: 0 20px 30px;
+
+                        .items--stop {
+                            .item-info {
+                                &__thumb,
+                                &__name,
+                                &__option {
+                                    opacity: 0.5;
+                                }
+
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        .package__summary {
+                            border-bottom: 0;
+                        }
+                    }
+                }
+
+                //배송비묶음 > 결제금액 요약
+                &__summary {
+                    padding: 18px 0;
+                    background: $bg_grey50;
+                    border-bottom: 1px solid $grey100;
+                    text-align: center;
+
+                    //내용
+                    &__detail {
+                         font-size: 0;
+
+                        .detail {
+                            &__list {
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+
+                            &__title {
+                                display: inline-block;
+                                padding-right: 8px;
+                                color: $grey800;
+                                font-size: 13px;
+                                line-height: 18px;
+
+                            }
+
+                            &__price {
+                                display: inline-block;
+                                color: $black;
+                                font-size: 14px;
+                                line-height: 18px;
+
+                                em {
+                                    font-family: $font_n;
+                                    font-weight: 600;
+                                    font-size: 16px;
+                                }
+                            }
+
+                            &__total {                                    
+                                display: inline-block;
+                                vertical-align: middle;
+
+                                &__title {
+                                    display: none;
+                                }
+
+                                &__price {
+                                    color: $pcolor;
+                                    font-weight: normal;
+                                    font-size: 16px;
+
+                                    em {
+                                        font-family: $font_n;
+                                        font-weight: 600;
+                                        font-size: 18px;
+                                    }
+                                }
+                            }
+                        }
+
+                        // 장바구니 연산 기호
+                        .sign {
+                            display: inline-block;
+                            padding: 0 10px;
+                            font-size: 16px;
+                            vertical-align: middle;
+
+                            // -
+                            &-minus {
+                                display: inline-block;
+                                width: 9px;
+                                height: 1px;
+                                margin: 0 10px;
+                                background: $black;
+                            }
+
+                            // +
+                            &-plus {
+                                position: relative;
+                                display: inline-block;
+                                width: 9px;
+                                height: 1px;
+                                margin: 0 10px;
+                                background: $black;
+
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 9px;
+                                    height: 1px;
+                                    background: $black;
+                                    transform: rotate(90deg);
+                                }
+                            }
+
+                            // =
+                            &-equals {
+                                display: inline-block;
+                                width: 9px;
+                                height: 7px;
+                                margin: 0 10px;
+                                border-top: 1px solid $black;
+                                border-bottom: 1px solid $black;
+                                vertical-align: middle;
+                            }
+                        }
+
+                        .fb__infolayer {
+                            top: 25px;
+                        }
+                    }
+                }
+            }
+
+            //장바구니 상품에만 있는 css
+            .cart-item {
+                &__checkbox {
+                    vertical-align: top;
+
+                    .fb__checkbox {
+                        margin-top: 35px;
+
+                        span {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            
+                &__control {
+                    margin-top: 18px;
+                    overflow: hidden;
+
+                    .option-up-down {
+                        display: block;
+                        float: left;
+                        overflow: hidden;
+                        min-width: 100px;
+                        height: 28px;
+                        margin-right: 10px;
+                        border: 1px solid $grey400;
+                        @extend %clear;
+                        
+                        input, button {
+                            border: 0 !important;
+                        }
+                    }
+
+                    &--minus {
+                        float: left;
+                        width: 29px;
+                        height: 28px;
+                        background: $white url(../images/shop/btn-minus.png) no-repeat center 0;
+                        border: 0;
+                        border-right: 1px solid $grey400;
+                        font-size: 0;
+                        text-align: center;
+                        line-height: 28px;
+                        cursor: pointer;
+                    }
+
+                    &--plus {
+                        float: left;
+                        width: 29px;
+                        height: 28px;
+                        background: $white url(../images/shop/btn-plus.png) no-repeat center 0;
+                        border: 0;
+                        border-left: 1px solid $grey400;
+                        font-size: 0;
+                        text-align: center;
+                        line-height: 28px;
+                        cursor: pointer;
+                    }
+
+                    &--count {
+                        display: inline-block;
+                        float: left;
+                        width: 40px;
+                        height: 28px;
+                        font-family: "Roboto", sans-serif;
+                        text-align: center;
+                        line-height: 30px;
+                        outline: none;
+                        border: 0;
+                    }
+                }
+                
+                &__price {
+                    color: $black;
+                    font-size: 14px;
+                    em {
+                        font: {
+                            size: 16px;
+                            weight: 600;
+                            family: $font_n;
+                        }
+                    }
+                }
+
+                &__btn-area {
+                    text-align: right;
+                    button {
+                        min-width: 80px;
+                    }
+                    button:not(:first-child) {
+                        margin-top: 5px;
+                    }
+                }
+
+                &.sold-stop {
+                    .item-info__thumb {
+                        a {
+                            &:before {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                z-index: 2;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(255, 255, 255, .5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //장바구니 비어있을때
+        &__empty {
+            padding: 160px 0;
+            text-align: center;
+
+            .empty {
+                &__text {
+                    color: $grey600;
+                    font-size: 16px;
+                    line-height: 24px;
+
+                    &:before {
+                        display: block;
+                        width: 70px;
+                        height: 70px;
+                        background: url("../images/shop/icon-cart-empty.png") no-repeat 0 0 / 100% auto;
+                        margin: 0 auto 8px;
+                        content: "";
+                    }
+                }
+
+                &__button {
+                    margin-top: 20px;
+
+                    button {
+                        color: $black;
+                    }
+                }
+            }
+        }
+
+        //여기서부터 확인필요
+        .calc-area {
+            position: relative;
+            overflow: hidden;
+            padding-right: 30px;
+            background: #f5f5f5;
+            li {
+                float: left;
+                position: relative;
+                width: 25%;
+                padding: 15px 0 20px 70px;
+                text-align: left !important;
+                &:first-child {
+                    padding-left: 60px;
+                }
+                &:not(:first-child):before {
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    width: 32px;
+                    height: 32px;
+                    -webkit-transform: translateY(-50%);
+                    -moz-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    -o-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    content: '';
+                }
+            }
+            &-discount:before {
+                background: url(../images/shop/sprite_shop.png) no-repeat -400px 0;
+            }
+            &-delivery:before {
+                background: url(../images/shop/sprite_shop.png) no-repeat -500px 0;
+            }
+            &-total {
+                text-align: right !important;
+                padding-right: 30px !important;
+                &:before {
+                    background: url(../images/shop/sprite_shop.png) no-repeat -600px 0;
+                }
+                &__price {
+                    color: $pcolor !important;
+                }
+            }
+            &__title {
+                display: inline-block;
+                margin-bottom: 10px;
+                font-size: 13px;
+            }
+            &__price {
+                color: $black;
+                font-size: 14px;
+                em {
+                    font: {
+                        size: 20px;
+                        weight: 600;
+                        family: $font_n;
+                    }
+                }
+            }
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 1px;
+                background: $grey100;
+                content: '';
+            }
+        }
+
+        .sold-out-txt {
+            position: absolute;
+            height: 28px;
+            width: 100%;
+            bottom: 0;
+            font-size: 13px;
+            text-align: center;
+            color: $white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 0;
+            display: none;
+            display: block;
+        }
+
+        .sold-out .sold-out-txt {
+            display: block;
+        }
+
+        &__delivery-area {
+            position: relative;
+            min-height: 40px;
+            padding: 15px 20px;
+            background: #f9f9f9;
+            line-height: 24px;
+            text-align: right;
+            font-size: 13px;
+            em {
+                font-family: $font_n;
+            }
+            span {
+                color: $black;
+                font-weight: 600;
+            }
+            &:after {
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 1px;
+                background: $grey100;
+                content: '';
+            }
+        }
+
+        &__error {
+            margin: 10px 0 0 0;
+            color: #ff3030;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .txt-error {
+            color: $pcolor;
+        }
+    }
+}

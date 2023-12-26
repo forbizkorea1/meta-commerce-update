@@ -1,0 +1,62 @@
+.fb {
+	.member-search {
+		&__id {
+			padding: vw(100px 30px 90px);
+		}
+
+		/* 아이디찾기 성공 */
+		&__success {
+			width: vw(690px);
+			height: vw(260px);
+			margin: 0 auto;
+			padding: vw(60px 26px);
+			background: $bg_grey50;
+			text-align: center;
+
+			/* 아이디 찾기 결과 코멘트 */
+			&__result {
+				padding: vw(100px 54px 40px 56px);
+				color: $black;
+				font-size: vw(28px);
+				text-align: center;
+				line-height: vw(40px);
+			}
+
+			&__title {
+				width: vw(640px);
+				font-size: vw(26px);
+				line-height: vw(36px);
+			}
+
+			&__id {
+				font-weight: 600;
+			}
+
+			&__date {
+				margin-top: vw(30px);
+				color: $grey800;
+				font-size: vw(24px);
+				line-height: vw(36px);
+			}
+		}
+		
+		// 로그인 버튼
+		&__login {
+			width: vw(690px);
+			height: vw(100px);
+			margin: vw(40px 0 0 30px);
+			background: $pcolor;
+			
+			&__btn {
+				display: block;
+				color: $white;
+				font-size: vw(30px);
+				text-align: center;
+				line-height: vw(100px);
+			}
+		}
+
+	}
+
+	
+}

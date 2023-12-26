@@ -1,0 +1,1654 @@
+.fb {
+    min-width: 1280px;
+    margin: 0 auto;
+
+    //layout_pop.htm
+    &.fb__layout__pop {
+        min-width: auto;
+    }
+
+    // 스크롤 락
+    &.scroll--lock {
+        overflow: hidden;
+    }
+
+    //lazyload 로딩중 이미지
+    img[src*="loading"] {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto !important;
+        height: auto !important;
+        margin: auto !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+
+    // #region 팝업(모달)
+    &__modal {
+        display: none;
+        z-index: 9999;
+        position: fixed;
+        inset: 0;
+        align-items: center;
+        justify-content: center;
+
+        &.show {
+            display: flex !important;
+        }
+
+        &__mask {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        &__layer {
+            z-index: 1;
+            position: relative;
+            background-color: #ffffff;
+            padding: 40px;
+
+            &.coupon-pop {
+                width: 510px;
+                padding: 40px 0 0 0;
+
+                .fb__modal__header {
+                    margin: 0 40px;
+                }
+
+                .fb__modal__content {
+                    overflow: hidden;
+                    max-height: inherit;
+                    padding-top: 0;
+                }
+            }
+        }
+
+        &__header {
+            overflow: hidden;
+            padding-bottom: 15px;
+            border-bottom: 1px solid $black;
+
+            @extend %clear;
+        }
+        
+        &__title {
+            float: left;
+            color: $black;
+            font-weight: 400;
+            font-size: 24px;
+        }
+
+        &__close {
+            display: inline-block;
+            float: right;
+            width: 25px;
+            height: 25px;
+            background: url(../images/common/sprite_common.png) 0 -100px no-repeat;
+            cursor: pointer;
+            font-size: 0;
+        }
+
+        &__content {
+            overflow-y: auto;
+            max-height: 740px;
+            padding-top: 20px;
+            font-family: "Rb", "Notosans", sans-serif;
+
+            &--nopadding {
+                padding: 0 !important;
+            }
+        }
+    }
+    // #endregion
+
+    // #region 툴팁 물음표
+    &__tooltip {
+        display: inline-block;
+        position: relative;
+
+        .tooltip {
+            &__icon {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url("../images/guide/ic-info-20-px.png") no-repeat 0 0;
+                font-size: 0;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
+    }
+    // #endregion
+
+    // #region 인포 윈도우
+    &__infolayer {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 240px;
+        background: $white;
+        border: 1px solid $black;
+
+        &.show {
+            display: block;
+        }
+
+        &__top {
+            position: relative;
+            padding: 15px 50px 15px 20px;
+            border-bottom: 1px solid $grey200;
+        }
+
+        &__title {
+            color: $black;
+            font-size: 14px;
+            text-align: left;
+            line-height: 20px;
+        }
+
+        &__close {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            width: 14px;
+            height: 100%;
+            background: url("../images/guide/ic-delete-black-20-px.png") no-repeat center center;
+            font-size: 0;
+        }
+
+        &__cont {
+            padding: 15px 20px;
+            color: $grey800;
+            font-size: 12px;
+            text-align: left;
+            line-height: 18px;
+        }
+    }
+    // #endregion
+
+    // #region 헤더
+    &__header {
+        position: relative;
+        min-height: 160px;
+        z-index: 11;
+
+        &__top {
+            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 35px 0 10px;
+            font-size: 0;
+
+            // 로고
+            .logo {
+                position: absolute;
+                z-index: 1;
+                top: 16px;
+                left: 0;
+                font-size: 0;
+            }
+
+            // 검색창
+            .header-search {
+                width: 450px;
+                margin: 0 auto;
+
+                &__inner {
+                    position: relative;
+                    z-index: 11;
+                }
+
+                &__input {
+                    width: 100%;
+                    height: 35px;
+                    padding: 0 30px 0 20px;
+                    border: 0;
+                    border-bottom: 2px solid $black;
+                    font-size: 14px;
+                    color: $black;
+
+                    &::placeholder {
+                        color: $grey600;
+                    }
+                    
+                    &:focus {
+                        & ~ .header-search__layer {
+                            display: block;
+                        }
+                    }
+                }
+
+                &__reset {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    right: 35px;
+                    z-index: 1;
+                    width: 15px;
+                    height: 100%;
+                    background: url(../images/guide/ic-delete-20-px.png) no-repeat 0 center;
+                    font-size: 0;
+                    cursor: pointer;
+
+                    &.show {
+                        display: block;
+                    }
+                }
+
+
+                &__btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    z-index: 1;
+                    width: 21px;
+                    height: 100%;
+                    background: url(../images/layout/ico_header_search.png) no-repeat 0 center;
+                }
+
+                &__layer {
+                    display: none;
+                    position: absolute;
+                    z-index: 10;
+                    top: 33px;
+                    left: 0;
+                    width: 100%;
+                    border: 1px solid $black;
+                    background: $white;
+
+                    &:hover {
+                        display: block;
+                    }
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        width: 1px;
+                        height: 100%;
+                        background: #EEE;
+                    }
+
+                    &.open {
+                        display: block;
+                    }
+
+                    &__sec {
+                        display: inline-block;
+                        width: 50%;
+                        padding: 20px;
+                        vertical-align: top;
+                    }
+
+                    &__header {
+                        position: relative;
+                        margin-bottom: 15px;
+
+                        strong {
+                            display: block;
+                            font: {
+                                size: 16px;
+                                weight: 600;
+                            };
+                            color: $black;
+                            line-height: 16px;
+                        }
+
+                        .btn-del-all {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            padding: 0;
+                            font-size: 13px;
+                            color: $grey600;
+                            text-decoration: underline;
+                        }
+                    }
+
+                    .lately {
+                        &__list {
+                            position: relative;
+                            margin-top: 10px;
+
+                            &:first-child {
+                                margin-top: 0;
+                            }
+
+                            a {
+                                display: block;
+                                width: 160px;
+                                font-size: 14px;
+                                color: $grey800;
+                                line-height: 20px;
+                                @include line();
+                            }
+
+                            button {
+                                display: block;
+                                position: absolute;
+                                z-index: 1;
+                                top: 50%;
+                                right: 0;
+                                width: 15px;
+                                height: 15px;
+                                padding: 0;
+                                background: url(../images/layout/ico_header_recent-delete.png) no-repeat 0 0;
+                                transform: translate3d(0, -50%, 0);
+                            }
+                        }
+
+                        &__noList {
+                            font-size: 14px;
+                            color: $grey800;
+                            line-height: 20px;
+                        }
+                    }
+
+                    .popularity {
+                        &__list {
+                            margin-top: 10px;
+
+                            &:first-child {
+                                margin-top: 0;
+                            }
+
+                            &:nth-child(-n + 5) {
+                                em {
+                                    color: #FF6600;
+                                }
+                            }
+
+                            a {
+                                display: block;
+                                font-size: 14px;
+                                line-height: 20px;
+                                @include line();
+                            }
+
+                            em {
+                                display: inline-block;
+                                width: 16px;
+                                margin-right: 10px;
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 유틸메뉴
+            .util-menu {
+                position: absolute;
+                z-index: 1;
+                top: 40px;
+                right: 0;
+                font-size: 0;
+
+                &__box {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                &__list {
+                    display: inline-block;
+                    position: relative;
+                    margin-left: 12px;
+                    padding-left: 14px;
+                    vertical-align: top;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 1px;
+                        height: 8px;
+                        margin-top: -4px;
+                        background: $grey200;
+                    }
+
+                    &:first-child {
+                        margin-left: 0;
+                        padding-left: 0;
+                        
+                        &:before {
+                            display: none;
+                        }
+                    }
+                    
+                    a {
+                        display: block;
+                        font-size: 13px;
+                        color: $grey800;
+                        line-height: 1;
+
+                        strong {
+                            color: $black;
+                        }
+                    }
+                }
+
+                &__cart {
+                    display: inline-block;
+                    position: relative;
+                    width: 23px;
+                    height: 23px;
+                    margin-left: 10px;
+                    padding-right: 32px;
+                    background: url(../images/layout/ico_header_cart.png) no-repeat 0 0;
+                    vertical-align: middle;
+
+                    em {
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        bottom: -5px;
+                        width: 17px;
+                        height: 17px;
+                        border-radius: 50%;
+                        background: #FF6600;
+                        font-size: 12px;
+                        color: $white;
+                        line-height: 17px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        
+        &__nav {
+            position: relative;
+            border-bottom: 1px solid $grey200;
+            background: $white;
+
+            &.sticky {
+                position: fixed;
+                z-index: 10;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+
+        &__menu {
+            max-width: 1280px;
+            margin: 0 auto;
+            @extend %clear;
+
+            .gnb {
+                overflow: hidden;
+                float: left;
+
+                .oneDepth {
+                    margin: 0 -20px;
+                    font-size: 0;
+
+                    &__list {
+                        display: inline-block;
+                        padding: 0 20px;
+                        vertical-align: top;
+
+                        &__link {
+                            font: {
+                                size: 14px;
+                                weight: 600;
+                            };
+                            color: $black;
+                            line-height: 79px;
+                        }
+
+                        &.open {
+                            .gnb__sub {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+
+                &__sub {
+                    display: none;
+                    position: absolute;
+                    z-index: 10;
+                    top: 79px;
+                    left: 0;
+                    width: 100%;
+                    padding: 20px 0 60px;
+                    border: {
+                        top: 1px solid $grey100;
+                        bottom: 1px solid $grey100;
+                    };
+                    background: $white;
+
+                    &__inner {
+                        position: relative;
+                        max-width: 1280px;
+                        margin: 0 auto;
+                        @extend %clear;
+                    }
+                }
+
+                .twoDepth {
+                    float: left;
+                    width: calc(100% - 300px);
+
+                    &__list {
+                        display: inline-block;
+                        margin-left: 60px;
+                        vertical-align: top;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                        &__link {
+                            display: block;
+                            font: {
+                                size: 14px;
+                                weight: 600;
+                            };
+                            color: $black;
+                            line-height: 20px;
+                        }
+                    }
+                }
+
+                .threeDepth {
+                    margin-top: 20px;
+
+                    &__list {
+                        margin-top: 14px;
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+
+                        &__link {
+                            display: block;
+                            font-size: 14px;
+                            color: $grey800;
+                            line-height: 20px;
+                        }
+                    }
+                }
+
+                &__banner {
+                    float: right;
+                    width: 300px;
+                    font-size: 0;
+
+                    &__list {
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+
+                    &__img {
+                        overflow: hidden;
+                        position: relative;
+                        width: 300px;
+                        height: 160px;
+
+                        img {
+                            position: absolute;
+                            z-index: 1;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    &__title {
+                        display: block;
+                        width: 280px;
+                        margin-top: 10px;
+                        font: {
+                            size: 14px;
+                            weight: 400;
+                        };
+                        color: $black;
+                        line-height: 20px;
+                        @include line(2);
+                    }
+                }
+            }
+
+            .lnb {
+                float: right;
+
+                &__box {
+                    font-size: 0;
+                }
+
+                &__list {
+                    display: inline-block;
+                    margin-left: 30px;
+                    vertical-align: top;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    a {
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 79px;
+                    }
+                }
+            }
+        }
+    }
+    // #endregion
+
+    // #region 푸터
+    &__footer {
+        // margin-top: 140px;
+
+        &__menu {
+            border-top: 1px solid #eee;
+            
+            .footer-menu {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 14px 0;
+                font-size: 0;
+
+                &__list {
+                    display: inline-block;
+                    position: relative;
+                    margin-left: 10px;
+                    padding-left: 11px;
+                    vertical-align: top;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 1px;
+                        height: 10px;
+                        margin-top: -5px;
+                        background: $grey200;
+                    }
+
+                    &:first-child {
+                        margin-left: 0;
+                        padding-left: 0;
+
+                        &:before {
+                            display: none;
+                        }
+                    }
+
+                    a {
+                        display: block;
+                        font-size: 13px;
+                        color: $grey800;
+                        line-height: 18px;
+
+                        &.bold {
+                            color: $black;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__desc {
+            position: relative;
+            padding: 42px 0;
+            background: #f7f7f7;
+            
+            .footer {
+                &__sns {
+                    max-width: 1280px;
+                    margin: 0 auto 16px;
+
+                    &__box {
+                        font-size: 0;
+                    }
+
+                    &__list {
+                        display: inline-block;
+                        margin-left: 20px;
+                        vertical-align: top;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                        a {
+                            display: block;
+                        }
+                    }
+                }
+
+                &__btm {
+                    position: relative;
+                    max-width: 1280px;
+                    margin: 0 auto;
+                }
+
+                &__info {
+                    &__sec {
+                        margin-top: 5px;
+                        font-size: 0;
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+
+                        span {
+                            display: inline-block;
+                            position: relative;
+                            font-size: 12px;
+                            color: $grey800;
+                            line-height: 16px;
+                            vertical-align: middle;
+
+                            &:not(:first-child) {
+                                margin-left: 9px;
+                                padding-left: 10px;
+
+                                &:before {
+                                    content: '';
+                                    display: block;
+                                    position: absolute;
+                                    z-index: 1;
+                                    top: 50%;
+                                    left: 0;
+                                    width: 1px;
+                                    height: 10px;
+                                    margin-top: -5px;
+                                    background: $grey200;
+                                }
+                            }
+                        }
+
+                        .company__register__link {
+                            display: inline-block;
+                            position: relative;
+                            height: 21px;
+                            margin-left: 10px;
+                            padding: 0 14px 0 8px;
+                            border: 1px solid $grey400;
+                            border-radius: 4px;
+                            background: $white;
+                            font-size: 11px;
+                            color: $grey800;
+                            line-height: 19px;
+                            vertical-align: middle;
+
+                            &:before {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                z-index: 1;
+                                top: 50%;
+                                right: 6px;
+                                width: 6px;
+                                height: 6px;
+                                margin-top: -3px;
+                                background: url(../images/layout/ico_footer_arrow.png) no-repeat 0 0;
+                            }
+                        }
+                    }
+
+                    .copy {
+                        margin-top: 20px;
+                        font-size: 11px;
+                        color: $grey600;
+                        line-height: 16px;
+                    }
+                }
+
+                &__customer {
+                    position: absolute;
+                    z-index: 1;
+                    top: -25px;
+                    right: 0;
+
+                    &__phone {
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        color: $grey800;
+
+                        em {
+                            display: inline-block;
+                            font: {
+                                size: 22px;
+                                weight: 600;
+                            };
+                            vertical-align: baseline;
+                        }
+
+                        a {
+                            display: inline-block;
+                            position: relative;
+                            height: 21px;
+                            margin-left: 10px;
+                            padding: 0 14px 0 8px;
+                            border: 1px solid $grey400;
+                            border-radius: 4px;
+                            background: $white;
+                            font-size: 11px;
+                            color: $grey800;
+                            line-height: 19px;
+                            vertical-align: 5px;
+
+                            &:before {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                z-index: 1;
+                                top: 50%;
+                                right: 6px;
+                                width: 6px;
+                                height: 6px;
+                                margin-top: -3px;
+                                background: url(../images/layout/ico_footer_arrow.png) no-repeat 0 0;
+                            }
+                        }
+                    }
+
+                    &__txt {
+                        display: block;
+                        font-size: 14px;
+                        color: $grey800;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+    }
+    // #endregion
+
+    // #region 네이버 톡톡
+    .pub-talktalk {
+        position: fixed;
+        right: 50%;
+        bottom: 40px;
+        margin-right: -850px;
+        width: 195px;
+        z-index: 1;
+        &.fix {
+            bottom: 210px;
+        }
+        &__btn {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            font: 0/0 a;
+            background: url("../images/common/sp_talkbanner.png") -40px -28px no-repeat;
+        }
+
+        &__wrap {
+            display: none;
+            margin-left: calc(-100% + 30px);
+        }
+    }
+    // #endregion
+
+    // #region 좌측메뉴 없는 레이아웃
+    &__layout__nomenu-type {
+        width: $width;
+        margin: 0 auto;
+        padding-bottom: 140px;
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    // #endregion
+
+    // #region 좌측메뉴 있는 레이아웃
+    &__layout__leftmenu-type {
+        width: $width;
+        margin: 80px auto 0;
+        padding-bottom: 140px;
+        @extend %clear;
+
+        .layout-lnb {
+            float: left;
+            width: 170px;
+        }
+        
+        .layout-content {
+            float: right;
+            width: 1060px;
+        }
+        
+    }  
+    // #endregion
+
+    // #region 마이페이지 좌측 메뉴
+    &__left-nav {
+        &__title {
+            color: $black;
+            font: {
+                width: 600;
+                size: 28px;
+            }
+
+            .nonMem-title {
+                font-size: 26px;
+            }
+        }
+
+        &__subtitle {
+            color: $black;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        &__box {
+            margin-top: 40px;
+        }
+
+        &__link {
+            margin-bottom: 32px;
+            a {
+                display: block;
+                color: $black;
+                font-size: 16px;
+                font-family: $font_n;
+                &.on,
+                &.on>span {
+                    color: $pcolor;
+                }
+                span {
+                    display: block;
+                    color: $grey800;
+                    font-size: 13px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+    // #endregion
+
+    // #region 상품 공통타입
+    &__items {
+        font-size: 0;
+
+        @for $col from 1 through 6 {
+            // 상품 01(리스트 타입)
+            &.listType#{$col} {
+                margin: 0 -10px;
+
+                .item__box {
+                    margin: 50px 10px 0;
+                    width: calc(#{100% / $col} - 20px);
+
+                    &:nth-child(-n + #{$col}) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+
+        // 상품 02()
+        &.galleryType {
+
+        }
+
+        &.cardType {
+            .item {
+                &__link {
+                    display: inline-block;
+                    font-size: 0;
+                }
+                
+                &__box {
+                    width: auto;
+                    padding: 20px 0;
+                    border-bottom: 1px solid $grey100;
+                }
+
+                &__thumb {
+                    display: inline-block;
+                    width: 90px;
+                    height: 90px;
+                    vertical-align: top;
+                }
+
+                &__info {
+                    display: inline-block;
+                    margin-left: 30px;
+                    padding-top: 0;
+                    width: 210px;
+                    vertical-align: top;
+                }
+
+                &__brand {
+                    max-width: 200px;
+                }
+
+                &__name {
+                    max-width: 140px;
+                    @include line(2);
+                }
+
+                &__price {
+                    height: auto;
+                    margin-top: 14px;
+
+                    &--strike {
+                        margin-right: 10px;
+                    }
+
+                    &--current {
+                        display: inline-block;
+                        position: static;
+                        line-height: 19px;
+                        vertical-align: bottom;
+                    }
+                }
+
+                &__wishBox { 
+                    position: relative;
+                    display: inline-block;
+                    //width, height 커스텀 
+                    width: 80px;
+                    height: 90px;
+                    border-left: 1px solid $grey100;
+                    box-sizing: border-box;
+                    vertical-align: top;
+                }
+
+                &__wish {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 16px;
+                    height: 15px;
+                    background: url("../images/common/icon-item-wish-noback.png") no-repeat 0 0;
+                    transform: translate(-50%, -50%);
+    
+                    &.on {
+                        width: 15px;
+                        height: 14px;
+                        background-image: url("../images/common/icon-item-wish-noback-on.png");
+                    }
+                }
+            }
+        }
+
+        //기본
+        .item {
+            &__box {
+                position: relative;
+                display: inline-block;
+                vertical-align: top;
+
+                .fb__checkbox {
+                    margin-bottom: 10px;
+                }
+            }
+
+            &__link {
+                display: block;
+            }
+            
+            &__thumb {
+                width: 100%;
+                font-size: 0;
+                line-height: 0;
+                @include imageResize("width");
+
+                &:after {
+                    display: block;
+                    padding-bottom: 100%;
+                    content: "";
+                }
+            }
+
+            &__wish {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                width: 30px;
+                height: 30px;
+                background: url("../images/common/icon-item-wish.png") no-repeat 0 0;
+                font: 0/0 a;
+
+                &.on {
+                    background-image: url("../images/common/icon-item-wish-on.png");
+                }
+            }
+
+            &__info {
+                padding-top: 15px;
+                font-size: 0;
+            }
+
+            &__brand {
+                display: block;
+                height: 16px;
+                margin-bottom: 2px;
+                color: $black;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 16px;
+                @include line();
+            }
+             
+            &__name {
+                display: block;
+                height: 40px;
+                color: $grey800;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 20px;
+                @include line(2);
+            }
+
+            &__price {
+                display: block;
+                position: relative;
+                height: 44px;
+                margin-top: 10px;
+                color: $black;
+                font-size: 0;
+
+                &--soldout {
+                    color: $grey600;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+
+                &--perc {
+                    display: inline-block;
+                    margin-right: 7px;
+                    color: $pcolor;
+                    font: {
+                        size: 14px;
+                        weight: 600;
+                    };
+                    line-height: 19px;
+                    vertical-align: middle;
+
+                    em {
+                        font: {
+                            weight: 400;
+                            size: 14px;
+                        };
+                    }
+                }
+
+                &--strike {
+                    display: inline-block;
+                    color: $grey600;
+                    font-size: 14px;
+                    line-height: 19px;
+                    text-decoration: line-through;
+                    vertical-align: bottom;
+
+                    em {
+                        font-weight: 400;
+                        font-size: 14px;
+                    }
+                }
+
+                &--current {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    color: $black;
+                    font-size: 13px;
+                    line-height: 1;
+
+                    em {
+                        font-family: $font_n;
+                        font-weight: bold;
+                        font-size: 19px;
+                    }
+                }
+            }
+
+            &__badge {
+                margin-top: 15px;
+                font-size: 0;
+
+                //이미지 뱃지
+                img {
+                    display: inline-block;
+                    width: auto;
+                    height: 25px;
+                    margin-left: 4px;
+                    vertical-align: top;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+
+                //텍스트 뱃지
+                span {
+                    display: inline-block;
+                    height: 25px;
+                    margin-left: 4px;
+                    padding: 0 9px;
+                    border: 1px solid $grey200;
+                    color: $grey800;
+                    font: {
+                        weight: normal;
+                        size: 14px;
+                    };
+                    line-height: 25px;
+                    vertical-align: top;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    // #endregion
+
+    // #region 주문 공통타입
+    &__order {
+
+    }
+    // #endregion
+
+    // #region 버튼 공통타입
+    &__button {
+        &.center {
+            text-align: center;
+            font-size: 0;
+        }
+
+        button, a {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        &.type {
+            //한줄에 2개인경우
+            &--or {
+                text-align: center;
+
+                button,
+                a {
+                    margin: 0 5px;
+                }
+            }
+        }        
+
+        .size {
+            &--01 {
+                padding: 5px 15px;
+                font-size: 13px;
+                line-height: 19px;
+            }
+
+            &--02 {
+                padding: 8px 18px;
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            &--03 {
+                // padding: 10px 30px;
+                padding: 10.5px 30px 9.5px;
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            &--04 { 
+                padding: 14px 60px;
+                font-size: 18px;
+                line-height: 27px;
+            }
+
+            &--05 {
+                padding: 16px 106px;
+                font-size: 18px;
+                line-height: 27px;
+            }
+        }
+        
+        .border {
+            &--ccc {
+                border: 1px solid $grey400;
+                color: $grey800;
+            }
+
+            &--point {
+                border: 1px solid $pcolor; 
+                color: $pcolor;
+            }
+        }
+
+        .bg {
+            &--666 {
+                background: $grey800;
+                border: 1px solid $grey800; 
+                color: $white;
+            }
+
+            &--point {
+                background: $pcolor;
+                border: 1px solid $pcolor; 
+                color: $white;
+            }
+
+            //disabled 케이스
+            &--eee {
+                background: #eee;
+                border: 1px solid $grey400;
+                color: $grey600;
+            }
+        }
+    }
+    // #endregion
+
+    // #region sns 공통
+    &__sns {
+        &__wrapper {
+            display: none;
+            position: absolute;
+            z-index: 2;
+            top: 47px;
+            right: 0;
+            width: 280px;
+            border: 1px solid $black;
+            background: $white;
+
+            &.show {
+                display: block;
+            }
+        }
+
+        &__header {
+            position: relative;
+            height: 50px;
+            padding: 0 20px;
+            border-bottom: 1px solid $grey200;
+            line-height: 49px;
+        }
+        
+        &__title {
+            color: $black;
+            font-size: 14px;
+        }
+
+        &__close {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            width: 10px;
+            height: 10px;
+            margin-top: -5px;
+            padding: 0;
+            background: url(../images/common/btn_goodsView_popup_close.png) no-repeat center / 10px 10px;
+            font-size: 0;
+        }
+
+        &__content {
+            padding: 20px 0;
+        }
+
+        &__box {
+            margin: 0 -10px;
+            font-size: 0;
+            text-align: center;
+        }
+
+        &__list {
+            display: inline-block;
+            width: 48px;
+            margin: 0 10px;
+            vertical-align: top;
+        }
+
+        &__btn {
+            width: 48px;
+            height: 48px;
+            padding: 0;
+
+            &--kakao {
+                background: url(../images/common/icon_goodsView_sns_kakao.png) no-repeat 0 0;
+            }
+
+            &--facebook {
+                background: url(../images/common/icon_goodsView_sns_facebook.png) no-repeat 0 0;
+            }
+
+            &--url {
+                background: url(../images/common/icon_goodsView_sns_link.png) no-repeat 0 0;
+            }
+        }
+    }
+    // #endregion
+
+    // #region 커스텀스크롤 CSS
+    .scroll-wrapper {
+        overflow: hidden !important;
+        position: relative;
+        padding: 0 !important;
+    }
+    
+    .scroll-wrapper > .scroll-content {
+        overflow: scroll !important;
+        position: relative !important;
+        width: auto !important;
+        max-width: none !important;
+        max-width: auto !important;
+        height: auto;
+        max-height: none;
+        margin: 0;
+        padding: 0;
+        border: none !important;
+        box-sizing: content-box !important;
+
+        &::-webkit-scrollbar {
+            height: 0;
+            width: 0;
+        }
+    }
+    
+    .scroll-wrapper > .scroll-content::-webkit-scrollbar {
+        height: 0;
+        width: 0;
+    }
+    
+    .scroll-element {
+        display: none;
+    }
+    .scroll-element, .scroll-element div {
+        box-sizing: content-box;
+    }
+    
+    .scroll-element.scroll-x.scroll-scrollx_visible,
+    .scroll-element.scroll-y.scroll-scrolly_visible {
+        display: block;
+    }
+    
+    .scroll-element .scroll-bar,
+    .scroll-element .scroll-arrow {
+        cursor: default;
+    }
+    
+    .scroll-textarea {
+        border: 1px solid #cccccc;
+        border-top-color: #999999;
+    }
+
+    .scroll-textarea > .scroll-content {
+        overflow: hidden !important;
+    }
+
+    .scroll-textarea > .scroll-content > textarea {
+        overflow: scroll !important;
+        position: relative !important;
+        top: 0;
+        width: 100% !important;
+        max-width: none !important;
+        height: 100% !important;
+        max-height: none !important;
+        margin: 0;
+        padding: 2px;
+        border: none !important;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    .scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    .scroll-element.scroll-y {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        width: 5px;
+        height: 100%;
+
+        div {
+            display: block;
+        }
+
+        .scroll-element_outer {
+            width: 100%;
+            height: 100%;
+
+            > div {
+                position: absolute;
+            }
+        }
+
+        .scroll-element_size {
+            width: 100%;
+            height: 100%;
+        }
+
+        // 스크롤바 배경
+        .scroll-element_track {
+            width: 5px;
+            height: 100%;
+            background: rgba(0, 0, 0, .09);
+        }
+        
+        // 스크롤바 막대
+        .scroll-bar {
+            width: 5px;
+            height: 100%;
+            background: rgba(0, 0, 0, .2);
+        }
+    }
+    // #endregion
+
+    // #region 자동완성
+    .ui-menu {
+        display: block;
+        position: absolute;
+        z-index: 13;
+        top: 0;
+        left: 0;
+        max-width: 450px;
+        padding: 20px;
+
+        &-item {
+            margin-top: 10px;
+            font-size: 14px;
+            color: $grey800;
+            letter-spacing: -0.025rem;
+            @include line();
+            
+            &:first-child {
+                margin-top: 0;
+            }
+
+            span {
+                color: #FF6600 !important;
+            }
+        }
+    }
+    // #endregion
+
+    // #region 멀티모달
+    &__multiModal {
+        $dimBackground: rgba($black, 0.6);
+
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 200;
+        width: 100%;
+        height: 100%;
+
+        &.active {
+            display: block;
+        }
+
+        &__dim {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background: $dimBackground;
+        }
+
+        &__content {
+            overflow: hidden;
+            background: $white;
+
+            .content {
+                &__header {
+                    position: relative;
+                    width: 100%;
+                    padding: 25px 64px 25px 30px;
+                    border-bottom: 1px solid #e5e5e5;
+
+                    &__title {
+                        display: block;
+                        font-size: 24px;
+                        font-weight: 400;
+                        line-height: 34px;
+                        @include line(1);
+                    }
+                }
+
+                &__btn-close {
+                    position: absolute;
+                    top: 30px;
+                    right: 30px;
+                    width: 24px;
+                    height: 24px;
+                    font-size: 0;
+                    cursor: pointer;
+                    background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m2 2 20 20M22 2 2 22' stroke='%23111' stroke-width='1.4' stroke-linecap='square'/%3E%3C/svg%3E%0A");
+                }
+
+                &__wrapper {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    // #endregion
+}
