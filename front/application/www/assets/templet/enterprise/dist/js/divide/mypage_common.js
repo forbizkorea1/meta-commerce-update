@@ -61,27 +61,26 @@
                 $('#devEdate').val($this.data('edate'));
                 $('#devStatus').val('all');
                 $('#devPname').val('');
+                $('[data-checkbox-default]').each((index, el) => {
+                    const $el = $(el);
+                    const defaultValue = $el.data('checkbox-default');
+                    $el.prop('checked', defaultValue);
+                });
+                $('[data-select-default]').each((index, el) => {
+                    const $el = $(el);
+                    const defaultValue = $el.data('select-default');
+                    $el.val(defaultValue);
+                });
             })
-            .on("click", "#devBtnReset", function(){
-                //검색조건 초기화(체크박스)
-                $("#devSdate").val($("#sDateDef").val());
-                $("#devEDate").val($("#eDateDef").val());
-                $(".devDateBtn").removeClass("day-radio--active");
-                $("#devDateDefault").addClass("day-radio--active");
-                $("input:checkbox[name^=s]").prop("checked", true);
-                $("#devBbsDiv").val("");
-
-                return false;
-            });
     }
 
-    const mypage_datepicker = () => {
+    const mypage_datepicker = (dateFormat = 'yy.mm.dd') => {
 
         $("#devSdate").datepicker({
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            // monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            // dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
             showMonthAfterYear: true,
-            dateFormat: 'yy.mm.dd',
+            dateFormat: dateFormat,
             buttonImageOnly: true,
             buttonText: '달력',
             onSelect: function (dateText) {
@@ -97,10 +96,10 @@
         });
 
         $('#devEdate').datepicker({
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            // monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            // dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
             showMonthAfterYear: true,
-            dateFormat: 'yy.mm.dd',
+            dateFormat: dateFormat,
             buttonImageOnly: true,
             buttonText: '달력',
             onSelect: function (dateText) {

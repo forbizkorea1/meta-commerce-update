@@ -1,0 +1,789 @@
+@charset "UTF-8";
+/* node_modules */
+/* 공통 */
+/* rem-baseline 재선언(브라우저에서 확인 쉽게 처리 ex. rem(48px) => 2.4rem으로 노출처리 ) */
+/* rem 사용시 html에 있는 font-size: 100% 제거 필요 */
+/* customer */
+.fb {
+  /* 고객센터 자주묻는질문,공지사항 타이틀 공통 */
+}
+
+.fb#customer_faq .faq__list:last-child {
+  border-bottom: 0.26667vw solid #eee;
+}
+
+.fb .customer__title {
+  display: block;
+  position: relative;
+  padding: 0 4vw;
+  border-bottom: 0.26667vw solid #EEE;
+  color: #111;
+  font-size: 4.26667vw;
+  font-weight: 600;
+  line-height: 14.66667vw;
+}
+
+.fb .customer__title:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 1.06667vw;
+  top: 50%;
+  width: 8vw;
+  height: 8vw;
+  background: url(../../images/customer/ico_customer_right-arrow.png) no-repeat 0 0/8vw 8vw;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+}
+
+.fb .customer__title.bdbx {
+  border-bottom: 0;
+}
+
+.fb__customer .customer__search {
+  padding: 0 4vw;
+}
+
+.fb__customer .customer__search__box {
+  position: relative;
+  margin-bottom: 2.66667vw;
+}
+
+.fb__customer .customer__search__title {
+  position: relative;
+  padding: 4.26667vw 0 3.2vw;
+}
+
+.fb__customer .customer__search__title span {
+  display: block;
+  color: #111;
+  font-size: 4.26667vw;
+  font-weight: 600;
+}
+
+.fb__customer .customer__search__title .title {
+  display: block;
+  position: absolute;
+  right: -2.13333vw;
+  top: 50%;
+  width: 8vw;
+  height: 8vw;
+  background: url(../../images/customer/ico_customer_right-arrow.png) no-repeat 0 0/100% auto;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+}
+
+.fb__customer .customer__search__input {
+  position: relative;
+  border: 0.26667vw solid #111;
+}
+
+.fb__customer .customer__search__input::-webkit-input-placeholder {
+  font-size: 3.46667vw;
+  color: #999;
+}
+
+.fb__customer .customer__search__input:-ms-input-placeholder {
+  font-size: 3.46667vw;
+  color: #999;
+}
+
+.fb__customer .customer__search__input::-ms-input-placeholder {
+  font-size: 3.46667vw;
+  color: #999;
+}
+
+.fb__customer .customer__search__input::placeholder {
+  font-size: 3.46667vw;
+  color: #999;
+}
+
+.fb__customer .customer__search__btn {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 4vw;
+  width: 5.33333vw;
+  height: 5.33333vw;
+  margin-top: -2.66667vw;
+  background: url(../../images/customer/ico__fqa__search.png) no-repeat 0 0/100% auto;
+}
+
+.fb__customer .wrap-sect {
+  height: 2.66667vw;
+}
+
+.fb__customer__info {
+  padding: 6.13333vw 0 0 0;
+  text-align: center;
+}
+
+.fb__customer__info .info__title {
+  font-weight: 600;
+  font-size: 4.26667vw;
+  line-height: 6.4vw;
+}
+
+.fb__customer__info .info__title:before {
+  content: '';
+  display: block;
+  width: 8.93333vw;
+  height: 7.73333vw;
+  margin: 0 auto 1.06667vw;
+  background: url(../../images/icon/m_sprite_icon.png) no-repeat 0 -11.33333vw;
+  background-size: 134vw;
+}
+
+.fb__customer__info .info__phone {
+  color: #ff6600;
+  font-family: "Rb", "Notosans", sans-serif;
+  font-size: 9.06667vw;
+  font-weight: 600;
+  line-height: 12vw;
+}
+
+.fb__customer__info .info__time {
+  padding-top: 2.66667vw;
+  font-size: 3.73333vw;
+  font-weight: 400;
+  color: #111;
+  line-height: 5.06667vw;
+}
+
+.fb__customer__info .info__weekend {
+  color: #111;
+  font-size: 3.73333vw;
+  font-weight: 400;
+  line-height: 5.33333vw;
+}
+
+.fb__customer__info .info__bottom {
+  margin-top: 8vw;
+  font-size: 0;
+}
+
+.fb__customer__info .info__bottom a {
+  display: inline-block;
+  width: 44.66667vw;
+  height: 12vw;
+  margin-left: 2.66667vw;
+  border: 0.26667vw solid #EEE;
+  color: #111;
+  font-size: 3.46667vw;
+  line-height: 11.46667vw;
+  vertical-align: middle;
+}
+
+.fb__customer__info .info__bottom a:first-child {
+  margin-left: 0;
+}
+
+.fb__customer__faq .faq__list {
+  position: relative;
+  border-bottom: 0.26667vw solid #eee;
+}
+
+.fb__customer__faq .faq__list:last-child {
+  border-bottom: none;
+}
+
+.fb__customer__faq .faq__list__ques {
+  position: relative;
+  padding: 4.8vw 12vw 4.26667vw 13.33333vw;
+}
+
+.fb__customer__faq .faq__list__ques:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4vw;
+  left: 4vw;
+  width: 6.4vw;
+  height: 6.4vw;
+  background: url(../../images/common/ico_comm_question.png) no-repeat 0 0/6.4vw 6.4vw;
+}
+
+.fb__customer__faq .faq__list__ques:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 2.66667vw;
+  width: 6.4vw;
+  height: 6.4vw;
+  margin-top: -3.2vw;
+  background: url(../../images/customer/ico_customer_down-arrow.png) no-repeat 0 0/6.4vw 6.4vw;
+}
+
+.fb__customer__faq .faq__list__ques.open:after {
+  background: url(../../images/customer/ico_customer_up-arrow.png) no-repeat 0 0/6.4vw 6.4vw;
+}
+
+.fb__customer__faq .faq__list__ques.open + .faq__list__anwser {
+  display: block;
+}
+
+.fb__customer__faq .faq__list__type {
+  display: block;
+  margin-bottom: 1.33333vw;
+  color: #111;
+  font-size: 3.46667vw;
+  font-weight: 600;
+  line-height: 4.8vw;
+}
+
+.fb__customer__faq .faq__list__title {
+  color: #111;
+  font-size: 3.46667vw;
+  font-weight: 400;
+  line-height: 4.8vw;
+}
+
+.fb__customer__faq .faq__list__title strong {
+  font-weight: 400;
+  color: #ff6600;
+}
+
+.fb__customer__faq .faq__list__anwser {
+  display: none;
+  position: relative;
+  padding: 4.8vw 12vw 4.8vw 13.33333vw;
+  background: #f8f8f8;
+  border-top: 0.26667vw solid #eee;
+  font-size: 3.46667vw;
+  line-height: 4.8vw;
+}
+
+.fb__customer__faq .faq__list__anwser:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4vw;
+  left: 4vw;
+  width: 6.4vw;
+  height: 6.4vw;
+  background: url(../../images/common/ico_comm_answer.png) no-repeat 0 0/100% auto;
+}
+
+.fb__customer__faq .faq__list__anwser strong {
+  font-weight: 400;
+  color: #ff6600;
+}
+
+.fb .input-search {
+  overflow: hidden;
+  position: relative;
+}
+
+.fb .input-search input[type='text'].input-faq {
+  border: 0.26667vw solid #111;
+}
+
+.fb .input-search input[type='text'].input-faq::-webkit-input-placeholder {
+  color: #999;
+}
+
+.fb .input-search input[type='text'].input-faq:-ms-input-placeholder {
+  color: #999;
+}
+
+.fb .input-search input[type='text'].input-faq::-ms-input-placeholder {
+  color: #999;
+}
+
+.fb .input-search input[type='text'].input-faq::placeholder {
+  color: #999;
+}
+
+.fb .input-search .icon-btn-search {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 4vw;
+  width: 5.33333vw;
+  height: 5.33333vw;
+  margin-top: -2.66667vw;
+  background: url(../../images/customer/ico__fqa__search.png) no-repeat 0 0/100% auto;
+}
+
+.fb .wrap-notice {
+  padding: 0 4vw;
+}
+
+.fb .wrap-notice .count {
+  padding: 4vw 0;
+  border-bottom: 0.26667vw solid #EEE;
+  font-size: 3.73333vw;
+  color: #111;
+}
+
+.fb .wrap-notice .count em {
+  font-size: 3.73333vw;
+  color: #ff6600;
+}
+
+.fb .wrap-notice__list {
+  padding: 4vw 0;
+  border-bottom: 0.26667vw solid #EEE;
+}
+
+.fb .wrap-notice__list .tag {
+  display: inline-block;
+  width: 16vw;
+  height: 6.66667vw;
+  margin-bottom: 2.66667vw;
+  border: 0.26667vw solid #ff6600;
+  font-size: 3.2vw;
+  text-align: center;
+  line-height: 6.13333vw;
+  color: #ff6600;
+}
+
+.fb .wrap-notice__list .title {
+  font-size: 3.46667vw;
+  color: #111;
+  line-height: 4.53333vw;
+}
+
+.fb .wrap-notice__list .date {
+  font-size: 3.2vw;
+  color: #999;
+  font-family: 'Rb';
+  margin-top: 2vw;
+  display: inline-block;
+}
+
+.fb .wrap-notice .wrap-btn-area {
+  margin-top: 5.33333vw;
+  padding: 0;
+}
+
+.fb .wrap-notice .btn-more-view {
+  margin-bottom: 10.66667vw;
+}
+
+.fb .wrap-notice-detail {
+  padding: 0 4vw 13.33333vw;
+}
+
+.fb .wrap-notice-detail .title-area {
+  padding: 4vw 0;
+  border-bottom: 0.26667vw solid #EEE;
+}
+
+.fb .wrap-notice-detail .title-area .tag {
+  display: inline-block;
+  width: 16vw;
+  height: 6.66667vw;
+  margin-bottom: 2.66667vw;
+  border: 0.26667vw solid #ff6600;
+  font-size: 3.2vw;
+  color: #ff6600;
+  line-height: 6.13333vw;
+  text-align: center;
+}
+
+.fb .wrap-notice-detail .title-area .title {
+  font-size: 4vw;
+  color: #111;
+  font-weight: 600;
+}
+
+.fb .wrap-notice-detail .title-area .date {
+  font-size: 3.2vw;
+  color: #999;
+  font-family: 'Rb';
+  margin-top: 1.73333vw;
+  display: inline-block;
+}
+
+.fb .wrap-notice-detail .content-area {
+  padding: 4vw 0 8vw;
+  border-bottom: 0.26667vw solid #EEE;
+  font-size: 3.46667vw;
+  line-height: 4.53333vw;
+}
+
+.fb .wrap-notice-detail .content-area__text {
+  white-space: pre-line;
+}
+
+.fb .wrap-notice-detail .content-area .file {
+  display: block;
+  padding-top: 6.66667vw;
+  line-height: 4vw;
+}
+
+.fb .wrap-notice-detail .content-area .file a {
+  position: relative;
+  padding-left: 2.66667vw;
+}
+
+.fb .wrap-notice-detail .content-area .file a span {
+  font-size: 3.2vw;
+  border-bottom: 0.26667vw solid #666;
+  color: #666;
+}
+
+.fb .wrap-notice-detail .content-area .file a:before {
+  content: '';
+  position: absolute;
+  top: 0.66667vw;
+  left: 0;
+  width: 3.2vw;
+  height: 4vw;
+  background: url(../../images/icon/m_sprite_icon.png) no-repeat -120vw -26.66667vw;
+  background-size: 133.33333vw;
+  vertical-align: middle;
+}
+
+.fb .wrap-notice-detail .wrap-btn-area {
+  margin-top: 8vw;
+}
+
+.fb .wrap-notice-detail .wrap-btn-area button {
+  float: inherit;
+  text-align: center;
+  font-size: 4vw;
+}
+
+.fb .wrap-faq .wrap-search {
+  padding: 4vw;
+}
+
+.fb .wrap-faq .count {
+  padding: 4vw;
+  border-bottom: 0.26667vw solid #EEE;
+  font-size: 3.46667vw;
+  color: #111;
+}
+
+.fb .wrap-faq .count em {
+  color: #ff6600;
+}
+
+.fb .wrap-faq .count strong {
+  color: #ff6600;
+}
+
+.fb .wrap-faq .wrap-faq-tab {
+  padding: 0 4vw 4vw;
+  font-size: 0;
+}
+
+.fb .wrap-faq .wrap-faq-tab a {
+  display: inline-block;
+  position: relative;
+  width: calc(33.333% + 0.26667vw);
+  min-height: 12vw;
+  margin: -0.26667vw 0 0 -0.26667vw;
+  padding-top: 4vw;
+  border: 0.26667vw solid #ccc;
+  font-size: 3.2vw;
+  color: #666;
+  text-align: center;
+  vertical-align: top;
+}
+
+.fb .wrap-faq .wrap-faq-tab a:nth-child(-n + 3) {
+  margin-top: 0;
+}
+
+.fb .wrap-faq .wrap-faq-tab a:nth-child(3n + 1) {
+  width: 33.333%;
+  margin-left: 0;
+}
+
+.fb .wrap-faq .wrap-faq-tab a.on {
+  position: relative;
+  z-index: 1;
+  border: 0.26667vw solid #ff6600;
+  background: #ff6600;
+  color: #fff;
+}
+
+.fb .wrap-faq .wrap-btn-area {
+  margin: 5.33333vw 0 13.33333vw;
+  padding: 0 4vw;
+}
+
+.fb .wrap-inquiry {
+  width: 92vw;
+  margin: 0 auto;
+  padding-top: 5.33333vw;
+}
+
+.fb .wrap-inquiry select {
+  color: #111;
+}
+
+.fb .wrap-inquiry input, .fb .wrap-inquiry textarea {
+  color: #111;
+}
+
+.fb .wrap-inquiry input::-webkit-input-placeholder, .fb .wrap-inquiry textarea::-webkit-input-placeholder {
+  color: #999;
+}
+
+.fb .wrap-inquiry input:-ms-input-placeholder, .fb .wrap-inquiry textarea:-ms-input-placeholder {
+  color: #999;
+}
+
+.fb .wrap-inquiry input::-ms-input-placeholder, .fb .wrap-inquiry textarea::-ms-input-placeholder {
+  color: #999;
+}
+
+.fb .wrap-inquiry input::placeholder, .fb .wrap-inquiry textarea::placeholder {
+  color: #999;
+}
+
+.fb .wrap-inquiry .inquiry-info {
+  color: #111;
+  font-size: 3.2vw;
+  line-height: 4.8vw;
+}
+
+.fb .wrap-inquiry .inquiry-info p {
+  color: #666;
+}
+
+.fb .wrap-inquiry .inquiry-info p em {
+  display: inline-block;
+  width: 1.46667vw;
+  height: 2.26667vw;
+  background: url(../../images/icon/m_sprite_icon.png) -53.33333vw -53.33333vw;
+  background-size: 133.33333vw;
+  opacity: 0.5;
+}
+
+.fb .wrap-inquiry .column-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 2.66667vw;
+}
+
+.fb .wrap-inquiry .flex-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fb .wrap-inquiry .flex-layout .order__number {
+  width: 66.66667vw;
+}
+
+.fb .wrap-inquiry .flex-layout .order__number:-moz-read-only {
+  color: #999;
+  background: #f8f8f8;
+}
+
+.fb .wrap-inquiry .flex-layout .order__number:read-only {
+  color: #999;
+  background: #f8f8f8;
+}
+
+.fb .wrap-inquiry .flex-layout .order__btn {
+  margin-left: 2.66667vw;
+  width: 22.66667vw;
+  background: #666;
+}
+
+.fb .wrap-inquiry .flex-layout .mail__input {
+  width: 42.66667vw;
+}
+
+.fb .wrap-inquiry .flex-layout .mail__at {
+  width: 6.66667vw;
+}
+
+.fb .wrap-inquiry .wrap-address-add {
+  padding: 0;
+}
+
+.fb .wrap-inquiry .alert-anwser {
+  margin-top: 4vw;
+}
+
+.fb .wrap-inquiry .textarea-input {
+  width: 92vw;
+  height: 53.33333vw;
+  margin-top: 2.66667vw !important;
+}
+
+.fb .wrap-inquiry .wrap-input-form {
+  margin-bottom: 8vw;
+  padding-top: 5.33333vw;
+}
+
+.fb .wrap-inquiry .wrap-upload {
+  overflow: hidden;
+}
+
+.fb .wrap-inquiry .wrap-upload .wrap-file {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  width: 17.33333vw;
+  height: 17.33333vw;
+  margin-right: 1.33333vw;
+  border: 0.26667vw solid #ddd;
+  font-size: 0;
+}
+
+.fb .wrap-inquiry .wrap-upload .wrap-file .file-upload-btn {
+  border: 0;
+}
+
+.fb .wrap-inquiry .wrap-upload .wrap-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fb .wrap-inquiry .wrap-upload ~ .desc {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  color: #666;
+  font-size: 3.2vw;
+  display: block;
+}
+
+.fb#customer_qna .popup-content {
+  padding: 0;
+}
+
+.fb .popup-order-check ul {
+  padding-bottom: 4vw;
+}
+
+.fb .popup-order-check ul li {
+  margin-bottom: 2.66667vw;
+  cursor: pointer;
+}
+
+.fb .popup-order-check ul li .top {
+  border-top: 0.26667vw solid #EEE;
+  background: #f5f5f5;
+  padding: 3.06667vw 3.33333vw;
+  font-family: 'Rb';
+  font-size: 3.46667vw;
+  color: #666;
+  margin-bottom: 2.66667vw;
+}
+
+.fb .popup-order-check ul li .top .order-num {
+  color: #666;
+}
+
+.fb .popup-order-check ul li .top .order-num:before {
+  content: '';
+  display: inline-block;
+  width: 0.13333vw;
+  height: 2.26667vw;
+  background: #ddd;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.fb .popup-order-check ul li .item .thumb {
+  position: relative;
+  width: 16vw;
+  height: 16vw;
+  float: left;
+}
+
+.fb .popup-order-check ul li .item .info {
+  padding-left: 18.66667vw;
+  line-height: 4vw;
+  color: #111;
+  font-size: 3.2vw;
+}
+
+.fb .popup-order-check ul li .item .info .price {
+  margin-top: 4.8vw;
+}
+
+.fb .popup-order-check ul li .item .info .price strong {
+  font-family: 'Rb';
+  font-size: 3.46667vw;
+  font-weight: 600;
+}
+
+.fb .order-check__list {
+  border-bottom: 0.26667vw solid #eee;
+}
+
+.fb .order-check__top {
+  position: relative;
+  height: 12vw;
+  padding: 0 4vw;
+  background: #f8f8f8;
+  line-height: 12vw;
+}
+
+.fb .order-check__top .date {
+  display: inline-block;
+  margin-right: 1.33333vw;
+  font-size: 3.46667vw;
+  color: #121212;
+}
+
+.fb .order-check__top .order-num {
+  display: inline-block;
+  position: relative;
+  color: #999;
+  font-size: 3.46667vw;
+}
+
+.fb .order-check__top .m_selbtn {
+  position: absolute;
+  top: 50%;
+  right: 4vw;
+  width: 14.66667vw;
+  height: 8vw;
+  padding: 0 2vw;
+  color: #121212;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+}
+
+.fb .order-check__detail {
+  padding: 5.33333vw 5.33333vw 5.33333vw 4vw;
+  font-size: 0;
+}
+
+.fb .order-check__detail .thumb {
+  display: inline-block;
+  width: 18.66667vw;
+  height: 18.66667vw;
+}
+
+.fb .order-check__detail .info {
+  display: inline-block;
+  width: calc(100% - 21.333vw);
+  margin-left: 2.66667vw;
+  vertical-align: top;
+}
+
+.fb .order-check__detail .info__title {
+  font-size: 3.46667vw;
+  color: #121212;
+  line-height: 3.73333vw;
+}
+
+.fb .order-check__detail .info__price {
+  margin-top: 4vw;
+  font-size: 3.2vw;
+  color: #121212;
+}
+
+.fb .order-check__detail .info__price em {
+  margin-left: 2.66667vw;
+  font-size: 4.53333vw;
+  font-weight: bold;
+  font-family: 'Rb';
+}
+
+
+/*# sourceMappingURL=customer.css.map*/

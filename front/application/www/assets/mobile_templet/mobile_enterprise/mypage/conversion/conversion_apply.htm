@@ -23,7 +23,7 @@
     <p class="sect__title">{=trans('필수 동의 항목')}</p>
     <form id="devForm" class="form-box">
         <div class="term-list">
-            <label class="fb__comm__checkbox">
+            <label class="fb__checkbox">
                 <input type="checkbox" id="agree-term1" name="policyIx[{policyData['use']['ix']}]" value="Y" class="devRequired">
                 <span>[{=trans('필수')}] {=trans('구매 이용약관')}</span>
             </label>
@@ -45,22 +45,22 @@
         <dl class="box">
             <dt class="box__title">{=trans('사업자 유형')} <em class="required-mark">*</em></dt>
             <dd class="business-type">
-                <label class="fb__comm__radio">
+                <label class="fb__radio">
                     <input type="radio" name="businessType" class="blind">
                     <span>{=trans('개인사업자')}</span>
                 </label>
                 
-                <label class="fb__comm__radio">
+                <label class="fb__radio">
                     <input type="radio" name="businessType" class="blind">
                     <span>{=trans('법인사업자')}</span>
                 </label>
                 
-                <label class="fb__comm__radio">
+                <label class="fb__radio">
                     <input type="radio" name="businessType" class="blind">
                     <span>{=trans('간이과세자')}</span>
                 </label>
                 
-                <label class="fb__comm__radio">
+                <label class="fb__radio">
                     <input type="radio" name="businessType" class="blind">
                     <span>{=trans('면세사업자')}</span>
                 </label>

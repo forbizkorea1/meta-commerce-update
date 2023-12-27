@@ -39,12 +39,12 @@
         .wrap-search-detail {
             display: none;
             margin-top: 18px;
-            border-top: 2px solid #111;
+            border-top: 2px solid $black;
 
             dl {
                 position: relative;
                 padding-left: 160px;
-                border-bottom: 1px solid #DDD;
+                border-bottom: 1px solid $grey200;
 
                 &.on {
                     .btn-dl-open {
@@ -74,10 +74,10 @@
                     min-height: 55px;
                     padding: 15px 0 0 20px;
                     border: {
-                        left: 1px solid #DDD;
-                        right: 1px solid #DDD;
+                        left: 1px solid $grey200;
+                        right: 1px solid $grey200;
                     };
-                    background: #F8F8F8;
+                    background: $bg_grey50;
                     font: {
                         size: 14px;
                         family: $noto;
@@ -102,7 +102,7 @@
                             width: 2px;
                             height: 10px;
                             margin: -5px 0 0 -1px;
-                            background: #111;
+                            background: $black;
                         }
 
                         &:after {
@@ -114,14 +114,14 @@
                             width: 10px;
                             height: 2px;
                             margin: -1px 0 0 -5px;
-                            background: #111;
+                            background: $black;
                         }
                     }
                 }
 
                 dd {
                     min-height: 55px;
-                    border-right: 1px solid #DDD;
+                    border-right: 1px solid $grey200;
                 }
 
                 &.dl-option-list {
@@ -153,7 +153,7 @@
                             display: inline-block;
                             max-width:100%;
                             font-size: 14px;
-                            color: #666;
+                            color: $grey800;
                             line-height: 30px;
                             @include line();
                         }
@@ -164,7 +164,7 @@
                                 padding: 0 12px;
                                 border-radius: 15px;
                                 background: #FF6600;
-                                color: #FFF;
+                                color: $white;
                             }
                         }
                     }
@@ -191,15 +191,15 @@
                         width: 70px;
                         height: 40px;
                         padding: 0;
-                        background: #666;
+                        background: $grey800;
                         font-size: 14px;
-                        color: #FFF;
+                        color: $white;
                     }
                 }
 
                 .category-path {
                     padding: 20px 30px;
-                    background: #F8F8F8;
+                    background: $bg_grey50;
                     font-size: 14px;
                     line-height: 1;
 
@@ -212,7 +212,7 @@
                     position: relative;
                     padding: 17px 30px 17px;
                     min-height: 55px;
-                    background: #f8f8f8;
+                    background: $bg_grey50;
 
                     &__box {
                         position: relative;
@@ -231,7 +231,7 @@
                             width: 1px;
                             height: calc(100% - 14px);
                             min-height: 14px;
-                            background: #DDD;
+                            background: $grey200;
                             transform: translate3d(0, -50%, 0);
                         }
 
@@ -254,7 +254,7 @@
                         span {
                             display: block;
                             font-size: 13px;
-                            color: #666;
+                            color: $grey800;
                             line-height: 20px;
                         }
 
@@ -359,7 +359,7 @@
                         
                         li {
                             font-size: 15px;
-                            color: #999;
+                            color: $grey600;
                             line-height: 30px;
                             text-align: left;
                         }
@@ -386,12 +386,12 @@
 
     .btn-free-delivery.on {
         background: $pcolor;
-        color: #fff;
+        color: $white;
     }
 
     &__goods {
         &__noprice {
-            color: #999;
+            color: $grey600;
 
             em {
                 font-size: 16px;
@@ -434,7 +434,7 @@
         // &__title,
         // &__info {
         //     display: inline-block;
-        //     color: #111;
+        //     color: $black;
         //     font-size: 26px;
         //     line-height: 28px;
         //     word-break: break-all;
@@ -490,8 +490,8 @@
 
         &__goods,
         &__videTv {
-            border-color: #ddd;
-            color: #666;
+            border-color: $grey200;
+            color: $grey800;
             font-size: 18px;
             em {
                 font-weight: bold;
@@ -502,7 +502,7 @@
         &--active {
             border-color: #fc7878;
             background: #fc7878;
-            color: #fff;
+            color: $white;
         }
 
         .list-contents__header {
@@ -591,7 +591,7 @@
                     padding-left: 30px;
                     background: url(../images/common/icon-search-b.png) no-repeat 0 center;
                     word-break: break-all;
-                    color: #111;
+                    color: $black;
                 }
             }
             &__list {
@@ -602,7 +602,7 @@
                 span {
                     display: block;
                     margin-bottom: 10px;
-                    color: #999;
+                    color: $grey600;
                 }
             }
             &:before {

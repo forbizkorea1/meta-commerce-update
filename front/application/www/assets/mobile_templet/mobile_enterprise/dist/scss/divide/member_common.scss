@@ -1,0 +1,189 @@
+.fb {
+  &__join-member {
+    padding: vw(60px) 0 vw(100px);
+
+    &__title {
+      margin-bottom: vw(20px);
+      font-size: vw(40px);
+      color: $black;
+      text-align: center;
+    }
+
+    .top-area {
+      margin: vw(25px) auto vw(40px);
+      text-align: center;
+      @extend %clear;
+
+      &__step {
+        float: left;
+        position: relative;
+        width: calc(100% / 4);
+        text-align: center;
+        color: $grey800;
+
+        &__inner {
+          display: inline-block;
+          margin-left: vw(15px);
+          text-align: left;
+        }
+
+        &__tit {
+          font-size: vw(20px);
+        }
+
+        &__subtit {
+          font-size: vw(14px);
+          font-family: Rb;
+          display: inline-block;
+          margin-bottom: vw(3px);
+        }
+
+        &--active {
+          color: $pcolor !important;
+          font-weight: 600;
+
+          &:before {
+            background-position-y: vw(-200px) !important;
+          }
+
+        }
+
+        &:before {
+          content: '';
+          display: inline-block;
+          width: vw(40px);
+          height: vw(40px);
+          // background: url(../img/bg/sprite_member.png) no-repeat 0 vw(-100px);
+          vertical-align: top;
+          background-position-x: vw(0px);
+        }
+
+        &:not(:last-child):after {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: vw(20px);
+          height: vw(30px);
+          // background: url(../img/bg/sprite_member.png) no-repeat vw(-400px) vw(-100px);
+          float: right;
+          margin-top: vw(7px);
+          margin-right: vw(-10px);
+        }
+      }
+
+      &__step02 {
+        &:before {
+          background-position-x: vw(-100px);
+        }
+
+      }
+
+      &__step03 {
+        &:before {
+          background-position-x: vw(-200px);
+        }
+      }
+
+      &__step04 {
+        &:before {
+          background-position-x: vw(-300px);
+        }
+      }
+
+      &--sleep {
+
+        &__step03 {
+
+          &:before {
+            background-position-x: vw(-500px);
+          }
+        }
+
+      }
+    }
+
+    &__btn-area {
+      margin-top: vw(40px);
+      min-width: vw(200px);
+    }
+
+    .wrap-joininput-layout {
+      width: vw(1140px);
+      margin: 0 auto;
+
+      .wrap-line-box {
+        border: {
+          top: 1px solid $black;
+          bottom: 1px solid #eee;
+        };
+        text-align: center;
+        padding: vw(50px 0);
+      }
+    }
+
+    .input-tit-area {
+      overflow: hidden;
+      line-height: vw(22px);
+      margin-bottom: vw(15px);
+
+      p {
+        font-size: vw(22px);
+        color: $black;
+        font-weight: 600;
+        float: left;
+      }
+      span {
+        font-size: vw(14px);
+        color: $grey800;
+        float: right;
+
+        em {
+          display: inline-block;
+          font-size: vw(15px);
+          vertical-align: middle;
+          margin-right: vw(5px);
+          line-height: vw(18px);
+          padding-top: vw(4px);
+        }
+      }
+    }
+
+    input[type="radio"].pub-radio-type1, input[type="radio"].pub-radio-type2 {
+      display: none;
+    }
+
+    input[type="radio"].pub-radio-type1 + label {
+      color: $grey800;
+      letter-spacing: vw(-2px);
+      font-size: vw(14px);
+      color: $black;
+      font-weight: 500;
+
+      span {
+        display: inline-block;
+        width: vw(23px);
+        height: vw(23px);
+        vertical-align: middle;
+        // background: url(../img/btn/chk-rd-bg11.png) vw(-77px) vw(-1px) no-repeat;
+        cursor: pointer;
+      }
+    }
+
+    input[type="radio"].pub-radio-type1:checked + label {
+
+      span {
+        // background: url(../img/btn/chk-rd-bg11.png) vw(-101px) vw(-1px) no-repeat;
+      }
+    }
+
+    .join-table {
+      th {
+        em {
+          color: $pcolor;
+        }
+      }
+    }
+  }
+}

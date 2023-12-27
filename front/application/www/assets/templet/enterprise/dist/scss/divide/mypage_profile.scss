@@ -1,0 +1,276 @@
+.fb {
+    &__profile {
+        &__sec {
+            margin-top: 40px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .profile {
+            &__table {
+                padding: 20px 0;
+                border: {
+                    top: 1px solid $black;
+                    bottom: 1px solid $grey100;
+                };
+
+                table {
+                    th {
+                        padding: 10px 0 10px 30px;
+                        font: {
+                            size: 15px;
+                            weight: 400;
+                        };
+                        text-align: left;
+                    }
+    
+                    td {
+                        padding: 10px 0;
+                        color: $grey600;
+                        font-size: 0;
+
+                        input[type="text"],
+                        input[type="number"] {
+                            &:disabled,
+                            &:read-only {
+                                color: $grey600;
+                                background: $bg_grey50;
+                            }
+                        }
+
+                        .fb__button {
+                            display: inline-block;
+                            margin-left: 10px;
+                            vertical-align: middle;
+
+                            &:first-child {
+                                margin-left: 0;
+                            }
+    
+                            button {
+                                width: 115px;
+                                height: 40px;
+                                font-size: 14px;
+                            }
+                        }
+
+                        .terms {
+                            &__marketing {
+                                &__cont {
+                                    overflow-y: scroll;
+                                    height: 150px;
+                                    padding: 20px;
+                                    border: 1px solid $grey200;
+                                    font-size: 14px;
+                                    font-family: 'Notosans'; 
+                                    color: $grey800;
+                                    line-height: 20px;
+                                }
+                            }
+
+                            &__details {
+                                margin-top: 12px;
+
+                                &__check {
+                                    &--main {
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                    }
+
+                                    &--sub {
+                                        display: inline-block;
+                                        margin-left: 9px;
+                                        font-size: 16px;
+                                        vertical-align: middle;
+
+                                        .fb__checkbox {
+                                            span {
+    
+                                                font-size: 14px;
+                                                color: $grey800;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &__desc {
+                                    margin-top: 10px;
+
+                                    li {
+                                        font-size: 14px;
+                                        color: $grey800;
+                                        line-height: 20px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .sns {
+                            &__list {
+                                position: relative;
+                                margin-top: 10px;
+                                font-size: 0;
+            
+                                &__connect {
+                                    display: inline-block;
+                                    position: relative;
+                                    width: 240px;
+                                    height: 46px;
+                                    padding: 0;  
+                                    border: 1px solid #E5E5E5;
+                                    line-height: 44px;
+                                    text-align: left;
+                                    vertical-align: top;
+
+                                    &:before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 10px;
+                                        width: 24px;
+                                        height: 24px;
+                                        margin-top: -12px;
+                                    }
+            
+                                    span {
+                                        display: block;
+                                        position: relative;
+                                        padding-left: 64px;
+                                        font: {
+                                            size: 15px;
+                                            family: $noto;
+                                        };
+                                        color: $grey800;
+
+                                        &:before {
+                                            content: '';
+                                            display: block;
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 45px;
+                                            width: 1px;
+                                            height: 20px;
+                                            margin-top: -10px;
+                                            background: #E5E5E5;
+                                        }
+                                    }
+            
+                                    &:disabled {
+                                        &:before {
+                                            opacity: .5;
+                                        }
+
+                                        span {
+                                            color: $grey400;
+                                        }
+                                    }
+            
+                                    &--naver {
+                                        &:before {
+                                            background: url(../images/mypage/ico_mypage_sns-naver.png) no-repeat 0 0;
+                                        }
+                                    }
+            
+                                    &--kakao {
+                                        &:before {
+                                            background: url(../images/mypage/ico_mypage_sns-kakao.png) no-repeat 0 0;
+                                        }
+                                    }
+            
+                                    &--facebook {
+                                        &:before {
+                                            background: url(../images/mypage/ico_mypage_sns-facebook.png) no-repeat 0 0;
+                                        }
+                                    }
+                                                
+                                    &--apple {
+                                        &:before {
+                                            background: url(../images/mypage/ico_mypage_sns-apple.png) no-repeat 0 0;
+                                        }
+                                    }
+            
+                                    &--google {
+                                        &:before {
+                                            background: url(../images/mypage/ico_mypage_sns-google.png) no-repeat 0 0;
+                                        }
+            
+                                        & + .g-signin2 {
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            opacity: 0;
+                                            width: 240px;
+                                            height: 46px;
+            
+                                            > div {
+                                                width: 100% !important;
+                                                height: 100% !important;
+                                            }
+                                        }
+                                    }
+            
+                                    &--apple {
+                                        &:before {
+                                            background: url(../images/mypage/ico_mypage_sns-apple.png) no-repeat 0 0;
+                                        }
+                                    }
+                                }
+            
+                                &__disconnect {
+                                    display: inline-block;
+                                    width: 100px;
+                                    height: 46px;
+                                    margin-left: 10px;
+                                    border: 1px solid $grey800;
+                                    font-size: 15px;
+                                    color: $grey800;
+                                    vertical-align: top;
+            
+                                    &:disabled {
+                                        border: 1px solid #E5E5E5;
+                                        color: #BBB;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .phone-area {
+                    &__container {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        &__inquiry {
+            margin-top: 16px;
+            font-size: 14px;
+            color: $grey800;
+
+            em {
+                color: #FF6600;
+            }
+        }
+
+        &__btn {
+            margin-top: 45px;
+            font-size: 0;
+            text-align: center;
+
+            button {
+                width: 188px;
+                height: 54px;
+                margin-left: 10px;
+                font-size: 18px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

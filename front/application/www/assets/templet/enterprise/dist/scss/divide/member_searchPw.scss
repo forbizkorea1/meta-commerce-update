@@ -1,0 +1,86 @@
+.fb {
+    &__member-search {
+        .search {
+            .input-area {
+                width: 460px;
+                margin: 0 auto 30px;
+                padding-top: 30px;
+                border-top: 1px solid $black;
+
+                &__list {
+                    display: table;
+                    table-layout: fixed;
+                    
+                    &:not(:first-child) {
+                        margin-top: 10px;
+                    }
+                }
+
+                &__title {
+                    display: table-cell;
+                    width: 120px;
+                    color: $black;
+                    font-size: 15px;
+                    text-align: left;
+                }
+
+                &__cont {
+                    display: table-cell;
+                    width: 380px;
+                    
+                    input[type=text] {
+                        width: 100%;
+                    }
+                }
+
+                .txt-error {
+                    color: $pcolor;
+                }
+            }
+
+            &__company {
+                &.auth-num {
+                    .wrap-input {
+                        position: relative;
+
+                        input {
+                            width: 110px;
+                            text-align: center;
+                        }
+
+                        .input1,
+                        .input2 {
+                            border-right: none;
+                        }
+
+                        .input2, 
+                        .input3 {
+                            border-left: none;
+                            text-align: center;
+                        }
+
+                        .hyphen {
+                            display: inline-block;
+                            position: absolute;
+                            top: 2px;
+                            left: 104px;
+                            width: 8px;
+                            height: 40px;
+                            padding: 0;
+                            line-height: 32px;
+                            border-top: 1px solid $grey400;
+                            border-bottom: 1px solid $grey400;
+
+                            &.hyphen2 {
+                                left: 218px;
+                            }
+                        }
+                        input[readonly] + .hyphen {
+                            background: $bg_grey50;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

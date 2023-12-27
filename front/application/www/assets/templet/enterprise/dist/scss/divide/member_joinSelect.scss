@@ -1,0 +1,85 @@
+.fb {
+    &__join-select {
+        margin-top: 90px;
+
+        &__title {
+            margin-bottom: 12px;
+            font-size: 34px;
+            color: $black;
+            text-align: center;
+        }
+
+        &__summary {
+            font-size: 16px;
+            color: $grey800;
+            text-align: center;
+            line-height: 22px;
+        }
+
+        &__inner {
+            margin-top: 60px;
+            @extend %clear;
+        }
+
+        &__type {
+            position: relative;
+            float: left;
+            width: 500px;
+            height: 318px;
+            padding-top: 144px;
+			border: 1px solid $grey400;
+			background: url(../images/common/icon-member.png) no-repeat 50% 60px;
+            text-align: center;
+            box-sizing: border-box;
+
+            &:first-child + section {
+                float: right;
+                background-image: url(../images/common/icon-nomember.png);
+            }
+        }
+
+        &__contents {
+            width: 1030px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        &__subtitle {
+            margin-bottom: 10px;
+            font: {
+                size: 24px;
+                weight: 600;
+            };
+            color: $black;
+        }
+
+        &__subsummary {
+            margin-bottom: 25px;
+            font-size: 15px;
+            color: $grey600; 
+        }
+
+        &__btn {
+            display: inline-block;
+            width: 120px;
+            border: 1px solid $pcolor;
+            font-size: 14px;
+            color: $pcolor;
+            text-align: center;
+            line-height: 38px;
+            box-sizing: border-box;
+
+            &:hover,
+            &:focus {
+                color: $white;
+                background: $pcolor;
+            }
+        }
+
+        /*
+		background:url(../images/common/icon-join-select-sns.png) no-repeat 0 0; -- naver
+		background:url(../images/common/icon-join-select-sns.png) no-repeat center 0; -- kakao
+		background:url(../images/common/icon-join-select-sns.png) no-repeat right 0; -- facebook
+	*/
+    }
+}

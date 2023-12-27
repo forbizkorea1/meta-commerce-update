@@ -1,0 +1,33 @@
+.fb {
+    &__deliverymsg {
+        padding: vw(30px 30px);
+
+        &__title {
+            margin-bottom: vw(20px);
+            color: $black;
+            font-weight: 600;
+            font-size: vw(30px);
+            line-height: vw(40px);
+        }
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            gap: rem(16px);
+
+            select {
+                color: $black;
+            }
+        }
+
+        &__door {
+            margin-top: rem(20px);
+        }
+
+        &__button {
+            display: flex;
+            margin-top: vw(80px);
+            font-size: 0;
+        }
+    }
+}

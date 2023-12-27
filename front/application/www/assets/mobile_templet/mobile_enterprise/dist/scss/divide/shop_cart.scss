@@ -1,0 +1,292 @@
+.fb {
+    &__cart {
+        //구분선
+        .section__div {
+            &:after {
+                display: none;
+            }
+        }
+
+        //상단
+        &__top {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: vw(24px 30px);
+            border-bottom: vw(2px) solid #eee;
+        }
+
+        //상품
+        &__package {
+            .additem-info__cont {
+                justify-content: space-between;
+            }
+        
+            .item-info__name {
+                width: calc(100% - #{vw(60px)});
+            }
+
+            //상품 묶음
+            .package {
+                //셀러별 묶음
+                &__seller {
+                    
+
+                    &__info {
+                        padding: vw(30px);
+                        border-bottom: vw(2px) solid #eee;
+
+                        .fb__checkbox {
+                            span {
+                                font: {
+                                    size: vw(30px);
+                                    weight: 600;
+                                };
+                            }
+                        }
+                    }
+                }
+    
+                //배송비별 묶음
+                &__shipping {
+                    border-bottom: vw(2px) solid #EEE;
+
+                    &:first-child {
+                        border-top: 0;
+                    }
+
+                    &__items {
+
+                        .items--stop {
+                            .item-info {
+                                &__thumb,
+                                &__name,
+                                &__option {
+                                    opacity: 0.5;
+                                }
+                            }
+                        }
+                    }
+    
+                    &__summary {
+                        padding: vw(30px 0);
+                        background: $bg_grey50;
+                        text-align: center;
+                    }
+    
+                    &__total {
+                        display: block;
+                        margin-bottom: vw(10px);
+                        color: $black;
+                        
+                        .total {
+                            &__title {
+                                padding-right: vw(10px);
+                                font-weight: 600;
+                                font-size: vw(26px);
+                            }
+    
+                            &__price {
+                                font-size: vw(26px);
+    
+                                em {
+                                    font-family: $font_n;
+                                    font-weight: bold;
+                                    font-size: vw(32px);
+                                }
+                            }
+                        }
+                    }
+    
+                    &__detail {
+                        color: $grey800;
+                        font-size: 0;
+    
+                        .sign {
+                            padding: vw(0 10px);
+                        }
+                        
+                        span {
+                            display: inline-block;
+                            font-size: vw(24px);
+                            line-height: vw(36px);
+                            vertical-align: middle;
+                        }
+    
+                        em {
+                            font-family: $font_n;
+                        }
+                    }
+    
+                    &__tooltip {
+                        display: inline-block;
+                        position: relative;
+                        
+                        .tooltip {
+                            &__icon {
+                                display: inline-block;
+                                margin-left: vw(8px);
+                                width: vw(28px);
+                                height: vw(28px);
+                                background: url("../images/guide/ic-open-layer-24-px@2x.png") no-repeat 0 0 / 100% auto;
+                                font-size: 0;
+                                vertical-align: middle;
+                            }
+    
+                            &__layer {
+                                top: vw(48px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //바로구매하기 (상품별)
+        &__directBuy {
+            height: vw(52px);
+            padding: vw(0 30px);
+            font-size: vw(24px);
+            border: vw(2px) solid $grey200;   
+            background: $white;
+            color: $black;
+
+            &:disabled {
+                color: $grey600;
+            }
+        }
+
+        //최종 가격정보
+        &__price {
+            padding: vw(72px 30px 60px);
+            color: $black;
+
+            dl {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: vw(20px);
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &.total {
+                    margin-top: vw(28px);
+                    padding-top: vw(28px);
+                    border-top: vw(2px) solid $grey200;
+    
+                    dt {
+                        font-weight: 600;
+                        font-size: vw(32px);
+                    }
+
+                    dd {
+                        color: $pcolor;
+                        font-size: vw(40px);
+
+                        em {
+                            font-size: vw(48px);
+                        }
+                    }
+                }
+            }
+
+            dt {
+                font-size: vw(28px);
+            }
+
+            dd {
+                font-size: vw(30px);
+
+                em {
+                    font-family: $font_n;
+                    font-weight: bold;
+                    font-size: vw(32px);
+                }
+            }
+        }
+
+        //하단 안내문구
+        &__tip {
+            position: relative;
+            padding: vw(30px 168px 100px 44px);
+            background: $bg_grey50;
+            color: $grey600;
+            font-size: vw(24px);
+            line-height: vw(36px);
+
+            &:before {
+                position: absolute;
+                top: vw(46px);
+                left: vw(30px);
+                width: vw(4px);
+                height: vw(4px);
+                background: $grey600;
+                border-radius: 50%;
+                content: "";
+            }
+        }
+
+        // 하단 플로팅 주문하기 버튼
+        &__buy {
+            overflow: hidden;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: vw(112px);
+            z-index: 2;
+        }
+
+        //에러메세지
+        &__error {
+            display: block;
+            margin-top: vw(10px);
+            color: #ff3030;
+            font-size: vw(22px);
+            line-height: vw(36px);
+
+            &:empty {
+                display: none;
+            }
+        }
+        
+        //장바구니 비어있을때
+        &__empty {
+            padding: vw(360px 0);
+            text-align: center;
+
+            .empty {
+                &__text {
+                    color: $grey800;
+                    font-size: vw(28px);
+                    line-height: vw(40px);
+
+                    &:before {
+                        display: block;
+                        width: vw(89px);
+                        height: vw(95px);
+                        background: url("../images/shop/icon-cart-empty.png") no-repeat 0 0 / 100% auto;
+                        margin: vw(0 auto 36px);
+                        content: "";
+                    }
+                }
+
+                &__button {
+                    margin-top: vw(72px);
+
+                    button {
+                        color: $black;
+                    }
+
+                    a {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}

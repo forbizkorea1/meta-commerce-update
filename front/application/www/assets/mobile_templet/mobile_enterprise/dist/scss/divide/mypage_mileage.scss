@@ -1,0 +1,240 @@
+.fb {
+    &__mileage {
+        .mileage {
+            &__top {
+                padding: vw(0 30px);
+                border-bottom: vw(20px) solid $bg_grey50;
+
+                &__myMileAmount {
+                    display: flex;
+                    padding: vw(30px 0);
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-size: 0;
+
+                    .myMileAmount {
+
+                        &__name {
+                            display: inline-block;
+                            margin-right: vw(20px);
+                            color: $grey800;
+                            font-size: vw(24px);
+                            line-height: vw(90px);
+                        }
+
+                        &__number {
+                            display: inline-block;
+                            position: relative;
+                            color: $pcolor;
+                            font-size: vw(68px);
+                            line-height: vw(90px);
+
+                            &:before {
+                                display: inline-block;
+                                width: vw(48px);
+                                height: vw(48px);
+                                margin-right: vw(12px);
+                                background: url(../images/mypage/icon-mypage-mileage-orange.png) no-repeat center center/ vw(48px 48px);
+                                content: "";
+                            }
+                        }
+                    }
+                }
+
+                &__change {
+                    background: $bg_grey50;
+                    border-radius: vw(8px);
+                    white-space: nowrap;
+
+                    .change {
+                        &__mileAmount {
+                            display: inline-block;
+                            width: 50%;
+                            padding: vw(20px 0);
+                            color: $grey800;
+                            text-align: center;
+                        }
+
+                        &__number {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: bold;
+                            font-size: vw(32px);
+                            line-height: vw(42px);
+
+                            &:before {
+                                display: inline-block;
+                                width: vw(36px);
+                                height: vw(36px);
+                                margin-right: vw(8px);
+                                background: url(../images/mypage/icon-mypage-mileage-gray.png) no-repeat center center/ vw(36px 36px);
+                                vertical-align: middle;
+                                content: "";
+                            }
+                        }
+
+                        &__name {
+                            margin-top: vw(8px);
+                            font-size: vw(28px);
+                            line-height: vw(40px);
+                        }
+                    }
+                }
+
+                &__completed {
+                    padding: vw(30px 0 40px);
+                    white-space: nowrap;
+                    color: $grey600;
+                    font-size: 0;
+
+                    .completed {
+                        &__mileAmount {
+                            display: inline-block;
+                            width: 50%;
+                            font-size: 0;
+                            
+                            &.used {
+                                padding-right: vw(20px);
+                                border-right: vw(2px) solid $grey200;
+                            }
+
+                            &.received {
+                                margin-left: vw(-1px);
+                                padding-left: vw(20px);
+                            }
+                        }
+    
+                        &__name {
+                            display: inline-block;
+                            width: 50%;
+                            font-size: vw(26px);
+                            line-height: vw(38px);
+                        }
+                        
+                        &__number {
+                            display: inline-block;
+                            width: 50%;
+                            font-weight: bold;
+                            font-size: vw(26px);
+                            line-height: vw(38px);
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+
+            &__filter {
+                padding: vw(30px);
+
+                &__top {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;    
+                }
+
+                &__title {
+                    font: {
+                        size: vw(32px);
+                        weight: 600;
+                    };
+                }
+
+                &__select {
+                    width: vw(200px);
+                    height: vw(80px);
+                    padding-left: vw(30px);
+                    color: $grey800;
+                    border: vw(2px) solid $grey400;
+                }
+
+                .jq-radio {
+                    margin-top: vw(30px);
+                    font-size: vw(26px);
+    
+                    a {
+                        display: inline-block;
+                        font-size: vw(26px);
+                        color: $black;
+    
+                        + {
+                            a {
+                                &:before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: vw(1px);
+                                    height: vw(18px);
+                                    background: $grey400;
+                                    margin: 0 vw(20px);
+                                }
+                            }
+                        }
+                    }
+    
+                    a.on {
+                        font-weight: 600;
+                        color: $pcolor;
+                    }
+                }
+            }
+
+            &__list {
+                border-top: vw(2px) solid $white2;
+
+                dl {
+                    display: table;
+                    width: 100%;
+                    padding: vw(50px 25px);
+                    border-bottom: vw(2px) solid $white2;
+    
+                    dt {
+                        display: table-cell;
+                        width: 80%;
+                    }
+    
+                    dd {
+                        display: table-cell;
+                        text-align: right;
+    
+                        p {
+                            color: $black;
+                            font-family: $font_n;
+                            font-size: vw(26px);
+    
+                            em {
+                                font-size: vw(30px);
+                                font-weight: bold;
+                            }
+                        }
+    
+                        p.use {
+                            color: $black;
+                            
+                            em {
+                                color: $pcolor;
+                            }
+                        }
+    
+                        p.add {
+                            color: $black;
+                        }
+                    }
+    
+                    p {
+                        font-size: vw(26px);
+                        color: $black;
+                        line-height: vw(32px);
+                    }
+    
+                    span {
+                        display: inline-block;
+                        margin-top: vw(20px);
+                        font-size: vw(24px);
+                        color: $grey600;
+                    }
+                }
+            }
+        }
+    }
+}

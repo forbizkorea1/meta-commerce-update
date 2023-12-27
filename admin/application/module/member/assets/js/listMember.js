@@ -206,7 +206,14 @@ var devMemberListMemberObj = {
 
         // 엑셀 다운로드 처리
         $('#devExcelDownload').on('click', function (e) {
-            self.grid.excelDown(common.util.getControllerUrl('dwn', 'listMember', 'member'), {});
+            common.pub.open('excelDown', function (data) {
+                var addData = {
+                    message:data.message,
+                    password:data.password
+                }
+                self.grid.excelDown(common.util.getControllerUrl('dwn', 'listMember', 'member'), addData);
+            });
+
         });
     },
     run: function () {

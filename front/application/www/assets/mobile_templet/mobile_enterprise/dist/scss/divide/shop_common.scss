@@ -7,7 +7,7 @@
                     display: block;
                     width: 100%;
                     height: 2.4vw;
-                    background: #f8f8f8;
+                    background: $bg_grey50;
                     content: "";
                 }
             }
@@ -52,7 +52,7 @@
             }
 
             &__title {
-                color: #111;
+                color: $black;
                 font: {
                     weight: bold;
                     size: vw(34px);
@@ -80,14 +80,14 @@
 
                     &__title {
                         flex: 0 0 vw(200px);
-                        color: #999;
+                        color: $grey600;
                         font-size: vw(26px);
                         line-height: vw(38px);
                     }
 
                     &__cont {
                         flex: 0 0 calc(100% -#{vw(200px)});
-                        color: #111;
+                        color: $black;
                         font-size: vw(26px);
                         line-height: vw(38px);
                     }
@@ -154,7 +154,7 @@
                         width: 100%;
                         padding: vw(8px 0);
                         background: rgba(0, 0, 0, 0.5);
-                        color: #fff;
+                        color: $white;
                         font-size: vw(24px);
                         text-align: center;
                     }
@@ -166,7 +166,7 @@
                         width: 100%;
                         padding: vw(8px 0);
                         background: $pcolor;
-                        color: #fff;
+                        color: $white;
                         font-size: vw(24px);
                         text-align: center;
                     }
@@ -178,7 +178,7 @@
 
                 &__name {
                     width: 100%;
-                    color: #111;
+                    color: $black;
                     font-weight: normal;
                     font-size: vw(28px);
                     line-height: vw(40px);
@@ -188,14 +188,14 @@
                 &__option {
                     display: block;
                     margin-top: vw(10px);
-                    color: #999;
+                    color: $grey600;
                     font-size: vw(26px);
                     line-height: vw(30px);
                     word-break: break-all;
                 }
 
                 &__count {
-                    @include division(#ccc, vw(32px), vw(18px));
+                    @include division($grey400, vw(32px), vw(18px));
 
                     em {
                         font-family: $font_n;
@@ -213,7 +213,7 @@
                     &--strike {
                         display: block;
                         margin-bottom: vw(2px);
-                        color: #999;
+                        color: $grey600;
                         font-size: vw(24px);
                         line-height: vw(34px);
                         text-decoration: line-through;
@@ -249,19 +249,19 @@
                                     dt {
                                         font-size: vw(24px);
                                         line-height: vw(36px);
-                                        color: #111;
+                                        color: $black;
                                     }
 
                                     dd {
                                         font-size: vw(24px);
                                         line-height: vw(36px);
-                                        color: #111;
+                                        color: $black;
                                     }
 
                                     &.total {
                                         margin-top: vw(30px);
                                         padding-top: vw(30px);
-                                        border-top: vw(2px) solid #111;
+                                        border-top: vw(2px) solid $black;
                                     }
                                 }
                             }
@@ -271,7 +271,7 @@
                     &--soldout {
                         display: block;
                         margin-top: vw(20px);
-                        color: #111;
+                        color: $black;
                         font-weight: bold;
                         font-size: vw(28px);
                     }
@@ -293,7 +293,7 @@
                 width: 100%;
                 margin-top: vw(20px);
                 padding: vw(30px 32px 36px 40px);
-                border: vw(2px) solid #ddd;   
+                border: vw(2px) solid $grey200;   
 
                 &:first-of-type {
                     margin-top: vw(40px);
@@ -306,7 +306,7 @@
 
                 &__title {
                     display: block;
-                    color: #111;
+                    color: $black;
                     font-weight: 600;
                     font-size: vw(24px);
                     line-height: vw(36px);
@@ -316,13 +316,13 @@
                 &__option {
                     display: block;
                     margin-top: vw(6px);
-                    color: #999;
+                    color: $grey600;
                     font-size: vw(26px);
                     line-height: vw(30px);
                 }
 
                 &__price {
-                    color: #111;
+                    color: $black;
                     font-size: vw(26px);
                     line-height: vw(40px);
 
@@ -335,7 +335,7 @@
                     &--soldout {
                         display: block;
                         margin-top: vw(30px);
-                        color: #111;
+                        color: $black;
                         font-weight: 600;
                         font-size: vw(28px);
                         text-align: right;
@@ -368,7 +368,7 @@
         //하단 배송비영역
         &__summary {
             padding: vw(30px 30px 30px 0);
-            background: #f8f8f8;
+            background: $bg_grey50;
             text-align: right;
         }
 
@@ -376,7 +376,7 @@
         .summary {
             &__text {
                 display: inline-block;
-                color: #111;
+                color: $black;
                 font-size: vw(26px);
                 line-height: vw(40px);
                 vertical-align: middle;

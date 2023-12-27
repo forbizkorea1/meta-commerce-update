@@ -16,15 +16,17 @@
             <dl>
                 <dt>{=trans('분류')} <em>*</em></dt>
                 <dd>
-                    <select name="bbsDiv" id="devBbsDiv" title="{=trans('분류')}">
-                        <option value="">{=trans('선택')}</option>
-                        <!--{@ bbsDiv}-->
-                        <option value="{.div_ix}">{.div_name}</option>
-                        <!--{/}-->
-                    </select>
-                    <select name="subBbsDiv" id="devSubBbsDiv" title="{=trans('2차분류')}" style="display:none;">
-                        <option value="">{=trans('선택')}</option>
-                    </select>
+                    <div class="column-gap">
+                        <select name="bbsDiv" id="devBbsDiv" title="{=trans('분류')}">
+                            <option value="">{=trans('선택')}</option>
+                            <!--{@ bbsDiv}-->
+                            <option value="{.div_ix}">{.div_name}</option>
+                            <!--{/}-->
+                        </select>
+                        <select name="subBbsDiv" id="devSubBbsDiv" title="{=trans('2차분류')}" style="display:none;">
+                            <option value="">{=trans('선택')}</option>
+                        </select>
+                    </div>
                     <p class="txt-error mat10" devTailMsg="devBbsDiv"></p>
                 </dd>
             </dl>
@@ -47,7 +49,7 @@
                     </label>
                     <p class="txt-error mat10" devTailMsg="devBbsEmail"></p>
                     <div class="alert-anwser">
-                        <label for="devNotifyEmail" class="fb__comm__checkbox">
+                        <label for="devNotifyEmail" class="fb__checkbox">
                             <input type="checkbox" name="notifyEmail" id="devNotifyEmail" class="blind" value="Y" checked="true">
                             <span>{=trans('답변 알림 수신')}</span>
                         </label>
@@ -59,28 +61,25 @@
             <dl class="wrap-address-add">
                 <dt>{=trans('휴대폰 번호')} <em>*</em></dt>
                 <dd>
-                    <div class="wrap-multi-input address__phone__area">
-                        <select name="bbsHp1" id="devBbsHp1" title="{=trans('휴대폰')}" class="address__phone__0">
+                    <div class="fb__input__phone">
+                        <select name="bbsHp1" id="devBbsHp1" title="{=trans('휴대폰')}" class=" fb__input__phone--01">
                             <option value="010" {? phone1 == '010'} selected {/}>010</option>
                             <option value="011" {? phone1 == '011'} selected {/}>011</option>
                             <option value="016" {? phone1 == '016'} selected {/}>016</option>
                             <option value="018" {? phone1 == '018'} selected {/}>018</option>
                             <option value="019" {? phone1 == '019'} selected {/}>019</option>
                         </select>
-
-                        <input type="text" name="bbsHp2" value="{phone2}" id="devBbsHp2" title="{=trans('휴대폰')}" class="address__phone__1">
-                        <span class="address__phone__hyphen"></span>
-                        <input type="text" name="bbsHp3" value="{phone3}" id="devBbsHp3" title="{=trans('휴대폰')}" class="address__phone__2">
-
-                        <!-- <input class="address__phone__1" type="text" name="pcs2" id="devPcs2" value="{pcs2}" title="휴대폰번호" {? explodePcs[1]!='' }readonly{/}>
-                        <span class="address__phone__hyphen"></span>
-                        <input class="address__phone__2" type="text" name="pcs3" id="devPcs3" value="{pcs3}" title="휴대폰번호" {? explodePcs[2]!='' }readonly{/}> -->
+                        <div class="fb__input__phone--box">
+                            <input type="text" name="bbsHp2" value="{phone2}" id="devBbsHp2" title="{=trans('휴대폰')}" class="fb__input__phone--02 js__input--onlyNumber">
+                            <span class="dash"></span>
+                            <input type="text" name="bbsHp3" value="{phone3}" id="devBbsHp3" title="{=trans('휴대폰')}" class="fb__input__phone--03 js__input--onlyNumber">
+                        </div>
                     </div>
 
                     <p class="txt-error mat10" devTailMsg="devBbsHp2 devBbsHp3"></p>
 
                     <div class="alert-anwser">
-                        <label for="devNotifyHp" class="fb__comm__checkbox">
+                        <label for="devNotifyHp" class="fb__checkbox">
                             <input type="checkbox" name="notifyHp" id="devNotifyHp" class="blind" value="Y" checked="true">
                             <span>{=trans('답변 알림 수신')}</span>
                         </label>

@@ -1,0 +1,499 @@
+.fb {
+    //마이페이지 공통
+    &__mypage {
+        &__title {
+            padding: vw(40px 30px);
+            border-bottom: vw(2px) solid #EEE;
+            font: {
+                size: vw(32px);
+                weight: bold;
+            };
+            letter-spacing: -1px;
+
+            em {
+                display: inline-block;
+                width: vw(8px);
+                height: vw(8px);
+                background: $pcolor;
+                vertical-align: top;
+                margin-left: vw(10px);
+                border-radius: 50%;
+            }
+        }
+
+        &__empty {
+            padding: vw(100px) 0 vw(80px) 0;
+            text-align: center;
+
+            span {
+                color: $grey800;
+                font-size: vw(26px);
+                font-weight: 500;
+            }
+        }
+    }
+
+    //주문공통
+    &__orderCommon {
+        //정렬기준
+        &__sort {
+            .sort {
+                &__wrapper {
+                    display: flex;
+                    flex-wrap: nowrap;
+                }
+
+                &__menu {
+                    width: 100%;
+                    color: $black;
+
+                    &:not(:first-of-type) {
+                        @include division($grey200, vw(2px), vw(40px));
+                    }
+                }
+            }
+    
+            select {
+                border: none;
+            }
+        }
+
+        //비회원 주문조회 탭
+        &__tab {
+            display: flex;
+            position: relative;
+            text-align: center;
+            border-bottom: 1px solid $white2;
+
+            .tab {
+                &__menu {
+                    position: relative;
+                    display: inline-block;
+                    padding: vw(30px);
+                    color: $grey800;
+                    font-size: vw(28px);
+                    flex: 0 0 50%;
+                    cursor: pointer;
+                    box-sizing: border-box;
+    
+                    &.active {
+                        border-bottom: vw(4px) solid $pcolor;
+                        color: $pcolor;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        //상단 (주문일자, 주문번호)
+        &__header {
+            position: relative;
+            padding: vw(32px 76px 32px 30px);
+            background: $bg_grey50;
+            
+            //주문조회만 하얀색 바탕
+            &.white {
+                background: $white;
+                border-bottom: vw(2px) solid #eee;
+            }
+        }
+
+        //주문일자
+        &__date {
+            display: inline-block;
+            color: $black;
+            font-size: vw(36px);
+            vertical-align: middle;
+
+            //추후에 사용할 가능성이 있어서 우선 css로 안보이게 처리함
+            dt {
+                font-size: 0;
+                line-height: 0;
+            }
+
+            dd {
+                display: inline-block;
+                font-family: $font_n;
+                font-weight: bold;
+            }
+        }
+
+        //주문번호
+        &__oid {
+            display: inline-block;
+            margin-left: vw(16px);
+            color: $grey600;
+            font-size: vw(26px);
+            vertical-align: middle;
+
+            //추후에 사용할 가능성이 있어서 우선 css로 안보이게 처리함
+            dt {
+                font-size: 0;
+                line-height: 0;
+            }
+
+            dd {
+                display: inline-block;
+                font-family: $font_n;
+            }
+
+            .oid {
+                &__link {
+                    display: inline-block;
+                    border-bottom: vw(2px) solid #5283e6;
+                    color: #5283e6;
+                    font-size: vw(26px);
+                    line-height: 1;
+                }
+            }
+        }
+
+        //상세보기
+        &__link {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: vw(72px);
+            height: 100%;
+            background: url("../images/guide/ic-arrow-gray-30-px-2@2x.png") no-repeat center center / vw(60px);
+            font-size: 0;
+        }
+
+        //주문박스 (묶음)
+        &__box {
+            //wrap-sect
+            &:not(:last-of-type):after {
+                display: block;
+                width: 100%;
+                height: vw(18px);
+                background: #f7f7f9;
+                content: "";
+            }
+        }
+
+        //주문내용
+        &__cont {
+            padding: vw(0 30px);
+
+            .fb__shopCommon__summary {
+                border-top: vw(2px) solid #eee;
+                margin: vw(0 -30px);
+                background: $white !important;
+            }
+
+            .wrap-sect {
+                width: auto !important;
+                margin: vw(0 -30px);   
+            }
+
+            //주문상세 > 주문버튼
+            .item-info {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+
+                &__btn {
+                    width: 100%;
+                    margin-top: vw(30px);
+                    font-size: 0;
+                    
+                    button {
+                        font-size: vw(26px);
+                        height: vw(80px);
+
+                        &.size--half {
+                            margin: vw(20px 0 0 20px);
+                            width: vw(335px);
+
+                            &:nth-child(-n + 2) {
+                                margin-top: vw(30px);
+                            }
+
+                            &:nth-child(odd) {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //주문리스트 (order history)
+        &__list {
+            &.other {
+                border-top: vw(2px) solid $grey200;
+                margin-top: vw(20px);
+                padding-top: vw(40px);
+
+                + .other {
+                    border-top: none;
+                    margin-top: 0;
+                    padding-top: vw(20px);
+                }
+            }
+
+            // @TODO: #신규 19034 때문에 변경했는데 확인 후 주석 제거
+            &.change-product-detail {
+                position: relative;
+                padding: 0;
+
+                .item-info__wrapper {
+                    overflow: visible;
+                    position: relative;
+                    margin: vw(0 0 40px);
+                    padding: vw(22px 30px 36px 40px) !important;
+                    border: vw(2px) solid #eee;
+                    border-top: 0;
+                    background: $bg_grey50;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        bottom: 100%;
+                        left: vw(54px);
+                        width: vw(38px);
+                        height: vw(18px);
+                        background: url("../images/mypage/bg-orderhistory-triangle.png") no-repeat 0 0 / 100% auto;
+                    }
+                }
+            }
+        }
+
+        //주문상태
+        &__status {
+            width: 100%;
+            margin-bottom: vw(20px);
+            color: $black;
+            font-weight: bold;
+            font-size: vw(30px);
+        }
+
+        //전체취소버튼
+        &__cancel {
+            border-top: vw(2px) solid #eee;
+            padding: vw(30px 0);
+
+            a {
+                font-size: vw(26px) !important;
+                line-height: vw(90px) !important;
+            }
+        }
+
+        //교환상품 토글
+        &__toggle {
+            position: absolute;
+            right: vw(0px);
+            bottom: vw(0px);
+            z-index: 1;
+            width: vw(50px);
+            height: vw(50px);
+            border: vw(2px) solid $grey400;
+            background: url("../images/mypage/btn-orderhistory-exchange.png") no-repeat center center / vw(20px 10px);
+            font-size: 0;
+
+            &.on {
+                transform: rotate(180deg);
+            }
+        }
+
+        //더보기 레이어 버튼
+        .more-link-btn {
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: vw(0px);
+            right: vw(0px);
+            width: vw(28px);
+            height: vw(28px);
+            border: 0;
+            background: url("../images/mypage/icon-order-goods-more.png") no-repeat 100% 50% / vw(6px 28px);
+            font-size: 0;
+        }
+
+        //주문상태 레이어
+        &__statusLayer {
+            .img-area {
+                width: vw(150px);
+                height: vw(150px);
+                margin: vw(0 auto -75px);
+                padding: vw(5px);
+                background: $bg_grey50;
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+    
+            .content-area {
+                background: $white;
+                color: $black;
+    
+                .title-area {
+                    background: $bg_grey50;
+                    text-align: center;
+                    padding: vw(107px 30px 37px);
+    
+                    .tit {
+                        font-size: vw(26px);
+                        line-height: vw(36px);
+                    }
+    
+                    .option {
+                        color: $grey800;
+                        font-size: vw(24px);
+                        margin-top: vw(17px);
+                    }
+                }
+    
+                ul {
+                    li {
+                        padding: vw(35px 0);
+                        border-top: 1px solid $white2;
+                        background: $white;
+                        font-size: vw(28px);
+                        text-align: center;
+        
+                        &:first-child {
+                            border-top: none;
+                        }
+
+                        &.devInvoice {
+                            color: $pcolor;
+                        }
+                    }
+                }
+    
+                .close {
+                    background: $bg_grey50;
+                    border: none;
+                    width: 100%;
+                    padding: vw(37px) 0;
+                    background: $bg_grey50;
+                    color: $black;
+                    font-size: vw(28px);
+                }
+            }
+        }
+
+        // dots 있는 부가설명 없으면 .noDots 추가
+        &__desc {
+            width: vw(690px);
+            margin: vw(20px auto 0);
+
+            p {
+                position: relative;
+                margin-top: vw(10px);
+                padding-left: vw(15px);
+                line-height: vw(36px);
+                font-size: vw(24px);
+                color: $grey600;
+        
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: vw(10px);
+                    left: 0;
+                    width: vw(5px);
+                    height: vw(5px);
+                    background: $grey600;
+                    border-radius: 50%;
+                }
+        
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+
+            &.noDots {
+                p {
+                    padding-left: 0;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    //취소, 교환, 반품 공통
+    &__claimCommon {
+        .claimCommon {
+            &__allcheck {
+                border-bottom: vw(2px) solid #eee;
+                margin: vw(0 -30px);
+                padding: vw(30px);
+            }
+
+            &__info {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: vw(20px);
+                color: $black;
+
+                em {
+                    font-family: $font_n;
+                }
+
+                &__name {
+                    font-weight: 600;
+                    font-size: vw(26px);
+                }
+
+                &__count {
+                    font-size: vw(24px);
+
+                    em {
+                        font-size: vw(26px);
+                    }
+                }
+
+                &__price {
+                    font-size: vw(26px);
+
+                    em {
+                        font-weight: bold;
+                        font-size: vw(34px);
+                    }
+                }
+            }
+        }
+
+        // 사유 작성
+        .wrap-reason {
+            &__inner {
+                width: vw(690px);
+                margin: vw(30px auto);
+                font-size: 0;
+
+                textarea {
+                    width: 100%;
+                    height: vw(290px);
+                    margin-top: vw(20px);
+                }            
+            }
+        }
+
+        // 버튼 
+        .order-btn {
+            width: vw(690px);
+            margin: vw(60px auto 0);
+            font-size: 0;
+
+            button {
+                width: vw(335px);
+                height: vw(100px);
+                margin-left: vw(20px);
+                font-size: vw(30px);
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

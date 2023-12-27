@@ -145,6 +145,7 @@ var devAddressBookPopObj = {
         common.validation.set($('#devAddress2'), {'required': true});
         common.validation.set($('#devPcs1, #devPcs2, #devPcs3'), {'required': true});
 
+        common.inputFormat.set($('#devRecipient,#devShippingName,#devAddress2'), {'maxLength': 50});
         common.inputFormat.set($('#devPcs2, #devPcs3'), {'maxLength': 4});
     },
     initMemberEvent: function () {
@@ -236,7 +237,7 @@ var devAddressBookPopObj = {
         var self = this;
 
         //-----set input format
-        common.inputFormat.set($('#devRecipient'), {'maxLength': 20});
+        common.inputFormat.set($('#devRecipient,#devShippingName,#devAddress2'), {'maxLength': 50});
         common.inputFormat.set($('#devPcs2,#devPcs3'), {'number': true, 'maxLength': 4});
         common.inputFormat.set($('#devTel2,#devTel3'), {'number': true, 'maxLength': 4});
 

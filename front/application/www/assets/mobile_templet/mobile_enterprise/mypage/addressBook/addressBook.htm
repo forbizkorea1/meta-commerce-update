@@ -28,11 +28,10 @@
                             {[#if shipping_name]}
                                 ({[shipping_name]})
                             {[/if]}
+                            {[#if default_yn]}
+                                <em class="default">{=trans('기본 배송지')}</em>
+                            {[/if]}
                         </span>
-
-                        {[#if default_yn]}
-                            <em class="default">{=trans('기본 배송지')}</em>
-                        {[/if]}
                     </span>
                     <span class="info__addr">{[address1]}{[#if address2]} {[address2]}{[/if]}</span>
                     <span class="info__num">{[mobile]}<!-- {[#if tel]}/ {[tel]}{[/if]} --></span>

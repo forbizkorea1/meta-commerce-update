@@ -1,0 +1,979 @@
+.fb {
+    /*  FAQ 통합검색 공통 탑 21.05.13 수정 추가했음 */
+    &__customer {
+        // 고객센터 좌측 메뉴
+        &-aside {
+            &__title {
+                font-size: 0;
+    
+                a {
+                    display: inline-block;
+                    font: {
+                        size: 28px;
+                        weight: 600;
+                    };
+                    color: $black;
+                    line-height: 40px;
+                    vertical-align: top;
+                }
+            }
+    
+            &__box {
+                margin-top: 30px;
+            }
+    
+            &__list {
+                margin-top: 20px;
+    
+                &:first-child {
+                    margin-top: 0;
+                }
+    
+                a {
+                    display: inline-block;
+                    font-size: 16px;
+                    color: $black;
+                    line-height: 21px;
+                    vertical-align: top;
+
+                    &.on {
+                        color: #FF6600;
+                    }
+                }
+            }
+        }
+
+        &__top {
+            width: 1060px;
+            @extend %clear;
+        }
+
+        &__title {
+            color: $black;
+            font-size: 22px;
+            line-height: 24px;
+        }
+
+        /* 고객센터 검색 폼 */
+        &__form {
+            padding: 22px 0;
+            background: $bg_grey50;
+            font-size: 0;
+            text-align: center;
+            box-sizing: border-box;
+
+            .form {
+                &__title {
+                    display: inline-block;
+                    color: $black;
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    vertical-align: middle;
+                }
+
+                &__container {
+                    display: inline-block;
+                    margin: 0 10px 0 18px;
+                    vertical-align: middle;
+
+                    &__insert {
+                        padding: 14px 51px 13px 17px;
+                        width: 500px;
+                        height: 46px;
+                        background: $white;
+                        border: 1px solid $grey400;
+                        color: $grey600;
+                        font-size: 16px;
+                        outline: none;
+        
+                        &:-webkit-autofill {
+                            -webkit-box-shadow: 0 0 0 1000px $white inset;
+                        }
+                    }
+                }
+                // 고객센터 메인 검색 버튼
+                &__search {
+                    &__btn {
+                        display: inline-block;
+                        width: 80px;
+                        height: 46px;
+                        background: $grey800;
+                        color: $white;
+                        font-size: 14px;
+                        line-height: 23px;
+                        vertical-align: middle;
+                        letter-spacing: -0.025em;
+                    }
+                }
+
+            }
+        }
+
+        /* 고객센터 - 메인 */
+        &__index {
+            @extend %clear;
+        }
+
+        &__noti,
+        &__faq {
+            .fb__customer__title {
+                font-size: 20px;
+                color: $black;
+            }
+        }
+
+        /* 고객센터 메인 - 자주묻는 질문 영역 */
+        &__faq {
+            margin-top: 20px;
+
+            &-header {
+                position: relative;
+                padding-bottom: 10px;
+            }
+
+            &-more {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 13px;
+                color: $grey600;
+                margin-top: 7px;
+
+                &:after {
+                    display: inline-block;
+                    width: 10px;
+                    height: 9px;
+                    margin-left: 3px;
+                    background: url(../images/customer/sprite_customer.png) no-repeat -400px 0;
+                    content: "";
+                }
+            }
+        }
+
+        /* 고객센터 메인 - 공지사항 영역 */
+        &__noti {
+            position: relative;
+            margin-top: 50px;
+            @extend %clear;
+
+            &-header {
+                position: relative;
+                border-bottom: 1px solid $black;
+                padding-bottom: 15px;
+            }
+
+            &-more {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 13px;
+                color: $grey600;
+                margin-top: 7px;
+
+                &:after {
+                    display: inline-block;
+                    width: 10px;
+                    height: 9px;
+                    margin-left: 3px;
+                    background: url(../images/customer/sprite_customer.png) no-repeat -400px 0;
+                    content: "";
+                }
+            }
+
+            .noti__box {
+                float: left;
+                width: 720px;
+
+                .cus-notice {
+
+                    &__list {
+                        border-bottom: 1px solid $grey200;
+                        font-size: 0;
+
+                        a {
+                            display: block;
+                            padding: 17px 0;
+                        }
+
+                        &__title {
+                            display: inline-block;
+                            width: 590px;
+                            padding-left: 20px;
+                            font-size: 14px;
+                            color: $black;
+                            vertical-align: middle;
+                            @include line();
+                        }
+
+                        &__date {
+                            display: inline-block;
+                            width: 110px;
+                            margin-left: 20px;
+                            font-size: 14px;
+                            color: $grey800;
+                            text-align: center;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+
+            .customer__call {
+                float: right;
+                width: 280px;
+                padding: 63px 0 20px;
+                background: $bg_grey50 url(../images/customer/ico_customer_call.png) no-repeat 50% 26px;
+                border-radius: 8px;
+                text-align: center;
+
+                &__title {
+                    display: block;
+                    color: $black;
+                    font: {
+                        size: 16px;
+                        weight: 600;
+                        family: $noto;
+                    ;}
+                    line-height: 22px;
+                    text-align: center;
+                }
+
+                &__number {
+                    display: inline-block;
+                    color: #ff6600;
+                    font: {
+                        size: 34px;
+                        weight: 600;
+                    };
+                    line-height: 45px;
+                }
+
+                &__info {
+                    display: block;
+                    margin-top: 10px;
+                    color: $black;
+                    font-size: 14px;
+                    line-height: 20px;
+
+                    a {
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+
+    /* faq 아코디언 테이블 공통 */
+    .faq {
+        border-top: 2px solid $black;
+
+        &__tab {
+            margin-bottom: 40px;
+
+            &__box {
+                font-size: 0;
+            }
+
+            &__list {
+                display: inline-block;
+                width: calc(20% + 1px);
+                margin: -1px 0 0 -1px;
+                border: 1px solid $grey200;
+                vertical-align: top;
+
+                &:nth-child(-n + 5) {
+                    margin-top: 0;
+                }
+
+                &:nth-child(5n + 1) {
+                    width: 20%;
+                    margin-left: 0;
+                }
+
+                a {
+                    display: block;
+                    height: 44px;
+                    font-size: 14px;
+                    line-height: 44px;
+                    text-align: center;
+                }
+
+                &.active {
+                    a {
+                        background: $black;
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        &__list {
+            position: relative;
+            border-bottom: 1px solid $grey200;
+            cursor: pointer;
+
+            &__ques {
+                position: relative;
+                padding: 17px 0;
+                font-size: 0;
+                box-sizing: border-box;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 23px;
+                    right: 23px;
+                    width: 13px;
+                    height: 8px;
+                    background: url("../images/customer/icon_faq_list_arrow.png") no-repeat 0 0;
+                }
+
+                &.open {
+                    &:after {
+                        background: url(../images/customer/icon_faq_list_arrow__reverse.png)no-repeat 0 0;
+                    }
+
+                    & + .faq__list__anwser {
+                        display: block;
+                    }
+                }
+
+                .ques {
+                    &__div {
+                        display: inline-block;
+                        min-width: 190px;
+                        color: $grey800;
+                        font-size: 14px;
+                        line-height: 20px;
+                        text-align: center;
+                        vertical-align: top;
+                    }
+
+                    &__title {
+                        display: inline-block;
+                        position: relative;
+                        width: 810px;
+                        padding: 0 20px 0 38px;
+                        font-size: 14px;
+                        color: $black;
+                        line-height: 20px;
+                        vertical-align: top;
+        
+                        &:after { 
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: -2px;
+                            left: 0px;
+                            width: 23px;
+                            height: 23px;
+                            background: url("../images/customer/icon_faq-best_ques.png") no-repeat 0 0;
+                        }
+
+                        strong {
+                            color: #ff6600;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+
+            &__anwser {
+                display: none;
+                position: relative;
+                padding: 20px 114px 35px 190px;
+                border-top: 1px solid $grey200;
+                background: $bg_grey50;
+
+                div {
+                    position: relative;
+                    padding-left: 38px;
+                    font-size: 14px;
+                    color: $black;
+                    line-height: 20px;
+
+                    &:after { 
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: -2px;
+                        left: 0px;
+                        width: 24px;
+                        height: 24px;
+                        background: url("../images/customer/icon_faq-best_answer.png") no-repeat 0 0;
+                    }
+                }
+
+                strong {
+                    color: #ff6600;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    &__faq {
+        &__count {
+            margin-bottom: 10px;
+            
+            .fb__bbs__header__count {
+                margin: 0;
+            }
+        }
+    }
+    
+    &__bbs {
+
+        &__tab {
+            margin-top: 50px;
+        }
+
+        &__header {
+            position: relative;
+            min-height: 35px;
+            margin: 0px 0 20px 0;
+            vertical-align: middle;
+
+            &__filter {
+                position: absolute;
+                top: 0;
+                right: 0;
+                select {
+                    min-width: 90px;
+                }
+                input[type="text"] {
+                    width: 220px;
+                    vertical-align: top;
+                    margin: 0 8px;
+                }
+                input[type="submit"] {
+                    padding: 0 20px;
+                }
+                select,input{
+                    outline: none;
+                }
+            }
+
+            &__title {
+                display: inline-block;
+                color: $black;
+                font-size: 24px;
+                vertical-align: middle;
+            }
+            
+            &__count {
+                display: inline-block;
+                margin: 11px 0 4px 10px;
+                color: $grey800;
+                font-size: 14px;
+                vertical-align: middle;
+
+                #keyword,
+                #devTotal {
+                    color: #FF6600;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        /* 공지사항 테이블 */
+        &__table {
+            border-top: 2px solid $black;
+
+            td {
+                padding: 15px 20px;
+
+                &.title {
+                    text-align: left;
+
+                    a {
+                        color: $black;
+                    }
+                }
+            }
+
+            &-icon {
+                &--noti {
+                    display: inline-block;
+                    padding: 0 10px;
+                    height: 20px;
+                    border: 1px solid $pcolor;
+                    font: {
+                        size: 11px;
+                        family: $noto;
+                    };
+                    color: $pcolor;
+                    line-height: 18px;
+                }
+            }
+        }
+
+        /* faq list */
+        .list-menu {
+            margin-bottom: 40px;
+
+            .list-menu__list {
+                $i: 0;
+                @while $i < 5 {
+                    &:nth-child(#{$i}) {
+                        &:after {
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 211.6px * $i !important;
+                            width: 1px;
+                            height: 100%;
+                            background: #dddddd;
+                            content: "";
+                        }
+                    }
+                    $i: $i+1;
+                }
+                a {
+                    height: 46px !important;
+                    padding-left: 0 !important;
+                    line-height: 46px !important;
+                    text-align: center;
+                }
+            }
+        }
+
+        /* faq 테이블 */
+        &__faq {
+            border-top: 2px solid $black;
+
+            &-box {
+                font-size: 14px;
+                color: $grey800;
+                overflow: hidden;
+
+                strong {
+                    color: $pcolor;
+                }
+
+                &.opened{
+                    dt:after{
+                        transform: rotate(180deg);
+                    }
+                }
+
+            }
+
+            &-a {
+                display: none;
+                padding: 20px 50px 35px 190px;
+                background: $bg_grey50;
+                border-bottom: 1px solid $grey200;
+                .answer {
+                    position: relative;
+                    padding-left: 40px;
+                    color: $black;
+                    line-height: 22px;
+                    &:before {
+                        display: inline-block;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 23px;
+                        height: 23px;
+                        margin-right: 15px;
+                        background: url(../images/common/sprite_common.png) no-repeat -250px -450px;
+                        content: "";
+                    }
+                }
+            }
+
+            &-q {
+                overflow: hidden;
+                position: relative;
+                padding: 15px 0 12px;
+                border-bottom: 1px solid $grey200;
+                cursor: pointer;
+                span {
+                    float: left;
+                    line-height: 25px;
+                    min-width: 190px;
+                    text-align: center;
+                    display: inline-block;
+                }
+                p {
+                    float: left;
+                    position: relative;
+                    max-width: calc(100% - 190px);
+                    padding-left: 40px;
+                    padding-right: 40px;
+                    color: $black;
+                    line-height: 25px;
+                    &:before {
+                        display: inline-block;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 23px;
+                        height: 23px;
+                        margin-right: 15px;
+                        background: url(../images/common/sprite_common.png) no-repeat -200px -450px;
+                        content: "";
+                    }
+                }
+                &:after {
+                    display: inline-block;
+                    position: absolute;
+                    right: 20px;
+                    top: 20px;
+                    width: 20px;
+                    height: 10px;
+                    background: url(../images/common/sprite_common.png) 0 -200px no-repeat;
+                    transition: 0.3s ease transform;
+                    content: "";
+                }
+            }
+        }
+
+        &__detail {
+            &__title {
+                margin: {
+                    bottom: 15px;
+                }
+                color: $black;
+                font-size: 24px;
+            }
+            .detail {
+                &__header {
+                    padding: 15px 30px;
+                    border: {
+                        top: 1px solid $black;
+                        bottom: 1px solid $grey200;
+                    }
+                }
+                &__title {
+                    margin-bottom: 10px;
+                    color: $black;
+                    font: {
+                        weight: 600;
+                        size: 18px;
+                    }
+                }
+                &__date {
+                    font-size: 13px;
+                    color: #888;
+                    font-family: $font_n;
+                }
+                &__content {
+                    padding: 30px;
+                    border-bottom: 1px solid $grey200;
+                    font-size: 14px;
+                    img {
+                        max-width: 100%;
+                    }
+                    .file {
+                        margin-top: 45px;
+                        a {
+                            display: inline-block;
+                            color: $grey800;
+                            font-size: 13px;
+                            text-decoration: underline;
+                        }
+                        &:before {
+                            content: "";
+                            display: inline-block;
+                            width: 15px;
+                            height: 17px;
+                            background: url("../images/mypage/sprite_mypage.png") -800px 0px no-repeat;
+                            vertical-align: middle;
+                        }
+                    }
+                    dl {
+                        overflow: hidden;
+                        padding: 17px 25px;
+                        border-bottom: 1px solid $grey200;
+                        font-size: 14px;
+                    }
+                    dt {
+                        float: left;
+                        span:after {
+                            display: inline-block;
+                            width: 12px;
+                            height: 10px;
+                            margin-left: 15px;
+                            margin-top: 3px;
+                            background: url("../images/common/sprite_common.png") -700px -100px no-repeat;
+                            vertical-align: top;
+                            content: "";
+                        }
+                        &:after {
+                            display: inline-block;
+                            width: 1px;
+                            height: 13px;
+                            margin: 0 50px;
+                            background: $grey200;
+                            content: "";
+                        }
+                    }
+                    dd {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+                &__nav {
+                    @extend %clear;
+                    ul {
+                        float: left;
+                        width: 100%;
+                        margin-bottom: 20px;
+                    }
+                    li {
+                        float: left;
+                        overflow: hidden;
+                        width: 100%;
+                        padding: 17px 25px;
+                        border-bottom: 1px solid $grey200;
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                    }
+                    span {
+                        position: relative;
+                        padding-right: 101px;
+                        cursor: pointer;
+                        &:after {
+                            display: inline-block;
+                            width: 12px;
+                            height: 10px;
+                            margin-left: 15px;
+                            margin-top: 3px;
+                            background: url(../images/common/sprite_common.png) -700px -100px no-repeat;
+                            vertical-align: top;
+                            content: "";
+                        }
+                        &:before {
+                            display: block;
+                            position: absolute;
+                            top: 50%;
+                            left: 120px;
+                            width: 1px;
+                            height: 13px;
+                            margin-top: -(13px / 2);
+                            background: $grey200;
+                            content: "";
+                        }
+                    }
+                    &-prev {
+
+                        a {
+                            display: inline-block;
+                            width: calc(100% - 200px);
+                            @include line(1);
+                        }
+
+                    }
+                    &-next {
+                        span:after {
+                            transform: rotate(180deg);
+                        }
+
+                        a {
+                            display: inline-block;
+                            width: calc(100% - 200px);
+                            @include line(1);
+                        }
+                    }
+                }
+                button {
+                    float: right;
+                    min-width: 120px;
+                    border-color: $black;
+                    color: $black;
+                    
+                    &:hover{
+                        border-color: $grey600;
+                        color: $grey600;
+                    }
+                    
+                }
+            }
+        }
+
+        &__write {
+            .qna {
+                &__header {
+                    margin-bottom: 15px;
+
+                    &__title {
+                        font-size: 24px;
+                    }
+
+                    &__desc {
+                        margin-top: 10px;
+                        font-size: 14px;
+                        color: $grey800;
+
+                        button {
+                            color: $pcolor;
+                            text-decoration: underline;
+                        }
+
+                        i {
+                            display: inline-block;
+                            width: 8px;
+                            height: 11px;
+                            margin: 0 5px;
+                            background: url(../images/mypage/sprite_mypage.png) no-repeat -400px 0;
+                        }
+                        
+                        a {
+                            color: $pcolor;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            .btn-default {
+                padding: 0 15px;
+                min-width: 70px;
+                &.delete-btn {
+                    margin-left: 3px !important;
+                }
+            }
+
+            &__submit {
+                margin-top: 40px;
+                text-align: center;
+                button {
+                    margin: 0 5px;
+                }
+            }
+
+            .fb__checkbox {
+                margin-left: 20px;
+            }
+        }
+    }
+ 
+    &__btn-point {
+        color: $white;
+        background: $pcolor;
+    }
+
+    table {
+        &.join-table {
+            th {
+                em {
+                    margin: 0 8px 0 10px;
+                }
+            }
+        }
+    }
+
+    &#customer_qna {
+        table.join-table {
+            th {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    // 주문번호 조회 팝업
+    &__orderListPop {
+        width: 640px;
+        max-height: 480px;
+        
+        .orderList {
+            &__desc {
+                display: none;
+                margin-bottom: 5px;
+                font-size: 14px;
+                color: $grey800;
+                line-height: 26px;
+
+                &.show {
+                    display: block;
+                }
+            }
+        }
+
+        th {
+            border-top: 1px solid $grey200;
+            padding: 15px 0;
+            font: {
+                size: 13px;
+                weight: 600;
+            };
+        }
+
+        td {
+            padding: 10px 0;
+            font-size: 13px;
+
+            &.order-goods {
+                text-align: left;
+                font-size: 0;
+            }
+        }
+
+        .thumb {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            vertical-align: middle;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 80px;
+            }
+
+        }
+
+        .price {
+            font-size: 13px;
+            color: $black;
+
+            em {
+                font: {
+                    size: 14px;
+                    weight: 600;
+                    family: $font_n;
+                };
+            }
+        }
+
+        .order-num {
+            margin-top: 5px;
+            font: {
+                size: 14px;
+                weight: 400;
+                family: $font-n;
+            };
+            color: $black;
+        }
+
+        .date {
+            font: {
+                size: 14px;
+                weight: 400;
+                family: $font_n;
+            };
+            color: $grey800;
+        }
+
+        .title {
+            display: inline-block;
+            width: calc(100% - 80px);
+            padding-left: 15px;
+            font: {
+                size: 13px;
+                weight: 400;
+            };
+            color: $black;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+    }
+}

@@ -1,0 +1,144 @@
+.fb {
+    &__mytop {
+        margin-bottom: 50px;
+        
+        .mytop {
+            &__inner {
+                display: table;
+                background:$bg_grey50;
+                border-radius: 10px;
+            }
+
+            &__user {
+                display: table-cell;
+                width: 360px;
+                padding: 30px 50px;
+                color: $black;
+                line-height: 26px;
+                box-sizing: border-box;
+                vertical-align: middle;
+
+                &__name {
+                    display: inline-block;
+                    color: $black;
+                    margin-right: 16px;
+                    font-size: 32px;
+                    font-weight: 200;
+                    line-height: 47px;
+    
+                    em {
+                        color: $black;
+                        font-size: 32px;
+                        font-weight: bold;
+                    }
+                }
+
+                &__bottom {
+                    display: block;
+                    margin-top: 8px;
+                }
+    
+                &__grade {
+                    display: inline-block;
+                    position: relative;
+                    padding-right: 17px;
+                    color: $grey800;
+                    font: {
+                        size: 15px;
+                        weight: 400;
+                    }
+                    line-height: 22px;
+    
+                    &:before {
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        width: 14px;
+                        height: 14px;
+                        background: url("../images/mypage/icon-mypage_top-arrow.png") no-repeat 0 0 / 100% auto;
+                        content: "";
+                        transform: translate(0, -50%);
+                    }
+                }
+    
+                &__membership {
+                    display: inline-block;
+                    width: 98px;
+                    height: 26px;
+                    background: $white;
+                    border: 1px solid $grey400;
+                    border-radius: 13px;
+                    color: $grey800;
+                    font-size: 12px;
+                    text-align: center;
+                    line-height: 26px;
+                }
+            }
+
+            &__benefit {
+                display: table-cell;
+                position: relative;
+                text-align: center;
+                vertical-align: middle;
+
+                &__name {
+                    display: inline-block;
+                    margin-right: 12px;
+                    color: $black;
+                    font-size: 18px;
+                    vertical-align: middle;
+
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                    &:before {
+                        content: "";
+                        display: inline-block;
+                        width: 40px;
+                        height: 40px;
+                        vertical-align: middle;
+                    }
+                }
+
+                &__cont {
+                    display: inline-block;
+                    color: $pcolor;
+                    font: {
+                        size: 35px;
+                        weight: 600;
+                    }
+                    vertical-align: middle;
+                }
+
+                &__link {
+                    display: block;
+                }
+            }
+
+            &__mileage {
+                width: 400px;
+
+                .mytop__benefit__name {
+                    &:before {
+                        background: url("../images/mypage/icon-mypage_top-mileage.png") no-repeat 0 0 / 100% auto;
+                    }
+                }
+            }
+
+            &__coupon {
+                width: 300px;
+                @include division($grey200, 1px,34px);
+
+                .mytop__benefit__name {
+                    &:before {
+                        margin-right: 6px;
+                        background: url(../images/mypage/icon-mypage_top-coupon.png) no-repeat 0 0 / 100% auto;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,797 @@
+.fb {
+	// FAQ 마지막 리스트 보더 추가
+	&#customer_faq {
+		.faq__list {
+			&:last-child {
+				border-bottom: vw(2px) solid #eee;
+			}
+		}
+	}
+
+	/* 고객센터 자주묻는질문,공지사항 타이틀 공통 */
+	.customer {
+		&__title {
+			display: block;
+			position: relative;
+			padding: vw(0 30px);
+			border-bottom: vw(2px) solid #EEE;
+			color: $black;
+			font: {
+				size: vw(32px);
+				weight: 600;
+			}
+			line-height: vw(110px);
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				right: vw(8px);
+				top: 50%;
+				width: vw(60px);
+				height: vw(60px);
+				background: url("../images/customer/ico_customer_right-arrow.png") no-repeat 0 0 / vw(60px 60px);
+				transform: translate3d(0, -50%, 0);
+			}
+
+			&.bdbx {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	&__customer {
+		// faq 빠른검색
+		.customer {
+			&__search {
+				padding: vw(0 30px);
+				
+				&__box {
+					position: relative;
+					margin-bottom: vw(20px);
+				}
+
+				// 고객센터 메인 탑
+				&__title {
+					position: relative;
+					padding: vw(32px 0 24px);
+
+					span {
+						display: block;	
+						color: $black;
+						font: {
+							size: vw(32px);
+							weight: 600;
+						};
+					}
+
+					.title {			
+						display: block;
+						position: absolute;
+						right: vw(-16px);
+						top: 50%;
+						width: vw(60px);
+						height: vw(60px);
+						background: url("../images/customer/ico_customer_right-arrow.png") no-repeat 0 0 / 100% auto;
+						transform: translate3d(0, -50%, 0);
+					}
+				}
+
+				&__input {
+					position: relative;
+					border: vw(2px) solid $black;
+
+					&::placeholder {
+						font-size: vw(26px);
+						color: $grey600;
+					}
+				}
+
+				&__btn {
+					display: block;
+					position: absolute;
+					top: 50%;
+					right: vw(30px);
+					width: vw(40px);
+					height: vw(40px);
+					margin-top: vw(-20px);
+					background: url(../images/customer/ico__fqa__search.png) no-repeat 0 0 / 100% auto;
+				}
+			}
+		}
+
+		.wrap-sect {
+			height: vw(20px);
+		}
+
+		// 고객센터 전화 정보
+		&__info {
+			padding: vw(46px 0 0 0);
+			text-align: center;
+			
+			.info {
+				&__title {
+					font-weight: 600;
+					font-size: vw(32px);
+					line-height: vw(48px);
+	
+					&:before {
+						content: '';
+						display: block;
+						width: vw(67px);
+						height: vw(58px);
+						margin: vw(0 auto 8px);
+						background: url("../images/icon/m_sprite_icon.png") no-repeat vw(0 -85px);
+						background-size: vw(1005px);
+					}
+				}
+
+				&__phone {
+					color: $pcolor;
+					font: {
+						family: $font_n;
+						size: vw(68px);
+						weight: 600;
+					};
+					line-height: vw(90px);
+				}
+
+				&__time {
+					padding-top: vw(20px);
+					font: {
+						size: vw(28px);
+						weight: 400;
+					};
+					color: $black;
+					line-height: vw(38px);
+				}
+
+				&__weekend {
+					color: $black;
+					font: {
+						size: vw(28px);
+						weight: 400;
+					};
+					line-height: vw(40px);
+				}
+
+				&__bottom {
+					margin-top: vw(60px);
+					font-size: 0;
+
+					a {
+						display: inline-block;
+						width: vw(335px);
+						height: vw(90px);
+						margin-left: vw(20px);
+						border: vw(2px) solid #EEE;
+						color: $black;
+						font-size: vw(26px);
+						line-height: vw(86px);
+						vertical-align: middle;
+
+						&:first-child {
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+
+		// 자주 묻는 질문
+		&__faq {
+			.faq {
+				&__list {
+					position: relative;
+					border-bottom: vw(2px) solid #eee;
+
+					&:last-child {
+						border-bottom: none;
+					}
+
+					&__ques {
+						position: relative;
+						padding: vw(36px 90px 32px 100px);
+
+						&:before {
+							content: '';
+							display: block;
+							position: absolute;
+							top: vw(30px);
+							left: vw(30px);
+							width: vw(48px);
+							height: vw(48px);
+							background: url(../images/common/ico_comm_question.png) no-repeat 0 0 / vw(48px 48px);
+						}
+
+						&:after {
+							content: '';
+							display: block;
+							position: absolute;
+							top: 50%;
+							right: vw(20px);
+							width: vw(48px);
+							height: vw(48px);
+							margin-top: vw(-24px);
+							background: url(../images/customer/ico_customer_down-arrow.png) no-repeat 0 0 / vw(48px 48px);
+						}
+
+						// js
+						&.open {
+							&:after {
+								background: url(../images/customer/ico_customer_up-arrow.png) no-repeat 0 0 / vw(48px 48px);
+							}
+
+							& + .faq__list__anwser {
+								display: block;
+							}
+						}
+					}
+
+					&__type {
+						display: block;
+						margin-bottom: vw(10px);
+						color: $black;
+						font: {
+							size: vw(26px);
+							weight: 600;
+						}
+						line-height: vw(36px);
+					}
+
+					&__title {
+						color: $black;
+						font: {
+							size: vw(26px);
+							weight: 400;
+						}
+						line-height: vw(36px);
+
+						strong {
+							font-weight: 400;
+							color: $pcolor;
+						}
+					}
+
+					// 자주 묻는 질문 답변
+					&__anwser {
+						display: none;
+						position: relative;
+						padding: vw(36px 90px 36px 100px);
+						background: $bg_grey50;
+						border-top: vw(2px) solid #eee;
+						font-size: vw(26px);
+						line-height: vw(36px);
+
+						&:before {
+							content: '';
+							display: block;
+							position: absolute;
+							top: vw(30px);
+							left: vw(30px);
+							width: vw(48px);
+							height: vw(48px);
+							background: url(../images/common/ico_comm_answer.png) no-repeat 0 0 / 100% auto;
+						}
+
+						strong {
+							font-weight: 400;
+							color: $pcolor;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	.input-search {
+		overflow: hidden;
+		position: relative;
+		
+		input[type='text'].input-faq {
+			border: vw(2px) solid $black;
+
+			&::placeholder {
+				color: $grey600;
+			}
+		}
+
+		.icon-btn-search {
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: vw(30px);
+			width: vw(40px);
+			height: vw(40px);
+			margin-top: vw(-20px);
+			background: url(../images/customer/ico__fqa__search.png) no-repeat 0 0 / 100% auto;
+		}
+	}	
+
+	// 공지사항 리스트
+	.wrap-notice {
+		padding: vw(0 30px);
+
+		.count {
+			padding: vw(30px 0);
+			border-bottom: vw(2px) solid #EEE;
+			font-size: vw(28px);
+			color: $black;
+
+			em {
+				font-size: vw(28px);
+				color: $pcolor;
+			}
+		}
+
+		&__list {
+			padding: vw(30px 0);
+			border-bottom: vw(2px) solid #EEE;
+
+			.tag {
+				display: inline-block;
+				width: vw(120px);
+				height: vw(50px);
+				margin-bottom: vw(20px);
+				border: vw(2px) solid $pcolor;
+				font-size: vw(24px);
+				text-align: center;
+				line-height: vw(46px);
+				color: $pcolor;
+			}
+
+			.title {
+				font-size: vw(26px);
+				color: $black;
+				line-height: vw(34px);
+			}
+
+			.date {
+				font-size: vw(24px);
+				color: $grey600;
+				font-family: 'Rb';
+				margin-top: vw(15px);
+				display: inline-block;
+			}
+		}
+
+		.wrap-btn-area {
+			margin-top: vw(40px);
+			padding: 0;
+		}
+
+		.btn-more-view {
+			margin-bottom: vw(80px);
+		}
+	}
+
+	// 공지사항 상세
+	.wrap-notice-detail {
+		padding: vw(0 30px 100px);
+		
+		.title-area {
+			padding: vw(30px 0);
+			border-bottom: vw(2px) solid #EEE;
+
+			.tag {
+				display: inline-block;
+				width: vw(120px);
+				height: vw(50px);
+				margin-bottom: vw(20px);
+				border: vw(2px) solid $pcolor;
+				font-size: vw(24px);
+				color: $pcolor;
+				line-height: vw(46px);
+				text-align: center;
+			}
+
+			.title {
+				font-size: vw(30px);
+				color: $black;
+				font-weight: 600;
+			}
+
+			.date {
+				font-size: vw(24px);
+				color: $grey600;
+				font-family: 'Rb';
+				margin-top: vw(13px);
+				display: inline-block;
+			}
+		}
+
+		.content-area {
+			padding: vw(30px 0 60px);
+			border-bottom: vw(2px) solid #EEE;
+			font-size: vw(26px);
+			line-height: vw(34px);
+			
+			&__text {
+				white-space: pre-line;
+			}
+
+			.file {
+				display: block;
+				padding-top: vw(50px);
+				line-height: vw(30px);
+
+				a {
+					position: relative;
+					padding-left: vw(20px);
+
+					span {
+						font-size: vw(24px);
+						border-bottom: vw(2px) solid $grey800;
+						color: $grey800;
+					}
+
+					&:before {
+						content: '';
+						position: absolute;
+						top: vw(5px);
+						left: 0;
+						width: vw(24px);
+						height: vw(30px);
+						background: url(../images/icon/m_sprite_icon.png) no-repeat vw(-900px -200px);
+						background-size: vw(1000px);
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+
+		.wrap-btn-area {
+			margin-top: vw(60px);
+			button {
+				float: inherit;
+				text-align: center;
+				font-size: vw(30px);
+			}
+		}
+	}
+
+	// FAQ
+	.wrap-faq {
+		.wrap-search {
+			padding: vw(30px);
+		}
+
+		.count {
+			padding: vw(30px);
+			border-bottom: vw(2px) solid #EEE;
+			font-size: vw(26px);
+			color: $black;
+
+			em {
+				color: $pcolor;
+			}
+
+			strong {
+				color: $pcolor;
+			}
+		}
+
+		.wrap-faq-tab {
+			padding: vw(0 30px 30px);
+			font-size: 0;
+	
+			a {
+				display: inline-block;
+				position: relative;
+				width: calc(33.333% + #{vw(2px)});
+				min-height: vw(90px);
+				margin: vw(-2px 0 0 -2px);
+				padding-top: vw(30px);
+				border: vw(2px) solid $grey400;
+				font-size: vw(24px);
+				color: $grey800;
+				text-align: center;
+				vertical-align: top;
+	
+				&:nth-child(-n + 3) {
+					margin-top: 0;
+				}
+	
+				&:nth-child(3n + 1) {
+					width: 33.333%;
+					margin-left: 0;
+				}
+	
+				&.on {
+					position: relative;
+					z-index: 1;
+					border: vw(2px) solid $pcolor;
+					background: $pcolor;
+					color: $white;
+				}
+			}
+		}
+
+		.wrap-btn-area {
+			margin: vw(40px 0 100px);
+			padding: 0 vw(30px);
+		}
+	}
+
+	// 1:1 문의하기
+	.wrap-inquiry {
+		width: vw(690px);
+		margin: 0 auto;
+		padding-top: vw(40px);
+
+		select {
+			color: $black;
+		}
+		input,textarea {
+			color: $black;
+			&::placeholder {
+				color: $grey600;
+			}
+		}
+
+		.inquiry-info {
+			// position: relative;
+			color: $black;
+			font-size: vw(24px);
+			line-height: vw(36px);
+			// margin-bottom: vw(30px);
+
+			p {
+				color: $grey800;
+
+				em {
+					display: inline-block;
+					width: vw(11px);
+					height: vw(17px);
+					background: url("../images/icon/m_sprite_icon.png") vw(-400px) vw(-400px);
+					background-size: vw(1000px);
+					opacity: 0.5;
+				}
+			}
+		}
+
+		.column-gap {
+            display: flex;
+            flex-direction: column;
+            gap: vw(20px);
+        }
+
+		.flex-layout {
+			display: flex;
+			justify-content: space-between;
+
+			// 주문번호
+			.order {
+				&__number {
+					width: vw(500px);
+					&:read-only {
+						color: $grey600;
+						background: $bg_grey50;
+					}
+				}
+
+				&__btn {
+					margin-left: vw(20px);
+					width: vw(170px);
+					background: $grey800;
+				}
+			}
+
+			// 이메일
+			.mail {
+				&__input {
+					width: vw(320px);
+				}
+
+				&__at {
+					width: vw(50px);
+				}
+			}
+		}
+
+		.wrap-address-add {
+			padding: 0;
+		}
+		
+		// 답변알림수신
+		.alert-anwser {
+			margin-top: vw(30px);
+		}
+
+		// 문의작성 
+		.textarea-input {
+			width: vw(690px);
+			height: vw(400px);
+			margin-top: vw(20px)!important;
+		}
+
+		.wrap-input-form {
+			margin-bottom: vw(60px);
+			padding-top: vw(40px);
+		}
+
+		.wrap-upload {
+			overflow: hidden;
+
+			.wrap-file {
+				position: relative;
+				float: left;
+				overflow: hidden;
+				width: vw(130px);
+				height: vw(130px);
+				margin-right: vw(10px);
+				border: vw(2px) solid $grey200;
+				font-size: 0;
+
+				.file-upload-btn {
+					border: 0;
+				}
+
+				input[type="file"] {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			~ {
+				.desc {
+					margin-top: vw(15px);
+					margin-bottom: vw(15px);
+					color: $grey800;
+					font-size: vw(24px);
+					display: block;
+				}
+			}
+		}
+	}
+
+	&#customer_qna {
+		.popup-content {
+			padding: 0;
+		}
+	}
+
+	.popup-order-check {
+		ul {
+			padding-bottom: vw(30px);
+
+			li {
+				margin-bottom: vw(20px);
+				cursor: pointer;
+
+				.top {
+					border-top: vw(2px) solid #EEE;
+					background: #f5f5f5;
+					padding: vw(23px) vw(25px);
+					font-family: 'Rb';
+					font-size: vw(26px);
+					color: $grey800;
+					margin-bottom: vw(20px);
+
+					.order-num {
+						color: $grey800;
+
+						&:before {
+							content: '';
+							display: inline-block;
+							width: vw(1px);
+							height: vw(17px);
+							background: $grey200;
+							margin-left: vw(15px);
+							margin-right: vw(15px);
+						}
+					}
+				}
+
+				.item {
+					.thumb {
+						position: relative;
+						width: vw(120px);
+						height: vw(120px);
+						float: left;
+					}
+
+					.info {
+						padding-left: vw(140px);
+						line-height: vw(30px);
+						color: $black;
+						font-size: vw(24px);
+
+						.price {
+							margin-top: vw(36px);
+
+							strong {
+								font-family: 'Rb';
+								font-size: vw(26px);
+								font-weight: 600;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Q&A 주문번호조회 팝업
+	.order-check {
+		&__list {
+			border-bottom: vw(2px) solid $white2;
+		}
+
+		&__top {
+			position: relative;
+			height: vw(90px);
+			padding: vw(0 30px);
+			background: $bg_grey50;
+			line-height: vw(90px);
+
+			.date {
+				display: inline-block;
+				margin-right: vw(10px);
+				font-size: vw(26px);
+				color: $textBlack;
+			}
+
+			.order-num {
+				display: inline-block;
+				position: relative;
+				color: $grey600;
+				font-size: vw(26px);
+			}
+
+			.m_selbtn {
+				position: absolute;
+				top: vw(50%);
+				right: vw(30px);
+				width: vw(110px);
+				height: vw(60px);
+				padding: vw(0 15px);
+				color: $textBlack;
+				transform: translate3d(0, -50%, 0);
+			}
+		}
+
+		&__detail {
+			padding: vw(40px 40px 40px 30px);
+			font-size: 0;
+
+			.thumb {
+				display: inline-block;
+				width: vw(140px);
+				height: vw(140px);
+			}
+
+			.info {
+				display: inline-block;
+				width: calc(100% - 21.333vw);
+				margin-left: vw(20px);
+				vertical-align: top;
+				
+				&__title {
+					font-size: vw(26px);
+					color: $textBlack;
+					line-height: vw(28px);
+				}
+				
+				&__price {
+					margin-top: vw(30px);
+					font-size: vw(24px);
+					color: $textBlack;
+	
+					em {
+						margin-left: vw(20px);
+						font: {
+							size: vw(34px);
+							weight: bold;
+							family: 'Rb';
+						};
+					}
+				}
+			}
+		}
+	}
+}

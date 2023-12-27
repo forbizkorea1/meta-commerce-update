@@ -1,0 +1,15 @@
+.fb {
+    .join-end {
+        &__tit {
+            margin-bottom: 16px;
+            font-size: 30px;
+            color: $black;
+        }
+
+        &__desc {
+            font-size: 16px;
+            color: $grey800;
+            line-height: 24px;
+        }
+    }
+}

@@ -1,0 +1,185 @@
+.fb {
+    .wrap-price-list {
+        .price-area {
+            margin: vw(40px 30px);
+            border: vw(2px) solid $pcolor;
+            padding: vw(40px 30px);
+            color: $black;
+        }
+        dl {
+            overflow: hidden;
+            + {
+                dl {
+                    margin-top: vw(20px);
+                }
+            }
+        }
+        dt {
+            float: left;
+        }
+        dd {
+            float: right;
+            text-align: right;
+            em {
+                font-family: "Rb";
+                font-size: vw(26px);
+                font-weight: 600;
+            }
+        }
+        dl.total {
+            border-top: 1px solid $white2;
+            padding-top: vw(30px);
+            font-size: vw(26px);
+            color: $pcolor;
+            dt {
+                font-weight: 600;
+                margin-top: vw(5px);
+            }
+            dd {
+                em {
+                    font-size: vw(40px);
+                }
+            }
+        }
+    }
+    
+    .wrap-order-cancel {
+        .orderReturn {
+            &__list {
+                padding: vw(30px 30px 40px);
+                border-top: vw(20px) solid $bg_grey50;
+
+                &:first-child {
+                    border-top: 0;
+                }
+            }
+
+            &__top {
+                &__title {
+                    display: block;
+                    margin-bottom: vw(20px);
+                    font: {
+                        size: vw(28px);
+                        weight: 400;
+                    };
+                }
+
+                &__item {
+                    margin-top: vw(30px);
+                    font-size: vw(28px);
+                    color: $grey800;
+                    word-break: keep-all;
+                    word-wrap: break-word;
+
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            &__price {
+                margin-top: vw(30px);
+                padding: vw(30px);
+                background: $bg_grey50;
+
+                dl {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: vw(20px);
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+
+                dt {
+                    font: {
+                        size: vw(28px);
+                        weight: 600;
+                    };
+                }
+
+                dd {
+                    font-size: vw(24px);
+                    line-height: 1;
+
+                    em {
+                        font: {
+                            size: vw(32px);
+                            weight: bold;
+                        };
+                    }
+                }
+            }
+
+            &__date {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: vw(30px);
+
+                &__title {
+                    font-size: vw(26px);                    
+                }
+
+                &__desc {
+                    font-size: vw(28px);
+                    color: $grey800;
+                }
+            }
+        }
+
+        .wrap-btn-area {
+            padding: vw(25px 25px 80px);
+        }
+
+        section {
+            &:last-of-type {
+                border-bottom: none;
+            }
+        }
+
+        .order-cancel {
+            &__title {
+                padding: vw(35px 20px 30px);
+                border-bottom: 1px solid $white2;
+                font-size: vw(32px);
+                font-weight: bold;
+                color: $black;
+    
+            }
+    
+            &__detail {
+                padding: vw(20px);
+                line-height: vw(28px);
+                font-size: vw(24px);
+                @extend %clear;
+                color: $black;
+    
+                span {
+                    float: right;
+    
+                    em {
+                        font-weight: bold;
+                        font-family: $font_n;
+                    }
+                }
+    
+                & + .order-cancel__detail {
+                    padding-top: vw(10px);
+                }
+                p {
+                    margin-bottom: vw(39px);
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .wrap-btn-area {
+            padding-top: vw(50px);
+        }
+    }
+}

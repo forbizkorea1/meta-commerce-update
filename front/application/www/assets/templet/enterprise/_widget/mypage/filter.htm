@@ -1,0 +1,102 @@
+<div class="search">
+    <div class="search__content">
+        <div class="search__row">
+            <div class="search__col">
+                <span class="search__col-title">{=trans('조회기간')}</span>
+                <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick" title="{=trans('조회시작기간')}">
+                ~
+                <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick"  title="{=trans('조회종료기간')}">
+            </div>
+            <div class="search__col__day">
+                <div class="day-radio">
+                <a href="#" class="day-radio__btn today devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
+                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}">{=trans('<em>1</em>주일')}</a>
+                <a href="#" class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault">{=trans('<em>1</em>개월')}</a>
+                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}">{=trans('<em>6</em>개월')}</a>
+                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}">{=trans('<em>1</em>년')}</a>
+                </div>
+            </div>
+        </div>
+
+        {? (layoutCommon.bodyId == 'mypage_orderHistory') || (layoutCommon.bodyId == 'mypage_returnHistory')}
+        <div class="search__row  order">
+            <div class="search__col">
+                <span class="search__col-title ">{=trans('주문상태')}</span>
+                <select class="search__select" name="status" id="devStatus" title="{=trans('주문상태 선택')}">
+                    <option value="all">{=trans('전체')}</option>
+                    {@ status}<option value="{status.key_}">{status.value_}</option>{/}
+                </select>
+            </div>
+            <script>
+                $(function () {
+                    $('#devStatus').val('{orderStatus}');
+                });
+            </script>
+
+            <div class="search__col search__col__pname">
+                <label class="search__col-title search__col__pname-title" for="devPname">{=trans('상품명')}</label>
+                <input class="search__pname-input" type="text" name="pname" id="devPname">
+            </div>
+        </div>
+        {/}
+
+        {? (layoutCommon.bodyId == 'mypage_myInquiry')}
+        <div class="search__row">
+            <div class="search__col">
+                <span class="search__col-title">{=trans('분류')}</span>
+                <select class="search__select" name="bbsDiv" id="devBbsDiv" data-select-default="">
+                    <option value="">{=trans('전체')}</option>
+                    {@ bbsDiv}
+                    <option value="{.div_ix}">{.div_name}</option>
+                    {/}
+                </select>
+            </div>
+
+            <div class="fb__mypage__checkbox search__col wrap-checkbox">
+                <span class="search__col-title">{=trans('처리상태')}</span>
+                {@ bbsStatus}
+                <label>
+                    <input type="checkbox" name="s{.index_ + 1}" class="devStatus" value="{.status_ix}" data-checkbox-default="true" checked="true">
+                    <span class="check-area">{.status_name}</span>
+                </label>
+                {/}
+            </div>
+        </div>
+        {/}
+
+        {? (layoutCommon.bodyId == 'mypage_myGoodsInquiry')}
+        <div class="search__row">
+            <div class="search__col">
+                <label class="search__col-title" for="devDivInfo">{=trans('분류')}</label>
+                <select class="search__select" name="bbsDiv" id="devDivInfo" data-select-default="">
+                    <option value="">{=trans('전체')}</option>
+                    {@ divsInfo}
+                    <option value="{.ix}">{.div_name}</option>
+                    {/}
+                </select>
+            </div>
+
+            <div class="fb__mypage__checkbox search__col wrap-checkbox inquiry-checkbox">
+                <span class="search__col-title">{=trans('처리상태')}</span>
+                <!--<label>-->
+                    <!--<input type="checkbox" name="resYn" value="all" checked>-->
+                    <!--<span class="check-area">{=trans('전체')}</span>-->
+                <!--</label>-->
+                <label>
+                    <input type="checkbox" class="devResYn" name="resN" value="N" data-checkbox-default="true" checked>
+                    <span class="check-area">{=trans('답변대기')}</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="devResYn" name="resY" value="Y" data-checkbox-default="true" checked>
+                    <span class="check-area">{=trans('답변완료')}</span>
+                </label>
+            </div>
+        </div>
+        {/}
+    </div>
+
+    <div class="search__btn">
+        <button type="button" id="devSearchInitBtn" class="search__btn--cancel" data-sDate="{oneMonth}" data-eDate="{today}">{=trans('초기화')}</button>
+        <button type="button" id="devSearchBtn" title="검색" class="search__btn--search">{=trans('검색')}</button>
+    </div>
+</div>

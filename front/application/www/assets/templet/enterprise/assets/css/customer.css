@@ -1,0 +1,985 @@
+@charset "UTF-8";
+/* 공통 */
+.fb__customer__top:after, .fb__customer__index:after, .fb__customer__noti:after, .fb__bbs__detail .detail__nav:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+/* customer */
+.fb {
+  /*  FAQ 통합검색 공통 탑 21.05.13 수정 추가했음 */
+  /* faq 아코디언 테이블 공통 */
+}
+
+.fb__customer {
+  /* 고객센터 검색 폼 */
+  /* 고객센터 - 메인 */
+  /* 고객센터 메인 - 자주묻는 질문 영역 */
+  /* 고객센터 메인 - 공지사항 영역 */
+}
+
+.fb__customer-aside__title {
+  font-size: 0;
+}
+
+.fb__customer-aside__title a {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 600;
+  color: #111;
+  line-height: 40px;
+  vertical-align: top;
+}
+
+.fb__customer-aside__box {
+  margin-top: 30px;
+}
+
+.fb__customer-aside__list {
+  margin-top: 20px;
+}
+
+.fb__customer-aside__list:first-child {
+  margin-top: 0;
+}
+
+.fb__customer-aside__list a {
+  display: inline-block;
+  font-size: 16px;
+  color: #111;
+  line-height: 21px;
+  vertical-align: top;
+}
+
+.fb__customer-aside__list a.on {
+  color: #FF6600;
+}
+
+.fb__customer__top {
+  width: 1060px;
+}
+
+.fb__customer__title {
+  color: #111;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.fb__customer__form {
+  padding: 22px 0;
+  background: #f8f8f8;
+  font-size: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.fb__customer__form .form__title {
+  display: inline-block;
+  color: #111;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  vertical-align: middle;
+}
+
+.fb__customer__form .form__container {
+  display: inline-block;
+  margin: 0 10px 0 18px;
+  vertical-align: middle;
+}
+
+.fb__customer__form .form__container__insert {
+  padding: 14px 51px 13px 17px;
+  width: 500px;
+  height: 46px;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #999;
+  font-size: 16px;
+  outline: none;
+}
+
+.fb__customer__form .form__container__insert:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
+
+.fb__customer__form .form__search__btn {
+  display: inline-block;
+  width: 80px;
+  height: 46px;
+  background: #666;
+  color: #fff;
+  font-size: 14px;
+  line-height: 23px;
+  vertical-align: middle;
+  letter-spacing: -0.025em;
+}
+
+.fb__customer__noti .fb__customer__title, .fb__customer__faq .fb__customer__title {
+  font-size: 20px;
+  color: #111;
+}
+
+.fb__customer__faq {
+  margin-top: 20px;
+}
+
+.fb__customer__faq-header {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.fb__customer__faq-more {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 13px;
+  color: #999;
+  margin-top: 7px;
+}
+
+.fb__customer__faq-more:after {
+  display: inline-block;
+  width: 10px;
+  height: 9px;
+  margin-left: 3px;
+  background: url(../../images/customer/sprite_customer.png) no-repeat -400px 0;
+  content: "";
+}
+
+.fb__customer__noti {
+  position: relative;
+  margin-top: 50px;
+}
+
+.fb__customer__noti-header {
+  position: relative;
+  border-bottom: 1px solid #111;
+  padding-bottom: 15px;
+}
+
+.fb__customer__noti-more {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 13px;
+  color: #999;
+  margin-top: 7px;
+}
+
+.fb__customer__noti-more:after {
+  display: inline-block;
+  width: 10px;
+  height: 9px;
+  margin-left: 3px;
+  background: url(../../images/customer/sprite_customer.png) no-repeat -400px 0;
+  content: "";
+}
+
+.fb__customer__noti .noti__box {
+  float: left;
+  width: 720px;
+}
+
+.fb__customer__noti .noti__box .cus-notice__list {
+  border-bottom: 1px solid #ddd;
+  font-size: 0;
+}
+
+.fb__customer__noti .noti__box .cus-notice__list a {
+  display: block;
+  padding: 17px 0;
+}
+
+.fb__customer__noti .noti__box .cus-notice__list__title {
+  display: inline-block;
+  width: 590px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #111;
+  vertical-align: middle;
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb__customer__noti .noti__box .cus-notice__list__date {
+  display: inline-block;
+  width: 110px;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fb__customer__noti .customer__call {
+  float: right;
+  width: 280px;
+  padding: 63px 0 20px;
+  background: #f8f8f8 url(../../images/customer/ico_customer_call.png) no-repeat 50% 26px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.fb__customer__noti .customer__call__title {
+  display: block;
+  color: #111;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Notosans", sans-serif;
+  line-height: 22px;
+  text-align: center;
+}
+
+.fb__customer__noti .customer__call__number {
+  display: inline-block;
+  color: #ff6600;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 45px;
+}
+
+.fb__customer__noti .customer__call__info {
+  display: block;
+  margin-top: 10px;
+  color: #111;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.fb__customer__noti .customer__call__info a {
+  color: #111;
+}
+
+.fb .faq {
+  border-top: 2px solid #111;
+}
+
+.fb .faq__tab {
+  margin-bottom: 40px;
+}
+
+.fb .faq__tab__box {
+  font-size: 0;
+}
+
+.fb .faq__tab__list {
+  display: inline-block;
+  width: calc(20% + 1px);
+  margin: -1px 0 0 -1px;
+  border: 1px solid #ddd;
+  vertical-align: top;
+}
+
+.fb .faq__tab__list:nth-child(-n + 5) {
+  margin-top: 0;
+}
+
+.fb .faq__tab__list:nth-child(5n + 1) {
+  width: 20%;
+  margin-left: 0;
+}
+
+.fb .faq__tab__list a {
+  display: block;
+  height: 44px;
+  font-size: 14px;
+  line-height: 44px;
+  text-align: center;
+}
+
+.fb .faq__tab__list.active a {
+  background: #111;
+  color: #fff;
+}
+
+.fb .faq__list {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.fb .faq__list__ques {
+  position: relative;
+  padding: 17px 0;
+  font-size: 0;
+  box-sizing: border-box;
+}
+
+.fb .faq__list__ques:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  width: 13px;
+  height: 8px;
+  background: url(../../images/customer/icon_faq_list_arrow.png) no-repeat 0 0;
+}
+
+.fb .faq__list__ques.open:after {
+  background: url(../../images/customer/icon_faq_list_arrow__reverse.png) no-repeat 0 0;
+}
+
+.fb .faq__list__ques.open + .faq__list__anwser {
+  display: block;
+}
+
+.fb .faq__list__ques .ques__div {
+  display: inline-block;
+  min-width: 190px;
+  color: #666;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.fb .faq__list__ques .ques__title {
+  display: inline-block;
+  position: relative;
+  width: 810px;
+  padding: 0 20px 0 38px;
+  font-size: 14px;
+  color: #111;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.fb .faq__list__ques .ques__title:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  width: 23px;
+  height: 23px;
+  background: url(../../images/customer/icon_faq-best_ques.png) no-repeat 0 0;
+}
+
+.fb .faq__list__ques .ques__title strong {
+  color: #ff6600;
+  font-weight: 400;
+}
+
+.fb .faq__list__anwser {
+  display: none;
+  position: relative;
+  padding: 20px 114px 35px 190px;
+  border-top: 1px solid #ddd;
+  background: #f8f8f8;
+}
+
+.fb .faq__list__anwser div {
+  position: relative;
+  padding-left: 38px;
+  font-size: 14px;
+  color: #111;
+  line-height: 20px;
+}
+
+.fb .faq__list__anwser div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  background: url(../../images/customer/icon_faq-best_answer.png) no-repeat 0 0;
+}
+
+.fb .faq__list__anwser strong {
+  color: #ff6600;
+  font-weight: 400;
+}
+
+.fb__faq__count {
+  margin-bottom: 10px;
+}
+
+.fb__faq__count .fb__bbs__header__count {
+  margin: 0;
+}
+
+.fb__bbs {
+  /* 공지사항 테이블 */
+  /* faq list */
+  /* faq 테이블 */
+}
+
+.fb__bbs__tab {
+  margin-top: 50px;
+}
+
+.fb__bbs__header {
+  position: relative;
+  min-height: 35px;
+  margin: 0px 0 20px 0;
+  vertical-align: middle;
+}
+
+.fb__bbs__header__filter {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.fb__bbs__header__filter select {
+  min-width: 90px;
+}
+
+.fb__bbs__header__filter input[type="text"] {
+  width: 220px;
+  vertical-align: top;
+  margin: 0 8px;
+}
+
+.fb__bbs__header__filter input[type="submit"] {
+  padding: 0 20px;
+}
+
+.fb__bbs__header__filter select, .fb__bbs__header__filter input {
+  outline: none;
+}
+
+.fb__bbs__header__title {
+  display: inline-block;
+  color: #111;
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+.fb__bbs__header__count {
+  display: inline-block;
+  margin: 11px 0 4px 10px;
+  color: #666;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__bbs__header__count #keyword,
+.fb__bbs__header__count #devTotal {
+  color: #FF6600;
+  font-weight: 600;
+}
+
+.fb__bbs__table {
+  border-top: 2px solid #111;
+}
+
+.fb__bbs__table td {
+  padding: 15px 20px;
+}
+
+.fb__bbs__table td.title {
+  text-align: left;
+}
+
+.fb__bbs__table td.title a {
+  color: #111;
+}
+
+.fb__bbs__table-icon--noti {
+  display: inline-block;
+  padding: 0 10px;
+  height: 20px;
+  border: 1px solid #ff6600;
+  font-size: 11px;
+  font-family: "Notosans", sans-serif;
+  color: #ff6600;
+  line-height: 18px;
+}
+
+.fb__bbs .list-menu {
+  margin-bottom: 40px;
+}
+
+.fb__bbs .list-menu .list-menu__list:nth-child(0):after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0px !important;
+  width: 1px;
+  height: 100%;
+  background: #dddddd;
+  content: "";
+}
+
+.fb__bbs .list-menu .list-menu__list:nth-child(1):after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 211.6px !important;
+  width: 1px;
+  height: 100%;
+  background: #dddddd;
+  content: "";
+}
+
+.fb__bbs .list-menu .list-menu__list:nth-child(2):after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 423.2px !important;
+  width: 1px;
+  height: 100%;
+  background: #dddddd;
+  content: "";
+}
+
+.fb__bbs .list-menu .list-menu__list:nth-child(3):after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 634.8px !important;
+  width: 1px;
+  height: 100%;
+  background: #dddddd;
+  content: "";
+}
+
+.fb__bbs .list-menu .list-menu__list:nth-child(4):after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 846.4px !important;
+  width: 1px;
+  height: 100%;
+  background: #dddddd;
+  content: "";
+}
+
+.fb__bbs .list-menu .list-menu__list a {
+  height: 46px !important;
+  padding-left: 0 !important;
+  line-height: 46px !important;
+  text-align: center;
+}
+
+.fb__bbs__faq {
+  border-top: 2px solid #111;
+}
+
+.fb__bbs__faq-box {
+  font-size: 14px;
+  color: #666;
+  overflow: hidden;
+}
+
+.fb__bbs__faq-box strong {
+  color: #ff6600;
+}
+
+.fb__bbs__faq-box.opened dt:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fb__bbs__faq-a {
+  display: none;
+  padding: 20px 50px 35px 190px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.fb__bbs__faq-a .answer {
+  position: relative;
+  padding-left: 40px;
+  color: #111;
+  line-height: 22px;
+}
+
+.fb__bbs__faq-a .answer:before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 23px;
+  height: 23px;
+  margin-right: 15px;
+  background: url(../../images/common/sprite_common.png) no-repeat -250px -450px;
+  content: "";
+}
+
+.fb__bbs__faq-q {
+  overflow: hidden;
+  position: relative;
+  padding: 15px 0 12px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.fb__bbs__faq-q span {
+  float: left;
+  line-height: 25px;
+  min-width: 190px;
+  text-align: center;
+  display: inline-block;
+}
+
+.fb__bbs__faq-q p {
+  float: left;
+  position: relative;
+  max-width: calc(100% - 190px);
+  padding-left: 40px;
+  padding-right: 40px;
+  color: #111;
+  line-height: 25px;
+}
+
+.fb__bbs__faq-q p:before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 23px;
+  height: 23px;
+  margin-right: 15px;
+  background: url(../../images/common/sprite_common.png) no-repeat -200px -450px;
+  content: "";
+}
+
+.fb__bbs__faq-q:after {
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  height: 10px;
+  background: url(../../images/common/sprite_common.png) 0 -200px no-repeat;
+  transition: 0.3s ease transform;
+  content: "";
+}
+
+.fb__bbs__detail__title {
+  margin-bottom: 15px;
+  color: #111;
+  font-size: 24px;
+}
+
+.fb__bbs__detail .detail__header {
+  padding: 15px 30px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #ddd;
+}
+
+.fb__bbs__detail .detail__title {
+  margin-bottom: 10px;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.fb__bbs__detail .detail__date {
+  font-size: 13px;
+  color: #888;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__bbs__detail .detail__content {
+  padding: 30px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.fb__bbs__detail .detail__content img {
+  max-width: 100%;
+}
+
+.fb__bbs__detail .detail__content .file {
+  margin-top: 45px;
+}
+
+.fb__bbs__detail .detail__content .file a {
+  display: inline-block;
+  color: #666;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.fb__bbs__detail .detail__content .file:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 17px;
+  background: url(../../images/mypage/sprite_mypage.png) -800px 0px no-repeat;
+  vertical-align: middle;
+}
+
+.fb__bbs__detail .detail__content dl {
+  overflow: hidden;
+  padding: 17px 25px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.fb__bbs__detail .detail__content dt {
+  float: left;
+}
+
+.fb__bbs__detail .detail__content dt span:after {
+  display: inline-block;
+  width: 12px;
+  height: 10px;
+  margin-left: 15px;
+  margin-top: 3px;
+  background: url(../../images/common/sprite_common.png) -700px -100px no-repeat;
+  vertical-align: top;
+  content: "";
+}
+
+.fb__bbs__detail .detail__content dt:after {
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  margin: 0 50px;
+  background: #ddd;
+  content: "";
+}
+
+.fb__bbs__detail .detail__content dd {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fb__bbs__detail .detail__nav ul {
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.fb__bbs__detail .detail__nav li {
+  float: left;
+  overflow: hidden;
+  width: 100%;
+  padding: 17px 25px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.fb__bbs__detail .detail__nav span {
+  position: relative;
+  padding-right: 101px;
+  cursor: pointer;
+}
+
+.fb__bbs__detail .detail__nav span:after {
+  display: inline-block;
+  width: 12px;
+  height: 10px;
+  margin-left: 15px;
+  margin-top: 3px;
+  background: url(../../images/common/sprite_common.png) -700px -100px no-repeat;
+  vertical-align: top;
+  content: "";
+}
+
+.fb__bbs__detail .detail__nav span:before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 120px;
+  width: 1px;
+  height: 13px;
+  margin-top: -6.5px;
+  background: #ddd;
+  content: "";
+}
+
+.fb__bbs__detail .detail__nav-prev a {
+  display: inline-block;
+  width: calc(100% - 200px);
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb__bbs__detail .detail__nav-next span:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fb__bbs__detail .detail__nav-next a {
+  display: inline-block;
+  width: calc(100% - 200px);
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb__bbs__detail .detail button {
+  float: right;
+  min-width: 120px;
+  border-color: #111;
+  color: #111;
+}
+
+.fb__bbs__detail .detail button:hover {
+  border-color: #999;
+  color: #999;
+}
+
+.fb__bbs__write .qna__header {
+  margin-bottom: 15px;
+}
+
+.fb__bbs__write .qna__header__title {
+  font-size: 24px;
+}
+
+.fb__bbs__write .qna__header__desc {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.fb__bbs__write .qna__header__desc button {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+.fb__bbs__write .qna__header__desc i {
+  display: inline-block;
+  width: 8px;
+  height: 11px;
+  margin: 0 5px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -400px 0;
+}
+
+.fb__bbs__write .qna__header__desc a {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+.fb__bbs__write .btn-default {
+  padding: 0 15px;
+  min-width: 70px;
+}
+
+.fb__bbs__write .btn-default.delete-btn {
+  margin-left: 3px !important;
+}
+
+.fb__bbs__write__submit {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.fb__bbs__write__submit button {
+  margin: 0 5px;
+}
+
+.fb__bbs__write .fb__checkbox {
+  margin-left: 20px;
+}
+
+.fb__btn-point {
+  color: #fff;
+  background: #ff6600;
+}
+
+.fb table.join-table th em {
+  margin: 0 8px 0 10px;
+}
+
+.fb#customer_qna table.join-table th {
+  vertical-align: middle;
+}
+
+.fb__orderListPop {
+  width: 640px;
+  max-height: 480px;
+}
+
+.fb__orderListPop .orderList__desc {
+  display: none;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+  line-height: 26px;
+}
+
+.fb__orderListPop .orderList__desc.show {
+  display: block;
+}
+
+.fb__orderListPop th {
+  border-top: 1px solid #ddd;
+  padding: 15px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fb__orderListPop td {
+  padding: 10px 0;
+  font-size: 13px;
+}
+
+.fb__orderListPop td.order-goods {
+  text-align: left;
+  font-size: 0;
+}
+
+.fb__orderListPop .thumb {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}
+
+.fb__orderListPop .thumb img {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+.fb__orderListPop .price {
+  font-size: 13px;
+  color: #111;
+}
+
+.fb__orderListPop .price em {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__orderListPop .order-num {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Rb", "Notosans", sans-serif;
+  color: #111;
+}
+
+.fb__orderListPop .date {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Rb", "Notosans", sans-serif;
+  color: #666;
+}
+
+.fb__orderListPop .title {
+  display: inline-block;
+  width: calc(100% - 80px);
+  padding-left: 15px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #111;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+
+/*# sourceMappingURL=customer.css.map*/

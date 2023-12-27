@@ -1,0 +1,107 @@
+.fb {
+    &__sleep-account-release {
+        border: 1px solid blue;
+
+        .wrap-terms .terms-tit span {
+            color: $pcolor;
+        }
+
+        .sleep-account-area {
+            padding-top: 60px;
+        }
+    }
+
+    &__sleep-account__confirm {
+        display: block;
+        margin-top: 60px;
+        color: $black;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 24px;
+    }
+
+    &__sleep-account-area {
+        padding-top: 100px;
+
+        &__title {
+            font-size: 40px;
+            color: $black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        &__annc {
+            color : #111222;
+            font-size:22px;
+            font-weight:600;
+            text-align: center;
+
+        }
+
+        .sleep-guide-layout {
+            width: 1000px;
+            margin: 40px auto 0px;
+            border-top: 1px solid $grey200;
+            padding-top: 40px;
+            text-align: center;
+            font-size: 20px;
+            color: $grey800;
+
+            .wrap-btn-area {
+                margin-top: 60px;
+            }
+
+            p {
+                line-height: 30px;
+                margin-bottom: 20px;
+            }
+
+            .wrap-guide-box {
+                margin-top: 60px;
+                background: $bg_grey50;
+                font-size: 14px;
+                color: $grey800;
+                line-height: 24px;
+                padding: 20px 0 30px;
+
+                p {
+                    margin-bottom: 0;
+                }
+
+                &__mail{
+                    position: relative;
+                    display: inline-block;
+                    margin-right:20px;
+                    
+                    &:after{
+                        content : '';
+                        display: block;
+                        width: 1px;
+                        height:14px;
+                        background-color: $grey800;
+                        position: absolute;
+                        top:50%;
+                        right:-10px;
+                        -webkit-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                        -ms-transform: translateY(-50%);
+                        -o-transform: translateY(-50%);
+                        transform: translateY(-50%);
+
+                    }
+
+
+                }
+
+            }
+
+            .wrap-btn-area{
+                button{
+                    padding: 0px;
+                }
+            }
+
+        }
+    }
+}

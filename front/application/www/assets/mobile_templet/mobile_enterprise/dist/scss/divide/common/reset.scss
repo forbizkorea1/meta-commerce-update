@@ -1,0 +1,292 @@
+//공통
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    letter-spacing: vw(-1.3px); 
+}
+
+body {
+	-webkit-text-size-adjust: 100%;
+    font-family: $font_n;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    font-size: vw(14px);
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+legend {
+    border: 0;
+    background-color: transparent;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    background: none;
+    outline: 0;
+    user-select: none;
+}
+
+label {
+	border: 0;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+input {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: 0;
+    border-radius: 0;
+	vertical-align: middle;
+
+    &::-ms-clear {
+        display: none;
+    }
+}
+
+input[type='text'] {
+    @extend %defaultInputStyle;
+}
+
+input[type='password'] {
+    @extend %defaultInputStyle;
+}
+
+input[type='number'] {
+    @extend %defaultInputStyle;
+}
+
+input[type="file"] {
+    &.file-upload {
+        float: left;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+select {
+    width: 100%;
+    height: vw(90px);
+    padding: vw(0 72px 0 30px);
+    background: url("../images/guide/ic_more_gray_20px@2x.png") no-repeat calc(100% - 16px) center / vw(40px);
+    border: vw(2px) solid $grey200;
+    border-radius: 0;
+    color: $grey800;
+    font-family: $font_n;
+    font-size: vw(26px);
+    vertical-align: middle;
+    outline: none;
+    appearance: none;
+    
+    &:disabled {
+        background-color: #f7f7f9;
+        color: $grey600;
+        opacity: 0.7;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:disabled {
+        background-color: $bg_grey50;
+        color: $grey600;
+        opacity: 1;
+    }
+
+    //quantity 작은 셀렉트 박스
+    &.fb__select--small {
+        min-width: vw(154px);
+        height: vw(60px);
+        padding: vw(0 60px 0 30px);
+        background: url(../images/guide/dropdown_select_20px@2x.png) no-repeat calc(100% - #{vw(20px)}) center / vw(40px);
+        border-color: $grey400;
+        text-align: left;
+    }
+
+    &.fb__select--medium {
+        min-width: vw(200px);
+        height: vw(60px);
+        padding: vw(0 60px 0 30px);
+        background: url(../images/guide/dropdown_select_20px@2x.png) no-repeat calc(100% - #{vw(20px)}) center / vw(40px);
+        border-color: $grey400;
+        text-align: left;
+    }
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    
+    caption {
+        display: none;
+    }
+}
+
+textarea {
+    padding: vw(25px);
+    border: vw(2px) solid $grey200;
+    font-size: vw(26px);
+    color: $black;
+    text-indent: 0;
+    border-radius: 0;
+    resize: none;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+    
+    &::placeholder {
+        color: #bcbcbc;
+    }
+}
+
+i, em, address {
+    font-style: normal;
+}
+
+//ie 때문에 추가
+details {
+    /* summary 기본css 제거 */
+    summary {
+        display: block;
+        list-style: none; // 기본css 제거
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    summary + * {
+        display: none;
+    }
+
+    &[open] {
+        summary + * {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,462 @@
+.fb {
+    &__join-input {
+        /*
+        스탭영역 : sj__authentication
+        (authentication_basic.htm 참조)
+        */
+
+        %joinStar {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            margin-left: 5px;
+            background: $pcolor;
+            font-size: 0;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+
+        // 일반회원가입 정보입력
+        &__basic {
+            .fb__join-input__form {
+                border-bottom: 1px solid $grey100;
+            }
+        }
+
+          // 사업자회원가입 정보입력
+        &__company {
+            // 추가될것 있으면 여기에..
+        }
+        
+        &__form {
+            .input-form {
+                width: 850px;
+                margin: 40px auto 0;
+                
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &__title-box {
+                    padding-bottom: 20px;
+                    border-bottom: 2px solid $black;
+                    @extend %clear;
+
+                    &__text {
+                        float: left;
+                        font: {
+                            size: 22px;
+                        };
+                        color: $black;
+
+                        &-sub {
+                            display: block;
+                            margin-top: 10px;
+                            font-size: 14px;
+                            color: $grey800;
+                            line-height: 26px;
+                        }
+                    }
+
+                    &__tip {
+                        font-size: 14px;
+                        color: $grey800;
+                    }
+
+                    &__guide {
+                        float: right;
+                        font-size: 14px;
+                        color: $grey800;
+
+                        .star {
+                            @extend %joinStar;
+                        }
+                    }
+                }
+
+                &__content-box {
+                    padding: 0 0 10px;
+
+                    .required {
+                        &:after {
+                            display: inline-block;
+                            width: 5px;
+                            height: 5px;
+                            margin-left: 10px;
+                            background: $pcolor;
+                            border-radius: 50%;
+                            vertical-align: text-top;
+                            content: "";
+                        }
+                    }
+
+                    .inputs {
+                        display: table;
+                        table-layout: fixed;
+                        width: 100%;
+
+                        &:last-child {
+                            .inputs__content {
+                                padding-bottom: 0;
+                            }
+                        }
+
+                        &__title {
+                            display: table-cell;
+                            width: 180px;
+                            color: $black;
+                            font-size: 15px;
+                            text-align: left;
+                            line-height: 40px;
+                            vertical-align: top;
+                        }
+                        
+                        &__content {
+                            display: table-cell;
+                            padding: 0 0 20px;
+                            font-size: 0;
+                            @extend %clear;
+
+                            .txt-error,
+                            .txt-success {
+                                margin: 10px 0 0;
+                                font-size: 13px;
+                            }
+
+                            button {
+                                vertical-align: middle;
+                            }
+
+                            select + button,
+                            input + button {
+                                margin-left: 10px;
+                            }
+
+                            > input {
+                                width: 345px;
+                            }
+
+                            input[readonly] {
+                                background: $bg_grey50;
+                            }
+
+                            .selectWrap {
+                                font-size: 0;
+
+                                select,
+                                input {
+                                    display: inline-block;
+                                    width: 100px;
+                                }
+
+                                input[type="number"] {
+                                    display: inline-block;
+                                }
+
+                                select + select {
+                                    margin-left: 10px;
+                                }
+                            }
+
+                            &__btn {
+                                display: inline-block;
+                                position: relative;
+                                margin-left: 10px;
+                                padding: 0 24px;
+                                background: $grey800;
+                                font-size: 14px;
+                                color: $white;
+                                line-height: 40px;
+                                vertical-align: middle;
+
+                                &:disabled,
+                                &--disabled {
+                                    border-color: $grey500;
+                                    background: $grey500;
+                                }
+
+                                &.white {
+                                    background: $white;
+                                    color: $grey800;
+                                }
+
+                                &.phone {
+                                    margin-left: 0;
+
+                                    &:before {
+                                        content: "";
+                                        display: inline-block;
+                                        width: 12px;
+                                        height: 20px;
+                                        margin-right: 10px;
+                                        background: url(../images/common/icon_member_join_phone.png) no-repeat center center;
+                                        vertical-align: middle;
+                                    }
+                                }
+
+                                input[type="file"] {
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    opacity: 0;
+                                }
+                            }
+
+                            &__guide {
+                                clear: both;
+                                margin-top: 5px;
+                                color: $grey600;
+                                font-size: 12px;
+                                line-height: 17px;
+                            }
+
+                            &__text {
+                                font-size: 15px;
+                                color: $black;
+                                line-height: 40px;
+                            }
+
+                            .email {
+                                display: inline-block;
+                                
+                                input[type="text"] {
+                                    width: 160px;
+                                }
+
+                                select {
+                                    width: 160px;
+                                    margin-left: 5px;
+                                }
+
+                                .input-between {
+                                    display: inline-block;
+                                    margin: 0 2px;
+                                    color: $black;
+                                }
+                            }
+
+                            &__thumb {
+                                display: inline-block;
+                                overflow: hidden;
+                                position: relative;
+                                width: 50px;
+                                height: 50px;
+                                margin-top: -5px;
+                                border-radius: 100%;
+                                vertical-align: top;
+                                background-size: cover;
+                                background-position: center center;
+                                background-repeat: no-repeat;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+
+                            &__radio-box {
+                                @extend %clear;
+
+                                .radio {
+                                    float: left;
+                                    position: relative;
+                                    width: 107px;
+                                    padding: 9px 5px 9px 28px;
+
+                                    & input[type="radio"] {
+                                        position: absolute;
+                                        top: 9px;
+                                        left: 0;
+                                    }
+
+                                    label {
+                                        display: block;
+                                        margin-left: 0;
+                                        line-height: 22px;
+                                    }
+                                }
+                            }
+
+                            &__check-box {
+                                @extend %clear;
+
+                                .checkbox {
+                                    float: left;
+                                    position: relative;
+                                    width: 190px;
+                                    padding: 5px 5px 5px 28px;
+
+                                    & input[type="radio"],
+                                    input[type="checkbox"] {
+                                        position: absolute;
+                                        top: 5px;
+                                        left: 0;
+                                    }
+
+                                    label {
+                                        display: block;
+                                        margin-left: 0;
+                                        line-height: 22px;
+                                    }
+                                }
+                            }
+
+                            .certify-pcs-text {
+                                display: inline-block;
+                                margin-top: 10px;
+
+                                + .certify-complete {
+                                    margin-right: 20px;
+                                    font-size: 15px;
+                                    color: $pcolor;
+    
+                                    &:before {
+                                        content: "";
+                                        display: inline-block;
+                                        width: 16px;
+                                        height: 14px;
+                                        margin: 0 5px 3px;
+                                        background: url(../images/member/sprite_member.png) no-repeat -500px 0;
+                                        vertical-align: middle;
+                                    }
+
+                                    &.certify-pcs-text:empty + .certify-complete {
+                                        display: none;
+                                    }
+                                }
+                            }
+
+                            .form-info-wrap {
+                                width: 500px;
+                            }
+                        }
+
+                        &.email-area {
+                            .btn-email-check {
+                                width: 140px;
+                                padding: 0;
+                            }
+                        }
+
+                        &.phone-area {
+                            .wrap-input {
+                                position: relative;
+                                display: inline-block;
+                                font-size: 0;
+
+                                input[type="number"] {
+                                    float: none;
+                                }
+
+                                .input2 {
+                                    display: inline-block;
+                                    width: 100px;
+                                    text-align: center;
+                                }
+    
+                                .input3 {
+                                    display: inline-block;
+                                    width: 100px;
+                                    text-align: center;
+                                }
+
+                                .hyphen {
+                                    display: inline-block;
+                                    width: 23px;
+                                    height: 40px;
+                                    margin: 0;
+                                    color: $grey800;
+                                    font-size: 14px;
+                                    line-height: 40px;
+                                    text-align: center;
+                                    vertical-align: middle;
+                                }
+                            }
+
+                        }
+
+                        &.file-upload {
+                            font-size: 0;
+
+                            .fb__button {
+                                display: inline-block;
+                                margin-left: 10px;
+                                vertical-align: top;
+
+                                button {
+                                    width: 80px;
+                                    height: 40px;
+                                    margin-left: 5px;
+                                    font-size: 13px;
+
+                                    &:first-child {
+                                        margin-left: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__guide {
+                    margin-top: 10px;
+                    padding-left: 15px;
+
+                    li {
+                        position: relative;
+                        padding-left: 12px;
+                        font-size: 14px;
+                        color: $grey800;
+                        line-height: 20px;
+
+                        &:before {
+                            content: "·";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            color: $grey400;
+                        }
+                    }
+                }
+
+                &__desc {
+                    margin-top: 15px;
+                    font-size: 14px;
+                    color: $grey800;
+                }
+            }
+        }
+
+        &__basic {
+            .input-form__content-box {
+                padding: 0 0 20px 0;
+            }
+
+        }
+
+        &__submit {
+            margin-top: 50px;
+            text-align: center;
+
+            button {
+                margin: 0 5px;
+            }
+        }
+
+        &__zipcode,
+        &__address1 {
+            background: $bg_grey50 !important;
+        }
+        
+        [class^="btn"]:disabled {
+            border-color: $grey600;
+            background-color: #f5f5f5;
+            color: $grey600;
+        }
+    }
+}

@@ -342,18 +342,19 @@ var devMarketingManageCouponObj = {
         });
     },
     initChangeTitle: function(couponDiv){
-        var self = this;
-        $('.devCouponDivChangeText').each(function(){
-            var text = $(this).text();
-            if(couponDiv == 'C'){
-                text = text.replace('상품금액', '결제금액');
-                text = text.replace('할인금액', '주문할인금액');
-            }else{
-                text = text.replace('결제금액', '상품금액');
-                text = text.replace('주문할인금액', '할인금액');
-            }
-            $(this).text(text);
-        });
+        if (couponDiv == 'C') {
+            //장바구니
+            $(".devCouponDivChangeMinText").text("최소 결제금액 설정");
+            $(".devCouponDivChangeMinPrice").text("최소 결제금액");
+            $(".devCouponDivChangeMaxText").text("최대 주문할인금액 설정");
+            $(".devCouponDivChangeMaxPrice").text("최대 주문할인금액");
+        } else {
+            //상품
+            $(".devCouponDivChangeMinText").text("최소 상품금액 설정");
+            $(".devCouponDivChangeMinPrice").text("최소 상품금액");
+            $(".devCouponDivChangeMaxText").text("최대 할인금액 설정");
+            $(".devCouponDivChangeMaxPrice").text("최대 할인금액");
+        }
     },
     gridObj: {},
     selectCategory: false,
@@ -518,6 +519,12 @@ var devMarketingManageCouponObj = {
         }
         self.setUseProductTypeContents(datas);
     },
+    // 쿠폰 종류에 따른 혜택설정 텍스트 로드
+    initLoadCouponDivText: function () {
+        var self = this;
+        var couponDiv = $('input[name=cupon_div]:checked').val();
+        self.initChangeTitle(couponDiv);
+    },
     run: function () {
         var self = this;
         self.initLang();
@@ -525,6 +532,7 @@ var devMarketingManageCouponObj = {
         self.initForm();
         self.initUseProductTypeContents();
         self.initSelectCategory();
+        self.initLoadCouponDivText();
     }
 }
 

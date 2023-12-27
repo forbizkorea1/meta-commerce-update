@@ -10,12 +10,12 @@
                 size: vw(38px);
                 weight: 600;
             };
-            color: #111;
+            color: $black;
         }
 
         .desc {
             font-size: vw(26px);
-            color: $textGrey;
+            color: $grey800;
             line-height: vw(34px);
             margin-bottom: vw(60px);
         }
@@ -28,7 +28,7 @@
     .profile-detail {
         .subtitle {
             font-size: vw(26px);
-            color: #111;
+            color: $black;
             font-weight: 600;
             padding: vw(0 25px 10px);
             line-height: vw(34px);
@@ -40,7 +40,7 @@
 
         .layout-padding .desc {
             font-size: vw(26px);
-            color: $textGrey2;
+            color: $grey600;
             margin-top: vw(30px);
         }
 
@@ -76,8 +76,8 @@
                 flex-shrink: 0;
                 &:last-of-type {
                     margin-top: 0;
-                    border-top: 1px solid #ccc;
-                    border-bottom: 1px solid #ccc;
+                    border-top: 1px solid $grey400;
+                    border-bottom: 1px solid $grey400;
                 }
 
             }
@@ -108,7 +108,7 @@
 
     .term-area {
         margin: vw(0 30px);
-        border: 1px solid $white4;
+        border: 1px solid $grey200;
    }
 
     .marketing-wrap .sub-txt {
@@ -131,7 +131,7 @@
 
         .address-area {
                 input[readonly] {
-                    background-color: $white1;
+                    background-color: $bg_grey50;
                 }
         }
         
@@ -156,13 +156,13 @@
                         &:last-child {
                             margin-left: -1px;
                             label {
-                                border-right-color: #ccc;
-                                border-left:1px solid #ccc;
+                                border-right-color: $grey400;
+                                border-left:1px solid $grey400;
                             }
                         }
                         &:first-child{
                             label {
-                                border-right-color: #ccc;
+                                border-right-color: $grey400;
                             }
                         }
                         label {
@@ -172,8 +172,8 @@
                             z-index: 2;
                             width: vw(120px);
                             height: vw(90px);
-                            border: 1px solid #ccc;
-                            background: $white1;
+                            border: 1px solid $grey400;
+                            background: $bg_grey50;
                             line-height: vw(90px);
                             text-align: center;
                         }
@@ -183,9 +183,9 @@
                             &:checked {
                                 & + label {
                                     z-index: 3;
-                                    border-color: $textGrey2;
-                                    color: $textGrey;
-                                    background: #fff;
+                                    border-color: $grey600;
+                                    color: $grey800;
+                                    background: $white;
                                 }
                             }
                         }
@@ -274,9 +274,9 @@
                         max-height: vw(200px);
                         padding: vw(30px);
                         border-top: vw(2px) solid #EEE;
-                        background: #F8F8F8;
+                        background: $bg_grey50;
                         font-size: vw(24px);
-                        color: #666;
+                        color: $grey800;
                         line-height: vw(34px);
 
                         &.show {
@@ -294,10 +294,10 @@
                 &__details {
                     padding: vw(30px);
                     border-top: vw(2px) solid #EEE;
-                    background: #F8F8F8;
+                    background: $bg_grey50;
 
                     &__check {
-                        .fb__comm__checkbox {
+                        .fb__checkbox {
                             margin-left: vw(50px);
                             
                             &:first-child {
@@ -314,7 +314,7 @@
                             margin-top: vw(10px);
                             padding-left: vw(15px);
                             font-size: vw(24px);
-                            color: #999;
+                            color: $grey600;
                             line-height: vw(32px);
                             
                             &:before {
@@ -326,7 +326,7 @@
                                 width: vw(4px);
                                 height: vw(4px);
                                 border-radius: 50%;
-                                background: #999;
+                                background: $grey600;
                             }
 
                             &:First-child {
@@ -365,7 +365,7 @@
                         display: inline-block;
                         width: vw(470px);
                         height: vw(90px);
-                        border: vw(2px) solid #E8E8E8;
+                        border: vw(2px) solid $grey100;
                         line-height: vw(86px);
                         text-align: center;
                         vertical-align: top;
@@ -378,7 +378,7 @@
                                 size: vw(24px);
                                 family: $font_noto;
                             };
-                            color: #666;
+                            color: $grey800;
                             line-height: vw(48px);
                             vertical-align: middle;
 
@@ -394,7 +394,7 @@
 
                         &:disabled {
                             span {
-                                color: #CCC;
+                                color: $grey400;
 
                                 &:before {
                                     opacity: .5;
@@ -462,14 +462,14 @@
                         width: vw(200px);
                         height: vw(90px);
                         margin-left: vw(20px);
-                        border: vw(2px) solid #999;
+                        border: vw(2px) solid $grey600;
                         font-size: vw(24px);
-                        color: #666;
+                        color: $grey800;
                         vertical-align: top;
 
                         &:disabled {
-                            border: vw(2px) solid #DDD;
-                            color: #CCC;
+                            border: vw(2px) solid $grey200;
+                            color: $grey400;
                         }
                     }
                 }
@@ -480,11 +480,11 @@
             width: vw(690px);
             margin: vw(40px auto 0);
             font-size: vw(26px);
-            color: #666;
+            color: $grey800;
             line-height: vw(36px);
 
             em {
-                color: #111;
+                color: $black;
             }
         }
 
@@ -552,18 +552,18 @@
                                     display: block;
                                     height: vw(90px);
                                     border: vw(2px) solid #EEE;
-                                    background: #F8F8F8;
+                                    background: $bg_grey50;
                                     font-size: vw(26px);
-                                    color: #999;
+                                    color: $grey600;
                                     line-height: vw(86px);
                                     text-align: center;
                                 }
 
                                 &:checked + span {
                                     position: relative;
-                                    border: vw(2px) solid #CCC;
-                                    background: #FFF;
-                                    color: #666;
+                                    border: vw(2px) solid $grey400;
+                                    background: $white;
+                                    color: $grey800;
                                 }
                             }
                         }

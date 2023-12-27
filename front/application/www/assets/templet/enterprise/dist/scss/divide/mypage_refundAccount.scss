@@ -1,0 +1,35 @@
+.fb {
+    &__refund-account {
+        &__noti {
+            margin-bottom: 15px;
+
+            p {
+                font-size: 13px;
+                color: $grey800;
+                line-height: 20px;
+            }
+        }
+
+        &__table {
+            td {
+                color: $grey800;
+            }
+
+            .fb__button {
+                padding-right: 30px;
+                font-size: 0;
+
+                button {
+                    width: 56px;
+                    height: 28px;
+                    margin-left: 5px;
+                    font-size: 13px;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

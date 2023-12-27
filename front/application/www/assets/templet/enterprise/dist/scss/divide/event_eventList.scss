@@ -1,0 +1,138 @@
+.fb {
+    &__event {
+        width: 1280px;
+        margin: 80px auto 0;
+
+        .fb__title {
+            font-size: 38px;
+            font-weight: lighter;
+            line-height: 56px;
+        }
+        
+        // 탭메뉴
+        .event-bbs {
+            &__tab {
+                margin-left: 40px;
+
+                &__wrapper {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+
+                input[type="radio"] {
+                    display: none;
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    
+                    & + span {
+                        @include fontcss($grey800, 200, 16px, 24px);
+                        cursor: pointer;
+                    }
+
+                    &:checked + span {
+                        padding-bottom: 1px;
+                        border-bottom: 2px solid $pcolor;
+                        @include fontcss($pcolor, 600, 16px, 24px);
+                    }
+                }
+            }
+        }
+
+        &__wrap {
+            margin-top: 60px;
+        }
+        
+        &__box {
+            font-size: 0;
+        }
+
+        &__list {
+            display: inline-block;
+            width: 630px;
+            margin: 60px 0 0 20px;
+            vertical-align: top;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+
+            &:nth-child(-n + 2) {
+                margin-top: 0;
+            }
+
+            &:nth-child(odd) {
+                margin-left: 0;
+            }
+        }
+
+        &__image {
+            @include imageResize();
+            width: 630px;
+            height: 340px;
+            background: $grey400;
+
+            .end__txt {
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                color: $white;
+                font-size: 17px;
+                text-align: center;
+
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 0;
+                    height: 100%;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        &__info {
+            position: relative;
+            padding: 25px 20px;
+
+            &.end {
+                .fb__event__name,
+                .fb__event__desc,
+                .fb__event__date {
+                    color: $grey600;
+                }
+            }
+        }
+
+        &__name {
+            overflow: hidden;
+            max-width: 370px;
+            color: $black;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1;
+            @include line();
+        }
+
+        &__desc {
+            max-width: 590px;
+            min-height: 20px;
+            margin-top: 15px;
+            color: $grey800;
+            font-size: 14px;
+            line-height: 20px;
+            @include line();
+        }
+        
+        &__date {
+            margin-top: 18px;
+            color: $grey800;
+            font-size: 13px;
+            line-height: 1;
+            font-family: $font_n;
+        }
+    }
+}

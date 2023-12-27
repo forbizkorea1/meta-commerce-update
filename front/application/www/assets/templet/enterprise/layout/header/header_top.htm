@@ -7,7 +7,7 @@
     <!-- 검색 -->
     <div class="header-search">
         <div class="header-search__inner js__autoComplete">
-            <input type="text" class="header-search__input js__headerSearch__input devAutoComplete" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag} #{.st_title} {/}" value="{=searchText}" autocomplete="off">
+            <input type="text" class="header-search__input js__headerSearch__input devAutoComplete" id="devHeaderSearchText" devTagUrl="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_url}{/}" placeholder="{@ layoutCommon.headerTopSearchesTags.searchesTag}{.st_title} {/}" value="{=searchText}" autocomplete="off">
             <span class="header-search__reset js__headerSearch__reset">{=trans('초기화 버튼')}</span>
             <button type="submit" class="header-search__btn" id="devHeaderSearchButton">
                 <span class="blind">{=trans('검색')}</span>

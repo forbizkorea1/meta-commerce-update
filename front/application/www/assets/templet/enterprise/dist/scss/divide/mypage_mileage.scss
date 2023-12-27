@@ -1,0 +1,217 @@
+.fb {
+    &__mypage {
+        .mileage {
+            .add {
+                color: $black;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .use {
+                color: $pcolor;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            &-table {
+                .detail {
+                    padding-left: 45px;
+                    color: $black;
+                    font-size: 14px;
+                    font-weight:400;
+                    text-align: left;
+                }
+
+                td {
+                    &:first-child {
+                        span {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+
+            &__summary {
+                font-size: 0;
+
+                &__title {
+                    display: inline-block;
+                    color: $black;
+                    font-size: 18px;
+                    line-height: 27px;
+                    vertical-align: middle;
+
+                    strong {
+                        display: inline-block;
+                        margin-left: 12px;
+                        color: $pcolor;
+                        font-size: 35px;
+                        line-height: 45px;
+                        vertical-align: middle;
+                    }
+
+                    &:before {
+                        display: inline-block;
+                        width: 40px;
+                        height: 40px;
+                        background: url(../images/mypage/icon-mypage_top-mileage.png);
+                        vertical-align: middle;
+                        content: "";
+                    }
+                }
+
+                &__waiting {
+                    display: block;
+                    margin-top: 5px;
+                    color: $grey800;
+                    font-size: 15px;
+                    line-height: 22px;
+                    text-align: center;
+                }
+            }
+
+            &__state {
+                font-size: 14px;
+                span {
+                    color: $black;
+                    font-weight:400;
+                }
+            }
+
+            &__detail {
+                &__content {
+                    padding-top: 30px;
+                }
+            }
+
+            &__usable-point-text {
+                line-height: 38px;
+            }
+
+            &__inner {
+                overflow: hidden;
+                border-top: 2px solid $black;
+                border-bottom: 1px solid $grey200;
+                padding: 10px 0;
+
+                @extend %clear;
+
+                .float-l {
+                    float: left;
+                    width: 530px;
+                    padding: 30px 30px;
+                    border-right: 1px dotted $grey200;
+                    text-align: center;
+                    }
+            }
+
+            .float-r {
+                float: right;
+                width: 530px;
+                margin: -10px 0;
+
+                dl {
+                    width: 470px;
+                    margin-left: 30px;
+                    padding: 0 20px 0 15px;
+                    border-bottom: 1px dotted $grey200;
+                    line-height: 50px;
+                    @extend %clear;
+
+                    dt {
+                        position: relative;
+                        float: left;
+                        color: $grey800;
+                        font-size: 15px;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        max-width: 260px;
+
+                        span {
+                            margin-left: 2px;
+                            color: $grey600;
+                            font-size: 12px;
+                        }
+                    }
+
+                    dd {
+                        float: right;
+                        min-width: 100px;
+                        text-align: right;
+                        font-family: $font_n;
+                        font-size: 14px;
+                        color: $black;
+
+                        strong {
+                            font-size: 15px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            // 공통 버튼 영역 커스텀
+            .fb__button {
+                margin-top: 20px;
+
+                .button__reset {
+                    padding: 10px 40px;
+                }
+
+                .button__search {
+                    padding: 10px 45px;
+                }
+            }
+
+            // 공통 table-default 영억 커스텀
+            .table-default th {
+                font-weight: 500 !important;
+            }
+        }
+    
+        &__tab {
+            width: 100%;
+            display: inline-block;
+    
+            &-menu {
+                float: left;
+                position: relative;
+                width: calc(100% / 3);
+                height: 50px;
+                margin: 0;
+                background: $white;
+                border: 1px solid $grey200;
+                border-bottom-color: $black;
+                text-align: center;
+                box-sizing: border-box;
+    
+                a {
+                    width: 100%;
+                    display: inline-block;
+                    font-size: 15px;
+                    line-height: 50px;
+                    color: $grey800;
+                }
+    
+                & + & {
+                    margin-left: -1px;
+                }
+    
+                &--active {
+                    border: 1px solid $black;
+                    border-bottom-color: transparent;
+                    z-index: 1;
+    
+                    a {
+                        color: $black;
+                        font-weight:400;
+                    }
+                }
+            }
+        }
+    }
+}

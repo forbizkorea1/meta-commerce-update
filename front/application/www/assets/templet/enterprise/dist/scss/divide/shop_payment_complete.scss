@@ -1,0 +1,71 @@
+.fb {
+    &__payComplete {
+        display: block;
+        width: 900px;
+        margin: 0 auto;
+
+        &__message {
+            padding: 60px 0;
+            border-top: 2px solid $black;
+            text-align: center;
+
+            .message {
+                &__title {
+                    color: $black;
+                    font-size: 38px;
+                    line-height: 56px;
+                }
+
+                &__desc {
+                    margin-top: 20px;
+                    color: $grey600;
+                    font-size: 16px;
+                    line-height: 24px;
+
+                    em {
+                        color: $black;
+                        font: {
+                            weight: 600;
+                            family: $font_n;
+                        };
+                    }
+                }
+
+                &__tip {
+                    display: block;
+                    color: $grey600;
+                    font-size: 13px;
+                    line-height: 20px;
+
+                    i { 
+                        display: inline-block;
+                        width: 5px;
+                        height: 5px;
+                        margin: 0 3px 2px 0;
+                        border-top: 1px solid $grey600;
+                        border-right: 1px solid $grey600;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+
+        &__payment {
+            .payment {
+                &__price {
+                    color: $pcolor;
+                    font-size: 14px;
+
+                    em {
+                        font-family: $font_n;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
+        &__action {
+            margin-top: 60px;
+        }
+    }
+}

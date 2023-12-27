@@ -1,0 +1,225 @@
+.fb {
+    &__payComplete {
+        &__message {
+            .message {
+                &__inner {
+                    padding: vw(80px 0);
+                    text-align: center;
+                }
+
+                &__title {
+                    color: $black;
+                    font-weight: 600;
+                    font-size: vw(44px);
+                    line-height: vw(66px);
+                }
+
+                &__tip {
+                    display: block;
+                    margin-top: vw(10px);
+                    color: $grey600;
+                    font-size: vw(26px);
+                    line-height: vw(38px);
+                }
+
+                &__oid {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    margin: vw(0 30px);
+                    padding: vw(32px 0);
+                    border-top: vw(2px) solid #eee;
+
+                    &__title {
+                        color: $grey600;
+                        font-size: vw(26px);
+                        line-height: vw(34px);
+                    }
+
+                    &__number {
+                        color: $black;
+                        font-family: $font_n;
+                        font-weight: 600;
+                        font-size: vw(28px);
+                        line-height: vw(34px);
+                    }
+                }
+            }
+        }
+
+        .section {
+            &__header {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        &__payment {
+            .section__header {
+                padding-bottom: vw(30px);
+            }
+
+            .payment {
+                &__price {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    margin-bottom: vw(40px);
+                    padding-bottom: vw(30px);
+                    border-bottom: vw(2px) dashed $grey200;
+
+                    .infoTable__title {
+                        color: $pcolor;
+                        font-weight: 600;
+                        font-size: vw(28px);
+                        line-height: vw(60px);
+                    }
+
+                    .infoTable__cont {
+                        color: $pcolor;
+                        font-size: vw(32px);
+                        line-height: vw(60px);
+
+                        em {
+                            font-family: $font_n;
+                            font-weight: bold;
+                            font-size: vw(48px);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .wrap-infoinput.complete {
+            .complete-msg {
+                padding-top: vw(80px);
+                text-align: center;
+
+                h2 {
+                    margin-bottom: vw(25px);
+                    font-size: vw(40px);
+                    color: $black;
+                }
+
+                p {
+                    padding-bottom: vw(55px);
+                    font-size: vw(26px);
+                    color : $grey800;
+                    line-height: vw(36px);
+
+                    span {
+                        color: $black;
+
+                        em {
+                            display: inline-block;
+                            width: vw(11px);
+                            height: vw(17px);
+                            margin: 0 vw(5px);
+                            background: url("../images/common/m_sprite_icon.png") vw(-400px -400px);
+                            background-size: vw(1000px);
+                        }
+                    }
+                }
+
+                .wrap-virtual {
+                    padding: vw(30px 0);
+                    background: #FFF6F0;
+                    font-size: vw(26px);
+                    color : $grey800;
+                    line-height: vw(38px);
+                    text-align: center;
+
+                    span {
+                        color: $pcolor;
+                    }
+
+                    em {
+                        font-family: 'Rb';
+                    }
+                }
+            }
+
+            .header {
+                overflow: hidden;
+                padding: vw(40px 25px);
+                border-bottom: 1px solid $white2;
+                font: {
+                    size: vw(32px);
+                    weight: 600;
+                };
+                color: $black;
+            }
+
+            .wrap-product {
+                .delivery-area {
+                    border-bottom: 0;
+                }
+            }
+
+            .wrap-payment-price {
+                .price-area {
+                    dl[class*='-total'] {
+                        margin-top: vw(0px);
+                    }
+
+                    dl.total-price {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            table {
+                margin-top: vw(30px);
+                font-size: vw(26px);
+
+                th {
+                    text-align: left;
+                    padding-left: vw(25px);
+                    padding-bottom: vw(30px);
+                    color : $grey800;
+                }
+
+                td {
+                    text-align: left;
+                    padding-left: vw(25px);
+                    padding-bottom: vw(30px);
+                    padding-right: vw(25px);
+                    line-height: vw(30px);
+                    color: $black;
+                    font-size: vw(26px);
+
+                    em {
+                        font-family: 'Rb';
+                    }
+
+                    .deadline {
+                        margin-left: vw(20px);
+                        color: #f0222e;
+                    }
+                }
+            }
+            
+            .wrap-shipping-info {
+                table {
+                    td.request {
+                        > div + div {
+                            margin-top: vw(30px);
+                        }
+                        
+                        p.tit {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

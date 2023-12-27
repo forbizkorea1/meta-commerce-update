@@ -1,0 +1,84 @@
+.fb {
+    
+    &__page-nav {
+        // display: none;
+
+        padding: 15px 0;
+        &__inner {
+            @extend %clear;
+            margin : 0 -10px;
+            font-size : 0px;
+            line-height : 30px;
+        }
+        
+        &__home,
+        &__select {
+            display : inline-block;
+            float : left;
+            position : relative;
+            margin : 0 10px;
+            font-size : 14px;
+            font-weight : 400;
+            /*
+            &.fb__page-nav__home {
+                color: #666666;
+                font-size: 14px;
+                line-height: 30px;
+            }
+            */
+
+            &.fb__page-nav__select select {
+                height: 30px;
+                padding-right: 25px;
+                color: #666666;
+                font-size: 14px;
+                border: 0;
+                // background-image: url(../images/common/icon-select-arrow.png);
+                // background-position: right 15px;
+                background: url(../images/common/icon_nav_select-arrw.png) no-repeat right 6px;
+            }
+        }
+
+        &__select:before{
+            content : "";
+            display : block;
+            position : absolute;
+            top : 50%;
+            left : -10px;
+            width : 4px;
+            height : 7px;
+            background : url("../images/common/sprite_common.png") -105px -201px;
+            transform : translateY(-50%);
+
+        }
+
+        /* 상품 목록 page-nav */
+        &.goods__list__page-nav{
+            li{
+
+                position: relative;
+
+                &:before{
+                    content: '';
+                    display: block;
+                    background: url("../images/common/icon-arrow-type2.png") no-repeat -5px 0;
+                    color: $grey800;
+                    width:4px;
+                    height:8px;
+                    position: absolute;
+                    left: 4px;
+                    top:50%;
+                    transform : translateY(-50%);
+                }
+                
+                &:first-child{
+                    &:before{
+                        display: none;
+                    }
+                }
+                
+            }
+        }
+
+    }
+}

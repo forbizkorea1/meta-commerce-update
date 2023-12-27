@@ -1,0 +1,47 @@
+.fb {
+	
+	.wrap-join-end {
+		padding-top: vw(60px);
+		padding-bottom: vw(80px);
+
+		&__title {
+			color: $black;
+            font-weight: 600;
+			font-size: vw(38px);
+			text-align: center;
+
+			&:before {
+				content: '';
+				display: block;
+				width: vw(100px);
+				height: vw(100px);
+				background: url("../images/icon/m_sprite_icon.png") no-repeat vw(0 -816px);
+				background-size: vw(1000px);
+				margin: 0 auto vw(50px);
+			}
+		}
+
+		.desc {
+			margin-top: vw(60px);
+			font-size: vw(26px);
+			color: $textBlack;
+			line-height: vw(40px);
+			text-align: center;
+
+			&.gray {
+				font-size: vw(24px);
+				color: $grey600;
+				letter-spacing: -0.07rem;
+			}
+
+			.mypage {
+				color: $grey800;
+				font-weight: 400;
+			}
+		}
+
+		.wrap-btn-area {
+			margin-top: vw(60px);
+		}
+	}
+}

@@ -105,13 +105,13 @@
                                 display: inline-block;
                                 margin-left: vw(20px);
                                 font-size: vw(32px);
-                                color: #999;
+                                color: $grey600;
                                 line-height: 1;
                                 vertical-align: bottom;
 
                                 em {
                                     font-size: vw(40px);
-                                    color: #111;
+                                    color: $black;
                                     line-height: 1;
                                 }
                             }
@@ -130,7 +130,7 @@
                             margin-bottom: vw(20px);
                             padding-left: vw(30px);
                             font-size: vw(28px);
-                            color: #111;
+                            color: $black;
                             line-height: vw(40px);
                         }
 
@@ -177,7 +177,7 @@
                                         padding-top: vw(40px);
                                         background: url(../images/shop/ico_goods_review-more.png) no-repeat 50% 0 / vw(32px auto);
                                         font-size: vw(26px);
-                                        color: #FFF;
+                                        color: $white;
                                         text-align: center;
                                         transform: translateY(-50%);
                                     }
@@ -219,7 +219,7 @@
                                     size: vw(28px);
                                     weight: 600;
                                 };
-                                color: #FFF;
+                                color: $white;
                                 line-height: vw(48px);
                                 text-align: center;
                             }
@@ -229,7 +229,7 @@
 
                 &__wrapper {
                     padding-bottom: vw(100px);
-                    border-top: vw(20px) solid #f8f8f8;
+                    border-top: vw(20px) solid $bg_grey50;
                 }
 
                 &__filter {
@@ -253,7 +253,7 @@
                             width: vw(2px);
                             height: vw(20px);
                             margin-top: vw(-10px);
-                            background: #DDD;
+                            background: $grey200;
                         }
 
                         &:first-child {
@@ -270,13 +270,13 @@
                                 & + span {
                                     display: block;
                                     font-size: vw(26px);
-                                    color: #666;
+                                    color: $grey800;
                                     line-height: 1;
                                 }
 
                                 &:checked + span {
                                     font-weight: 600;
-                                    color: #111;
+                                    color: $black;
                                 }
                             }
                         }
@@ -284,7 +284,7 @@
                 }
 
                 &__cont {
-                    border-top: vw(2px) solid #DDD;
+                    border-top: vw(2px) solid $grey200;
                 }
 
                 &__box {
@@ -313,7 +313,7 @@
                         display: inline-block;
                         margin-left: vw(20px);
                         font-size: vw(24px);
-                        color: #999;
+                        color: $grey600;
                     }
 
                     &__user {
@@ -363,7 +363,7 @@
                                         size: vw(28px);
                                         weight: 600;
                                     };
-                                    color: #FFF;
+                                    color: $white;
                                     line-height: vw(48px);
                                     text-align: center;
                                 }
@@ -375,7 +375,7 @@
                                 display: block;
                                 margin-bottom: vw(12px);
                                 font-size: vw(24px);
-                                color: #999;
+                                color: $grey600;
                                 line-height: vw(36px);
                                 word-break: break-all;
                             }
@@ -383,7 +383,7 @@
                             &__txt {
                                 display: block;
                                 font-size: vw(24px);
-                                color: #666;
+                                color: $grey800;
                                 line-height: vw(40px);
                                 @include line(3);
                             }
@@ -400,7 +400,7 @@
                                 margin-top: vw(36px);
                                 padding: vw(20px 30px);
                                 border-radius: vw(20px);
-                                background: #F8F8F8;
+                                background: $bg_grey50;
 
                                 &:before {
                                     content: '';
@@ -412,7 +412,7 @@
                                     height: vw(24px);
                                     border: {
                                         right: vw(24px) solid transparent;
-                                        bottom: vw(24px) solid #F8F8F8;
+                                        bottom: vw(24px) solid $bg_grey50;
                                         left: vw(24px) solid transparent;
                                     };
                                     box-sizing: border-box;
@@ -431,7 +431,7 @@
                                     display: inline-block;
                                     position: relative;
                                     font-size: vw(26px);
-                                    color: #666;
+                                    color: $grey800;
                                     vertical-align: middle;
 
                                     &:before {
@@ -440,10 +440,10 @@
                                         width: vw(70px);
                                         height: vw(34px);
                                         margin-right: vw(12px);
-                                        border: vw(2px) solid #FF6600;
+                                        border: vw(2px) solid $pcolor;
                                         border-radius: vw(17px);
                                         font-size: vw(22px);
-                                        color: #FF6600;
+                                        color: $pcolor;
                                         line-height: vw(30px);
                                         text-align: center;
                                         vertical-align: baseline;
@@ -455,7 +455,7 @@
                                     display: inline-block;
                                     margin-left: vw(18px);
                                     font-size: vw(24px);
-                                    color: #666;
+                                    color: $grey800;
                                     line-height: 18px;
                                     vertical-align: middle;
                                 }
@@ -463,7 +463,7 @@
                                 &__txt {
                                     margin-top: vw(20px);
                                     font-size: vw(26px);
-                                    color: #111;
+                                    color: $black;
                                     line-height: vw(36px);
                                     word-break: break-all;
                                 }
@@ -542,7 +542,7 @@
                         border: none;
                         background: url(../images/shop/ico_shop_divideArrow.png) no-repeat 100% 50% / vw(22px 13px);
                         font-size: vw(24px);
-                        color: #111;
+                        color: $black;
                         text-overflow: ellipsis;
                         text-align: right;
                     }
@@ -554,12 +554,12 @@
 
                         button {
                             width: 100%;
-                            border: vw(2px) solid #111;
+                            border: vw(2px) solid $black;
                             font: {
                                 size: vw(30px);
                                 weight: 400;
                             };
-                            color: #111;
+                            color: $black;
                         }
                     }
 
@@ -574,7 +574,7 @@
                         .qna-title {
                             padding: vw(27px) vw(25px);
                             overflow: hidden;
-                            color: #111;
+                            color: $black;
                             line-height: vw(32px);
                             display: table;
                             width: 100%;
@@ -594,7 +594,7 @@
 
                                 span {
                                     font-size: vw(24px);
-                                    color: #666;
+                                    color: $grey800;
 
                                     em {
                                         &:before {
@@ -602,7 +602,7 @@
                                             display: inline-block;
                                             width: vw(2px);
                                             height: vw(16px);
-                                            background: $white5;
+                                            background: $grey400;
                                             margin: vw(0 20px);
                                         }
                                     }
@@ -646,7 +646,7 @@
 
                         .detail {
                             display: none;
-                            background: #f8f8f8;
+                            background: $bg_grey50;
                             padding: vw(40px 30px 50px);
                             word-break: break-all;
                         }
@@ -657,7 +657,7 @@
                                 position: relative;
                                 padding-left: vw(75px);
                                 font-size: vw(26px);
-                                color: #111;
+                                color: $black;
                                 line-height: vw(32px);
 
                                 &:before {
@@ -682,7 +682,7 @@
                                 position: relative;
                                 padding-left: vw(75px);
                                 font-size: vw(26px);
-                                color: #111;
+                                color: $black;
                                 line-height: vw(32px);
 
                                 &:before {
@@ -700,7 +700,7 @@
                             &__manager {
                                 margin-top: vw(50px);
                                 font-size: vw(24px);
-                                color: #666;
+                                color: $grey800;
 
                                 em {
                                     font-family: 'Rb';
@@ -710,7 +710,7 @@
                                         display: inline-block;
                                         width: vw(1px);
                                         height: vw(16px);
-                                        background: $white5;
+                                        background: $grey400;
                                         margin: vw(0px) vw(10px) vw(-2px) vw(10px);
                                     }
                                 }
@@ -746,7 +746,7 @@
                         size: vw(30px);
                         weight: 600;
                     };
-                    color: #111;
+                    color: $black;
                 }
             }
 
@@ -769,7 +769,7 @@
                         width: vw(2px);
                         height: vw(20px);
                         margin-top: vw(-10px);
-                        background: #DDD;
+                        background: $grey200;
                     }
 
                     &:first-child {
@@ -786,13 +786,13 @@
                             & + span {
                                 display: block;
                                 font-size: vw(26px);
-                                color: #666;
+                                color: $grey800;
                                 line-height: 1;
                             }
 
                             &:checked + span {
                                 font-weight: 600;
-                                color: #111;
+                                color: $black;
                             }
                         }
                     }
@@ -812,7 +812,7 @@
                         padding: vw(40px 30px);
                         width: auto;
                         height: auto;
-                        color: #111;
+                        color: $black;
                         font-size: vw(24px);
                         font-weight: 400;
                         border: none;
@@ -822,7 +822,7 @@
 
                     a {
                         font-size: vw(26px);
-                        color: #999;
+                        color: $grey600;
                         margin-right: vw(20px);
                         vertical-align: middle;
 
@@ -833,13 +833,13 @@
                                 margin-left: vw(20px);
                                 width: vw(2px);
                                 height: vw(20px);
-                                background: #ddd;
+                                background: $grey200;
                             }
                         }
 
                         &.on {
                             font-weight: 600;
-                            color: #111;
+                            color: $black;
                         }
                     }
                 }
@@ -847,20 +847,20 @@
 
             .detail-table {
                 width: 100%;
-                border-top: vw(2px) solid #ddd;
+                border-top: vw(2px) solid $grey200;
                 table-layout: fixed;
                 border-collapse: collapse;
 
                 tr {
                     th {
                         padding: vw(40px 30px);
-                        border-bottom: vw(2px) solid #ddd;
-                        background: #f8f8f8;
+                        border-bottom: vw(2px) solid $grey200;
+                        background: $bg_grey50;
                         font: {
                             size: vw(26px);
                             weight: 400;
                         };
-                        color: #111;
+                        color: $black;
                         line-height: vw(36px);
                         text-align: left;
                         vertical-align: middle;
@@ -869,9 +869,9 @@
     
                     td {
                         padding: vw(40px 30px);
-                        border-bottom: vw(2px) solid #ddd;
+                        border-bottom: vw(2px) solid $grey200;
                         font-size: vw(26px);
-                        color: #666;
+                        color: $grey800;
                         line-height: vw(36px);
                         text-align: left;
                         vertical-align: middle;
@@ -894,7 +894,7 @@
                     display: none;
                     bottom: vw(20px);
                     font-size: vw(20px);
-                    color: #fff;
+                    color: $white;
                     font-family: 'Rb';
                     background: rgba(0, 0, 0, 0.3);
                     border-radius: vw(20px);
@@ -925,14 +925,14 @@
 
                 .goods-tit {
                     font-size: vw(32px);
-                    color: #111;
+                    color: $black;
                     line-height: vw(44px);
                 }
 
                 .goods-desc {
                     margin-top: vw(25px);
                     font-size: vw(26px);
-                    color: $textGrey2;
+                    color: $grey600;
                     line-height: vw(32px);
                 }
 
@@ -978,7 +978,7 @@
 
                         .price {
                             display: inline-block;
-                            color: #111;
+                            color: $black;
                             font-size: vw(32px);
                             vertical-align: bottom;
 
@@ -1035,7 +1035,7 @@
                 width: vw(600px);
                 font-size: vw(28px);
                 font-weight: 600;
-                color: #111;
+                color: $black;
                 line-height: vw(30px);
                 word-break: break-all;
 
@@ -1052,7 +1052,7 @@
         }
 
         .wrap-goods-info {
-            color: #111;
+            color: $black;
             font: {
                 size: vw(26px);
                 weight: 400;
@@ -1086,7 +1086,7 @@
 
                         .coupon__price {
                             font-size: vw(26px);
-                            color: #FF6600;
+                            color: $pcolor;
 
                             em {
                                 font-size: vw(28px);
@@ -1115,7 +1115,7 @@
                         padding: vw(42px 0 30px 0);
                         
                         .goods-code {
-                            color: #111;
+                            color: $black;
                             font-size: vw(26px);
                             line-height: vw(36px);
                         }
@@ -1127,7 +1127,7 @@
 
                         .delivery__info {
                             display: inline-block;
-                            color: #111;
+                            color: $black;
                             font-size: vw(26px);
                             line-height: vw(36px);
 
@@ -1187,7 +1187,7 @@
             // 개선전 상품상세 콘텐츠 
             table {
                 width: 100%;
-                color: #111;
+                color: $black;
                 font-size: vw(26px);
 
                 th {
@@ -1208,7 +1208,7 @@
 
                     span {
                         font-size: vw(26px);
-                        color: $textGrey;
+                        color: $grey800;
                     }
 
                     i.more {
@@ -1244,7 +1244,7 @@
             position: -webkit-sticky;
             z-index: 8;
             top: vw(100px);
-            background: #fff;
+            background: $white;
             font-size: 0;
 
             a {
@@ -1252,14 +1252,14 @@
                 width: 25%;
                 height: vw(113px);
                 padding-top: vw(45px);
-                border-bottom: vw(2px) solid #DDD;
+                border-bottom: vw(2px) solid $grey200;
                 font-size: 0;
                 text-align: center;
 
                 span {
                     display: inline-block;
                     font-size: vw(28px);
-                    color: #666;
+                    color: $grey800;
                     vertical-align: middle;
                     line-height: 1;
                 }
@@ -1268,7 +1268,7 @@
                     display: inline-block;
                     margin-left: vw(5px);
                     font-size: vw(24px);
-                    color: #999;
+                    color: $grey600;
                     vertical-align: middle;
                     line-height: 1;
                 }
@@ -1308,7 +1308,7 @@
                     size: vw(32px);
                     weight: 700;
                 }
-                color: #111;
+                color: $black;
                 text-align: left;
 
                 &:after {
@@ -1351,7 +1351,7 @@
 
     &__item-area {
         padding: vw(60px 0);
-        border-top: vw(20px) solid #F8F8F8;
+        border-top: vw(20px) solid $bg_grey50;
 
         // 상품상세 공통 리스트
         .area-goods {
@@ -1367,14 +1367,14 @@
                 padding-left: vw(30px);
                 font-size: vw(34px);
                 font-weight: 600;
-                color: #111;
+                color: $black;
             }
     
             // 여성상의 best 영역
             &__subtitle {
                 display: inline-block;
                 margin-left: vw(12px);
-                color: #666;
+                color: $grey800;
                 font-size: vw(24px);
             }
     
@@ -1453,7 +1453,7 @@
             .exhi-tit {
                 display: inline-block;
                 margin-bottom: vw(20px);
-                color: #111;
+                color: $black;
                 font: {
                     size: vw(36px);
                     weight: 600;
@@ -1482,7 +1482,7 @@
                 width: vw(570px);
                 vertical-align: middle;
                 &__tit {
-                    color: #111;
+                    color: $black;
                     font: {
                         size: vw(32px);
                         weight: 600;
@@ -1494,7 +1494,7 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     margin-top: vw(6px);
-                    color: #666;
+                    color: $grey800;
                     font: {
                         size: vw(24px);
                         weight: 400;
@@ -1530,7 +1530,7 @@
             background: url(../images/shop/ico_option_close.png) no-repeat 0 0 / 100% auto;
 
             &__inner {
-                background: #FFF;
+                background: $white;
             }
 
             .option {
@@ -1548,13 +1548,13 @@
 
                 .option-box {
                     position: relative;
-                    background: #f8f8f8;
+                    background: $bg_grey50;
                     margin-top: vw(30px);
                     padding: vw(24px 20px 20px);
 
                     .tit {
                         font-size: vw(26px);
-                        color: #666;
+                        color: $grey800;
                         margin-bottom: vw(20px);
                     }
 
@@ -1566,7 +1566,7 @@
                         li {
                             &:nth-child(2) {
                                 min-width: vw(70px);
-                                color: #999;
+                                color: $grey600;
                             }
                         }
                     }
@@ -1576,7 +1576,7 @@
                         right: vw(30px);
                         bottom: vw(20px);
                         font-size: vw(26px);
-                        color: #111;
+                        color: $black;
                         em {
                             font-size: vw(28px);
                             font-weight: 600;
@@ -1598,11 +1598,11 @@
                     .opt-title {
                         display: inline-block;
                         font-size: vw(26px);
-                        color: #111;
+                        color: $black;
                         vertical-align: middle;
 
                         p {
-                            color: #666;
+                            color: $grey800;
                             margin-top: vw(20px);
                         }
                     }
@@ -1630,7 +1630,7 @@
 
                         &.hide {
                             padding-bottom: vw(30px);
-                            border-bottom: vw(2px) solid #ddd;
+                            border-bottom: vw(2px) solid $grey200;
 
                             button {
                                 transform: rotate(0);
@@ -1659,7 +1659,7 @@
 
                 .tit {
                     margin-right: vw(20px);
-                    color: #111;
+                    color: $black;
                     font-weight: bold;
                 }
 
@@ -1714,7 +1714,7 @@
                 left: vw(116px);
                 width: vw(2px);
                 height: vw(32px);
-                background: #fff;
+                background: $white;
                 opacity: 0.5;
                 transform: translateY(-50%);
             }
@@ -1741,7 +1741,7 @@
                         size: vw(36px);
                         weight: 600;
                     };
-                    color: #FFF;
+                    color: $white;
                     text-align: center;
                 }
             }
@@ -1767,12 +1767,12 @@
             button {
                 width: 100%;
                 height: vw(112px);
-                background: #999;
+                background: $grey600;
                 font: {
                     size: vw(36px);
                     weight: 600;
                 };
-                color: #fff;
+                color: $white;
                 vertical-align: top;
             }
         }
@@ -1790,7 +1790,7 @@
             }
 
             &__tit {
-                color: #111;
+                color: $black;
                 font-size: vw(26px);
                 line-height: vw(36px);
 
@@ -1801,7 +1801,7 @@
 
             &__desc {
                 margin-top: vw(4px);
-                color: #999;
+                color: $grey600;
                 font-size: vw(26px);
                 line-height: vw(36px);
             }
@@ -1810,13 +1810,13 @@
         .sub {
             margin: vw(0 30px 40px 30px);
             padding: vw(40px 38px);
-            background: $white1;
+            background: $bg_grey50;
             text-align: center;
 
             .layer-delivery {
                 &__txt {
                     line-height: vw(32px);
-                    color: #666;
+                    color: $grey800;
                 }
             }
 
@@ -1826,9 +1826,9 @@
                     width: vw(180px);
                     height: vw(60px);
                     margin: vw(20px auto 0);
-                    border: vw(2px) solid #ccc;
-                    background: #fff;
-                    color: #666;
+                    border: vw(2px) solid $grey400;
+                    background: $white;
+                    color: $grey800;
                     font-size: vw(24px);
                     line-height: vw(56px);
                     text-align: center;
@@ -1842,7 +1842,7 @@
             line-height: vw(40px);
 
             &--title {
-                color: #111;
+                color: $black;
 
                 & + .layer-delivery__txt {
                     padding-top: 0;
@@ -1856,7 +1856,7 @@
 
         .detail {
             &__title {
-                color: #999;
+                color: $grey600;
                 margin-bottom: vw(30px);
                 font-size: vw(26px);
                 letter-spacing: -1px;
@@ -1871,7 +1871,7 @@
     .wrap-coupon-down {
         .top-desc {
             font-size: vw(26px);
-            color: #666;
+            color: $grey800;
             line-height: vw(36px);
         }
 
@@ -1894,7 +1894,7 @@
                     z-index: 10;
                     width: vw(30px);
                     height: vw(30px);
-                    background: #fff;
+                    background: $white;
                     border: vw(2px) solid #eee;
                     border-radius: vw(25px);
                     border-top: vw(2px) solid transparent;
@@ -1916,7 +1916,7 @@
 
                     .tit {
                         margin-top: vw(2px);
-                        color: #111;
+                        color: $black;
                         font: {
                             size: vw(28px);
                             weight: 600;
@@ -1927,7 +1927,7 @@
                     .desc {
                         margin-top: vw(10px);
                         font-size: vw(28px);
-                        color: #999;
+                        color: $grey600;
 
                         .use-period {
                             display: block;
@@ -1941,7 +1941,7 @@
                     button {
                         padding: vw(20px 0);
                         width: 100%;
-                        background: #f8f8f8;
+                        background: $bg_grey50;
                         border-radius: vw(0 0 25px 25px);
                         color: $pcolor;
                         font-size: vw(26px);
@@ -1959,8 +1959,8 @@
                         }
 
                         &:disabled {
-                            color: #999;
-                            background: #f8f8f8;
+                            color: $grey600;
+                            background: $bg_grey50;
 
                             &:after {
                                 display: none;
@@ -1974,7 +1974,7 @@
         .bottom-desc {
             margin: vw(32px 0 176px);
             font-size: vw(24px);
-            color: #666;
+            color: $grey800;
             line-height: vw(32px);
             em {
                 display: inline-block;
@@ -1995,7 +1995,7 @@
                     flex-wrap: nowrap;
                     justify-content: space-between;
                     margin-top: vw(20px);
-                    color: #111;
+                    color: $black;
                     font-size: vw(26px);
                     line-height: vw(36px);
 
@@ -2017,13 +2017,13 @@
 
             &__division {
                 padding-bottom: vw(30px);
-                border-bottom: vw(2px) solid #111;
+                border-bottom: vw(2px) solid $black;
             }
 
             // 할인정보 없는 케이스
             &__none {
                 padding: vw(30px 0);
-                color: #111;
+                color: $black;
                 font-size: vw(30px);
                 text-align: center;
             }
@@ -2032,11 +2032,11 @@
                 height: vw(254px);
                 padding: vw(40px 30px);
                
-                background: #e8e8e8;
+                background: $grey100;
 
                 &__list {
                     position: relative;
-                    color: #666;
+                    color: $grey800;
                     font-size: vw(24px);
                     line-height: vw(32px);
                     letter-spacing: -0.05em;
@@ -2052,7 +2052,7 @@
                         left: vw(-10px);
                         width: vw(4px);
                         height: vw(4px);
-                        background: #666;
+                        background: $grey800;
                         border-radius: 50%;
                         content: "";
                     }
@@ -2083,11 +2083,11 @@
 
                 &__tit {
                     margin-top: vw(30px);
-                    color: #111;
+                    color: $black;
                 }
 
                 &__desc {
-                    color: #999;
+                    color: $grey600;
                 }
 
                 div:not(:first-child) {
@@ -2099,12 +2099,12 @@
                 &__box {
                     margin: vw(0 30px 40px);
                     padding: vw(40px 30px 40px 46px);
-                    background: #f8f8f8;
+                    background: $bg_grey50;
                 }
                 &__list {
                     position: relative;
                     margin-top: vw(20px);
-                    color: #666;
+                    color: $grey800;
                     font-size: vw(24px);
                     line-height: vw(32px);
 
@@ -2120,7 +2120,7 @@
                         left: vw(-15px);
                         width: vw(4px);
                         height: vw(4px);
-                        background: #666;
+                        background: $grey800;
                         border-radius: 50%;
                     }
                 }
@@ -2206,7 +2206,7 @@
             width: 100%;
             height: vw(100px);
             border-bottom: vw(2px) solid #eee;
-            background: #FFF;
+            background: $white;
             
             &__back {
                 position: absolute;
@@ -2215,12 +2215,12 @@
                 width: vw(204px);
                 height: vw(68px);
                 padding: vw(0 0 0 80px);
-                border: vw(2px) solid #666;
+                border: vw(2px) solid $grey800;
                 border-radius: vw(34px);
                 margin-top: vw(-34px);
                 background: url(../images/shop/ico_goodsview_review-all.png) no-repeat vw(30px 50%) / vw(40px auto);
                 font-size: vw(26px);
-                color: #666;
+                color: $grey800;
                 line-height: vw(64px);
                 text-align: left;
             }
@@ -2231,7 +2231,7 @@
                     size: vw(36px);
                     weight: 600;
                 };
-                color: #111;
+                color: $black;
                 line-height: vw(100px);
                 text-align: center;
             }
@@ -2297,7 +2297,7 @@
                         width: vw(48px);
                         height: vw(48px);
                         background: rgba(0, 0, 0, .4);
-                        color: #FFF;
+                        color: $white;
                         font: {
                             size: vw(28px);
                             weight: 600;
@@ -2312,7 +2312,7 @@
 
         &__detail {
             &__photo {
-                background: #111;
+                background: $black;
                 height: vw(1000px);
 
                 .photoSlider {
@@ -2356,7 +2356,7 @@
                             border-radius: vw(22px);
                             background: rgba(0, 0, 0, .4);
                             font-size: vw(28px);
-                            color: #FFF;
+                            color: $white;
                             transform: translate3d(-50%, 0, 0);
 
                             .swiper-pagination {
@@ -2387,7 +2387,7 @@
                             top: 0;
                             right: 0;
                             font-size: vw(24px);
-                            color: #999;
+                            color: $grey600;
                             line-height: vw(32px);
 
                             span {
@@ -2400,13 +2400,13 @@
                         display: block;
                         margin-top: vw(20px);
                         font-size: vw(24px);
-                        color: #999;
+                        color: $grey600;
                     }
 
                     &__txt {
                         margin-top: vw(32px);
                         font-size: vw(28px);
-                        color: #666;
+                        color: $grey800;
                         line-height: vw(40px);
                     }
 
@@ -2418,7 +2418,7 @@
                             margin-top: vw(36px);
                             padding: vw(20px 30px);
                             border-radius: vw(20px);
-                            background: #F8F8F8;
+                            background: $bg_grey50;
 
                             &:before {
                                 content: '';
@@ -2430,7 +2430,7 @@
                                 height: vw(24px);
                                 border: {
                                     right: vw(24px) solid transparent;
-                                    bottom: vw(24px) solid #F8F8F8;
+                                    bottom: vw(24px) solid $bg_grey50;
                                     left: vw(24px) solid transparent;
                                 };
                                 box-sizing: border-box;
@@ -2449,7 +2449,7 @@
                                         display: inline-block;
                                         position: relative;
                                         font-size: vw(26px);
-                                        color: #666;
+                                        color: $grey800;
                                         vertical-align: middle;
 
                                         &:before {
@@ -2458,10 +2458,10 @@
                                             width: vw(70px);
                                             height: vw(34px);
                                             margin-right: vw(12px);
-                                            border: vw(2px) solid #FF6600;
+                                            border: vw(2px) solid $pcolor;
                                             border-radius: vw(17px);
                                             font-size: vw(22px);
-                                            color: #FF6600;
+                                            color: $pcolor;
                                             line-height: vw(30px);
                                             text-align: center;
                                             vertical-align: baseline;
@@ -2473,7 +2473,7 @@
                                         display: inline-block;
                                         margin-left: vw(18px);
                                         font-size: vw(24px);
-                                        color: #666;
+                                        color: $grey800;
                                         line-height: 18px;
                                         vertical-align: middle;
                                     }
@@ -2482,7 +2482,7 @@
                                 &__txt {
                                     margin-top: vw(20px);
                                     font-size: vw(26px);
-                                    color: #111;
+                                    color: $black;
                                     line-height: vw(36px);
                                 }
                             }

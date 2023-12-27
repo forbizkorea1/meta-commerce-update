@@ -1,0 +1,249 @@
+.fb {
+    .wrap-coupon-reg {
+        padding: vw(40px 30px);
+
+        form {
+            display: flex;
+            margin: vw(30px 0 20px);
+
+            input {
+                display: table-cell;
+            }
+
+            input[type="text"] {
+                width: auto;
+                margin-right: vw(10px);
+                flex-grow: 1;
+            }
+
+            input[type="submit"] {
+                padding: 0 vw(30px);
+                min-width: vw(120px);
+                flex-grow: 0;
+            }
+        }
+
+        .desc {
+            font-size: vw(24px);
+            color: $grey600;
+            line-height: vw(30px);
+
+            &__error {
+                color: #ed1c24;
+                font-size: vw(22px);
+            }
+        }
+
+        &__input {
+            width: 100%;
+
+            &::placeholder {
+                color: $grey400;
+            }
+
+            &__wrapper {
+                display: flex;
+                font-size: vw(24px);
+            }
+
+            &__btn {
+                flex: 0 0 auto;
+                margin-left: vw(20px);
+                padding: vw(0 60px);
+                font-size: vw(26px);
+            }
+        }
+    }
+
+    .wrap-coupon {
+        &-title {
+            padding: vw(46px 30px 36px 30px);
+            color: $black;
+            font: {
+                size: vw(32px);
+                weight: 600;
+            };
+            border-bottom: none;
+
+            em {
+                display: inline-block;
+                margin-left: vw(5px);
+                color: $pcolor;
+                font-weight: normal;
+            }
+        }
+
+        // 사용가능 쿠폰영역
+        &-list {
+            width: vw(690px);
+            margin: 0 auto;
+
+            h1 {
+                padding: vw(30px 25px);
+
+                span {
+                    font: {
+                        weight: 400;
+                        family: "Rb";
+                    };
+                    color: $pcolor;
+                }
+            }
+
+            .available__coupon {
+                position: relative;
+                margin-top: vw(30px);
+                border: vw(2px) solid #eee;
+                border-radius: vw(30px);
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 45%;
+                    right: vw(-7px);
+                    z-index: 10;
+                    width: vw(30px);
+                    height: vw(30px);
+                    background: $white;
+                    border: vw(2px) solid #eee;
+                    border-radius: vw(25px);
+                    border-top: vw(2px) solid transparent;
+                    border-right: vw(2px) solid transparent;
+                    transform: rotate(45deg) translateY(-45%) !important;
+                }
+
+                &__list {
+                    .list-desc {
+                        padding: vw(30px 50px 36px 50px);
+
+                        .per {
+                            color: $pcolor;
+                            font: {
+                                size: vw(64px);
+                                weight: 600;
+                            };
+                            line-height: vw(86px);
+                        }
+
+                        .won {
+                            font-size: vw(22px);
+    
+                            span {
+                                font-size: vw(32px);
+                            }
+                        }
+                        
+                        .tit {
+                            font-size: vw(28px);
+                            color: $black;
+                            line-height: vw(40px);
+                        }
+    
+                        .desc {
+                            margin-top: vw(10px);
+                            font-size: vw(28px);
+                            color: $grey600;
+                            line-height: vw(40px);
+                        }
+                    }
+
+                    // (쿠폰) 버튼 공통스타일
+                    .coupon-common-btn {
+                        position: relative;
+                        padding: vw(20px 0);
+                        width: 100%;
+                        background: $bg_grey50;
+                        border-radius: vw(0 0 25px 25px);
+                        color: $grey800;
+                        font-size: vw(26px);
+                        line-height: vw(40px);
+                        cursor: pointer;
+                    }
+
+                    // (쿠폰)적용대상 확인 버튼
+                    .btn-apply-item {
+                        &:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: vw(20px);
+                            left: vw(410px);
+                            width: vw(40px);
+                            height: vw(40px);
+                            background: url(../images/coupon/icon-coupon-arrow.png) no-repeat 0 0 / 100% auto;
+                        }
+                    }
+
+                    // (쿠폰)적용대상 제한없음
+                    .wrap-coupon-list__target {
+                        color: $grey600;
+                    }
+                }
+            }
+        }
+    }
+
+    // 쿠폰 적용대상 팝업창
+    .popCoupon {
+        // 해당 쿠폰정보 보여주기
+        &__info {
+            &__title {
+                color: $black;
+                font: {
+                    size: vw(36px);
+                    weight: 600;
+                };
+                line-height: vw(54px);
+                letter-spacing: -0.0045em;
+            }
+
+            &__desc {
+                margin: vw(10px 0 40px);
+                color: $grey600;
+                font-size: vw(28px);
+                line-height: vw(45px);
+                letter-spacing: -0.007em;
+            }
+        }
+
+        // 적용대상 브랜드 
+        &__target {
+            &__comment {
+                padding: vw(40px 0 30px);
+                color: $grey600;
+                font-size: vw(26px);
+                line-height: vw(44px);
+                letter-spacing: -0.0065em;
+                border-top: vw(2px) solid $grey200;
+            }
+
+            &__box {
+                margin: vw(-10px -8px);
+                font-size: 0;
+            }
+
+            &__list {
+                display: inline-block;
+                overflow: hidden;
+                max-width: vw(690px);
+                margin: vw(10px 8px);
+                padding: vw(14px 40px);
+                background: #f5f5f5;
+                border-radius: vw(50px);
+                color: $black;
+                font: {
+                    size: vw(28px);
+                    weight: 400;
+                };
+                line-height: vw(40px);
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}

@@ -224,36 +224,39 @@ var devOrderHistoyObj = {
                     self.allCancel = true;
 
                     // order detail
-                    for (var idx = 0; idx < row.orderDetail.length; idx++) {
-                        // price number_format
-                        row.orderDetail[idx].pt_dcprice = common.util.numberFormat(row.orderDetail[idx].pt_dcprice);
-                        row.orderDetail[idx].dcprice = common.util.numberFormat(row.orderDetail[idx].dcprice);
-                        row.orderDetail[idx].listprice = common.util.numberFormat(row.orderDetail[idx].listprice);
-                        row.orderDetail[idx].isOther = self.isOrder(row.orderDetail[idx].ode_ix);
-                        row.orderDetail[idx].isExchange = self.isExchange(row.orderDetail[idx].status);
-                        row.orderDetail[idx].isDeleveryTrace = self.isDeleveryTrace(row.orderDetail[idx].status);
-                        row.orderDetail[idx].isDeliveryIng = self.isDeliveryIng(row.orderDetail[idx].status);
-                        row.orderDetail[idx].isDeliveryComplate = self.isDeliveryComplate(row.orderDetail[idx].status);
-                        row.orderDetail[idx].isByFinalized = self.isByFinalized(row.orderDetail[idx].status, row.orderDetail[idx].is_comment);
-                        row.orderDetail[idx].isExchangeToggle = (row.orderDetail[idx].exchageDetail ? true : false);
-                        row.orderDetail[idx].isMore = self.isMore(row.orderDetail[idx]);
-                        row.orderDetail[idx].orderItemId = common.crypto.md5(row.orderDetail[idx].od_ix);
-                        // allCancel?
-                        self.isAllCancel(row.orderDetail[idx].status);
-                        if (row.orderDetail[idx].cartCouponApply) {
-                            row.orderDetail[idx].isIncomeComplate = false; //입금확인 취소버튼
-                        } else {
-                            row.orderDetail[idx].isIncomeComplate = self.isIncomeComplate(row.orderDetail[idx].status);
+                    if (typeof row.orderDetail !== 'string'){
+                        for (var idx = 0; idx < row.orderDetail.length; idx++) {
+                            // price number_format
+                            row.orderDetail[idx].pt_dcprice = common.util.numberFormat(row.orderDetail[idx].pt_dcprice);
+                            row.orderDetail[idx].dcprice = common.util.numberFormat(row.orderDetail[idx].dcprice);
+                            row.orderDetail[idx].listprice = common.util.numberFormat(row.orderDetail[idx].listprice);
+                            row.orderDetail[idx].isOther = self.isOrder(row.orderDetail[idx].ode_ix);
+                            row.orderDetail[idx].isExchange = self.isExchange(row.orderDetail[idx].status);
+                            row.orderDetail[idx].isDeleveryTrace = self.isDeleveryTrace(row.orderDetail[idx].status);
+                            row.orderDetail[idx].isDeliveryIng = self.isDeliveryIng(row.orderDetail[idx].status);
+                            row.orderDetail[idx].isDeliveryComplate = self.isDeliveryComplate(row.orderDetail[idx].status);
+                            row.orderDetail[idx].isByFinalized = self.isByFinalized(row.orderDetail[idx].status, row.orderDetail[idx].is_comment);
+                            row.orderDetail[idx].isExchangeToggle = (row.orderDetail[idx].exchageDetail ? true : false);
+                            row.orderDetail[idx].isMore = self.isMore(row.orderDetail[idx]);
+                            row.orderDetail[idx].orderItemId = common.crypto.md5(row.orderDetail[idx].od_ix);
+                            // allCancel?
+                            self.isAllCancel(row.orderDetail[idx].status);
+                            if (row.orderDetail[idx].cartCouponApply) {
+                                row.orderDetail[idx].isIncomeComplate = false; //입금확인 취소버튼
+                            } else {
+                                row.orderDetail[idx].isIncomeComplate = self.isIncomeComplate(row.orderDetail[idx].status);
+                            }
+
+                            oitems.push(self.orderTpl(row.orderDetail[idx]));
+                            // 교환상품상세
+                            if (row.orderDetail[idx].exchageDetail) {
+                                oitems.push(self.exchangeDetail(row.orderDetail[idx].exchageDetail, row.orderDetail[idx].orderItemId));
+                            }
                         }
 
-                        oitems.push(self.orderTpl(row.orderDetail[idx]));
-                        // 교환상품상세
-                        if (row.orderDetail[idx].exchageDetail) {
-                            oitems.push(self.exchangeDetail(row.orderDetail[idx].exchageDetail, row.orderDetail[idx].orderItemId));
-                        }
+                        row.orderDetail = oitems.join('');
                     }
 
-                    row.orderDetail = oitems.join('');
                     row.isAllCancel = self.allCancel;
                     if(this.reverse) {
                         $(this.container).prepend(this.listTpl(row));
@@ -286,7 +289,7 @@ var devOrderHistoyObj = {
 
         // 주문내역 설정
         self.ajaxList
-            .setUseHash(false)
+            .setUseHash(true)
             .setRemoveContent(false)
             .setLoadingTpl('#devOrderHistoryLoading')
             .setListTpl('#devOrderHistoryList')

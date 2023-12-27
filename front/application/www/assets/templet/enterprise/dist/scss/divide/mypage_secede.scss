@@ -1,0 +1,101 @@
+.fb {
+    &__secede {
+        &__annc {
+            padding: 55px 0 30px;
+            border-top: 1px solid $black;
+            font-size: 26px;
+            color: $black;
+            line-height: 34px;
+            text-align: center;
+        }
+
+        .secede {
+            &-box {
+                margin-bottom: 40px;
+                padding: 30px;
+                border: 3px solid #f6f6f6;
+    
+                dl + dl {
+                    margin-top: 25px;
+                }
+    
+                dt {
+                    margin-bottom: 5px;
+                    font: {
+                        size: 14px;
+                        weight: 600;
+                    };
+                    color: $grey800;
+                    line-height: 20px;
+                }
+    
+                dd {
+                    padding-left: 10px;
+                    font-size: 13px;
+                    color: $grey600;
+                    line-height: 20px;
+                }
+            }
+
+            &__table {
+                border: {
+                    top: 1px solid $black;
+                    bottom: 1px solid $grey100;
+                };
+
+                tr {
+                    th {
+                        padding: 10px 0 0 30px;
+                        font-weight: 400;
+                        text-align: left;
+                        vertical-align: top;
+                    }
+    
+                    td {
+                        padding: 10px 0;
+                        vertical-align: top;
+                    }
+
+                    &:first-child {
+                        th {
+                            padding-top: 40px;
+                        }
+
+                        td {
+                            padding-top: 30px;
+                        }
+                    }
+
+                    &:last-child {
+                        td {
+                            padding-bottom: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        textarea {
+            width: 80%;
+            height: 200px;
+            display: block;
+        }
+
+        .wrap-btn-area {
+            text-align: center;
+
+            button {
+                width: 200px;
+                margin-left: 10px;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .star {
+            color: $pcolor;
+        }
+    }
+}

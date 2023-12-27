@@ -1,0 +1,248 @@
+.fb {
+    &__join-input {
+		.join-input {
+			// 공통
+			&__comm {
+				.wrap-step {
+					margin: vw(0 30px);
+				}
+
+				.id-area {
+					dd {
+						@extend %clear;
+	
+						input[type='text'] {
+							display: inline-block;
+							width: vw(490px);
+						}
+	
+						button {
+							display: inline-block;
+							float: right;
+							width: vw(180px);
+							height: vw(90px);
+							line-height: vw(90px);
+							padding: 0;
+						}
+	
+						.txt-guide {
+							margin-top: vw(10px);
+						}
+					}            
+				}
+
+				.pw-area {
+					.txt-guide {
+						&.password {
+						}
+					}
+				}
+	
+				.email-area {
+					dd {
+						.wrap-multi-input {
+							display: flex;
+							justify-content: space-between;
+	
+							.email-input {
+								width: vw(320px);
+							}
+						}
+						// .email-input,
+						// .select-box {
+						// 	width: vw(322px);
+						// }
+					}
+				}
+	
+				.birth-area {
+					dd {
+						@extend %clear;
+	
+						.birth-input {
+							width: vw(440px);
+						}
+						.sex {
+							float: right;
+							@extend %clear;
+
+							&--left {
+								float: left;
+							}
+	
+							&__box {
+								float: left;
+								position: relative;
+								width: vw(120px);
+								height: vw(90px);
+	
+								input[type='radio'] {
+									background: none;
+	
+									& + span {
+										position: absolute;
+										top: 0;
+										left: 0;
+										z-index: 2;
+										width: vw(120px);
+										height: vw(90px);
+										background: $bg_grey50;
+										border: vw(2px) solid $grey200;
+                                        color: $grey600;
+                                        font-size: vw(26px);
+										text-align: center;
+										line-height: vw(90px);
+									}
+	
+									&:checked + span {
+										// border: 1px solid $grey600;
+										background: $white;
+										color: $grey800;
+									}
+								}
+	
+								& + .sex__box {
+									border-left: none;
+								}
+							}
+						}
+					}
+				}
+
+				.phone-area,
+				.tel-area {
+					dd {
+						.address {
+							&__phone {
+								&__area {
+									display: flex;
+								}
+	
+								&__0 {
+									width: vw(215px);
+									margin-right: vw(20px);
+									flex-shrink: 0;
+								}
+	
+								&__1 {
+									border-right: none;
+									padding-right: vw(4px);
+									text-align: center;
+								}
+	
+								&__2 {
+									border-left: none;
+									text-align: center;
+								}
+	
+								&__hyphen {
+									position: relative;
+									border-top: 1px solid $grey400;
+									border-bottom: 1px solid $grey400;
+									width: vw(8px);
+									height: vw(90px);
+				
+									&::after {
+										display: block;
+										position: absolute;
+										top: vw(45px);
+										width: vw(8px);
+										border-top: 1px solid $grey600;
+										content: "";
+									}
+								}
+							}
+						}
+					}
+				}
+	
+				.address-area {
+					dd {
+						input[name='zip'],
+						input[name='comZip'] {
+							width: vw(450px);
+                            color: $grey600;
+						}
+
+						button {
+							display: inline-block;
+							width: vw(220px);
+							height: vw(90px);
+                            margin-left: vw(20px);
+                            border-color: $grey200;
+							line-height: vw(90px);
+							padding: 0;
+						}
+	
+						.dim {
+							background: $bg_grey50;
+						}
+					}
+				}
+
+				.txt-error,
+				.txt-success {
+					margin-bottom: 0;
+
+					& + button {
+						margin-top: vw(20px);
+					}
+				}
+			}
+
+			// 일반회원
+			&-basic {
+				.wrap-input-form {
+					padding: vw(40px 30px 100px);
+				}
+			}
+
+			// 기업회원
+			&-company {
+				.input-cpn-tit {
+					width: vw(690px);
+					margin: 0 auto;
+					padding: vw(35px 0);
+				}
+
+				.wrap-input-form {
+					padding: vw(40px 30px 50px);
+
+					dl:last-of-type {
+						margin-bottom: 0;
+					}
+				}
+
+				.wrap-license-upload {
+					.file-upload-btn {
+						border: 1px solid $grey400;
+					}
+
+					.desc {
+						&:first-of-type {
+							margin-top: vw(40px);
+						}
+					}
+				}
+
+				.input-cpn {
+					padding: vw(60px 30px 100px);
+				}
+			}
+		}
+
+		&__btn {
+			width: vw(690px);
+			margin: 0 auto;
+			padding-top: vw(40px);
+		}
+
+
+        // .fb__input__phone {
+        //     &--box {
+        //         background-color: $bg_grey50 !important;
+        //         border-color: #eee !important;
+        //     }
+        // }
+    }
+}

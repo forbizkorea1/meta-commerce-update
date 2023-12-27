@@ -1,0 +1,78 @@
+.fb {
+    &__join-agreement {
+        &__subtitle {
+            font-size: 14px;
+            color: $grey800;
+            line-height: 24px;
+            text-align: left;
+        }
+        .terms-tit span {
+            color: $pcolor;
+        }
+        .wrap-chk-all {
+            background: $bg_grey50;
+            border: 1px solid $grey200;
+            padding: 25px 35px;
+            margin: 25px 0 35px;
+            input+label {
+                font-size: 18px;
+                color: $black;
+            }
+        }
+        .wrap-terms {
+            margin-bottom: 30px;
+
+            .terms-tit {
+                font-size: 18px;
+                font-weight: 600;
+                color: $black;
+                margin-bottom: 15px;
+                span {
+                    color: $pcolor;
+                }
+
+                em {
+                    color: $grey800;
+                    font-weight: 600;
+                }
+            }
+            .input-terms {
+                padding: 20px 20px 0;
+                color: $grey800;
+                font-size: 14px;
+                line-height: 20px;
+                border: 1px solid $grey200;
+                height: 150px;
+                overflow-y: scroll;
+                box-sizing: border-box;
+            }
+            .wrap-terms-check {
+                margin-top: 15px;
+                input+label {
+                    font-size: 14px;
+                    color: $grey800;
+                }
+                input+label:first-of-type {
+                    font-size: 16px;
+                    color: $black;
+                }
+            }
+            .desc {
+                font-size: 14px;
+                line-height: 20px;
+                color: $grey800;
+                margin-top: 15px;
+            }
+        }
+        &__submit {
+            text-align: center;
+            button {
+                margin: 0 5px;
+            }
+        }
+    }
+    .wrap-btn-area {
+        @extend %clear;
+        overflow: initial;
+    }
+}

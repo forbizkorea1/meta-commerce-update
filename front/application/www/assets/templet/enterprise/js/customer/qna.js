@@ -216,20 +216,17 @@ var devCustomerQnaObj = {
 
                 },
                 function(res){
-                    if(res.result == 'success') {
-                        if(res.data.length > 0){
-                            var str = [];
-                            for (var i = 0; i < res.data.length; i++) {
-                                str.push('<option value="' + res.data[i].div_ix + '" >'+ res.data[i].div_name + '</option>');
-                            }
-                            $('#devSubBbsDiv option[value!=""]').remove();
-                            $('#devSubBbsDiv').show();
-                            $('#devSubBbsDiv').append(str);
-                        }else{
-                            $('#devSubBbsDiv').hide();
-                            $('#devSubBbsDiv option[value!=""]').remove();
+                    if(res.result == 'success' && res.data.length > 0) {
+                        var str = [];
+                        for (var i = 0; i < res.data.length; i++) {
+                            str.push('<option value="' + res.data[i].div_ix + '" >'+ res.data[i].div_name + '</option>');
                         }
-
+                        $('#devSubBbsDiv option[value!=""]').remove();
+                        $('#devSubBbsDiv').show();
+                        $('#devSubBbsDiv').append(str);
+                    }else{
+                        $('#devSubBbsDiv').hide();
+                        $('#devSubBbsDiv option[value!=""]').remove();
                     }
                 });
         });

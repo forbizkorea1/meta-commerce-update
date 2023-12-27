@@ -1,0 +1,91 @@
+.fb {
+    &__join-agreement {
+        .wrap-agree-sec {
+            padding: vw(25px);
+            border-bottom: 1px solid $white2;
+        }
+        
+        .join-agree-desc {
+            font-size: vw(22px);
+            color: $grey800;
+            line-height: vw(36px);
+        }
+
+        .wrap-btn-area.agree {
+            padding: vw(40px 25px 80px 25px);
+        }
+
+        .form-box {
+            margin: vw(0 30px);
+            border: 1px solid #eee;
+        }
+
+        .sect-title {
+            margin: vw(40px 26px 30px);
+            font-size: vw(30px);
+            color: $textBlack;
+        }
+
+        .authentication {
+            width: 100%;
+            margin-bottom: vw(50px);
+            padding: vw(0 30px);
+
+            .box {
+                width: 100% !important;
+                height: vw(160px);
+                margin: vw(20px 0);
+                border: 1px solid $grey600;
+                text-align: center;
+
+                &__text {
+                    margin-top: vw(40px);
+                    font-size: vw(26px);
+                    color: $textBlack;
+
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        width: vw(42px);
+                        height: vw(72px);
+                        margin-right: vw(20px);
+                        background: url("../images/icon/m_sprite_icon.png") no-repeat vw(-270px -693px);
+                        background-size: vw(1000px);
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            .sub-txt {
+                position: relative;
+                padding-left: vw(20px);
+                color: $grey800;
+                font-size: vw(22px);
+                line-height: vw(32px);
+    
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    top: vw(10px);
+                    left: 0;
+                    width: vw(4px);
+                    height: vw(4px);
+                    background: $grey600;
+                    border-radius: 100%;
+                }
+    
+                & + .sub-txt {
+                    margin-top: vw(10px);
+                }
+            }
+        }
+
+        .term-list {
+
+            input[type="checkbox"] + label {
+                font-size: vw(28px);
+            }
+        }
+    }
+}

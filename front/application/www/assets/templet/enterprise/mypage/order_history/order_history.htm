@@ -15,50 +15,7 @@
                 <input type="hidden" name="sDateDef" id="sDateDef" value="{? sDate}{sDate}{:}{oneMonth}{/}" />
                 <input type="hidden" name="eDateDef" id="eDateDef" value="{? eDate}{eDate}{:}{today}{/}" />
 
-                <div class="search"> <!--wrap-sort-->
-                    <div class="search__row">
-                        <div class="search__col">
-                            <span class="search__col-title">{=trans('조회기간')}</span>
-
-                            <input type="text" id="devSdate" name="sDate" value="{oneMonth}" class="search__date-input date-pick " title="{=trans('조회시작기간')}">
-                            ~
-                            <input type="text" id="devEdate" name="eDate" value="{today}" class="search__date-input date-pick "  title="{=trans('조회종료기간')}">
-                        </div>
-                        <div class="search__col__day">
-                            <div class="day-radio">
-                                <a href="#" class="day-radio__btn today devDateBtn" data-sdate="{today}" data-edate="{today}">{=trans('오늘')}</a>
-                                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneWeek}" data-edate="{today}">{=trans('<em>1</em>주일')}</a>
-                                <a href="#" class="day-radio__btn devDateBtn day-radio--active" data-sdate="{oneMonth}" data-edate="{today}" id="devDateDefault">{=trans('<em>1</em>개월')}</a>
-                                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{sixMonth}" data-edate="{today}">{=trans('<em>6</em>개월')}</a>
-                                <a href="#" class="day-radio__btn devDateBtn" data-sdate="{oneYear}" data-edate="{today}">{=trans('<em>1</em>년')}</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="search__row  order">
-                        <div class="search__col">
-                            <span class="search__col-title ">{=trans('주문상태')}</span>
-                            <select class="search__select" name="status" id="devStatus" title="{=trans('주문상태 선택')}">
-                                <option value="all">{=trans('전체')}</option>
-                                {@ status}<option value="{status.key_}">{status.value_}</option>{/}
-                            </select>
-                        </div>
-                        <script>
-                            $(function () {
-                                $('#devStatus').val('{orderStatus}');
-                            });
-                        </script>
-
-                        <div class="search__col search__col__pname">
-                            <label class="search__col-title search__col__pname-title" for="devPname">{=trans('상품명')}</label>
-                            <input class="search__pname-input" type="text" name="pname" id="devPname">
-                        </div>
-                    </div>
-                </div>
-                <div class="search__btn"> <!--wrap-btn-area-->
-                    <button type="button" id="devSearchInitBtn" class="search__btn--cancel" data-sDate="{oneMonth}" data-eDate="{today}">{=trans('초기화')}</button>
-                    <button type="button" id="devSearchBtn" title="검색" class="search__btn--search">{=trans('검색')}</button>
-                </div>
+                {= fb_widget('mypage/filter')}
             </form>
         </section>
     {:}

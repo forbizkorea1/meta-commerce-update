@@ -45,6 +45,8 @@ const event_detail = () => {
                 const _fixedHeight = _headerHeight + $floating.outerHeight();
                 const _st = $this.scrollTop();
 
+                if (!$box.length) return;
+
                 if ($box.offset().top - _headerHeight <= _st && ($box.offset().top + $box.outerHeight()) - (_headerHeight + $('#stickytab').outerHeight()) > _st) {
                     $floating.removeClass("absolute").addClass('sticky').css({
                         "top": _headerHeight +"px",

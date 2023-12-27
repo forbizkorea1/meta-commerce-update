@@ -23,7 +23,11 @@
     <!--{/}-->
     <!-- js library -->
     <script>var forbizCsrf = { name:"{layout.ForbizCsrfName}", hash:"{layout.ForbizCsrfHash}", isLogin:{=json_encode(layoutCommon.isLogin)}};</script>
-    <link rel="stylesheet" type="text/css" href="/assets/templet/enterprise/assets/css/main.css?version=1.0">
+    
+    <!-- FE 공통 CSS -->
+    <link rel="stylesheet" type="text/css" href="{layoutCommon.templetSrc}/assets/css/common.css?version={c.CLIENT_VERSION}">
+    <link rel="stylesheet" type="text/css" href="{layout.GroupCssSrc}?version={c.CLIENT_VERSION}">
+    
     <script src="{layoutCommon.templetSrc}/assets/js/vendor.js?version=1.0"></script>
     <script src="{layoutCommon.templetSrc}/assets/js/main.js?version=1.0"></script>
     <!--{? is_file( c.DOCUMENT_ROOT + '' + layout.LanguageJsSrc)}-->

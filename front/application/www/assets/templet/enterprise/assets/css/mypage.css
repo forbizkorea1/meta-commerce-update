@@ -1,0 +1,5945 @@
+@charset "UTF-8";
+/* 공통 */
+.fb__orderCommon .orderTable__tooltip__layer dl:after, .fb__orderCommon .refund-info:after, .fb .change-list > div dl:after, .fb__mypage .mileage__inner:after, .fb__mypage .mileage .float-r dl:after, .fb__conversion .sect .inputInfo .box .business-type:after, .fb__shopCommon__layout:after, .fb__shopCommon__summary .summary__list:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+/* mypage */
+.fb__orderCommon__box {
+  margin-bottom: 50px;
+}
+
+.fb__orderCommon__header {
+  position: relative;
+  padding: 20px 100px 20px 30px;
+  background: #f8f8f8;
+  border-top: 1px solid #111;
+  font-size: 0;
+}
+
+.fb__orderCommon__detailHeader {
+  position: relative;
+  margin-bottom: 48px;
+  padding: 25px 200px 25px 30px;
+  border-top: 1px solid #111;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__orderCommon__detailHeader .fb__orderCommon__date {
+  font-size: 20px;
+}
+
+.fb__orderCommon__detailHeader .fb__orderCommon__oid {
+  font-size: 18px;
+}
+
+.fb__orderCommon__date {
+  display: inline-block;
+  color: #111;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.fb__orderCommon__date dt {
+  font-size: 0;
+  line-height: 0;
+}
+
+.fb__orderCommon__date dd {
+  display: inline-block;
+  font-family: "Rb", "Notosans", sans-serif;
+  font-weight: bold;
+}
+
+.fb__orderCommon__oid {
+  display: inline-block;
+  margin-left: 6px;
+  color: #999;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__orderCommon__oid dt {
+  font-size: 0;
+  line-height: 0;
+}
+
+.fb__orderCommon__oid dd {
+  display: inline-block;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__orderCommon__oid .oid__link {
+  display: inline-block;
+  border-bottom: 1px solid #5283e6;
+  color: #5283e6;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.fb__orderCommon__link {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  font-size: 0;
+}
+
+.fb__orderCommon__link span {
+  display: inline-block;
+  color: #666;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__orderCommon__link:after {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 6px;
+  background: url(../../images/guide/btn-arrow-right-14x14.png) no-repeat center center;
+  vertical-align: middle;
+  content: "";
+}
+
+.fb__orderCommon__cont {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__orderCommon__deliveryMsg .deliveryMsg__box {
+  font-size: 0;
+}
+
+.fb__orderCommon__deliveryMsg .deliveryMsg__msg {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 20px;
+  color: #666;
+  font-size: 14px;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fb__orderCommon__deliveryMsg .deliveryMsg__change {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fb__orderCommon__deliveryMsg .deliveryMsg__change__btn {
+  padding: 9px 18px;
+  vertical-align: middle;
+}
+
+.fb__orderCommon__deliveryMsg .deliveryMsg__error {
+  display: block;
+  display: none;
+  margin-top: 6px;
+  color: red;
+}
+
+.fb__orderCommon .orderTable col:first-of-type {
+  width: auto;
+}
+
+.fb__orderCommon .orderTable col:nth-of-type(2) {
+  width: 160px;
+}
+
+.fb__orderCommon .orderTable col:nth-of-type(3) {
+  width: 160px;
+}
+
+.fb__orderCommon .orderTable__status {
+  color: #111;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.fb__orderCommon .orderTable__status__trace {
+  display: block;
+  margin-top: 1px;
+  color: #ff6600;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.fb__orderCommon .orderTable__status__trace:after {
+  display: block;
+  width: 46px;
+  margin: 0 auto;
+  border-bottom: 1px solid #ff6600;
+  content: "";
+}
+
+.fb__orderCommon .orderTable__action__btn {
+  display: inline-block;
+  margin-bottom: 3px;
+  padding: 0 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 13px;
+  line-height: 28px;
+}
+
+.fb__orderCommon .orderTable__action__btn:last-child {
+  margin-bottom: 0;
+}
+
+.fb__orderCommon .orderTable__action__btn.dark {
+  border: 1px solid #666;
+  background: #666;
+  color: #fff;
+  font-size: 13px;
+}
+
+.fb__orderCommon .orderTable__action__btn.trace__point {
+  color: #ff6600;
+  border: 1px solid #ff6600;
+}
+
+.fb__orderCommon .orderTable__action .action__toggle {
+  width: 28px;
+  height: 28px;
+  background: url(../../images/guide/ic-show-list-28-px.png) no-repeat 0 0;
+  font-size: 0;
+}
+
+.fb__orderCommon .orderTable__action .action__toggle.open {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fb__orderCommon .orderTable__exchangeGoods .exchangeGoods__cont {
+  padding-top: 15px;
+}
+
+.fb__orderCommon .orderTable__exchangeGoods .exchangeGoods__wrapper {
+  position: relative;
+  padding: 30px;
+  background: #f8f8f8;
+  border: 1px solid #e8e8e8;
+  font-size: 0;
+}
+
+.fb__orderCommon .orderTable__exchangeGoods .exchangeGoods__wrapper:before {
+  position: absolute;
+  bottom: 100%;
+  left: 40px;
+  z-index: 1;
+  width: 14px;
+  height: 7px;
+  background: url(../../images/common/sprite_common.png) no-repeat -70px -293px/1000px;
+  content: "";
+}
+
+.fb__orderCommon .orderTable__exchangeGoods .exchangeGoods__item {
+  display: inline-block;
+  width: calc(100% - 280px);
+  padding: 0;
+  vertical-align: middle;
+}
+
+.fb__orderCommon .orderTable__exchangeGoods .exchangeGoods__status {
+  display: inline-block;
+  width: 140px;
+  vertical-align: middle;
+}
+
+.fb__orderCommon .orderTable__exchangeGoods .exchangeGoods__action {
+  display: inline-block;
+  width: 140px;
+  vertical-align: middle;
+}
+
+.fb__orderCommon .orderTable__tooltip__layer {
+  top: 20px;
+  width: auto;
+  min-width: 184px;
+}
+
+.fb__orderCommon .orderTable__tooltip__layer dl {
+  margin-bottom: 4px;
+  color: #666;
+  font-size: 13px;
+}
+
+.fb__orderCommon .orderTable__tooltip__layer dl em {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.fb__orderCommon .orderTable__tooltip__layer dt {
+  float: left;
+}
+
+.fb__orderCommon .orderTable__tooltip__layer dd {
+  float: right;
+  font-family: "Rb", "Notosans", sans-serif;
+  font-weight: 400;
+}
+
+.fb__orderCommon .orderTable__tooltip__layer dl.total {
+  color: #111;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-top: 10px;
+  border-top: 1px solid #111;
+}
+
+.fb__orderCommon .orderTable__tooltip__layer dl.total dd em {
+  font-weight: 600;
+}
+
+.fb__orderCommon .orderDetailTable {
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.fb__orderCommon .orderDetailTable th {
+  padding: 15px 0;
+  background: #f8f8f8;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+  color: #111;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.fb__orderCommon .orderDetailTable__count {
+  color: #666;
+  font-size: 14px;
+}
+
+.fb__orderCommon .orderDetailTable__count em {
+  font-family: "Rb", "Notosans", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.fb__orderCommon .orderDetailTable__shipping {
+  margin-top: 30px;
+}
+
+.fb__orderCommon .refund-area__inner {
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__orderCommon .pay-info {
+  display: table;
+  width: 100%;
+}
+
+.fb__orderCommon .pay-info__box {
+  display: table-cell;
+  width: calc(100% / 3);
+  vertical-align: top;
+}
+
+.fb__orderCommon .pay-info__box:not(:first-child) {
+  border-left: 1px dotted #e8e8e8;
+}
+
+.fb__orderCommon .pay-info__box-delivery {
+  position: relative;
+}
+
+.fb__orderCommon .pay-info__box-delivery:before {
+  content: '';
+  position: absolute;
+  top: 42px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -300px -300px;
+}
+
+.fb__orderCommon .pay-info__box-sum {
+  position: relative;
+}
+
+.fb__orderCommon .pay-info__box-sum:before {
+  content: '';
+  position: absolute;
+  top: 42px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -400px -300px;
+}
+
+.fb__orderCommon .pay-info__top {
+  position: relative;
+  padding: 24px 0;
+  border-bottom: 1px dotted #e8e8e8;
+  text-align: center;
+}
+
+.fb__orderCommon .pay-info__top__tit {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.fb__orderCommon .pay-info__top__price {
+  font-size: 16px;
+}
+
+.fb__orderCommon .pay-info__top__price em {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.fb__orderCommon .pay-info__bottom {
+  padding: 15px 30px;
+  font-size: 14px;
+}
+
+.fb__orderCommon .pay-info__bottom dl {
+  overflow: hidden;
+}
+
+.fb__orderCommon .pay-info__bottom dl dt {
+  float: left;
+}
+
+.fb__orderCommon .pay-info__bottom dl dd {
+  float: right;
+}
+
+.fb__orderCommon .pay-info__bottom dl + dl {
+  margin-top: 10px;
+}
+
+.fb__orderCommon .pay-info__bottom dl.disc-list {
+  position: relative;
+  font-size: 13px;
+  color: #666;
+}
+
+.fb__orderCommon .pay-info__bottom dl.disc-list.first {
+  margin-top: 15px;
+}
+
+.fb__orderCommon .pay-info__bottom dl.disc-list dt {
+  position: relative;
+  padding-left: 17px;
+}
+
+.fb__orderCommon .pay-info__bottom dl.disc-list dt:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -700px 0;
+}
+
+.fb__orderCommon .pay-info__bottom dl:not(.disc-list) dt {
+  line-height: 19px;
+}
+
+.fb__orderCommon .pay-info__bottom dl:not(.disc-list) dd em {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.fb__orderCommon .pay-info__bottom__text {
+  padding: 20px 0 20px 10px;
+}
+
+.fb__orderCommon .refund-info {
+  padding: 25px 30px;
+  border-top: 1px solid #e8e8e8;
+  font-size: 14px;
+}
+
+.fb__orderCommon .refund-info-account {
+  display: none;
+}
+
+.fb__orderCommon .refund-info__box {
+  float: left;
+  width: 353px;
+}
+
+.fb__orderCommon .refund-info__box dt {
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.fb__orderCommon .refund-info__box dd {
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__orderCommon .refund-info__box-account {
+  width: auto;
+}
+
+.fb__orderCommon .refund-info__box-account dt {
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.fb__orderCommon .refund-info__box-account dd {
+  color: #111;
+}
+
+.fb__orderCommon .refund-info__input-area {
+  font-size: 0;
+}
+
+.fb__orderCommon .refund-info__input-area label {
+  display: inline-block;
+  min-width: 84px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__orderCommon .refund-info__input-area label:nth-of-type(2) {
+  margin-left: 19px;
+}
+
+.fb__orderCommon .refund-info__input-area__account {
+  margin-top: 10px;
+}
+
+.fb__orderCommon .refund-info__input-area__account input {
+  width: 413px !important;
+}
+
+.fb__orderCommon .refund-info__input-area__account input.bank-num-input {
+  width: 403px !important;
+}
+
+.fb__orderCommon .refund-info__input-area select {
+  width: 150px;
+}
+
+.fb__orderCommon .refund-info__input-area input {
+  width: 150px;
+}
+
+.fb__orderCommon__desc {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__claimCommon__reason {
+  padding: 20px !important;
+}
+
+.fb__claimCommon__reason .write__area {
+  position: relative;
+  height: 105px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 15px 15px 40px;
+}
+
+.fb__claimCommon__reason .write__textCount {
+  position: absolute;
+  right: 15px;
+  bottom: 13px;
+  color: #999;
+  font-size: 0;
+  line-height: 1;
+}
+
+.fb__claimCommon__reason .write__textCount span {
+  font-size: 12px;
+}
+
+.fb__claimCommon__reason .write__textCount em {
+  font-size: 12px;
+}
+
+.fb__claimCommon__reason select {
+  width: 345px;
+  color: #999;
+}
+
+.fb__claimCommon__reason textarea {
+  width: 100%;
+  height: 80px;
+  border: none;
+}
+
+.fb__mypage {
+  /*********************************/
+}
+
+.fb__mypage__title {
+  margin-bottom: 10px;
+  color: #111;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.fb__mypage__title--detail {
+  font-size: 14px;
+  color: #666;
+}
+
+.fb__mypage__title--detail em {
+  color: #FF6600;
+}
+
+.fb__mypage__section {
+  margin-top: 50px;
+}
+
+.fb__mypage__section:first-of-type {
+  margin-top: 0;
+}
+
+.fb__mypage__checkbox > label {
+  margin-right: 30px;
+  font-size: 0;
+}
+
+.fb__mypage__checkbox > label:last-of-type {
+  margin-right: 0;
+}
+
+.fb__mypage__checkbox input[type="checkbox"] {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/btns/btn_input.png) 0 0;
+  color: transparent;
+  border-radius: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.fb__mypage__checkbox input[type="checkbox"]:checked {
+  background-position: -100px 0;
+}
+
+.fb__mypage__checkbox input[type="checkbox"]::-ms-check {
+  background-color: inherit;
+  border-width: 0;
+  border-color: inherit;
+  border-radius: inherit;
+  color: transparent;
+}
+
+.fb__mypage__checkbox input[type="checkbox"] + label,
+.fb__mypage__checkbox input[type="checkbox"] + span {
+  margin-left: 5px;
+  font-size: 14px;
+  color: #666;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.fb__mypage__checkbox.goods__checkbox {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.fb__mypage__checkbox.goods__checkbox + a {
+  display: inline-block;
+  width: calc(100% - 30px);
+}
+
+.fb__mypage__radio > label {
+  margin-right: 10px;
+  font-size: 0;
+}
+
+.fb__mypage__radio > label:last-of-type {
+  margin-right: 0;
+}
+
+.fb__mypage__radio input[type="radio"] {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: url(../../images/common/icon-radio-uncheck.png);
+  color: transparent;
+  border-radius: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+.fb__mypage__radio input[type="radio"]:checked {
+  background: url(../../images/common/btn_input.png) -100px -100px;
+}
+
+.fb__mypage__radio input[type="radio"]::-ms-check {
+  background-color: inherit;
+  border-width: 0;
+  border-color: inherit;
+  border-radius: inherit;
+  color: transparent;
+}
+
+.fb__mypage__radio input[type="radio"] + label,
+.fb__mypage__radio input[type="radio"] + span {
+  margin-left: 10px;
+  color: #111;
+  font-size: 14px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.fb__mypage button:not(:disabled) {
+  cursor: pointer;
+}
+
+.fb__mypage button:disabled {
+  cursor: no-drop;
+}
+
+.fb__mypage__btn__qna {
+  position: relative;
+  top: 0;
+}
+
+.fb__mypage .table-default td.fb__mypage__empty-text {
+  padding: 50px 0;
+}
+
+.fb__mypage .tab-link {
+  width: 100%;
+  font-size: 0;
+}
+
+.fb__mypage .tab-link--2 .tab-menu {
+  display: inline-block;
+  width: calc(100% / 2);
+}
+
+.fb__mypage .tab-link--3 .tab-menu {
+  display: inline-block;
+  width: calc(100% / 3);
+}
+
+.fb__mypage .tab-menu {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-left: -1px;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #111;
+}
+
+.fb__mypage .tab-menu a {
+  display: block;
+  color: #111;
+  font-size: 15px;
+  text-align: center;
+}
+
+.fb__mypage .tab-menu.active {
+  z-index: 2;
+  border: 1px solid #111;
+  border-bottom: none;
+}
+
+.fb__mypage__tabs {
+  font-size: 0;
+}
+
+.fb__mypage__tabs--3 .fb__mypage__tabs__item {
+  width: calc(100% / 3) !important;
+}
+
+.fb__mypage__tabs__item {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  margin-left: -1px;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #111;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.fb__mypage__tabs__item.active {
+  z-index: 2;
+  border: 1px solid #111;
+  border-bottom: none;
+  color: #111;
+}
+
+.fb__mypage__tabs__item:first-of-type {
+  margin-left: 0;
+}
+
+.fb__mypage__tabs__item a {
+  display: block;
+  padding: 18px 0;
+  line-height: 1 !important;
+}
+
+.fb__mypage .goods__brand {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.fb__mypage .goods__btn__cart {
+  width: 20px;
+  height: 18px;
+  background: url(../../images/common/icon-cart.png) no-repeat 50% 50%;
+}
+
+.fb__mypage .goods__btn__wish {
+  width: 20px;
+  height: 18px;
+  background: url(../../images/common/icon-wish.png) no-repeat 50% 50%;
+}
+
+.fb__mypage .goods__btn__wish.on {
+  background: url(../../images/common/icon-wish.png) no-repeat 50% 50%;
+}
+
+.fb__mypage .goods__list {
+  padding: 40px 30px 0 30px;
+  display: inline-block;
+  grid-column-gap: 30px;
+  font-size: 0;
+}
+
+.fb__mypage .goods__list.recentList, .fb__mypage .goods__list.wishList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.fb__mypage .goods__list.recentList .goods__item, .fb__mypage .goods__list.wishList .goods__item {
+  display: inline-block;
+  width: calc(25% - 35.25px);
+  margin-right: 47px;
+  margin-bottom: 50px;
+}
+
+.fb__mypage .goods__list.recentList .goods__item:nth-child(4n), .fb__mypage .goods__list.wishList .goods__item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.fb__mypage .goods__list.recentList .goods__item a, .fb__mypage .goods__list.wishList .goods__item a {
+  display: block;
+  width: 100%;
+}
+
+.fb__mypage .goods__list.recentList .goods__item .goods__thumb, .fb__mypage .goods__list.wishList .goods__item .goods__thumb {
+  width: 100%;
+  max-width: 227.5px;
+  height: 227.5px;
+  border: none;
+}
+
+.fb__mypage .goods__list.recentList .goods__item .goods__checkbox, .fb__mypage .goods__list.wishList .goods__item .goods__checkbox {
+  position: static;
+  margin-bottom: 10px;
+}
+
+.fb__mypage .goods__list.recentList .goods__item .goods__price, .fb__mypage .goods__list.wishList .goods__item .goods__price {
+  font-size: 22px;
+}
+
+.fb__mypage .goods__list.recentList .goods__item .goods__price__area, .fb__mypage .goods__list.wishList .goods__item .goods__price__area {
+  margin-top: 10px;
+}
+
+.fb__mypage .goods__list.recentList .goods__item .goods__name, .fb__mypage .goods__list.wishList .goods__item .goods__name {
+  width: 80%;
+  line-height: 18px;
+  height: 36px;
+}
+
+.fb__mypage .goods__list.recentList .goods__item .goods__overlay__area, .fb__mypage .goods__list.wishList .goods__item .goods__overlay__area {
+  width: 100%;
+  top: 227.5px;
+  left: 0px;
+}
+
+.fb__mypage .goods__item {
+  position: relative;
+  display: inline-block;
+  width: calc(25% - 22.5px);
+  margin: 0;
+  margin-right: 30px;
+  vertical-align: top;
+}
+
+.fb__mypage .goods__item:nth-of-type(n + 5) {
+  margin-top: 17.5px;
+}
+
+.fb__mypage .goods__item:hover .goods__overlay__area {
+  display: block;
+}
+
+.fb__mypage .goods__item:last-child {
+  margin-right: 0;
+}
+
+.fb__mypage .goods__overlay__area {
+  display: none;
+  position: absolute;
+  top: 146px;
+  left: 30px;
+  width: calc(100% - 30px);
+  height: 30px;
+  background: rgba(97, 97, 97, 0.8);
+}
+
+.fb__mypage .goods__overlay__area--2 button {
+  width: 50%;
+}
+
+.fb__mypage .goods__overlay__area:hover {
+  display: block;
+}
+
+.fb__mypage .goods__overlay__area button {
+  height: 30px;
+  border-right: 1px solid #848483;
+}
+
+.fb__mypage .goods__overlay__area button:last-of-type {
+  border-right: none;
+}
+
+.fb__mypage .goods__overlay__area button span {
+  font-size: 0;
+}
+
+.fb__mypage .goods__thumb {
+  width: 197px;
+  height: 197px;
+  border: 1px solid #ddd;
+}
+
+.fb__mypage .goods__thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.fb__mypage .goods__info {
+  margin-top: 15px;
+}
+
+.fb__mypage .goods__info__name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+}
+
+.fb__mypage .goods__info__price {
+  display: block;
+  margin-top: 20px;
+  font-size: 19px;
+  color: #111;
+}
+
+.fb__mypage .goods__name {
+  display: block;
+  height: 40px;
+  color: #111;
+  font-size: 14px;
+  line-height: 20px;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+}
+
+.fb__mypage .goods__price {
+  display: block;
+  font-size: 13px;
+  color: #111;
+}
+
+.fb__mypage .goods__price__cost {
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
+.fb__mypage .goods__price em {
+  font-size: 19px;
+  font-weight: 600;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__mypage .goods__price__area {
+  margin-top: 15px;
+}
+
+.fb__mypage .goods__price__area .item__price__percent {
+  margin-right: 5px;
+  color: #ff6600;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fb__mypage .goods__price__area .item__price__org {
+  color: #999;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+.fb__mypage .goods__soldout {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff6600;
+}
+
+.fb__mypage__empty {
+  padding: 100px 0;
+  margin: 0 auto;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  text-align: center;
+}
+
+.fb__mypage__empty-text {
+  font-size: 15px;
+  font-weight: normal;
+  color: #666;
+  text-align: center;
+}
+
+.fb__mypage__agreement__round-bracket--left {
+  padding-right: 8px;
+}
+
+.fb__mypage .search-filters {
+  display: inline-flex;
+  padding: 20px 0;
+}
+
+.fb__mypage .search-filters__wrapper {
+  font-size: 0;
+}
+
+.fb__mypage .search-filters__heading {
+  display: inline-block;
+  padding: 0 30px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111;
+}
+
+.fb__mypage .search-filters__item--date {
+  width: 300px;
+}
+
+.fb__mypage .search-filters__date {
+  border: 1px solid #111;
+}
+
+.fb__mypage .search-filters__date::after {
+  content: "";
+  display: inline-block;
+  width: 29px;
+  height: 20px;
+  background: url(../../images/btns/bg_calendar.png) no-repeat 50% 50%;
+}
+
+.fb__mypage__search {
+  margin-bottom: 50px;
+}
+
+.fb__mypage__search .search__content {
+  background: #f8f8f8;
+  padding: 20px 30px;
+  overflow: hidden;
+}
+
+.fb__mypage__search .search__row:not(:first-child) {
+  margin-top: 10px;
+}
+
+.fb__mypage__search .search__col {
+  display: table-cell;
+  position: relative;
+  width: 410px;
+  padding: 0 30px 0 80px;
+  vertical-align: middle;
+}
+
+.fb__mypage__search .search__col-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 40px;
+  display: inline-block;
+  color: #111;
+  font-size: 14px;
+}
+
+.fb__mypage__search .search__col__day {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.fb__mypage__search .search__col__day .day-radio {
+  display: inline-block;
+  font-size: 0;
+  vertical-align: top;
+}
+
+.fb__mypage__search .search__col__day .day-radio__btn {
+  display: inline-block;
+  min-width: 63px;
+  height: 40px;
+  margin-left: -1px;
+  padding: 0 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  line-height: 38px;
+}
+
+.fb__mypage__search .search__col__day .day-radio--active {
+  position: relative;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+}
+
+.fb__mypage__search .search__col__pname {
+  padding-left: 0;
+}
+
+.fb__mypage__search .search__col__pname-title {
+  left: -48px;
+}
+
+.fb__mypage__search .search__date-input {
+  width: 140px;
+  background: #fff url(../../images/btns/bg_calendar.png) no-repeat 100% 50%;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__mypage__search .search__select {
+  width: 140px;
+  vertical-align: middle;
+}
+
+.fb__mypage__search .search__pname-input {
+  width: 400px;
+}
+
+.fb__mypage__search .search__btn {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0;
+}
+
+.fb__mypage__search .search__btn--cancel {
+  display: inline-block;
+  min-width: 115px;
+  height: 40px;
+  padding: 0 30px;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 14px;
+  line-height: 38px;
+}
+
+.fb__mypage__search .search__btn--search {
+  display: inline-block;
+  min-width: 115px;
+  height: 40px;
+  padding: 0 30px;
+  margin-left: 10px;
+  background: #666;
+  border: 0;
+  font-size: 14px;
+  color: #fff;
+  line-height: 38px;
+}
+
+.fb__mypage__modify .wrap-btn-area {
+  text-align: center;
+}
+
+.fb__mypage .fb__table .answer-complete {
+  color: #ff6600;
+}
+
+.fb__mypage__review-pop {
+  width: 720px;
+}
+
+.fb__mypage__review-pop .review-pop__inner {
+  overflow: auto;
+  max-height: 720px;
+  padding: 0 20px;
+}
+
+.fb#mypage_index .ui-datepicker, .fb#mypage_orderHistory .ui-datepicker, .fb#mypage_returnHistory .ui-datepicker, .fb#mypage_folderPoint .ui-datepicker, .fb#mypage_myInquiry .ui-datepicker, .fb#mypage_myGoodsInquiry .ui-datepicker, .fb#mypage_myGoodsReview .ui-datepicker, .fb#mypage_mileage .ui-datepicker {
+  padding: 0;
+  border: 1px solid #999;
+  border-radius: 0;
+}
+
+.fb#mypage_index .ui-datepicker-header, .fb#mypage_orderHistory .ui-datepicker-header, .fb#mypage_returnHistory .ui-datepicker-header, .fb#mypage_folderPoint .ui-datepicker-header, .fb#mypage_myInquiry .ui-datepicker-header, .fb#mypage_myGoodsInquiry .ui-datepicker-header, .fb#mypage_myGoodsReview .ui-datepicker-header, .fb#mypage_mileage .ui-datepicker-header {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #e8e8e8;
+  border-radius: 0;
+  background: #fff;
+}
+
+.fb#mypage_index .ui-datepicker-title, .fb#mypage_orderHistory .ui-datepicker-title, .fb#mypage_returnHistory .ui-datepicker-title, .fb#mypage_folderPoint .ui-datepicker-title, .fb#mypage_myInquiry .ui-datepicker-title, .fb#mypage_myGoodsInquiry .ui-datepicker-title, .fb#mypage_myGoodsReview .ui-datepicker-title, .fb#mypage_mileage .ui-datepicker-title {
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.fb#mypage_index .ui-datepicker-month, .fb#mypage_index .ui-datepicker-year, .fb#mypage_orderHistory .ui-datepicker-month, .fb#mypage_orderHistory .ui-datepicker-year, .fb#mypage_returnHistory .ui-datepicker-month, .fb#mypage_returnHistory .ui-datepicker-year, .fb#mypage_folderPoint .ui-datepicker-month, .fb#mypage_folderPoint .ui-datepicker-year, .fb#mypage_myInquiry .ui-datepicker-month, .fb#mypage_myInquiry .ui-datepicker-year, .fb#mypage_myGoodsInquiry .ui-datepicker-month, .fb#mypage_myGoodsInquiry .ui-datepicker-year, .fb#mypage_myGoodsReview .ui-datepicker-month, .fb#mypage_myGoodsReview .ui-datepicker-year, .fb#mypage_mileage .ui-datepicker-month, .fb#mypage_mileage .ui-datepicker-year {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb#mypage_index .ui-datepicker-next, .fb#mypage_index .ui-datepicker-prev, .fb#mypage_orderHistory .ui-datepicker-next, .fb#mypage_orderHistory .ui-datepicker-prev, .fb#mypage_returnHistory .ui-datepicker-next, .fb#mypage_returnHistory .ui-datepicker-prev, .fb#mypage_folderPoint .ui-datepicker-next, .fb#mypage_folderPoint .ui-datepicker-prev, .fb#mypage_myInquiry .ui-datepicker-next, .fb#mypage_myInquiry .ui-datepicker-prev, .fb#mypage_myGoodsInquiry .ui-datepicker-next, .fb#mypage_myGoodsInquiry .ui-datepicker-prev, .fb#mypage_myGoodsReview .ui-datepicker-next, .fb#mypage_myGoodsReview .ui-datepicker-prev, .fb#mypage_mileage .ui-datepicker-next, .fb#mypage_mileage .ui-datepicker-prev {
+  top: 11px;
+  width: 19px;
+  height: 19px;
+  border: 0;
+  border-radius: 50%;
+  background: url(../../images/mypage/ico_comm_picker-btn.png) no-repeat 0 0;
+  cursor: pointer;
+}
+
+.fb#mypage_index .ui-datepicker-next span, .fb#mypage_index .ui-datepicker-prev span, .fb#mypage_orderHistory .ui-datepicker-next span, .fb#mypage_orderHistory .ui-datepicker-prev span, .fb#mypage_returnHistory .ui-datepicker-next span, .fb#mypage_returnHistory .ui-datepicker-prev span, .fb#mypage_folderPoint .ui-datepicker-next span, .fb#mypage_folderPoint .ui-datepicker-prev span, .fb#mypage_myInquiry .ui-datepicker-next span, .fb#mypage_myInquiry .ui-datepicker-prev span, .fb#mypage_myGoodsInquiry .ui-datepicker-next span, .fb#mypage_myGoodsInquiry .ui-datepicker-prev span, .fb#mypage_myGoodsReview .ui-datepicker-next span, .fb#mypage_myGoodsReview .ui-datepicker-prev span, .fb#mypage_mileage .ui-datepicker-next span, .fb#mypage_mileage .ui-datepicker-prev span {
+  display: none;
+}
+
+.fb#mypage_index .ui-datepicker-prev, .fb#mypage_orderHistory .ui-datepicker-prev, .fb#mypage_returnHistory .ui-datepicker-prev, .fb#mypage_folderPoint .ui-datepicker-prev, .fb#mypage_myInquiry .ui-datepicker-prev, .fb#mypage_myGoodsInquiry .ui-datepicker-prev, .fb#mypage_myGoodsReview .ui-datepicker-prev, .fb#mypage_mileage .ui-datepicker-prev {
+  left: 16px !important;
+}
+
+.fb#mypage_index .ui-datepicker-next, .fb#mypage_orderHistory .ui-datepicker-next, .fb#mypage_returnHistory .ui-datepicker-next, .fb#mypage_folderPoint .ui-datepicker-next, .fb#mypage_myInquiry .ui-datepicker-next, .fb#mypage_myGoodsInquiry .ui-datepicker-next, .fb#mypage_myGoodsReview .ui-datepicker-next, .fb#mypage_mileage .ui-datepicker-next {
+  right: 16px !important;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fb#mypage_index .ui-datepicker-calendar, .fb#mypage_orderHistory .ui-datepicker-calendar, .fb#mypage_returnHistory .ui-datepicker-calendar, .fb#mypage_folderPoint .ui-datepicker-calendar, .fb#mypage_myInquiry .ui-datepicker-calendar, .fb#mypage_myGoodsInquiry .ui-datepicker-calendar, .fb#mypage_myGoodsReview .ui-datepicker-calendar, .fb#mypage_mileage .ui-datepicker-calendar {
+  margin: 5px 0;
+}
+
+.fb#mypage_index .ui-datepicker-calendar th, .fb#mypage_orderHistory .ui-datepicker-calendar th, .fb#mypage_returnHistory .ui-datepicker-calendar th, .fb#mypage_folderPoint .ui-datepicker-calendar th, .fb#mypage_myInquiry .ui-datepicker-calendar th, .fb#mypage_myGoodsInquiry .ui-datepicker-calendar th, .fb#mypage_myGoodsReview .ui-datepicker-calendar th, .fb#mypage_mileage .ui-datepicker-calendar th {
+  height: 27px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.fb#mypage_index .ui-datepicker-calendar td, .fb#mypage_orderHistory .ui-datepicker-calendar td, .fb#mypage_returnHistory .ui-datepicker-calendar td, .fb#mypage_folderPoint .ui-datepicker-calendar td, .fb#mypage_myInquiry .ui-datepicker-calendar td, .fb#mypage_myGoodsInquiry .ui-datepicker-calendar td, .fb#mypage_myGoodsReview .ui-datepicker-calendar td, .fb#mypage_mileage .ui-datepicker-calendar td {
+  padding: 0;
+  height: 27px;
+  vertical-align: middle;
+}
+
+.fb#mypage_index .ui-datepicker-calendar td a, .fb#mypage_orderHistory .ui-datepicker-calendar td a, .fb#mypage_returnHistory .ui-datepicker-calendar td a, .fb#mypage_folderPoint .ui-datepicker-calendar td a, .fb#mypage_myInquiry .ui-datepicker-calendar td a, .fb#mypage_myGoodsInquiry .ui-datepicker-calendar td a, .fb#mypage_myGoodsReview .ui-datepicker-calendar td a, .fb#mypage_mileage .ui-datepicker-calendar td a {
+  display: block;
+  width: 23px;
+  height: 23px;
+  margin: 0 auto;
+  line-height: 23px;
+}
+
+.fb#mypage_index .ui-datepicker-calendar td a.ui-state-default, .fb#mypage_orderHistory .ui-datepicker-calendar td a.ui-state-default, .fb#mypage_returnHistory .ui-datepicker-calendar td a.ui-state-default, .fb#mypage_folderPoint .ui-datepicker-calendar td a.ui-state-default, .fb#mypage_myInquiry .ui-datepicker-calendar td a.ui-state-default, .fb#mypage_myGoodsInquiry .ui-datepicker-calendar td a.ui-state-default, .fb#mypage_myGoodsReview .ui-datepicker-calendar td a.ui-state-default, .fb#mypage_mileage .ui-datepicker-calendar td a.ui-state-default {
+  padding: 0;
+  border: 0;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "Rb", "Notosans", sans-serif;
+  color: #444;
+  text-align: center;
+}
+
+.fb#mypage_index .ui-datepicker-calendar td a.ui-state-active, .fb#mypage_orderHistory .ui-datepicker-calendar td a.ui-state-active, .fb#mypage_returnHistory .ui-datepicker-calendar td a.ui-state-active, .fb#mypage_folderPoint .ui-datepicker-calendar td a.ui-state-active, .fb#mypage_myInquiry .ui-datepicker-calendar td a.ui-state-active, .fb#mypage_myGoodsInquiry .ui-datepicker-calendar td a.ui-state-active, .fb#mypage_myGoodsReview .ui-datepicker-calendar td a.ui-state-active, .fb#mypage_mileage .ui-datepicker-calendar td a.ui-state-active {
+  background: #333;
+  color: #fff;
+}
+
+.fb .change-list {
+  padding: 30px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #ddd;
+  font-size: 0;
+}
+
+.fb .change-list > div {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+.fb .change-list > div dt {
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.fb .change-list > div dd {
+  float: left;
+  margin-left: 45px;
+  font-size: 16px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.fb .change-list > div dd em {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.fb .change-list > div.first dl {
+  padding-right: 90px;
+}
+
+.fb .change-list > div.last dd {
+  color: #FF6600;
+}
+
+.fb .table-reason td select {
+  width: 260px;
+}
+
+.fb .table-reason td textarea {
+  width: 680px;
+  height: 80px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.fb .table-reason td .counting {
+  width: 680px;
+  margin-top: 10px;
+}
+
+div[class*="wrap-order"] table.join-table th em {
+  margin: 3px 4px 0 -10px;
+}
+
+div[class*="wrap-order"] .wrap-btn-area * {
+  min-width: 190px;
+}
+
+#mypage_myGoodsReview #devModalContent {
+  overflow: hidden;
+}
+
+#mypage_orderCancel .wrap-btn-area,
+#mypage_orderClaim .wrap-btn-area {
+  font-size: 0;
+  text-align: center;
+}
+
+#mypage_orderCancel .wrap-btn-area button,
+#mypage_orderClaim .wrap-btn-area button {
+  margin-left: 10px;
+}
+
+#mypage_orderCancel .wrap-btn-area button:first-of-type,
+#mypage_orderClaim .wrap-btn-area button:first-of-type {
+  margin-left: 0;
+}
+
+#mypage_orderCancel .wrap-order-detail table.join-table.type02 th,
+#mypage_orderClaim .wrap-order-detail table.join-table.type02 th {
+  padding: 16px 20px 16px 30px;
+  font-weight: 600;
+}
+
+#mypage_orderCancel .wrap-order-detail .wrap-btn-area,
+#mypage_orderClaim .wrap-order-detail .wrap-btn-area {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#mypage_orderCancel .wrap-order-detail .wrap-btn-area *,
+#mypage_orderClaim .wrap-order-detail .wrap-btn-area * {
+  min-width: 190px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-history__wrapper,
+#mypage_orderClaim .wrap-order-detail .order-payment-history__wrapper {
+  margin-top: 50px;
+}
+
+#mypage_orderCancel .wrap-order-detail .shipping__wrapper,
+#mypage_orderClaim .wrap-order-detail .shipping__wrapper {
+  margin-top: 50px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list,
+#mypage_orderClaim .wrap-order-detail .order-payment-list {
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section {
+  float: left;
+  padding: 30px 20px 15px;
+  overflow: hidden;
+  width: 560px;
+  font-size: 14px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section .sec,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section .sec {
+  float: left;
+  width: 50%;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section .sec h2,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section .sec h2 {
+  font-size: 16px;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section .sec .tit,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section .sec .tit {
+  color: #111;
+  margin-bottom: 15px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section .sec dl,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section .sec dl {
+  margin-bottom: 15px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section .sec dl dt,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section .sec dl dt {
+  display: inline-block;
+  min-width: 65px;
+  margin-right: 10px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section .sec dl dd,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section .sec dl dd {
+  display: inline-block;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price {
+  float: right;
+  width: 370px;
+  border-left: 1px solid #ddd;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl {
+  overflow: hidden;
+  line-height: 24px;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl em,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl em {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl dt,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl dt {
+  float: left;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl dd,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl dd {
+  float: right;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl dd em,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl dd em {
+  font-weight: bold;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.disc-list,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.disc-list {
+  font-size: 13px;
+  color: #666;
+  margin-top: 10px;
+  line-height: inherit;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.disc-list dt,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.disc-list dt {
+  position: relative;
+  padding-left: 17px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.disc-list dt:before,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.disc-list dt:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -700px 0;
+  position: absolute;
+  left: 0;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.disc-list dd,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.disc-list dd {
+  color: #666;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.disc-list dd em,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.disc-list dd em {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.total-price,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.total-price {
+  padding-top: 20px;
+  border-top: 1px dotted #ddd;
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.total-price dt,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.total-price dt {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.total-price dd,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.total-price dd {
+  font-size: 16px;
+  color: #ff6600;
+}
+
+#mypage_orderCancel .wrap-order-detail .order-payment-list .section.price dl.total-price dd em,
+#mypage_orderClaim .wrap-order-detail .order-payment-list .section.price dl.total-price dd em {
+  font-size: 30px;
+  font-weight: 600;
+  margin-right: 3px;
+}
+
+#mypage_orderCancel .refund-table td,
+#mypage_orderClaim .refund-table td {
+  font-weight: normal;
+}
+
+#mypage_orderCancel .refund-table td.product,
+#mypage_orderClaim .refund-table td.product {
+  color: #111;
+  text-align: left;
+}
+
+#mypage_orderCancel .counting,
+#mypage_orderClaim .counting {
+  font-size: 12px;
+  overflow: hidden;
+}
+
+#mypage_orderCancel .counting span,
+#mypage_orderClaim .counting span {
+  color: #999;
+  float: right;
+}
+
+#mypage_orderCancel .counting span em,
+#mypage_orderClaim .counting span em {
+  color: #111;
+}
+
+#mypage_addressbookSelect,
+#mypage_addressbookManage {
+  min-width: auto;
+}
+
+#mypage_addressbookSelect .fb__modal__title,
+#mypage_addressbookManage .fb__modal__title {
+  font-weight: 400;
+  line-height: 32px;
+}
+
+#mypage_addressbookSelect .address-popup,
+#mypage_addressbookManage .address-popup {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+#mypage_addressbookSelect .address-popup .fb__modal__header,
+#mypage_addressbookManage .address-popup .fb__modal__header {
+  border-bottom: 0;
+}
+
+#mypage_addressbookSelect .addressPop__tab,
+#mypage_addressbookManage .addressPop__tab {
+  font-size: 0;
+  text-align: center;
+}
+
+#mypage_addressbookSelect .addressPop__tab__list,
+#mypage_addressbookManage .addressPop__tab__list {
+  display: inline-block;
+  width: 50%;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #111;
+  vertical-align: top;
+}
+
+#mypage_addressbookSelect .addressPop__tab__list a,
+#mypage_addressbookManage .addressPop__tab__list a {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  line-height: 48px;
+}
+
+#mypage_addressbookSelect .addressPop__tab__list.on,
+#mypage_addressbookManage .addressPop__tab__list.on {
+  border: 1px solid #111;
+  border-bottom: 1px solid transparent;
+}
+
+#mypage_addressbookSelect .addressPop__tab__list.on a,
+#mypage_addressbookManage .addressPop__tab__list.on a {
+  color: #111;
+}
+
+#mypage_addressbookSelect .addressPop__cont,
+#mypage_addressbookManage .addressPop__cont {
+  display: none;
+}
+
+#mypage_addressbookSelect .addressPop__cont.show,
+#mypage_addressbookManage .addressPop__cont.show {
+  display: block;
+}
+
+#mypage_addressbookSelect .addressPop__list,
+#mypage_addressbookManage .addressPop__list {
+  position: relative;
+  padding: 30px 75px 30px 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+#mypage_addressbookSelect .addressPop__list__radio,
+#mypage_addressbookManage .addressPop__list__radio {
+  display: block;
+}
+
+#mypage_addressbookSelect .addressPop__list__name,
+#mypage_addressbookManage .addressPop__list__name {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  line-height: 20px;
+}
+
+#mypage_addressbookSelect .addressPop__list__name .delivery-default,
+#mypage_addressbookManage .addressPop__list__name .delivery-default {
+  display: inline-block;
+  height: 24px;
+  margin-left: 5px;
+  padding: 0 10px;
+  border: 1px solid #3f8ef7;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #3f8ef7;
+  line-height: 22px;
+}
+
+#mypage_addressbookSelect .addressPop__list__address,
+#mypage_addressbookManage .addressPop__list__address {
+  font-size: 14px;
+  color: #666;
+  line-height: 18px;
+}
+
+#mypage_addressbookSelect .addressPop__list__nunmber,
+#mypage_addressbookManage .addressPop__list__nunmber {
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+}
+
+#mypage_addressbookSelect .addressPop__list__btn,
+#mypage_addressbookManage .addressPop__list__btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translate(0, -50%) translate(-0.5px, -0.5px);
+          transform: translate(0, -50%) translate(-0.5px, -0.5px);
+}
+
+#mypage_addressbookSelect .addressPop__list__btn button,
+#mypage_addressbookManage .addressPop__list__btn button {
+  display: block;
+  width: 46px;
+  height: 28px;
+  margin-top: 9px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  color: #666;
+}
+
+#mypage_addressbookSelect .addressPop__list__btn button:first-child,
+#mypage_addressbookManage .addressPop__list__btn button:first-child {
+  margin-top: 0;
+}
+
+#mypage_addressbookSelect .addressPop__write,
+#mypage_addressbookManage .addressPop__write {
+  padding-top: 2px;
+}
+
+#mypage_addressbookSelect .addressPop__write table th,
+#mypage_addressbookManage .addressPop__write table th {
+  padding: 18px 0 0 20px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #111;
+  text-align: left;
+  vertical-align: top;
+}
+
+#mypage_addressbookSelect .addressPop__write table td,
+#mypage_addressbookManage .addressPop__write table td {
+  padding: 8px 20px 8px 0;
+  vertical-align: top;
+}
+
+#mypage_addressbookSelect .addressPop__write table td input:-moz-read-only.dim,
+#mypage_addressbookManage .addressPop__write table td input:-moz-read-only.dim {
+  background: #f8f8f8;
+  color: #999;
+}
+
+#mypage_addressbookSelect .addressPop__write table td input:read-only.dim,
+#mypage_addressbookManage .addressPop__write table td input:read-only.dim {
+  background: #f8f8f8;
+  color: #999;
+}
+
+#mypage_addressbookSelect .addressPop__write table td input[name="zip"],
+#mypage_addressbookManage .addressPop__write table td input[name="zip"] {
+  width: 140px;
+}
+
+#mypage_addressbookSelect .addressPop__write table td .form-info-wrap,
+#mypage_addressbookManage .addressPop__write table td .form-info-wrap {
+  position: relative;
+  font-size: 0;
+}
+
+#mypage_addressbookSelect .addressPop__write table td .input-zipCode,
+#mypage_addressbookManage .addressPop__write table td .input-zipCode {
+  width: 140px;
+}
+
+#mypage_addressbookSelect .addressPop__write table td .input-phone,
+#mypage_addressbookManage .addressPop__write table td .input-phone {
+  width: 100px;
+}
+
+#mypage_addressbookSelect .addressPop__write table td .input-full,
+#mypage_addressbookManage .addressPop__write table td .input-full {
+  width: 100%;
+}
+
+#mypage_addressbookSelect .addressPop__write table .zipCode__btn,
+#mypage_addressbookManage .addressPop__write table .zipCode__btn {
+  display: inline-block;
+  height: 40px;
+  margin-left: 7px;
+  padding: 0 30px;
+  background: #666;
+  border: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 38px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#mypage_addressbookSelect .addressPop__write .default-choice,
+#mypage_addressbookManage .addressPop__write .default-choice {
+  margin-top: 22px;
+  padding-top: 10px;
+  text-align: right;
+  border-top: 1px solid #e8e8e8;
+}
+
+#mypage_addressbookSelect .addressPop__write .default-choice span,
+#mypage_addressbookManage .addressPop__write .default-choice span {
+  font-size: 13px;
+  color: #666;
+}
+
+#mypage_addressbookSelect .addressPop__btn,
+#mypage_addressbookManage .addressPop__btn {
+  margin-top: 45px;
+}
+
+#mypage_addressbookSelect .addressPop__btn.noMember,
+#mypage_addressbookManage .addressPop__btn.noMember {
+  margin-top: 30px;
+  padding-top: 50px;
+  border-top: 1px solid #e8e8e8;
+}
+
+#mypage_addressbookSelect .addressPop__btn a,
+#mypage_addressbookSelect .addressPop__btn button,
+#mypage_addressbookManage .addressPop__btn a,
+#mypage_addressbookManage .addressPop__btn button {
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+#mypage_addressbookSelect .addressPop__btn a:first-of-type,
+#mypage_addressbookSelect .addressPop__btn button:first-of-type,
+#mypage_addressbookManage .addressPop__btn a:first-of-type,
+#mypage_addressbookManage .addressPop__btn button:first-of-type {
+  margin-left: 0;
+}
+
+.mypage-bottom-list {
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.mypage-bottom-list li {
+  overflow: hidden;
+  position: relative;
+  float: left;
+  width: 190px;
+  margin: 0 20px;
+}
+
+.mypage-bottom-list li .check-area {
+  position: absolute;
+  left: 0;
+}
+
+.mypage-bottom-list li .item {
+  float: left;
+  padding-left: 30px;
+}
+
+.mypage-bottom-list li .item .thumb {
+  width: 160px;
+  height: 160px;
+}
+
+.mypage-bottom-list li .item .thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.mypage-bottom-list li .item .info {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #111;
+  line-height: 18px;
+}
+
+.mypage-bottom-list li .item .info .price {
+  margin-top: 15px;
+}
+
+.mypage-bottom-list li .item .info .price strong {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Rb";
+}
+
+.popCoupon {
+  position: relative;
+  width: 600px;
+  height: 532px;
+}
+
+.popCoupon__info__title {
+  color: #111;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: -0.045em;
+}
+
+.popCoupon__info__desc {
+  margin-top: 5px;
+  color: #999;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.035em;
+}
+
+.popCoupon__info__comment {
+  margin-top: 30px;
+  padding-bottom: 15px;
+  color: #999;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: -0.033em;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.popCoupon__target {
+  overflow-y: auto;
+  max-height: 369px;
+  padding-top: 20px;
+}
+
+.popCoupon__target__box {
+  font-size: 0;
+}
+
+.popCoupon__target__list {
+  display: inline-block;
+  overflow: hidden;
+  word-break: keep-all;
+  max-width: 560px;
+  margin: 0 8px 8px 0;
+  padding: 7px 20px;
+  background: #f5f5f5;
+  border-radius: 50px;
+  color: #111;
+  font-size: 14px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wrap-over-btn {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: rgba(102, 102, 102, 0.8);
+}
+
+.wrap-over-btn span {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  font-size: 0;
+}
+
+.wrap-over-btn span:before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 30px;
+  margin: 0 auto;
+  background: url(../../images/common/sprite_common.png) no-repeat;
+}
+
+.wrap-over-btn span + span {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.wrap-over-btn span:only-child {
+  width: 100%;
+}
+
+.wrap-over-btn span.cart:before {
+  background-position: -600px 0;
+}
+
+.wrap-over-btn span.wish:before {
+  background-position: -700px 0;
+}
+
+.wrap-over-btn span.wish.on:before {
+  background-position: -800px 0;
+}
+
+.wrap-bbs-view {
+  width: 600px;
+}
+
+.wrap-bbs-view > .top-area {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #999;
+  text-align: right;
+}
+
+.wrap-bbs-view > .top-area .status {
+  color: #666;
+  font-weight: normal;
+}
+
+.wrap-bbs-view > .top-area .status:before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  margin: 0 10px;
+  background: #ccc;
+}
+
+.wrap-bbs-view > .top-area .status.complete {
+  color: #ff6600;
+}
+
+.wrap-bbs-view .bbs-title {
+  padding: 10px 18px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #111;
+  line-height: 24px;
+}
+
+.wrap-bbs-view .wrap-question {
+  margin-top: 20px;
+  padding: 0 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.wrap-bbs-view .wrap-question .item {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.wrap-bbs-view .wrap-question .item .thumb {
+  width: 70px;
+  height: 70px;
+  float: left;
+}
+
+.wrap-bbs-view .wrap-question .item .info {
+  padding-left: 80px;
+  font-size: 14px;
+}
+
+.wrap-bbs-view .wrap-question .item .info .order-num {
+  margin-bottom: 10px;
+}
+
+.wrap-bbs-view .wrap-question .question {
+  font-size: 14px;
+  color: #666;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 50px;
+  padding-top: 3px;
+  line-height: 22px;
+}
+
+.wrap-bbs-view .wrap-question .question:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url(../../images/common/sprite_common.png) -100px -100px no-repeat;
+}
+
+.wrap-bbs-view .wrap-question .file a {
+  display: inline-block;
+  font-size: 12px;
+  color: #666;
+  text-decoration: underline;
+}
+
+.wrap-bbs-view .wrap-question .file:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 17px;
+  background: url(../../images/mypage/sprite_mypage.png) -800px 0px no-repeat;
+  vertical-align: middle;
+}
+
+.wrap-bbs-view .wrap-question .file + .file {
+  margin-top: 10px;
+}
+
+.wrap-bbs-view .wrap-question .file:last-child {
+  margin-bottom: 30px;
+}
+
+.wrap-bbs-view .wrap-answer {
+  background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.wrap-bbs-view .wrap-answer__comment {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.wrap-bbs-view .wrap-answer__comment:last-child {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
+.wrap-bbs-view .wrap-answer .top-area {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 35px;
+  padding-top: 5px;
+}
+
+.wrap-bbs-view .wrap-answer .top-area:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url(../../images/common/sprite_common.png) -250px -450px no-repeat;
+}
+
+.wrap-bbs-view .wrap-answer .top-area:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrap-bbs-view .wrap-answer .answer {
+  font-size: 14px;
+  color: #666;
+  line-height: 22px;
+  padding-left: 35px;
+}
+
+.wrap-bbs-view .fb__button {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.wrap-bbs-view .fb__button button {
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+  color: #666;
+}
+
+.bbs-table .rating-txt {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.bbs-table .product-review-area {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.bbs-table .product-review-area .title {
+  color: #666;
+  font-size: 13px;
+}
+
+.bbs-table .product-review-area .option {
+  color: #999;
+  font-size: 13px;
+}
+
+.bbs-table .product-review-area .title__link > span {
+  display: block;
+  color: #999;
+}
+
+.bbs-table .product-review-area .title__link > span:first-child {
+  margin-bottom: 5px;
+}
+
+.bbs-table .product-review-area .wrap-review {
+  margin-top: 30px;
+}
+
+.bbs-table .product-review-area .wrap-review .thumb {
+  width: 70px;
+  height: 70px;
+  float: left;
+}
+
+.bbs-table .product-review-area .wrap-review .thumb + .txt-area {
+  padding-left: 90px;
+}
+
+.bbs-table .product-review-area .wrap-review .txt-area .tit {
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.bbs-table .product-review-area .wrap-review .txt-area .content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.bbs-table td.review-comment-area {
+  background: #f8f8f8;
+  text-align: left;
+  margin-top: -1px;
+  padding-left: 115px;
+  padding-right: 100px;
+}
+
+.bbs-table td.review-comment-area p {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.bbs-table td.review-comment-area p em {
+  color: #ff6600;
+  font-size: 12px;
+  border: 1px solid #ff6600;
+  border-radius: 10px;
+  padding: 0 8px;
+  margin-right: 8px;
+}
+
+.bbs-table td.review-comment-area p span {
+  font-family: "Rb";
+}
+
+.bbs-table td.review-comment-area p span:before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background: #999;
+  margin: 0 8px;
+}
+
+.bbs-table td.review-comment-area .comment-content {
+  position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding-left: 20px;
+}
+
+.bbs-table td.review-comment-area .comment-content:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -700px 0;
+  position: absolute;
+  left: 0;
+}
+
+.bbs-table td.review-comment-area .comment-content.comment-content__admin {
+  max-height: 36px;
+}
+
+.myreview__title {
+  display: block;
+  margin-top: -10px;
+}
+
+.myreview__title span {
+  display: block;
+  color: #999;
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.myreview__edit {
+  display: inline-block;
+  height: 28px;
+  margin-top: 5px;
+  padding: 0 15px;
+  border: 1px solid #999;
+  color: #666;
+  font-size: 13px;
+  text-align: center;
+  line-height: 26px;
+}
+
+.myreview__edit:first-of-type {
+  margin-top: 0;
+}
+
+.myreview__del {
+  display: inline-block;
+  height: 28px;
+  margin-top: 5px;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 13px;
+  text-align: center;
+  line-height: 26px;
+}
+
+.myreview__del:first-of-type {
+  margin-top: 0;
+}
+
+.myreview__video {
+  float: left;
+  width: 125px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.myreview__video img {
+  width: 100%;
+  height: 100%;
+}
+
+.review-popup .fb__modal__content {
+  padding-top: 0;
+}
+
+.review-popup .review-comment-area p {
+  color: #666 !important;
+}
+
+.inquiry-table td a.item {
+  text-align: left;
+}
+
+.inquiry-table td a.item .thumb {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 15px;
+  border: 1px solid #ddd;
+}
+
+.inquiry-table td a.item .info {
+  color: #111;
+}
+
+.wrap-terms .input-terms {
+  overflow-y: scroll;
+  height: 150px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+  box-sizing: border-box;
+}
+
+.wrap-terms .wrap-terms-check {
+  margin-top: 15px;
+}
+
+.wrap-terms .wrap-terms-check input + label {
+  font-size: 14px;
+  color: #666;
+}
+
+.wrap-terms .wrap-terms-check input + label:first-of-type {
+  font-size: 16px;
+  color: #111;
+}
+
+.wrap-terms .desc {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+}
+
+.wrap-mypage.profile-detail .wrap-btn-area > * {
+  min-width: 200px;
+}
+
+.wrap-mypage.profile-detail .desc {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.wrap-mypage.profile-detail h1:not(:first-of-type) {
+  margin-top: 50px;
+}
+
+.title-guide {
+  margin-bottom: 10px;
+}
+
+.title-guide span {
+  font-size: 14px;
+  color: #666;
+  line-height: 26px;
+}
+
+.title-guide span:before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 5px;
+  background: #ccc;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 3px;
+}
+
+.pwChangePop {
+  width: 500px;
+  padding-top: 6px;
+}
+
+.pwChangePop__desc01 {
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+}
+
+.pwChangePop__desc02 {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #666;
+  line-height: 20px;
+}
+
+.pwChangePop__write__list {
+  padding: 15px 0;
+  font-size: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.pwChangePop__write__list:first-of-type {
+  margin-top: 17px;
+  border-top: 1px solid #ddd;
+}
+
+.pwChangePop__write__list dt {
+  display: inline-block;
+  width: 138px;
+  padding-left: 9px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.pwChangePop__write__list dd {
+  display: inline-block;
+  width: calc(100% - 138px);
+  vertical-align: middle;
+}
+
+.pwChangePop__write__list dd input {
+  width: 100%;
+}
+
+.pwChangePop__btn {
+  margin-top: 35px;
+  font-size: 0;
+  text-align: center;
+}
+
+.pwChangePop__btn button {
+  width: 115px;
+  height: 40px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.pwChangePop__btn button:first-child {
+  margin-left: 0;
+}
+
+.wrap-file-area + .desc {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.td-btn-area > *:not(:first-child) {
+  margin-top: 5px;
+}
+
+.td-btn-area button:first-of-type {
+  margin-top: 0px;
+}
+
+.td-btn-area-h > *:not(:first-child) {
+  margin-left: 5px;
+}
+
+.float-r {
+  float: right;
+}
+
+.fb__mytop {
+  margin-bottom: 50px;
+}
+
+.fb__mytop .mytop__inner {
+  display: table;
+  background: #f8f8f8;
+  border-radius: 10px;
+}
+
+.fb__mytop .mytop__user {
+  display: table-cell;
+  width: 360px;
+  padding: 30px 50px;
+  color: #111;
+  line-height: 26px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.fb__mytop .mytop__user__name {
+  display: inline-block;
+  color: #111;
+  margin-right: 16px;
+  font-size: 32px;
+  font-weight: 200;
+  line-height: 47px;
+}
+
+.fb__mytop .mytop__user__name em {
+  color: #111;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.fb__mytop .mytop__user__bottom {
+  display: block;
+  margin-top: 8px;
+}
+
+.fb__mytop .mytop__user__grade {
+  display: inline-block;
+  position: relative;
+  padding-right: 17px;
+  color: #666;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.fb__mytop .mytop__user__grade:before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background: url(../../images/mypage/icon-mypage_top-arrow.png) no-repeat 0 0/100% auto;
+  content: "";
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.fb__mytop .mytop__user__membership {
+  display: inline-block;
+  width: 98px;
+  height: 26px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 13px;
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+  line-height: 26px;
+}
+
+.fb__mytop .mytop__benefit {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fb__mytop .mytop__benefit__name {
+  display: inline-block;
+  margin-right: 12px;
+  color: #111;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.fb__mytop .mytop__benefit__name span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fb__mytop .mytop__benefit__name:before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.fb__mytop .mytop__benefit__cont {
+  display: inline-block;
+  color: #ff6600;
+  font-size: 35px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.fb__mytop .mytop__benefit__link {
+  display: block;
+}
+
+.fb__mytop .mytop__mileage {
+  width: 400px;
+}
+
+.fb__mytop .mytop__mileage .mytop__benefit__name:before {
+  background: url(../../images/mypage/icon-mypage_top-mileage.png) no-repeat 0 0/100% auto;
+}
+
+.fb__mytop .mytop__coupon {
+  width: 300px;
+  position: relative;
+  padding-left: 1px;
+}
+
+.fb__mytop .mytop__coupon:before {
+  position: absolute;
+  top: 50%;
+  left: calc(1px / 2 - 1px);
+  width: 1px;
+  height: 34px;
+  background: #ddd;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  content: "";
+}
+
+.fb__mytop .mytop__coupon .mytop__benefit__name:before {
+  margin-right: 6px;
+  background: url(../../images/mypage/icon-mypage_top-coupon.png) no-repeat 0 0/100% auto;
+}
+
+.fb__mymain__overview {
+  display: table;
+  width: 100%;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #eee;
+}
+
+.fb__mymain__overview .overview__box {
+  display: table-cell;
+  width: calc(100% - 240px);
+  padding: 0 50px;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+.fb__mymain__overview .overview__list {
+  position: relative;
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.fb__mymain__overview .overview__list:not(:last-child):after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 16px;
+  right: -16px;
+  width: 30px;
+  height: 30px;
+  background: url(../../images/mypage/icon-mypage-sprite.png) no-repeat 0 0/100% auto;
+}
+
+.fb__mymain__overview .overview__circle {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  background: #eee;
+  border-radius: 50%;
+  color: #999;
+  font-size: 27px;
+  font-weight: 600;
+  font-family: "Rb", "Notosans", sans-serif;
+  text-align: center;
+  line-height: 64px;
+}
+
+.fb__mymain__overview .overview__circle.active {
+  color: #111;
+}
+
+.fb__mymain__overview .overview__tit {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111;
+  line-height: 17px;
+}
+
+.fb__mymain__overview .order-status {
+  display: table-cell;
+  width: 240px;
+  padding-right: 44px;
+  vertical-align: middle;
+}
+
+.fb__mymain__overview .order-status__list {
+  overflow: hidden;
+  height: 50px;
+  padding: 0 10px;
+  border-bottom: 1px dotted #ccc;
+  cursor: pointer;
+}
+
+.fb__mymain__overview .order-status__list:last-child {
+  border: 0;
+}
+
+.fb__mymain__overview .order-status__list__tit {
+  float: left;
+  color: #666;
+  font-size: 14px;
+  line-height: 49px;
+}
+
+.fb__mymain__overview .order-status__list__num {
+  float: right;
+  color: #111;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 49px;
+}
+
+.fb__mymain .mymain__section {
+  margin-top: 50px;
+}
+
+.fb__mymain .mymain__wish {
+  margin-top: 50px;
+}
+
+.fb__mymain .mymain__wish__items {
+  padding: 0 30px;
+}
+
+.fb__mymain .mymain__wish__items .fb__comm__checkbox {
+  width: 30px;
+  vertical-align: top;
+}
+
+.fb__mymain .mymain__wish__items .fb__items {
+  margin: 0 -16px;
+}
+
+.fb__mymain .mymain__wish__items .item__box {
+  width: calc(25% - 32px);
+  margin: 0 16px;
+}
+
+.fb__mymain .mymain__wish__items .item__link {
+  display: inline-block;
+  width: calc(100% - 30px);
+  vertical-align: top;
+}
+
+.fb__mymain .mymain__wish__bottom {
+  margin-top: 30px;
+  padding-top: 42px;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+
+.fb__mymain .mymain__wish__remove {
+  display: inline-block;
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 14px;
+  line-height: 40px;
+  outline: none;
+}
+
+.fb__mymain__membership {
+  width: 928px;
+  height: 578px;
+}
+
+.fb__mymain__membership .membership__img img {
+  max-width: 100%;
+}
+
+.fb__order-detail__action {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.fb__order-detail__action a, .fb__order-detail__action button {
+  max-height: 30px;
+}
+
+.fb .order-payment-history__wrapper {
+  margin-top: 50px;
+}
+
+.fb .order-payment-list {
+  overflow: hidden;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #ddd;
+}
+
+.fb .order-payment-list .section {
+  float: left;
+  padding: 30px 20px 15px;
+  overflow: hidden;
+  width: 560px;
+  font-size: 14px;
+}
+
+.fb .order-payment-list .section .sec {
+  float: left;
+  width: 50%;
+}
+
+.fb .order-payment-list .section .sec h2 {
+  font-size: 16px;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.fb .order-payment-list .section .sec .tit {
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.fb .order-payment-list .section .sec dl {
+  margin-bottom: 15px;
+}
+
+.fb .order-payment-list .section .sec dl dt {
+  display: inline-block;
+  min-width: 65px;
+  margin-right: 10px;
+  color: #666;
+}
+
+.fb .order-payment-list .section .sec dl dd {
+  display: inline-block;
+}
+
+.fb .order-payment-list .section.price {
+  float: right;
+  width: 370px;
+  border-left: 1px solid #ddd;
+}
+
+.fb .order-payment-list .section.price dl {
+  overflow: hidden;
+  line-height: 24px;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+.fb .order-payment-list .section.price dl em {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.fb .order-payment-list .section.price dl dt {
+  float: left;
+}
+
+.fb .order-payment-list .section.price dl dd {
+  float: right;
+}
+
+.fb .order-payment-list .section.price dl dd em {
+  font-weight: bold;
+}
+
+.fb .order-payment-list .section.price dl.disc-list {
+  font-size: 13px;
+  color: #666;
+  margin-top: 10px;
+  line-height: inherit;
+}
+
+.fb .order-payment-list .section.price dl.disc-list dt {
+  position: relative;
+  padding-left: 17px;
+}
+
+.fb .order-payment-list .section.price dl.disc-list dt:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -700px 0;
+  position: absolute;
+  left: 0;
+}
+
+.fb .order-payment-list .section.price dl.disc-list dd {
+  color: #666;
+}
+
+.fb .order-payment-list .section.price dl.disc-list dd em {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.fb .order-payment-list .section.price dl.total-price {
+  padding-top: 20px;
+  border-top: 1px dotted #ddd;
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+.fb .order-payment-list .section.price dl.total-price dt {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.fb .order-payment-list .section.price dl.total-price dd {
+  font-size: 16px;
+  color: #ff6600;
+}
+
+.fb .order-payment-list .section.price dl.total-price dd em {
+  margin-right: 3px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.fb .receipt-popup {
+  min-width: 660px;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.fb .receipt-popup .desc {
+  font-size: 14px;
+  color: #666;
+}
+
+.fb .receipt-popup .wrap-order-num:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.fb .receipt-popup .wrap-order-num .top-area {
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.fb .receipt-popup .wrap-order-num .top-area span {
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  line-height: 34px;
+}
+
+.fb .receipt-popup .wrap-order-num .top-area span em {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  color: #ff6600;
+  margin-left: 5px;
+}
+
+.fb .receipt-popup .wrap-order-num .top-area button {
+  float: right;
+  margin-top: 1px;
+  border-color: #ccc;
+}
+
+.fb .receipt-popup .wrap-order-num dl {
+  overflow: hidden;
+  float: left;
+  width: 50%;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.fb .receipt-popup .wrap-order-num dl dt {
+  float: left;
+  width: 120px;
+  padding: 18px 30px;
+  background: #f9f9f9;
+  color: #111;
+}
+
+.fb .receipt-popup .wrap-order-num dl dd {
+  float: left;
+  width: calc(100% - 120px);
+  padding: 18px 20px;
+  color: #666;
+}
+
+.fb .receipt-popup h1 {
+  font-size: 18px;
+  color: #111;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.fb .receipt-popup .table-default tr:first-child td {
+  padding-top: 20px;
+}
+
+.fb .receipt-popup .table-default tr:last-child td {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb .receipt-popup .table-default th {
+  border-top: 1px solid #ddd;
+  padding: 14px 0;
+  font-size: 13px;
+}
+
+.fb .receipt-popup .table-default td {
+  border: 0;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #111;
+}
+
+.fb .receipt-popup .table-default td:last-child {
+  color: #999;
+}
+
+.fb .receipt-popup .table-default td em {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fb .receipt-popup .table-default td .item {
+  text-align: left;
+  font-size: 0;
+}
+
+.fb .receipt-popup .table-default td .item .thumb {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  vertical-align: top;
+}
+
+.fb .receipt-popup .table-default td .item__detail {
+  display: inline-block;
+  width: calc(100% - 80px);
+  padding-left: 15px;
+  vertical-align: top;
+}
+
+.fb .receipt-popup .table-default td .item__detail .tit {
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+}
+
+.fb .receipt-popup .table-default td .item__detail .option {
+  color: #999;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.fb .receipt-popup table.join-table {
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.fb .receipt-popup table.join-table tr th {
+  border-bottom: 1px solid #ddd;
+  padding: 18px 0 18px 30px;
+  color: #111;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.fb .receipt-popup table.join-table tr.total-price th {
+  font-weight: 400;
+}
+
+.fb .receipt-popup table.join-table tr.total-price td em {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom {
+  overflow: hidden;
+  margin-top: 40px;
+  padding: 15px 0;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 0;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom li {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom li.logo-area {
+  width: 135px;
+  border-right: 1px solid #ddd;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom li.logo-area .logo {
+  width: 115px;
+  height: 115px;
+  margin-right: 20px;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom li.logo-area .logo img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom li.list-area {
+  width: calc(100% - 135px);
+  padding-left: 20px;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom li.list-area table th {
+  padding-bottom: 13px;
+  color: #666;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.fb .receipt-popup .wrap-receipt-bottom li.list-area table td {
+  padding-bottom: 13px;
+  color: #666;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.fb .receipt-popup .popup-btn-area button:first-child {
+  border-color: #ccc;
+  color: #666;
+}
+
+.fb__mypage__order-cancel .cancel-area .reason-box {
+  display: table;
+  table-layout: fixed;
+  margin-top: 50px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__mypage__order-cancel .cancel-area .reason-box__title {
+  display: table-cell;
+  position: relative;
+  width: 180px;
+  padding-left: 40px;
+  background: #f8f8f8;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__mypage__order-cancel .cancel-area .reason-box__title em {
+  display: inline-block;
+  margin: 3px 4px 0 -10px;
+  vertical-align: top;
+}
+
+.fb__mypage__order-cancel .cancel-area .reason-box__cont {
+  display: table-cell;
+  padding: 20px 10px 10px 30px;
+  font-size: 14px;
+}
+
+.fb__mypage__order-cancel .cancel-area .reason-box__cont select {
+  width: 260px;
+}
+
+.fb__mypage__order-cancel .cancel-area .reason-box__cont textarea {
+  width: 830px;
+  height: 80px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.fb__mypage__order-cancel .cancel-area .reason-box__cont .counting {
+  width: 830px;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.fb__order-claim .orderDetailTable {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__order-claim__top {
+  margin-bottom: 16px;
+}
+
+.fb__order-claim__step {
+  display: block;
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+.fb__order-claim__step .step__menu {
+  display: inline-block;
+  color: #666;
+  font-size: 16px;
+}
+
+.fb__order-claim__step .step__menu:not(:last-child):after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 13px;
+  background: url(../../images/common/sprite_common.png) no-repeat -800px -100px;
+  margin-left: 2px;
+}
+
+.fb__order-claim__step .step__menu.on {
+  color: #ff6600;
+}
+
+.fb__order-claim__step .step__menu.on:not(:last-child):after {
+  background-position: -900px -100px;
+}
+
+.fb__order-claim__tip {
+  color: #666;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.fb__order-claim__tip p:before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: #666;
+  border-radius: 100%;
+  vertical-align: middle;
+  margin: 0 5px 3px 0;
+}
+
+.fb__order-claim__addpay {
+  margin-top: 50px;
+}
+
+.fb__order-claim__addpay .section__title {
+  font-size: 20px;
+}
+
+.fb__order-claim__addpay .section__infoTable .infoTable__cont span {
+  color: #ff6600;
+  font-size: 18px;
+}
+
+.fb__order-claim__apply .apply__method .infoTable__div__row {
+  border: none;
+}
+
+.fb__order-claim__apply .my-info__list:not(:first-child) {
+  margin-top: 20px;
+}
+
+.fb__order-claim__apply .my-info__list-name input[type="text"] {
+  width: 250px;
+}
+
+.fb__order-claim__apply .my-info__list-address .zipcode {
+  width: 230px !important;
+  background-color: #f8f8f8;
+}
+
+.fb__order-claim__apply .my-info__list-address .address-text {
+  width: 488px;
+}
+
+.fb__order-claim__apply .my-info__list-address input:-moz-read-only {
+  background-color: #f8f8f8;
+}
+
+.fb__order-claim__apply .my-info__list-address input:read-only {
+  background-color: #f8f8f8;
+}
+
+.fb__order-claim__apply .my-info__list-mobile select {
+  width: 100px;
+}
+
+.fb__order-claim__apply .my-info__list-mobile input[type="number"] {
+  width: 100px;
+  text-align: center;
+}
+
+.fb__order-claim__apply .my-info__list-tel select {
+  width: 100px;
+}
+
+.fb__order-claim__apply .my-info__list-tel input[type="number"] {
+  width: 100px;
+  text-align: center;
+}
+
+.fb__order-claim__apply .my-info__list-ask input[type="text"] {
+  width: 488px;
+}
+
+.fb__order-claim__apply .my-info__title {
+  display: table-cell;
+  width: 110px;
+  color: #111;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+.fb__order-claim__apply .my-info__title--required {
+  position: relative;
+}
+
+.fb__order-claim__apply .my-info__title--required:before {
+  display: none;
+  position: absolute;
+  left: 0;
+  padding-top: 3px;
+  color: #ff6600;
+  content: "*";
+}
+
+.fb__order-claim__apply .my-info__cont {
+  display: table-cell;
+}
+
+.fb__order-claim__apply .my-info__cont .search-btn {
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+.fb__order-claim .exchange-method__cont {
+  display: table-cell;
+  padding: 15px 20px;
+}
+
+.fb__order-claim .exchange-method__cont-list {
+  display: block;
+  font-size: 14px;
+}
+
+.fb__order-claim .exchange-method__cont-list:not(:first-child) {
+  color: #111;
+  margin-top: 10px;
+}
+
+.fb__order-claim .exchange-method__cont-list select {
+  width: 320px;
+  margin-right: 10px;
+}
+
+.fb__order-claim .exchange-method__cont-list input[type="text"] {
+  width: 320px;
+  margin-right: 15px;
+}
+
+.fb__order-claim .exchange-method__cont-list .radio-area {
+  margin-right: 20px;
+}
+
+.fb__order-claim .exchange-method__cont-annc {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #999;
+  position: relative;
+}
+
+.fb__order-claim .exchange-method__cont-annc:before {
+  content: '*';
+  margin-right: 2px;
+  display: inline-block;
+}
+
+.fb__order-claim .exchange-method__cont-desc {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.fb__order-claim .exchange-method__annc {
+  font-size: 13px;
+  line-height: 22px;
+  margin: 10px 0 30px;
+}
+
+.fb__mypage-coupon .tab-control .coupon-table th {
+  height: 50px;
+  padding: 0;
+  font-weight: 400;
+  color: #111;
+}
+
+.fb__mypage-coupon .tab-control .coupon-table th:nth-child(5) {
+  display: none;
+}
+
+.fb__mypage-coupon .tab-control .table-default strong {
+  padding-left: 4px;
+  font-weight: 400;
+}
+
+.fb__mypage-coupon .tab-control .table-default td.coupon__discount {
+  line-height: 20px;
+}
+
+.fb__mypage-coupon .tab-control .table-default td {
+  line-height: 20px;
+}
+
+.fb__mypage-coupon .tab-control .table-default td:nth-child(5) {
+  display: none;
+}
+
+.fb__mypage-coupon .tab-control .tab-link li.active a {
+  color: #111;
+}
+
+.fb__mypage-coupon .fb__mypage__title-top {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #111;
+  color: #111;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.fb__mypage-coupon .fb__mypage__title-bottom {
+  display: inline-block;
+  margin-top: 50px;
+  padding-bottom: 10px;
+  text-align: left;
+  color: #111;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.fb__mypage-coupon .table-default td.coupon__btn--target,
+.fb__mypage-coupon .coupon__btn--target {
+  border-bottom: 1px solid #666;
+  color: #666;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__mypage-coupon .table-default td.coupon__btn--target::after,
+.fb__mypage-coupon .coupon__btn--target::after {
+  display: inline-block;
+  width: 6px;
+  height: 9px;
+  margin-left: 4px;
+  background: url(../../images/common/btn-arrow-view.png) no-repeat center center;
+  vertical-align: unset;
+  content: "";
+}
+
+.fb__mypage-coupon .table-default td.coupon__discount,
+.fb__mypage-coupon .coupon__discount {
+  color: #ff6600;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.fb__mypage-coupon .table-default td.coupon__discount em,
+.fb__mypage-coupon .coupon__discount em {
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__mypage-coupon .table-default td.coupon__discount__unit,
+.fb__mypage-coupon .coupon__discount__unit {
+  margin-left: -3px;
+}
+
+.fb__mypage-coupon .coupon__wrapper {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  font-size: 0;
+}
+
+.fb__mypage-coupon .coupon__wrapper:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 130px;
+  margin-top: -65px;
+  border-right: 1px dotted #e8e8e8;
+}
+
+.fb__mypage-coupon .coupon__wrapper .coupon__use {
+  height: 150px;
+  text-align: center;
+}
+
+.fb__mypage-coupon .coupon__wrapper .coupon__use:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.fb__mypage-coupon .coupon__wrapper .coupon__tit {
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  line-height: 26px;
+  vertical-align: middle;
+}
+
+.fb__mypage-coupon .coupon__wrapper .coupon__tit:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -45px;
+  width: 40px;
+  height: 40px;
+  background: url(../../images/mypage/icon-mypage_top-coupon.png) no-repeat 0 0/100% auto;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.fb__mypage-coupon .coupon__wrapper .coupon__count {
+  margin-left: 12px;
+  font-size: 35px;
+  font-weight: 600;
+  color: #ff6600;
+  line-height: 46px;
+  vertical-align: middle;
+}
+
+.fb__mypage-coupon .coupon__wrapper .registration {
+  padding-left: 30px;
+}
+
+.fb__mypage-coupon .coupon__wrapper .registration__btn--submit {
+  margin-left: 10px;
+  width: 70px;
+  height: 40px;
+  padding: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 26px;
+  vertical-align: middle;
+}
+
+.fb__mypage-coupon .coupon__wrapper .registration__area {
+  font-size: 0;
+}
+
+.fb__mypage-coupon .coupon__wrapper .registration__title {
+  display: block;
+  margin-bottom: 11px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  vertical-align: middle;
+}
+
+.fb__mypage-coupon .coupon__wrapper .registration__number {
+  display: inline-block;
+  width: 350px;
+  color: #999;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.fb__mypage-coupon .coupon__wrapper .registration__desc {
+  display: block;
+  margin-top: 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+.fb__mypage-coupon .coupon__wrapper .registration__desc--fail {
+  margin-top: 10px;
+  color: #ff6600;
+  font-size: 13px;
+}
+
+.fb__mypage-coupon .coupon__box {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  vertical-align: middle;
+}
+
+.fb__mypage .mileage .add {
+  color: #111;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fb__mypage .mileage .use {
+  color: #ff6600;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fb__mypage .mileage-table .detail {
+  padding-left: 45px;
+  color: #111;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.fb__mypage .mileage-table td:first-child span {
+  font-weight: 400;
+}
+
+.fb__mypage .mileage__summary {
+  font-size: 0;
+}
+
+.fb__mypage .mileage__summary__title {
+  display: inline-block;
+  color: #111;
+  font-size: 18px;
+  line-height: 27px;
+  vertical-align: middle;
+}
+
+.fb__mypage .mileage__summary__title strong {
+  display: inline-block;
+  margin-left: 12px;
+  color: #ff6600;
+  font-size: 35px;
+  line-height: 45px;
+  vertical-align: middle;
+}
+
+.fb__mypage .mileage__summary__title:before {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url(../../images/mypage/icon-mypage_top-mileage.png);
+  vertical-align: middle;
+  content: "";
+}
+
+.fb__mypage .mileage__summary__waiting {
+  display: block;
+  margin-top: 5px;
+  color: #666;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.fb__mypage .mileage__state {
+  font-size: 14px;
+}
+
+.fb__mypage .mileage__state span {
+  color: #111;
+  font-weight: 400;
+}
+
+.fb__mypage .mileage__detail__content {
+  padding-top: 30px;
+}
+
+.fb__mypage .mileage__usable-point-text {
+  line-height: 38px;
+}
+
+.fb__mypage .mileage__inner {
+  overflow: hidden;
+  border-top: 2px solid #111;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.fb__mypage .mileage__inner .float-l {
+  float: left;
+  width: 530px;
+  padding: 30px 30px;
+  border-right: 1px dotted #ddd;
+  text-align: center;
+}
+
+.fb__mypage .mileage .float-r {
+  float: right;
+  width: 530px;
+  margin: -10px 0;
+}
+
+.fb__mypage .mileage .float-r dl {
+  width: 470px;
+  margin-left: 30px;
+  padding: 0 20px 0 15px;
+  border-bottom: 1px dotted #ddd;
+  line-height: 50px;
+}
+
+.fb__mypage .mileage .float-r dl dt {
+  position: relative;
+  float: left;
+  color: #666;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 260px;
+}
+
+.fb__mypage .mileage .float-r dl dt span {
+  margin-left: 2px;
+  color: #999;
+  font-size: 12px;
+}
+
+.fb__mypage .mileage .float-r dl dd {
+  float: right;
+  min-width: 100px;
+  text-align: right;
+  font-family: "Rb", "Notosans", sans-serif;
+  font-size: 14px;
+  color: #111;
+}
+
+.fb__mypage .mileage .float-r dl dd strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.fb__mypage .mileage .float-r dl:last-child {
+  border-bottom: none;
+}
+
+.fb__mypage .mileage .fb__button {
+  margin-top: 20px;
+}
+
+.fb__mypage .mileage .fb__button .button__reset {
+  padding: 10px 40px;
+}
+
+.fb__mypage .mileage .fb__button .button__search {
+  padding: 10px 45px;
+}
+
+.fb__mypage .mileage .table-default th {
+  font-weight: 500 !important;
+}
+
+.fb__mypage__tab {
+  width: 100%;
+  display: inline-block;
+}
+
+.fb__mypage__tab-menu {
+  float: left;
+  position: relative;
+  width: calc(100% / 3);
+  height: 50px;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: #111;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.fb__mypage__tab-menu a {
+  width: 100%;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 50px;
+  color: #666;
+}
+
+.fb__mypage__tab-menu + .fb__mypage__tab-menu {
+  margin-left: -1px;
+}
+
+.fb__mypage__tab-menu--active {
+  border: 1px solid #111;
+  border-bottom-color: transparent;
+  z-index: 1;
+}
+
+.fb__mypage__tab-menu--active a {
+  color: #111;
+  font-weight: 400;
+}
+
+.fb {
+  /*
+        최근 본 상품,
+        관심 상품
+    */
+}
+
+.fb__interest {
+  position: relative;
+}
+
+.fb__interest .top-area {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  font-size: 0;
+}
+
+.fb__interest .top-area .fb__checkbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fb__interest .top-area .fb__button {
+  display: inline-block;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+.fb__interest .top-area .fb__button button {
+  width: 70px;
+  height: 34px;
+  font-size: 14px;
+}
+
+.fb__interest__box {
+  overflow: hidden;
+  padding-top: 29px;
+  border-top: 1px solid #111;
+  width: 100%;
+}
+
+.fb__interest__box .fb__checkbox {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 12px;
+}
+
+.fb__deliverymsg {
+  padding: 32px 40px;
+}
+
+.fb__deliverymsg__title {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #111;
+  color: #111;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.fb__deliverymsg__inner {
+  margin-top: 30px;
+}
+
+.fb__deliverymsg__inner select {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.fb__deliverymsg__inner select::-webkit-input-placeholder {
+  color: #999;
+}
+
+.fb__deliverymsg__inner select:-ms-input-placeholder {
+  color: #999;
+}
+
+.fb__deliverymsg__inner select::-ms-input-placeholder {
+  color: #999;
+}
+
+.fb__deliverymsg__inner select::placeholder {
+  color: #999;
+}
+
+.fb__deliverymsg__input {
+  width: 100%;
+}
+
+.fb__deliverymsg__button {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0;
+}
+
+.fb__deliverymsg__button :not(:first-child) {
+  margin-left: 10px;
+}
+
+.fb__deliverymsg__button a {
+  padding: 10.5px 45px 9.5px !important;
+}
+
+/* mypage - 나의 커뮤니티 */
+.fb__community__table thead th {
+  padding: 18px 10px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #ddd;
+  background: #f8f8f8;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.fb__community__table thead th.left {
+  text-align: center;
+}
+
+.fb__community__table tbody th {
+  padding: 20px 0;
+}
+
+.fb__community__table tbody td {
+  padding: 20px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.fb__community__table tbody td.center {
+  text-align: center;
+}
+
+.fb__community__table tbody td.top {
+  vertical-align: top;
+}
+
+.fb__community__table tbody td .fb__button {
+  font-size: 0;
+}
+
+.fb__community__table tbody td .fb__button button {
+  margin-left: 10px;
+}
+
+.fb__community__table tbody td .fb__button button:first-child {
+  margin-left: 0;
+}
+
+.fb__community__table tbody td .fb__button button.border--ccc {
+  background: #fff;
+}
+
+.fb__community__table tbody td.orderNumber, .fb__community__table tbody td.divName, .fb__community__table tbody td.title, .fb__community__table tbody td.date, .fb__community__table tbody td.status {
+  font-size: 14px;
+  color: #666;
+}
+
+.fb__community__table tbody td.answer {
+  color: #FF6600;
+}
+
+.fb__inquiry .fb__mypage__btn__qna {
+  width: 100px;
+  padding: 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+.fb__my-inquiry-detail {
+  width: 600px;
+  padding-bottom: 20px;
+}
+
+.fb__my-inquiry-detail .detail__top {
+  padding: 30px 20px 15px 20px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.fb__my-inquiry-detail .detail__top__date {
+  color: #999;
+  position: relative;
+  margin-right: 20px;
+}
+
+.fb__my-inquiry-detail .detail__top__date:after {
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: -23px;
+  width: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #ddd;
+  content: "|";
+}
+
+.fb__my-inquiry-detail .detail__top .status--normal {
+  font-weight: 400;
+  color: #666;
+}
+
+.fb__my-inquiry-detail .detail__top .status--complete {
+  font-weight: 600;
+  color: #ff6600;
+}
+
+.fb__my-inquiry-detail .detail__title {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111;
+  word-break: break-all;
+}
+
+.fb__my-inquiry-detail .detail__content {
+  margin-top: 20px;
+  padding: 0 25px;
+  border-bottom: 1px solid #ddd;
+  word-break: break-all;
+}
+
+.fb__my-inquiry-detail .detail__item {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.fb__my-inquiry-detail .detail__item__thumb {
+  float: left;
+  width: 70px;
+  height: 70px;
+}
+
+.fb__my-inquiry-detail .detail__item__thumb img {
+  width: 100%;
+  height: 100%;
+}
+
+.fb__my-inquiry-detail .detail__item__info {
+  padding-left: 80px;
+  font-size: 14px;
+}
+
+.fb__my-inquiry-detail .detail__item__info-num {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.fb__my-inquiry-detail .detail__item__info__brand {
+  height: 13px;
+  margin-bottom: 8px;
+  padding-right: 50px;
+  color: #111;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb__my-inquiry-detail .detail__item__info-title {
+  color: #111;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.fb__my-inquiry-detail .detail__question {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 50px;
+  color: #666;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.fb__my-inquiry-detail .detail__question:before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  background: url(../../images/common/sprite_common.png) -100px -100px no-repeat;
+  content: "";
+}
+
+.fb__my-inquiry-detail .detail__file {
+  margin-bottom: 12px;
+}
+
+.fb__my-inquiry-detail .detail__file:before {
+  display: inline-block;
+  width: 15px;
+  height: 17px;
+  background: url(../../images/mypage/sprite_mypage.png) -800px 0px no-repeat;
+  vertical-align: middle;
+  content: "";
+}
+
+.fb__my-inquiry-detail .detail__file:last-child {
+  margin-bottom: 30px;
+}
+
+.fb__my-inquiry-detail .detail__file__name {
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+  text-decoration: underline;
+}
+
+.fb__my-inquiry-detail .detail__answer {
+  background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+}
+
+.fb__my-inquiry-detail .detail__answer__info {
+  position: relative;
+  padding: 5px 0 0 35px;
+  padding-bottom: 14px;
+  color: #999;
+  font-size: 14px;
+}
+
+.fb__my-inquiry-detail .detail__answer__info:before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  background: url(../../images/common/sprite_common.png) -250px -450px no-repeat;
+  content: "";
+}
+
+.fb__my-inquiry-detail .detail__answer__info-name {
+  float: left;
+}
+
+.fb__my-inquiry-detail .detail__answer__info-date {
+  float: right;
+}
+
+.fb__my-inquiry-detail .detail__answer__content {
+  margin-top: 20px;
+  padding-left: 35px;
+  color: #666;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.fb__myGoodsReview .goodsReview__list td {
+  border-bottom: 0;
+}
+
+.fb__myGoodsReview .goodsReview__item {
+  font-size: 0;
+}
+
+.fb__myGoodsReview .goodsReview__item__img {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin: 0 28px;
+  vertical-align: middle;
+}
+
+.fb__myGoodsReview .goodsReview__item__img img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.fb__myGoodsReview .goodsReview__item__info {
+  display: inline-block;
+  width: calc(100% - 126px);
+  padding-left: 18px;
+  vertical-align: middle;
+}
+
+.fb__myGoodsReview .goodsReview__item__name {
+  display: block;
+  font-size: 14px;
+  color: #222;
+  line-height: 20px;
+}
+
+.fb__myGoodsReview .goodsReview__item__option {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #999;
+  line-height: 18px;
+}
+
+.fb__myGoodsReview .goodsReview__item__date {
+  display: block;
+  margin-top: 7px;
+  font-size: 13px;
+  color: #999;
+  line-height: 18px;
+}
+
+.fb__myGoodsReview .goodsReview__cont td {
+  border-top: 0;
+  background: #f8f8f8;
+}
+
+.fb__myGoodsReview .goodsReview__my {
+  font-size: 0;
+}
+
+.fb__myGoodsReview .goodsReview__my__score {
+  display: inline-block;
+  width: 126px;
+  padding: 0 20px;
+  vertical-align: middle;
+}
+
+.fb__myGoodsReview .goodsReview__my__review {
+  display: inline-block;
+  width: calc(100% - 126px);
+  padding-left: 18px;
+  vertical-align: middle;
+}
+
+.fb__myGoodsReview .goodsReview__my__review .review__img {
+  margin-bottom: 20px;
+}
+
+.fb__myGoodsReview .goodsReview__my__review .review__img__list {
+  display: inline-block;
+  width: 80px;
+  margin-left: 6px;
+  vertical-align: top;
+}
+
+.fb__myGoodsReview .goodsReview__my__review .review__img__list figure {
+  overflow: hidden;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.fb__myGoodsReview .goodsReview__my__review .review__img__list figure img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.fb__myGoodsReview .goodsReview__my__review .review__img__list:first-child {
+  margin-left: 0;
+}
+
+.fb__myGoodsReview .goodsReview__my__review .review__txt {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.fb__myGoodsReview .goodsReview__date {
+  font-size: 14px;
+  color: #999;
+}
+
+.fb__myGoodsReview .goodsReview__admin td {
+  padding: 20px 320px 20px 145px;
+  background: #f8f8f8;
+}
+
+.fb__myGoodsReview .goodsReview__admin__top span {
+  display: inline-block;
+  font-size: 14px;
+  color: #999;
+  vertical-align: middle;
+}
+
+.fb__myGoodsReview .goodsReview__admin__badge:before {
+  content: '댓글';
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-right: 6px;
+  border: 1px solid #5283e6;
+  border-radius: 10px;
+  font-size: 11px;
+  font-family: "Notosans", sans-serif;
+  color: #5283e6;
+  line-height: 18px;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.fb__myGoodsReview .goodsReview__admin__date {
+  position: relative;
+  margin-left: 9px;
+  padding-left: 10px;
+}
+
+.fb__myGoodsReview .goodsReview__admin__date:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 10px;
+  margin-top: -5px;
+  background: #999;
+}
+
+.fb__myGoodsReview .goodsReview__admin__txt {
+  position: relative;
+  margin-top: 12px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__myGoodsReview .goodsReview__admin__txt:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.fb__myGoodsInquiry__table .item {
+  font-size: 0;
+}
+
+.fb__myGoodsInquiry__table .item__img {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  vertical-align: top;
+}
+
+.fb__myGoodsInquiry__table .item__img img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.fb__myGoodsInquiry__table .item__info {
+  display: inline-block;
+  width: calc(100% - 80px);
+  padding-left: 15px;
+  vertical-align: top;
+}
+
+.fb__myGoodsInquiry__table .item__info__title {
+  max-height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+}
+
+.fb__profile__sec {
+  margin-top: 40px;
+}
+
+.fb__profile__sec:first-child {
+  margin-top: 0;
+}
+
+.fb__profile .profile__table {
+  padding: 20px 0;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__profile .profile__table table th {
+  padding: 10px 0 10px 30px;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.fb__profile .profile__table table td {
+  padding: 10px 0;
+  color: #999;
+  font-size: 0;
+}
+
+.fb__profile .profile__table table td input[type="text"]:disabled, .fb__profile .profile__table table td input[type="text"]:-moz-read-only,
+.fb__profile .profile__table table td input[type="number"]:disabled,
+.fb__profile .profile__table table td input[type="number"]:-moz-read-only {
+  color: #999;
+  background: #f8f8f8;
+}
+
+.fb__profile .profile__table table td input[type="text"]:disabled, .fb__profile .profile__table table td input[type="text"]:read-only,
+.fb__profile .profile__table table td input[type="number"]:disabled,
+.fb__profile .profile__table table td input[type="number"]:read-only {
+  color: #999;
+  background: #f8f8f8;
+}
+
+.fb__profile .profile__table table td .fb__button {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.fb__profile .profile__table table td .fb__button:first-child {
+  margin-left: 0;
+}
+
+.fb__profile .profile__table table td .fb__button button {
+  width: 115px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.fb__profile .profile__table table td .terms__marketing__cont {
+  overflow-y: scroll;
+  height: 150px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Notosans';
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__profile .profile__table table td .terms__details {
+  margin-top: 12px;
+}
+
+.fb__profile .profile__table table td .terms__details__check--main {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fb__profile .profile__table table td .terms__details__check--sub {
+  display: inline-block;
+  margin-left: 9px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.fb__profile .profile__table table td .terms__details__check--sub .fb__checkbox span {
+  font-size: 14px;
+  color: #666;
+}
+
+.fb__profile .profile__table table td .terms__details__desc {
+  margin-top: 10px;
+}
+
+.fb__profile .profile__table table td .terms__details__desc li {
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__profile .profile__table table td .sns__list {
+  position: relative;
+  margin-top: 10px;
+  font-size: 0;
+}
+
+.fb__profile .profile__table table td .sns__list__connect {
+  display: inline-block;
+  position: relative;
+  width: 240px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid #E5E5E5;
+  line-height: 44px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.fb__profile .profile__table table td .sns__list__connect:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+}
+
+.fb__profile .profile__table table td .sns__list__connect span {
+  display: block;
+  position: relative;
+  padding-left: 64px;
+  font-size: 15px;
+  font-family: "Notosans", sans-serif;
+  color: #666;
+}
+
+.fb__profile .profile__table table td .sns__list__connect span:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  width: 1px;
+  height: 20px;
+  margin-top: -10px;
+  background: #E5E5E5;
+}
+
+.fb__profile .profile__table table td .sns__list__connect:disabled:before {
+  opacity: .5;
+}
+
+.fb__profile .profile__table table td .sns__list__connect:disabled span {
+  color: #ccc;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--naver:before {
+  background: url(../../images/mypage/ico_mypage_sns-naver.png) no-repeat 0 0;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--kakao:before {
+  background: url(../../images/mypage/ico_mypage_sns-kakao.png) no-repeat 0 0;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--facebook:before {
+  background: url(../../images/mypage/ico_mypage_sns-facebook.png) no-repeat 0 0;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--apple:before {
+  background: url(../../images/mypage/ico_mypage_sns-apple.png) no-repeat 0 0;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--google:before {
+  background: url(../../images/mypage/ico_mypage_sns-google.png) no-repeat 0 0;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--google + .g-signin2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 240px;
+  height: 46px;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--google + .g-signin2 > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.fb__profile .profile__table table td .sns__list__connect--apple:before {
+  background: url(../../images/mypage/ico_mypage_sns-apple.png) no-repeat 0 0;
+}
+
+.fb__profile .profile__table table td .sns__list__disconnect {
+  display: inline-block;
+  width: 100px;
+  height: 46px;
+  margin-left: 10px;
+  border: 1px solid #666;
+  font-size: 15px;
+  color: #666;
+  vertical-align: top;
+}
+
+.fb__profile .profile__table table td .sns__list__disconnect:disabled {
+  border: 1px solid #E5E5E5;
+  color: #BBB;
+}
+
+.fb__profile .profile__table .phone-area__container {
+  display: flex;
+}
+
+.fb__profile__inquiry {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+.fb__profile__inquiry em {
+  color: #FF6600;
+}
+
+.fb__profile__btn {
+  margin-top: 45px;
+  font-size: 0;
+  text-align: center;
+}
+
+.fb__profile__btn button {
+  width: 188px;
+  height: 54px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.fb__profile__btn button:first-child {
+  margin-left: 0;
+}
+
+.fb__addressbook .fb__table td {
+  color: #000;
+}
+
+.fb__addressbook .fb__table td.left {
+  text-align: left;
+}
+
+.fb__addressbook .fb__table td.color666 {
+  color: #666;
+}
+
+.fb__addressbook .fb__table .default {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-bottom: 4px;
+  border: 1px solid #5283e6;
+  font-size: 11px;
+  font-family: "Notosans", sans-serif;
+  color: #5283e6;
+  line-height: 18px;
+  border-radius: 10px;
+}
+
+.fb__addressbook .addDelivery__btn {
+  margin-top: 10px;
+  padding: 0 30px;
+  font-size: 0;
+  text-align: right;
+}
+
+.fb__addressbook .addDelivery__btn a {
+  display: inline-block;
+  width: 100px;
+  height: 34px;
+  background: #666;
+  font-size: 14px;
+  color: #fff;
+  line-height: 34px;
+  text-align: center;
+}
+
+.fb .address-add-popup .fb__modal__content {
+  padding-top: 0;
+}
+
+.fb__refund-account__noti {
+  margin-bottom: 15px;
+}
+
+.fb__refund-account__noti p {
+  font-size: 13px;
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__refund-account__table td {
+  color: #666;
+}
+
+.fb__refund-account__table .fb__button {
+  padding-right: 30px;
+  font-size: 0;
+}
+
+.fb__refund-account__table .fb__button button {
+  width: 56px;
+  height: 28px;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.fb__refund-account__table .fb__button button:first-child {
+  margin-left: 0;
+}
+
+.fb__pass-reconfirm {
+  padding: 45px 0 50px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.fb__pass-reconfirm__tit {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #111;
+}
+
+.fb__pass-reconfirm__tit:before {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 52px;
+  margin: 0 auto 25px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -900px 0;
+}
+
+.fb__pass-reconfirm__subtit {
+  font-size: 15px;
+  color: #666;
+}
+
+.fb__pass-reconfirm .password-area {
+  margin-top: 25px;
+  font-size: 0;
+  color: #111;
+}
+
+.fb__pass-reconfirm .password-area__tit {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.fb__pass-reconfirm .password-area__input-area {
+  display: inline-block;
+}
+
+.fb__pass-reconfirm .password-area__input-area input {
+  width: 300px;
+  font-size: 15px;
+}
+
+.fb__secede__annc {
+  padding: 55px 0 30px;
+  border-top: 1px solid #111;
+  font-size: 26px;
+  color: #111;
+  line-height: 34px;
+  text-align: center;
+}
+
+.fb__secede .secede-box {
+  margin-bottom: 40px;
+  padding: 30px;
+  border: 3px solid #f6f6f6;
+}
+
+.fb__secede .secede-box dl + dl {
+  margin-top: 25px;
+}
+
+.fb__secede .secede-box dt {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__secede .secede-box dd {
+  padding-left: 10px;
+  font-size: 13px;
+  color: #999;
+  line-height: 20px;
+}
+
+.fb__secede .secede__table {
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__secede .secede__table tr th {
+  padding: 10px 0 0 30px;
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+}
+
+.fb__secede .secede__table tr td {
+  padding: 10px 0;
+  vertical-align: top;
+}
+
+.fb__secede .secede__table tr:first-child th {
+  padding-top: 40px;
+}
+
+.fb__secede .secede__table tr:first-child td {
+  padding-top: 30px;
+}
+
+.fb__secede .secede__table tr:last-child td {
+  padding-bottom: 30px;
+}
+
+.fb__secede textarea {
+  width: 80%;
+  height: 200px;
+  display: block;
+}
+
+.fb__secede .wrap-btn-area {
+  text-align: center;
+}
+
+.fb__secede .wrap-btn-area button {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.fb__secede .wrap-btn-area button:first-of-type {
+  margin-left: 0;
+}
+
+.fb__secede .star {
+  color: #ff6600;
+}
+
+.fb__conversion .sect + .sect {
+  margin-top: 50px;
+}
+
+.fb__conversion .sect__title {
+  padding-bottom: 15px;
+  font-size: 20px;
+  color: #111;
+}
+
+.fb__conversion .sect__title.border {
+  border-bottom: 1px solid #111;
+}
+
+.fb__conversion .sect__inner {
+  border-top: 1px solid #111;
+}
+
+.fb__conversion .sect.success {
+  margin-top: 0;
+  padding: 45px 0 40px;
+  border: 3px solid #e8e8e8;
+  text-align: center;
+}
+
+.fb__conversion .sect.success:before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 30px;
+  background: url(../../images/common/sprite_common.png) no-repeat 0 -492px;
+}
+
+.fb__conversion .sect.success .tit {
+  font-size: 30px;
+  color: #111;
+}
+
+.fb__conversion .sect.success .tit .color-point {
+  color: #ff6600;
+}
+
+.fb__conversion .sect.success .txt {
+  margin-top: 30px;
+  font-size: 15px;
+  color: #666;
+  line-height: 20px;
+}
+
+.fb__conversion .sect .step {
+  padding: 30px 0 25px;
+  background-color: #f8f8f8;
+  font-size: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.fb__conversion .sect .step__list {
+  display: inline-block;
+  position: relative;
+  min-width: 160px;
+  vertical-align: top;
+}
+
+.fb__conversion .sect .step__list__tit {
+  display: block;
+  color: #111;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.fb__conversion .sect .step__list__desc {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #666;
+  line-height: normal;
+}
+
+.fb__conversion .sect .step__list:before {
+  content: '';
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 10px;
+  background: #fff url(../../images/mypage/icon-conversion.png) no-repeat;
+  border-radius: 100%;
+}
+
+.fb__conversion .sect .step__list:not(:first-child):after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: -70px;
+  margin-top: -20px;
+  width: 17px;
+  height: 31px;
+  background: url(../../images/mypage/icon-conversion.png) no-repeat 0 -141px;
+}
+
+.fb__conversion .sect .step__list.input:before {
+  background-position: -33px 6px;
+}
+
+.fb__conversion .sect .step__list.apply:before {
+  background-position: -292px 3px;
+}
+
+.fb__conversion .sect .step__list.check:before {
+  background-position: -550px 5px;
+}
+
+.fb__conversion .sect .step__list.done:before {
+  background-position: -809px 4px;
+}
+
+.fb__conversion .sect .step__list__num {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  background-color: #666666;
+  font-size: 13px;
+  color: #fff;
+  border-radius: 100%;
+}
+
+.fb__conversion .sect .step__list + .step__list {
+  margin-left: 100px;
+}
+
+.fb__conversion .sect .inputInfo {
+  padding: 25px 0;
+}
+
+.fb__conversion .sect .inputInfo .box {
+  font-size: 15px;
+  color: #111;
+}
+
+.fb__conversion .sect .inputInfo .box__title {
+  display: inline-block;
+  width: 200px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.fb__conversion .sect .inputInfo .box__title em {
+  color: #ff6600;
+}
+
+.fb__conversion .sect .inputInfo .box__cont {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.fb__conversion .sect .inputInfo .box__cont input[type=text] {
+  width: 300px;
+}
+
+.fb__conversion .sect .inputInfo .box__cont select {
+  width: 300px;
+}
+
+.fb__conversion .sect .inputInfo .box .business-type .fb__radio {
+  float: left;
+  display: inline-block;
+}
+
+.fb__conversion .sect .inputInfo .box .business-type .fb__radio__text {
+  margin-left: 5px;
+}
+
+.fb__conversion .sect .inputInfo .box .business-type .fb__radio + .fb__radio {
+  margin-left: 50px;
+}
+
+.fb__conversion .sect .inputInfo .box + .box {
+  margin-top: 20px;
+}
+
+.fb__conversion .sect .inputInfo .box .desc {
+  margin-top: 10px;
+}
+
+.fb__conversion .sect .inputInfo .box .desc__list {
+  position: relative;
+  padding-left: 10px;
+  font-size: 13px;
+  color: #666;
+  line-height: 24px;
+}
+
+.fb__conversion .sect .inputInfo .box .desc__list:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: #666;
+}
+
+.fb__conversion .sect .inputInfo .box.license-info .box__title {
+  padding-top: 10px;
+  vertical-align: top;
+}
+
+.fb__conversion .sect .inputInfo .box.license-info input, .fb__conversion .sect .inputInfo .box.license-info button {
+  vertical-align: middle;
+}
+
+.fb__conversion .sect .required-mark {
+  color: #ff6600;
+}
+
+.fb__conversion .sect .form-box {
+  padding: 30px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__conversion .sect .form-box .box {
+  display: flex;
+}
+
+.fb__conversion .sect .form-box .box__title {
+  display: inline-block;
+  width: 210px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  color: #111;
+  padding-top: 64px;
+}
+
+.fb__conversion .sect .form-box .box__title em {
+  color: #ff6600;
+}
+
+.fb__conversion .sect .form-box .box__cont {
+  vertical-align: middle;
+}
+
+.fb__conversion .sect .form-box .box__cont .terms-content {
+  width: 820px;
+  display: inline-block;
+  overflow-y: auto;
+  min-height: 150px;
+  border: 1px solid #ddd;
+}
+
+.fb__conversion .sect .form-box .box__cont .fb__checkbox {
+  margin-top: 15px;
+}
+
+.fb__conversion .sect .state__row {
+  display: flex;
+  line-height: 24px;
+}
+
+.fb__conversion .sect .state__row + .state__row {
+  border-top: 1px solid #e8e8e8;
+}
+
+.fb__conversion .sect .state__row:last-child {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__conversion .sect .state__title {
+  display: inline-block;
+  width: 180px;
+  padding: 20px 0 20px 30px;
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #111;
+  box-sizing: border-box;
+}
+
+.fb__conversion .sect .state__cont {
+  display: inline-block;
+  padding: 20px 0 20px 30px;
+  font-size: 14px;
+}
+
+.fb__conversion .sect .state-desc {
+  margin-top: 15px;
+}
+
+.fb__conversion .sect .state-desc__list {
+  position: relative;
+  padding-left: 10px;
+  line-height: 24px;
+  font-size: 13px;
+  color: #999;
+}
+
+.fb__conversion .sect .state-desc__list:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: #999;
+}
+
+.fb__conversion .sect .state-desc__list em {
+  color: #ff6600;
+}
+
+.fb__conversion .fb__button {
+  padding-top: 50px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.fb__conversion .fb__button button {
+  width: 188px;
+}
+
+.fb__conversion .color-point {
+  color: #ff6600;
+}
+
+.fb__conversion .required-mark {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 11px;
+  background: #ff6600;
+  border-radius: 50%;
+  color: #ff6600;
+  vertical-align: top;
+}
+
+/* shop 공통 폼 사용 */
+.fb__shopCommon {
+  padding: 40px 0 100px;
+}
+
+.fb__shopCommon__header {
+  overflow: hidden;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.fb__shopCommon__title {
+  float: left;
+  color: #111;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.fb__shopCommon__step {
+  float: left;
+  color: #999;
+  font-size: 16px;
+}
+
+.fb__shopCommon__step-area {
+  float: right;
+  margin-top: 10px;
+}
+
+.fb__shopCommon__step:not(:last-child):after {
+  display: inline-block;
+  width: 26px;
+  height: 18px;
+  margin-left: 2px;
+  background: url(../../images/shop/sprite_shop.png) no-repeat -1px 0;
+  vertical-align: middle;
+  content: '';
+}
+
+.fb__shopCommon__step em {
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__shopCommon__step--on {
+  color: #ff6600;
+  font-weight: 600;
+}
+
+.fb__shopCommon__step--on:not(:last-child):after {
+  background-position: -100px 0px;
+}
+
+.fb__shopCommon__layout {
+  position: relative;
+}
+
+.fb__shopCommon__layout .layout__left {
+  float: left;
+  width: 820px;
+}
+
+.fb__shopCommon__layout .layout__right {
+  float: right;
+  width: 320px;
+  margin-left: 20px;
+}
+
+.fb__shopCommon__summary {
+  width: 320px;
+}
+
+.fb__shopCommon__summary .summary__wrapper {
+  padding-top: 44px;
+}
+
+.fb__shopCommon__summary .summary__section {
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+}
+
+.fb__shopCommon__summary .summary__section:first-child {
+  border-top-color: #111;
+}
+
+.fb__shopCommon__summary .summary__inner {
+  padding: 0 20px;
+}
+
+.fb__shopCommon__summary .summary__title {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e8e8e8;
+  color: #111;
+  font-size: 22px;
+  line-height: 33px;
+}
+
+.fb__shopCommon__summary .summary__list {
+  padding: 15px 0 0;
+  color: #111;
+  font-size: 0;
+}
+
+.fb__shopCommon__summary .summary__list:last-of-type .summary__list__detail {
+  border-bottom: none;
+}
+
+.fb__shopCommon__summary .summary__list.division {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.fb__shopCommon__summary .summary__list__title {
+  display: inline-block;
+  width: 50%;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__summary .summary__list__price {
+  display: inline-block;
+  width: 50%;
+  font-size: 14px;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__summary .summary__list__price em {
+  font-family: "Rb", "Notosans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.fb__shopCommon__summary .summary__list__detail {
+  clear: both;
+  margin-top: 15px;
+  padding: 10px 0;
+  border-top: 1px dotted #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.fb__shopCommon__summary .summary__list__detail .detail__list {
+  padding: 10px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.fb__shopCommon__summary .summary__list__detail .detail__list__title {
+  display: inline-block;
+  position: relative;
+  padding-left: 15px;
+}
+
+.fb__shopCommon__summary .summary__list__detail .detail__list__title:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background: url(../../images/mypage/sprite_mypage.png) no-repeat -700px 0;
+}
+
+.fb__shopCommon__summary .summary__list__detail .detail__list__price {
+  float: right;
+}
+
+.fb__shopCommon__summary .summary__list__detail .detail__list__price em {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.fb__shopCommon__summary .summary__total {
+  display: block;
+  padding: 15px 20px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.fb__shopCommon__summary .summary__total__title {
+  display: block;
+  margin-bottom: 5px;
+  color: #111;
+  font-size: 16px;
+}
+
+.fb__shopCommon__summary .summary__total__price {
+  color: #ff6600;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Rb", "Notosans", sans-serif;
+  text-align: right;
+}
+
+.fb__shopCommon__summary .summary__total__price em {
+  font-size: 30px;
+}
+
+.fb__shopCommon__summary .summary__footer button {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 52px;
+}
+
+.fb__shopCommon__summary .summary__footer button:last-child {
+  margin-bottom: 0;
+}
+
+.fb__shopCommon__summary .summary__pay {
+  background: #ff6600;
+  color: #fff;
+}
+
+.fb__shopCommon__summary .summary__cancel {
+  background: #fff;
+  border: 1px solid #999;
+  color: #666;
+}
+
+.fb__shopCommon__table {
+  padding: 0 0 30px 30px;
+}
+
+.fb__shopCommon__table td {
+  position: relative;
+  padding: 30px 0 0;
+  color: #111;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__table td em {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__shopCommon__table .item-info {
+  padding: 30px 0 0;
+  font-size: 0 !important;
+  text-align: left !important;
+}
+
+.fb__shopCommon__table .item-info__link {
+  display: block;
+}
+
+.fb__shopCommon__table .item-info__thumb {
+  display: inline-block;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-right: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fb__shopCommon__table .item-info__thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.fb__shopCommon__table .item-info__badge--soldout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 28px;
+  padding: 8px 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+}
+
+.fb__shopCommon__table .item-info__badge--exchange {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 28px;
+  padding: 8px 0;
+  background: rgba(255, 96, 1, 0.9);
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+}
+
+.fb__shopCommon__table .item-info__info {
+  display: inline-block;
+  max-width: calc(100% - 110px);
+  vertical-align: top;
+}
+
+.fb__shopCommon__table .item-info__name {
+  display: block;
+  color: #111;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+}
+
+.fb__shopCommon__table .item-info__option {
+  display: block;
+  margin-top: 5px;
+  color: #999;
+  font-family: "Rb", "Notosans", sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.fb__shopCommon__table .item-info__count {
+  position: relative;
+  padding-left: 16px;
+}
+
+.fb__shopCommon__table .item-info__count:before {
+  position: absolute;
+  top: 50%;
+  left: calc(16px / 2 - 1px);
+  width: 1px;
+  height: 10px;
+  background: #ccc;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  content: "";
+}
+
+.fb__shopCommon__table .item-info__count em {
+  font-weight: normal !important;
+  font-size: 14px !important;
+}
+
+.fb__shopCommon__table .item-info__price {
+  line-height: 18px;
+}
+
+.fb__shopCommon__table .item-info__price--text {
+  display: block;
+  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.fb__shopCommon__table .item-info__price--text em,
+.fb__shopCommon__table .item-info__price--text span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fb__shopCommon__table .item-info__price em {
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__shopCommon__table .item-info__price--strike {
+  display: block;
+  margin-bottom: 1px;
+  color: #999;
+  font-size: 13px;
+  line-height: 20px;
+  text-decoration: line-through;
+}
+
+.fb__shopCommon__table .item-info__price--strike em {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.fb__shopCommon__table .item-info__price--current {
+  color: #111;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.fb__shopCommon__table .item-info__price--current em {
+  font-family: "Rb", "Notosans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.fb__shopCommon__table .item-info__price--soldout {
+  display: block;
+  color: #111;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.fb__shopCommon__table .additem-info {
+  position: relative;
+}
+
+.fb__shopCommon__table .additem-info > td {
+  padding-top: 15px;
+  border: none;
+}
+
+.fb__shopCommon__table .additem-info__wrapper {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #e8e8e8;
+  font-size: 0;
+}
+
+.fb__shopCommon__table .additem-info__wrapper:before {
+  position: absolute;
+  bottom: 100%;
+  left: 40px;
+  z-index: 1;
+  width: 14px;
+  height: 7px;
+  background: url(../../images/common/sprite_common.png) no-repeat -50px -293px/1000px;
+  content: "";
+}
+
+.fb__shopCommon__table .additem-info__item {
+  display: inline-block;
+  width: calc(100% - 220px);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__table .additem-info__title {
+  color: #111;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.fb__shopCommon__table .additem-info__option {
+  margin-top: 5px;
+  color: #999;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.fb__shopCommon__table .additem-info__price {
+  display: inline-block;
+  width: 200px;
+  color: #111;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__table .additem-info__price em {
+  font-family: "Rb", "Notosans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.fb__shopCommon__table .additem-info__price--soldout {
+  font-size: 15px;
+}
+
+.fb__shopCommon__table .additem-info__delete {
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__table .additem-info__delete button {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background: url(../../images/guide/ic-delete-black-20-px.png) no-repeat center center;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.fb__shopCommon__table .order-table + .delivery-area {
+  padding: 15px 40px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  text-align: right;
+}
+
+.fb__shopCommon__table .order-table + .delivery-area em:first-child {
+  margin: 0 5px;
+  color: #111;
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__shopCommon__table .order-table + .delivery-area span:before {
+  display: inline-block;
+  margin: 0 10px 2px 2px;
+  width: 22px;
+  height: 22px;
+  background: url(../../images/common/sprite_common.png) no-repeat -600px -100px;
+  vertical-align: middle;
+  content: '';
+}
+
+.fb__shopCommon__table .order-table + .delivery-area + .order-table {
+  margin-top: 40px;
+}
+
+.fb__shopCommon__shipping {
+  width: 100%;
+  padding: 16px 20px 14px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e8e8e8;
+  text-align: right;
+}
+
+.fb__shopCommon__shipping em {
+  font-family: "Rb", "Notosans", sans-serif;
+}
+
+.fb__shopCommon__shipping .shipping__price {
+  display: inline-block;
+  vertical-align: middle;
+  color: #111;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__shipping .shipping__price em {
+  margin-left: 4px;
+}
+
+.fb__shopCommon__shipping .shipping__price:before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background: url(../../images/guide/ic-plus-20-px.png) no-repeat 0 0;
+  vertical-align: middle;
+  content: "";
+}
+
+.fb__shopCommon__shipping .shipping__detail {
+  display: inline-block;
+  margin-left: 4px;
+  color: #666;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__section {
+  margin-bottom: 50px;
+}
+
+.fb__shopCommon__section .section__header {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.fb__shopCommon__section .section__header__right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.fb__shopCommon__section .section__title {
+  color: #111;
+  font-size: 22px;
+  line-height: 33px;
+}
+
+.fb__shopCommon__section .section__box {
+  padding: 30px 0;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__shopCommon__section .section__infoTable {
+  border-top: 1px solid #111;
+}
+
+.fb__shopCommon__section .section__infoTable .color--111 {
+  color: #111;
+}
+
+.fb__shopCommon__section .section__infoTable .color--666 {
+  color: #666;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__list {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__title {
+  display: table-cell;
+  width: 180px;
+  padding: 15px 0 15px 30px;
+  background: #f8f8f8;
+  color: #111;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__cont {
+  display: table-cell;
+  padding: 15px 0 15px 20px;
+  color: #666;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__div {
+  display: table-cell;
+  padding: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__div__row {
+  padding: 15px 0 15px 20px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 0;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__div__row:last-of-type {
+  border-bottom: 0;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__div__row .row__name {
+  display: inline-block;
+  width: 130px;
+  color: #111;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__div__row .row__name.middle {
+  margin-top: 10px;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__div__row .row__cont {
+  display: inline-block;
+  width: calc(100% - 130px);
+  line-height: 20px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fb__shopCommon__section .section__infoTable .infoTable__div__row .row__txt {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+}
+
+
+/*# sourceMappingURL=mypage.css.map*/

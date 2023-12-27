@@ -1,0 +1,579 @@
+@charset "UTF-8";
+/* node_modules */
+/* 공통 */
+/* rem-baseline 재선언(브라우저에서 확인 쉽게 처리 ex. rem(48px) => 2.4rem으로 노출처리 ) */
+/* rem 사용시 html에 있는 font-size: 100% 제거 필요 */
+/* event */
+.fb__event {
+  overflow: hidden;
+  margin-bottom: 21.33333vw;
+}
+
+.fb__event__box.promo .fb__event__list {
+  margin-top: 8vw;
+}
+
+.fb__event__box.promo .fb__event__list:first-child {
+  margin-top: 0;
+}
+
+.fb__event__box.promo .fb__event__info {
+  width: 94.66667vw;
+  margin: -13.33333vw 0 0 5.33333vw;
+  padding: 4vw 5.33333vw 4vw 4vw;
+}
+
+.fb__event__list {
+  margin-top: 4vw;
+  width: 100%;
+}
+
+.fb__event__list:first-of-type {
+  margin-top: 0;
+}
+
+.fb__event__link {
+  display: block;
+}
+
+.fb__event__item {
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+}
+
+.fb__event__image {
+  width: 100vw;
+  height: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.fb__event__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.fb__event__image .end__txt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 3.73333vw;
+}
+
+.fb__event__badge {
+  position: absolute;
+  bottom: -4vw;
+  left: 4vw;
+  z-index: 1;
+  padding: 0.8vw 2.66667vw;
+  background: #111;
+  font-size: 3.46667vw;
+  line-height: 4.8vw;
+  color: #fff;
+  vertical-align: middle;
+}
+
+.fb__event__badge.end {
+  background-color: #ccc;
+}
+
+.fb__event__info {
+  position: relative;
+  padding: 5.86667vw 4vw 5.86667vw;
+  background: #fff;
+}
+
+.fb__event__info.end .fb__event__name,
+.fb__event__info.end .fb__event__desc,
+.fb__event__info.end .fb__event__date {
+  color: #999;
+}
+
+.fb__event__name {
+  color: #111;
+  font-size: 6.4vw;
+  line-height: 9.6vw;
+  /* 사용법 : @include line(라인수) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb__event__desc {
+  color: #666;
+  font-size: 3.2vw;
+  line-height: 4.8vw;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+}
+
+.fb__event__date {
+  margin-top: 1.33333vw;
+  color: #666;
+  font-size: 3.73333vw;
+  font-family: "Rb", "Notosans", sans-serif;
+  line-height: 5.86667vw;
+}
+
+.fb__event__tab {
+  display: flex;
+  border-top: 1px solid #f8f8f8;
+  text-align: center;
+}
+
+.fb__event__menu {
+  width: 50%;
+  font-size: 3.73333vw;
+}
+
+.fb__event__menu:first-of-type {
+  margin-left: 0;
+}
+
+.fb__event__menu input[type="radio"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.fb__event__menu input[type="radio"] + span {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 4vw 0;
+  font-size: 3.73333vw;
+  color: #666;
+}
+
+.fb__event__menu input[type="radio"] + span:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+}
+
+.fb__event__menu input[type="radio"]:checked + span {
+  color: #ff6600;
+}
+
+.fb__event__menu input[type="radio"]:checked + span:before {
+  height: 0.4vw;
+  background: #ff6600;
+}
+
+.fb__event__wrap {
+  padding: 4vw;
+}
+
+.fb__event .fb__event__image {
+  width: 92vw;
+  height: 49.6vw;
+}
+
+.fb__event .fb__event__image.end:after {
+  line-height: 49.6vw;
+}
+
+.fb__event .fb__event__list {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.fb__event-detail__header {
+  position: relative;
+  width: 100%;
+  padding: 8vw 4vw;
+}
+
+.fb__event-detail__header .btn-sns-share {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4.4vw;
+  height: 4.8vw;
+  padding: 0;
+  background: url(../../images/event/btn-share.png) no-repeat center center/4.4vw 4.8vw;
+  font-size: 0;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.fb__event-detail__title {
+  color: #111;
+  font-size: 5.33333vw;
+  line-height: 7.46667vw;
+  font-weight: 600;
+}
+
+.fb__event-detail__subtitle {
+  display: inline-block;
+  margin-top: 1.06667vw;
+  color: #666;
+  font-size: 3.46667vw;
+  line-height: 4.8vw;
+}
+
+.fb__event-detail__option {
+  position: relative;
+  margin-top: 4vw;
+  padding-right: 4.4vw;
+  font-size: 0;
+}
+
+.fb__event-detail__dDay {
+  display: inline-block;
+  margin-right: 2.13333vw;
+  padding: 0.53333vw 3.2vw;
+  background: #111;
+  color: #fff;
+  font-size: 3.2vw;
+  line-height: 4.26667vw;
+  vertical-align: middle;
+}
+
+.fb__event-detail__date {
+  display: inline-block;
+  color: #666;
+  font-size: 3.46667vw;
+  line-height: 4.8vw;
+  vertical-align: middle;
+}
+
+.fb__event-detail__date.ing {
+  color: #ff6600;
+}
+
+.fb__event-detail__date:not(:first-child) {
+  margin-left: 1.6vw;
+  padding-left: 1.86667vw;
+}
+
+.fb__event-detail__date:not(:first-child):before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  width: 0.26667vw;
+  height: 2.66667vw;
+  margin-top: -1.33333vw;
+  background: #ddd;
+}
+
+.fb__event-detail__banner__title {
+  text-indent: -1333.2vw;
+}
+
+.fb__event-detail__banner__thumb {
+  width: 100vw;
+}
+
+.fb__event-detail__banner__thumb img {
+  max-width: 100%;
+}
+
+.fb__event-detail__goodsbox {
+  margin-top: 4vw;
+}
+
+.fb__event-detail__goodsbox .select-wrap {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 10;
+  top: 13.33333vw;
+  padding: 4vw;
+  background: #fff;
+}
+
+.fb__event-detail__goodsbox .select-wrap select {
+  color: #666;
+}
+
+.fb__event-detail__goodsbox .goodsbox-contents {
+  margin: 10.13333vw auto 0;
+  padding: 0 4vw;
+}
+
+.fb__event-detail__goodsbox .goodsbox-contents__title {
+  position: relative;
+  padding-bottom: 5.33333vw;
+  color: #111;
+  font-size: 5.33333vw;
+  text-align: center;
+  line-height: 6.93333vw;
+}
+
+.fb__event-detail__goodsbox .goodsbox-contents .item__wish {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 6.93333vw;
+  height: 6.93333vw;
+  padding: 0;
+  background: url(../../images/common/icon-item-wish.png) no-repeat 0 0/6.93333vw 6.93333vw;
+  font: 0/0 a;
+}
+
+.fb__event-detail__goodsbox .goodsbox-contents .item__wish.on {
+  background: url(../../images/common/icon-item-wish-on.png) no-repeat 0 0/6.93333vw 6.93333vw;
+}
+
+.fb__event-detail__reviews {
+  padding: 5.33333vw 4vw 0;
+}
+
+.fb__event-detail__reviews h3 {
+  height: 0;
+  text-indent: -1333.2vw;
+}
+
+.fb__event-detail__reviews .reviews-write {
+  position: relative;
+  font-size: 0;
+}
+
+.fb__event-detail__reviews .reviews-write__area {
+  width: 100%;
+  height: 25.33333vw;
+  padding: 4vw;
+  color: #111;
+  font-size: 3.2vw;
+  border: none;
+  border: 0.26667vw solid #ddd;
+  border-bottom: none;
+  background: none;
+  line-height: 4.8vw;
+  box-sizing: border-box;
+}
+
+.fb__event-detail__reviews .reviews-write__area::-webkit-input-placeholder {
+  color: #999;
+  line-height: 1;
+}
+
+.fb__event-detail__reviews .reviews-write__area:-ms-input-placeholder {
+  color: #999;
+  line-height: 1;
+}
+
+.fb__event-detail__reviews .reviews-write__area::-ms-input-placeholder {
+  color: #999;
+  line-height: 1;
+}
+
+.fb__event-detail__reviews .reviews-write__area::placeholder {
+  color: #999;
+  line-height: 1;
+}
+
+.fb__event-detail__reviews .reviews-write__login {
+  display: none;
+  position: absolute;
+  top: 4vw;
+  right: 33.6vw;
+  font-weight: 600;
+  font-size: 3.2vw;
+  color: #999;
+  text-decoration: underline;
+}
+
+.fb__event-detail__reviews .reviews-write__login a {
+  display: block;
+}
+
+.fb__event-detail__reviews .reviews-write__byte {
+  display: inline-block;
+  margin-left: 4.93333vw;
+  color: #999;
+  font-size: 3.2vw;
+  line-height: 5.06667vw;
+}
+
+.fb__event-detail__reviews .reviews-write__byte em.on {
+  color: #121212;
+}
+
+.fb__event-detail__reviews .reviews-write__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -1px;
+  border: 0.26667vw solid #ddd;
+}
+
+.fb__event-detail__reviews .reviews-write__btn {
+  width: 20vw;
+  height: 10.66667vw;
+  font-size: 3.46667vw;
+  color: #fff;
+  background: #ccc;
+}
+
+.fb__event-detail__reviews .reviews-write__btn.cancel {
+  color: #666;
+  background-color: #fff;
+  border-left: 0.26667vw solid #ddd;
+}
+
+.fb__event-detail__reviews .reviews-write__btn.on {
+  background: #666;
+}
+
+.fb__event-detail__reviews .reviews-view {
+  margin-top: 4.66667vw;
+}
+
+.fb__event-detail__reviews .reviews-view__total {
+  margin-bottom: 2vw;
+  color: #666;
+  font-size: 3.2vw;
+  font-weight: 600;
+}
+
+.fb__event-detail__reviews .reviews-view__total em {
+  color: #ff6600;
+  font-size: 3.46667vw;
+  font-weight: 500;
+}
+
+.fb__event-detail__reviews .reviews-view__viewbox {
+  padding: 5.33333vw 0;
+  border-top: 1px solid #eee;
+}
+
+.fb__event-detail__reviews .reviews-view__viewbox:last-child {
+  border-bottom: 1px solid #eee;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list {
+  position: relative;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__infoBox {
+  margin-top: 4vw;
+  color: #111;
+  font-size: 3.46667vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__info {
+  display: inline-block;
+  position: relative;
+  color: #666;
+  font-size: 3.2vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__info:not(:first-child) {
+  margin-left: 3.33333vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__info:not(:first-child):before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: -1.86667vw;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1px;
+  height: 2.66667vw;
+  background-color: #ccc;
+  content: "";
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__cont {
+  color: #121212;
+  font-size: 3.46667vw;
+  line-height: 4.53333vw;
+  word-break: break-all;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__edit-btn {
+  width: 16vw;
+  height: 8vw;
+  margin-top: 4.26667vw;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 3.2vw;
+  text-align: center;
+  line-height: 5.33333vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__edit-area {
+  display: none;
+  position: relative;
+  margin-top: 5.33333vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__edit-area__textarea {
+  width: 100%;
+  height: 6vw;
+  margin: 1.33333vw 0 4.53333vw 0;
+  padding: 2vw;
+  font-size: 1.86667vw;
+  border: none;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__edit-area__btns {
+  height: 5.33333vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__edit-area__btns--cancel {
+  width: 9.33333vw;
+  height: 6vw;
+  color: #666;
+  font-size: 1.86667vw;
+  border-left: 1px solid #ddd;
+  background-color: #ffffff;
+  text-align: center;
+  line-height: 5.33333vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__edit-area__btns--submit {
+  width: 9.33333vw;
+  height: 6vw;
+  color: #ffffff;
+  font-size: 1.86667vw;
+  background-color: #666;
+  text-align: center;
+  line-height: 5.33333vw;
+}
+
+.fb__event-detail__reviews .reviews-view .viewbox__list__edit-area.show {
+  display: block;
+}
+
+.fb__event-detail__reviews .reviews-view .no-review {
+  margin: 4vw 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.fb__promotion {
+  margin-bottom: 10.66667vw;
+}
+
+
+/*# sourceMappingURL=event.css.map*/

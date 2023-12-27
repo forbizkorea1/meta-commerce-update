@@ -344,7 +344,7 @@ const front_common = () => {
         })
         
         //summary 안에 체크박스, 라디오 안먹는 경우가 있어서 추가
-        .on("click", "summary [class^=fb__comm]", function (e) {
+        .on("click", "summary .fb__checkbox", function (e) {
             e.stopPropagation();
         });
     }
@@ -695,66 +695,6 @@ const front_common = () => {
         });
     };
 
-    //사용하는건지 체크 필요
-    const change_profile_img = () => {
-        // 회원가입 정보입력 썸네일 미리보기
-        if($('.js-profile').length < 1) return ;
-        const $addTag = $('.js-profile .js-profile-add');
-        const $removeTag = $('.js-profile .js-profile-remove');
-        const $thumbTag = $('.js-profile .js-profile-img');
-        const $checkState = $('[name=isProfileDel]');
-        window.profileFileList = $addTag[0].files;    //데이터 저장 전역변수
-
-        $addTag.on('change',function() {
-            const $this = $(this);
-            const fileList = this.files || this.value;
-
-            const _acceptType = $this.attr('accept');
-            let _imgType = '';
-            if(fileList[0]) {
-                _imgType = fileList[0].type.replace('image/','');
-            }else if (this.value) {
-                _imgType = fileList.replace(/.*(\..*)/,'$1');
-            }
-            if(_acceptType.length > 0 && !fileList || _acceptType.indexOf(_imgType) == -1 || _imgType == "") {
-                // accept된 파일 확장자가 아닌 경우
-                $this.val('');
-                // dev_common alert
-                console.log(common.lang.get('common.inputFormat.fileFormat.fail'));
-                //common.noti.alert(common.lang.get('common.inputFormat.fileFormat.fail'));
-                return false;
-            }
-
-            if(window.FileReader){
-                if(fileList.length > 0) {
-                    const reader = new FileReader();
-                    window.profileFileList = fileList;
-                    reader.readAsDataURL(fileList[0]);
-
-                    reader.onload = () => {
-                        $thumbTag[0].src = reader.result;
-                    }
-                    if($checkState.length > 0){
-                        $checkState.val('0');
-                    }
-                } else {
-                    $thumbTag[0].src = $thumbTag.data('default');
-                }
-            } else if((navigator.appName == "Netscape" && navigator.userAgent.search('Trident') != -1) || navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
-                //alert('Internet Explorer 9 이하에선 업로드한 이미지 썸네일을 확인 할 수 없습니다.');
-            }
-        });
-
-        $removeTag.on('click',function() {
-            $thumbTag.attr('src',$thumbTag.data('default'));
-            $addTag.val('').removeClass('portrait');
-            //window.profileFileList = $addTag[0].files;
-            if($checkState.length > 0){
-                $checkState.val('1');
-            }
-        });
-    }
-
     /*
         * js__textcount__area        textarea 를 감싼 부모
         * js__textCount__textarea    textarea 엘리먼트 (textarea에 maxlength 속성 주기)
@@ -838,7 +778,6 @@ const front_common = () => {
         detailsTagAction();
         commonTabEvent();
         allSelectCheckbox();
-        change_profile_img();
         snsPopup();
     };
 

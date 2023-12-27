@@ -306,13 +306,13 @@
                         </th>
                         <td colspan="3">
                             <div class="fb-filter__radio">
-
+                                <input type="hidden" name="deliveryprice" value="N">
                                 <label for="deliveryprice_n">
-                                    <input type="radio" name="deliveryprice" id="deliveryprice_n" value="N" {? config.deliveryprice == 'N' } checked {/} >
+                                    <input type="radio" name="deliveryprice" id="deliveryprice_n" value="N" checked disabled>
                                            <span>배송비 결제 불가</span>
                                 </label>
                                 <label for="deliveryprice_y">
-                                    <input type="radio" name="deliveryprice" id="deliveryprice_y" value="Y" {? config.deliveryprice == 'Y' || !config.deliveryprice } checked {/} >
+                                    <input type="radio" name="deliveryprice" id="deliveryprice_y" value="Y" {? config.deliveryprice == 'Y' || !config.deliveryprice } checked {/} disabled>
                                            <span>배송비 결제 가능</span>
                                 </label>
                             </div>

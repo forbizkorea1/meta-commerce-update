@@ -247,6 +247,10 @@ var devProductBatchChangeStatusObj = {
                     }
                 })
             }
+
+            if($("#devFixMenuBtn").hasClass("fb__fixemenu-btn--active")) {
+                $("#devFixMenuBtn").trigger("click");
+            }
         });
     },
     run: function () {

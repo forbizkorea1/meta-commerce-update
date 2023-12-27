@@ -38,7 +38,7 @@ var devMileageObj = {
             mileageList.getPage(1);
         });
 
-        $('#devBtnSearch').on('click', function () {
+        $('#devSearchBtn').on('click', function () {
             var endDate = common.util.dates.convert($('#devEdate').val());
             var startDate = common.util.dates.convert($('#devSdate').val());
             var maxDate = common.util.dates.convert((startDate.getFullYear() + 5) + '-' + (startDate.getMonth() + 1) + '-' + startDate.getDate());
@@ -72,19 +72,6 @@ var devMileageObj = {
             var oid = $(this).data('oid');
             location.href = '/mypage/orderDetail?oid='+oid;
             return false;
-        });
-
-        // 검색일 설정
-        $('.devDateBtn').on('click', function () {
-            $('#devSdate').val($(this).data('sdate'));
-            $('#devEdate').val($(this).data('edate'));
-        });
-
-        $('#devBtnReset').on('click', function () {
-            $("#devSdate").val($("#sDateDef").val());
-            $("#devEdate").val($("#eDateDef").val());
-            $(".jq-radio a").removeClass("on");
-            $("#devDateDefault").addClass("on");
         });
 
     },

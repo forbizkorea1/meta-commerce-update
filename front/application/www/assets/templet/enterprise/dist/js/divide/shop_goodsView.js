@@ -287,15 +287,6 @@ const shop_goodsView = () => {
         $(".popular__control").addClass("show");
     }
 
-    const copy_item_number = () => {
-        var $copyText = $('.info__item-number .code-number ');
-
-        $document.on('click', '.info__item-number--copy', function() {
-            $copyText.select();
-            document.execCommand( 'Copy' );
-        })
-    };
-
     const photoSliderOn = () => {
         const $sliderThumb = $(".photo__slider__item");
         $sliderThumb.first().addClass("photo__slider__item--on");
@@ -398,7 +389,6 @@ const shop_goodsView = () => {
         list_show();
         ifLogin();
         lazyload();
-        copy_item_number();
         photoSliderOn();
         relatedSlider(); //관련상품 슬라이더
         relatedExhibitionScroll(); //관련상품 스크롤

@@ -26,6 +26,7 @@ var devMypageRecentView = {
                 .setForm('#devRecentViewForm')
                 .setUseHash(false)
                 .setController('recentView', 'mypage')
+                .setScrollPage(true)
                 .init(function (data) {
                     if (data.data.list.length > 0) {
                         $('#devRecentViewSelector').show();

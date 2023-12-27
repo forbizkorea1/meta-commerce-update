@@ -15,33 +15,53 @@ import shop_cart from './divide/shop_cart';
 import shop_infoInput from './divide/shop_infoInput';
 
 import member_login from './divide/member_login';
-import member_joinInput from './divide/member_joinInput';
 import member_searchId from './divide/member_searchId';
 import member_searchPw from './divide/member_searchPw';
 
-import event_eventList from './divide/event_eventList';
 import event_eventDetail from './divide/event_detail';
-import exhibition_exhibitionDetail from './divide/exhibition_exhibitionDetail';
 
 import mypage_common from './divide/mypage_common';
 import mypage_mileage from './divide/mypage_mileage';
-import mypage_coupon from './divide/mypage_coupon';
 import mypage_orderCancel from './divide/mypage_orderCancel';
 
 import fat from './divide/fat';
+
+window.$ = window.jquery = window.jQuery = require('jquery');
+
 import 'jquery-form';
 import 'jquery-ui';
 import 'jquery-datetimepicker';
 import datepickerFactory from 'jquery-datepicker';
-import datepickerJAFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ko';
 datepickerFactory($);
-datepickerJAFactory($);
 
+/** 
+ * jquery-datepicker 언어팩 설정 ( html 태그 lang 기준 )
+ */
+const htmlLang = $('html').attr('lang');
+let datepickerJAFactory;
+let lang = $.datepicker.regional[ htmlLang ];
+
+if (!lang || htmlLang !== 'en') {
+    try {
+        datepickerJAFactory = require(`jquery-datepicker/i18n/jquery.ui.datepicker-${htmlLang}`);
+    }
+    catch (e) {
+        console.error(e);
+        datepickerJAFactory = function() {
+            $.datepicker.setDefaults( $.datepicker.regional[ '' ] );
+        };
+    }
+}
+else {
+    datepickerJAFactory = function() {
+        $.datepicker.setDefaults( $.datepicker.regional[ 'en' ] );
+    };
+}
+datepickerJAFactory(jQuery);
 
 import 'jstree';
 import 'jquery-ui';
 import 'jquery-ui/ui/widgets/autocomplete';
-window.$ = window.jquery = window.jQuery = require('jquery');
 
 // datepicker default 옵션세팅
 $.datepicker.setDefaults({
@@ -67,17 +87,13 @@ const appMethods = {
     shop_infoInput,
     shop_cart,
     
-    event_eventList,
     event_eventDetail,
-    exhibition_exhibitionDetail,
 
     member_login,
-    member_joinInput,
     member_searchId,
     member_searchPw,
     
     mypage_mileage,
-    mypage_coupon,
     mypage_orderCancel,
 };
 

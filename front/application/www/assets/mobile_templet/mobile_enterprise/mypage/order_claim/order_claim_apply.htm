@@ -7,7 +7,7 @@
         <!-- 교환/반품 상품 선택 -->
         <div class="fb__orderCommon__cont js__check__wrapper">
             <div class="claimCommon__allcheck">
-                <label class="fb__comm__checkbox">
+                <label class="fb__checkbox">
                     <input type="checkbox" id="all_check" class="js__check__all">
                     <span>{=trans('전체선택')}</span>
                 </label>
@@ -17,7 +17,7 @@
             <ul class="fb__shopCommon__item">
                 {@ .value_}
                 <li class="item-info">
-                    <label for="devOdIx{..od_ix}" class="item-info__checkbox fb__comm__checkbox">
+                    <label for="devOdIx{..od_ix}" class="item-info__checkbox fb__checkbox">
                         <input type="checkbox" class="devOdIxCls js__check__each" id="devOdIx{..od_ix}" name="od_ix[]" value='{..od_ix}' {? ..od_ix == claimOdIx}checked{/}>
                         <span></span>
                     </label>
@@ -87,14 +87,14 @@
                 
                 <ul class="changeMethod__box">
                     <li class="changeMethod__list">
-                        <label class="fb__comm__radio">
+                        <label class="fb__radio">
                             <input type="radio" value="2" class="blind devSendTypeCls" id="send_type_2" name="sendType" data-type="2" checked>
                             <span>{=trans('지정택배 방문 요청')} <em>({=trans('판매사와 계약된 택배업체에서 방문수령 수거')})</em></span>
                         </label>
                     </li>
 
                     <li class="changeMethod__list">
-                        <label class="fb__comm__radio">
+                        <label class="fb__radio">
                             <input type="radio" value="1" class="blind devSendTypeCls" id="send_type_1" name="sendType" data-type="1">
                             <span>{=trans('직접발송')} <em>({=trans('구매자께서 개별로 상품을 이미 발송한 경우')})</em></span>
                         </label>
@@ -108,14 +108,14 @@
 
                     <ul class="changeMethod__box">
                         <li class="changeMethod__list">
-                            <label class="fb__comm__radio">
+                            <label class="fb__radio">
                                 <input type="radio" value="2" class="blind devSelectDeliveryInfo" id="devSelectDeliveryInfo2" name="deliveryInfo" data-type="2" checked>
                                 <span>{=trans('배송업체 정보 입력 안함')}</span>
                             </label>
                         </li>
 
                         <li class="changeMethod__list">
-                            <label class="fb__comm__radio">
+                            <label class="fb__radio">
                                 <input type="radio" value="1" class="blind devSelectDeliveryInfo" id="devSelectDeliveryInfo1" name="deliveryInfo" data-type="1">
                                 <span>{=trans('배송업체 정보 입력')}</span>
                             </label>
@@ -137,14 +137,14 @@
 
                         <ul class="changeMethod__box">
                             <li class="changeMethod__list">
-                                <label class="fb__comm__radio">
+                                <label class="fb__radio">
                                     <input type="radio" value="2" class="blind devPayType" id="devPayType1" name="payType" data-type="1" checked>
                                     <span>{=trans('선불')}</span>
                                 </label>
                             </li>
 
                             <li class="changeMethod__list">
-                                <label class="fb__comm__radio">
+                                <label class="fb__radio">
                                     <input type="radio" value="1" class="blind devPayType" id="devPayType2" name="payType" data-type="2">
                                     <span>{=trans('착불')}</span>
                                 </label>
@@ -208,7 +208,7 @@
                     <dl class="delivery-desc">
                         <dt>{=trans('배송요청사항')} </dt>
                         <dd>
-                            <div class="delivery__request__cont devDeliveryMessageContents">
+                            <div class="fb__deliveryRequest delivery__request__cont devDeliveryMessageContents">
                                 <select class="devDeliveryMessageSelectBox" name="cmsg_select">
                                     <option value="">{=trans('배송요청사항 선택')}</option>
                                     <option value="door">{=trans('문 앞에 놓아주세요.')}</option>
@@ -222,7 +222,7 @@
                                     <input type="text" class="devDeliveryMessage" name="cmsg" maxlength="30" data-type="direct" placeholder="{=trans('배송 메세지를 입력해주세요. (30자 이내)')}">
                                 </div>
 
-                                <div class="delivery-request__write devDeliveryMessageDoorContents" style="display: none;">
+                                <div class="deliveryRequest__write delivery-request__write devDeliveryMessageDoorContents" style="display: none;">
                                     <select class="devDeliveryEntranceWay" name="cdoor_select">
                                         <option value="">{=trans('공동현관 출입방법 선택')}</option>
                                         <option value="door">{=trans('공동현관 출입번호')}</option>
@@ -293,7 +293,7 @@
                     <dl>
                         <dt>{=trans('배송요청사항')} </dt>
                         <dd>
-                            <div class="delivery__request__cont devDeliveryMessageContents">
+                            <div class="fb__deliveryRequest delivery__request__cont devDeliveryMessageContents">
                                 <select class="devDeliveryMessageSelectBox" name="rmsg_select">
                                     <option value="">{=trans('배송요청사항 선택')}</option>
                                     <option value="door">{=trans('문 앞에 놓아주세요.')}</option>
@@ -307,7 +307,7 @@
                                     <input type="text" class="devDeliveryMessage" name="rmsg" maxlength="30" data-type="direct" placeholder="{=trans('배송 메세지를 입력해주세요. (30자 이내)')}">
                                 </div>
 
-                                <div class="delivery-request__write devDeliveryMessageDoorContents" style="display: none;">
+                                <div class="deliveryRequest__write delivery-request__write devDeliveryMessageDoorContents" style="display: none;">
                                     <select class="devDeliveryEntranceWay" name="rdoor_select">
                                         <option value="">{=trans('공동현관 출입방법 선택')}</option>
                                         <option value="door">{=trans('공동현관 출입번호')}</option>

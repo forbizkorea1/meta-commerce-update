@@ -1,0 +1,628 @@
+.fb {
+    &__order-claim {
+        //상단 step
+        &__step {
+            .step {
+                &__wrapper {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    // margin: vw(0 -32px);
+                    padding: vw(28px 0);
+                    border-bottom: vw(2px) solid $grey200;
+                    counter-reset: rownumber;
+                }
+
+                &__name {
+                    margin: vw(0 32px);
+                    counter-increment: rownumber;
+                    
+                    span {
+                        display: inline-block;
+                        color: $grey600;
+                        font-size: vw(30px);
+                        vertical-align: middle;
+                    }
+
+                    &:before {
+                        display: none;
+                        width: vw(44px);
+                        height: vw(44px);
+                        margin-right: vw(6px);
+                        background: $black;
+                        border-radius: 50%;
+                        color: $white;
+                        font-family: $font_n;
+                        font-size: vw(24px);
+                        text-align: center;
+                        line-height: vw(44px);
+                        vertical-align: middle;
+                        content: "0" counter(rownumber);
+                    }
+
+                    &.active {
+                        span {
+                            color: $black;
+                            font-weight: 600;
+                        }
+
+                        &:before {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 교환/환불 방법
+        .changeMethod {
+            &__sec {
+                width: vw(690px);
+                margin: 0 auto;
+                padding: vw(40px 0 60px);
+            }
+
+            &__title {
+                margin-bottom: vw(30px);
+                font-size: vw(28px);
+                line-height: vw(40px);
+
+                span {
+                    font: {
+                        size: vw(24px);
+                        weight: 400;
+                    };
+                    color: $grey800;
+                }
+            }
+
+            &__inner {
+                margin-top: vw(50px);
+                padding-top: vw(50px);
+                border-top: vw(2px) solid #EEE;
+            }
+
+            &__list {
+                margin-top: vw(30px);
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                .fb__radio {
+                    span {
+                        em {
+                            font-size: vw(22px);
+                            color: $grey600;
+                        }
+                    }
+                }
+            }
+
+            .delivery-notice {
+                margin-top: vw(10px);
+                font-size: vw(24px);
+                color: $grey600;
+                line-height: vw(34px);
+            }
+        }
+
+        // 추가결제
+        .claim-addPayment {
+            &__sec {
+                max-width: vw(690px);
+                margin: 0 auto;
+                padding: vw(40px 0);
+            }
+
+            &__deliveryPrice {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: vw(102px);
+                padding: vw(0 40px);
+                background: $bg_grey50;
+
+                &__txt {
+                    font-size: vw(28px);
+                }
+
+                &__price {
+                    display: block;
+                    font-size: vw(28px);
+                    color: $pcolor;
+
+                    em {
+                        font: {
+                            size: vw(32px);
+                            weight: 600;
+                        };
+                    }
+                }
+            }
+
+            &__title {
+                display: block;
+                margin-bottom: vw(30px);
+                font-size: vw(28px);
+                line-height: vw(40px);
+            }
+
+            &__cost {
+                margin-top: vw(40px);
+
+                &__list {
+                    margin-top: vw(30px);
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            &__methods {
+                margin-top: vw(50px);
+                border-top: vw(2px) solid $grey200;
+                padding-top: vw(50px);
+
+                &__box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                &__list {
+                    width: vw(335px);
+
+                    label {
+                        display: block;
+
+                        input {
+                            & + span {
+                                display: block;
+                                height: vw(102px);
+                                border: vw(2px) solid $grey200;
+                                font-size: vw(28px);
+                                line-height: vw(98px);
+                                text-align: center;
+                            }
+
+                            &:checked + span {
+                                border: vw(2px) solid $pcolor;
+                                color: $pcolor;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    
+        .radio-tab {
+            span {
+                padding: 0;
+                height: vw(90px);
+                line-height: vw(90px);
+            }
+        }
+    
+        .address {
+            input {
+                &:not([type="radio"])
+                :not([type="checkbox"]) {
+                    height: vw(90px);
+    
+                    &:disabled, &:read-only {
+                        background: $bg_grey50;
+                    }
+                }
+            }
+    
+            dl {
+                margin-top: vw(45px);
+    
+                &:first-of-type {
+                    margin-top: 0;
+                }
+    
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+    
+                > dt {
+                    margin-bottom: vw(20px);
+                    font-size: vw(26px);
+                    font-weight: 600;
+                }
+                &.delivery-desc {
+                    padding-bottom: vw(50px);
+                    border-bottom: 1px solid #eee;
+                }
+            }
+            
+            &__btn {
+                &__find {
+                    width: vw(220px);
+                    height: vw(90px);
+                    margin-left: vw(20px);
+                    padding: 0;
+                    border: 1px solid $grey600;
+                    color: $grey800;
+                    font-size: vw(26px);
+                    flex-shrink: 0;
+                }
+            }
+    
+            &__zip-code {
+                width: 100%;
+    
+                &__area {
+                    display: flex;
+                }
+            }
+    
+            &__1,
+            &__2 {
+                margin-top: vw(20px);
+            }
+    
+            &__phone {
+                &__area {
+                    display: flex;
+                }
+    
+                &__0 {
+                    width: vw(215px);
+                    margin-right: vw(20px);
+                    flex-shrink: 0;
+                }
+    
+                &__1 {
+                    border-right: none;
+                    padding-right: vw(4px);
+                }
+    
+                &__hyphen {
+                    position: relative;
+                    border-top: 1px solid $grey400;
+                    border-bottom: 1px solid $grey400;
+                    width: vw(8px);
+                    height: vw(90px);
+    
+                    &::after {
+                        display: block;
+                        position: absolute;
+                        top: vw(45px);
+                        width: vw(8px);
+                        border-top: 1px solid $grey600;
+                        content: "";
+                    }
+                }
+    
+                &__2 {
+                    border-left: none;
+                }
+            }
+        }
+
+        // 교환/반품 사유
+        .claim-reason {
+            &__sec {
+                width: vw(690px);
+                margin: 0 auto;
+                padding: vw(30px 0);
+            }
+
+            &__title {
+                font-size: vw(26px);
+                color: $grey600;
+                line-height: vw(38px);
+            }
+
+            &__desc {
+                margin-top: vw(6px);
+                font-size: vw(28px);
+                line-height: vw(40px);
+            }
+        }
+
+          // 교환/반품 방법
+          .claim-method {
+            &__sec {
+                max-width: vw(690px);
+                margin: 0 auto;
+                padding: vw(30px 0 40px);
+            }
+
+            &__inner {
+                margin-top: vw(60px);
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                
+                .orderColsTable {
+                    margin-top: vw(30px);
+                }
+            }
+
+            &__title {
+                font: {
+                    size: vw(28px);
+                    weight: 600;
+                };
+                line-height: vw(40px);
+
+                span {
+                    color: $grey800;
+                    font-weight: 400;
+                }
+            }
+
+            &__txt {
+                margin-top: vw(10px);
+                font-size: vw(28px);
+                line-height: vw(38px);
+            }
+        }
+    }
+
+    /* 교환반품신청 */
+    .wrap-change-method {
+        [method0],
+        [method1],
+        [method2] {
+            display: none;
+        }
+
+        [method0].active,
+        [method1].active,
+        [method2].active {
+            display: block;
+        }
+
+        input[type="number"] {
+            padding: 0 vw(20px);
+        }
+
+        &__shipping {
+            &:last-child {
+                margin-bottom: vw(50px);
+            }
+        }
+        .wrap-input-form {
+            &.addressForm {
+                display: none;
+            }
+        }
+    }
+
+    .wrap-order-claim {
+        .option {
+            color: $grey800;
+            margin-top: vw(10px);
+        }
+
+        .desc {
+            font-size: vw(22px);
+            color: $grey600;
+            margin-top: vw(15px);
+            line-height: vw(30px);
+
+            p {
+                margin-bottom: vw(10px);
+                position: relative;
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    width: vw(5px);
+                    height: vw(5px);
+                    background: $grey400;
+                    border-radius: vw(15px);
+                    vertical-align: middle;
+                    margin: 0 vw(10px) vw(3px) 0;
+                }
+            }
+        }
+
+        .wrap-refund-list {
+            .desc {
+                border-top: 1px solid $white2;
+                padding-top: vw(15px);
+                font-size: vw(24px);
+            }
+        }
+
+        .claim-method {
+            &__shipping {
+                &__text {
+                    &:last-child {
+                        margin-bottom: vw(50px);
+                    }
+                }
+            }
+        }
+
+        .return-method {
+            margin-top: vw(40px);
+
+            dl {
+                dt {
+                    color: $black;
+                    font-size: vw(26px);
+                    font-weight: 600;
+                }
+
+                dd {
+                    color: $grey800;
+                    font-size: vw(26px);
+                }
+            }
+
+            .desc {
+                padding: 0;
+
+                p {
+                    &:last-of-type {
+                        margin-bottom: vw(25px);
+                    }
+                }
+            }
+        }
+        
+        .contents {
+            .clearfix {
+                @extend %clear;
+            }
+            .price {
+                float: right;
+                font-size: vw(26px);
+                color: $textBlack;
+                font-family: "Rb";
+                em {
+                    font-size: vw(34px);
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .cont {
+            color: $textBlack;
+
+            th {
+                color: $grey800;
+            }
+        }
+
+        .price-area {
+            dl.total {
+                padding-bottom: vw(30px);
+            }
+        }
+
+        .pay-type {
+            padding-bottom: vw(40px);
+            border-bottom: 1px solid $white2;
+
+            dl {
+                font-size: vw(26px);
+                dt {
+                    color: $textBlack;
+                }
+
+                dd {
+                    color: $grey800;
+                    line-height: 1.3;
+                }
+            }
+
+            & + .desc {
+                margin-top: vw(50px);
+            }
+        }
+
+        .desc {
+
+            p + p {
+                margin-top: vw(20px);
+            }
+        }
+
+        .wrap-btn-area {
+            margin: vw(60px 0 90px);
+        }
+
+        table {
+            font-size: vw(24px);
+            margin-top: vw(30px);
+
+            th {
+                text-align: left;
+                padding-bottom: vw(30px);
+            }
+
+            td {
+                text-align: left;
+                padding-bottom: vw(30px);
+                padding-right: vw(25px);
+                line-height: vw(30px);
+
+                em {
+                    font-family: "Rb";
+                }
+            }
+        }
+
+        .wrap-refund-list {
+            .price-area {
+                // margin-bottom: vw(10px);
+            }
+
+            .desc {
+                border-top: 0;
+                font-size: vw(24px);
+                padding-top: 0;
+                //padding-bottom: vw(50px);
+            }
+        }
+
+        .claim-complete {
+            padding: vw(110px 30px 100px);
+            text-align: center;
+
+            h1 {
+                font-size: vw(40px);
+                color: $black;
+
+                span {
+                    font-weight: 600;
+                }
+            }
+
+            p {
+                color: $grey800;
+                font-size: vw(26px);
+                margin-top: vw(35px);
+                line-height: vw(36px);
+
+                span {
+                    color: $black;
+                }
+            }
+
+            ~ .layout-padding .wrap-btn-area *:only-child {
+                width: auto;
+                min-width: vw(290px);
+                float: none;
+            }
+
+            &__goods {
+                &__wrapper {
+                    border-bottom: 1px solid #eee;
+
+                    .counting {
+                        @extend %clear;
+            
+                        &__name {
+                            float: left;
+                            font-size: vw(26px);
+                        }
+            
+                        &__quantity {
+                            float: right;
+                            font-size: vw(24px);
+            
+                            em {
+                                font-size: vw(26px);
+                                font-family: "Rb";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

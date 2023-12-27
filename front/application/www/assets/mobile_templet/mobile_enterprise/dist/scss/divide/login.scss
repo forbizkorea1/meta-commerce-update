@@ -1,0 +1,166 @@
+.fb {
+    &__login {
+        // 공통
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+            color: $grey600;
+        }
+
+        &__inner {
+            width: vw(690px);
+            margin: 0 auto;
+            padding-top: vw(60px);
+        }
+
+        &__button {
+            margin-top: vw(60px);
+            width: 100%;
+            height: vw(100px);
+            background: $pcolor;
+            color: $white;                
+            font: {
+                size: vw(30px);
+                weight: 400;
+            };
+
+            &--white {
+                display: block;
+                width: 100%;
+                padding: vw(20px 0);
+                border: vw(2px) solid $grey200;
+                color: $black;
+                font: {
+                    size: vw(26px);
+                    weight: 400;
+                };
+                line-height: vw(46px);
+                text-align: center;
+            }
+        }
+
+        // 회원 로그인
+        &__member {
+            .member {
+                &__save {
+                    margin-top: vw(20px);
+                }
+                
+                &__option {
+                    text-align: center;
+                    margin: vw(30px 0 50px);
+                    font-size: vw(26px);
+                    color: $grey800;
+            
+                    a {
+                        color: $grey800;
+                        
+                        &:not(:last-child):after {
+                            content: "";
+                            display: inline-block;
+                            width: vw(1px);
+                            height: vw(18px);
+                            background: $grey400;
+                            margin: vw(0 15px 0 20px);
+                        }
+                    }
+                }
+            }
+        }
+        
+        // 비회원 로그인
+        &__nomember {
+            .nomember {
+                &__desc {
+                    margin: vw(40px 0 60px);
+                    font-size: vw(24px);
+                    color: $grey600;
+                    text-align: center;
+                    letter-spacing: -0.07rem;
+
+                    span,
+                    a {
+                        color: $pcolor;
+                    }
+                }
+
+                &__joining {
+                    &__text {
+                        margin-bottom: vw(28px);
+                        color: $black;
+                        font-size: vw(26px);
+                        line-height: vw(36px);
+                        text-align: center;
+                    }
+                }
+
+                &.show {
+                    display: block;
+                }
+            }
+        }
+
+        // 간편 로그인
+        &__sns {
+            text-align: center;
+            padding: vw(30px 0 60px);
+            border-top: vw(2px) solid $grey200;
+
+            .sns {
+                &__title {
+                    margin-bottom: vw(30px);
+                    font-size: vw(26px);
+                    text-align: center;
+                }
+                
+                &__inner {
+                    font-size: 0;
+                }
+
+                &__button {
+                    display: inline-block;
+                    width: vw(96px);
+                    height: vw(96px);
+                    vertical-align: top;
+
+                    & + .sns__button {
+                        margin-left: vw(40px);
+                    }
+
+                    &.naver {
+                        background: url(../images/member/ico_login_sns-naver.png) no-repeat 0 0 / 100% auto;
+                    }
+
+                    &.kakao {
+                        background: url(../images/member/ico_login_sns-kakao.png) no-repeat 0 0 / 100% auto;
+                    }
+
+                    &.facebook {
+                        background: url(../images/member/ico_login_sns-facebook.png) no-repeat 0 0 / 100% auto;
+                    }
+
+                    &.apple {
+                        background: url(../images/member/ico_login_sns-apple.png) no-repeat 0 0 / 100% auto;
+                    }
+
+                    &.google {
+                        .abcRioButton {
+                            overflow: visible !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                            background: url(../images/member/ico_login_sns-google.png) no-repeat center center/ 100% auto;
+                            box-shadow: 0 0 0 0 !important;
+                            
+                            svg {
+                                display: none;    
+                            }
+                            
+                            span {
+                                font-size: 0 !important;
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+    }
+}

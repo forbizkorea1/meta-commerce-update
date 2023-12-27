@@ -3,7 +3,7 @@
 		padding-bottom:vw(80px);
 
 		.cont__title {
-			border-bottom: 1px solid $white4;
+			border-bottom: 1px solid $grey200;
 		}
 
 		.input-comnum {
@@ -23,8 +23,8 @@
 
 			&__hyphen {
 				position: relative;
-				border-top: 1px solid $white5;
-				border-bottom: 1px solid $white5;
+				border-top: 1px solid $grey400;
+				border-bottom: 1px solid $grey400;
 				width: vw(8px);
 				height: vw(90px);
 
@@ -33,7 +33,7 @@
 					position: absolute;
 					top: vw(45px);
 					width: vw(8px);
-					border-top: 1px solid $textGrey2;
+					border-top: 1px solid $grey600;
 					content: "";
 				}
 			}
@@ -61,7 +61,7 @@
 		.auth-company {
 			.auth-area {
 				.cont__title {
-					border-bottom: vw(2px) solid #DDD;
+					border-bottom: vw(2px) solid $grey200;
 				}
 			}
 
@@ -75,7 +75,7 @@
 					justify-content: space-between;
 					align-items: center;
 					width: vw(490px);
-					border: vw(2px) solid #ddd;
+					border: vw(2px) solid $grey200;
 				}
 				
 				&__input {
@@ -89,7 +89,7 @@
                     flex: vw(0 0 8px);
                     width: vw(8px);
                     height: vw(2px);
-                    background: #999;
+                    background: $grey600;
                     font-size: 0;
                 }
 
@@ -118,7 +118,7 @@
 						width: 100% !important;
 						height: vw(160px);
 						margin-bottom: vw(20px);
-						border: vw(2px) solid $textGrey2;
+						border: vw(2px) solid $grey600;
 						text-align: center;
 		
 						&__text {
@@ -145,14 +145,14 @@
 						}
 
 						&:disabled {
-							background-color: $white1;
+							background-color: $bg_grey50;
 						}
 					}
 		
 					.sub-txt {
 						position: relative;
 						padding-left: vw(15px);
-						color: $textGrey;
+						color: $grey800;
 						font-size: vw(22px);
 						line-height: vw(32px);
 			
@@ -164,7 +164,7 @@
 							left: 0;
 							width: vw(4px);
 							height: vw(4px);
-							background: $textGrey2;
+							background: $grey600;
 							border-radius: 100%;
 						}
 			
@@ -199,14 +199,14 @@
 	// .auth-basic,
 	// .auth-company {
 	// 	.term-list {
-	// 		.fb__comm__checkbox {
+	// 		.fb__checkbox {
 	// 			span {
-	// 				color: #111;
+	// 				color: $black;
 	// 			}
 	// 		}
 
 	// 		&.all {
-	// 			.fb__comm__checkbox {
+	// 			.fb__checkbox {
 	// 				span {
 	// 					font-weight: 600;
 	// 				}
@@ -215,9 +215,9 @@
 	// 	}
 
 	// 	.marketing-wrap {
-	// 		.fb__comm__checkbox {
+	// 		.fb__checkbox {
 	// 			span {
-	// 				color: #111;
+	// 				color: $black;
 	// 			}
 	// 		}
 	// 	}

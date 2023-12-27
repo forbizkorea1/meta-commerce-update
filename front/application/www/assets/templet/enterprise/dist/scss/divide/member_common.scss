@@ -6,7 +6,7 @@
             position: relative;
             margin-bottom: 40px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #111;
+            border-bottom: 1px solid $black;
             @extend %clear;
 
             .breadcrumb {
@@ -15,7 +15,7 @@
                 bottom: 30px;
                 font-size: 16px;
                 font-weight:600;
-                color: #111;
+                color: $black;
 
                 &__num {
                     display: inline-block;
@@ -24,7 +24,7 @@
                 }
 
                 &__all {
-                    color: $gray;
+                    color: $grey600;
                     font-weight: 400;
                 }
             }
@@ -39,7 +39,7 @@
                 font: {
                     size: 20px;
                 };
-                color: #111;
+                color: $black;
             }
 
             .certify-box {
@@ -54,10 +54,10 @@
                     height: 110px;
                     margin: 0 10px;
                     padding-top: 33px;
-                    background: #fff;
-                    border: 1px solid #DDD;
+                    background: $white;
+                    border: 1px solid $grey200;
                     font-size: 0;
-                    color: #111;
+                    color: $black;
                     text-align: center;
                     vertical-align: top;
                     &:before {
@@ -83,7 +83,7 @@
 
 
                     &.success {
-                        color: $gray;
+                        color: $grey600;
                         
                         &:before {
                             background-position: -104px -296px;
@@ -99,7 +99,7 @@
                     width: 340px;
                     margin: 10px auto 0;
                     font-size: 13px;
-                    color: #666;
+                    color: $grey800;
                     line-height: 20px;
                 }
             }
@@ -107,7 +107,7 @@
 
         &__title {
             font-size: 40px;
-            color: #111;
+            color: $black;
             text-align: center;
         }
 
@@ -121,7 +121,7 @@
                 position: relative;
                 float: left;
                 width: calc(100% / 4);
-                color: #666;
+                color: $grey800;
                 text-align: center;
 
                 &__inner {
@@ -233,7 +233,7 @@
             &__title {
                 width: 680px;
                 margin: 0 auto 15px;
-                color : #111;
+                color : $black;
                 font : {
                     size : 20px;
                     weight : bold;
@@ -256,13 +256,13 @@
                     size: 22px;
                     weight: 600;
                 };
-                color: #111;
+                color: $black;
             }
 
             span {
                 float: right;
                 font-size: 14px;
-                color: #666;
+                color: $grey800;
 
                 em {
                     display: inline-block;
@@ -285,7 +285,7 @@
                 size: 14px;
                 weight: 500;
             };
-            color: #111;
+            color: $black;
             letter-spacing: -2px;
 
             span {
@@ -315,22 +315,22 @@
         .agree-area {
             margin-bottom: 20px;
             border: {
-                top: 2px solid #111;
-                bottom: 1px solid #e8e8e8;
+                top: 2px solid $black;
+                bottom: 1px solid $grey100;
             };
 
             .wrap-chk-all {
                 padding: 25px 20px;
-                border-bottom: 1px solid #111;
+                border-bottom: 1px solid $black;
                 font-size: 18px;
-                color: #111;
+                color: $black;
 
-                .fb__comm__checkbox span {
+                .fb__checkbox span {
                     font: {
                         size: 18px;
                         weight: 600;
                     };
-                    color: #111;
+                    color: $black;
                 }
             }
     
@@ -344,22 +344,22 @@
                 }
 
                 & + .wrap-terms {
-                    border-top: 1px solid #e8e8e8;
+                    border-top: 1px solid $grey100;
                 }
     
                 &__title {
                     position: relative;
                     margin-top: 0;
                     padding: 25px 20px;
-                    color: #111;
+                    color: $black;
                     font-size: 15px;
                     cursor: pointer;
 
-                    .fb__comm__checkbox span {
+                    .fb__checkbox span {
                         font: {
                             size: 15px;
                         };
-                        color: #111;
+                        color: $black;
                     }
 
                     &:after {
@@ -382,9 +382,9 @@
                     width: 100%;
                     max-height: 160px;
                     padding: 20px;
-                    background: #f8f8f8;
-                    border-top: 1px solid #e8e8e8;
-                    color: #666;
+                    background: $bg_grey50;
+                    border-top: 1px solid $grey100;
+                    color: $grey800;
                     font-size:14px;
                     line-height: 20px;
                     word-break: break-all;
@@ -402,14 +402,14 @@
 
         .agree-desc {
             font-size: 13px;
-            color: #666;
+            color: $grey800;
             line-height: 20px;
         }
 
         .join-end {
             width: 100%;
             padding: 50px 0 70px;
-            border-bottom: 1px solid #e8e8e8;
+            border-bottom: 1px solid $grey100;
             //background: url(../images/member/ico_member_success-check.png) no-repeat 50% 30px;
             text-align: center;
 
@@ -430,7 +430,7 @@
             .input-form__content-box {
                 margin: 0;
                 padding: 30px 0;
-                border-bottom: 1px solid #E8E8E8;
+                border-bottom: 1px solid $grey100;
             }
         }
     }

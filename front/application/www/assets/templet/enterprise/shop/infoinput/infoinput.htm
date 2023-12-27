@@ -33,7 +33,7 @@
                         {? !empty(mainPayMethodArray)}
                         {@ mainPayMethodArray}
                         <li class="payment__method__list">
-                            <label for="pay-method-{.value_}" class="fb__comm__radio">
+                            <label for="pay-method-{.value_}" class="fb__radio">
                                 <input type="radio" name="devPaymentMethod" value="{.value_}" id="pay-method-{.value_}">
                                 <span>{mainPayMethod[.value_]}</span>
                             </label>
@@ -44,7 +44,7 @@
                         {? !empty(simplePayMethodArray)}
                         {@ simplePayMethodArray}
                         <li class="payment__method__list {? isset(simpleClassArray[.value_])}{simpleClassArray[.value_]}{/}">
-                            <label for="pay-method-{.value_}" class="fb__comm__radio">
+                            <label for="pay-method-{.value_}" class="fb__radio">
                                 <input type="radio" name="devPaymentMethod" value="{.value_}" id="pay-method-{.value_}">
                                 <span>{simplePayMethod[.value_]}</span>
                             </label>
@@ -54,7 +54,7 @@
                         <!-- 네이버 페이 직연동-->
                         {? naverpay_pg_service_use == 'Y'}
                         <li class="payment__method__list npay">
-                            <label for="pay-method-{c.ORDER_METHOD_NPAY}" class="fb__comm__radio">
+                            <label for="pay-method-{c.ORDER_METHOD_NPAY}" class="fb__radio">
                                 <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_NPAY}"
                                        id="pay-method-{c.ORDER_METHOD_NPAY}">
                                 <span>{=trans('Npay')}</span>
@@ -65,7 +65,7 @@
                         <!-- 페이코 직연동-->
                         {? payco_service_use == 'Y'}
                         <li class="payment__method__list payco">
-                            <label for="pay-method-{c.ORDER_METHOD_PAYCO}" class="fb__comm__radio">
+                            <label for="pay-method-{c.ORDER_METHOD_PAYCO}" class="fb__radio">
                                 <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_PAYCO}"
                                        id="pay-method-{c.ORDER_METHOD_PAYCO}">
                                 <span>{=trans('PAYCO')}</span>
@@ -76,7 +76,7 @@
                         <!-- 토스 직연동-->
                         {? toss_service_use == 'Y'}
                         <li class="payment__method__list">
-                            <label for="pay-method-{c.ORDER_METHOD_TOSS}" class="fb__comm__radio">
+                            <label for="pay-method-{c.ORDER_METHOD_TOSS}" class="fb__radio">
                                 <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_TOSS}"
                                        id="pay-method-{c.ORDER_METHOD_TOSS}">
                                 <span>{=trans('TOSS')}</span>
@@ -87,7 +87,7 @@
                         <!-- 카카오페이 직연동-->
                         {? kakaopay_service_use == 'Y'}
                         <li class="payment__method__list kakao">
-                            <label for="pay-method-{c.ORDER_METHOD_KAKAOPAY}" class="fb__comm__radio">
+                            <label for="pay-method-{c.ORDER_METHOD_KAKAOPAY}" class="fb__radio">
                                 <input type="radio" name="devPaymentMethod" value="{c.ORDER_METHOD_KAKAOPAY}"
                                        id="pay-method-{c.ORDER_METHOD_KAKAOPAY}">
                                 <span>{=trans('카카오페이')}</span>
@@ -265,7 +265,7 @@
                             <!-- 약관 전체동의 -->
                             <summary class="agree__all">
                                 <p class="agree__all__title">{=trans('구매동의 및 결제대행 서비스 이용약관 등에 <br> 모두 동의하십니까?')}</p>
-                                <label class="fb__comm__checkbox">
+                                <label class="fb__checkbox">
                                     <input type="checkbox" id="all_terms_check" class="js__check__all">
                                     <span>{=trans('모두 동의합니다.')}</span>
                                 </label>
@@ -274,7 +274,7 @@
                             <!-- 개별 약관동의 -->
                             <div class="agree__each">
                                 <div class="agree__each__box division">
-                                    <label class="fb__comm__checkbox">
+                                    <label class="fb__checkbox">
                                         <input type="checkbox" id="area-terms-1" class="js__check__each devTerms"
                                                name="terms-1" title="{=trans('구매에 동의')}">
                                         <span>
@@ -285,7 +285,7 @@
                                 </div>
 
                                 <div class="agree__each__box">
-                                    <label class="fb__comm__checkbox">
+                                    <label class="fb__checkbox">
                                         <input type="checkbox" id="area-terms-2" class="js__check__each devTerms"
                                                name="terms-2" title="{=trans('개인정보 수집 및 이용 동의')}">
                                         <span>{=trans('개인정보 수집 및 이용 동의')}</span>
@@ -295,7 +295,7 @@
                                 </div>
 
                                 <div class="agree__each__box">
-                                    <label class="fb__comm__checkbox">
+                                    <label class="fb__checkbox">
                                         <input type="checkbox" id="area-terms-3" class="js__check__each devTerms"
                                                name="terms-3" title="{=trans('개인정보 취급 위탁 동의')}">
                                         <span>{=trans('개인정보 취급 위탁 동의')}</span>
@@ -306,7 +306,7 @@
 
                                 {? isThirdBool}
                                 <div class="agree__each__box">
-                                    <label class="fb__comm__checkbox">
+                                    <label class="fb__checkbox">
                                         <input type="checkbox" id="area-terms-4" class="js__check__each devTerms"
                                                name="terms-4" title="{=trans('개인정보 제 3자 정보 제공 동의')}">
                                         <span>{=trans('개인정보 제 3자 정보 제공 동의')}</span>
@@ -319,7 +319,7 @@
 
                                 {? !layoutCommon.isLogin}
                                 <div class="agree__each__box">
-                                    <label class="fb__comm__checkbox">
+                                    <label class="fb__checkbox">
                                         <input type="checkbox" id="area-terms-nomember" class="js__check__each devTerms"
                                                name="terms-nomember" value="30" title="{=trans('비회원 구매 이용 약관')}"
                                                devvalidation="{&quot;required&quot;:true,&quot;requiredMessageTag&quot;:&quot;infoinput.paymentRequest.validation.fail.terms&quot;}">

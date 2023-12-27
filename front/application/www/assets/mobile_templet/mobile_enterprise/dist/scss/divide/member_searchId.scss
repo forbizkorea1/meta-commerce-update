@@ -15,7 +15,7 @@
 					display: inline-block;
 					position: relative;
 					padding-right: vw(15px);
-					color: #111;
+					color: $black;
 					font: {
 						size: vw(26px);
 						weight: 600;
@@ -51,7 +51,7 @@
                     }
 
                     span {
-                        color: #666;
+                        color: $grey800;
                     }
 				}
 			}
@@ -63,9 +63,9 @@
 					width: 100%;
 					height: vw(160px);
 					margin-top: vw(50px);
-					border: vw(2px) solid #CCC;
+					border: vw(2px) solid $grey400;
 					font-size: vw(26px);
-					color: $textGrey;
+					color: $grey800;
 					text-align: center;
 
 					&:before {
@@ -97,7 +97,7 @@
 						position: relative;
 						margin-top: vw(6px);	
 						padding-left: vw(12px);					
-						color: #999;
+						color: $grey600;
 						font-size: vw(24px);
 						line-height: vw(36px);
 						letter-spacing: vw(-1.2px);
@@ -107,7 +107,7 @@
 						}
 
 						strong {
-							color: #111;
+							color: $black;
 							font-weight: 400;
 						}
 
@@ -118,7 +118,7 @@
 							left: 0;
 							width: vw(4px);
 							height: vw(4px);
-							background: #666;
+							background: $grey800;
 							border-radius: 50%;
 						}
 					}
@@ -139,7 +139,7 @@
 			justify-content: space-between;
 			align-items: center;
 			width: 100%;
-			border: vw(2px) solid #DDD;
+			border: vw(2px) solid $grey200;
 		}
 
 		&__input {
@@ -177,7 +177,7 @@
 		}
 
 		&__desc {
-			color: #111;
+			color: $black;
 			margin-top: vw(30px);
 			font-size: vw(26px);
 			line-height: vw(40px);
@@ -197,17 +197,17 @@
 			width: 50%;
 			height: 100%;
 			float: left;
-			border: vw(2px) solid #DDD;
-			color: $textGrey2;
+			border: vw(2px) solid $grey200;
+			color: $grey600;
 			font-size: vw(26px);
 			text-align: center;
 			line-height: vw(86px);
 		}
 
 		a.active {
-			border-color: $textGrey;
-			background: $textGrey;
-			color: #fff;
+			border-color: $grey800;
+			background: $grey800;
+			color: $white;
 			font-weight: 600;
 		}
 
@@ -229,7 +229,7 @@
 	.join-title-desc {
 		font-size: vw(28px);
 		text-align: center;
-		color: #111;
+		color: $black;
 		line-height: vw(36px);
 
 		&.f30 {
@@ -245,7 +245,7 @@
 
 	.sub-desc {
 		font-size: vw(24px);
-		color: $textGrey2;
+		color: $grey600;
 		strong {
 			color: $textBlack;
 		}
@@ -260,7 +260,7 @@
 
 		.inner-box {
 			width: calc((100% - #{vw(20px)}) / 2 );
-			border: 1px solid $white5;
+			border: 1px solid $grey400;
 			float: left;
 			padding: vw(60px) 0;
 			text-align: center;
@@ -281,7 +281,7 @@
 			p {
 				font-size: vw(28px);
 				font-weight: 600;
-				color: #111;
+				color: $black;
 				margin-bottom: vw(20px);
 				&:before {
 					content: '';
@@ -309,7 +309,7 @@
 
 			span {
 				font-size: vw(20px);
-				color: $textGrey;
+				color: $grey800;
 			}
 		}
 	}

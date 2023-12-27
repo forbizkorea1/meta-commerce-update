@@ -51,6 +51,11 @@ var devOrderListOrderCancelObj = {
             } else if (selector == '#CC') {
                 $('#devSearchDateType').val('cc_date');
             }
+
+            if($("#devFixMenuBtn").hasClass("fb__fixemenu-btn--active")) {
+                $("#devFixMenuBtn").trigger("click");
+            }
+
             $(document).scroll(); //일괄변경 스크롤 이벤트 줘야지 노출됨
             self.grid.formObj.submit();
         });

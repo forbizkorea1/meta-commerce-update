@@ -1,0 +1,70 @@
+.fb {
+    /*회원탈퇴*/
+    .wrap-mypage.secede {
+        width: vw(690px);
+        margin: 0 auto;
+        padding-top: vw(60px);
+
+        textarea {
+            width: 100%;
+            height: vw(400px);
+        }
+    }
+
+    .secede {
+        &-title {
+            text-align: center;
+            font: {
+                size: vw(30px);
+                weight: 600;
+            };
+            color: $black;
+            line-height: vw(40px);
+        }
+
+        &-box {
+            margin: vw(35px 0 60px);
+            padding: vw(50px 30px);
+            border: 1px solid $grey400;
+    
+            dl {
+                + {
+                    dl {
+                        margin-top: vw(40px);
+                    }
+                }
+            }
+    
+            dt {
+                font-size: vw(24px);
+                color: $black;
+                line-height: vw(30px);
+            }
+    
+            dd {
+                position: relative;
+                margin-top: vw(10px);
+                padding-left: vw(20px);
+                font-size: vw(22px);
+                line-height: vw(26px);
+    
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+                    top: vw(12px);
+                    width: vw(4px);
+                    height: vw(4px);
+                    background: $pcolor;
+                    border-radius: vw(10px);
+                }
+            }
+        }
+
+        .wrap-input-form {
+            padding-top: 0;
+            margin-bottom: vw(60px);
+        }
+    }
+}

@@ -1,0 +1,376 @@
+.fb {
+    &__mytop {
+        .mytop {
+            &__inner {
+                position: relative;
+                padding: vw(40px 30px 40px);
+                background: $pcolor;
+        
+                div[class^="row"] {
+                    width: 100%;
+                    overflow: hidden;
+                }
+            }
+
+            &__user {
+                &__name {
+                    margin-right: vw(16px);
+                    color: $white;
+                    font: {
+                        size: vw(44px);
+                        weight: bold;
+                    }
+                    line-height: vw(64px);
+                }
+    
+                &__grade {
+                    position: relative;
+                    padding-right: vw(35px);
+                    font-size: vw(28px);
+                    color: $white;
+                    line-height: vw(40px);
+    
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        width: vw(40px);
+                        height: vw(40px);
+                        background: url("../images/mypage/icon-mypage-grade-arrow.png") no-repeat 0 0 / vw(40px 40px);
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            &__benefit {
+                position: relative;
+                margin-top: vw(10px);
+                font-size: 0;
+
+                &-box {
+                    display: inline-block;
+                    position: relative;
+                    margin-left: vw(78px);
+                    padding-left: vw(80px);
+                    font-size: 0;
+                    text-align: center;
+                    vertical-align: middle;
+                    
+                    //보더
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: vw(2px);
+                        height: vw(36px);
+                        background: rgba(255, 255, 255, .2);
+                        transform: translate(0, -50%);
+                    }
+
+                    &:first-child {
+                        margin-left: 0;
+                        padding-left: 0;
+
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                &__name {
+                    position: relative;
+                    display: inline-block;
+                    margin-right: vw(18px);
+                    font: {
+                        size: vw(24px);
+                        weight: 200;
+                    }
+                    color: #ffc097;
+                    line-height: vw(34px);
+                    vertical-align: text-bottom;
+                   
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                    }
+
+                    &.mytop__mileage {
+                        position: relative;
+                        padding-left: vw(40px);
+
+                        &:after {
+                            width: vw(32px);
+                            height: vw(32px);
+                            background: url("../images/mypage/icon-mypage-mileage.png") no-repeat 0 0 / 100% auto;
+                        }
+                    }
+
+                    &.mytop__coupon {
+                        position: relative;
+                        padding-left: vw(55px);
+
+                        &:after {
+                            width: vw(46px);
+                            height: vw(33px);
+                            background: url("../images/mypage/icon-mypage-coupon.png") no-repeat 0 0 / 100% auto;
+                        }
+                    }
+                }
+
+                &__count {
+                    display: inline-block;
+                    font: {
+                        size: vw(52px);
+                        weight: 600;
+                    };
+                    color: $white;
+                    line-height: vw(68px);
+                }
+            }
+        }
+    }
+
+    .mypage-top {
+
+        .mypage {
+
+            &__service {
+
+                &__link {
+                    display: inline-block;
+                    width: 50%;
+                    text-align: center;
+                    vertical-align: middle;
+
+                    &:first-child {
+                        padding-left: 0;
+                    }
+
+                    dl {
+                        dt {
+                            position: relative;
+                            display: inline-block;
+                            margin-right: vw(20px);
+                            padding-left: vw(40px);
+                            color: #ffc097;
+                            font: {
+                                size: vw(24px);
+                                weight: 400;
+                            }
+                            line-height: vw(34px);
+                            text-align: left;
+                            vertical-align: middle;
+
+                            &.mileage {
+
+                            }
+
+                            &.coupon {
+                                padding-left: vw(58px);
+
+ 
+                            }
+                       }
+
+                       dd {
+                            display: inline-block;
+                            color: $white;
+                            font: {
+                                size: vw(52px);
+                                weight: 600;
+                            };
+                            line-height: vw(68px);
+                            text-align: left;
+                            vertical-align: middle;
+                       }
+                    }
+                }
+            }
+        }
+
+        &__btn {
+            &__benefits {
+                background: #ff8533;
+                border-radius: vw(25px);
+                color: $white;
+
+                &::after {
+                    background: url("../images/mypage/icon-benefits-more.png") no-repeat center center/vw(184px) vw(50px);
+                }
+            }
+        }
+    }
+
+    // 주문배송 조회 밑에 있는 취소/교환/반품
+    .mypage-overview {
+        margin-top: vw(40px);
+        padding: vw(0 30px);
+
+        &__title {
+            color: $black;
+            font: {
+                size: vw(32px);
+                weight: 600;
+            }
+            line-height: vw(48px);
+        }
+
+        .overview {
+            &__box {
+                margin-top: vw(40px);
+                font-size: 0;
+            }
+
+            &__list {
+                display: inline-block;
+                vertical-align: top;
+
+                &:not(:first-child) {
+                    margin-left: vw(44px);
+                }
+
+                &__circle {
+                    display: block;
+                    width: vw(100px);
+                    height: vw(100px);
+                    margin: 0 auto;
+                    background: #eee;
+                    border-radius: 50%;
+                    font-size: vw(44px);
+                    color: $grey600;
+                    text-align: center;
+                    line-height: vw(100px);
+
+                    &.active {
+                        color: $black;
+                    }
+                }
+
+                &__txt {
+                    margin-top: vw(10px);
+                    font-size: vw(24px);
+                    color: $grey600;
+                    text-align: center;
+                    line-height: vw(34px);
+                }
+            }
+
+            &__bottom {
+                display: table;
+                width: 100%;
+                height: vw(80px);
+                margin-top: vw(42px);
+                border-top: vw(2px) solid #eee;
+
+                &__list {
+                    display: table-cell;
+                    position: relative;
+                    width: calc(100% / 3);
+                    font-size: 0;
+                    text-align: center;
+                    vertical-align: middle;
+    
+                    &:before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: vw(30px);
+                        margin: vw(25px 0);
+                        border-left: vw(2px) solid #eee;
+                    }
+    
+                    &:first-child {
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                //취소,교환,반품
+                &__cancel {
+                    display: inline-block;
+                    margin-right: vw(5px);
+                    color: $grey800;
+                    font-size: vw(26px);
+                }
+
+                //숫자(갯수)
+                &__count {
+                    display: inline-block;
+                    color: $grey800;
+
+                    strong {
+                        font: {
+                            size: vw(28px);
+                            weight: 600;
+                        };
+                    }
+                }
+            }
+        }
+    }
+    
+    .mypage-menu {
+        padding: vw(0 30px);
+
+        dl {
+            margin-top: vw(30px);
+            
+            &:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            &:first-child {
+                margin-top: vw(20px);
+            }
+
+            dt {
+                height: vw(90px);
+                border-bottom: vw(2px) solid $black;
+                color: $black;
+                font: {
+                    size: vw(28px);
+                    weight: 600;
+                };
+                line-height: vw(90px);
+            }
+
+            dd {
+                position: relative;
+                padding: vw(30px 0);
+                border-bottom: vw(2px) solid #eee;
+                color: $grey800;
+                font-size: vw(28px);
+                line-height: vw(40px);
+
+                &:after {
+                    content: "";
+                    display: block;
+                    float: right;
+                    width: vw(40px);
+                    height: vw(40px);
+                    background: url("../images/mypage/icon-menu-more.png") no-repeat center center/vw(40px) vw(40px);
+                    margin-left: vw(10px);
+                }
+
+                &:empty {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

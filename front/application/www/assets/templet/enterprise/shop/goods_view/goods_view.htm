@@ -81,26 +81,7 @@
                             <button class="info__sns__btn btn-wish {? alreadyWish}on{/}" data-devWishBtn="{=pid}" type="button">{=trans('하트버튼')}</button>
                             <button class="info__sns__btn btn-link js__sns__btn--open" type="button">{=trans('링크복사')}</button>
 
-                            <div class="fb__sns__wrapper">
-                                <div class="fb__sns__header">
-                                    <span class="fb__sns__title">{=trans('공유하기')}</span>
-                                    <button class="fb__sns__close js__sns__btn--close">{=trans('닫기')}</button>
-                                </div>
-
-                                <div class="fb__sns__content">
-                                    <ul class="fb__sns__box">
-                                        <li class="fb__sns__list">
-                                            <button type="button" class="fb__sns__btn fb__sns__btn--kakao" devSnsShare="kakaotalk"></button>
-                                        </li>
-                                        <li class="fb__sns__list">
-                                            <button type="button" class="fb__sns__btn fb__sns__btn--facebook" devsnsshare="facebook"></button>
-                                        </li>
-                                        <li class="fb__sns__list">
-                                            <button type="button" class="fb__sns__btn fb__sns__btn--url" devsnsshare="url-copy"></button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            {= fb_widget('snsShareTooltip/snsShareTooltip')}
                         </div>
                     </div>
 
@@ -612,7 +593,7 @@
                             </li>
                             
                             {* list *}
-                            <li id="devPhotoReviewImageDetail" class="preview__list" data-bbsix="{[bbs_ix]}">
+                            <li id="devPhotoReviewImageDetail" class="preview__list js__photo__review" data-bbsix="{[bbs_ix]}">
                                 <a id="devPhotoReviewImgsContents">
                                     <figure class="preview__list__img">
                                         <img src="{layoutCommon.templetSrc}/images/common/loading.gif" data-src="{[thumb]}" alt="">

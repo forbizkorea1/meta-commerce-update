@@ -18,7 +18,7 @@ var devBookManageObj = {
         common.validation.set($('#devRecipient,#devZip,#devAddress1,#devAddress2,#devPcs1,#devPcs2,#devPcs3'), {'required': true});
     },
     initFormat: function () {
-        common.inputFormat.set($('#devRecipient,#devShippingName'), {'maxLength': 20});
+        common.inputFormat.set($('#devRecipient,#devShippingName,#devAddress2'), {'maxLength': 50});
         common.inputFormat.set($('#devPcs2,#devPcs3'), {'number': true, 'maxLength': 4});
         common.inputFormat.set($('#devTel2,#devTel3'), {'number': true, 'maxLength': 4});
     },

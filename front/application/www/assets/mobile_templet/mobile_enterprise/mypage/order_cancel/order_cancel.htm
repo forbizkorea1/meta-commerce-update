@@ -31,7 +31,7 @@
                         {? cancelOdIx != ''}
                         <!-- 부분취소 -->
                             <div class="claimCommon__allcheck">
-                                <label for="devOdIxAll" class="fb__comm__checkbox">
+                                <label for="devOdIxAll" class="fb__checkbox">
                                     <input type="checkbox" id="devOdIxAll" class="js__check__all">
                                     <span>{=trans('전체선택')}</span>
                                 </label>
@@ -40,7 +40,7 @@
                             <ul class="fb__shopCommon__item">
                                 {@ .value_}
                                 <li class="item-info">
-                                    <label class="item-info__checkbox fb__comm__checkbox">
+                                    <label class="item-info__checkbox fb__checkbox">
                                         <input type="checkbox" class="devOdIxCls js__check__each" id="devOdIx{..od_ix}" name="checkOdIx[]" value="{..od_ix}" {? ..od_ix == cancelOdIx}checked{/}>
                                         <span></span>
                                     </label>

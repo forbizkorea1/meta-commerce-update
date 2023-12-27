@@ -49,7 +49,7 @@
                 <dl>
                     <dt>{=trans('이름')}</dt>
                     <dd>
-                        <input type="text" value="{name}" disabled>
+                        <input type="text" value="{name}" id="devFormatUserName" disabled>
                     </dd>
                 </dl>
 
@@ -57,7 +57,7 @@
                 <dl class="birth-area">
                     <dt>{=trans('생년월일')}</dt>
                     <dd>
-                        <input type="text" value="{birthday}"  disabled>
+                        <input type="text" value="{birthday}" id="devFromatBirthday" disabled>
                     </dd>
                 </dl>
 
@@ -68,21 +68,21 @@
                         <ul class="gender">
                             <li class="gender__list">
                                 <label>
-                                    <input type="radio" class="blind" name="sex" value="{=trans('남성')}" {? sex_div == 'M'} checked{/} disabled>
+                                    <input type="radio" class="blind devFromatBirthday" name="sex" value="{=trans('남성')}" {? sex_div == 'M'} checked{/} disabled>
                                     <span>{=trans('남성')}</span>
                                 </label>
                             </li>
 
                             <li class="gender__list">
                                 <label>
-                                    <input type="radio" class="blind" name="sex" value="{=trans('여성')}" {? sex_div == 'W'} checked{/} disabled>
+                                    <input type="radio" class="blind devFromatBirthday" name="sex" value="{=trans('여성')}" {? sex_div == 'W'} checked{/} disabled>
                                     <span>{=trans('여성')}</span>
                                 </label>
                             </li>
 
                             <li class="gender__list">
                                 <label>
-                                    <input type="radio" class="blind" name="sex" value="{=trans('기타')}" {? sex_div == 'D'} checked{/} disabled>
+                                    <input type="radio" class="blind devFromatBirthday" name="sex" value="{=trans('기타')}" {? sex_div == 'D'} checked{/} disabled>
                                     <span>{=trans('기타')}</span>
                                 </label>
                             </li>
@@ -111,12 +111,8 @@
                 <dl class="number-input">
                     <dt>{=trans('휴대폰 번호')} <em>*</em></dt>
                     <dd>
-                        <!--
-                            @TODO: 해당영역 커스텀 영역으로 쓰인데서 아래 조건 빼놓음. 추후 사용 시 select/input에 추가 필요
-                            {? useCertify == 'Y'}readonly{/}
-                        -->
                         <div class="fb__input__phone">
-                            <select class="fb__input__phone--01"  name="pcs1" id="devPcs1">
+                            <select class="fb__input__phone--01" id="devPcs1" {? useCertify == 'Y'}disabled{:}name="pcs1"{/}>
                                 <option value="010" {? pcs[0]=="010"}selected{/}>010</option>
                                 <option value="011" {? pcs[0]=="011"}selected{/}>011</option>
                                 <option value="016" {? pcs[0]=="016"}selected{/}>016</option>
@@ -126,11 +122,17 @@
                             </select>
 
                             <div class="fb__input__phone--box">
-                                <input type="number" class="fb__input__phone--02 js__input--onlyNumber" name="pcs2" id="devPcs2" value="{pcs[1]}" title="{=trans('휴대폰번호')}">
+                                <input type="number" class="fb__input__phone--02 js__input--onlyNumber" id="devPcs2" value="{pcs[1]}" title="{=trans('휴대폰번호')}" {? useCertify == 'Y'}readonly{:}name="pcs2"{/}>
                                 <span class="dash"></span>
-                                <input type="number" class="fb__input__phone--03 js__input--onlyNumber" name="pcs3" id="devPcs3" value="{pcs[2]}" title="{=trans('휴대폰번호')}">
+                                <input type="number" class="fb__input__phone--03 js__input--onlyNumber" id="devPcs3" value="{pcs[2]}" title="{=trans('휴대폰번호')}" {? useCertify == 'Y'}readonly{:}name="pcs3"{/}>
                             </div>
                         </div>
+
+                        <div class="fb__button">
+                            <button type="button" class="bg--666 size--full" id="devCertifyButton">{=trans('변경')}</button>
+                        </div>
+                        
+                        <p class="fb__profile__inquiry">{=trans('휴대폰 번호 변경을 원할 경우 변경 버튼을 선택하여 본인인증을 해 주세요.')}</p>
                     </dd>
                 </dl>
 
@@ -196,7 +198,7 @@
             <div class="terms__cont">
                 <div class="terms__marketing">
                     <div class="terms__marketing__box">
-                        <label class="fb__comm__checkbox">
+                        <label class="fb__checkbox">
                             <input type="checkbox" class="blind" id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/}>
                             <span>{=trans('마케팅 활용 동의')}({=trans('선택')})</span>
                         </label>
@@ -208,13 +210,13 @@
 
                 <div class="terms__details">
                     <div class="terms__details__check">
-                        <label class="fb__comm__checkbox">
+                        <label class="fb__checkbox">
                             <input type="hidden" id="devBeforeSmsValue" value="{sms}" />
                             <input type="checkbox" class="blind" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/}>
                             <span>{=trans('SMS 수신')}</span>
                         </label>
     
-                        <label class="fb__comm__checkbox">
+                        <label class="fb__checkbox">
                             <input type="hidden" id="devBeforeInfoValue" value="{info}" />
                             <input type="checkbox" class="blind" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40">
                             <span>{=trans('이메일 수신')}</span>

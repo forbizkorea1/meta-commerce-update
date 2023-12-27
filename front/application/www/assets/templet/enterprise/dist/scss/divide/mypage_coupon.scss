@@ -1,0 +1,243 @@
+.fb {
+    &__mypage-coupon {
+        // 쿠폰내역 테이블
+        .tab-control {
+            // 쿠폰내역 테이블 th 수정
+            .coupon-table {
+                th {
+                    height: 50px;
+                    padding: 0;
+                    font-weight: 400;
+                    color: $black;
+                    
+                    &:nth-child(5) {
+                        display: none;
+                    }
+                }
+            }
+
+            .table-default {
+                // 쿠폰내역 테이블 - 쿠폰명 
+                strong {
+                    padding-left: 4px;
+                    font-weight: 400;
+                }
+                
+                //쿠폰내역 테이블 - 할인액/할인율
+                td.coupon__discount {
+                    line-height: 20px;
+                }
+
+                td {
+                    line-height: 20px;
+
+                    &:nth-child(5) {
+                        display: none;
+                    }
+                }
+            }
+
+            //쿠폰내역 테이블 탭 클릭하면 컬러변경
+            .tab-link {
+                li {
+                    &.active {
+                        a {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .fb__mypage__title {
+            &-top {
+                padding-bottom: 10px;
+                border-bottom: 2px solid $black;
+                color: $black;
+                font: {
+                    size: 20px;
+                    weight: 600;
+                };
+                line-height: 24px;
+            }
+
+            &-bottom {
+                display: inline-block;
+                margin-top: 50px;
+                padding-bottom: 10px;
+                text-align: left;
+                color: $black;
+                font: {
+                    size: 20px;
+                    weight: 400;
+                };
+                line-height: 26px;
+            }
+        }
+
+        .table-default td.coupon,
+        .coupon {
+            &__btn {
+                &--target {
+                    border-bottom: 1px solid $grey800;
+                    color: $grey800;
+                    font-size: 14px;
+                    vertical-align: middle;
+
+                    &::after {
+                        display: inline-block;
+                        width: 6px;
+                        height: 9px;
+                        margin-left: 4px;
+                        background: url(../images/common/btn-arrow-view.png) no-repeat center center;
+                        vertical-align: unset;
+                        content: "";
+                    }
+                }
+            }
+
+            &__discount {
+                color: $pcolor;
+                font-size: 15px;
+                font-weight: 600;
+                
+                em {
+                    font-family: $font_n;
+                }
+
+                &__unit{
+                    margin-left:-3px;
+                }
+
+            }
+        }
+        
+        // 마이페이지 쿠폰 탑 - 쿠폰,등록 영역
+        .coupon {
+            &__wrapper {
+                position: relative;
+                border-bottom: 1px solid $grey200;
+                font-size: 0;
+    
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 1px;
+                    height: 130px;
+                    margin-top: -65px;
+                    border-right: 1px dotted $grey100;
+                }
+    
+                //사용가능 쿠폰
+                .coupon {
+                    &__use {
+                        height: 150px;
+                        text-align: center;
+
+                        &:after {
+                            content: "";
+                            display: inline-block;
+                            width: 0;
+                            height: 100%;
+                            vertical-align: middle;
+                        }
+                    }
+    
+                    &__tit {
+                        display: inline-block;
+                        position: relative;
+                        font-size: 18px;
+                        line-height: 26px;
+                        vertical-align: middle;
+        
+                        &:after {
+                            display: block;
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: -45px;
+                            width: 40px;
+                            height: 40px;
+                            background: url(../images/mypage/icon-mypage_top-coupon.png) no-repeat 0 0 / 100% auto;
+                            transform: translateY(-50%);
+                        }
+                    }
+        
+                    &__count {
+                        margin-left: 12px;
+                        font: {
+                            size: 35px;
+                            weight: 600;
+                        };
+                        color: $pcolor;
+                        line-height: 46px;
+                        vertical-align: middle;
+                    }
+                }
+    
+                //쿠폰 등록하기
+                .registration {
+                    padding-left: 30px;
+    
+                    &__btn {
+                        &--submit {
+                            margin-left: 10px;
+                            width: 70px;
+                            height: 40px;
+                            padding: 0;
+                            color: $white;
+                            font-size: 14px;
+                            line-height: 26px;
+                            vertical-align: middle;
+                        }
+                    }
+        
+                    &__area {
+                        font-size: 0;
+                    }
+        
+                    &__title {
+                        display: block;
+                        margin-bottom: 11px;
+                        color: #333;
+                        font-size: 18px;
+                        font-weight: 600;
+                        line-height: 26px;
+                        vertical-align: middle;
+                    }
+        
+                    &__number {
+                        display: inline-block;
+                        width: 350px;
+                        color: $grey600;
+                        font-size: 13px;
+                        vertical-align: middle;
+                    }
+        
+                    &__desc {
+                        display: block;
+                        margin-top: 15px;
+                        color: $grey800;
+                        font-size: 14px;
+        
+                        &--fail {
+                            margin-top: 10px;
+                            color: $pcolor;
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+
+            &__box {
+                display: inline-block;
+                position: relative;
+                width: 50%;
+                vertical-align: middle;
+            }
+        }
+    }
+}

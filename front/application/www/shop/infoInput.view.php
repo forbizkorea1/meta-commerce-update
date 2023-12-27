@@ -253,20 +253,16 @@ if ($isLogin) {
         $maxUseMileage = $mileageTargetPrice;
     }
 
-    $mileageRateRound = 0;
-    $unitPosition = 1;
+    $unitPosition = 0;
     switch ($mileageModel->getConfig('use_unit')) {
         case '1':
-            $mileageRateRound = 0;
-            $unitPosition = 1;
+            $unitPosition = 0;
             break;
         case '10':
-            $mileageRateRound = -1;
-            $unitPosition = 2;
+            $unitPosition = 1;
             break;
         case '100':
-            $mileageRateRound = -2;
-            $unitPosition = 3;
+            $unitPosition = 2;
             break;
     }
 

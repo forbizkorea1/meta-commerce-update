@@ -256,7 +256,7 @@
             <div class="terms__cont">
                 <div class="terms__marketing">
                     <div class="terms__marketing__box">
-                        <label class="fb__comm__checkbox">
+                        <label class="fb__checkbox">
                             <input type="checkbox" class="blind" id="devAgreeTerm" name="policy[]" value="{policyData['marketing']['ix']}" {? sms == '1' || info == '1'}checked{/}>
                             <span>{=trans('마케팅 활용 동의')}({=trans('선택')})</span>
                         </label>
@@ -268,12 +268,12 @@
 
                 <div class="terms__details">
                     <div class="terms__details__check">
-                        <label class="fb__comm__checkbox">
+                        <label class="fb__checkbox">
                             <input type="checkbox" class="blind" id="devAgreeSms" name="sms" value="1" title="SMS" {? sms == '1'}checked{/}>
                             <span>{=trans('SMS 수신')}</span>
                         </label>
     
-                        <label class="fb__comm__checkbox">
+                        <label class="fb__checkbox">
                             <input type="checkbox" class="blind" id="devAgreeEmail" name="email" value="1" title="E-Mail" {? info == '1'}checked{/} class="mal40">
                             <span>{=trans('이메일 수신')}</span>
                         </label>

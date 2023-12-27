@@ -34,7 +34,7 @@
             .write-guide {
                 margin-top: vw(10px);
                 font-size: vw(24px);
-                color: #999;
+                color: $grey600;
                 line-height: vw(36px);
             }
         }
@@ -56,7 +56,7 @@
                 display: flex;
                 justify-content: space-between;
                 height: 100%;
-                border: vw(2px) solid #DDD;
+                border: vw(2px) solid $grey200;
 
                 input{
                     border: none;
@@ -81,11 +81,10 @@
                     }
 
                     &__name {
-                        display: flex;
-                        align-items: center;
-
+                        padding-right: vw(180px);
                         .name {
-                            display: block;
+                            display: inline-block;
+                            vertical-align: middle;
                             font: {
                                 size: vw(32px);
                                 weight: 600;
@@ -94,16 +93,17 @@
                         }
 
                         .default-delivery {
-                            display: block;
+                            display: inline-block;
                             width: vw(116px);
                             height: vw(36px);
                             margin-left: vw(12px);
-                            border: vw(2px) solid #3f8ef7;
+                            border: vw(2px) solid $blue;
                             border-radius: vw(18px);
                             font-size: vw(20px);
-                            color: #3f8ef7;
+                            color: $blue;
                             line-height: vw(32px);
                             text-align: center;
+                            vertical-align: middle;
                         }
                     }
 
@@ -117,7 +117,7 @@
                     &__tel {
                         margin-top: vw(20px);
                         font-size: vw(28px);
-                        color: #666;
+                        color: $grey800;
                         line-height: vw(34px);
                     }
                 }
@@ -143,9 +143,9 @@
                             width: vw(200px);
                             height: vw(90px);
                             margin-left: vw(20px);
-                            background: #666;
+                            background: $grey800;
                             font-size: vw(26px);
-                            color: #FFF;
+                            color: $white;
                         }
                     }
 
@@ -178,9 +178,9 @@
                 right: vw(30px);
                 width: vw(160px);
                 height: vw(60px);
-                border: vw(2px) solid #DDD;
+                border: vw(2px) solid $grey200;
                 font-size: vw(24px);
-                color: #111;
+                color: $black;
             }
         }
 
@@ -241,7 +241,7 @@
                         &__title {
                             display: block;
                             font-size: vw(30px);
-                            color: #111;
+                            color: $black;
                         }
 
                         &__keep {
@@ -250,10 +250,10 @@
                             top: 0;
                             right: 0;
                             font-size: vw(26px);
-                            color: #666;
+                            color: $grey800;
 
                             em {
-                                color: #FF6600;
+                                color: $pcolor;
                             }
                         }
                     }
@@ -278,11 +278,11 @@
                             top: 50%;
                             right: vw(30px);
                             font-size: vw(28px);
-                            color: #111;
+                            color: $black;
                             transform: translate(0, -50%);
 
                             &.disabled {
-                                color: #999;
+                                color: $grey600;
                             }
                         }
                         .mileage-input {
@@ -290,7 +290,7 @@
                             width: 100%;
                             height: 12vw;
                             padding: 0 4vw;
-                            border: 0.26667vw solid #ddd;
+                            border: 0.26667vw solid $grey200;
                             &:after {
                                 content: "";
                                 display: block;
@@ -324,9 +324,9 @@
                         width: vw(200px);
                         height: vw(90px);
                         margin-left: vw(20px);
-                        border: vw(2px) solid #CCC;
+                        border: vw(2px) solid $grey400;
                         font-size: vw(28px);
-                        color: #111;
+                        color: $black;
                         line-height: vw(86px);
                         text-align: center;
                     }
@@ -339,7 +339,7 @@
                             margin-top: vw(12px);
                             padding-left: vw(15px);
                             font-size: vw(24px);
-                            color: #999;
+                            color: $grey600;
                             line-height: vw(36px);
                             word-break: keep-all;
     
@@ -352,7 +352,7 @@
                                 width: vw(4px);
                                 height: vw(4px);
                                 border-radius: 50%;
-                                background: #999;
+                                background: $grey600;
                             }
     
                             &:first-child {
@@ -377,7 +377,7 @@
 
                     dt {
                         font-size: vw(28px);
-                        color: #111;
+                        color: $black;
                         line-height: vw(44px);
                     }
 
@@ -386,7 +386,7 @@
                             size: vw(30px);
                             weight: 600;
                         };
-                        color: #111;
+                        color: $black;
                         line-height: vw(44px);
 
                         em {
@@ -402,7 +402,7 @@
 
                         dt {
                             font-size: vw(26px);
-                            color: #999;
+                            color: $grey600;
                             line-height: normal;
                         }
 
@@ -411,7 +411,7 @@
                                 size: vw(28px);
                                 weight: 400;
                             };
-                            color: #999;
+                            color: $grey600;
                             line-height: normal;
 
                             em {
@@ -427,7 +427,7 @@
 
                     &.total-price {
                         margin-top: vw(30px);
-                        border-top: vw(2px) solid #DDD;
+                        border-top: vw(2px) solid $grey200;
                         padding-top: vw(30px);
 
                         dt {
@@ -443,7 +443,7 @@
                                 size: vw(32px);
                                 weight: 800;
                             };
-                            color: #FF6600;
+                            color: $pcolor;
                             line-height: vw(64px);
 
                             em {
@@ -459,7 +459,7 @@
                 .mileage-save {
                     margin-top: vw(10px);
                     font-size: vw(28px);
-                    color: #666;
+                    color: $grey800;
                     line-height: vw(40px);
                     text-align: right;
                 }
@@ -493,9 +493,9 @@
                     a {
                         display: block;
                         height: vw(102px);
-                        border: vw(2px) solid #DDD;
+                        border: vw(2px) solid $grey200;
                         font-size: vw(28px);
-                        color: #111;
+                        color: $black;
                         line-height: vw(98px);
                         text-align: center;
 
@@ -522,8 +522,8 @@
 
                     &.on {
                         a {
-                            border: vw(2px) solid #FF6600;
-                            color: #FF6600;
+                            border: vw(2px) solid $pcolor;
+                            color: $pcolor;
                         }
                     }
                 }
@@ -537,7 +537,7 @@
                         margin-top: vw(12px);
                         padding-left: vw(15px);
                         font-size: vw(24px);
-                        color: #999;
+                        color: $grey600;
                         line-height: vw(36px);
                         word-break: keep-all;
 
@@ -550,7 +550,7 @@
                             width: vw(4px);
                             height: vw(4px);
                             border-radius: 50%;
-                            background: #999;
+                            background: $grey600;
                         }
 
                         &:first-child {
@@ -574,7 +574,7 @@
                 &__all {
                     margin-bottom: vw(34px);
                     
-                    .fb__comm__checkbox {
+                    .fb__checkbox {
                         span {
                             font: {
                                 size: vw(32px);
@@ -592,23 +592,23 @@
                     position: relative;
                     margin-top: vw(18px);
                     padding: vw(30px);
-                    background: #F8F8F8;
+                    background: $bg_grey50;
 
                     &:first-child {
                         margin-top: 0;
                     }
 
-                    .fb__comm__checkbox {
+                    .fb__checkbox {
                         span {
                             font-size: vw(26px);
-                            color: #666;
+                            color: $grey800;
                         }
 
                         .sub-txt {
                             display: block;
                             margin-top: vw(10px);
                             font-size: vw(22px);
-                            color: #999;
+                            color: $grey600;
                             line-height: vw(34px);
                         }
                     }
@@ -618,9 +618,9 @@
                         z-index: 1;
                         top: 50%;
                         right: vw(40px);
-                        border-bottom: vw(2px) solid #3f8ef7;
+                        border-bottom: vw(2px) solid $blue;
                         font-size: vw(24px);
-                        color: #3f8ef7;
+                        color: $blue;
                         transform: translate(0, -50%);
                     }
                 }
@@ -633,7 +633,7 @@
             z-index: 10;
             bottom: 0;
             width: 100%;
-            background: #FFF;
+            background: $white;
 
             button {
                 width: 100%;
@@ -677,217 +677,6 @@
         }
     }
 
-    // 배송지 관리 팝업(주문배송조회도 같이 사용)
-    .deliveryPopup {
-        .addressPop {
-            &__tab {
-                display: flex;                
-
-                &__list {
-                    width: calc(50% + 2px);
-                    border: vw(2px) solid #DDD;
-                    margin-left: vw(-2px);
-
-                    &:first-child {
-                        width: 50%;
-                        margin-left: 0;
-                    }
-
-                    a {
-                        display: block;
-                        height: vw(86px);
-                        font-size: vw(28px);
-                        text-align: center;
-                        line-height: vw(86px);
-                    }
-
-                    &.on {
-                        position: relative;
-                        border: vw(2px) solid #FF6600;
-
-                        a {
-                            color: #FF6600;
-                        }
-                    }
-                }
-            }
-
-            &__cont {
-                display: none;
-
-                &.show {
-                    display: block;
-                }
-
-                .wrap-input-form {
-                    padding-top: vw(40px);
-                }
-            }
-
-            &__list {
-                position: relative;
-                padding: vw(40px 0);
-                border-bottom: vw(2px) solid #EEE;
-
-                &__radio {
-                    display: block;
-                }
-
-                &__name {
-                    display: flex;
-                    align-items: center;
-
-                    .name {
-                        display: block;
-                        font: {
-                            size: vw(32px);
-                            weight: 600;
-                        };
-                        line-height: vw(48px);
-                    }
-
-                    .default-delivery {
-                        display: block;
-                        width: vw(116px);
-                        height: vw(36px);
-                        margin-left: vw(12px);
-                        border: vw(2px) solid #3f8ef7;
-                        border-radius: vw(18px);
-                        font-size: vw(20px);
-                        color: #3f8ef7;
-                        line-height: vw(32px);
-                        text-align: center;
-                    }
-                }
-
-                &__addr {
-                    margin-top: vw(26px);
-                    font-size: vw(28px);
-                    line-height: vw(40px);
-                }
-
-                &__tel {
-                    margin-top: vw(20px);
-                    font-size: vw(28px);
-                    color: #666;
-                    line-height: vw(34px);
-                }
-
-                &__btn {
-                    position: absolute;
-                    z-index: 1;
-                    bottom: vw(40px);
-                    right: 0;
-
-                    button {
-                        position: relative;
-                        margin-left: vw(10px);
-                        padding-left: vw(12px);
-                        border: 0;
-                        background: none;
-                        font-size: vw(26px);
-                        line-height: vw(34px);
-                        color: #999;
-
-                        &:before {
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            top: 50%;
-                            left: 0;
-                            width: vw(2px);
-                            height: vw(24px);
-                            margin-top: vw(-12px);
-                            background: #DDD;
-                        }
-
-                        &:first-child {
-                            margin-left: 0;
-                            padding-left: 0;
-
-                            &:before {
-                                display: none;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .wrap-input-form {
-                .address-box {
-                    display: flex;
-                    justify-content: space-between;
-
-                    input[type="text"] {
-                        width: vw(470px);
-                    }
-
-                    button {
-                        width: vw(200px);
-                        height: vw(90px);
-                        margin-left: vw(20px);
-                        background: #666;
-                        font-size: vw(26px);
-                        color: #FFF;
-                    }
-                }
-
-                .default-choice {
-                    margin-top: vw(40px);
-                    padding-top: vw(28px);
-                    border-top: vw(2px) solid #DDD;
-                }
-            }
-
-            .phone-num {
-                display: flex;
-                height: vw(90px);
-    
-                &__select {
-                    flex: 1 1;
-                    max-width: vw(220px);
-                    height: 100%;
-                    margin-right : vw(25px);
-                }
-    
-                &__detail {
-                    flex: 1 1;
-                    display: flex;
-                    justify-content: space-between;
-                    height: 100%;
-                    border: vw(2px) solid #DDD;
-    
-                    input{
-                        border: none;
-                        height: 100%;
-                        text-align: center;
-                    }
-                }
-            }
-
-            &__paging {
-                margin-top: vw(50px);
-            }
-
-            &__btn {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-
-                button {
-                    width: 100%;
-                    padding: 0;
-                    height: vw(112px);
-                    font: {
-                        size: vw(36px);
-                        weight: 600;
-                    };
-                }
-            }
-        }
-    }
-
     // 쿠폰적용 팝업
     .couponPopup {
         .popup-content {
@@ -899,10 +688,10 @@
                 &__notice {
                     padding: vw(30px);
                     font-size: vw(24px);
-                    color: #666;
+                    color: $grey800;
     
                     span {
-                        color: #111;
+                        color: $black;
                     }
                 }
     
@@ -911,7 +700,7 @@
 
                     &__header {
                         position: relative;
-                        border-bottom: vw(4px) solid #111;
+                        border-bottom: vw(4px) solid $black;
 
                         &__title {
                             display: block;
@@ -964,7 +753,7 @@
                             margin-top: vw(30px);
         
                             select {
-                                color: #111;
+                                color: $black;
                             }
                         }
         
@@ -974,7 +763,7 @@
                             width: 100%;
                             margin-top: vw(30px);
                             padding: vw(32px 25px);
-                            background: #F8F8F8;
+                            background: $bg_grey50;
         
                             &__list {
                                 position: relative;
@@ -996,7 +785,7 @@
                                         left: 0;
                                         width: vw(30px);
                                         height: vw(2px);
-                                        background: #999;
+                                        background: $grey600;
                                         transform: translate(0, -50%);
                                     }
                                 }
@@ -1012,8 +801,8 @@
                                         width: vw(30px);
                                         height: vw(12px);
                                         border: {
-                                            top: vw(2px) solid #999;
-                                            bottom: vw(2px) solid #999;
+                                            top: vw(2px) solid $grey600;
+                                            bottom: vw(2px) solid $grey600;
                                         };
                                         transform: translate(0, -50%);
                                     }
@@ -1038,7 +827,7 @@
                                 &--discount {
                                     .title,
                                     .price {
-                                        color: #FF6600;
+                                        color: $pcolor;
                                     }
                                 }
                             }
@@ -1086,7 +875,7 @@
 
                     &__total {
                         margin-top: vw(30px);
-                        border-top: vw(2px) solid #DDD;
+                        border-top: vw(2px) solid $grey200;
                         padding-top: vw(40px);
 
                         dt {
@@ -1101,7 +890,7 @@
                                 size: vw(32px);
                                 weight: 600;
                             };
-                            color: #FF6600;
+                            color: $pcolor;
 
                             em {
                                 font: {
@@ -1133,10 +922,10 @@
 
             .btn__cancel {
                 border: {
-                    top: vw(2px) solid #FF6600;
+                    top: vw(2px) solid $pcolor;
                     bottom: vw(2px) solid transparent;
                 };
-                color: #FF6600;
+                color: $pcolor;
             }
         }
     }

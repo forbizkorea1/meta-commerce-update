@@ -1,0 +1,79 @@
+.fb {
+    /*환불계좌관리*/
+    .wrap-refund-account {
+        padding: vw(40px 30px 80px);
+
+        .wrap-input-form {
+            padding-top: 0;
+
+            dl {
+                margin: vw(45px 0 0);
+
+                &:first-of-type {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .desc {
+            position: relative;
+            padding-left: vw(10px);
+            font-size: vw(22px);
+            color: $grey600;
+            line-height: vw(34px);
+            letter-spacing: vw(-1px);
+
+            + {
+                .desc {
+                    margin-top: vw(15px);
+                }
+            }
+
+            &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                top: vw(12px);
+                width: vw(3px);
+                height: vw(3px);
+                background: $grey600;
+                border-radius: vw(10px);
+            }
+        }
+
+        &__btn {
+            margin-top: vw(30px);
+
+            .wrap-btn-area {
+                margin-top: vw(55px);
+            }
+        }
+    }
+
+    .wrap-refund-complete {
+        margin-bottom: vw(30px);
+        padding: vw(20px 0 60px);
+        border-bottom: 1px solid $white2;
+
+        dl {
+            //overflow: hidden;
+            margin-top: vw(40px);
+            font-size: vw(26px);
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+
+        dt {
+            float: left;
+            min-width: vw(140px);
+            color: $grey600;
+        }
+
+        dd {
+            color: $textBlack;
+        }
+    }
+}

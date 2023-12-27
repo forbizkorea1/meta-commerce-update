@@ -1,138 +1,142 @@
 .fb {
-    // 200831 추가
-    &__comm {
-        &__checkbox {
-            display: inline-block;
+    // #region 체크박스
+    &__checkbox {
+        display: inline-block;
 
-            input {
-                display: none;
-                
-                & + span {
-                    display: block;
-                    position: relative;
-                    min-height: vw(40px);
-                    padding-left: vw(55px);
-                    font-size: vw(28px);
-                    color: #111;
-                    line-height: vw(40px);
-
-                    &.bold {
-                        font-weight: 600;
-                    }
-
-                    &:before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: vw(40px);
-                        height: vw(40px);
-                        border: vw(2px) solid #CCC;
-                        background: #FFF;
-                        background: #FFF;
-                        box-sizing: border-box;
-                    }
-                }
-
-                &:checked + span:before {
-                    border: vw(2px) solid $pcolor;
-                    background: $pcolor url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
-                }
-
-                &:disabled { 
-                    background: #ddd url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
-                }
-                &:disabled + span:before{
-                    border: vw(2px) solid #ddd;
-                    background: #ddd url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
-                }
-            }
-        }
-
-        &__radio {
-            display: inline-block;
-            position: relative;
-            min-width: vw(40px);
-            min-height: vw(40px);
-            cursor: pointer;
+        input {
+            display: none;
             
-            input {
-                & + span {
+            & + span {
+                display: block;
+                position: relative;
+                min-height: vw(40px);
+                padding-left: vw(55px);
+                font-size: vw(28px);
+                color: $black;
+                line-height: vw(40px);
+
+                &.bold {
+                    font-weight: 600;
+                }
+
+                &:before {
+                    content: '';
                     display: block;
-                    position: relative;
-                    min-height: vw(40px);
-                    padding-left: vw(55px);
-                    font-size: vw(28px);
-                    color: #111;
-                    line-height: vw(40px);
-
-                    &.bold {
-                        font-weight: 600;
-                    }
-
-                    &:before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: vw(40px);
-                        height: vw(40px);
-                        border: vw(2px) solid #CCC;
-                        border-radius: 50%;
-                        background: #FFF;
-                        background: #FFF;
-                        box-sizing: border-box;
-                    }
-                }
-                
-                &:checked + span:before {
-                    border: vw(13px) solid $pcolor;
-                    background: $pcolor url(../images/common/ico_comm_radio.png) no-repeat 50% 50%;
-                }
-
-                &:disabled + span {
-                    &:before {
-                        border: vw(2px) solid #DDD;
-                        background: #DDD;
-                    }
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: vw(40px);
+                    height: vw(40px);
+                    border: vw(2px) solid $grey400;
+                    background: $white;
+                    background: $white;
+                    box-sizing: border-box;
                 }
             }
-        }
 
-        &__arrow {
-            display: inline-block;
-            position: relative;
-            width: vw(14px);
-            height: vw(14px);
-            margin-left: vw(5px);
-            border: {
-                top: vw(2px) solid #000;
-                right: vw(2px) solid #000;
-            };
-            vertical-align: middle;
-            transform: rotate(45deg);
-            transform-origin: 50% 0%;
-
-            &--point {
-                border-color: #ff6600;
+            &:checked + span:before {
+                border: vw(2px) solid $pcolor;
+                background: $pcolor url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
             }
 
-            &--111 {
-                border-color: #111;
+            &:disabled { 
+                background: $grey200 url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
             }
-
-            &--666 {
-                border-color: #666;
-            }
-
-            &--999 {
-                border-color: #999;
+            &:disabled + span:before{
+                border: vw(2px) solid $grey200;
+                background: $grey200 url(../images/common/ico_comm_checkbox.png) no-repeat 50% 50% / vw(40px auto);
             }
         }
     }
+    // #endregion
 
+    // #region 라디오
+    &__radio {
+        display: inline-block;
+        position: relative;
+        min-width: vw(40px);
+        min-height: vw(40px);
+        cursor: pointer;
+        
+        input {
+            & + span {
+                display: block;
+                position: relative;
+                min-height: vw(40px);
+                padding-left: vw(55px);
+                font-size: vw(28px);
+                color: $black;
+                line-height: vw(40px);
+
+                &.bold {
+                    font-weight: 600;
+                }
+
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: vw(40px);
+                    height: vw(40px);
+                    border: vw(2px) solid $grey400;
+                    border-radius: 50%;
+                    background: $white;
+                    background: $white;
+                    box-sizing: border-box;
+                }
+            }
+            
+            &:checked + span:before {
+                border: vw(13px) solid $pcolor;
+                background: $pcolor url(../images/common/ico_comm_radio.png) no-repeat 50% 50%;
+            }
+
+            &:disabled + span {
+                &:before {
+                    border: vw(2px) solid $grey200;
+                    background: $grey200;
+                }
+            }
+        }
+    }
+    // #endregion
+
+    // #region 화살표
+    &__arrow {
+        display: inline-block;
+        position: relative;
+        width: vw(14px);
+        height: vw(14px);
+        margin-left: vw(5px);
+        border: {
+            top: vw(2px) solid #000;
+            right: vw(2px) solid #000;
+        };
+        vertical-align: middle;
+        transform: rotate(45deg);
+        transform-origin: 50% 0%;
+
+        &--point {
+            border-color: $pcolor;
+        }
+
+        &--111 {
+            border-color: $black;
+        }
+
+        &--666 {
+            border-color: $grey800;
+        }
+
+        &--999 {
+            border-color: $grey600;
+        }
+    }
+    // #endregion
+
+    // #region 전화번호, 주소 인풋
     &__input {
         &__phone {
             display: flex;
@@ -151,10 +155,10 @@
                 justify-content: space-between;
                 align-items: center;
                 width: vw(450px);
-                border: vw(2px) solid #DDD;
+                border: vw(2px) solid $grey200;
 
                 &.readonly {
-                    background: #F8F8F8;
+                    background: $bg_grey50;
                 }
 
                 input {
@@ -162,7 +166,7 @@
                     height: vw(86px);
                     border: 0;
                     font-size: vw(26px);
-                    color: #111;
+                    color: $black;
                     text-align: center;
                     vertical-align: middle;
                 }
@@ -171,7 +175,7 @@
                     display: inline-block;
                     width: vw(8px);
                     height: vw(2px);
-                    background: #999;
+                    background: $grey600;
                     vertical-align: middle;
                 }
             }
@@ -189,16 +193,16 @@
 
                     &[readonly],
                     &:disabled {
-                        background: #F8F8F8;
+                        background: $bg_grey50;
                     }
                 }
 
                 button {
                     width: vw(200px);
                     height: vw(90px);
-                    background: #666;
+                    background: $grey800;
                     font-size: vw(26px);
-                    color: #FFF;
+                    color: $white;
                 }
             }
 
@@ -208,23 +212,32 @@
                 height: vw(90px);
                 margin-top: vw(20px);
                 font-size: vw(26px);
-                color: #111;
+                color: $black;
                 
                 &[readonly],
                 &:disabled {
-                    background: #F8F8F8;
+                    background: $bg_grey50;
                 }
             }
         }
     }
+    // #endregion
     
-    // IR
+    // #region 숨김/노출 처리
     .blind {
         overflow: hidden !important;
         position: absolute !important;
         width: 1px !important;
         height: 1px !important;
         clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
     }
 
     /* 제목 숨김 */
@@ -235,19 +248,12 @@
         } 
     }
 
-    &__point-color {
-        color: $pcolor !important;
-    }
-
-    &__btn-point {
-        background: $pcolor !important;
-        color: #fff !important;
-    }
-
     &__hidden {
         display: none;
     }
+    // #endregion
 
+    // #region 팝업 관련
     &__zipcodePop {
         position: relative; 
         width: 100%;
@@ -264,6 +270,29 @@
         }
     }
 
+    /* 팝업 콘텐츠 영역 스크롤 */
+    .popup_scroll_auto {
+        overflow: hidden;
+        overflow-y: scroll;
+        max-height: 100%;
+    }
+    // #endregion
+
+    // #region 포인트컬러 적용
+    &__point-color {
+        color: $pcolor !important;
+    }
+
+    &__btn-point {
+        background: $pcolor !important;
+        color: $white !important;
+    }
+    .point-color {
+        color: $pcolor;
+    }
+    // #endregion
+
+    // #region 기타 (slider 숨김, 섹션 구분선, 더보기 버튼)
     // 슬라이더 nav
     .js__slider__nav {
         display: none;
@@ -279,13 +308,6 @@
         }
     }
 
-    /* 팝업 콘텐츠 영역 스크롤 */
-    .popup_scroll_auto {
-        overflow: hidden;
-        overflow-y: scroll;
-        max-height: 100%;
-    }
-
     .btn-view-more {
         width: 100%;
         margin: vw(20px 0 120px);
@@ -294,76 +316,24 @@
         button {
             width: 40vw;
             height: 12vw;
-            border: 1px solid #111;
-            color: #111;
+            border: 1px solid $black;
+            color: $black;
             font-size: 3.2vw;
             box-sizing: border-box;
             letter-spacing: vw(5px);
         }
     }
+    // #endregion
 
-    /* 페이지 로딩 텍스트 */
+    // #region 페이지 로딩 텍스트
     .loading-text {
         width: 100%;
         padding: vw(70px) 0;
         text-align: center;
     }
+    // #endregion
 
-    // /* 제품 찜 버튼 */
-    // .product-box {
-    //     &__heart {
-    //         display: block;
-    //         position: absolute;
-    //         top: vw(290px);
-    //         right: vw(14px);
-    //         z-index: 3;
-    //         width: vw(30px);
-    //         height: vw(28px);
-    //         background: url(../images/common/icon-goods-hart.png) no-repeat 0 0;
-    //         background-size: 100%;
-    //         text-indent: vw(-9999px);
-    //         &--active {
-    //             width: vw(30px);
-    //             height: vw(28px);
-    //             background: url(../images/common/icon-goods-hart.png) no-repeat 0 vw(-28px);
-    //             background-size: 100%;
-    //         }
-    //     }
-    // }
-
-    // /* 제품 찜 버튼 (제품 4개씩 나열한 경우) */
-    // .three-boxes-wrap {
-    //     .product-box__heart {
-    //         top: vw(376px);
-    //     }
-    // }
-
-    // /* 제품 찜 버튼 (제품 3개씩 나열한 경우) */
-    // .four-boxes-wrap {
-    //     .product-box__heart {
-    //         top: vw(280px);
-    //     }
-    // }
-
-    /* 동영상 플레이버튼 */
-    .video-play {
-        position: relative;
-        &:after {
-            display: block;
-            position: absolute;
-            top: calc(50% - #{vw(20px)});
-            left: calc(50% - #{vw(20px)});
-            width: vw(40px);
-            height: vw(40px);
-            background: url(../images/common/icon-goods-view-play.png) no-repeat 0 0;
-            background-size: cover;
-            content: "";
-        }
-    }
-
-    /*
-        개인정보 처리방침, 이용약관
-    */
+    // #region 개인정보 처리방침, 이용약관
     &__privacy-terms {
         width: vw(690px);
         margin: 0 auto;
@@ -378,8 +348,9 @@
             margin-top: vw(30px);
         }
     }
+    // #endregion
 
-    // 테이블
+    // #region 테이블
     .flex-table {
         dl {
             display: flex;
@@ -417,11 +388,12 @@
                 padding: vw(20px 0);
                 font-size: vw(26px);
                 font-weight: 400;
-                background-color: #fff;
+                background-color: $white;
                 border-bottom: 1px solid #dddddd;
                 vertical-align: middle;
                 text-align: center;
             }
         }
     }
+    // #endregion
 }

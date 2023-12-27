@@ -1,0 +1,107 @@
+// #region desktop
+$desktop-width: 1200px;
+
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+// #endregion
+
+// #region 최소 높이값 계산
+@function containerMinHeight($headerHeight: 160, $footerHeight: 249) {
+  @return calc(100vh - #{$headerHeight + $footerHeight}px);
+}
+// #endregion
+
+
+// #region 이미지 리사이징
+@mixin imageResize($type: "width") {
+  overflow: hidden;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    @if ($type == "width") {
+      width: 100%;
+      height: auto;
+    } @else if ($type == "height") {
+      width: auto;
+      height: 100%;
+    } @else if ($type == "auto") {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+// #endregion
+
+// #region 말줄임 후략
+@mixin line($lineCount: 1) {
+  /* 사용법 : @include line(라인수) */
+  @if ($lineCount==1) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-line-clamp: $lineCount;
+  }
+}
+// #endregion
+
+// #region division
+@mixin division($color: $grey400, $space: 16px, $height: 10px) {
+  position: relative;
+  padding-left: $space;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: calc(#{$space} / 2 - 1px);
+    width: 1px;
+    height: $height;
+    background: $color;
+    transform: translate(0, -50%);
+    content: "";
+  }
+}
+// #endregion
+
+// #region image url
+@function src($folder: "guide", $filename: "") {
+  @return "../images/#{$folder}/#{$filename}";
+}
+// #endregion
+
+// #region fontcss
+@mixin fontcss($color: $black, $weight: 200, $size: rem(14px), $lineheight: 1) {
+  @if ($color) {
+    color: $color;
+  }
+  @if ($weight) {
+    font-weight: $weight;
+  }
+  @if ($size) {
+    font-size: $size;
+  }
+  @if ($lineheight) {
+    line-height: $lineheight;
+  }
+}
+// #endregion

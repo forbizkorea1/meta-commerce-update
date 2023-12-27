@@ -278,24 +278,9 @@ var devOrderApplyClaimOrderObj = {
                         if (response.data.claimDeliveryPrice < 0) {
                             $('#devSubtraction').prop('checked', true);
                             $('#defClaimDeliveryPrice').val(response.data.claimDeliveryPrice * -1);
-                        } else if (response.data.claimDeliveryPrice == 0) {
-                            // 환불 배송비 0
+                        } else {
                             $('#devSubtraction').prop('checked', false);
                             $('#defClaimDeliveryPrice').val(response.data.claimDeliveryPrice);
-                        } else {
-                            // 환불 배송비 존재 (무료 배송 조건 깨졌을 때)
-                            $('#devSubtraction').prop('checked', true);
-                            $('#defClaimDeliveryPrice').val(response.data.claimDeliveryPrice);
-                            // 총 환불금액 가격 변경
-                            var refundTotalPrice = parseInt(response.data.refundProductPrice) - parseInt(response.data.claimDeliveryPrice);
-                            $('#devRefundTotalPrice').text(common.util.numberFormat(refundTotalPrice));
-
-                            // 총환불금액이 마이너스일 경우 신청 불가능
-                            if (Math.sign(refundTotalPrice) == -1) {
-                                self.noRefund = true;
-                            } else {
-                                self.noRefund = false;
-                            }
                         }
                     }
                 });

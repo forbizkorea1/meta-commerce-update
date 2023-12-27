@@ -14,6 +14,7 @@ var devStoreManageExcelDownObj = {
         common.lang.load('grid.label.file_name', '파일명');
         common.lang.load('grid.label.dwn_date', '다운로드일시');
         common.lang.load('grid.label.dwn_ip', '다운로드IP');
+        common.lang.load('grid.label.message', '사유');
         common.lang.load('grid.label.dstr_status', '파기여부');
         common.lang.load('grid.label.dstr_date', '파기한시간');
         common.lang.load('grid.label.dstr_name', '파기자명');
@@ -54,6 +55,7 @@ var devStoreManageExcelDownObj = {
                 {key: "file_name", label: common.lang.get('grid.label.file_name'), width: 310, align: 'center'},
                 {key: "dwn_date", label: common.lang.get('grid.label.dwn_date'), width: 150, align: 'center'},
                 {key: "dwn_ip", label: common.lang.get('grid.label.dwn_ip'), width: 120, align: 'center'},
+                {key: "message", label: common.lang.get('grid.label.message'), width: 150, align: 'center'},
                 {key: "dstr_status", label: common.lang.get('grid.label.dstr_status'), width: 80, align: 'center', formatter: function () {
                         return (this.value == '파기완료' ? this.value : '<input type="button" class="fb-filter__delete--gray devHisoryDestroy" data-idx="' + this.item.__index + '" value="파기" />');
                     }},

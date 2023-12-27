@@ -3,7 +3,7 @@
         .goodsReview {
             &__list {
                 padding: vw(40px 30px 60px);
-                border-bottom: vw(20px) solid #F8F8F8;
+                border-bottom: vw(20px) solid $bg_grey50;
             }
 
             &__item {
@@ -34,7 +34,7 @@
                     display: block;
                     margin-top: vw(8px);
                     font-size: vw(24px);
-                    color: #999;
+                    color: $grey600;
                     @include line(2);
                 }
 
@@ -42,7 +42,7 @@
                     display: block;
                     margin-top: vw(10px);
                     font-size: vw(24px);
-                    color: #999;
+                    color: $grey600;
                 }
             }
 
@@ -129,7 +129,7 @@
                     margin-top: vw(36px);
                     padding: vw(38px 30px 28px);
                     border-radius: vw(20px);
-                    background: #F8F8F8;
+                    background: $bg_grey50;
 
                     &:before {
                         content: '';
@@ -141,7 +141,7 @@
                         height: vw(24px);
                         border: {
                             right: vw(24px) solid transparent;
-                            bottom: vw(24px) solid #F8F8F8;
+                            bottom: vw(24px) solid $bg_grey50;
                             left: vw(24px) solid transparent;
                         };
                         box-sizing: border-box;
@@ -161,7 +161,7 @@
                     display: inline-block;
                     position: relative;
                     font-size: vw(26px);
-                    color: #666;
+                    color: $grey800;
                     vertical-align: middle;
 
                     &:before {
@@ -170,10 +170,10 @@
                         width: vw(70px);
                         height: vw(34px);
                         margin-right: vw(12px);
-                        border: vw(2px) solid #FF6600;
+                        border: vw(2px) solid $pcolor;
                         border-radius: vw(4px);
                         font-size: vw(22px);
-                        color: #FF6600;
+                        color: $pcolor;
                         line-height: vw(30px);
                         text-align: center;
                         vertical-align: baseline;
@@ -185,7 +185,7 @@
                     display: inline-block;
                     margin-left: vw(18px);
                     font-size: vw(24px);
-                    color: #666;
+                    color: $grey800;
                     line-height: 18px;
                     vertical-align: middle;
                 }
@@ -193,7 +193,7 @@
                 &__txt {
                     margin-top: vw(20px);
                     font-size: vw(26px);
-                    color: #111;
+                    color: $black;
                     line-height: vw(36px);
                     word-break: break-all;
                 }
@@ -209,7 +209,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: #111;
+        background: $black;
 
         &__slider {
             display: flex;
@@ -234,7 +234,7 @@
                 padding: vw(5px 25px);
                 border-radius: vw(50px);
                 background: #333;
-                color: #fff;
+                color: $white;
                 font-size: vw(28px);
                 line-height: vw(40px);
             }
