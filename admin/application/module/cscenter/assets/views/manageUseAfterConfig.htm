@@ -53,26 +53,6 @@
                             </div>
                         </td>
                     </tr>
-                    <tr style="display:none;"> <!-- 라디오 타입 -->
-                        <th class="fb-filter__title">
-                            <span class="">
-                                배송 평점 사용여부
-                            </span>
-                        </th>
-                        <td colspan="3" >
-                            <div class="fb-filter__radio">
-                                <label for="use_valuation_delivery_y">
-                                    <input type="radio" name="use_valuation_delivery" id="use_valuation_delivery_y" value="Y" {? config.use_valuation_delivery == 'Y' || !config.use_valuation_delivery } checked {/} >
-                                           <span>사용</span>
-                                </label>
-                                <label for="use_valuation_delivery_n">
-                                    <input type="radio" name="use_valuation_delivery" id="use_valuation_delivery_n" value="N" {? config.use_valuation_delivery == 'N' } checked {/} >
-                                           <span>사용하지 않음</span>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-
                 </table>
             </section>
         </section>

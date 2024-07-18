@@ -1,0 +1,95 @@
+<fieldset>
+    <section class="fb__menusubmit">        
+        <form id="devMemPopForm" method="POST">
+            <input type="hidden" name="code" value="{code}"/>
+            <section class="fb-filter">
+                <table>
+                    <caption>판매방식 및 카테고리</caption>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="35%">
+                        <col width="14%">
+                        <col width="*">
+                    </colgroup>
+                    <tr style="height: 40px"> <!-- 텍스트 타입 -->
+                        <th class="fb-filter__title">
+                            <span class="">
+                                회원
+                            </span>
+                        </th>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                적립상태
+                            </span>
+                        </th>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                적립내용
+                            </span>
+                        </th>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                마일리지
+                            </span>
+                        </th>
+                        <th class="fb-filter__title">
+                            <span class="">
+                                관리
+                            </span>
+                        </th>           
+                    </tr>
+                    <tr style="    border-bottom: 1px solid #d7d7d7;" >
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <span>{name}</span>
+                            </div>
+                        </td>
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <select class="fb-filter__select" name="state" item=''>
+                                    <option value="1">완료(+)</option>
+                                    <option value="2">사용(-)</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text " style="width:130px" name="etc"  value="" title="적립내용">
+                            </div>
+                        </td>
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <input type="text" class="fb-filter__text " style="width:130px" name="reserve"  value="" title="마일리지">
+                            </div>
+                        </td>
+                        <td class="fb-filter__day-wrap">
+                            <div class="fb-filter__title-contents">
+                                <div class="fb-filter__btn">
+                                    <input type="submit" class="fb-filter__save" id="devMemPopSave" value="확인" />
+                                    <input type="button" class="fb-filter__reset" id="devMemPopReSet" value="취소" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </form>
+        <form method="post" id="devMemPopGridForm">
+            <input type="hidden" name="page" value="1" id="devMemPopPageNum"/>
+            <input type="hidden" name="max" value="20"/>
+            <input type="hidden" name="code" value="{code}"/>
+        </form>
+        <header class="fb-maincontent-header">
+            <h3 class="fb-maincontent-title">마일리지 <span class="fb-maincontent-total">(총 <em class="fb-maincontent-count" id="devTotalSumMileage">0</em> 개)</span>
+            </h3>
+        </header>
+        <div id="devMemPopPagingGrid"></div>
+        <div id="devMemPopPageWrap" class="fb__bbs__page"></div>
+    </section>
+</section>
+</fieldset>
+
+
+
+
+

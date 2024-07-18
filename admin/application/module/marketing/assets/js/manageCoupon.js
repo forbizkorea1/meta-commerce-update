@@ -245,11 +245,9 @@ var devMarketingManageCouponObj = {
         //사용기간 날짜 설정
         common.ui.datePicker($('#devBetweenDatePickerStart'), {
             endTartget: $('#devBetweenDatePickerEnd')
-            , timepicker: true
         });
         common.ui.datePicker($('#devBetweenDatePickerEnd'), {
             startTartget: $('#devBetweenDatePickerStart')
-            , timepicker: true
         });
         common.ui.quickDate('+', $('#devQuickBetweenDate'), {
             timepicker: true

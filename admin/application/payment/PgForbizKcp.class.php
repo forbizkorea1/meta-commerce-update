@@ -213,10 +213,10 @@ class PgForbizKcp extends PgForbiz
                 $this->input->server("REMOTE_ADDR"), $this->g_conf_log_level, 0, 0, $this->g_conf_log_path); // 응답 전문 처리
         }
 
-        //인코딩 변환
-        foreach ($this->c_PayPlus->m_res_data as $key => $val) {
-            $this->c_PayPlus->m_res_data[$key] = iconv('EUC-KR', 'UTF-8', $val);
-        }
+//        //인코딩 변환
+//        foreach ($this->c_PayPlus->m_res_data as $key => $val) {
+//            $this->c_PayPlus->m_res_data[$key] = iconv('EUC-KR', 'UTF-8//IGNORE', $val);
+//        }
         //결과 값도 변경
         $this->c_PayPlus->m_res_cd = $this->c_PayPlus->m_res_data["res_cd"];
         $this->c_PayPlus->m_res_msg = $this->c_PayPlus->m_res_data["res_msg"];

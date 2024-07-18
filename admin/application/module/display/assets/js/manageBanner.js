@@ -75,6 +75,7 @@ var devDisplayManageBannerObj = {
 
         //그룹 폼 필수값 처리
         common.validation.set($targetGroup.find('[name=group_name]'), {'required': true});
+        common.validation.set($('[name="bd_title"]'), {'required': true});
 
         //form 데이터 바인드
         common.form.dataBind($targetGroup.find('.devGroupForm'), data);
@@ -104,12 +105,6 @@ var devDisplayManageBannerObj = {
         common.validation.set($('[name="bd_title"]'), {'required': true});
 
         common.form.init($('#devDisplayForm'), common.util.getControllerUrl(self.method, 'manageBanner', 'display'), function (formData, $form) {
-            //카테고리는 필수가 아님
-            /*if ($('.devProductCategory').val() == null) {
-                    common.noti.alert(common.lang.get('common.empty.category.alert'));
-                    return false;
-                }*/
-
                 if (!common.validation.check($form, 'alert', false)) {
                     return false;
                 }

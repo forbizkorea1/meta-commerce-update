@@ -84,6 +84,18 @@ var devSystemManageMessageTemplateObj = {
                     }
                 });
         });
+
+        $('#devMailPreview').on('click',function(){
+            common.util.modal.open(
+                'html',
+                '미리보기',
+                $('#devEmailEditor').val()
+                ,
+                '', '',
+                {width: '800px', height: '650px'}
+            );
+            return false;
+        });
     },
     run: function () {
         var self = this;

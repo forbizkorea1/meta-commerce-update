@@ -1,0 +1,121 @@
+<section class="fb__menusubmit">
+    <form id="devMessageConfigForm">
+        <input type="hidden" name="mc_ix" value="{mc_ix}" />
+        <fieldset>
+            <section class="fb-filter">
+                <table>
+                    <colgroup>
+                        <col width="280px">
+                        <col width="*">
+                    </colgroup>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">메일코드</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="mc_code" value="{mc_code}" title="메일코드">
+                            영문으로 반드시 입력해주세요 메일 템플릿 생성시 사용됩니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">메일/SMS 관리제목</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="mc_title" value="{mc_title}" title="메일/SMS 관리제목">
+                            메일 관리 항목에 표시되는 제목입니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span class="fb-filter__title--ne">메일제목</span>
+                        </th>
+                        <td>
+                            <input type="text" class="fb-filter__text" name="mc_mail_title" value="{mc_mail_title}" title="메일제목">
+                            실제 보내지는 메일의 제목으로 쓰여집니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>메일 발송여부</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="mc_mail_usersend_yn" value="Y" {? mc_mail_usersend_yn == 'Y' }checked{/}>
+                                           <span>발송</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="mc_mail_usersend_yn" value="N" {? mc_mail_usersend_yn == 'N' }checked{/}>
+                                           <span>발송하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>SMS 발송여부</span>
+                        </th>
+                        <td>
+                            <div class="fb-filter__radio">
+                                <label>
+                                    <input type="radio" name="mc_sms_usersend_yn" value="Y" {? mc_sms_usersend_yn == 'Y' }checked{/}>
+                                           <span>발송</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="mc_sms_usersend_yn" value="K" {? mc_sms_usersend_yn == 'K' }checked{/}>
+                                           <span>카카오 알림톡 발송</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="mc_sms_usersend_yn" value="N" {? mc_sms_usersend_yn == 'N' }checked{/}>
+                                           <span>발송하지 않음</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>카카오 알림톡 템플릿 선택</span>
+                        </th>
+                        <td>
+                            <select id="devKakaoChannelSelect" name="kakao_alim_talk_channel" class="fb-filter__select floatNo">
+                                <option value="">채널 선택</option>
+                                {? !empty(channelList)}
+                                    {@channelList}
+                                        <option value="{.channel_id}" data-ix="{.kc_ix}" {? .channel_id == kakao_alim_talk_channel}selected{/}>{.channel_name}</option>
+                                    {/}
+                                {/}
+                            </select>
+                            <select id="devKakaoTemplateSelect" name="kakao_alim_talk_template_code" class="fb-filter__select floatNo">
+                                <option value="">템플릿 선택</option>
+                                {? !empty(templateList)}
+                                    {@templateList}
+                                        <option value="{.template_code}" data-ix="{.kc_ix}" {? .template_code == kakao_alim_talk_template_code}selected{/}>{.template_name}</option>
+                                    {/}
+                                {/}
+                            </select>
+                            <a href="/system/manageAlimTalk" target="_blank">템플릿 내용보기</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fb-filter__title">
+                            <span>SMS 내용</span>
+                        </th>
+                        <td class="fb-filter__title">
+                            <span>Mail 내용</span>
+                            <button id="devMailPreview">미리보기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <textarea name="mc_sms_text" style="height:300px">{mc_sms_text}</textarea>
+                        </th>
+                        <td>
+                            <textarea id="devEmailEditor" name="mc_mail_text" class="fb-filter__textarea">{mc_mail_text}</textarea>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </fieldset>
+    </form>
+</section>
